@@ -1,0 +1,215 @@
+:: Kylar Gifts List
+<<effects>>
+
+카일라에게 어떤 선물을 줄까?
+<br><br>
+
+<<food_gift_list>>
+
+<<if _food_gift_found is true>>
+	<<skinicon "give">><<link [[선물을 준다 (0:05)|Kylar Gifts]]>><<pass 5>><<give_gift Kylar>><</link>>
+	<br>
+<</if>>
+<<refuseicon>><<link [[다시 생각한다|Kylar Gifts List Reconsider]]>><</link>>
+<br>
+
+:: Kylar Gifts List Reconsider
+<<effects>>
+
+카일라는 당신이 무언가를 고려하고 있다는 것을 알아차리고, 묘한 표정을 지어 보인다.
+<br><br>
+
+<<kylaroptions>>
+
+:: Kylar Gifts
+<<effects>>
+<<set _gift to $gift.handheld_gift || $gift.handheld>>
+<<wearProp _gift>>
+
+<<if $phase is 1>>
+	"뭘 좀 가져왔어," 당신이 말한다.
+<<elseif $phase is 2>>
+	"뭘 좀 만들어왔어," 당신이 말한다. "너만을 위해서."
+<<else>>
+	"선물을 만들어 왔어," 당신이 말한다. "마음에 들었으면 좋겠네."
+<</if>>
+<br><br>
+
+<<if $gift.name is "chilli_con_carne">>
+	당신은 칠리 콘 카르네를 내민다. 카일라는 그것을 한눈에 알아본다. "내-내가 좋아하는 거야," 그는 떨리는 손으로 그것을 받아든다. "고-고마워." 그는 그것을 가만히 바라본다.<<gglove>><<npcincr Kylar love 3>>
+	<br><br>
+
+	"먹어도 돼? 그가 묻는다.
+	<br><br>
+	<<saveFavoriteFood "Kylar" $gift.name>>
+	<<earnFeat "Not for Rats">>
+	<<link [[끄덕인다|Kylar Gifts Chilli Nod]]>><<handheldon>><</link>>
+	<br>
+	<<link [[같이 먹자고 한다|Kylar Gifts Chilli Share]]>><<handheldon>><<npcincr Kylar lust 5>><</link>><<glust>>
+	<br>
+<<elseif $gift.name is "bakewell_tart">>
+	당신은 베이크웰 타르트를 내민다. "정말 달콤해 보여," 카일라가 말한다. "우-우리 <<if $pronoun is "m">>엄마가<<else>>아빠가<</if>> 자주 만드셨던 거야."<<lksuspicion>><<npcincr Kylar rage -1>>
+	<br><br>
+
+	그는 가만히 멈춰 있다.
+	<br><br>
+	<<saveFavoriteFood "Kylar" $gift.name>>
+	<<earnFeat "Not for Rats">>
+	<<link [[그를 위한 것이라고 다시 한 번 말한다|Kylar Gifts Bakewell Repeat]]>><<handheldon>><</link>>
+	<br>
+	<<link [[같이 먹자고 한다|Kylar Gifts Bakewell Share]]>><<handheldon>><</link>>
+	<br>
+<<elseif $gift.special.includes("spicy")>>
+	당신은 요리를 내민다. 카일라의 손이 그것을 받자마자 흥분으로 떨린다. "고-고마워," 그가 말하며, 냄새를 맡는다. "매콤한 냄새가 나네."
+	<br><br>
+
+	그는 한 입을 먹고 씹는다. 그는 매운맛에 영향을 받지 않는 것처럼 보인다. "다-다시 한 번, 고마워," 그가 한 입 더 먹으면서 말한다.<<glove>><<npcincr Kylar love 1>>
+	<br><br>
+
+	<<link [[음식이 충분히 매운지 묻는다|Kylar Gifts Spicy Ask]]>><<handheldon>><</link>>
+	<br>
+	<<link [[지켜본다|Kylar Gifts Spicy Watch]]>><<handheldon>><</link>>
+	<br>
+
+<<elseif $gift.special.includes("drink")>>
+	당신은 잔을 내민다. 카일라는 그것을 양손으로 받아든다. "고마워," 그가 말한다. 한 모금 마시는 동안, 그는 도로 가져갈 것을 걱정하듯 당신을 바라본다. 한 모금 맛보자, 그의 주의가 음료로 옮겨간다. 그는 나머지를 쭉 들이켠다. <<glove>><<npcincr Kylar love 1>>
+	<br><br>
+
+	<<link [[다음|Kylar Gifts Drink End]]>><<handheldon>><</link>>
+<<else>>
+	당신은 요리를 내민다. 카일라의 손은 그것을 받자 흥분으로 떨린다. "고-고마워," 그가 말한다. "소중히 간직할게."<<glove>><<npcincr Kylar love 1>>
+	<br><br>
+
+	<<link [[먹으라고 제안한다|Kylar Gifts Suggest]]>><<handheldon>><</link>>
+	<br>
+	<<link [[끄덕인다|Kylar Gifts Nod]]>><<handheldon>><</link>>
+	<br>
+<</if>>
+
+:: Kylar Gifts Chilli Nod
+<<effects>>
+
+카일라는 마치 굶주린 듯 허겁지겁 칠리 콘 카르네를 먹어 치운다. 그는 오직 뺨에 묻은 소스를 닦을 때만 멈춘다.
+<br><br>
+
+"너무 급하게 먹어서 미안해," 그가 다 먹고 나서 말한다. "제대로 된 음식을 먹는 일이 거의 없거든. 내가 좋아하는 음식이라면 더더욱."
+<br><br>
+
+<<kylaroptions>>
+
+:: Kylar Gifts Chilli Share
+<<effects>>
+
+카일라는 당신이 곁에 앉자 몸을 떤다. 그는 당신이 한 입 먹기를 기다렸다가 동참한다.
+<br><br>
+"정말 맛있어," 그가 말한다. 그것은 아마 사실이겠지만, 그의 목소리만으로는 판단할 수 없다. 그는 당신만큼이나 빨리 먹고, 자신의 몫을 먹기 전에 당신이 한 입 먹기를 기다린다.
+<br><br>
+
+두 사람은 점차 반복성에 익숙해진다. 각자 차례로 한 입씩 먹게 되자, 그의 중단이 당신의 눈에 띈다. 당신은 그를 바라보고, 그가 당신을 바라보고 있다는 것을 알아차린다. 그는 눈을 피하며 마지막 한 입을 먹는다.
+<br><br>
+
+"고마워," 그가 말한다.
+<br><br>
+
+<<kylaroptions>>
+
+:: Kylar Gifts Bakewell Repeat
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"널 위해 만든 거야," 당신이 말한다. "먹어 줘, 그리고 맛이 괜찮은지 알려 줘."
+<<elseif $speech_attitude is "bratty">>
+	"다시 말하게 하지 마," 당신이 말한다. "그냥 먹으라고."
+<<else>>
+	"널 위해 만든 거야," 당신이 말한다. "맛이 어떤지 알려 줘."
+<</if>>
+<br><br>
+
+카일라는 당신의 손에서 베이크웰 타르트를 가져가 한 입 먹는다. "내가 기억하던 맛 그대로야," 그가 말한다. 그는 당신으로부터 돌아서서, 잠시 표정을 숨기려 한다. 그 후, 그는 조심스레 타르트를 계속 먹는다.
+<br><br>
+
+"고마워," 그가 다 먹고 나서 말한다. "정말 맛있었어."
+<br><br>
+
+<<kylaroptions>>
+
+:: Kylar Gifts Bakewell Share
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"우린 함께 먹을 수 있어," 당신이 말한다.
+<<elseif $speech_attitude is "bratty">>
+	"같이 먹자," 당신이 말한다. "내겐 그럴 권리가 있어."
+<<else>>
+	"같이 먹자," 당신이 말한다.
+<</if>>
+<br><br>
+
+당신은 카일라의 곁에 앉아 베이크웰 타르트를 둘로 나누고 한 조각을 그에게 건넨다. 두 사람은 각자 한 입을 베어문다. 그는 잠시 고개를 돌렸다가, 붉어진 얼굴로 다시 돌아선다.
+<br><br>
+
+"고마워," 그가 다 먹고 나서 말한다. "정말 맛있었어."
+<br><br>
+
+<<kylaroptions>>
+
+:: Kylar Gifts Suggest
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"지금 먹어도 되는데," 당신이 말한다.
+<<elseif $speech_attitude is "bratty">>
+	"너 먹으라고 만든 거야," 당신이 말한다. "괴짜처럼 전시하라고 만든 게 아니라."
+<<else>>
+	"지금 먹는 편이 좋아," 당신이 말한다. "음식은 영원하지 않으니까."
+<</if>>
+<br><br>
+
+카일라는 한순간, 마치 당신이 신성 모독적인 제안을 했다는 듯 충격적인 표정을 짓고는 이상한 동작으로 감사 인사를 한다. "그-그럴게." 그는 잠시도 멈추지 않고 음식을 입에 퍼 넣으며, 어떻게든 씹어 삼킨다. 그는 몇 초 만에 그것을 먹어 치운 뒤, 승인을 구하듯 당신을 바라본다.
+<br><br>
+
+<<kylaroptions>>
+
+:: Kylar Gifts Nod
+<<effects>>
+
+카일라는 그것을 보관한다. 당신은 그것이 어떻게 될지 궁금해한다.<<set $kylar_action to "gift">>
+<br><br>
+
+<<kylaroptions>>
+
+:: Kylar Gifts Spicy Ask
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"맵기는 충분해?" 당신이 묻는다. "부족하다면, 미안해."
+<<elseif $speech_attitude is "bratty">>
+	"잘 먹는 걸 보니 놀랍네," 당신이 말한다. "내가 매운 걸 충분히 넣은 거야?"
+<<else>>
+	"맵기는 충분해?" 당신이 묻는다.
+<</if>>
+<br><br>
+
+카일라가 열정적으로 끄덕인다. "응! 완벽해. 내가 먹어본 것 중 최고야." 그는 더 빠르게 먹기 시작하고, 마지막에는 거의 사레들 뻔한다.
+<br><br>
+
+<<kylaroptions>>
+
+:: Kylar Gifts Spicy Watch
+<<effects>>
+
+당신은 카일라가 식사를 마치는 것을 지켜본다. 그는 매운 맛을 개의치 않는 것처럼 보인다.
+<br><br>
+
+식사를 마친 그는 이제 무엇을 해야 할지 모르는 것처럼 보인다.
+<br><br>
+
+<<kylaroptions>>
+
+:: Kylar Gifts Drink End
+<<effects>>
+
+그는 그것을 머리 위로 들어 마지막 한 방울이 혀로 떨어지게 한다. "고마워," 그가 다시 말한다. 그는 용기를 보관한다. 당신은 그것이 어떻게 될지 궁금해한다.
+<br><br>
+
+<<kylaroptions>>
