@@ -4,11 +4,11 @@
 	<<set _output_line to "">>
 	/* big pp */
 	<<set _seatedflashcrotchunderskirtlines to [
-		"당신은 다리를 쭉 펴고, 허공으로 들어올린 뒤 발을 꼼지락 거리며 조금이라도 더 오랫동안 노출하려 한다",
-		"당신은 스트레칭을 하는 동안 무릎을 때고, 발을 조금 더 가까이 모으며 틈을 더 벌린다",
-		"당신은 스트레칭을 하는 동안 발을 들고는, 앉은 자세에서 약간 앞뒤로 몸을 흔들면서 발을 약간 꼼지락대며 \"실수로\" 다리를 벌린다",
-		"당신은 발을 약간 옆으로 옮기고는 몸을 숙여, 뭔가 가려운 부분을 긁는 척을 하면서 다른쪽 다리를 더 옆으로 옮기겨 균형을 잡는다",
-		"당신은 발 밑에 뭔가 조각 같은 것이 불편하게 박힌 척을 하며, 발을 몸쪽으로 들어 돌이 낀 걸 찾는 척을 한다"
+		"you stretch your leg, raising it up into the air and wiggling your foot a little to prolong your exposure",
+		"you part your knees a little as you stretch, bringing your feet a little closer together to widen the gap",
+		"you lift your feet up as you stretch, rocking yourself back a little in your seat and wiggling your feet a little as you \"accidentally\" part your legs",
+		"you reach down a little and move your foot to one side, reaching down to scratch a non-existent itch on your leg and stabilising by moving your other leg even further apart",
+		"you act as if you have some particularly uncomfortable debris stuck on your foot, lifting it up and bringing it close to your body in search of a non-existent pebble"
 	]>>
 
 	<<set _exhibitionismdata_isinit to 1>>
