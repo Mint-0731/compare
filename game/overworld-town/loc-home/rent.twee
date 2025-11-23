@@ -3,31 +3,32 @@
 	<<npc Bailey>><<person1>>
 	<<set $_robinWasInRoom to _args[0]>>
 
-	"돈 낼 시간이야," <<HePost "이">> 말한다.
+	"Time to pay up," <<he>> says.
 	<<if $baileydefeatedchain gte 3 or ($robinpaid is 1 and $robinromance gte 1 and $bus is "home" and $robinfirstrentfight isnot 1 and $renttime lte -14)>>
 		<<generateRole 1 0 "thug">><<generateRole 2 0 "thug">>
-		험상궂게 생긴 <<person2>><<person_ gwa>> <<person3>><<person_ i>> <<person1>><<himPost>>의 옆에 서 있다.
-		<<person2>><<person_ un>> <<his_ yi>> 손가락 마디를 꺾어 소리를 내고 있고, <<person3>><<person_ un>> 험악하게 웃고 있다.
+		A rough-looking <<person2>><<person>> and <<person3>><<person>> stand next to <<person1>><<him>>.
+		The <<person2>><<person>> cracks <<his>> knuckles, and the <<person3>><<person>> grins darkly.
 	<<elseif $baileydefeatedchain gte 1>>
 		<<generateRole 1 0 "thug">>
-		험상궂게 생긴 <<person2>><<personPost "이">> <<person1>><<himPost>>의 옆에 서 있다.
-		<<person2>><<HePost "은">> <<his_ yi>> 손가락 마디를 꺾어 소리를 내고 있다.
+		A rough-looking <<person2>><<person>> stands next to <<person1>><<him>>.
+		<<person2>><<He>> cracks <<his>> knuckles.
 	<</if>>
+	<br><br>
+
+	<<rent_avery>>
 
 	<<if $_robinWasInRoom is 1>>
-		<br><br>
-
 		You look around, but Robin is nowhere to be found.
 		<br><br>
 
 		"Don't bother, <<nnpc_hes "Robin">> being kept for safe keeping," Bailey sneers at you.
+		<br><br>
 	<</if>>
 
 	<<if $baileyOfficeSeduced is 1>>
 		<<unset $baileyOfficeSeduced>>
 		<<set $_rentSeduce to true>>
 	<</if>>
-	<br><br>
 
 	<<if $babyIntros and $babyIntros.Bailey and $babyIntros.Bailey.length gt 0>>
 		<<set _homeBabyRent to true>>
@@ -35,27 +36,27 @@
 	<</if>>
 	<<babyRent>>
 	<<if $money gte $rentmoney + ($babyRent or 0)>>
-		<<link [[지불한다|Rent Pay]]>><<set $phase to $_robinWasInRoom>><</link>>
+		<<link [[Pay|Rent Pay]]>><<set $phase to $_robinWasInRoom>><</link>>
 		<br>
-		<<link [[거절한다|Rent Refuse]]>><<def 1>><</link>>
+		<<link [[Refuse|Rent Refuse]]>><<def 1>><</link>>
 		<br>
 		<<if $baileyseduced isnot 1>>
 			<<if hasSexStat("promiscuity", 2)>>
-				<<link [[유혹한다|Rent Seduce]]>><<set $phase to ($_rentSeduce ? 1 : 0)>><<trauma 3>><</link>><<promiscuous2>><<gtrauma>>
+				<<link [[Seduce|Rent Seduce]]>><<set $phase to ($_rentSeduce ? 1 : 0)>><<trauma 3>><</link>><<promiscuous2>><<gtrauma>>
 				<br>
 			<<elseif $uncomfortable.prostituting is false>>
-				<<link [[유혹한다|Rent Seduce]]>><<set $phase to ($_rentSeduce ? 1 : 0)>><<trauma 12>><<set $desperateaction to 1>><</link>><<promiscuous2>><<ggtrauma>>
+				<<link [[Seduce|Rent Seduce]]>><<set $phase to ($_rentSeduce ? 1 : 0)>><<trauma 12>><<set $desperateaction to 1>><</link>><<promiscuous2>><<ggtrauma>>
 				<br>
 			<</if>>
 		<</if>>
 	<<else>>
 		<<person1>>
 		<<if $speech_attitude is "bratty">>
-			당신은 반항하며 <<himPost "을">> 노려보며 말한다. "난 너한테 줄 돈 없어. 있어도 안 줄거야."
+			You stare at <<him>> in defiance. "I don't have your money. And wouldn't give it to you if I did."
 		<<elseif $speech_attitude is "meek">>
-			당신은 지불할 돈이 없고, 앞으로 닥칠 일에 대한 두려움에 고개를 떨군다.
+			You hang your head, unable to pay and afraid of what's to come.
 		<<else>>
-			"전 돈이 없어요." 당신은 말하면서 닥칠 일에 대해 두려워한다.
+			"I don't have it," you say, afraid of what's to come.
 		<</if>>
 		<br><br>
 
@@ -67,8 +68,10 @@
 <<widget "rentduerobin">>
 	<<set $_robinInRoom to _args[0]>>
 	<<npc Bailey>><<person1>>
+	<<set $baileyRefusedToPayTotal += $rentmoney + ($babyRent || 0)>>
+	<<set $baileyRefusedToPayTotalStat += $rentmoney + ($babyRent || 0)>>
 
-	"돈 낼 시간이야," <<HePost "이">> 말한다.
+	"Time to pay up," <<he>> says.
 	<<if $baileydefeatedchain gte 3>>
 		<<generateRole 1 0 "thug">><<generateRole 2 0 "thug">><<generateRole 3 0 "thug">>
 		A rough-looking <<person2>><<person>> and <<person3>><<person>> stand next to <<person1>><<him>>.
@@ -109,12 +112,12 @@
 	<<babyRent>>
 	<<if $money gte $rentmoney + ($babyRent or 0)>>
 		<<if $inRobinsRoom>>
-			<<link [[지불한다|Rent Pay Robin]]>><<set $inRobinsRoom to true>><</link>>
+			<<link [[Pay|Rent Pay Robin]]>><<set $inRobinsRoom to true>><</link>>
 		<<else>>
-			<<link [[지불한다|Rent Pay Robin]]>><</link>>
+			<<link [[Pay|Rent Pay Robin]]>><</link>>
 		<</if>>
 		<br>
-		<<link [[거절한다|Rent Refuse Robin]]>><<def 1>><</link>>
+		<<link [[Refuse|Rent Refuse Robin]]>><<def 1>><</link>>
 		<br>
 	<<else>>
 		<<set $baileypaychain to 0>>
@@ -137,13 +140,13 @@
 		<<He>> produces a hood and length of rope. "Hold still."
 		<br><br>
 
-		<<link [[굴복한다|Rent Intro]]>><<endevent>><<set $phase to 1>><</link>>
+		<<link [[Submit|Rent Intro]]>><<endevent>><<set $phase to 1>><</link>>
 		<br>
 		<<if $bus is "hospital">>
-			<<link [[싸운다|Rent Hospital Fight Robin]]>><<set $fightstart to 1>><</link>>
+			<<link [[Fight|Rent Hospital Fight Robin]]>><<set $fightstart to 1>><</link>>
 			<br>
 		<<else>>
-			<<link [[싸운다|Rent Robin Fight]]>><<set $fightstart to 1>><</link>>
+			<<link [[Fight|Rent Robin Fight]]>><<set $fightstart to 1>><</link>>
 			<br>
 		<</if>>
 	<</if>>
@@ -157,37 +160,37 @@
 	<<set $baileyRefusedToPayTotalStat += $rentmoney + ($babyRent || 0)>>
 	<<if $robinpaid is 1 and $robinromance is 1 and $bus is "home" and $robinfirstrentfight isnot 1 and ($baileydefeatedchain gte 3 or $renttime lte -14)>>
 		<<set $robinfirstrentfight to 1>>
-		베일리는 몇 초간 침묵하고 있다가, 으쓱인다. "괜찮아," <<he_ ga>> 말한다.
-		"네게 배웠지. 네게서 돈이 될만한 것을 직접 가져가려고 시도하는 것은 쓸데 없는 노력이라고."
+		Bailey is silent for a few seconds, before shrugging. "That's okay," <<he>> says.
+		"I've learned my lesson. Trying to get value out of you directly is fruitless."
 		<br><br>
 
-		보이지 않는 신호를 받고, 폭력배들이 당신에게 다가온다.
-		<<person3>><<person_ i>> 당신에게 팔을 뻗고 당신은 <<his_ yi>> 팔 아래로 몸을 숙이지만, <<person2>><<person_ i>> 당신의 팔을 잡는다.
-		<<person3>><<person_ i>> 당신의 다른 팔을 잡고, 그들은 당신을 그 곳에 붙잡아 둔다.
+		On an unseen signal, the thugs advance on you.
+		The <<person3>><<person>> reaches for you. You duck under <<his>> arm, but the <<person2>><<person>> grabs yours.
+		The <<person3>><<person>> grabs your other arm, and they hold you there.
 		<br><br>
 
-		<<link [[다음|Rent First Robin Fight]]>><<set $fightstart to 1>><<set $combatPhase to "talk">><<set $robinRentEvent to 1>><<set $timer to 5>><</link>>
+		<<link [[Next|Rent First Robin Fight]]>><<set $fightstart to 1>><<set $combatPhase to "talk">><<set $robinRentEvent to 1>><<set $timer to 5>><</link>>
 	<<else>>
 		<<person1>>
 		"That's okay," <<he>> says, smiling. "I've already made arrangements. I don't know what they intend for you, and frankly I don't care."
 		<<He>> produces a hood and length of rope. "Hold still."
 		<br><br>
 
-		<<link [[굴복한다|Rent Intro]]>><<endevent>><</link>>
+		<<link [[Submit|Rent Intro]]>><<endevent>><</link>>
 		<br>
 		<<if $bus is "hospital">>
-			<<link [[싸운다|Rent Hospital Fight]]>><<set $fightstart to 1>><</link>>
+			<<link [[Fight|Rent Hospital Fight]]>><<set $fightstart to 1>><</link>>
 			<br>
 		<<else>>
-			<<link [[싸운다|Rent Fight]]>><<set $fightstart to 1>><</link>>
+			<<link [[Fight|Rent Fight]]>><<set $fightstart to 1>><</link>>
 			<br>
 		<</if>>
 		<<if $baileyseduced isnot 1 and $_seduceAllowed>>
 			<<if hasSexStat("promiscuity", 2)>>
-				<<link [[유혹한다|Rent Seduce]]>><<trauma 3>><</link>><<promiscuous2>><<gtrauma>>
+				<<link [[Seduce|Rent Seduce]]>><<trauma 3>><</link>><<promiscuous2>><<gtrauma>>
 				<br>
 			<<elseif $uncomfortable.prostituting is false>>
-				<<link [[유혹한다|Rent Seduce]]>><<trauma 12>><<set $desperateaction to 1>><</link>><<promiscuous2>><<ggtrauma>>
+				<<link [[Seduce|Rent Seduce]]>><<trauma 12>><<set $desperateaction to 1>><</link>><<promiscuous2>><<ggtrauma>>
 				<br>
 			<</if>>
 		<</if>>
@@ -221,23 +224,22 @@
 <</silently>><</widget>>
 
 <<widget "rentmod">>
-	<<set $rentmoney to Math.floor($rentmoney * $rentmod)>>
+	<<set $rentmoney to Math.floor($rentmoney * $settings.rentCostModifier)>>
 	<<if $robinpaid is 1>>
 		<<set $rentmoney *= 2>>
 	<</if>>
 <</widget>>
 
 <<widget "rentpay">>
-	<<set $money -= $rentmoney + ($babyRent or 0)>>
-	<<set $baileyPaidStat += $rentmoney + ($babyRent or 0)>>
+	<<money `-($rentmoney + ($babyRent or 0))` "baileyRent">>
 	<<set $rentmoney to [10000,30000,50000,70000,100000,150000,200000][Math.clamp($rentstage,1,6)]>> <!-- note: clamping to 1 is intentional -->
 	<<rentmod>>
 
-	베일리는 당신의 손에서 돈을 빼앗아 세어보기 시작한다. "좋아," <<nnpc_he_ nun "Bailey">> 만족해하며 말한다. "해냈구나.
+	Bailey snatches the money from your hand and starts counting. "Good," <<nnpc_he "Bailey">> says, satisfied. "You came through.
 	<<if $rentstage is 1>>
-		다음 주에는 <<printmoney $rentmoney "pink">>를 가져와.<<babyRentDisplay " 그리고 네가 네 아이들을 돌보지 않는다면 " "를 추가로 가져와야 해." "pink">> 너도 방값 내기가 더 쉬워질거라 생각하지는 않았겠지?"
+		Next week I want <<printmoney $rentmoney "pink">><<babyRentDisplay " plus " " if you don't look after your children" "pink">>. You didn't think it would get any easier, did you?"
 	<<else>>
-		다음 주에는 <<printmoney $rentmoney "pink">>를 가져와.<<babyRentDisplay " 그리고 네가 네 아이들을 돌보지 않는다면 " "를 추가로 가져와야 해." "pink">>"
+		Next week I want <<printmoney $rentmoney "pink">><<babyRentDisplay " plus " " if you don't look after your children" "pink">>."
 	<</if>>
 	<br><br>
 
@@ -256,7 +258,7 @@
 
 	<<if !$robinPunishments.includes("docks") and $debug>>/* locked behind debug until further improvements */
 		<<generate2>><<generate3>>
-		"Oh, <<nnpc_he "Robin">>'s cute. A perfect little travel companion," an unfamiliar <<person2>><<personsimple>>'s voice says.
+		"Oh, <<nnpc_hes "Robin">> cute. A perfect little travel companion," an unfamiliar <<person2>><<personsimple>>'s voice says.
 		<<if C.npc.Robin.pronoun is $player.gender_appearance>>
 			You're not sure who they're referring to.
 		<</if>>
@@ -298,7 +300,7 @@
 	You aren't left hanging there for long.
 	Your hood is yanked off your head as a<<if $syndromeeden gte 1>> familiar<</if>> <<personsimple>>'s voice appears beside you.
 
-	<<if $edenCagedEscape>>
+	<<if $edenCagedEscape or edenFreedomStatus() gte 2>>
 		"I told you I'd find you again," Eden growls as <<he>> pulls you to the ground. <<He>> doesn't untie you. "This time the lesson better stick."
 		<br><br>
 
@@ -306,43 +308,66 @@
 		<<He>> drags you towards the sleeping area, where a metal cage awaits.
 		<br><br>
 
-		<<link [[다음 (0:30)|Eden Caged Intro]]>><<pass 30>><<set $phase to 2>><</link>>
+		<<link [[Next (0:30)|Eden Caged Intro]]>><<pass 30>><<set $phase to 2>><</link>>
 		<br>
-	<<elseif $edenfreedom gte 2 and $edendays gte 8>>
+	<<elseif edenFreedomStatus() gte 1>>
 		"I trusted you," Eden says as <<he>> cuts your bindings. You fall to the floor in a heap.
 		"This is what happens if you don't obey me. It's for your own protection." <<He>> pulls you to your feet. "Let's go home."
 		<br><br>
 
-		<<link [[다음 (0:30)|Eden Recaptured]]>><<pass 30>><</link>>
+		<<link [[Next (0:30)|Eden Recaptured]]>><<pass 30>><</link>>
 		<br>
-	<<elseif $edenfreedom is 1 and $edendays gte 2>>
-		"I trusted you," Eden says as <<he>> cuts your bindings. You fall to the floor in a heap.
-		"This is what happens if you don't obey me. It's for your own protection." <<He>> pulls you to your feet. "Let's go home."
+	<<elseif edenFreedomStatus() is 0>>
+		"I knew you'd end up like this. The town is dangerous," Eden says, cutting your bindings. <<He>> catches you as you fall. "Let's go home."
 		<br><br>
 
-		<<link [[다음 (0:30)|Eden Recaptured]]>><<pass 30>><</link>>
-		<br>
-	<<elseif $syndromeeden gte 1>>
-		"네가 이렇게 될 줄 알았어" 에덴은 묶인 당신을 풀면서 말한다. <<HePost "은">> 떨어지는 당신을 받는다. "집에 가자."
-		<br><br>
-
-		<<HePost "은">> 오두막으로 당신을 데려간다.
+		<<He>> takes you back to <<his>> cabin.
 		<br><br>
 		<<endevent>>
-		<<link [[다음 (0:30)|Eden Cabin]]>><<pass 30>><</link>>
+		<<link [[Next (0:30)|Eden Cabin]]>><<pass 30>><</link>>
 		<br>
 	<<else>>
+		<<badEndTracking "Eden" { reason: "soldBailey" }>>
 		<<if $hunterintro is 1>>
-			"널 다시 되찾을 줄 알았어."
+			"I knew I'd get you back."
 		<<else>>
-			"난 사냥감이 무력한 것에 익숙하진 않은데. 뭐 불평하는건 아니고."
+			"I'm not used to my prey being so helpless. Not that I'm complaining."
 		<</if>>
-		<<HePost "은">> 소리도 없이 당신에게 살금살금 다가온다.
+		<<He>> crept up on you without making a sound.
 		<br><br>
 
 		<<endevent>>
 
-		<<link [[다음|Forest Hunter Intro]]>><</link>>
+		<<link [[Next|Forest Hunter Intro]]>><</link>>
+		<br>
+	<</if>>
+<</widget>>
+
+<<widget "rentGwylanTrade">>
+	<<npc Gwylan>><<person1>>
+	You aren't left hanging there for long. Your hood is gingerly lowered, and a <<personsimple>>'s gentle voice wistfully appears beside you. "Oh, <<pcpetname "Gwylan">>."
+	<br><br>
+
+	<<if $gwylan.taken>>
+		/* ToDo: Gwylan - soft bad end */
+		<span class="red">It's Gwylan.</span>. <<He>> steps around you, revealing <<his>> sad smile.
+		<br><br>
+
+		"Do you have any idea how worried I was?" <<He>> hugs you. "Naughty little runaway. Come, a warm bed is waiting for us at home." <<He>> raises <<his>> hand, and your leash appears in it.
+		You're led into the forest, and to Gwylan's shop.
+		<br><br>
+
+		<<link [[Next|Forest Shop Entrance]]>><<endevent>><<pass 15>><</link>>
+		<br>
+	<<else>>
+		<span class="forest-green">It's Gwylan.</span> <<He>> steps around you, revealing <<his>> bright smile.
+		<br><br>
+
+		"You're lucky you still have your collar, otherwise I wouldn't have found you." <<He>> hugs you. "Let's go, before someone sees."
+		You're led into the forest, and to Gwylan's shop.
+		<br><br>
+
+		<<link [[Next|Forest Shop Entrance]]>><<endevent>><<pass 15>><</link>>
 		<br>
 	<</if>>
 <</widget>>
@@ -413,7 +438,7 @@
 				<<if pregnancyCountBetweenParents("Alex","pc") is 1 or pregnancyCountBetweenParents("pc","Alex")>>
 					<<if C.npc.Alex.pregnancy.selfKnowledge or C.npc.Alex.pregnancy.pcKnowledge>>
 						"I got word that you knocked up some <<if C.npc.Alex.pronoun is "f">>bitch<<else>>slut<</if>> outside town. I paid them a little visit and saw that that farm's no place for a brat. I did you the favour of bringing your spawn back here, where it belongs."
-					
+
 					<<else>>
 						"I've paid a little visit to that farmer <<if C.npc.Alex.pronoun is "f">>girl<<else>>boy<</if>> You should have done the same. Anyway, <<nnpc_he "Alex">> popped out <<print _childrenText>>, and I already know it's yours."
 
@@ -460,6 +485,24 @@
 	<<set $ward_unlocked to true>><<run delete $babyIntros.Bailey>>
 <</widget>>
 
+<<widget "rent_avery">>
+	<<if $avery_mansion>>
+		<<if $avery_fate is "fallen" or $avery_fate is "kicked">>
+			<<if $avery_mansion.fallen_bailey_message>>
+				<<set $avery_mansion.fallen_bailey_message to true>>
+				<span class="black">Avery has fallen.</span> Because of that, <span class="red"><<nnpc_he "Avery">> can no longer pay Bailey for you</span>.
+				<br><br>
+			<</if>>
+		<<elseif !$avery_mansion.bailey_message>>
+			<<set $avery_mansion.bailey_message to true>>
+			<span class="red">"That idiot on Danube Street is refusing to pay,"</span> Bailey says. "So it falls to you. If that's a problem, take it up with <<nnpc_him Avery>>."
+			<br><br>
+			<i>Avery will refuse to pay Bailey if you don't show up at the mansion, or fail to adequately please <<nnpc_him Avery>>.</i>
+			<br><br>
+		<</if>>
+	<</if>>
+<</widget>>
+
 :: Rent Pay
 <<effects>>
 
@@ -467,10 +510,10 @@
 
 <<if $bus is "hospital">>
 	<<if crimeSumCurrent() gte 1000>>
-		<<link [[다음|Hospital Arrest]]>><<pass 10>><<endevent>><</link>>
+		<<link [[Next|Hospital Arrest]]>><<pass 10>><<endevent>><</link>>
 		<br>
 	<<else>>
-		<<link [[다음->Hospital front]]>><<pass 10>><<endevent>><</link>>
+		<<link [[Next|Hospital front]]>><<pass 10>><<endevent>><</link>>
 		<br>
 	<</if>>
 <<else>>
@@ -485,7 +528,7 @@
 		<br><br>
 
 	<</if>>
-	<<link [[다음|Bedroom]]>><<endevent>><</link>>
+	<<link [[Next|Bedroom]]>><<endevent>><</link>>
 	<br>
 <</if>>
 
@@ -503,10 +546,10 @@ Robin hugs you softly after Bailey leaves. "I'm so sorry," <<he>> says.
 
 	<<set $companion to "Robinrent">>
 	<<if crimeSumCurrent() gte 1000>>
-		<<link [[다음|Hospital Arrest]]>><<pass 10>><<endevent>><</link>>
+		<<link [[Next|Hospital Arrest]]>><<pass 10>><<endevent>><</link>>
 		<br>
 	<<else>>
-		<<link [[다음|Hospital front]]>><<pass 10>><<endevent>><</link>>
+		<<link [[Next|Hospital front]]>><<pass 10>><<endevent>><</link>>
 		<br>
 	<</if>>
 <<else>>
@@ -517,12 +560,12 @@ Robin hugs you softly after Bailey leaves. "I'm so sorry," <<he>> says.
 		After a moment to make sure Robin is okay, you leave the room and go back to the main hall.
 		<br><br>
 
-		<<link [[다음|Orphanage]]>><<endevent>><</link>>
+		<<link [[Next|Orphanage]]>><<endevent>><</link>>
 	<<else>>
 		<<He>> eventually leaves your bedroom. "If you need anything, just let me know."
 		<br><br>
 
-		<<link [[다음|Bedroom]]>><<endevent>><</link>>
+		<<link [[Next|Bedroom]]>><<endevent>><</link>>
 	<</if>>
 	<br>
 <</if>>
@@ -532,11 +575,11 @@ Robin hugs you softly after Bailey leaves. "I'm so sorry," <<he>> says.
 <<effects>>
 
 <<if $speech_attitude is "bratty">>
-	당신은 반항하며 <<himPost "을">> 노려본다. "난 돈 안줄거야. 네가 나한테 무슨 짓을 하든 상관 없어."
+	You stare at <<him>> in defiance. "I'm not paying you. I don't care what you do to me."
 <<elseif $speech_attitude is "meek">>
-	"시-싫어" 당신은 말을 더듬는다, 당신의 용기에 놀란다. "아-안줄거야."
+	"N-no," you stutter, surprised by your bravery. "I-I won't."
 <<else>>
-	"이 돈은 네 것이 아니야," 당신은 말한다, "주지 않을거야."
+	"The money isn't yours," you say, "I'm keeping it."
 <</if>>
 <br><br>
 
@@ -544,14 +587,15 @@ Robin hugs you softly after Bailey leaves. "I'm so sorry," <<he>> says.
 
 :: Rent Refuse Robin
 <<effects>><<set $baileypaychain to 0>>
-
+<<set $baileyRefusedToPayTotal += $rentmoney + ($babyRent || 0)>>
+<<set $baileyRefusedToPayTotalStat += $rentmoney + ($babyRent || 0)>>
+<<person1>>
 <<if $speech_attitude is "bratty">>
 	You stare at <<him>> in defiance. "I'm not paying you. I don't care what you do to me, but leave Robin out of this."
 <<elseif $speech_attitude is "meek">>
 	"N-no," you stutter, surprised by your bravery. "I-I won't let you hurt either of us..."
 <<else>>
 	"The money isn't yours," you say. "Punish me however you want but leave <<nnpc_him "Robin">> out of this."
-	<<person1>>
 <</if>>
 <br><br>
 
@@ -559,13 +603,13 @@ Robin hugs you softly after Bailey leaves. "I'm so sorry," <<he>> says.
 <<He>> produces a hood and length of rope. "Hold still."
 <br><br>
 
-<<link [[굴복한다|Rent Intro]]>><<set $phase to 1>><<endevent "phaseless">><</link>>
+<<link [[Submit|Rent Intro]]>><<set $phase to 1>><<endevent "phaseless">><</link>>
 <br>
 <<if $bus is "hospital">>
-	<<link [[싸운다|Rent Hospital Fight Robin]]>><<set $fightstart to 1>><</link>>
+	<<link [[Fight|Rent Hospital Fight Robin]]>><<set $fightstart to 1>><</link>>
 	<br>
 <<else>>
-	<<link [[싸운다|Rent Robin Fight]]>><<set $fightstart to 1>><</link>>
+	<<link [[Fight|Rent Robin Fight]]>><<set $fightstart to 1>><</link>>
 	<br>
 <</if>>
 
@@ -595,21 +639,21 @@ Robin hugs you softly after Bailey leaves. "I'm so sorry," <<he>> says.
 		with <<his>> palm open expectantly. "Your payment. Now."
 		<br><br>
 
-		<<link [[지불한다|Rent Pay]]>><</link>>
+		<<link [[Pay|Rent Pay]]>><</link>>
 		<br>
-		<<link [[거절한다|Rent Refuse]]>><<def 1>><</link>>
+		<<link [[Refuse|Rent Refuse]]>><<def 1>><</link>>
 		<br>
 	<<else>>
 		and begins unwinding the rope. "Don't worry," <<he>> taunts. "I'll put in a good word for you."
 		<br><br>
 
-		<<link [[굴복한다|Rent Intro]]>><<endevent>><</link>>
+		<<link [[Submit|Rent Intro]]>><<endevent>><</link>>
 		<br>
 		<<if $bus is "hospital">>
-			<<link [[싸운다|Rent Hospital Fight]]>><<set $fightstart to 1>><</link>>
+			<<link [[Fight|Rent Hospital Fight]]>><<set $fightstart to 1>><</link>>
 			<br>
 		<<else>>
-			<<link [[싸운다|Rent Fight]]>><<set $fightstart to 1>><</link>>
+			<<link [[Fight|Rent Fight]]>><<set $fightstart to 1>><</link>>
 			<br>
 		<</if>>
 	<</if>>
@@ -632,22 +676,22 @@ Robin hugs you softly after Bailey leaves. "I'm so sorry," <<he>> says.
 		<br><br>
 
 
-		<<link [[지불한다|Rent Pay]]>><</link>>
+		<<link [[Pay|Rent Pay]]>><</link>>
 		<br>
-		<<link [[거절한다|Rent Refuse]]>><<def 1>><</link>>
+		<<link [[Refuse|Rent Refuse]]>><<def 1>><</link>>
 		<br>
 
 	<<else>>
 		"Now like I said." <<He>> brandishes the rope at you. "Hold still."
 		<br><br>
 
-		<<link [[굴복한다|Rent Intro]]>><<endevent>><</link>>
+		<<link [[Submit|Rent Intro]]>><<endevent>><</link>>
 		<br>
 		<<if $bus is "hospital">>
-			<<link [[싸운다|Rent Hospital Fight]]>><<set $fightstart to 1>><</link>>
+			<<link [[Fight|Rent Hospital Fight]]>><<set $fightstart to 1>><</link>>
 			<br>
 		<<else>>
-			<<link [[싸운다|Rent Fight]]>><<set $fightstart to 1>><</link>>
+			<<link [[Fight|Rent Fight]]>><<set $fightstart to 1>><</link>>
 			<br>
 		<</if>>
 	<</if>>
@@ -690,11 +734,11 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 	<br><br>
 	Someone presses their hand between your shoulders and shoves you forward, into another pair of arms. A moment later, your hood is removed, revealing a <<person>>. "You're the cutest thing I've seen all week! Come 'ere."
 	<br><br>
-	<<link [[다음|Tutorial]]>><<set $molestationstart to 1>><<set $tutorialExit to "Tutorial Bailey">><</link>>
+	<<link [[Next|Tutorial]]>><<set $molestationstart to 1>><<set $tutorialExit to "Tutorial Bailey">><</link>>
 
 <<elseif $rentsale is 3>>
 	<<set $rentsale to 0>><<generate2>><<person2>>
-	얼마간 이동하다 보니 또 다른 발자국 소리가 들린다.
+	After journeying for some time you hear another set of footsteps.
 	<<if _robinIsPresent>>
 		"Hand them over," says a <<personsimple>>'s voice.
 		<br><br>
@@ -708,24 +752,25 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 		"Hand <<phim>> over," says a <<personsimple>>'s voice.
 		<br><br>
 
-		"돈 먼저 주면." 베일리가 응답한다. "내가 <<phimPost "을">> 다시 데려가?"
+		"Money first," responds Bailey. "Will I get <<phim>> back?"
 		<br><br>
 
-		"우리 일이 끝나면 넌 <<phimPost "을">> 원하지 않을거잖아."
+		"You won't want <<phim>> when we're done."
 		<br><br>
 	<</if>>
 
-	당신은 긴 터널에 끌려가기 전에 종이가 바스락거리는 소리를 듣는다.
+	You hear a rustle of paper before being dragged further along the tunnel.
 	<br><br>
 	<<if _robinIsPresent>>
-		<<link [[다음|Underground Intro]]>><<set $baileySold to true>><<endevent "phaseless">><<set $phase to 1>><</link>>
+		<<badEndTracking "Underground Dungeon" { reason: "soldBaileyRobin" }>>
+		<<link [[Next|Underground Intro]]>><<set $baileySold to true>><<endevent "phaseless">><<set $phase to 1>><</link>>
 	<<else>>
-		<<link [[다음|Underground Intro]]>><<set $baileySold to true>><</link>>
+		<<badEndTracking "Underground Dungeon" { reason: "soldBailey" }>>
+		<<link [[Next|Underground Intro]]>><<set $baileySold to true>><</link>>
 	<</if>>
 	<br>
 <<elseif $rentsale is 2>>
 	<<set $rentsale += 1>>
-	<<leash 21>>
 	<<if _robinIsPresent>>
 		You journey for some time until you feel solid concrete beneath your feet. Another set of footsteps approach.
 		You think you hear the rustle of an officer's belt.
@@ -748,23 +793,34 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 	<<else>>
 		You journey for some time,
 	<</if>>
-	until you hear the sound of engines up ahead. The sound echoes, becoming closer, until you hear it all around you.
-	"Good stock," says an unfamiliar voice. "Would make a fine breeder."
-	<br>
-	"돈." 베일리는 짜증내듯 화답한다.
-	<br>
-	"그래. 여기." 한쪽에서 바스락거리는 소리가 나더니, 누군가 목줄을 잡아 앞으로 당긴다.
-	<br>
-	"좋아." 베일리가 떠나가면서 말한다.
-	<br><br>
+	<<if $worn.neck.name is "familiar collar" and $worn.neck.cursed is 1 and ($avery_fate is "saved" or $avery_fate is "fallen" or $avery_fate is "kicked")>>
+		until you hear wind rustling through leaves. "I had something else lined up for you," Bailey starts as <<nnpc_he "Bailey">> lifts you and hooks your bindings on something behind you, leaving you suspended in the air.
+		"But you've attracted some very peculiar attention. Someone made me a better offer. Don't go anywhere, you'll be picked up shortly." You feel <<his>> hands run along your collar. "You're in way over your head."
+		You hear <<him>> walk away, leaving you alone.
+		<br><br>
 
-	"Watch the step," says the unfamiliar voice. Whatever you've stepped onto is rumbling. "Sit."
-	You fumble around your knees, and find what feels like a bench.
-	You sit, then hear the slam of doors, and a few moment later you lurch as the floor moves beneath you. You're in a vehicle.
-	<br><br>
+		<<endevent>>
+		<<rentGwylanTrade>>
+	<<else>>
+		<<leash 21>>
+		until you hear the sound of engines up ahead. The sound echoes, becoming closer, until you hear it all around you.
+		"Good stock," says an unfamiliar voice. "Would make a fine breeder."
+		<br>
+		"The money," Bailey responds, impatient.
+		<br>
+		"Ah. Here." There's a rustle to one side, then someone tugs on your leash, pulling you forward.
+		<br>
+		"A pleasure," Bailey says, already walking away.
+		<br><br>
 
-	<<link [[다음|Street Van Bailey]]>><<set $baileySold to true>><</link>>
-	<br>
+		"Watch the step," says the unfamiliar voice. Whatever you've stepped onto is rumbling. "Sit."
+		You fumble around your knees, and find what feels like a bench.
+		You sit, then hear the slam of doors, and a few moments later you lurch as the floor moves beneath you. You're in a vehicle.
+		<br><br>
+
+		<<link [[Next|Street Van Bailey]]>><<set $baileySold to true>><</link>>
+		<br>
+	<</if>>
 <<elseif $rentsale is 1>>
 	<<set $rentsale += 1>>
 	<<if _robinIsPresent>>
@@ -779,11 +835,20 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 	<</if>>
 	You hear wind rustling through leaves.
 	Bailey lifts you and hooks your bindings on something behind you, leaving you suspended in the air.
-	"Don't go anywhere, you'll be picked up shortly," <<he>> says. You hear <<him>> walk away, leaving you alone.
-	<br><br>
+	<<if $worn.neck.name is "familiar collar" and $worn.neck.cursed is 1>>
+		"I had something else lined up for you, but you've attracted some very peculiar attention. Someone made me a better offer. Don't go anywhere, you'll be picked up shortly."
+		You feel <<his>> hands run along your collar. "You're in way over your head." You hear <<him>> walk away, leaving you alone.
+		<br><br>
 
-	<<endevent>>
-	<<rentEdenTrade>>
+		<<endevent>>
+		<<rentGwylanTrade>>
+	<<else>>
+		"Don't go anywhere, you'll be picked up shortly," <<he>> says. You hear <<him>> walk away, leaving you alone.
+		<br><br>
+
+		<<endevent>>
+		<<rentEdenTrade>>
+	<</if>>
 <<else>>
 	<<set $rentsale to 1>>
 	<<generate2>><<person2>>
@@ -802,9 +867,9 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 
 	<<if _robinIsPresent>>
 		<<if _robin.dom lte 50>>
-			"Please, let us go! We didn't do anything-"
+			"Please, let us go! We didn't do anything—"
 		<<else>>
-			"Wait! Let <<phim>> go! Please don't hurt my <<girlfriend>>-"
+			"Wait! Let <<phim>> go! Please don't hurt my <<girlfriend>>—"
 		<</if>>
 		Robin's voice suddenly becomes muffled, and to your alarm, you hear <<nnpc_him "Robin">> fall to the ground soon after.
 		<br><br>
@@ -812,7 +877,7 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 	A moment later, you feel someone press something against your mouth, and your consciousness fades. <<arousal 6000>><<gggarousal>>
 	<br><br>
 
-	<<link [[다음|Danube Meal]]>><<endevent>><<set $phase to (_robinIsPresent ? 1 : 0)>><</link>>
+	<<link [[Next|Danube Meal]]>><<endevent>><<set $phase to (_robinIsPresent ? 1 : 0)>><</link>>
 	<br>
 <</if>>
 
@@ -823,7 +888,7 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 	<<maninit>>
 	<<set $enemyanger += 200>>
 	<<npcidlegenitals>>
-	"내가 널 때리지 않을거라 생각하니?" 베일리가 말한다.
+	"You think I won't beat it out of you?" Bailey says.
 	<br><br>
 	<<set $phase to 1>>
 <</if>>
@@ -834,7 +899,7 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 
 <<if $phase is 1>>
 	<<set $phase to 2>>
-	고아들이 소음에 이끌려 싸움을 보기 위해 몰려든다.
+	Orphans arrive to watch the fight, drawn by the noise.
 	<br><br>
 <</if>>
 
@@ -843,9 +908,9 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 <<actionsman>>
 
 <<if _combatend or ($pain gte 100 and $willpowerpain is 0)>>
-	<span id="next"><<link [[다음|Rent Fight Finish]]>><</link>></span><<nexttext>>
+	<span id="next"><<link [[Next|Rent Fight Finish]]>><</link>></span><<nexttext>>
 <<else>>
-	<span id="next"><<link [[다음|Rent Fight]]>><</link>></span><<nexttext>>
+	<span id="next"><<link [[Next|Rent Fight]]>><</link>></span><<nexttext>>
 <</if>>
 
 :: Rent Robin Fight
@@ -889,7 +954,7 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 <<if $phase is 1>>
 	<<set $phase to 2>>
 	<br><br>
-	고아들이 소음에 이끌려 싸움을 보기 위해 몰려든다.
+	Orphans arrive to watch the fight, drawn by the noise.
 	<br><br>
 <</if>>
 
@@ -932,9 +997,9 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 <<actionsman>>
 
 <<if _combatend or ($pain gte 100 and $willpowerpain is 0)>>
-	<span id="next"><<link [[다음|Rent Robin Fight Finish]]>><</link>></span><<nexttext>>
+	<span id="next"><<link [[Next|Rent Robin Fight Finish]]>><</link>></span><<nexttext>>
 <<else>>
-	<span id="next"><<link [[다음|Rent Robin Fight]]>><</link>></span><<nexttext>>
+	<span id="next"><<link [[Next|Rent Robin Fight]]>><</link>></span><<nexttext>>
 <</if>>
 
 :: Rent Robin Fight Finish
@@ -944,34 +1009,34 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation "short">><<set $baileydefeatedlewd += 1>><<set $baileydefeatedchain += 1>><<earnFeat "Bailey's Trouble Maker">>
 
-	<<person1>>지켜보는 고아들 중 한명이 킥킥 웃는다. 베일리가 고개를 휙휙 돌리며 범인을 찾지만 다른 고아가 뒤에서 <<himPost "을">> 보고 웃는다.
-	곧 방 전체가 웃음으로 가득 차게 된다. <<HePost "이">> 당신을 뒤돌아본다. "이 일의 대가를 치르게 될거야." <<hePost "이">> 말하고 쿵쿵대며 방을 나간다.
+	<<person1>>One of the watching orphans giggles. Bailey spins to find the culprit, but another laughs behind <<him>>.
+	Soon the whole room is filled with laughter. <<He>> looks back at you. "You'll pay for this," <<he>> says, before storming from the room.
 	<br><br>
 
 	<<if $baileydefeatedchain gte 2>>
-		<<person2>><<personPost "은">> <<person1>><<himPost "을">> 따라 몰래 나간다.
+		The <<person2>><<person>> slinks out after <<person1>><<him>>.
 		<br><br>
 	<</if>>
 	You walk over to Robin and undo <<nnpc_his "Robin">> bindings. <<nnpc_He "Robin">> pulls you into a hug. "Thank you, my hero!" With a peck on your <<if _robin.lust gte 60>>lips<<else>>cheek<</if>>, <<nnpc_he "Robin">> walks away.
 	<br><br>
 
-	고아들은 당신이 폭군에 저항하는 것을 응원한다. <<HePost "은">> 나중에 다시 돌아오겠지만, 일단 지금은 괜찮다.
+	The orphans cheer your defeat of the tyrant. <<He>> will be back, but for now you're in the clear.
 	<<greb>><<ghope>><<reb 1>><<hope 1>><<ltrauma>><<lstress>><<trauma -6>><<stress -12>>
 	<br><br>
 
 	<<clotheson>>
 	<<endcombat>>
 
-	<<link [[다음|Bedroom]]>><</link>>
+	<<link [[Next|Bedroom]]>><</link>>
 <<elseif $enemyhealth lte 0>>
 	<<set $baileydefeated += 1>><<set $baileydefeatedchain += 1>>
 
-	<<person1>><<HePost "은">> 당신의 공격성과 입은 타박상에 놀라 잠시 물러난다.
-	<<HePost "은">> 사람들이 홀 주위에 모여 있는 것을 알아차린다. "넌 대가를 치르게 될거야. 내 말 명심해." <<hePost "이">> 쿵쿵대며 방을 나간다.
+	<<person1>><<He>> backs off for a moment, surprised by your aggression and nursing a bruise.
+	<<He>> notices the crowd formed around the hall. "You'll pay for this. Mark my words." <<He>> storms out.
 	<br><br>
 
 	<<if $baileydefeatedchain gte 2>>
-		<<person2>><<personPost "은">> <<person1>><<himPost "을">> 따라 몰래 나간다.
+		The <<person2>><<person>> slinks out after <<person1>><<him>>.
 		<br><br>
 	<</if>>
 	You walk over to Robin and undo <<nnpc_his "Robin">> bindings. <<nnpc_He "Robin">> pulls you into a hug, "Thank you, my hero!"
@@ -991,7 +1056,7 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 	<<clotheson>>
 	<<endcombat>>
 
-	<<link [[다음|Bedroom]]>><</link>>
+	<<link [[Next|Bedroom]]>><</link>>
 
 <<else>>
 	<<set $baileydefeatedchain to 0>>
@@ -999,7 +1064,7 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 	<<unset $bailey_encroach>>
 
 
-	당신은 땅에 쓰러지고, 움직일 수 없을 만큼 다쳤다.
+	You fall to the ground, too hurt to move.
 	Robin struggles, until Bailey hits <<nnpc_him "Robin">> hard on the head. <<nnpc_He "Robin">> collapses beside you.
 	<<lreb>><<reb -1>>
 	<br><br>
@@ -1010,7 +1075,7 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 	<<set $underupperoff to 0>>
 	<<endcombat>>
 
-	<<link [[다음|Rent Intro]]>><<endevent>><<set $phase to 1>><</link>>
+	<<link [[Next|Rent Intro]]>><<endevent>><<set $phase to 1>><</link>>
 <</if>>
 
 :: Rent Fight Finish
@@ -1019,43 +1084,43 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation "short">><<set $baileydefeatedlewd += 1>><<set $baileydefeatedchain += 1>><<earnFeat "Bailey's Trouble Maker">>
 
-	<<person1>>지켜보는 고아들 중 한명이 킥킥 웃는다. 베일리가 고개를 휙휙 돌리며 범인을 찾지만 다른 고아가 뒤에서 <<himPost "을">> 보고 웃는다.
-	곧 방 전체가 웃음으로 가득 차게 된다. <<HePost "이">> 당신을 뒤돌아본다. "이 일의 대가를 치르게 될거야." <<hePost "이">> 말하고 쿵쿵대며 방을 나간다.
+	<<person1>>One of the watching orphans giggles. Bailey spins to find the culprit, but another laughs behind <<him>>.
+	Soon the whole room is filled with laughter. <<He>> looks back at you. "You'll pay for this," <<he>> says, before storming from the room.
 	<br><br>
 
 	<<if $baileydefeatedchain gte 2>>
-		<<person2>><<personPost "은">> <<person1>><<himPost "을">> 따라 몰래 나간다.
+		The <<person2>><<person>> slinks out after <<person1>><<him>>.
 		<br><br>
 	<</if>>
 
-	고아들은 당신이 폭군에 저항하는 것을 응원한다. <<HePost "은">> 나중에 다시 돌아오겠지만, 일단 지금은 괜찮다.
+	The orphans cheer your defeat of the tyrant. <<He>> will be back, but for now you're in the clear.
 	<<greb>><<ghope>><<reb 1>><<hope 1>><<ltrauma>><<lstress>><<trauma -6>><<stress -12>>
 	<br><br>
 
 	<<clotheson>>
 	<<endcombat>>
 
-	<<link [[다음|Bedroom]]>><</link>>
+	<<link [[Next|Bedroom]]>><</link>>
 <<elseif $enemyhealth lte 0>>
 	<<set $baileydefeated += 1>><<set $baileydefeatedchain += 1>>
 
-	<<person1>><<HePost "은">> 당신의 공격성과 입은 타박상에 놀라 잠시 물러난다.
-	<<HePost "은">> 사람들이 홀 주위에 모여 있는 것을 알아차린다. "넌 대가를 치르게 될거야. 내 말 명심해." <<hePost "이">> 쿵쿵대며 방을 나간다.
+	<<person1>><<He>> backs off for a moment, surprised by your aggression and nursing a bruise.
+	<<He>> notices the crowd formed around the hall. "You'll pay for this. Mark my words." <<He>> storms out.
 	<br><br>
 
 	<<if $baileydefeatedchain gte 2>>
-		<<person2>><<personPost "은">> <<person1>><<himPost "을">> 따라 몰래 나간다.
+		The <<person2>><<person>> slinks out after <<person1>><<him>>.
 		<br><br>
 	<</if>>
 
-	<<hisPost "의">> 타도를 응원하던 고아들이 <<hePost "이">> 떠나는 모습을 보자, 당신에게 힘을 실어준다. <<HePost "은">> 나중에 다시 돌아오겠지만, 일단 지금은 괜찮다.
+	<<His>> departure lifts a weight from the watching orphans, who cheer your defeat of the tyrant. <<He>> will be back, but for now you're in the clear.
 	<<greb>><<ghope>><<reb 1>><<hope 1>><<ltrauma>><<lstress>><<trauma -6>><<stress -12>>
 	<br><br>
 
 	<<clotheson>>
 	<<endcombat>>
 
-	<<link [[다음|Bedroom]]>><</link>>
+	<<link [[Next|Bedroom]]>><</link>>
 
 <<else>>
 	<<set $baileydefeatedchain to 0>>
@@ -1063,7 +1128,7 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 	<<unset $bailey_encroach>>
 
 
-	당신은 땅에 쓰러지고, 움직일 수 없을 만큼 다쳤다.
+	You fall to the ground, too hurt to move.
 	<<lreb>><<reb -1>>
 	<br><br>
 
@@ -1073,7 +1138,7 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 	<<set $underupperoff to 0>>
 	<<endcombat>>
 
-	<<link [[다음|Rent Intro]]>><</link>>
+	<<link [[Next|Rent Intro]]>><</link>>
 <</if>>
 
 :: Rent First Robin Fight
@@ -1113,13 +1178,13 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 	<<if $timer gte 1>>
 		<<switch $baileySpoke>>
 			<<case 2>>
-				<<if $speechplead is 1 or $speechapologiseno is 1 or $speechscream is 1 or $speechdemand is 1>>
+				<<if $speechplead is 1 or $speechapologiseno is 1 or $speechscream is 1 or $speechdemand is 1 or $speechapologiseunforgiving is 1>>
 					"Save your breath," Bailey says. "If you really want to save <<nnpc_him "Robin">>, it's not too late to pay."
 				<<else>>
 					"I told you, all that time ago," Bailey says. "Get me my money... or I'll find a way to extract value from you."
 				<</if>>
 			<<case 1>>
-				<<if $speechplead is 1 or $speechapologiseno is 1>>
+				<<if $speechplead is 1 or $speechapologiseno is 1 or $speechapologiseunforgiving is 1>>
 					Bailey rolls <<his>> eyes. "If you'd paid me on time, maybe you wouldn't be crying your eyes out now."
 					<<set $baileySpoke++>>
 				<<elseif $speechscream is 1 or $speechdemand is 1>>
@@ -1129,7 +1194,7 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 					"Don't know why you took this waif's debt in the first place if you weren't ready to pay it," Bailey sneers.
 				<</if>>
 			<<default>>
-				<<if $speechplead is 1 or $speechapologiseno is 1>>
+				<<if $speechplead is 1 or $speechapologiseno is 1 or $speechapologiseunforgiving is 1>>
 					Bailey scoffs at you. "Oh, now you're sorry? Now that there's consequences?"
 					<<set $baileySpoke++>>
 				<<elseif $speechscream is 1 or $speechdemand is 1>>
@@ -1193,13 +1258,13 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 <</if>>
 
 <<if $combatPhase is "pay" and $speechpay is 1>>
-	<span id="next"><<link [[다음|Rent First Robin Fight Finish]]>><<endevent>><<set $phase to "pay">><</link>></span><<nexttext>>
+	<span id="next"><<link [[Next|Rent First Robin Fight Finish]]>><<endevent>><<set $phase to "pay">><</link>></span><<nexttext>>
 <<elseif $combatPhase is "still" and _defiance is undefined>>
-	<span id="next"><<link [[다음|Rent First Robin Fight Finish]]>><<endevent>><<set $phase to "still">><</link>></span><<nexttext>>
+	<span id="next"><<link [[Next|Rent First Robin Fight Finish]]>><<endevent>><<set $phase to "still">><</link>></span><<nexttext>>
 <<elseif $finish is 1>>
-	<span id="next"><<link [[다음|Rent First Robin Fight Finish]]>><<endevent>><<set $phase to "finish">><</link>></span><<nexttext>>
+	<span id="next"><<link [[Next|Rent First Robin Fight Finish]]>><<endevent>><<set $phase to "finish">><</link>></span><<nexttext>>
 <<else>>
-	<span id="next"><<link [[다음|Rent First Robin Fight]]>><</link>></span><<nexttext>>
+	<span id="next"><<link [[Next|Rent First Robin Fight]]>><</link>></span><<nexttext>>
 <</if>>
 <<turnend>>
 
@@ -1216,7 +1281,7 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 
 	Bailey walks off, and Robin continues clinging to you.
 	<<if _robin.trauma gte 40>>
-		"I th-thought..." <<he>> chokes up and holds you tighter.
+		"I th-thought..." <<He>> chokes up and holds you tighter.
 	<<else>>
 		"I thought I was going to lose you," <<he>> says after a long moment.
 	<</if>>
@@ -1237,7 +1302,7 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 
 	<<endcombat>><<clotheson>>
 
-	<<link [[다음|Orphanage]]>><</link>>
+	<<link [[Next|Orphanage]]>><</link>>
 <<elseif $phase is "still">>
 	The thugs drag you away. You hear Robin crying for you. <<His>> cries eventually fade away as you leave the orphanage. You are met face to face with Bailey.
 	<br><br>
@@ -1250,7 +1315,7 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 
 	<<endcombat>><<clotheson>>
 
-	<<link [[다음|Rent Intro]]>><</link>>
+	<<link [[Next|Rent Intro]]>><</link>>
 <<else>>
 	<<robinPunishment "mansion">>
 	Bailey drags Robin away. You struggle against the thugs' grip, but can't break free.
@@ -1263,7 +1328,7 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 
 	<<endcombat>><<clotheson>>
 
-	<<link [[다음|Orphanage]]>><</link>>
+	<<link [[Next|Orphanage]]>><</link>>
 <</if>>
 
 :: Tutorial Bailey
@@ -1272,9 +1337,9 @@ You trip a couple of times, prompting Bailey to drag you back to your feet and s
 
 You feel someone put their hand on your shoulder, turning you see it's Bailey.
 <br><br>
-"Welcome to the outside world, I hope you learned your lesson of not doing anything all week," <<he>> says, "I expect you to try harder this week, you're not going to like to see what happens if you fail to pay me again."
+"Welcome to the outside world, I hope you learned your lesson after not doing anything all week," <<he>> says, "I expect you to try harder this week, you're not going to like to see what happens if you fail to pay me again."
 <br><br>
 You're escorted by Bailey back to your bedroom and left alone.
 <br><br>
 
-<<link [[다음|Bedroom]]>><<endevent>><</link>>
+<<link [[Next|Bedroom]]>><<endevent>><</link>>
