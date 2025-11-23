@@ -7,13 +7,13 @@
 <<set _furniture to $furniture.bedroom>>
 <<if _furniture.wallpaper>>
 	<br>
-	<<set _premadeWall to ["vines", "tentacles", "plainwhite", "cowgirls", "cow_girls", "hearts", "trees", "crosses"].includes(_furniture.wallpaper.name)>>
-	<<set _wallpaper to _premadeWall ? "wallpaper_" + _furniture.wallpaper.name + ".png" : ['dol', 'degrees of lewdity'].some(e => _furniture.wallpaper.name.toLowerCase().includes(e)) ? "wallpaper_dol.png" : "wallpaper_custom.png">>
+	<<set _premadeWall to ["vines", "tentacles", "plainwhite", "wavywhite", "cowgirls", "cow_girls", "hearts", "trees", "crosses", "starry", "deep sea", "beach", "crabs", "flames", "stained glass", "audience", "bears"].includes(_furniture.wallpaper.name)>>
+	<<set _wallpaper to _premadeWall ? "wallpaper_" + _furniture.wallpaper.name.replace(/ /,"_") : ['dol', 'degrees of lewdity'].some(e => _furniture.wallpaper.name.toLowerCase().includes(e)) ? "wallpaper_dol" : "wallpaper_custom">>
 
 	<<furnitureicon _wallpaper>>
 	<<switch _furniture.wallpaper.name>>
 		<<case "vines">>
-			음란한 초록 덩굴들이 벽에서 꿈틀대고 있다. 
+			음란한 초록 덩굴들이 벽에서 꿈틀대고 있다.
 			<<if $backgroundTraits.includes("plantlover")>>
 				달콤한 꿀에 대한 생각이 당신의 마음을 괴롭힌다.
 			<</if>>
@@ -29,14 +29,30 @@
 		<<case "hearts">>
 			분홍색 하트가 벽을 덮고 있다.
 		<<case "cowgirls" "cow_girls">>
-			암소 소녀들이 벽에서 춤을 추고 있다.
+			카우걸들이 벽에서 춤을 추고 있다.
 		<<case "trees">>
 			초록 나무들이 당신에게 숲에 있는 기분을 느끼게 하고 있다.
 		<<case "crosses">>
 			금색 십자가가 벽을 덮고 있다.
+		<<case "starry">>
+			별이 빛나는 은하수가 벽을 덮고 있다.
+		<<case "deep sea">>
+			깊고 푸른 바다가 당신을 둘러싸고 있다.
+		<<case "beach">>
+			아름다운 해변 풍경이 벽을 덮고 있다.
+		<<case "crabs">>
+			귀여운 게 무늬가 벽을 덮고 있다.
+		<<case "flames">>
+			불꽃이 당신을 둘러싸고 있다. 나쁘지 않다.
+		<<case "stained glass">>
+			스테인드글라스 무늬가 벽을 덮고 있다.
+		<<case "audience">>
+			그림자들이 당신을 둘러싸고 있다. 마치 군중이 당신을 지켜보고 있는 것 같다.
+		<<case "bears">>
+			귀여운 곰 무늬가 벽을 덮고 있다.
 		<<default>> /* Custom */
-			<<trFurniture _furniture.wallpaper.name "name">>_trResult 그림이 벽을 덮고 있다.
-			<<if _wallpaper is "wallpaper_dol.png">>
+			_furniture.wallpaper.name 그림이 벽을 덮고 있다.
+			<<if _wallpaper is "wallpaper_dol">>
 				왜인지, 친숙한 기분이 든다.
 			<<elseif _furniture.wallpaper.name.startsWith('&lt;&lt')>>
 				<span class="black">당신은 치트를 쓰다가 걸린 것 같은 기분이 든다.</span>
@@ -63,10 +79,10 @@
 <<if _deco>>
 	<br>
 	<<switch _deco.name>>
-		<<case "large bear plushie">>
-			<<furnitureicon _deco.iconFile>><<trFurniture _deco.name "name" "이">>_trResult 구석에 앉아 있다.
+		<<case "large bear plushie" "large candy pillow">>
+			<<furnitureicon _deco.iconFile>>The _deco.name이 구석에 앉아 있다.
 		<<default>>
-			<<furnitureicon _deco.iconFile>><<trFurniture _deco.name "name" "이">>_trResult 벽에 걸려 있다.
+			<<furnitureicon _deco.iconFile>>The _deco.name이 벽에 걸려 있다.
 	<</switch>>
 <</if>>
 
@@ -75,7 +91,7 @@
 	<br>
 	<<switch _owlplush.id>>
 		<<case "owlplushie">>
-			<<furnitureicon _owlplush.iconFile>><<trFurniture _owlplush.name "name" "이">>_trResult 어둠 속에 섞여, 옷장에서 내려다보고 있다.
+			<<furnitureicon _owlplush.iconFile>>올빼미 인형이 어둠 속에 섞여, 옷장 위에서 당신을 내려다보고 있다.
 	<</switch>>
 <</if>>
 
@@ -84,28 +100,28 @@
 	<br>
 	<<switch _windowsill.name>> /* can be expanded further */
 		<<case "ominous jar">> /* unused */
-			<<furnitureicon _windowsill.iconFile>><<trFurniture _windowsill.name "name" "이">>_trResult 창문 틀에 위협적으로 놓여 있다
+			<<furnitureicon _windowsill.iconFile>>_windowsill.nameCap이 창문 틀에 위협적으로 놓여 있다.
 		<<default>>
-			<<furnitureicon _windowsill.iconFile>> 당신의 <<trFurniture _windowsill.name "name" "이">>_trResult 창문 틀에 놓여 있다
+			<<furnitureicon _windowsill.iconFile>> Your _windowsill.name이 창문 틀에 놓여 있다.
 	<</switch>>
 <</if>>
 
 <<if _furniture.poster>>
 	<<set _premadePoster to ["cowgirl", "cow_girl", "cat", "puppy"].includes(_furniture.poster.name)>>
-	<<set _poster to _premadePoster ? "poster_" + _furniture.poster.name + ".png" : ['dol', 'degrees of lewdity'].some(e => _furniture.poster.name.toLowerCase().includes(e)) ? "poster_dol.png" : "poster.png">>
+	<<set _poster to _premadePoster ? "poster_" + _furniture.poster.name : ['dol', 'degrees of lewdity'].some(e => _furniture.poster.name.toLowerCase().includes(e)) ? "poster_dol" : "poster">>
 	<br>
 
 	<<furnitureicon _poster>>
 	<<switch _furniture.poster.name>>
 		<<case "cowgirl" "cow_girl">>
-			암소 소녀 포스터가 벽에 걸려 있다.
+			카우걸 포스터가 벽에 걸려 있다.
 		<<case "cat">>
-			고양이 포스터가 벽에 걸려 있다. 그 아래 적힌 글은, "거기 매달려 있어!"
+			고양이 포스터가 벽에 걸려 있다. "거기 매달려 있어!"라는 글이 아래에 적혀 있다.
 		<<case "puppy">>
 			강아지 포스터가 벽에 걸려 있다.
 		<<default>> /* Custom */
-			<<trFurniture _furniture.poster.name "name">>_trResult 포스터가 벽에 걸려 있다.
-			<<if _poster is "poster_dol.png">>
+			_furniture.poster.name의 포스터가 벽에 걸려 있다.
+			<<if _poster is "poster_dol">>
 				당신은 이상하게 친숙한 느낌이 든다.
 			<<elseif _furniture.poster.name.startsWith('&lt;&lt;')>>
 				<span class="black">당신은 치트를 쓰다가 걸린 것 같은 기분이 든다.</span>
@@ -115,7 +131,7 @@
 
 /* Events */
 <br><br>
-<<if $robinbed is "yours" and Time.hour gte 6 and !$possessed>>
+<<if $robinbed is "yours" and Time.dayState !== "night" and !$possessed>>
 	<<unset $robinbed>>
 	<<npc Robin>><<person1>>로빈은 하품을 하며 제 방으로 돌아간다.<<endevent>>
 	<<if Time.hour is 6 and Time.minute lte 20>><<run setRobinLocationOverride("orphanage", 6)>><</if>>
@@ -127,23 +143,23 @@
 		당신은 구속구를 내려다본다. 당신이 잡아당기자, 그것은 당신을 묶어두지 못하고, 부서진다. <<unbind>>
 		<br><br>
 	<<else>>
-		<span class="green">당신은 구속구를 <span style="position:relative;top:-5px"><<furnitureicon _desk.iconFile>></span> 책상에다가 대고 문댄다.</span> 노력이 좀 필요하긴 했으나, 결국에는 부서지며, 팔이 자유로워졌다.
+		<span class="green">>당신은 구속구를 <span style="position:relative;top:-5px"><<furnitureicon _desk.iconFile>></span> 책상에다 대고 문지른다.</span> 노력이 좀 필요하긴 했으나 결국에는 부서지며, 당신의 팔은 자유로워진다.
 		<br><br>
 	<</if>>
 <</if>>
 <<if $study is 1>>
 	<<unset $study>>
 	<<if $phase is 1>>
-		당신은 과학 교과서를 펴고 한번 주욱 읽는다.
+		당신은 과학 교과서를 펴고 전체적으로 한 번 읽는다.
 		<<scienceskill>>
 	<<elseif $phase is 2>>
-		당신은 수학 교과서를 펴고 한번 주욱 읽는다.
+		당신은 수학 교과서를 펴고 전체적으로 한 번 읽는다.
 		<<mathsskill>>
 	<<elseif $phase is 3>>
-		당신은 영어 교과서를 펴고 한번 주욱 읽는다.
+		당신은 영어 교과서를 펴고 전체적으로 한 번 읽는다.
 		<<englishskill>>
 	<<elseif $phase is 4>>
-		당신은 역사 교과서를 펴고 한번 주욱 읽는다.
+		당신은 역사 교과서를 펴고 전체적으로 한 번 읽는다.
 		<<historyskill>>
 	<</if>>
 	<<endevent>>
@@ -169,15 +185,19 @@
 	<<rngWraith 1>>
 <</if>>
 
-<<if $leftarm is "bound" or $rightarm is "bound" or $feetuse is "bound" or $worn.feet.name is "ankle cuffs">>
+<<if pcAreArmsBound("any") or $feetuse is "bound" or $worn.feet.name is "ankle cuffs">>
 	<<undobindingsicon>><<link [[구속구를 푼다 (0:10)|Bedroom]]>><<set $unbind to 1>><<pass 10>><<unbind>><</link>>
+	<br><br>
+<</if>>
+<<if $worn.face.cursed is 1>>
+	<<link [[Remove your $worn.face.name (0:10)|Bedroom]]>><<pass 10>><<set $worn.face.type.push("broken")>><<faceruined>><</link>>
 	<br><br>
 <</if>>
 
 <<if $robinpaid is 1 and $robinmissing is 0 and $robinnote isnot 1 and C.npc.Robin.lust gte 10 and C.npc.Robin.love gte 60 and C.npc.Robin.trauma lt 10>>
 	<span class="gold">창문에 쪽지가 붙어있다.</span>
 	<br>
-	<<askicon>><<link [[읽는다|Robin Note]]>><<set $robinnote to 1>><</link>>
+	<<mysteryicon>><<link [[읽는다|Robin Note]]>><<set $robinnote to 1>><</link>>
 	<br><br>
 <</if>>
 
@@ -189,7 +209,11 @@
 <br><br>
 
 /* Bed */
-<<if $debug is 1>><<link [[커스텀 테스트|custom Testroom]]>><</link>><br><br><</if>>침대가 방의 대부분을 차지한다.
+침대가 방의 대부분을 차지한다.
+<<if $gwylanSeen?.includes("fox_plushie")>>
+	/* ToDo: Gwylan - convert to use furniture system */
+	큰 여우 인형이 또 하나의 베개 역할을 한다.
+<</if>>
 <<set _bed to Furniture.get('bed')>>
 <<if $nextPassageCheck is "Bed">>
 	<br>
@@ -210,22 +234,23 @@
 	<<if $possessed>>
 		<<ind>><span class="purple">머릿속의 슬라임은 조용하다.</span>
 	<<else>>
-		<<ind>><span class="red">슬라임이 당신이 자러 가기 전에 <<trSlimeEvent $earSlime.event>> 한다.</span>
+		<<ind>><span class="red">슬라임이 당신이 자러 가기 전에 <<print $earSlime.event>> 한다.</span>
 	<</if>>
 	<br>
 <</if>>
 
 <<if _bed.type.includes("comfy")>>
-	<<skinicon "masturbate">><<link [[침대에서 자위한다|Home Masturbation]]>><<set $masturbationstart to 1>><</link>>
+	<<skinicon "masturbate">><<link [[Masturbate in bed|Home Masturbation]]>><<set $masturbationstart to 1>><</link>>
 	<br>
 <</if>>
 
 <<roomoptions>>
+<<safehouseEvents>>
 <br>
 /* Wardrobe */
 <<set _wardrobe to Furniture.get('wardrobe')>>
 <<if _wardrobe>>
-	당신의 옷은 <<trFurniture _wardrobe.name "name">>_trResult에 보관되어 있다.
+	당신의 옷은 _wardrobe.name에 보관되어 있다.
 <</if>>
 <br>
 <<furnitureicon _wardrobe.iconFile>><<link [[옷장|Wardrobe]]>><</link>>
@@ -238,16 +263,12 @@
 	<span class="nextLink"><<mirroricon>><<link [[거울|Mirror]]>><<preMirror>><</link>></span>
 	<br>
 <<elseif $christmas is 1 and !$christmas_wraith and _wraithEvent>>
-	<br>
-	<span class="purple">당신은 거울이 이상하게 반짝이고 있는 것을 알아차린다.</span>
-	<br>
 	<<mirroricon "blood">><<link [[거울|Christmas Mirror]]>><<preMirror>><</link>>
+	<<note "당신은 거울이 이상하게 반짝이고 있는 것을 알아차린다." "purple">>
 	<br>
-<<elseif Time.hour is 3 and $hallucinations gte 2 and $daily.mirrorTentacles isnot 1 and $tentacledisable is "f">>
-	<br>
-	<span class="purple">으스스한 빛이 거울에서 새어나오고 있다.</span>
-	<br>
+<<elseif Time.hour is 3 and $hallucinations gte 2 and $daily.mirrorTentacles isnot 1 and $settings.tentaclesEnabled>>
 	<<mirroricon "blood">><<link [[거울|Eerie Mirror]]>><<preMirror>><<set $daily.mirrorTentacles to 1>><<set $phase to 0>><</link>>
+	<<note "으스스한 빛이 거울에서 새어나오고 있다." "purple">>
 	<br>
 <<else>>
 	<<mirroricon "home">><<link [[거울|Mirror]]>><<preMirror>><</link>>
@@ -260,11 +281,11 @@
 /* Travel */
 <br>
 바깥의 복도는 고아원 전체에 연결되어 있다.
-<<if $exposed gte 2>>
+<<if $exposedRaw gte 2>>
 	<<if Time.dayState isnot "night">>
 		<<if hasSexStat("exhibitionism", 5)>>
 			<br>
-			<span class="purple"><<genitalsPost "을">> 드러낸 채로 밖에 나갈 생각을 하니 흥분된다. 조심하기만 한다면 안전할 것이다, 그렇지?</span>
+			<span class="purple">질을 드러낸 채로 밖에 나갈 생각을 하니 흥분된다. 조심하기만 한다면 안전할 것이다, 그렇지 않은가?</span>
 			<<orphanageWard>>
 			<br>
 			<<bathroomLink>>
@@ -275,7 +296,7 @@
 			<br><br>
 		<<elseif hasSexStat("exhibitionism", 4)>>
 			<br>
-			<span class="purple"><<genitalsPost "을">> 드러낸 채로 나갈 생각에 당신은 흥분한다. 하지만 이 시간에 그 꼴로 멀쩡하게 돌아다닐 수 있을 리가 없다. 어두워진 뒤에라면 몰라도.</span>
+			<span class="purple">질을 드러낸 채로 나갈 생각에 당신은 흥분한다. 하지만 이 시간에 이런 꼴로 멀쩡하게 돌아다닐 수 있을 리가 없다. 어두워진 뒤라면 몰라도.</span>
 			<br><br>
 		<<else>>
 			<<orphanageWard>>
@@ -286,7 +307,7 @@
 	<<else>>
 		<<if hasSexStat("exhibitionism", 4)>>
 			<br>
-			<span class="purple"><<genitalsPost "을">> 드러낸 채로 나갈 생각에 당신은 흥분한다. 어쨌거나 밤이지 않는가. 잘못될 게 뭐가 있겠어?</span>
+			<span class="purple">질을 드러낸 채로 나갈 생각에 당신은 흥분한다. 어쨌거나 밤이지 않는가. 잘못될 게 뭐가 있겠는가?</span>
 			<<orphanageWard>>
 			<br>
 			<<bathroomLink>>
@@ -303,11 +324,11 @@
 			<br><br>
 		<</if>>
 	<</if>>
-<<elseif $exposed gte 1>>
+<<elseif $exposedRaw gte 1>>
 	<<if Time.dayState isnot "night">>
 		<<if hasSexStat("exhibitionism", 3)>>
 			<br>
-			<span class="purple">이런 야한 옷차림으로 밖에 나갈 생각에 당신은 흥분한다. 조심하기만 한다면 안전할 것이다, 그렇지?</span>
+			<span class="purple">이런 야한 옷차림으로 밖에 나갈 생각에 당신은 흥분한다. 조심하기만 한다면 안전할 것이다, 그렇지 않은가?</span>
 			<<orphanageWard>>
 			<br>
 			<<bathroomLink>>
@@ -318,7 +339,7 @@
 			<br><br>
 		<<elseif hasSexStat("exhibitionism", 2)>>
 			<br>
-			<span class="purple">이런 야한 옷차림으로 밖에 나갈 생각에 당신은 흥분한다. 하지만 이 시간에 그 꼴로 멀쩡하게 돌아다닐 수 있을 리가 없다. 어두워진 뒤에라면 몰라도.</span>
+			<span class="purple">이런 야한 옷차림으로 밖에 나갈 생각에 당신은 흥분한다. 하지만 이 시간에 이런 꼴로 멀쩡하게 돌아다닐 수 있을 리가 없다. 어두워진 뒤라면 몰라도.</span>
 			<br><br>
 		<<else>>
 			<<orphanageWard>>
@@ -329,7 +350,7 @@
 	<<else>>
 		<<if hasSexStat("exhibitionism", 2)>>
 			<br>
-			<span class="purple">이런 야한 옷차림으로 밖에 나갈 생각에 당신은 흥분한다. 어쨌거나 밤이지 않는가, 잘못될 게 뭐가 있겠어?</span>
+			<span class="purple">이런 야한 옷차림으로 밖에 나갈 생각에 당신은 흥분한다. 어쨌거나 밤이지 않는가, 잘못될 게 뭐가 있겠는가?</span>
 			<br>
 			<<orphanageWard>>
 			<br>
@@ -353,6 +374,8 @@
 		<br>
 		<<bathroomLink>>
 		<br>
+		<<kitchenicon "stove">><<link [[주방 (0:01)|Kitchen]]>><<pass 1>><</link>>
+		<br>
 		<<robinroom_link>>
 		<br>
 		<<if Time.hour gte 18 and Time.hour lte 20 and C.npc.Robin.trauma gte 40 and $robinmissing is 0 and !$robinTraumaVisit>>
@@ -368,20 +391,20 @@
 		<<if $kylar_camera is 4>>
 			올빼미 인형이 옷장에서 당신을 보고 있다. 당신은 그 안에 카메라가 있다는 것을 알고 있다.
 			<br>
-			<<ind>><<link [[카일라의 카메라를 어떻게 할 것인지 결정한다 (0:05)|Bedroom Kylar Camera]]>><<pass 5>><</link>>
+			<<furnitureicon "owlplushie">><<link [[카일라의 카메라를 어떻게 할 것인지 결정한다 (0:05)|Bedroom Kylar Camera]]>><<pass 5>><</link>>
 			<br><br>
 		<</if>>
 		<<if $kylar_camera is 0>>
 			카일라가 당신에게 선물하려고 했던 상자가 당신의 침대 발치에 놓여 있다.
 			<br>
-			<<link [[열어본다|Bedroom Kylar Gift Open]]>><</link>>
+			<<gifticon "valentine">><<link [[열어본다|Bedroom Kylar Gift Open]]>><</link>>
 			<br><br>
 		<<elseif $kylar_camera is 1>>
 			카일라가 당신에게 선물하려고 했던 상자가 당신의 침대 발치에 놓여 있다. 올빼미 인형이 안에 있다.
 			<br>
-			<<link [[장식으로 간직한다|Bedroom Kylar Gift Keep]]>><</link>>
+			<<furnitureicon "owlplushie">><<link [[장식으로 간직한다|Bedroom Kylar Gift Keep]]>><</link>>
 			<br>
-			<<link [[고아에게 준다|Bedroom Kylar Gift Orphan]]>><<hope 1>><</link>><<ghope>>
+			<<gifticon "valentine">><<link [[고아에게 준다|Bedroom Kylar Gift Orphan]]>><<hope 1>><</link>><<ghope>>
 			<br><br>
 		<</if>>
 	<<else>>
@@ -395,6 +418,8 @@
 	<<orphanageWard>>
 	<br>
 	<<bathroomLink>>
+	<br>
+	<<kitchenicon "stove">><<link [[주방 (0:01)|Kitchen]]>><<pass 1>><</link>>
 	<br>
 	<<robinroom_link>>
 	<br>
@@ -442,7 +467,7 @@
 <</if>>
 
 :: Bedroom Kylar Gift Open
-<<effects>>
+<<effects>><<wearProp "kylar owl">>
 
 당신은 리본을 잡아당기고, 뚜껑을 연다. 그 안에는 회색 올빼미 인형이 들어 있다. 오래되어 보인다. 보푸라기 한 터럭이 인형의 해진 가죽 밖으로 터져나와 있다.
 <br><br>
@@ -465,7 +490,7 @@
 	nameCap	: 'Owl plushie'
 })>>
 
-<<link [[다음|Bedroom]]>><</link>>
+<<link [[다음|Bedroom]]>><<handheldon>><</link>>
 <br>
 
 :: Bedroom Kylar Gift Orphan
@@ -473,7 +498,7 @@
 
 <<set $kylar_camera to 3>>
 <<generatey1>><<person1>>
-당신은 중앙 복도로 걸어들어간다. 고아 한 명이 종종걸음치며 당신에게 다가온다. 당신은 인형을 꺼낸다. <<His_ yi>> 눈이 초롱초롱하게 빛난다. "내게 주는 거야?" <<he_ ga>> 묻는다. 당신이 미처 고개를 끄덕이기도 전에 <<he_ ga>> 양팔로 그걸 낚아채간다. "고마워!" <<He_ nun>> 가슴에 장난감을 꼭 끌어안은 채로, 쌩하니 달려간다.
+당신은 중앙 복도로 걸어들어간다. 고아 한 명이 종종걸음치며 당신에게 다가온다. 당신은 인형을 꺼낸다. 그의 눈이 초롱초롱하게 빛난다. "내게 주는 거야?" 그가 묻는다. 당신이 미처 고개를 끄덕이기도 전에 양팔로 그걸 낚아채간다. "고마워!" 그는 가슴에 장난감을 꼭 끌어안은 채로, 쌩하니 달려간다.
 <br><br>
 
 <<link [[다음|Bedroom]]>><<endevent>><</link>>
@@ -488,7 +513,7 @@
 <<link [[부순다|Bedroom Kylar Camera Destroy]]>><<set $phase to 0>><</link>>
 <br>
 <<if hasSexStat("exhibitionism", 3)>>
-	<<link [[나중의 복수를 위해 놔둔다|Bedroom Kylar Camera Leave]]>><<set $phase to 0>><</link>><<exhibitionist3>>
+	<<link [[훗날의 복수를 위해 놔둔다|Bedroom Kylar Camera Leave]]>><<set $phase to 0>><</link>><<exhibitionist3>>
 	<br>
 <</if>>
 
@@ -501,7 +526,7 @@
 <<link [[부순다|Bedroom Kylar Camera Destroy]]>><<set $phase to 1>><</link>>
 <br>
 <<if hasSexStat("exhibitionism", 3)>>
-	<<link [[나중의 복수를 위해 당신의 방에 놔둔다|Bedroom Kylar Camera Leave]]>><<set $phase to 1>><</link>><<exhibitionist3>>
+	<<link [[훗날의 복수를 위해 놔둔다|Bedroom Kylar Camera Leave]]>><<set $phase to 1>><</link>><<exhibitionist3>>
 	<br>
 <</if>>
 
@@ -557,19 +582,19 @@
 	<</if>>
 	<br><br>
 
-	<<He_ nun>> 말없이 당신의 침대에서 뛰어내리고, 문으로 달려가 그것을 열어젖힌 뒤 복도 안쪽으로 뛰쳐나간다.
+	그는 말없이 당신의 침대에서 뛰어내리고, 문으로 달려가 그것을 열어젖힌 뒤 복도 안쪽으로 뛰쳐나간다.
 	<br><br>
 
-	당신은 일어나서 <<he_ yi>> 뒤로 문을 닫는다. 카일라는 당신의 방에 숨어든 사람치고는 놀랍도록 수줍다. 당신은 <<he_ ga>> 당신에게 무엇을 할 계획이었는지 알고 싶지 않다.
+	당신은 일어나서 그의 뒤로 문을 닫는다. 카일라는 당신의 방에 숨어든 사람치고는 놀랍도록 수줍다. 당신은 그가 당신에게 무엇을 할 계획이었는지 알고 싶지 않다.
 	<br><br>
 
 	<<link [[다음|Bedroom]]>><<endevent>><</link>>
 
 <<elseif $phase is 2>>
-	당신은 몸 아래쪽 어딘가에서 천이 스치는 소리를 듣는다. <<He_ nun>> 잠시 숨을 들이켠다.
+	당신은 몸 아래쪽 어딘가에서 천이 스치는 소리를 듣는다. 그는 잠시 숨을 들이켠다.
 	<br><br>
 
-	부드럽고, 반복적이며 젖은 소리가 당신의 배 위에서 들린다. 당신은 깨닫는다: <<he_ ga>> 당신을 올라타고 있다면, 소음의 시작점은 대략 <<his_ yi>> 사타구니일 것이다.
+	부드럽고, 반복적이며 젖은 소리가 당신의 배 위에서 들린다. 당신은 깨닫는다: 그가 당신을 올라타고 있다면, 소음의 시작점은 대략 그의 사타구니일 것이다.
 	<br><br>
 
 	당신의 얼굴에 내려앉는 호흡이 점점 빠르고 거칠어진다. "나-난 우리가 진짜로 이걸 했으면 좋겠어..." 카일라는 조용히 신음한다. "네가 나한테 이 짓을 허락해 주는 거야... 몇 번이고, 계속..."
@@ -591,17 +616,13 @@
 	<</if>>
 	<br><br>
 
-	<<He_ ga>> 얼어붙는다. 두 사람은 잠시 서로를 응시한다.
+	그가 얼어붙는다. 두 사람은 잠시 서로를 응시한다.
 	<br><br>
 
-	<<if $submissive gte 1150>>
-		<<He_ nun>> 말없이 당신의 침대에서 뛰어내리고, 문으로 달려가 그것을 열어젖힌 뒤 복도 안쪽으로 뛰쳐나간다.
-	<<else>>
-		<<He_ nun>> 말없이 문으로 달려가 그것을 열어젖힌 뒤 복도 안쪽으로 뛰쳐나간다.
-	<</if>>
+	그는 말없이 <<if $speech_attitude is "meek">>당신의 침대에서 뛰어내리고, <</if>>문으로 달려가 그것을 열어젖힌 뒤 복도 안쪽으로 뛰쳐나간다.
 	<br><br>
 
-	당신은 일어나서 <<he_ yi>> 뒤로 문을 닫는다. 카일라는 당신의 방에 숨어든 사람치고는 놀랍도록 수줍다. 당신은 <<he_ ga>> 뭔가를 하기 전에 막아냈다는 사실이 기쁘다.
+	당신은 일어나서 그의 뒤로 문을 닫는다. 카일라는 당신의 방에 숨어든 사람치고는 놀랍도록 수줍다. 당신은 그가 뭔가를 하기 전에 막아냈다는 사실이 기쁘다.
 	<br><br>
 
 	<<link [[다음|Bedroom]]>><<endevent>><</link>>
@@ -620,30 +641,30 @@
 	<</if>>
 	<br><br>
 
-	<<He_ ga>> 얼어붙는다. 두 사람은 잠시 서로를 응시한다.
+	그가 얼어붙는다. 두 사람은 잠시 서로를 응시한다.
 	<br><br>
 
-	<<He_ nun>> 말없이 당신의 침대에서 뛰어내리고, 문으로 달려가 그것을 열어젖힌 뒤 복도 안쪽으로 뛰쳐나간다.
+	그는 말없이 당신의 침대에서 뛰어내리고, 문으로 달려가 그것을 열어젖힌 뒤 복도 안쪽으로 뛰쳐나간다.
 	<br><br>
 
-	당신은 일어나서 <<he_ yi>> 뒤로 문을 닫는다. 카일라는 당신의 방에 숨어든 사람치고는 놀랍도록 수줍다. 당신은 <<he_ ga>> 더 나아가기 전에 막아냈다는 사실이 기쁘다.
+	당신은 일어나서 그의 뒤로 문을 닫는다. 카일라는 당신의 방에 숨어든 사람치고는 놀랍도록 수줍다. 당신은 그가 더 나아가기 전에 막아냈다는 사실이 기쁘다.
 	<br><br>
 
 	<<link [[다음|Bedroom]]>><<endevent>><</link>>
 
 <<elseif $phase is 2>>
-	<<He_ nun>> 자신의 무게를 약간 위쪽으로 옮긴다. "나-나는 너를 사랑해," <<he_ nun>> 숨을 헐떡이며 신음한다.
+	그는 자신의 무게를 약간 위쪽으로 옮긴다. "나-나는 너를 사랑해," 그는 숨을 헐떡이며 신음한다.
 	<br><br>
 
 	<<if $NPCList[0].penis isnot "none">>
 		<<if $NPCList[0].penissize gt 1>>
 
-			그것이 당신이 받은 경고의 전부다. 끈적끈적한 열기가 얼굴에 몇 줄씩 튀어 당신의 뺨과 이마, 머리카락은 엉망이 된다. 일이 끝나자, <<He_ nun>> 자지 끝을 당신의 입술에 대고 닦는다.<<if $ejactrait is 1>><<garousal>><<arousal 600>><</if>>
+			그것이 당신이 받은 경고의 전부다. 끈적끈적한 열기가 얼굴에 몇 줄씩 튀어 당신의 뺨과 이마, 머리카락은 엉망이 된다. 일이 끝나자, 그는 페니스의 끝을 당신의 입술에 대고 닦는다.<<if $ejactrait is 1>><<garousal>><<arousal 600>><</if>>
 			<br><br>
 
 		<<else>>
 
-			그것이 당신이 받은 경고의 전부다. 끈적끈적한 열기가 방울져 당신의 입술 위로 살짝 떨어진다. 일이 끝나자, <<He_ nun>> 자지 끝을 당신의 입술에 대고 닦는다.<<if $ejactrait is 1>><<garousal>><<arousal 600>><</if>>
+			그것이 당신이 받은 경고의 전부다. 끈적끈적한 열기가 방울져 당신의 입술 위로 살짝 떨어진다. 일이 끝나자, 그는 페니스의 끝을 당신의 입술에 대고 닦는다.<<if $ejactrait is 1>><<garousal>><<arousal 600>><</if>>
 			<br><br>
 
 		<</if>>
@@ -652,17 +673,17 @@
 
 	<<else>>
 
-		그것이 당신이 받은 경고의 전부다. 따듯하고 짭짤한 액체가 얼굴에 튀어 당신의 뺨과 이마, 머리카락은 엉망이 된다. 일이 끝나자, <<He_ nun>> 보지를 당신의 침구에 닦는다.<<if $ejactrait is 1>><<garousal>><<arousal 600>><</if>>
+		그것이 당신이 받은 경고의 전부다. 따듯하고 짭짤한 액체가 얼굴에 튀어 당신의 뺨과 이마, 머리카락은 엉망이 된다. 일이 끝나자, 그녀는 보지를 당신의 침구에 닦는다.<<if $ejactrait is 1>><<garousal>><<arousal 600>><</if>>
 		<br><br>
 
 		<<set $hygiene += 500>><<bodyliquid "face" "goo">>
 
 	<</if>>
 
-	당신은 <<his_ yi>> 몸이 다시 한 번 당신의 가까이로 기울어지는 것을 느낀다. "얼마 안 남았어..." <<he_ nun>> 속삭이며 당신의 이마에 재빨리 키스한다. "기대된다."<<gstress>><<gtrauma>><<stress 6>><<trauma 1>>
+	당신은 그의 몸이 다시 한 번 당신의 가까이로 기울어지는 것을 느낀다. "얼마 안 남았어..." 그는 속삭이며 당신의 이마에 재빨리 키스한다. "기대된다."<<gstress>><<gtrauma>><<stress 6>><<trauma 1>>
 	<br><br>
 
-	<<He_ nun>> 당신에게서 재빨리 내려온다. 당신은 <<he_ ga>> 떠나는 소리를 듣지 못하지만, 당신이 눈을 뜨자 <<he_ nun>> 사라져 있다.
+	그는 당신에게서 재빨리 내려온다. 당신은 그가 떠나는 소리를 듣지 못하지만, 당신이 눈을 뜨자 그는 사라져 있다.
 	<br><br>
 
 	<<link [[다음|Bedroom]]>><<endevent>><</link>>
@@ -677,26 +698,72 @@
 	<</if>>
 	<br><br>
 
-	<<He_ ga>> 얼어붙는다. 두 사람은 잠시 서로를 응시한다.
+	그가 얼어붙는다. 두 사람은 잠시 서로를 응시한다.
 	<br><br>
 
 	<<if $submissive gte 1150>>
-		<<He_ nun>> 말없이 당신의 침대에서 뛰어내리고, 문으로 달려가 그것을 열어젖힌 뒤 복도 안쪽으로 뛰쳐나간다.
+		그는 말없이 당신의 침대에서 뛰어내리고, 문으로 달려가 그것을 열어젖힌 뒤 복도 안쪽으로 뛰쳐나간다.
 	<<else>>
-		<<He_ nun>> 말없이 문으로 달려가 그것을 열어젖힌 뒤 복도 안쪽으로 뛰쳐나간다.
+		그는 말없이 문으로 달려가 그것을 열어젖힌 뒤 복도 안쪽으로 뛰쳐나간다.
 	<</if>>
 	<br><br>
 
-	당신은 일어나서 <<he_ yi>> 뒤로 문을 닫는다. 카일라는 당신의 방에 숨어든 사람치고는 놀랍도록 수줍다. 당신은 <<his_ yi>> 성적 만족을 위해 이용당했다는 사실에 <<print either("불쾌감을", "불안감을", "불편함을")>> 느낀다.
+	당신은 일어나서 그의 뒤로 문을 닫는다. 카일라는 당신의 방에 숨어든 사람치고는 놀랍도록 수줍다. 당신은 그의 성적 만족을 위해 이용당했다는 사실에 <<print either("불쾌감을", "불안감을", "불편함을")>> 느낀다.
 	<br><br>
 
 	<<link [[다음|Bedroom]]>><<endevent>><</link>>
 
 <</if>>
 
+:: Bedroom Kylar Wake
+<<effects>>
+
+<<if $phase is 1>> /* Shake Kylar awake */
+	당신은 쪼그려 앉아 그를 조심스레 붙잡고, 가볍게 흔든다.
+	<br><br>
+	그는 신음하며 깨어나고, 방을 훑어보다가 이윽고 당신과 눈이 마주친다. 그는 곧바로 패닉 상태에 빠진다.
+	<br><br>
+	"나, 어..."
+	<br><br>
+	그는 하던 말을 마치기도 전에, 허둥지둥 방을 뛰쳐나간다.<<npcincr Kylar love 1>><<glove>>
+	<br><br>
+
+<<elseif $phase is 2>> /* Turn the lights on */
+	당신은 불을 켠다. 카일라는 신음하고, 눈을 비비며 바닥에서 일어난다.
+	<br><br>
+	그는 고개를 들어 당신을 가만히 바라보다가, 패닉 상태에 빠진다. 그는 벌떡 일어난다.
+	<br><br>
+	"미안해!" 그는 너무 당황한 나머지, 자신의 얼굴을 손으로 가리고 방을 뛰쳐나가며 소리친다.<<npcincr Kylar lust 1>><<glust>>
+	<br><br>
+
+<<else>> /* Kick Kylar */
+	당신은 몸을 돌려 그의 옆구리를 있는 힘껏 걷어찬다. 그는 움찔하며 곧장 깨어나고, 벌떡 일어선다.
+	<br><br>
+	"미안해!" 그는 방을 뛰쳐나가며 소리친다. 심지어 당신을 돌아보기 위해 멈추지조차 않는다.<<gksuspicion>><<npcincr Kylar rage 1>>
+	<br><br>
+
+<</if>>
+
+<<set $wardrobe_location to "wardrobe">>
+<<wardrobeSelection true>>
+<<radiooutfits>>
+<br><br>
+<<if $renttime lte 0>>
+	<<set $bus to "home">>
+	<<getouticon>><<link [[침대에서 나온다|Bedroom Bailey]]>><<endevent>><</link>>
+	<br><br>
+
+<<elseif $robinmissing is "landfill" and !$robinmistknown>>
+	<<getouticon>><<link [[침대에서 나온다|Bedroom Robin Mist Note]]>><<endevent>><</link>>
+	<br><br>
+<<else>>
+	<<getouticon>><<link [[침대에서 나온다|Bedroom]]>><<endevent>><</link>>
+<</if>>
+<br>
+
 :: Bedroom Robin Mist Note
 <<set _robin to statusCheck("Robin")>>
-<<bedclotheson "bed">>
+<<bedclotheson "bed">><<wearProp "paper" 0 "sheet">>
 
 <<set $robinmistknown to 1>>
 당신이 깨어나자, 방문 아래로 쪽지가 밀어넣어져 있다는 걸 알아차린다. 당신은 그걸 읽는다.
@@ -720,47 +787,27 @@
 <span class="red">이건 로빈의 글씨체다.</span>
 <br><br>
 
-<<link [[다음|Bedroom]]>><</link>>
+<<link [[다음|Bedroom]]>><<handheldon>><</link>>
 
-:: Home Leave Undies
+:: Home Leave
 <<set $outside to 1>><<set $location to "town">><<effects>>
-<<flaunting>> 당신은 어둠이 내려앉은 고아원 안을 조심스럽게 돌아다닌다. 다른 방에서 이따금 코 고는 소리나 누군가의 움직임이 들려올 때마다 당신은 잠시 멈추었다가, 곧 들려오는 소리가 쿵쾅거리는 자신의 심장소리 뿐일 때가 되어서야 다시 발걸음을 옮긴다.
+
+<<if $exposed gte 1>>
+	<<flaunting>> 당신은 <<if Time.dayState is "night">>어둠이 내려앉은<</if>> 고아원 안을 조심스럽게 돌아다닌다.
+	<<if Time.dayState is "night">>
+		다른 방에서 이따금 코 고는 소리나 누군가의 움직임이 들려올 때마다 당신은 잠시 멈추었다가, 곧 들려오는 소리가 쿵쾅거리는 자신의 심장소리 뿐일 때가 되어서야 다시 발걸음을 옮긴다.
+	<<else>>
+		당신은 이곳저곳에 몸을 숨기며 이동하다가, 정문으로 향한다. 발소리가 들려올 때마다, 당신은 들키지 않기 위해 멈춰 서서 사람들이 지나가기를 기다린다.
+	<</if>>
+	<br><br>
+	당신은 뒷문을 열고는 바깥을 내다본다. 그러고는 한 발 내디딘 뒤, 다른 한 발도 옮기고, 문을 닫는다. 당신은 밖으로 나왔다. <<covered>>
+<<else>>
+	당신은 방을 빠져나와 등 뒤로 문을 닫는다. 당신은 밖으로 나왔다.
+<</if>>
 <br><br>
 
-당신은 뒷문을 열고는 바깥을 내다본다. 그러고는 한 발 내디딘 뒤, 다른 한 발도 옮기고, 문을 닫는다. 밖으로 나왔다. <<covered>>
-<br><br>
-
-<<link [[다음|Garden Fence Undies Night]]>><<pass 5>><</link>>
-
-:: Home Leave Naked
-<<set $outside to 1>><<set $location to "town">><<effects>>
-<<flaunting>> 당신은 어둠이 내려앉은 고아원 안을 조심스럽게 돌아다닌다. 다른 방에서 이따금 코 고는 소리나 누군가의 움직임이 들려올 때마다 당신은 잠시 멈추었다가, 곧 들려오는 소리가 쿵쾅거리는 자신의 심장소리 뿐일 때가 되어서야 다시 발걸음을 옮긴다.
-<br><br>
-
-당신은 뒷문을 열고는 바깥을 내다본다. 그러고는 한 발 내디딘 뒤, 다른 한 발도 옮기고, 문을 닫는다. 밖으로 나왔다. <<covered>>
-<br><br>
-
-<<link [[다음|Garden Fence Naked Night]]>><<pass 5>><</link>>
-
-:: Home Leave Undies Day
-<<set $outside to 1>><<set $location to "town">><<effects>>
-<<flaunting>> 당신은 고아원 안을 조심스럽게 돌아다닌다. 이곳저곳에 몸을 숨기며 이동하다가, 정문 쪽으로 향한다. 당신은 이 모습을 들키지 않기 위해 발소리가 들릴 때마다 멈추고는, 사람이 지나가기를 기다린다.
-<br><br>
-
-당신은 뒷문을 열고는 바깥을 내다본다. 그러고는 한 발 내디딘 뒤, 다른 한 발도 옮기고, 문을 닫는다. 밖으로 나왔다. <<covered>>
-<br><br>
-
-<<link [[다음|Garden Fence Undies Day]]>><<pass 5>><</link>>
-
-:: Home Leave Naked Day
-<<set $outside to 1>><<set $location to "town">><<effects>>
-<<flaunting>> 당신은 고아원 안을 조심스럽게 돌아다닌다. 이곳저곳에 몸을 숨기며 이동하다가, 정문 쪽으로 향한다. 당신은 이 모습을 들키지 않기 위해 발소리가 들릴 때마다 멈추고는, 사람이 지나가기를 기다린다.
-<br><br>
-
-당신은 뒷문을 열고는 바깥을 내다본다. 그러고는 한 발 내디딘 뒤, 다른 한 발도 옮기고, 문을 닫는다. 밖으로 나왔다. <<covered>>
-<br><br>
-
-<<link [[다음|Garden Fence Naked Day]]>><<pass 5>><</link>>
+<<link [[다음|Garden Fence]]>><<pass 5>><</link>>
+<br>
 
 :: Bathroom
 <<set $outside to 0>><<set $location to "home">><<effects>><<set $bus to "orphanage_bathroom">>
@@ -771,15 +818,17 @@
 	<<exit>>
 <</if>>
 
-<<if $leftarm is "bound" and $rightarm is "bound">>
+<<if pcAreArmsBound("both")>>
 	<<set _clothed = ![V.worn.upper.name, V.worn.lower.name, V.worn.under_upper.name, V.worn.under_lower.name, V.worn.over_upper.name, V.worn.over_lower.name].every(x => x == 'naked')>>
 	<<bathroomicon "bath">><<link [[(_clothed ? "옷을 입고 " : "") + "목욕한다 " + "(0:30)"->Bath]]>><<water>><<pass 30>><<stress -6>><<set $hygiene to 0>><</link>><<lstress>>
 <<else>>
 	<<bathroomicon "bath">><<link [[목욕한다 (0:30)->Bath]]>><<strip>><<pass 30>><<stress -6>><<set $hygiene to 0>><</link>><<lstress>>
+	<br>
+	<<bathroomicon "toothbrush">><<link [[양치한다 (0:05)|Bathroom Brush]]>><<pass 5>><<set $bathroomExit to "Bathroom">><</link>>
 <</if>>
 <br>
 <!-- Check if there's any hair-->
-<<if $pbdisable is "f" and ($pblevel gte 2 or $pbstrip gte 1 or $pblevelballs gte 2)>>
+<<if $settings.pubicHairEnabled and ($pblevel gte 2 or $pbstrip gte 1 or $pblevelballs gte 2)>>
 	<<bathroomicon "shave">><<link [[음모를 다듬는다->Shave]]>><</link>>
 	<br>
 <</if>>
@@ -794,6 +843,106 @@
 <br>
 <<home_outside>>
 
+:: Bathroom Brush
+<<effects>>
+<<set _exit to $bathroomExit or "Bathroom">>
+<<switch $player.gender>>
+	<<case "m">><<wearProp "toothbrush" "blue">>
+	<<case "f">><<wearProp "toothbrush" "pink">>
+	<<default>><<wearProp "toothbrush" "purple">>
+<</switch>>
+<<canvas-model-override "mouth" "chew">>
+
+<<if $location is "home">> /* simple toothbrushing events at the orphanage */
+	<<cleareventpool>>
+
+	<<addinlineevent "orphanage_toothbrushing_normal">>
+		당신은 칫솔에 치약을 한 덩이 짜서 양치한다. <<if $transformationParts.traits.fangs isnot "disabled">>당신은 위아래의 송곳니를 꼼꼼히 닦는다. <</if>>양치질을 마친 후, 당신은 세면대에 거품을 뱉고 입을 헹군다.
+	<</addinlineevent>>
+
+	<<addinlineevent "orphanage_toothbrushing_pasteless" 0.25>>
+		당신은 양치질을 하려고 했지만, 누군가가 치약을 다 쓴 뒤 새것으로 바꿔두지 않았다. 당신은 짜증이 난 채로 욕실 찬장을 뒤져 새 치약을 찾는다. 당신은 재빨리 양치질을 한 뒤, 세면대에 거품을 뱉고 입을 헹군다.
+	<</addinlineevent>>
+
+	<<addinlineevent "orphanage_toothbrushing_brushless" 0.25>>
+		당신은 양치질을 하려고 했지만, 칫솔을 찾을 수 없었다. 칫솔을 찾던 당신은 그것이 찬장 안에 숨겨져 있는 것을 발견한다. 누군가 옮겨 놓은 게 분명하다. 당신은 양치질을 한 뒤, 세면대에 거품을 뱉고 입을 헹군다.
+	<</addinlineevent>>
+
+	<<if Time.isBloodMoon()>>
+		<<addinlineevent "orphanage_toothbrushing_bloodmoon">>
+			당신은 칫솔에 치약을 한 덩이 짜서 양치한다. 고아원은 숨 막힐 듯 조용하다. 당신은 불안감을 느낀다.<<gstress>><<stress 6>>
+			<br><br>
+			당신은 양치질을 마친 뒤, 세면대에 거품을 뱉고 입을 헹군다.
+		<</addinlineevent>>
+	<<elseif Time.dayState is "night">>
+		<<addinlineevent "orphanage_toothbrushing_night">>
+			당신은 칫솔에 치약을 한 덩이 짜서 양치한다. 밤의 고아원은 조용하다. 당신은 편안하게 생각에 잠길 수 있다.<<lstress>><<stress -6>>
+			<br><br>
+			당신은 양치질을 마친 뒤, 세면대에 거품을 뱉고 입을 헹군다.
+		<</addinlineevent>>
+
+		<<addinlineevent "orphanage_toothbrushing_night_distracted" 0.5>>
+			당신은 칫솔에 치약을 한 덩이 짜서 양치한다. 밤의 고아원은 조용하다. 당신은 긴장을 풀려고 했지만, <<print either("떠돌이 개가 짖는 소리", "연인들의 말다툼 소리", "누군가가 외치는 소리", "차의 엔진이 공회전하는 소리", "누군가가 튼 시끄러운 음악 소리", "유리가 깨지는 소리")>>에 방해받는다. 당신은 양치질을 마친 뒤, 세면대에 거품을 뱉고 입을 헹군다.
+		<</addinlineevent>>
+	<<else>>
+		<<addinlineevent "orphanage_toothbrushing_loud" 0.5>>
+			당신은 칫솔에 치약을 한 덩이 짜서 양치한다. <<print either("누군가가 화장실 문을 시끄럽게 두드렸지만, 아무도 들어오지 않았다", "바깥에서 무언가가 크게 박살나는 소리가 들린다")>>. 당신은 소리의 이유를 궁금해한다.<<gstress>><<stress 6>>
+			<br><br>
+			당신은 양치질을 마친 뒤, 세면대에 거품을 뱉고 입을 헹군다.
+		<</addinlineevent>>
+
+		<<addinlineevent "orphanage_toothbrushing_orphan" 0.5>>
+			<<generateyv1>>
+			당신은 칫솔에 치약을 한 덩이 짜서 양치한다. 당신은 바깥에서 <<print either("두 명의", "여러")>> 고아들이 대화하는 소리를 듣는다. 그 중 하나가 화장실에 들어온다.
+			<br><br>
+			그는 살짝 놀라며 당신을 알아본다. "<<if $orphan_reb lt random(1, 50)>>미안해, <</if>><<print either("밖에서 기다릴게", "비켜줄게", "노크를 해야 했는데")>>," 그는 다시 문을 닫기 전에 말한다.
+			<br><br>
+			당신은 양치질을 마친 뒤, 세면대에 거품을 뱉고 입을 헹군다.<<endevent>>
+		<</addinlineevent>>
+
+		<<if $orphan_hope gte random(1, 50)>>
+			<<addinlineevent "orphanage_toothbrushing_hope">>
+				당신은 칫솔에 치약을 한 덩이 짠다. 이를 닦고 있자니, 화장실 바깥에서 두 명의 고아가 대화하는 소리가 들린다. 그들은 <<print either("매춘하지 않고", "도둑질에 의지하지 않고", "일일 아르바이트를 통해", "도시 곳곳의 잡일을 통해", "아르바이트에서 받은 팁을 통해")>> 베일리의 요구를 들어줄 수 있으리라는 희망에 차 있는 것 같다.<<lstress>><<stress -6>>
+				<br><br>
+				당신은 양치질을 마친 뒤, 세면대에 거품을 뱉고 입을 헹군다.
+			<</addinlineevent>>
+		<</if>>
+
+		<<if $orphan_reb gte random(1, 50)>>
+			<<addinlineevent "orphanage_toothbrushing_reb">>
+				<<generateyv1>>
+				당신은 고아 하나가 갑자기 들어오기 직전에, 칫솔에 치약을 한 덩이 짠다. 당신은 그에게 공간을 내어주기 위해 밀려나듯 몸을 빼고, 그와 동시에 양치질을 한다.<<gstress>><<stress 6>>
+				<br><br>
+				당신은 양치질을 마친 뒤, 세면대에 거품을 뱉고 입을 헹군다.<<endevent>>
+			<</addinlineevent>>
+		<</if>>
+	<</if>>
+
+	<<if Weather.precipitation is "rain">>
+		<<addinlineevent "orphanage_toothbrushing_rain">>
+			당신은 칫솔에 치약을 한 덩이 짠 뒤 양치질을 시작한다. <<if Time.isBloodMoon()>>바깥의 빗소리가 당신의 생각을 흘려보낸다. 당신은 불안감을 느낀다.<<gstress>><<stress 6>><<else>>바깥의 빗소리가 마음을 진정시켜준다.<<lstress>><<stress -6>><</if>>
+			<br><br>
+			당신은 양치질을 마친 뒤, 세면대에 거품을 뱉고 입을 헹군다.
+		<</addinlineevent>>
+	<</if>>
+
+	<<if $tiredness gte (C.tiredness.max / 5) * 4>>
+		<<addinlineevent "orphanage_toothbrushing_tired">>
+			당신은 칫솔에 치약을 한 덩이 짠 뒤 양치질을 시작한다. 당신은 다른 사람의 칫솔을 사용하고 있었다는 사실을 문득 깨닫는다.<<gstress>><<stress 6>>
+			<br><br>
+			당신은 양치질을 마친 뒤, 세면대에 거품을 뱉고 입을 헹군다. 당신은 좀 더 자야 한다.
+		<</addinlineevent>>
+	<</if>>
+
+	<<runeventpool>>
+<<else>> /* normal toothbrushing message in places other than the orphanage */
+	당신은 칫솔에 치약을 한 덩이 짠 뒤 양치질을 시작한다. <<if $transformationParts.traits.fangs isnot "disabled">>당신은 위아래의 송곳니를 꼼꼼히 닦는다. <</if>>양치질을 마친 뒤, 당신은 세면대에 거품을 뱉고 입을 헹군다.
+<</if>>
+<<wash_mouth>>
+<br><br>
+
+<<link [[다음|_exit]]>><<handheldon>><<canvas-model-override "clear">><<run delete $bathroomExit>><</link>>
+
 :: Sleep
 <<set _autosavehere to true>>
 <<set _robin to statusCheck("Robin")>>
@@ -807,45 +956,45 @@
 	당신은 편안히 잠을 잤고, 상쾌한 기분으로 일어난다.
 	<br><br>
 
-	You look at Robin. <<Hes>> staring at you. You don't know how long <<hes>> been awake.
+	당신은 로빈을 바라본다. 그는 당신을 응시하고 있다. 당신은 그가 얼마나 오래 전부터 일어나 있었는지 알 수 없다.
 	<br><br>
 
-	You try to climb out of bed, but a hand grabs you. Robin pulls you back to the bed with one hand and pins you down with the other. <<He>> strokes your cheek with a third hand.
+	당신은 침대에서 나오려 하지만, 손이 당신을 붙잡는다. 로빈은 한 손으로 당신을 침대로 끌어당긴 뒤, 다른 손으로는 당신을 움직이지 못하게 한다. 그의 세 번째 손이 당신의 뺨을 쓰다듬는다.
 	<br><br>
 
-	Except that's not a hand. Many long, translucent limbs are pinning you to the bed.
+	그러나, 그것은 손이 아니다. 길고 반투명하며 무수한 팔다리들이 당신을 침대에서 움직이지 못하도록 붙잡고 있다.
 	<br><br>
 
-	You see <<his>> skin ripple, like wax melting down a candle. <<His>> arms take on an unnatural, ivory pallor. <<endevent>><<generateWraith 1 true>><<initWraith "abomination">>
+	당신은 그의 피부가 녹아내리는 양초처럼 일렁이는 것을 본다. 그의 팔이 부자연스러운 상아색으로 창백해진다. <<endevent>><<generateWraith 1 true>><<initWraith "abomination">>
 	<br><br>
 
-	This isn't Robin. Ever since you fell asleep, it hasn't been Robin. <<trauma 18>><<gggtrauma>><<set $wraith.revealed to true>>
+	이건 로빈이 아니다. 당신이 잠들기 전부터, 이건 로빈이 아니었다. <<trauma 18>><<gggtrauma>><<set $wraith.revealed to true>>
 	<br><br>
 
-	"<span class="wraith">Close your eyes and sleep,</span>" <<he>> hisses. "<span class="wraith">Only then will we truly see.</span>" The translucent limbs converge on you.
+	"<span class="wraith">눈을 감고 잠들어,</span>" 그가 쉿쉿거린다. "<span class="wraith">그제야 우리는 진정으로 볼 수 있겠지.</span>" 반투명한 팔다리가 당신에게 몰려든다.
 	<br><br>
 
 	<<link [[다음|Wraith Mimic Fight]]>><</link>>
 <<elseif $robindebtwake is 1 and $robinbed is undefined>>
 	<<set $robindebtwake to 0>><<set $robindebtknown to 1>>
-	<<npc Robin>><<person1>>당신은 방문이 열리는 소리에 잠에서 깬다. 공포에 사로잡혀 몸이 굳어있자니, 문틈으로 로빈이 바라보고 있다. "들어가도 돼?" <<hePost "이">> 묻는다.
+	<<npc Robin>><<person1>>당신은 방문이 열리는 소리에 잠에서 깬다. 공포에 사로잡혀 몸이 굳어있자니, 문틈으로 로빈이 바라보고 있다. "들어가도 돼?" 그가 묻는다.
 	<br><br>
 	<<if $exposed gte 1>>
-		당신은 고개를 끄덕이며 이불을 끌어올려 <<lewdnessPost "을">> 감춘다.
+		당신은 고개를 끄덕이며 이불을 끌어올려 음란한 모습을 감춘다.
 	<<else>>
 		당신은 고개를 끄덕인다.
 	<</if>>
-	로빈은 발끝으로 조심조심 방 안으로 들어와 침대 말미에 앉는다. "나 때문에 깬 건 아니지?" <<hePost "이">> 말한다. "나 무서워. 베일리가 돈을 갚으라고 하는데, 너무 많은 금액인데다가 계속해서 값이 올라가." <<HePost "은">> 금방이라도 눈물을 쏟을 것 같다. 당신은 몸을 앞으로 기울여 안아준다. "뭘 어떻게 해야 할지 모르겠어."
+	로빈은 발끝으로 조심조심 방 안으로 들어와 침대 말미에 앉는다. "나 때문에 깬 건 아니지?" 그가 말한다. "나 무서워. 베일리가 돈을 갚으라고 하는데, 너무 많은 금액인데다가 계속해서 값이 올라가." 그는 금방이라도 눈물을 쏟을 것 같다. 당신은 몸을 앞으로 기울여 안아준다. "뭘 어떻게 해야 할지 모르겠어."
 	<br><br>
-	당신은 <<hePost "을">> 몇 분간 안아주었고, 잠시 뒤 <<hePost "은">> 당신으로부터 떨어진다. "미안. 그냥 말할 사람이 필요했어." <<HePost "은">> 소매로 눈물을 닦았다. "고마워." 로빈은 조용히 방을 걸어나가, 소리를 내지 않고 방문을 닫는다.
+	당신은 그를 몇 분간 안아주었고, 잠시 뒤 그는 당신으로부터 떨어진다. "미안. 그냥 말할 사람이 필요했어." 그는 소매로 눈물을 닦았다. "고마워." 로빈은 조용히 방을 걸어나가, 소리를 내지 않고 방문을 닫는다.
 	<<gstress>><<stress 6>>
 	<br><br>
 	<<endevent>>
 	<<link [[다음|Bed]]>><</link>>
 	<br>
 <<elseif _wraithEvent and _robin.lovewake is 1 and $robinromance is 1 and C.npc["Ivory Wraith"].lust gte 14 and $rng gte 61>>
-	<<set $wraith.mimic to "Robin">><<set $wraith.exit to "home">><<set $robinbed to "yours">>
-	<<npc Robin>><<person1>>You feel a presence. Robin wraps <<his>> arms around you.
+	<<set _robin.lovewake to 0>><<set $wraith.mimic to "Robin">><<set $wraith.exit to "home">><<set $robinbed to "yours">>
+	<<npc Robin>><<person1>>당신은 인기척을 느낀다. 로빈이 팔로 당신을 감싸 안는다.
 	<br><br>
 
 	<<link [[껴안는다|Wraith Mimic Robin Dominant]]>><</link>><<ltrauma>><<lstress>><<lrtrauma>>
@@ -855,12 +1004,12 @@
 	<<set _robin.lovewake to 0>><<set $robinbed to "yours">><<set $bedGuest to "Robin">>
 	<<npc Robin>><<person1>>익숙한 인기척이 느껴진다. 로빈이 팔로 당신을 감싼다.
 	<<if _robin.trauma gte 50>>
-		"미안," 당신의 귀에서 <<his_ yi>> 속삭이는 목소리가 들려온다. "계속 악몽을 꾸고 있어서..."
+		"미안," 당신의 귓가에서 그의 속삭임이 들려온다. "계속 악몽을 꾸고 있어서..."
 		<br><br>
 
-		당신이 <<him_ ul>> 당신 곁으로 꽉 끌어당겨 잡으니, <<his_ yi>> 떨림이 멈춘다.
+		당신이 그를 당신 곁으로 꽉 끌어당겨 잡자, 그의 떨림이 멈춘다.
 		<<if $trauma gte ($traumamax * 0.7)>>
-			<<he_ ga>> 포옹해주자 당신의 떨림도 멈춘다.
+			그가 포옹해주자 당신의 떨림도 멈춘다.
 		<</if>>
 	<</if>>
 	<br><br>
@@ -893,9 +1042,9 @@
 	<br>
 <<elseif $baileyrapewake is 1>>
 	<<set $baileyrapewake to 0>>
-	<<generate1>><<person1>>당신은 누군가 다가와서는 손을 뻗어 이불을 들추는 것을 보고는 잠에서 깬다. <<personPost "이다">>. "가만히 있어." <<hePost "이">> 말한다.
+	<<generate1>><<person1>>당신은 누군가 다가와 손을 뻗어 이불을 들추는 것을 느끼며 잠에서 깬다. 침입자다. "가만히 있어." 그가 말한다.
 	<<if $robinbed is "yours" or $kylarbed is 1>>
-		"친구를 깨우면 안되지." <<if $robinbed is "yours">>로빈은<<else>>카일라는<</if>> 아직 잠에 빠진 상태로, 당신 옆에 누워있다.
+		"친구를 깨우면 안되지." <<if $robinbed is "yours">>로빈은<<else>>카일라는<</if>> 아직 잠든 채로 당신 곁에 누워 있다.
 	<</if>>
 	"아늑하고 편안하게 잠자고 있는 모습이 너무 귀여워서 말이지. 참을 수가 없었어."
 	<br><br>
@@ -933,13 +1082,13 @@
 	당신이 긴장하자, 귓가에서 익숙한 목소리의 속삭임이 들려온다. 카일라다.
 	<br><br>
 
-	"놀랐어?" <<he_ ga>> 묻자, <<his_ yi>> 뜨거운 숨결이 당신의 목에 닿는다. "미안해. 그냥 나 자신을 어쩔 수가 없었어. 네가 필요해."
+	"놀랐어?" 그가 묻자, 그의 뜨거운 숨결이 당신의 목에 닿는다. "미안해. 그냥 나 자신을 어쩔 수가 없었어. 네가 필요해."
 	<br><br>
 
-	당신은 <<his_ yi>> <<npcGenitalsPost "가">> 당신의 엉덩이를 문지르는 것을 느낀다. <<his_ yi>> 호흡이 점점 더 격해지고 있다. <<He_ nun>> 당신을 감싸고 있던 팔을 느슨하게 풀고, 손으로 당신의 몸 전체를 만지기 시작한다. <<He_ nun>> <<if $worn.over_upper.name isnot "naked" or $worn.over_lower.name isnot "naked">>당신의 옷을 벗기고, 당신의 가까이에서 모든 부분을 느끼려 필사적으로 애쓴다.<<else>>당신을 가까이에 둔 채 당신의 모든 부분을 느끼려 애쓴다.<</if>>
+	당신은 그의 페니스가 당신의 엉덩이를 문지르는 것을 느낀다. 그의 호흡이 점점 더 격해지고 있다. 그는 당신을 감싸고 있던 팔을 느슨하게 풀고, 손으로 당신의 몸 전체를 만지기 시작한다. 그는 <<if $worn.over_upper.name isnot "naked" or $worn.over_lower.name isnot "naked">>당신의 옷을 벗기고, 당신의 가까이에서 모든 부분을 느끼려 필사적으로 애쓴다.<<else>>당신을 가까이에 둔 채 당신의 모든 부분을 느끼려 애쓴다.<</if>>
 	<br><br>
 
-	<<His_ yi>> 손이 뒤로 물러난다. <<his_ yi>> 몸이 다시 당신에게 닿기 전, 옷자락이 이리저리 스치는 소리가 들린다. "나를 기분 좋게 만들어주지 않을래?"
+	그의 손이 뒤로 물러난다. 그의 몸이 다시 당신에게 닿기 전, 옷자락이 이리저리 스치는 소리가 들린다. "나를 기분 좋게 만들어주지 않을래?"
 	<br><br>
 
 	<<link [[카일라가 계속하도록 허락한다|Bedroom Kylar Sneak Sex]]>><<set $sexstart to 1>><</link>><<gglove>><<npcincr Kylar love 2>>
@@ -962,6 +1111,23 @@
 	<br>
 	<<link [[화를 낸다|Bedroom Kylar Creep]]>><<set $phase to 3>><<npcincr Kylar rage 2>><<npcincr Kylar love -1>><<stress -6>><</link>><<lstress>><<llove>><<gksuspicion>>
 
+<<elseif $location is "home" and C.npc.Kylar.rage gte 50 and C.npc.Kylar.love gte 50 and $weekly.kylarCreep isnot 1 and $rng gte 91 and C.npc.Kylar.state is "active">>
+	<<set $weekly.kylarCreep to 1>>
+	<<npc "Kylar">><<person1>>
+
+	당신은 침대에서 일어나 방 안을 오가다가, 이전에는 없었던 무언가에 걸려 예상치 못하게 넘어진다.
+	<br><br>
+
+	당신이 정신을 차리고 아래를 내려보자, 카일라가 바닥에 웅크리고 있는 것이 보인다. 그는 깊이 잠든 채, 가볍게 코를 골고 있다. 당신은 그가 얼마나 오랫동안 그곳에 있었는지 알 수 없다. <<stress 2>><<gstress>>
+	<br><br>
+
+	<<link [[그를 부드럽게 흔들어 깨운다|Bedroom Kylar Wake]]>><<set $phase to 1>><</link>>
+	<br>
+	<<link [[불을 켠다|Bedroom Kylar Wake]]>><<set $phase to 2>><</link>>
+	<br>
+	<<if $submissive lte 500>><<link [[그를 걷어찬다|Bedroom Kylar Wake]]>><<set $phase to 3>><</link>><</if>>
+	<br>
+
 <<else>>
 	<<if $nightmares is 1 and $controlled is 0>>
 		<<if _sleepinterrupt>>
@@ -969,23 +1135,13 @@
 				당신은 다시 잠에 들려 하지만, 베일리가 노크를 하며 일어나라고 한다.
 			<<else>>
 				<<wakingEffects $sleepHoursTotal>>
-				<<if _wakingEffect isnot undefined>>
-					당신은 조금 전에
-				<<else>>
-					당신은 당신이
-				<</if>>
-				뭔가 <<if ["haunt", "despair"].includes($wraith.state) and $rng lte 25>>창백하고<<else>>어둡고<</if>> 끔찍한 것에 뒤를 쫓기는 꿈을 꾼다. 악몽은 문을 두들기는 소리에 끝난다. 베일리가 학교에 가라고 당신을 깨우고 있다.
+				<<nightmareWake>> 악몽은 문을 두들기는 소리에 끝난다. 베일리가 학교에 가라고 당신을 깨우고 있다.
 			<</if>>
 			<br><br>
 			<<set $daily.motherWake to 1>>
 		<<else>>
 			<<wakingEffects $sleepHoursTotal>>
-			<<if _wakingEffect isnot undefined>>
-				당신은 조금 전에
-			<<else>>
-				당신은 당신이
-			<</if>>
-			뭔가 <<if ["haunt", "despair"].includes($wraith.state) and $rng lte 25>>창백하고<<else>>어둡고<</if>> 끔찍한 것에 뒤를 쫓기는 꿈을 꾸었다. 금방 자세한 내용은 까먹어 버렸지만, 흐릿한 공포가 남아있다.
+			<<nightmareWake>> 자세한 내용은 금세 까먹어 버렸지만, 흐릿한 공포가 남아있다.
 			<br><br>
 		<</if>>
 	<<else>>
@@ -1012,16 +1168,8 @@
 				<br><br>
 				당신은 깊이 잠들었으나, 지금은 약간 몸이 좋지 않은 기분이 든다.
 				<br><br>
-			<<elseif $specialClothesEffects.bimboTotal gte random(100,1000) or $arousal gte ($arousalmax / 10) * 9>>
-				당신은 자는 동안 <<if _wakingEffect>>꿨던<<else>>계속 해서<</if>> 추잡한 꿈 때문에 괴로워한다.
-				<<arousal `$specialClothesEffects.bimboTotal / 10 * $sleepHoursTotal`>>
-				<<arousal `100 * $sleepHoursTotal`>>
-				<<if $arousal gte $arousalmax>>
-					그러한 꿈들로 인해 한계까지 내몰린다.
-					<<orgasm>><<set _orgasm to true>>
-				<<else>>
-					<br><br>
-				<</if>>
+			<<elseif ($specialClothesEffects.bimbo.total gte random(100,1000) || $specialClothesEffects.pimp.total gte random(100,1000)) or $arousal gte ($arousalmax / 10) * 9>>
+				<<wetDream>>
 			<<elseif !_wakingEffect>>
 				당신은 편안히 잠을 잤고, 상쾌한 기분으로 일어난다.
 				<br><br>
@@ -1030,38 +1178,42 @@
 			<</if>>
 		<</if>>
 	<</if>>
+	<!-- writers please do something for when kylar goes to your bed and finds that it is already occupied by robin. this will be here until then -->
+	<<if $kylarbed is 1 and $robinbed is "yours">>
+		<<unset $robinbed>>
+	<</if>>
 	<<if $robinbed is "yours">>
 		<<unset $robinbed>>
 		<<npc Robin>><<person1>>
 		<<if _eggLayingWake>>
 			<<set $robinbed to "yours">>
-			You awaken a bit earlier than you expected, feeling disoriented. There's a building pressure in your abdomen. You <<if $transformationParts.bird.wings isnot "hidden">>ruffle your wings as you <</if>>feel a wild, bestial instinct take over.
+			당신은 예상보다 조금 일찍 잠에서 깨어났고, 방향감각을 잃어버렸다고 느낀다. 당신은 <<if $transformationParts.bird.wings isnot "hidden">>날개를 파르르 떨며, <</if>>야생적이고 짐승 같은 본능이 솟구치는 것을 느낀다.
 			<br><br>
 
-			You throw off your blankets and get on your hands and feet<<if $transformationParts.bird.tail isnot "hidden">>, squatting and lifting your feathered tail<</if>>. You let out a soft chirp at just how right it feels to be posed like this, pushing out an... egg. You're laying an egg, in your bed. And Robin is <span class="red">right there</span>.
+			당신은 이불을 걷어내고, <<if $transformationParts.bird.tail isnot "hidden">>쪼그려 앉아 깃털 달린 꼬리를 들어올린 채 <</if>>손발을 땅에 짚는다. 이렇게 자세를 취한 채 알을 낳는 건 정말로 기분 좋은 일이다. 당신은 나지막이 짹짹거린다. 당신은 침대에서 알을 낳고 있다. 그리고 로빈이 <span class="red">바로 옆에 있다</span>.
 			<br><br>
 
 			<<link [[다음|Robin Bed Egg Laying]]>><</link>>
 			<br>
 			<<exitAll>>
 		<<elseif _wakingEffect is "dryheaving">>
-			"괜찮아? 내가 도와줄게," 로빈이 말하며, 당신의 등을 쓸어준다. <<He_ nun>> 떠나기 전에 당신이 괜찮은지 본다.
+			"괜찮아? 내가 도와줄게," 로빈이 말하며, 당신의 등을 쓸어준다. 그는 떠나기 전에 당신이 괜찮은지 본다.
 		<<elseif _orgasm is true>>
 			<<if $exposed gte 2>>
-				로빈이 당신을 껴안는다. "나갈 테니까 옷-" <<hePost "은">> 당신과 <<his_ yi>> 몸이 축축한 걸 느끼고는, 말을 멈춘다. 얼굴을 붉히며, <<hePost "은">> 당신 둘을 위해 티슈를 뽑는다.
+				로빈이 당신을 껴안는다. "나갈 테니까 옷-" 그는 당신과 그의 몸이 축축한 걸 느끼고는, 말을 멈춘다. 그는 얼굴을 붉히며 두 사람 모두를 위해 티슈를 뽑는다.
 				<<if $rng gte 71>>
-					"괘-괜찮아." <<hePost "이">> 말한다.
+					"괘-괜찮아." 그가 한다.
 				<<elseif $rng gte 31>>
-					"이건 내 잘못일 수도 있어." <<hePost "이">> 말한다.
+					"이건 내 잘못일 수도 있어." 그가 말한다.
 				<<else>>
-					"모-목욕을 해야겠네." <<hePost "이">> 말한다.
+					"모-목욕을 해야겠네." 그가 말한다.
 				<</if>>
 			<<else>>
-				로빈은 당신의 사타구니에 축축하게 난 자국을 보고는 말을 멈춘다. 그러고는 얼굴을 붉히더니, 티슈를 건네준다.
-				"괘-괜찮아." <<hePost "이">> 말한다.
+				로빈이 당신을 껴안는다. "나갈 테니까 옷-." 로빈은 당신의 사타구니에 축축하게 난 자국을 보고는 말을 멈춘다. 그러고는 얼굴을 붉히더니, 티슈를 건네준다.
+				"괘-괜찮아." 그가 말한다.
 			<</if>>
 		<<else>>
-			로빈이 당신을 껴안는다. "나갈 테니까 옷 갈아입어." <<hePost "이">> 말한다.
+			로빈이 당신을 껴안는다. "나갈 테니까 옷 갈아입어." 그가 말한다.
 		<</if>>
 		<<if Time.hour is 6>><<run setRobinLocationOverride("orphanage", 6)>><</if>>
 		<<endevent>>
@@ -1073,19 +1225,23 @@
 			<<unset $kylarSleepEvent>>
 			<<unset $kylarbed>>
 
-			당신은 머리카락을 쓰다듬는 섬세한 손길에 잠에서 깨어난다. 몸을 돌리자, 당신은 미소 지으며 인사하는 카일라를 마주한다. "네가 나를 머물게 해 줘서 정말 기뻐," <<he_ ga>> 말한다.
+			당신은 머리카락을 쓰다듬는 섬세한 손길에 잠에서 깨어난다. 몸을 돌리자, 당신은 미소 지으며 인사하는 카일라를 마주한다. "네가 나를 머물게 해 줘서 정말 기뻐," 그가 말한다.
 			<br><br>
 
-			당신과 카일라는 잠시 동안 서로를 껴안는다. 결국, <<he_ nun>> 슬픈 표정으로 당신에게서 멀어진다.
+			당신과 카일라는 잠시 동안 서로를 껴안는다. 결국, 그는 슬픈 표정으로 당신에게서 멀어진다.
 			<br><br>
 
-			"정말로 가야겠어," <<he_ ga>> 말한다. 당신이 <<his_ yi>> 얼굴에서 뻗친 머리카락을 쓸어내리자, <<he_ nun>> 다시 미소 짓는다. <<He_ nun>> 당신의 손을 잡아 자신의 얼굴에 잠깐 대고 있다가, 이내 당신 곁을 떠난다.
+			"정말로 가야겠어," 그가 말한다. 당신이 그의 얼굴에서 뻗친 머리카락을 쓸어내리자, 그는 다시 미소 짓는다. 그는 당신의 손을 잡아 자신의 얼굴에 잠깐 대고 있다가, 이내 당신 곁을 떠난다.
 			<br><br>
 
-			당신은 카일라가 왔던 길로 나가는 것을 지켜보고, <<he_ ga>> 떠나면서 낸 바스락거리는 소리가 잠잠해질 때까지 기다리다가 침대로 돌아간다. 당신은 <<he_ wa>> 함께 보낸 근사한 밤에 대해 생각한다.
+			당신은 카일라가 왔던 길로 나가는 것을 지켜보고, 그가 떠나면서 낸 바스락거리는 소리가 잠잠해질 때까지 기다리다가 침대로 돌아간다. 당신은 그와 함께 보낸 근사한 밤에 대해 생각한다.
 			<br><br>
-
+			<<endevent>>
 		<<elseif _wakingEffect is "dryheaving">>
+			당신이 쓰레기통에 대고 헛구역질하는 내내, 카일라는 당신의 등을 쓸어 준다. 그는 한동안 당신을 걱정하며 야단을 떨지만, 당신은 결국 기분이 나아졌다고 그를 설득하는 것에 성공한다.
+			<br><br>
+
+			<<link [[다음|Kylar Orphanage Cuddle]]>><<set $kylarbed to 0>><</link>>
 
 		<<elseif $rng gte 81 and $robinmissing is 0 and C.npc.Robin.init is 1>>
 			당신은 방문이 삐걱이며 열리는 소리에 잠에서 깬다. 누군가가 숨을 헉 들이쉬더니, 허둥지둥 문을 닫는 소리가 들린다.
@@ -1094,7 +1250,7 @@
 			"누구였지...?" 당신은 하품하며, 천천히 카일라에게 얽혀 있는 몸을 풀어낸다. <<if $robinromance is 1>><<lllove "Robin">><<npcincr Robin love -5>><</if>>
 			<br><br>
 
-			"몰라," 카일라가 <<his_ yi>> 눈을 비비며 말한다. "아마 중요하지 않은 사람이겠지."
+			"모르겠어," 카일라가 눈을 비비며 말한다. "아마 중요하지 않은 누군가겠지."
 			<br><br>
 
 			<<link [[다음|Kylar Orphanage Cuddle]]>><<set $kylarbed to 0>><</link>>
@@ -1104,10 +1260,10 @@
 			<br><br>
 
 			<<generatey2>><<person2>>
-			<<person_ ga>> 문간에 서서, 당신과 카일라를 쳐다본다. "너 <<nnpc_him_ gwa "Kylar">> 잔 거야?!" <<he_ ga>> 웃는다. "그게 네가 <<nnpc_him_ ul "Kylar">> 여기로 부른 이유야? 너 그런 괴짜를 좋아하는구나, 응?"
+			유연한 소년이 문간에 서서, 당신과 카일라를 쳐다본다. "너 그와 잔 거야?!" 그가 웃는다. "그게 네가 그를 여기로 부른 이유야? 너 그런 괴짜를 좋아하는구나, 응?"
 			<br><br>
 
-			분노가 카일라의 얼굴에 반짝 드러나지만, <<nnpc_he_ nun "Kylar">> 아무것도 말하지 않는다.
+			분노가 카일라의 얼굴에 반짝 드러나지만, 그는 아무것도 말하지 않는다.
 			<br><br>
 
 			<<link [[카일라를 지킨다|Kylar Orphanage Sleep Defend]]>><<set $kylarbed to 0>><<status -10>><<npcincr Kylar love 1>><</link>><<lcool>><<glove>>
@@ -1119,13 +1275,13 @@
 			<</if>>
 
 		<<else>>
-			당신은 <<if $submissive gte 1150 or $daily.kylar.sleepRape is true>>여전히 카일라가 당신을 붙잡고 있는 채로<<else>>여전히 카일라를 붙잡고 있는 채로<</if>>, 잠에서 깨어난다. 카일라는 느릿느릿하게 눈을 깜빡이고는, 몸을 뒤척인다.
+			당신은 <<if $submissive gte 1150 or $daily.kylar.sleepRape is true>>여전히 카일라에게 안겨 있는 채로<<else>>여전히 카일라를 안고 있는 채로<</if>>, 잠에서 깨어난다. 카일라는 느릿느릿하게 눈을 깜빡이고는, 몸을 뒤척인다.
 			<<if _orgasm is true>>
-				<<He_ ga>> 잠시 킁킁거리더니, 당신을 쳐다본다. "너도 우리들의 꿈을 꾼 거야?" <<he_ ga>> 묻는다.
+				그는 잠시 킁킁거리더니, 당신을 쳐다본다. "너도 우리들의 꿈을 꾼 거야?" 그가 묻는다.
 			<</if>>
 			<br><br>
 
-			"난 이제 가봐야겠어," <<he_ ga>> 말한다. 하지만, <<he_ nun>> 일어나려고 하지 않는다.
+			"난 이제 가봐야겠어," 그가 말한다. 하지만, 그는 일어나려고 하지 않는다.
 			<br><br>
 
 			<<link [[다음|Kylar Orphanage Cuddle]]>><<set $kylarbed to 0>><</link>>
@@ -1164,8 +1320,8 @@
 
 <<if $baileyrapewake>>
 	<<set $baileyrapewake to 0>>
-	<<generate1>><<person1>>당신은 누군가 다가와서는 손을 뻗어 이불을 들추는 것을 보고는 잠에서 깬다. <<personPost "이다">>. "가만히 있어." <<hePost "이">> 말한다.
-	"우린 네 친구를 깨우고 싶진 않거든." 로빈은 아직 잠에 빠진 상태로, 당신 옆에 누워있다.
+	<<generate1>><<person1>>당신은 누군가 다가와 손을 뻗어 이불을 들추는 것을 느끼며 잠에서 깬다. 침입자다. "가만히 있어." 그가 말한다.
+	"우린 네 친구를 깨우고 싶진 않거든." 로빈은 아직 잠에 빠진 상태로, 당신 옆에 누워 있다.
 	"아늑하고 편안하게 잠자고 있는 모습이 너무 귀여워서 말이지. 참을 수가 없었어."
 	<br><br>
 
@@ -1175,7 +1331,7 @@
 	<<link [[다음|Sleep Rape]]>><<set $molestationstart to 1>><</link>>
 	<br>
 <<elseif $location is "home" and $wraith and $wraith.nightmare is 2 and Time.isBloodMoon()>>
-	당신은 아름다운 형체가, 하얀 망토를 입고, 붉은 달 아래 서 있는 꿈을 꾼다. 그것은 어서 오라는 몸짓으로 팔을 당신에게 벌리고 있다. 당신이 가까이 가자 당신은 그것의 눈빛이 당신의 정신에 구멍을 뚫는 것을 느낄 수 있다.
+	당신은 하얀 망토를 입은 아름다운 형체가 붉은 달 아래 서 있는 꿈을 꾼다. 그것은 어서 오라는 몸짓으로 팔을 당신에게 벌리고 있다. 당신이 가까이 가자 당신은 그것의 눈빛이 당신의 정신에 구멍을 뚫는 것을 느낄 수 있다.
 	<br><br>
 	그것은 전부 안쪽으로 구부러진 나무들로 둘러싸여, 호수 위에 떠 있다. 모든 것이 당신 주위로 움직이며, 당신은 당신이 커다란 유적 위에 떠 있는 것을 알아챈다. 당신은 숨을 쉴 수가 없다.
 	<br><br>
@@ -1196,7 +1352,7 @@
 	이제 몸을 일으키는가 아니면 던지겠는가?
 	<br><br>
 
-	<<link [[몸을 일으켜 조사한다|Kylar Christmas]]>><<unset $robinbed>><<set $christmas_kylar to 3>><<towelup>><</link>>
+	<<link [[몸을 일으켜 조사한다|Kylar Christmas]]>><<set $christmas_kylar to 3>><<towelup>><</link>>
 	<br>
 	<<link [[몸을 던져 다시 잠든다|Robin Sleep]]>><<endevent>><</link>>
 	<br>
@@ -1207,23 +1363,13 @@
 				당신은 다시 잠에 들려 하지만, 베일리가 노크를 하며 일어나라고 한다.
 			<<else>>
 				<<wakingEffects $sleepHoursTotal>>
-				<<if _wakingEffect isnot undefined>>
-					당신은 조금 전에
-				<<else>>
-					당신은 당신이
-				<</if>>
-				뭔가 <<if ["haunt", "despair"].includes($wraith.state) and $rng lte 25>>창백하고<<else>>어둡고<</if>> 끔찍한 것에 뒤를 쫓기는 꿈을 꾼다. 악몽은 문을 두들기는 소리에 끝난다. 베일리가 학교에 가라고 당신을 깨우고 있다.
+				<<nightmareWake>> 악몽은 문을 두들기는 소리에 끝난다. 베일리가 학교에 가라고 당신을 깨우고 있다.
 			<</if>>
 			<br><br>
 			<<set $daily.motherWake to 1>>
 		<<else>>
 			<<wakingEffects $sleepHoursTotal>>
-			<<if _wakingEffect isnot undefined>>
-				당신은 조금 전에
-			<<else>>
-				당신은 당신이
-			<</if>>
-			뭔가 <<if ["haunt", "despair"].includes($wraith.state) and $rng lte 25>>창백하고<<else>>어둡고<</if>> 끔찍한 것에 뒤를 쫓기는 꿈을 꾸었다. 금방 자세한 내용은 까먹어 버렸지만, 흐릿한 공포가 남아있다.
+			<<nightmareWake>> 자세한 내용은 금세 까먹어 버렸지만, 흐릿한 공포가 남아있다.
 			<br><br>
 		<</if>>
 	<<else>>
@@ -1250,16 +1396,8 @@
 				<br><br>
 				당신은 깊이 잠들었으나, 지금은 약간 몸이 좋지 않은 기분이 든다.
 				<br><br>
-			<<elseif $specialClothesEffects.bimboTotal gte random(100,1000) or $arousal gte ($arousalmax / 10) * 9>>
-				당신은 자는 동안 <<if _wakingEffect>>꿨던<<else>>계속 해서<</if>> 추잡한 꿈 때문에 괴로워한다.
-				<<arousal `$specialClothesEffects.bimboTotal / 10 * $sleepHoursTotal`>>
-				<<arousal `100 * $sleepHoursTotal`>>
-				<<if $arousal gte $arousalmax>>
-					그러한 꿈들로 인해 한계까지 내몰린다.
-					<<orgasm>><<set _orgasm to true>>
-				<<else>>
-					<br><br>
-				<</if>>
+			<<elseif ($specialClothesEffects.bimbo.total gte random(100,1000) || $specialClothesEffects.pimp.total gte random(100,1000)) or $arousal gte ($arousalmax / 10) * 9>>
+				<<wetDream>>
 			<<elseif !_wakingEffect>>
 				당신은 편안히 잠을 잔다.
 				<br><br>
@@ -1277,33 +1415,33 @@
 				<<set _robinAwakeChance to ((Time.hour * 60) - 420) * 5/3>> <!-- 0% at 7, then increases to 100% by 8 -->
 				<<if _eggLayingWake>>
 					<<set $robinbed to "theirs">>
-					You awaken a bit earlier than you expected, feeling disoriented. There's a building pressure in your abdomen. You <<if $transformationParts.bird.wings isnot "hidden">>ruffle your wings as you <</if>>feel a wild, bestial instinct take over.
+					당신은 예상보다 조금 일찍 잠에서 깨어났고, 방향감각을 잃어버렸다고 느낀다. 당신은 <<if $transformationParts.bird.wings isnot "hidden">>날개를 파르르 떨며, <</if>>야생적이고 짐승 같은 본능이 솟구치는 것을 느낀다.
 					<br><br>
 
-					You throw off your blankets and get on your hands and feet<<if $transformationParts.bird.tail isnot "hidden">>, squatting and lifting your feathered tail<</if>>. You let out a soft chirp at just how right it feels to be posed like this, pushing out an... egg. You're laying an egg, in Robin's bed. And Robin is <span class="red">right there</span>.
+					당신은 이불을 걷어내고, <<if $transformationParts.bird.tail isnot "hidden">>쪼그려 앉아 깃털 달린 꼬리를 들어올린 채 <</if>>손발을 땅에 짚는다. 이렇게 자세를 취한 채 알을 낳는 건 정말로 기분 좋은 일이다. 당신은 나지막이 짹짹거린다. 당신은 침대에서 알을 낳고 있다. 그리고 로빈이 <span class="red">바로 옆에 있다</span>.
 					<br><br>
 
 					<<link [[다음|Robin Bed Egg Laying]]>><</link>>
 					<br>
 					<<exitAll>>
 				<<elseif _wakingEffect is "dryheaving">>
-					"괜찮아? 내가 도와줄게," 로빈이 당신을 안심시키며 말한다. <<He_ nun>> <<himself_ yi>> 몸을 일으키기도 전에 당신이 괜찮은지 확인한다.
+					"괜찮아? 내가 도와줄게," 로빈이 당신을 안심시키며 말한다. 그는 자신이 몸을 일으키기도 전에 당신이 괜찮은지 확인한다.
 					<<set $phase to 1>>
 				<<elseif _orgasm is true and $rng gt _robinAwakeChance>>
 					<<set $phase to 1>>
 					<<if $exposed gte 2>>
-						로빈이 당신을 껴안는다. "이제 돌-" <<he_ ga>> 당신과 <<his_ yi>> 몸이 축축한 것을 알아채며, 말을 멈춘다. 얼굴을 붉히며, <<he_ nun>> 둘 모두를 위해 티슈를 가져온다.
-						"<<print ["괘-괜찮아", "이건 내 잘못일 수도 있어", "모-목욕을 해야겠네"].random()>>," <<hePost "이">> 말한다.
+						로빈이 당신을 껴안는다. "이제 돌-" 그는 당신과 그의 몸이 축축한 것을 알아차리고는 말을 멈춘다. 얼굴을 붉히며, 그는 두 사람 모두를 위해 티슈를 가져온다.
+						"<<print ["괘-괜찮아", "이건 내 잘못일 수도 있어", "모-목욕을 해야겠네"].random()>>," 그가 말한다.
 					<<else>>
-						로빈이 당신을 껴안는다. "이제 돌아가서-" <<he_ ga>> 당신의 사타구니가 축축히 젖은 걸 알아채며, 말을 멈춘다. 얼굴을 붉히며, <<he_ nun>> 당신에게 티슈를 건넨다.
-						"괘-괜찮아." <<hePost "이">> 말한다.
+						로빈이 당신을 껴안는다. "이제 돌아가서-" 그는 당신의 사타구니가 축축히 젖은 걸 알아채며, 말을 멈춘다. 그는 얼굴을 붉히며 당신에게 티슈를 건넨다.
+						"괘-괜찮아." 그가 말한다.
 					<</if>>
 				<<else>>
 					<<if $rng lte _robinAwakeChance>>
 						"일어날 시간이야, 이 잠꾸러기." 로빈이 침대 가장자리에 앉아 당신에게 미소를 보낸다.
 						<<set $phase to 2>>
 					<<elseif $rng lte _robinSleepyChance>>
-						로빈이 당신을 껴안는다. "이제 돌아가서 옷 갈아입어야지," <<he_ ga>> 말한다.
+						로빈이 당신을 껴안는다. "이제 돌아가서 옷 갈아입어야지," 그가 말한다.
 						<<set $phase to 1>>
 					<<else>>
 						로빈이 잠결에 당신을 껴안는다.
@@ -1335,7 +1473,7 @@
 :: Bath Scream
 <<effects>><<set $location to "home">><<set $outside to 0>>
 <<endevent>><<npc Bailey>><<person1>>
-당신은 비명을 지른다. 셋은 움찔하더니 앞다투어 문손잡이를 잡는다. 그러고는 문을 활짝 열어둔 채로 바깥 복도로 도망간다. 육중한 발걸음이 점차 가까워지더니, 베일리가 들어온다. <<hisPost "의">> 눈이 안을 훑고는 당신에게서 멈춘다. "거미라도 본 거냐?" <<hePost "이">> 비웃는다. 베일리는 가까이 다가와서 손등으로 당신을 후려친다. "다신 날 귀찮게 하지 마." <<HePost "은">> 쾅하고 문을 닫으며 방에서 나간다.
+당신은 비명을 지른다. 세 사람은 움찔하더니 앞다투어 문손잡이를 잡는다. 그러고는 문을 활짝 열어둔 채로 바깥 복도로 도망간다. 묵직한 발걸음이 점차 가까워지더니, 베일리가 들어온다. 그의 눈이 안을 훑고는 당신에게서 멈춘다. "거미라도 본 거냐?" 그가 비웃는다. 베일리는 가까이 다가와서 손등으로 당신을 후려친다. "다신 날 귀찮게 하지 마." 그는 문을 쾅 닫으며 방에서 나간다.
 <<gpain>><<gtrauma>><<gstress>><<pain 20>><<trauma 6>><<stress 6>>
 <br><br>
 <<tearful>> 당신은 욕조에서 나온다.
@@ -1350,18 +1488,18 @@
 <<elseif $speech_attitude is "bratty">>
 	"나가." 당신이 말한다. "변태들."
 <<else>>
-	"제발 나가줘." 당신이 말한다.
+	"나가 줘." 당신이 말한다.
 <</if>>
 <br><br>
 <<if $rng gte 81>>
-	그들은 잠시 망설이다가, <<person1>><<personPost "이">> 달려나와 당신의 입을 움켜쥐고는 당신을 욕탕 가장자리로 끌고 온다. "왜 그래야 하지?" <<hePost "이">> 당신의 귀에 속삭인다. "이렇게 재미 볼 기회가 있는데 말이야?"
+	그들은 잠시 망설이고, 소년 중 하나가 달려나와 당신의 입을 움켜쥐고는 당신을 욕탕 가장자리로 끌고 온다. "왜 그래야 하지?" 그가 당신의 귀에 속삭인다. "이렇게 재미 볼 기회가 있는데 말이야?"
 	<br><br>
 	<<link [[다음|Bath Molestation]]>><<set $molestationstart to 1>><</link>>
 	<<exit>>
 <</if>>
 
-그들은 잠시 망설이다가, <<person3>><<personPost "이">> 문을 열고 나간다. 나머지도 그 뒤를 따르다가, <<person1>><<personPost "은">> 잠시 발걸음을 멈추고 당신에게 음흉한 시선을 던진다.
-<<if $player.penisExist and ($player.penissize lte 1 or $player.penissize is 4) and random(0,9) gte 6>>
+그들은 잠시 망설이고, 소년 중 하나가 먼저 문을 열고 나간다. 나머지도 그 뒤를 따르지만 통통한 소년은 잠시 발걸음을 멈추고 당신에게 음흉한 시선을 던진다.
+<<if !playerChastity("hidden") and $player.penisExist and ($player.penissize lte 1 or $player.penissize is 4) and random(0,9) gte 6>>
 	<<telltalepenissize>>
 <</if>>
 <br><br>
@@ -1407,7 +1545,7 @@
 	<<endcombat>>
 	<<link [[다음|Bath Finish]]>><</link>>
 <<elseif $enemyhealth lte 0>>
-	<<person1>><<personPost "이">> 상처를 매만지며 당신으로부터 뒷걸음질을 친다. 다른 이들도 망설이며 뒤로 물러난다. <<HePost "은">> 뭔가 말하려는 듯이 입을 열었다가, 몸을 돌려 나간다. 다른 이들도 그 뒤를 따른다.
+	소년 중 하나가 상처를 매만지며 당신으로부터 뒷걸음질친다. 다른 이들도 망설이며 뒤로 물러난다. 그는 뭔가 말하려는 듯이 입을 열었다가, 몸을 돌려 나간다. 다른 이들도 그 뒤를 따른다.
 	<br><br>
 	<<tearful>> 당신은 욕조에서 나온다.
 	<br><br>
@@ -1416,7 +1554,7 @@
 <<else>>
 	<<set $rescued += 1>>/*Unnecessary if rescue is impossible*/
 	<<endevent>><<npc Bailey>><<person1>>
-	당신의 비명소리에 보답하여 육중한 발걸음이 점차 가까워진다. 셋은 움찔하더니 앞다투어 문손잡이를 잡는다. 그러고는 문을 활짝 열어둔 채로 바깥 복도로 도망간다. 베일리가 들어온다. <<hisPost "의">> 눈이 안을 훑고는 당신에게서 멈춘다. "거미라도 본 거냐?" <<hePost "이">> 비웃는다. 베일리는 가까이 다가와서 손등으로 당신을 후려친다. "다신 날 귀찮게 하지 마." <<HePost "은">> 쾅하고 문을 닫으며 방에서 나간다.
+	당신의 비명에 답하듯, 묵직한 발걸음이 점차 가까워진다. 세 사람은 움찔하더니 앞다투어 문손잡이를 잡는다. 그러고는 문을 활짝 열어둔 채로 바깥 복도로 도망간다. 베일리가 들어온다. 그의 눈이 안을 훑고는 당신에게서 멈춘다. "거미라도 본 거냐?" 그가 비웃는다. 베일리는 가까이 다가와서 손등으로 당신을 후려친다. "다신 날 귀찮게 하지 마." 그는 문을 쾅 닫으며 방에서 나간다.
 	<<gpain>><<gtrauma>><<gstress>><<pain 20>><<trauma 6>><<stress 6>>
 	<br><br>
 	<<tearful>> 당신은 욕조에서 나온다.
@@ -1436,7 +1574,7 @@
 	<<maninit>>
 	<<set $enemytrust += 100>>
 	<<enable_rescue>>
-	당신은 일어난다. 그들의 눈이 커진다. 당신은 <<person2>><<personPost>>의 목덜미를 잡아채고는 <<hePost "을">> 가까이 잡아당긴다.<<person1>>
+	당신은 일어난다. 그들의 눈이 커진다. 당신은 그들 중 하나의 목덜미를 잡아채고는 그를 가까이 잡아당긴다.<<person1>>
 	<<promiscuity5>>
 <</if>>
 
@@ -1471,7 +1609,7 @@
 	<<link [[다음|Bath Finish]]>><</link>>
 <<elseif $enemyhealth lte 0>>
 
-	<<person1>><<personPost "이">> 상처를 매만지며 당신으로부터 뒷걸음질을 친다. 다른 이들도 망설이며 뒤로 물러난다. <<HePost "은">> 뭔가 말하려는 듯이 입을 열었다가, 몸을 돌려 나간다. 다른 이들도 그 뒤를 따른다.
+	소년 중 하나가 상처를 매만지며 당신으로부터 뒷걸음질친다. 다른 이들도 망설이며 뒤로 물러난다. 그는 뭔가 말하려는 듯이 입을 열었다가, 몸을 돌려 나간다. 다른 이들도 그 뒤를 따른다.
 	<br><br>
 
 	<<tearful>> 당신은 욕조에서 나온다.
@@ -1484,7 +1622,7 @@
 	<<set $rescued += 1>>
 
 	<<endevent>><<npc Bailey>><<person1>>
-	당신의 비명소리에 보답하여 육중한 발걸음이 점차 가까워진다. 셋은 움찔하더니 앞다투어 문손잡이를 잡는다. 그러고는 문을 활짝 열어둔 채로 바깥 복도로 도망간다. 베일리가 들어온다. <<hisPost "의">> 눈이 안을 훑고는 당신에게서 멈춘다. "거미라도 본 거냐?" <<hePost "이">> 비웃는다. 베일리는 가까이 다가와서 손등으로 당신을 후려친다. "다신 날 귀찮게 하지 마." <<HePost "은">> 쾅하고 문을 닫으며 방에서 나간다.
+	당신의 비명에 답하듯, 묵직한 발걸음이 점차 가까워진다. 세 사람은 움찔하더니 앞다투어 문손잡이를 잡는다. 그러고는 문을 활짝 열어둔 채로 바깥 복도로 도망간다. 베일리가 들어온다. 그의 눈이 안을 훑고는 당신에게서 멈춘다. "거미라도 본 거냐?" 그가 비웃는다. 베일리는 가까이 다가와서 손등으로 당신을 후려친다. "다신 날 귀찮게 하지 마." 그는 문을 쾅 닫으며 방에서 나간다.
 	<<gpain>><<gtrauma>><<gstress>><<pain 20>><<trauma 6>><<stress 6>>
 	<br><br>
 
@@ -1507,11 +1645,11 @@
 <</if>>
 
 :: Bath Watch
-<<effects>><<set $location to "home">><<set $outside to 0>>
-이미 깨끗해진 상태지만, 몸을 내보일 좋은 기회를 놓칠 수는 없는 법이다. <<flaunting>> 당신은 무릎으로 일어서면서 스펀지를 집어든다. 관중에게서 시선을 돌리며, 당신은 스펀지를 <<breastsPost>> 위로 올렸다가, 배를 지나쳐 <<genitalsPost>> 쪽으로 내린다. 세 명은 얼어붙은 채로 그 광경을 지켜본다.
+<<effects>><<set $location to "home">><<set $outside to 0>><<wearProp "sponge">>
+이미 깨끗해진 상태지만, 몸을 내보일 좋은 기회를 놓칠 수는 없는 법이다. <<flaunting>> 당신은 무릎으로 일어서면서 스펀지를 집어든다. 관중에게서 시선을 돌리며, 당신은 스펀지를 가슴 위로 올렸다가, 배를 지나쳐 질 쪽으로 내린다. 세 명은 얼어붙은 채로 그 광경을 지켜본다.
 <<exhibitionism5>>
 
-당신은 그들에게서 등을 돌린채 <<bottomPost "을">> 내민다. 등으로 손을 뻗을 때, <<person1>><<personPost "이">> 스펀지를 뺏어간다. "내가 도와줄게." <<hePost "이">> 말한다. 다른 두 명도 스펀지를 찾아온다. 당신은 몸 구석구석을 내보이며, 그들이 몸을 닦아주도록 한다. 세 명의 손은 멈추는 일이 없다. 그들은 부끄러움도 없이 당신의 몸을 더듬고 애무한다.
+당신은 그들에게서 등을 돌린 채로 가슴을 내민다. 등으로 손을 뻗을 때, 마른 소년이 스펀지를 뺏어간다. "내가 도와줄게." 그가 말한다. 다른 두 명도 스펀지를 찾아온다. 당신은 몸 구석구석을 내보이며, 그들이 몸을 닦아주도록 한다. 세 명의 손은 멈추는 일이 없다. 그들은 부끄러움도 없이 당신의 몸을 더듬고 애무한다.
 <br><br>
 
 물이 차가워져간다. "아주 깨끗해졌네." 당신이 말한다. "도와줘서 고마워." 셋은 잠시 머뭇거리다가, 당신을 두고 나간다.
@@ -1519,90 +1657,89 @@
 
 <<tearful>> 당신은 욕조에서 나온다.
 <br><br>
-<<endevent>>
 
-<<link [[다음|Bath Finish]]>><</link>>
+<<link [[다음|Bath Finish]]>><<endevent>><</link>>
 
 :: Bath
 <<effects>><<set $location to "home">><<set $outside to 0>><<wearProp "soap">>
 <<run statusCheck("Kylar")>>
-<<set $danger to random(1, 10000)>><<set $dangerevent to 0>>
+
 <<if getRobinLocation() is "bath" and C.npc.Robin.trauma lt 40 and $halloween isnot 1>>
 	<<set $daily.robin.bath to true>><<npc Robin>>
 
-	As you enter the bath, you hear footsteps from the hallway. The door flings open, and
+	당신이 욕조에 들어가자 복도에서 발소리가 들린다. 문이 활짝 열리고,
 	<<if $exhibitionism lte 55>>
-		you quickly cover your exposed <<breasts>> and <<genitals>>. Your panic subdues when you notice it's Robin.
+		당신은 빠르게 드러난 가슴과 질을 가린다. 당신의 패닉은 들어온 사람이 로빈이라는 것을 깨닫자 가라앉는다.
 	<<else>>
-		you see Robin walk in.
+		당신은 로빈이 걸어들어오는 것을 본다.
 	<</if>>
 	<<if $robinromance is 1>>
 		<<if C.npc.Robin.dom gte 60>>
-			"Oh, I didn't think anyone would be in here," <<he>> says. "Would you mind if I joined you?" <<Hes>> already starting to undress.
+			"오, 여기에 아무도 없는 줄 알았어," 그가 말한다. "같이 목욕해도 될까?" 그는 이미 옷을 벗기 시작하고 있다.
 			<br><br>
 
-			<<link [[`Let ${$NPCList[0].pronouns.him} join`|Bath Robin Join 2]]>><<set $phase to 1>><</link>>
+			<<link [[허락한다|Bath Robin Join 2]]>><<set $phase to 1>><</link>>
 			<br>
 			<<link [[거절한다|Bath Robin Join 2]]>><<npcincr Robin dom -1>><<set $phase to 0>><</link>><<ldom>>
 		<<else>>
-			"Oh, sorry, I didn't think anyone would be in here." <<He>> turns away. "I'll come back later."
+			"오, 여기에 아무도 없는 줄 알았어," 그가 돌아선다. "나중에 다시 올게."
 			<br><br>
 
-			<<link [[Continue bathing|Bath]]>><<endevent>><</link>>
+			<<link [[목욕을 계속한다|Bath]]>><<endevent>><</link>>
 			<<if hasSexStat("promiscuity", 2)>>
 				<br>
-				<<link [[Ask for help with bathing|Bath Robin Help]]>><<npcincr Robin lust 1>><<npcincr Robin love 1>><<stress -6>><</link>><<promiscuous2>><<glust>><<glove>><<lstress>>
+				<<link [[목욕을 도와달라고 한다|Bath Robin Help]]>><<npcincr Robin lust 1>><<npcincr Robin love 1>><<stress -6>><</link>><<promiscuous2>><<glust>><<glove>><<lstress>>
 				<br>
-				<<link [[Ask to join you|Bath Robin Join]]>><<npcincr Robin lust 1>><<npcincr Robin dom 1>><</link>><<promiscuous2>><<glust>><<gdom>>
+				<<link [[목욕을 같이 하자고 한다|Bath Robin Join]]>><<npcincr Robin lust 1>><<npcincr Robin dom 1>><</link>><<promiscuous2>><<glust>><<gdom>>
 			<</if>>
 		<</if>>
 	<<else>>
-		"I'm so sorry!" <<He>> quickly covers <<his>> eyes and tries to reach for the exit.
+		"정말 미안해!" 그는 빠르게 자신의 눈을 가리고는 문을 찾으려 한다.
 		<br><br>
 
-		<<link [[Continue bathing|Bath]]>><<endevent>><</link>>
+		<<link [[목욕을 계속한다|Bath]]>><<endevent>><</link>>
 		<<if hasSexStat("exhibitionism", 2)>>
 			<br>
-			<<link [[희롱한다|Bath Robin Tease]]>><<npcincr Robin lust 1>><</link>><<exhibitionist2>><<glust>>
+			<<link [[놀린다|Bath Robin Tease]]>><<npcincr Robin lust 1>><</link>><<exhibitionist2>><<glust>>
 		<</if>>
 		<<if hasSexStat("promiscuity", 2) and C.npc.Robin.love gte 60>>
 			<br>
-			<<link [[Ask for help with bathing|Bath Robin Help]]>><<npcincr Robin lust 1>><<npcincr Robin love 1>><<stress -6>><</link>><<promiscuous2>><<glust>><<glove>><<lstress>>
+			<<link [[목욕을 도와달라고 한다|Bath Robin Help]]>><<npcincr Robin lust 1>><<npcincr Robin love 1>><<stress -6>><</link>><<promiscuous2>><<glust>><<glove>><<lstress>>
 		<</if>>
 	<</if>>
-<<elseif $danger gte (9900 - $allure / 3) and $hallucinations gte 2 and $slimedisable is "f" and $swarmdisable is "f" and $controlled is 0>>
+<<elseif dangerEvent(1/3) and $hallucinations gte 2 and $settings.slimesEnabled and $settings.swarmsEnabled and $controlled is 0>>
 	당신은 몸이 깨끗해질 때까지 씻는다.<<wash>>
 	<br><br>
 
-	물을 빼기 위해 욕조 마개를 뽑을 때, 무언가 <<genitalsPost "을">> 만지는듯한 느낌이 든다. 가랑이 사이를 살펴보지만, 뭔가 이상한 것은 보이지 않는다. 하지만 자리에서 일어나려 할 때, 투명한 덩굴 같은 것들이 물에서 솟아오르더니 당신을 다시 앉힌다.
+	물을 빼기 위해 욕조 마개를 뽑을 때, 무언가 질을 만지는 듯한 느낌이 든다. 가랑이 사이를 살펴보지만, 뭔가 이상한 것은 보이지 않는다. 하지만 자리에서 일어나려 할 때, 투명한 덩굴 같은 것들이 물에서 솟아오르더니 당신을 도로 앉힌다.
 	<br><br>
 
 	<<link [[다음|Bath Slime]]>><<set $molestationstart to 1>><</link>>
-<<elseif ($danger gte (9900 - $allure / 2) and $rng gte 30 and Time.dayState isnot "night") or _DEBUGTIMEBOIS is 1>>
+<<elseif (dangerEvent(0.5) and $rng gte 31 and Time.dayState isnot "night") or _DEBUGTIMEBOIS is 1>>
 	<<generatey1>><<generatey2>><<generatey3>><<fameexhibitionism 3>>
 	당신은 몸이 깨끗해질 때까지 씻는다.<<wash>>
 	<br><br>
 
-	물을 빼기 위해 욕조 마개를 뽑을 때, 복도에서 목소리가 들려온다. 목소리는 문 바로 밖에서 멈추더니, 문이 활짝 열린다. <<fullGroupPost "이">> 불쑥 들어온다.
+	물을 빼기 위해 욕조 마개를 뽑을 때, 복도에서 목소리가 들려온다. 목소리는 문 바로 밖에서 멈추더니, 문이 활짝 열린다. 소년들이 불쑥 들어온다.
 	<br><br>
 	<<rng>>
 	<<if $rng gte 51>>
 		<<if hasSexStat("exhibitionism", 5) and $uncomfortable.nude is false>>
-			당신은 깜짝 놀라 비명을 지르지만, <<lewdnessPost "을">> 감출 생각은 하지 않는다. 셋은 크게 뜬 눈으로 당신을 쳐다보며, 당신이 몸을 가리지 않는다는 것에 놀란다. <<person1>><<personPost "이">> 씩 웃으며 문을 닫는다.
+			당신은 깜짝 놀라 비명을 지르지만, 음란한 모습을 감출 생각은 하지 않는다. 셋은 크게 뜬 눈으로 당신을 쳐다보며, 당신이 몸을 가리지 않는다는 것에 놀란다. 매력적인 소년이 씩 웃으며 문을 닫는다.
 		<<else>>
-			<<if $leftarm is "bound" and $rightarm is "bound">>
-				당신은 <<lewdness_ rul>> 가리고 싶지만, <span class="red">양팔이 묶인 상태</span>로는 그럴 수가 없다. 당신은 극심한 당황을 느끼며 얼굴이 붉어진다.<<stress 6>> They stare at you with wide eyes. <<person1>><<person_ un>> 싱긋 웃고는 문을 닫는다.
+			<<if pcAreArmsBound("both")>>
+				당신은 음란한 모습을 가리고 싶지만, <span class="red">양팔이 묶인 상태</span>로는 그럴 수가 없다. 당신은 극심한 당황을 느끼며 얼굴이 붉어진다.<<stress 6>> 그들은 눈을 크게 뜨고 당신을 쳐다본다. 매력적인 소년은 싱긋 웃고는 문을 닫는다.
 			<<else>>
-				당신은 <<lewdnessPost "을">> 감춘다. 셋은 크게 뜬 눈으로 당신을 쳐다본다. <<person1>><<personPost "이">> 씩 웃으며 문을 닫는다. 
+				당신은 음란한 모습을 감춘다. 셋은 크게 뜬 눈으로 당신을 쳐다본다. 매력적인 소년이 씩 웃으며 문을 닫는다. 
 			<</if>>
 		<</if>>
 			<br><br>
 
-		<<person2>><<personPost "이">> 얼굴을 붉힌다. "미-미안." <<hePost "이">> 눈을 떼지 못하며 말한다. "네가 여기 있는줄 몰랐어."
+		소년이 얼굴을 붉힌다. "미-미안." 그는 눈을 떼지 못하며 말한다. "네가 여기 있는 줄 몰랐어."
 		<br><br>
 		<<link [[비명지른다|Bath Scream]]>><</link>>
 		<br>
-		<<link [[나가달라고 한다|Bath Ask]]>><</link>>
+		<<link [[보게 내버려 둔다|Bath Ask]]>><</link>>
 		<br>
 		<<if hasSexStat("exhibitionism", 5)>>
 			<<link [[보게 내버려 둔다 (0:05)|Bath Watch]]>><<pass 5>><</link>><<exhibitionist5>>
@@ -1614,62 +1751,63 @@
 		<</if>>
 	<<else>>
 		<<if hasSexStat("exhibitionism", 5) and $uncomfortable.nude is false>>
-			당신은 깜짝 놀라 비명을 지르지만, <<lewdnessPost "을">> 감출 생각은 하지 않는다. 셋은 크게 뜬 눈으로 당신을 쳐다보며, 당신이 몸을 가리지 않는다는 것에 놀란다. <<person1>><<personPost "이">> 씩 웃으며 문을 닫는다.
+			당신은 깜짝 놀라 비명을 지르지만, 음란한 모습을 감출 생각은 하지 않는다. 셋은 크게 뜬 눈으로 당신을 쳐다보며, 당신이 몸을 가리지 않는다는 것에 놀란다. 매력적인 소년이 씩 웃으며 문을 닫는다.
 		<<else>>
-			<<if $leftarm is "bound" and $rightarm is "bound">>
-				당신은 <<lewdness_ rul>> 가리고 싶지만, <span class="red">양팔이 묶인 상태</span>로는 그럴 수가 없다. 당신은 극심한 당황을 느끼며 얼굴이 붉어진다.<<stress 6>> They stare at you with wide eyes. <<person1>><<person_ un>> 싱긋 웃고는 문을 닫는다.
+			<<if pcAreArmsBound("both")>>
+				당신은 음란한 모습을 가리고 싶지만, <span class="red">양팔이 묶인 상태</span>로는 그럴 수가 없다. 당신은 극심한 당황을 느끼며 얼굴이 붉어진다.<<stress 6>> 그들은 눈을 크게 뜨고 당신을 쳐다본다. 매력적인 소년은 싱긋 웃고는 문을 닫는다.
 			<<else>>
-				당신은 <<lewdnessPost "을">> 감춘다. 셋은 크게 뜬 눈으로 당신을 쳐다본다. <<person1>><<personPost "이">> 씩 웃으며 문을 닫는다. 
+				당신은 음란한 모습을 감춘다. 셋은 크게 뜬 눈으로 당신을 쳐다본다. 매력적인 소년이 씩 웃으며 문을 닫는다. 
 			<</if>>
 		<</if>>
 
-		<<if $player.penisExist and ($player.penissize lte 1 or $player.penissize is 4) and random(0,9) gte 6>>
+		<<if !playerChastity("hidden") and $player.penisExist and ($player.penissize lte 1 or $player.penissize is 4) and random(0,9) gte 6>>
 			<<telltalepenissize>>
-			<br><br>
 		<<else>>
 			<<stress 6>><<trauma 6>>
 			<<gtrauma>><<gstress>>
-			<br><br>
 		<</if>>
+		<br><br>
 
 		<<link [[끝낸다->Bath Finish]]>><<endevent>><</link>>
 	<</if>>
 
-<<elseif C.npc.Kylar.init is 1 and C.npc.Kylar.state isnot "prison" and $weekly.kylarBathroom isnot 1 and $rng gte 70 and (Time.dayState is "dusk" or Time.dayState is "night") and _kylarStatus.includes("Love") and _kylarStatus.includes("Lust") and $kylarenglish gte 1 and $kylarBodywriting is 1>>
+<<elseif C.npc.Kylar.init is 1 and C.npc.Kylar.state isnot "prison" and $weekly.kylarBathroom isnot 1 and $rng gte 71 and (Time.dayState is "dusk" or Time.dayState is "night") and _kylarStatus.includes("Love") and _kylarStatus.includes("Lust") and $kylarenglish gte 1 and $kylarBodywriting is 1>>
 	<<unset $kylarBodywriting>>
-    <<set $weekly.kylarBathroom to 1>>
-    <<npc Kylar>><<person1>>
+	<<set $weekly.kylarBathroom to 1>>
+	<<npc Kylar>><<person1>>
 
-    당신은 따듯한 물속으로 미끄러져 들어가며 눈을 감는다.<br><br>
-    바로 옆에서 창문이 열리는 소리가 들린다. 당신은 돌아서고, 카일라를 본다. <<He_ nun>> 창문을 통과하려 안간힘을 쓴다. <br><br>
-    <<He_ nun>> 조용히 하라는 제스처와 함께 당신에게 달려온다. "쉿! 노-놀라지 마! 그냥 도와주려는 거야," <<he_ ga>> 말한다.
-    <br><br>
-    <<link [[카일라가 돕도록 한다|Kylar Bath Help]]>><<npcincr Kylar love 1>><</link>><<glove>>
-    <br>
-    <<link [[카일라를 밀어낸다|Kylar Bath Shove]]>><<npcincr Kylar love -1>><<npcincr Kylar rage 3>><</link>><<llove>><<gksuspicion>>
+	당신은 따듯한 물속으로 미끄러져 들어가며 눈을 감는다.
+	<br><br>
+	바로 옆에서 창문이 열리는 소리가 들린다. 당신은 돌아서고, 카일라를 본다. 그는 창문을 통과하려 안간힘을 쓴다.
+	<br><br>
+	그는 조용히 하라는 제스처와 함께 당신에게 달려온다. "쉿! 노-놀라지 마! 그냥 도와주려는 거야," 그가 말한다.
+	<br><br>
+	<<link [[카일라가 돕도록 한다|Kylar Bath Help]]>><<npcincr Kylar love 1>><</link>><<glove>>
+	<br>
+	<<link [[카일라를 밀어낸다|Kylar Bath Shove]]>><<npcincr Kylar love -1>><<npcincr Kylar rage 3>><</link>><<llove>><<gksuspicion>>
 <<else>>
-당신은 몸이 깨끗해질 때까지 씻는다.<<wash>>
-<br><br>
+	당신은 몸이 깨끗해질 때까지 씻는다.<<wash>>
+	<br><br>
 
-<<getouticon>><<link [[나간다->Bath Finish]]>><</link>>
-<br>
-<<skinicon "masturbate">><<link [[자위한다|Bath Masturbation]]>><<set $masturbationstart to 1>><</link>>
+	<<skinicon "masturbate">><<link [[자위한다|Bath Masturbation]]>><<set $masturbationstart to 1>><</link>>
+	<br>
+	<<getouticon>><<link [[나간다|Bath Finish]]>><</link>>
+	<br>
 <</if>>
 
 :: Kylar Bath Help
 <<wash>>
 <<run statusCheck("Kylar")>><<effects>>
 
-당신은 천천히 끄덕인다. <<He_ nun>> 미소 지으며 손을 뒤로 뺀다.
-<<He_ nun>> 옷을 벗고 당신과 함께 욕조 안으로 들어간다. <<His_ yi>> 손이 당신의 피부를 따라 미끄러지고,
-<<he_ nun>> 얼굴을 붉힌다.
+당신은 천천히 끄덕인다. 그는 미소 지으며 손을 뒤로 뺀다.
+그는 옷을 벗고 당신과 함께 욕조 안으로 들어간다. 그는 자신의 손이 당신의 피부를 따라 미끄러지기 시작하자, 얼굴을 붉힌다.
 <br><br>
 
-"내가 씻겨줄게," <<he_ nun>> 당신을 향해 몸을 살짝 기울이며 중얼거린다. 당신은 <<he_ ga>> 당신의 몸을 씻기며 더듬는 것을 느낀다.
+"내가 씻겨줄게," 그는 당신을 향해 몸을 살짝 기울이며 중얼거린다. 당신은 그가 당신의 몸을 씻기며 더듬는 것을 느낀다.
 <br><br>
 
- 일을 마친 <<He_ nun>> 만족한 듯 보인다. 당신은 <<he_ yi>> 희미한 떨림을 느낀다.
-"잠시만," <<he_ ga>> 말한다. "아직... 남았어." 당신은 혼란스러운 눈빛으로 <<he_ rul>> 바라본다. 당신은 <<his_ yi>> 손이 좀 더 아래로 미끄러지며 당신을 더듬는 것을 느낀다.
+일을 마친 그는 만족한 듯 보인다. 당신은 그의 희미한 떨림을 느낀다.
+"잠시만," 그가 말한다. "아직... 남았어." 당신은 혼란스러운 눈빛으로 그를 바라본다. 당신은 그의 손이 좀 더 아래로 미끄러지며 당신을 더듬는 것을 느낀다.
 
 <br><br>
 <<link [[다음|Kylar Bath Sex]]>><<set $sexstart to 1>><</link>>
@@ -1677,45 +1815,42 @@
 :: Kylar Bath Shove
 <<run statusCheck("Kylar")>><<effects>>
 
-<<if _kylarStatus.includes("Calm") or _kylarStatus.includes("Sus")>>
-	당신은 손으로 카일라를 밀어낸다.<<npcincr Kylar love -1>><<llove>>
-	<br><br>
-
-	당신의 갑작스러운 움직임에 놀라며, <<he_ nun>> 불안하게 주변을 둘러본다. "거기...아직 더럽잖아! 네 온몸에 낙서가 있다고!"
-	<br><br>
-
-	당신은 <<him_ 에게>> 나가라고 한다.
-	<br><br>
-
-	<<He_ nun>> 수면을 내려보다가 천천히 뒤로 물러난다. "제-제발... 그거 씻어내," <<he_ ga>> 재빨리 옷을 다시 입으며 투덜거린다. <<He_ nun>> 마지막으로 당신을 바라본 뒤, 다시 창문으로 기어나간다.<br><br>
-
-	<<link [[다음|Bath Finish]]>><<endevent>><</link>>
-	<<exit>>
-<</if>>
-
 당신은 손으로 카일라를 밀어낸다.<<npcincr Kylar love -1>><<llove>>
 <br><br>
 
-당신의 갑작스러운 움직임에 놀라며, <<he_ nun>> 불안하게 주변을 둘러본다. "거기...아직 더럽잖아! 네 온몸에 낙서가 있다고!"
+당신의 갑작스러운 움직임에 놀라며, 그는 불안하게 주변을 둘러본다. "거기...아직 더럽잖아! 네 온몸에 낙서가 있다고!"
 <br><br>
 
-당신은 <<him_ 에게>> 나가라고 한다.
+당신은 그에게 나가라고 한다.
 <br><br>
 
-<<He_ nun>> 수면을 내려보다가 천천히 손을 도로 들어올린다. "제-제발...내가 씻겨줄게. 넌 더러워. 적어도 내가 확인하게는 해 줘." <<He_ nun>> 마치 당신의 행동을 기다리듯 당신을 빤히 바라본다.
-<br><br>
+<<if _kylarStatus.includes("Calm") or _kylarStatus.includes("Sus")>>
 
-<<link [[카일라가 지켜보게 한다|Kylar Bath Watch]]>><<npcincr Kylar rage -3>><</link>><<lksuspicion>>
-<br>
-<<link [[카일라에게 떠나라고 한다|Kylar Bath End 2]]>><<npcincr Kylar rage 5>><</link>><<ggksuspicion>>
+	그는 수면을 내려보다가 천천히 뒤로 물러난다. "제-제발... 그거 씻어내," 그가 재빨리 옷을 다시 입으며 투덜거린다. 그는 마지막으로 당신을 바라본 뒤, 다시 창문으로 기어나간다.
+	<br><br>
+
+	그가 시야에서 사라진 뒤, 당신은 물에서 빠져나와 다시 옷을 입는다.<<wash>>
+	<br><br>
+
+	<<link [[다음|Bath Finish]]>><<endevent>><</link>>
+	<<exit>>
+<<else>>
+
+	그는 수면을 내려보다가 천천히 손을 도로 들어올린다. "제-제발...내가 씻겨줄게. 넌 더러워. 적어도 내가 확인하게는 해 줘." 그는 마치 당신의 행동을 기다리듯 당신을 빤히 바라본다.
+	<br><br>
+
+	<<link [[카일라가 지켜보게 한다|Kylar Bath Watch]]>><<npcincr Kylar rage -3>><</link>><<lksuspicion>>
+	<br>
+	<<link [[카일라에게 떠나라고 한다|Kylar Bath End 2]]>><<npcincr Kylar rage 5>><</link>><<ggksuspicion>>
+<</if>>
 
 :: Kylar Bath Watch
 <<wash>>
 <<run statusCheck("Kylar")>><<effects>>
 
-당신은 몸을 마저 깨끗이 씻는다. <<He_ nun>> 절박한 눈빛으로 당신을 지켜보며, 당신이 온몸을 제대로 씻는지 확인한다. 당신은 지근거리에서 <<his_ yi>> 거친 숨소리를 듣는다. <br><br>
+당신은 몸을 마저 깨끗이 씻는다. 그는 절박한 눈빛으로 당신을 지켜보며, 당신이 온몸을 제대로 씻는지 확인한다. 당신은 지근거리에서 그의 거친 숨소리를 듣는다. <br><br>
 
-일을 마친 당신은 카일라를 다시 올려다본다. <<His_ yi>> 시선이 당신의 몸에 붙박여 있다. <<his_ yi>> 입술 사이로 낮고 애처로운 신음이 새어나온다. "내가 흔적을 남길 수 있게 해 줘," <<he_ ga>> 속삭인다. <<His_ yi>> 손이 당신의 몸을 가로지르며 다시 미끄러진다. <br><br>
+일을 마친 당신은 카일라를 다시 올려다본다. 그의 시선은 당신의 몸에 붙박여 있다. 그의 입술 사이로 낮고 애처로운 신음이 새어나온다. "내가 흔적을 남길 수 있게 해 줘," 그가 속삭인다. 그의 손이 당신의 몸을 가로지르며 다시 미끄러진다. <br><br>
 
 <<link [[다음|Kylar Bath Sex]]>><<set $molestationstart to 1>><</link>>
 
@@ -1758,40 +1893,47 @@
 <<run statusCheck("Kylar")>><<effects>>
 
 <<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
 	<<if $consensual is 0>>
-		<<ejaculation>>
 
-		<<He_ nun>> 거친 숨을 내쉬며 뒤로 물러나, 당신의 몸을 빤히 내려본다. <<He_ nun>> 당신의 다리를 꽉 붙들고 있다.<<npcincr Kylar lust -20>><<lllust>>
+		그는 거친 숨을 내쉬며 뒤로 물러나, 당신의 몸을 빤히 내려본다. 그는 당신의 다리를 꽉 붙들고 있다.<<npcincr Kylar lust -20>><<lllust>>
 		<br><br>
 
-		<<He_ nun>> 다시 한 번 당신과 눈을 마주치며 따듯한 미소를 짓는다. <<He_ ga>> 근처의 창밖을 바라본다.
+		그는 다시 한 번 당신과 눈을 마주치며 따듯한 미소를 짓는다. 그가 근처의 창밖을 바라본다.
 		<br><br>
 
-		"난... 가야겠어. 다-다시는 그들이 너를 만지지 못하게 해," <<he_ ga>> 옷을 향해 손을 뻗으며 말한다. <<He_ nun>> 왔던 길로 금세 떠난다.
-		<br><br>
+		"난... 가야겠어. 다-다시는 그들이 너를 만지지 못하게 해," 그가 옷을 향해 손을 뻗으며 말한다. 그는 왔던 길로 금세 떠난다.
 	<<else>>
-		<<ejaculation>>
 
-		<<He_ nun>> 거친 숨을 내쉬며 뒤로 물러나, 자신의 손을 물속으로 다시 미끄러뜨린다. "너-넌 내 거야," <<he_ nun>> 애정에 찬 눈빛으로 당신을 바라보며 중얼거린다.
+		그는 거친 숨을 내쉬며 뒤로 물러나, 자신의 손을 물속으로 다시 미끄러뜨린다. "너-넌 내 거야," 그는 애정에 찬 눈빛으로 당신을 바라보며 중얼거린다.<<npcincr Kylar lust -20>><<lllust>>
 		<br><br>
 
-		<<He_ nun>> 벌떡 일어나 창밖을 내다본다. "가야겠어," <<he_ nun>> 욕조 밖으로 기어나가며 말한다. "미안-다음에 봐!" <<He_ nun>> 옷을 입으며 마지막으로 당신을 바라본 뒤, 왔던 길로 금세 떠난다.
+		그는 벌떡 일어나 창밖을 내다본다. "가야겠어," 그는 욕조 밖으로 기어나가며 말한다. "미안-다음에 봐!" 그는 옷을 입으며 마지막으로 당신을 바라본 뒤, 왔던 길로 금세 떠난다.
 	<</if>>
 
 <<elseif $enemyhealth lte 0>>
 
-	<<He_ nun>> 말을 더듬으며 물러서고, 눈을 크게 뜬 채 당신을 올려본다.
+	그는 말을 더듬으며 물러서고, 눈을 크게 뜬 채 당신을 올려본다.
 	<br><br>
 
 	"도...도와주려는 거야. 도와주려는 거야!"
 	<br><br>
 
-	<<he_ nun>> 눈물을 흘리며 물 밖으로 허둥지둥 빠져나와, 옷을 향해 손을 뻗는다. 당신은 <<he_ ga>> 급하게 옷을 입으며 훌쩍이는 소리를 듣는다. <<he_ nun>> 곧 창밖으로 빠져나간다.
+	그는 눈물을 흘리며 물 밖으로 허둥지둥 빠져나와, 옷을 향해 손을 뻗는다. 당신은 그가 급하게 옷을 입으며 훌쩍이는 소리를 듣는다. 그는 곧 창밖으로 빠져나간다.
+<<else>>
+	그는 당신에게서 물러나며, 슬픈 눈으로 당신을 바라본다.
+	<br><br>
+
+	"하-하지만 넌 아직..." 그가 고개를 젓자, 물방울이 그의 앞머리에서 흩날린다. 그는 훌쩍인다. "제-제발, 그냥 다시는 그들이 너를 만지지 못하게 해."
+	<br><br>
+
+	그는 비틀거리며 욕조에서 나와, 급하게 옷을 입고는 왔던 길로 떠난다.
 <</if>>
 <br><br>
 
 <<tearful>> 당신은 욕조에서 나온다.
 <br><br>
+<<wash>>
 
 <<endcombat>>
 
@@ -1801,16 +1943,16 @@
 <<wash>>
 <<run statusCheck("Kylar")>><<effects>>
 
-	당신은 고개를 저으며, 창문을 향해 손을 들어 보인다. 당신은 <<him_ 에게>> 나가라고 한다.
-	<br><br>
+당신은 고개를 저으며, 창문을 향해 손을 들어 보인다. 당신은 그에게 나가라고 한다.
+<br><br>
 
-	<<He_ nun>> 잠시 당황한 표정으로 당신을 쳐다본다. "씻어내야 해," <<he_ nun>> 물 밖으로 나오며 말한다. <<his_ yi>> 눈빛에 당신의 등골이 서늘해진다. 당신은 <<him_ ga>> 옷을 입는 것을 지켜본다. 그 후에, <<He_ nun>> 창문으로 기어나간다. 당신은 <<he_ ga>> 떠난 뒤에 남은 기분이 불쾌하다고 느낀다.<<gstress>><<stress 2>>
-	<br><br>
+그는 잠시 당황한 표정으로 당신을 쳐다본다. "씻어내야 해," 그는 물 밖으로 나오며 말한다. 그의 눈빛에 당신의 등골이 서늘해진다. 당신은 그가 옷을 입는 것을 지켜본다. 그 후에, 그는 창문으로 기어나간다. 당신은 그가 떠난 뒤에 남은 기분이 불쾌하다고 느낀다.<<gstress>><<stress 2>>
+<br><br>
 
-	<<he_ ga>> 시야에서 사라진 뒤, 당신은 물에서 빠져나와 다시 옷을 입는다.
-	<br><br>
+그가 시야에서 사라진 뒤, 당신은 물에서 빠져나와 다시 옷을 입는다.
+<br><br>
 
-	<<link [[다음|Bath Finish]]>><<endevent>><</link>>
+<<link [[다음|Bath Finish]]>><<endevent>><</link>>
 
 :: Bath Finish
 <<effects>><<set $location to "home">><<set $outside to 0>>
@@ -1823,7 +1965,7 @@
 	피부가 아직 축축하다.
 <</if>>
 <br><br>
-<<if $leftarm is "bound" and $rightarm is "bound">>
+<<if pcAreArmsBound("both")>>
 	<<link [[다음|Bathroom]]>><</link>>
 	<<exit>>
 <</if>>
@@ -1851,29 +1993,21 @@
 <</if>>
 
 :: Passout home
-<<set $dangerhome to 0>>
-<<set $safehome to 0>>
 당신은 몸을 너무 혹사시켰다.
 <br><br>
 <<passout>>
 
-<<set $danger to random(1, 10000)>>
-
-<<if $danger gte (9900 - $allure) and $tutorial gt 0>><<set $dangerhome to random(1, 100)>><</if>>
-
-<<if $danger lt (9900 - $allure) or $tutorial is 0>><<set $safehome to random(1, 100)>><</if>>
-
-<<if $dangerhome gte 80>>
-	<<link [[일어난다|Sold]]>><</link>>
-<<elseif $dangerhome gte 1>>
-	<<link [[일어난다|Molestation]]>>
-		<<set $phase to 0>>
-		<<set $molestationstart to 1>>
-	<</link>>
-<</if>>
-
-<<if $safehome gte 1>>
-	<<link [[잔다|Bailey Rescue]]>><</link>>
+<<if dangerEvent() and $tutorial gt 0>>
+	<<if random(1, 5) is 5>>
+		<<link [[일어난다|Sold]]>><</link>>
+	<<else>>
+		<<link [[일어난다|Molestation]]>>
+			<<set $phase to 0>>
+			<<set $molestationstart to 1>>
+		<</link>>
+	<</if>>
+<<else>>
+	<<link [[S잔다leep|Bailey Rescue]]>><</link>>
 <</if>>
 
 <<pass 1 hour>>
@@ -1887,7 +2021,7 @@
 	<<violence 1>>
 	<<neutral 1>>
 	<<molested>>
-	<<generate1>><<maninit>><<hand_gag 0 left>>무언가 가랑이를 만지는듯한 느낌이 든다. 눈을 뜨려 할 때 누군가의 손이 입을 움켜쥐어, 비명지르지 못하게 만든다.
+	<<generate1>><<maninit>><<hand_gag 0 left>>무언가 당신의 가랑이를 만지는 듯한 느낌이 든다. 당신이 눈을 뜨려고 하자, 누군가의 손이 입을 움켜쥐고 비명 지르지 못하게 만든다.
 	<br>
 	<<enable_rescue>>
 	<<if $phase is 1>><</if>>
@@ -1923,7 +2057,7 @@
 
 :: Molestation Ejaculation
 <<ejaculation>>
-<<HePost "은">> 당신을 땅바닥에 내팽개치고는 문으로 걸어가 밖을 엿본다. <<HePost "은">> 몰래 밖으로 나간다.
+그 당신을 땅바닥에 내팽개치고는 문으로 걸어가 밖을 엿본다. 그는 몰래 밖으로 나간다.
 <br><br>
 <<tearful>> 당신은 자리에서 일어난다.
 <br><br>
@@ -1935,7 +2069,7 @@
 <<effects>>
 <<wearoutfit>>
 <<if $robinbed is "yours">>
-	당신은 로빈과 함께 이불 밑으로 파고들어간다.
+	당신은 로빈과 함께 이불 밑으로 파고든다.
 <<else>>
 	<<if numberOfEarSlime() and $location is "home" and random(0,100) lt 3 + Math.floor($earSlime.growth / 100) - $earSlime.eventTimer and !$earSlime.event>>
 		<<set $slimeBedExit to "Bed">>
@@ -1945,12 +2079,12 @@
 			<<slimeSleepEvents>>
 		<</if>>
 	<<else>>
-		당신은 이불 밑으로 파고들어간다.
+		당신은 이불 밑으로 파고든다.
 	<</if>>
 <</if>>
 
 <<if $wraith.state and $wraithPrison and ($moonstate is "evening" or $moonstate is _nightstate)>>
-	당신은 불안을 느끼고, 당신의 눈이 거울로 향한다.
+	당신은 불안을 느낀다. 당신의 눈이 거울로 향한다.
 <</if>>
 <br><br>
 
@@ -1990,10 +2124,10 @@
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
 
-	<<He_ nun>> 몸을 굴려 당신과 마주하고, 애정에 찬 눈빛으로 당신을 바라본다. "난 정말 운이 좋아. 널 가졌으니까," <<he_ ga>> 말한다.<<lllust>><<npcincr Kylar lust -20>>
+	그는 몸을 굴려 당신과 마주하고, 애정에 찬 눈빛으로 당신을 바라본다. "난 정말 운이 좋아. 널 가졌으니까," 그가 말한다.<<lllust>><<npcincr Kylar lust -20>>
 	<br><br>
 
-	<<His_ yi>> 손이 다시 당신의 몸을 감싸며, <<he_ ga>> 당신과 함께 밤을 보낼 생각임을 분명히 한다.
+	그의 손이 다시 당신의 몸을 감싸며, 그가 당신과 함께 밤을 보낼 생각임을 분명히 한다.
 	<br><br>
 <</if>>
 
@@ -2023,13 +2157,13 @@
 그에 답하듯 카일라의 얼굴이 밝아진다.
 <br><br>
 
-"고마워," <<he_ ga>> 행복하게 말하며, 당신과 자신 위로 이불을 덮는다. <<He_ nun>> 당신의 뺨에 키스하고, 당신의 목덜미에 얼굴을 묻는다.
+"고마워," 그가 행복하게 말하며, 당신과 자신 위로 이불을 덮는다. 그는 당신의 뺨에 키스하고, 당신의 목덜미에 얼굴을 묻는다.
 <br><br>
 
-당신은 <<his_ yi>> 호흡이 규칙적으로 변하기를 잠시 기다리지만, 그것은 결코 이루어지지 않는다. <<he_ nun>> 마치 당신이 먼저 잠들기를 기다리고 있는 것 같다.
+당신은 그의 호흡이 규칙적으로 변하기를 잠시 기다리지만, 그것은 결코 이루어지지 않는다. 그는 마치 당신이 먼저 잠들기를 기다리고 있는 것 같다.
 <br><br>
 
-당신은 <<he_ 보다>> 오래 버티려고 노력하지만, 얼마 지나지 않아 잠이 쏟아지며 눈꺼풀을 간신히 뜨고 있는 것조차 버거워진다. 잠들기 직전, 당신이 마지막으로 기억하는 것은 당신에게 꼭 붙은 <<his_ yi>> 몸에서 전해진 따듯함이다.
+당신은 그보다 오래 버티려고 노력하지만, 얼마 지나지 않아 잠이 쏟아지며 눈꺼풀을 간신히 뜨고 있는 것조차 버거워진다. 잠들기 직전, 당신이 마지막으로 기억하는 것은 당신에게 꼭 붙은 그의 몸에서 전해진 따듯함이다.
 <br><br>
 
 <<link [[다음|Bedroom Kylar Sneak Bed]]>><</link>>
@@ -2053,16 +2187,16 @@
 "저-정말?" 카일라가 말한다. "완전 좋아! 그-그러니까, 그래. 물론이지."
 <br><br>
 
-당신은 한숨을 쉬며 <<he_ wa>> 함께 다시 침대에 눕는다.
+당신은 한숨을 쉬며 그와 함께 다시 침대에 눕는다.
 <br><br>
 
-몇 초 만에 <<he_ nun>> 당신에게로 돌아오지만, 이번에는 쉴 새 없이 더듬거나 문지르지 않는다. <<He_ nun>> 그저 당신과 가까이 있는 것만으로 만족하는 것 같다.
+몇 초 만에 그는 당신에게로 돌아오지만, 이번에는 쉴 새 없이 더듬거나 문지르지 않는다. 그는 그저 당신과 가까이 있는 것만으로 만족하는 것 같다.
 <br><br>
 
-"잘 자," 당신은 <<he_ ga>> 속삭이는 것을 듣는다. 당신은 눈을 감고 얼마 지나지 않아 뺨에서 키스인 듯한 무언가를 느낀다. 당신의 마음이 조금 따뜻해진다.
+"잘 자," 당신은 그가 속삭이는 것을 듣는다. 당신은 눈을 감고 얼마 지나지 않아 뺨에서 키스인 듯한 무언가를 느낀다. 당신의 마음이 조금 따뜻해진다.
 <br><br>
 
-어느새, 카일라는 이미 잠들었다. <<he_ ga>> 이곳에 있는 것은 당신의 예상 밖이었으나, 함께 잠들 사람이 있다는 사실은 당신에게 약간의 위안을 준다. 얼마 지나지 않아 당신 또한 잠에 빠진다.
+어느새, 카일라는 이미 잠들었다. 그가 이곳에 있는 것은 당신의 예상 밖이었으나, 함께 잠들 사람이 있다는 사실은 당신에게 약간의 위안을 준다. 얼마 지나지 않아 당신 또한 잠에 빠진다.
 <br><br>
 
 <<link [[다음|Bedroom Kylar Sneak Bed]]>><</link>>
@@ -2071,10 +2205,10 @@
 <<effects>>
 <<run statusCheck("Kylar")>>
 
-당신은 <<his_ yi>> 속박에 저항하며, 어떻게든 <<him_ rul>> 밀어내고 침대에서 방바닥으로 뛰어내린다. 평정심을 되찾는 것에 약간의 시간이 걸리지만, 당신은 카일라와 마주하게 된다. <<He_ nun>> 낙담한 얼굴로 여전히 침대에 앉아 있다.
+당신은 그의 속박에 저항하며, 어떻게든 그를 밀어내고 침대에서 방바닥으로 뛰어내린다. 평정심을 되찾는 것에 약간의 시간이 걸리지만, 당신은 카일라와 마주하게 된다. 그는 낙담한 얼굴로 여전히 침대에 앉아 있다.
 <br><br>
 
-"미안해," <<he_ ga>> 얌전히 말한다. "너-너를 무섭게 하려던 게 아니었어. 그냥 너를 보러 왔던 거야. 용서해 줘," <<he_ nun>> 애원하며 자신의 손을 당신의 손에 쥐여준다. "제발 내가 머무르게 해줘. 네-네가 원한다면 우린 그냥 껴안고 있을 수도 있어."
+"미안해," 그가 얌전히 말한다. "너-너를 무섭게 하려던 게 아니었어. 그냥 너를 보러 왔던 거야. 용서해 줘," 그는 애원하며 자신의 손을 당신의 손에 쥐여준다. "제발 내가 머무르게 해줘. 네-네가 원한다면 우린 그냥 껴안고 있을 수도 있어."
 <br><br>
 
 <<link [[카일라가 자고 가도록 허락한다|Bedroom Kylar Sneak Stay 2]]>><<npcincr Kylar love 2>><<npcincr Kylar rage -6>><</link>><<gglove>><<llksuspicion>>
@@ -2101,10 +2235,10 @@
 카일러는 슬픈 눈으로 간청한다. "지-진심이야? 내가-" 당신은 고개를 저으며 단호하게 대처하려 노력한다.
 <br><br>
 
-"그게 네가 원하는 거라면," <<he_ ga>> 슬픔에 잠긴 목소리로 말한다. 당신은 침대에서 일어나 창가로 걸어간 <<he_ ga>> 창문으로 떠나기 전에, 마지막으로 당신을 한 번 바라보는 것을 지켜본다.
+"그게 네가 원하는 거라면," 그가 슬픔에 잠긴 목소리로 말한다. 당신은 침대에서 일어나 창가로 걸어간 그가 창문으로 떠나기 전에, 마지막으로 당신을 한 번 바라보는 것을 지켜본다.
 <br><br>
 
-<<he_ ga>> 떠나자마자, 당신은 침대에서 일어나 창문으로 걸어간다. 당신은 잠시 창밖을 내다보며 <<he_ ga>> 사라졌는지를 확인하고, 여전히 그곳에 서 있는 카일라와 눈이 마주친다. <<He_ nun>> 밤의 어둠 속에 거의 완벽하게 숨어 있다.
+그가 떠나자마자, 당신은 침대에서 일어나 창문으로 걸어간다. 당신은 잠시 창밖을 내다보며 그가 사라졌는지를 확인하고, 여전히 그곳에 서 있는 카일라와 눈이 마주친다. 그는 밤의 어둠 속에 거의 완벽하게 숨어 있다.
 <br><br>
 
 당신은 카일라를 마지막으로 한 번 더 바라본 뒤, 머리를 뒤로 젖혀 창문을 닫는다. 당신은 창문을 잠글 더 좋은 방법이 없는지를 머릿속에 메모하며 침대로 돌아가 이불 속으로 파고든다.
@@ -2130,14 +2264,14 @@
 <</if>>
 <br><br>
 
-<<He_ nun>> 고개를 내젓는다. "하지만 난 떠나고 싶지 않아," <<he_ ga>> 애원한다. <<He_ nun>> 당신을 무시하고 이불을 뒤집어쓴다. "제발 내가 머무르게 해줘. 미-미안해, 난 그냥---"
+그는 고개를 내젓는다. "하지만 난 떠나고 싶지 않아," 그가 애원한다. 그는 당신을 무시하고 이불을 뒤집어쓴다. "제발 내가 머무르게 해줘. 미-미안해, 난 그냥---"
 <br><br>
 
-당신은 <<his_ yi>> 말을 끊고, 다시 한번 떠나라고 요청한다. 이번에는 좀 더 단호하게.
-<<He_ nun>> 무언가를 말하려다가, 패배감에 찬 시선을 돌리며 이불을 벗는다. <<He_ nun>> 고개를 숙인 채 창문을 향해 천천히 걸어간다.
+당신은 그의 말을 끊고, 다시 한번 떠나라고 요청한다. 이번에는 좀 더 단호하게.
+그는 무언가를 말하려다가, 패배감에 찬 시선을 돌리며 이불을 벗는다. 그는 고개를 숙인 채 창문을 향해 천천히 걸어간다.
 <br><br>
 
-<<he_ ga>> 떠나자마자, 당신은 침대에서 일어나 창문으로 걸어간다. 당신은 잠시 창밖을 내다보며 <<he_ ga>> 사라졌는지를 확인하고, 여전히 그곳에 서 있는 카일라와 눈이 마주친다. <<He_ nun>> 밤의 어둠 속에 거의 완벽하게 숨어 있다.
+그가 떠나자마자, 당신은 침대에서 일어나 창문으로 걸어간다. 당신은 잠시 창밖을 내다보며 그가 사라졌는지를 확인하고, 여전히 그곳에 서 있는 카일라와 눈이 마주친다. 그는 밤의 어둠 속에 거의 완벽하게 숨어 있다.
 <br><br>
 
 당신은 카일라를 마지막으로 한 번 더 바라본 뒤, 머리를 뒤로 젖혀 창문을 닫는다. 당신은 창문을 잠글 더 좋은 방법이 없는지를 머릿속에 메모하며 침대로 돌아가 이불 속으로 파고든다.
@@ -2152,7 +2286,7 @@
 
 당신은 카일라와 함께 이불 속으로 파고든다.
 <<if $wraith.state and $wraithPrison and ($moonstate is "evening" or $moonstate is _nightstate)>>
-	당신은 불안을 느끼고, 당신의 눈이 거울로 향한다.
+	당신은 불안을 느낀다. 당신의 눈이 거울로 향한다.
 <</if>>
 <br><br>
 
@@ -2163,11 +2297,11 @@
 <<wearoutfit>>
 <<npc Robin>><<person1>>
 
-당신은 로빈과 함께 이불 속으로 파고든다. <<his_ yi>> <<print ($robinromance is 1 and C.npc.Robin.trauma lte 20 ? "벌거벗은 " : "")>>몸이 침대를 덥히는 열기가 느껴진다.
+당신은 로빈과 함께 이불 속으로 파고든다. 그의 <<print ($robinromance is 1 and C.npc.Robin.trauma lte 20 ? "벌거벗은 " : "")>>몸이 침대를 덥히는 열기가 느껴진다.
 <<set $robinbed to "theirs">><<set $bedGuest to "Robin">>
 
 <<if $wraith.state and $wraithPrison and ($moonstate is "evening" or $moonstate is _nightstate)>>
-	당신은 불안을 느끼고, 당신의 눈이 거울로 향한다.
+	당신은 불안을 느낀다. 당신의 눈이 거울로 향한다.
 <</if>>
 <<endevent>>
 <br><br>
@@ -2199,13 +2333,13 @@
 	<<if Time.dayState is "day">>
 		청소 당번인 고아 몇 명이 바닥을 닦고 있다.
 	<<elseif Time.dayState is "dusk">>
-		당신은 소리를 낮춘 목소리들을 듣는다.
+		You hear hushed voices.
 	<<elseif Time.dayState is "dawn">>
 		<<if Time.schoolDay>>
 			고아들은 학교로 향하고 있다.
-	<<else>>
+		<<else>>
 			고아들은 일을 찾아 나가고 있다.
-	<</if>>
+		<</if>>
 	<<elseif Time.dayState is "night">>
 		고아들은 잠에 든 것 같다.
 	<</if>>
@@ -2217,24 +2351,24 @@
 	<<passouthome>>
 <<elseif $rng gte 61 and $worn.upper.name is "large towel" and $worn.upper.set is $worn.lower.set and !$daily.orphanageflash and Time.hour lt 22 and Time.hour gte 6>>
 	<<set $daily.orphanageflash to 1>>
-	As you walk down the hallway, a door opens up. A <<generatey1>><<person1>><<person>> leaves <<his>> room.
+	당신이 복도를 걷고 있자, 문이 열린다. 소년 하나가 자신의 방에서 나온다.
 	<br><br>
-	"Oh. Huh, hi," <<he>> says upon noticing you, clearly flustered by your state of dress.
+	"오. 어, 안녕," 그는 당신을 보자 말한다. 당신의 옷차림에 당황한 기색이 역력하다.
 	<br><br>
-	You nod in response, and can't help noticing how <<he>> seems to avoid looking at you.
+	당신은 고개를 끄덕이고, 그가 당신을 쳐다보지 않으려 한다는 것을 알아차린다.
 	<br><br>
 	<<if hasSexStat("exhibitionism", 5)>>
 		<<link [[희롱한다|Hallway Flashing 1]]>><</link>><<exhibitionist5>>
 		<br>
 	<</if>>
-	<<link [[Keep walking|Orphanage]]>><<endevent>><</link>>
+	<<link [[계속 걸어간다|Orphanage]]>><<endevent>><</link>>
 	<br>
 <<elseif $exposed gte 1 and Time.hour lt 22 and Time.hour gte 6>>
 	이런 꼴을 하고 누군가와 만나게 될 경우를 머릿속에서 떨쳐낼 수 없다. 당신은 서둘러 방으로 향한다.
 	<br><br>
-	<<set $danger to random(1, 10000)>><<set $dangerevent to 0>>
-	<<if $danger gte (9900 - $allure)>>
-		저 앞에서 문이 활짝 열리더니, <<generatey1>><<person1>><<personPost "이">> 걸어나온다. <<covered>><<HePost "은">> 당신을 알아차리지 못한다.
+
+	<<if dangerEvent()>>
+		저편에서 문이 활짝 열리더니, <<generatey1>><<person1>>소년 하나가 걸어나온다. <<covered>>그는 당신을 알아차리지 못한다.
 		<br><br>
 		<<link [[숨는다|Orphanage Hide]]>><<stress 6>><</link>><<gstress>>
 		<br>
@@ -2250,22 +2384,22 @@
 	<<unset $baileyReunionScene>>
 
 	<<if $home_gone gte 24>>
-		베일리가 벽에 기대 있다. 당신의 사진이 실린 실종자 포스터가 <<his_ yi>> 옆에 핀으로 고정되어 있다.
+		베일리가 벽에 기대 있다. 당신의 사진이 실린 실종자 포스터가 그의 옆에 핀으로 고정되어 있다.
 		<br><br>
 
-		"돌아오는 데 오래 걸렸군. 무사하다니 기쁘다." <<He_ ga>> 히죽거린다. "휴가를 잘 즐겼길 바라마."
+		"돌아오는 데 오래 걸렸군. 무사하다니 기쁘다." 그가 히죽거린다. "휴가를 잘 즐겼길 바라마."
 		<br><br>
 
-		<<He_ nun>> 벽에서 등을 떼고는, 포스터를 떼어내 구긴다.
+		그는 벽에서 등을 떼고는, 포스터를 떼어내 구긴다.
 	<<else>>
-		악의에 찬 목소리가 당신이 돌아오는 길을 맞이한다. "너는 정말 약삭빠른 녀석이라니까, 그렇지 않아?" 베일리다. <<He_ ga>> 벽에 몸을 기대며, 당신에게 읊조린다. "무사한 걸 보니 기쁘다."
+		악의에 찬 목소리가 당신이 돌아오는 길을 맞이한다. "너는 정말 약삭빠른 녀석이지, 그렇지 않나?" 베일리다. 그가 벽에 몸을 기대며, 당신에게 읊조린다. "무사한 걸 보니 기쁘군."
 		<br><br>
 
-		<<He_ nun>> 벽에서 등을 떼고는, 어슬렁거리며 당신에게 걸어온다.
+		그는 벽에서 등을 떼고는, 어슬렁거리며 당신에게 걸어온다.
 	<</if>>
 	<br><br>
 	<<if $renttime lte 0>>
-		"이 짓거리를 또 당하고 싶지 않으면 다음 번에는 돈을 내는 게 좋을 거다. 말이 나와서 말인데..." <<He_ ga>> 손을 내민다.
+		"이 짓거리를 또 당하고 싶지 않으면 다음 번에는 돈을 내는 게 좋을 거다. 말이 나와서 말인데..." 그가 손을 내민다.
 		<<endevent>>
 		<<if $robinfirstrentfight and ($baileypaychain lt 2 or $renttime lte -1) and _robinAtOrphanage>>
 			<<rentduerobin 0>>
@@ -2275,13 +2409,13 @@
 	<<elseif $babyIntros and $babyIntros.Bailey and $babyIntros.Bailey.length gt 0>>
 		<<homeBabyIntro>>
 
-		"이 짓거리를 또 당하고 싶지 않으면 다음 번에는 돈을 내는 게 좋을 거다." <<he_ ga>> 그렇게 말하고 당신의 뺨을 아플 정도로 세게 꼬집는다.<<stress 6>><<trauma 6>><<gstress>><<gtrauma>>
+		"이 짓거리를 또 당하고 싶지 않으면 다음 번에는 돈을 내는 게 좋을 거다." 그는 그렇게 말하고 당신의 뺨을 아플 정도로 세게 꼬집는다.<<stress 6>><<trauma 6>><<gstress>><<gtrauma>>
 		<br><br>
 
-		베일리는 <<his_ yi>> 사무실로 돌아간다. 당신은 당신의 방으로 터덜터덜 돌아오면서 뺨을 문지른다.
+		베일리는 그의 사무실로 돌아간다. 당신은 방으로 터덜터덜 돌아가면서 뺨을 문지른다.
 		<br>
 		<<if $robinReunionScene is "dungeon" or $robinReunionScene is "dungeonRobin">>
-			<span class="blue"><i>로빈이 당신을 엄청 걱정하고 있을 것이다. 기회가 되는 대로 <<nnpc_him_ ul "Robin">> 만나봐야 겠다.</i></span>
+			<span class="blue"><i>로빈이 당신을 엄청 걱정하고 있을 것이다. 기회가 되는 대로 그를 만나봐야겠다.</i></span>
 			<br>
 		<</if>>
 		<br>
@@ -2289,13 +2423,13 @@
 		<<link [[다음|Bedroom]]>><<endevent>><</link>>
 		<br>
 	<<else>>
-		"이 짓거리를 또 당하고 싶지 않으면 다음 번에는 돈을 내는 게 좋을 거다." <<he_ ga>> 그렇게 말하고 당신의 뺨을 아플 정도로 세게 꼬집는다.<<stress 6>><<trauma 6>><<gstress>><<gtrauma>>
+		"이 짓거리를 또 당하고 싶지 않으면 다음 번에는 돈을 내는 게 좋을 거다." 그는 그렇게 말하고 당신의 뺨을 아플 정도로 세게 꼬집는다.<<stress 6>><<trauma 6>><<gstress>><<gtrauma>>
 		<br><br>
 
-		베일리는 <<his_ yi>> 사무실로 돌아간다. 당신은 당신의 방으로 터덜터덜 돌아오면서 뺨을 문지른다.
+		베일리는 그의 사무실로 돌아간다. 당신은 방으로 터덜터덜 돌아가면서 뺨을 문지른다.
 		<br>
 		<<if $robinReunionScene is "dungeon" or $robinReunionScene is "dungeonRobin">>
-			<span class="blue"><i>로빈이 당신을 엄청 걱정하고 있을 것이다. 기회가 되는 대로 <<nnpc_him_ ul "Robin">> 만나봐야 겠다.</i></span>
+			<span class="blue"><i>로빈이 당신을 엄청 걱정하고 있을 것이다. 기회가 되는 대로 그를 만나봐야겠다.</i></span>
 			<br>
 		<</if>>
 		<br>
@@ -2307,13 +2441,13 @@
 	<<generatey1>><<person1>>
 	<<npc Robin 2>>
 
-	지나가던 어린 고아들 중 한 명이 중앙 복도로 들어오는 당신을 발견한다. "로빈이랑 친구 맞죠, 그렇죠? <<person2>><<He_ ga>> 한 동안 안 보여요," <<person1>><<he_ ga>> 말한다.
-	"<<person2>><<he_ ga>> 어디로 갔을까요?"
+	지나가던 어린 고아들 중 한 명이 중앙 복도로 들어오는 당신을 발견한다. "로빈이랑 친구죠, 그렇죠? 그를 한동안 못 봤어요," 그녀가 말한다.
+	"그는 어디로 간 걸까요?"
 	<br><br>
 
-	<<person1>><<He_ ga>> 당신에게 질문을 퍼붓는다. 곧 다른 고아 한 명이 당신에게 와서, 똑같이 행동한다.
+	그녀는 당신에게 질문을 퍼붓는다. 곧 다른 고아 한 명이 당신에게 와서, 똑같이 행동한다.
 
-	"<<person2>><<he_ nun>> 괜찮겠죠? 어디로 갔을까요?"
+	"그는 괜찮겠죠? 어디로 갔을까요?"
 	<br><br>
 
 	<<link [[사실대로 말한다|Robin Pillory Truth]]>><</link>>
@@ -2325,16 +2459,16 @@
 	당신은 벽에 무언가 붙어있는 걸 본다. 당신의 사진이 인쇄된 실종 포스터다. 아직 떨어지지 않은 것을 보니, 베일리도 당신을 찾고 있는 것이 분명하다.
 	<br><br>
 	<<if $orphan_hope gte 10>>
-		청소당번인 <<personPost "이">> 당신을 보고는 포스터를 바라본다. <<hisPost "의">> 눈이 커진다. "세상에!" <<HePost "이">> 대걸레를 떨구고는 말한다. "널 다시 보게 될 줄은 몰랐어."
+		청소당번인 소녀가 당신을 보고는 포스터를 바라본다. 그녀의 눈이 커진다. "세상에!" 그녀가 대걸레를 떨구며 말한다. "널 다시 보게 될 줄은 몰랐어."
 		<br><br>
 		<<set $home_gone to 0>>
-		<<HePost "은">> 안도의 한숨을 내쉬며 포스터를 뗀다.<<ghope>><<hope 1>>
+		그녀는 안도의 한숨을 내쉬며 포스터를 뗀다.<<ghope>><<hope 1>>
 		<br><br>
 	<<else>>
-		청소당번인 <<personPost "이">> 당신을 보고는 대걸레 양동이를 뒤엎는다. 당신이 뭐라고 반응을 하기도 전에, <<hePost "이">> 다가와 당신을 껴안는다. "너구나. 네가 돌아올 거라고는 상상도 못했어, 우린-" <<HePost "은">> 입을 다문다. 무언가 당신의 어깨를 적신다.
+		청소당번인 소녀가 당신을 보고는 대걸레 양동이를 뒤엎는다. 당신이 뭐라고 반응을 하기도 전에, 그녀가 다가와 당신을 껴안는다. "너구나. 네가 돌아올 거라고는 상상도 못했어, 우린-" 그녀는 입을 다문다. 무언가 당신의 어깨를 적신다.
 		<br><br>
 		<<set $home_gone to 0>>
-		<<HePost "은">> 당신을 놔주며 안도의 한숨을 내쉰다. 그러고는 눈물을 닦으며, 포스터를 떼어낸다.<<gghope>><<hope 3>>
+		그녀는 당신을 놔주며 안도의 한숨을 내쉰다. 그러고는 눈물을 닦으며, 포스터를 떼어낸다.<<gghope>><<hope 3>>
 		<br><br>
 	<</if>>
 
@@ -2343,21 +2477,21 @@
 <<elseif Time.dayState isnot "night" and $robin.abandoned is 1 and $robinmissing is 0 and C.npc.Robin.init is 1>>
 	<<npc Robin>><<person1>>
 	<<unset $robin.abandoned>>
-	A pair of orphans approach you to let you know that Robin has come back from the docks. They say that <<he>> headed straight to <<his>> room. <<He>> hasn't left for hours now. <<lhope>><<hope -1>>
+	두 명의 고아가 다가와서 로빈이 부두에서 돌아왔다고 당신에게 알려준다. 로빈은 곧장 그의 방으로 향했고, 몇 시간 동안이나 방을 나오지 않은 모양이다. <<lhope>><<hope -1>>
 	<br><br>
 
-	As you pass by <<his>> room, you see the door cracked open, as if Robin was in too much of a hurry to shut it properly. There's no note on the door, but you hear sobbing from inside. Robin is sitting on <<his>> bed, crying and hugging <<his>> knees.
+	당신은 그의 방을 지나간다. 문은 로빈이 너무 서두르느라 제대로 닫지 못한 듯 살짝 열려 있다. 문에는 아무런 쪽지도 없지만, 안에서 흐느끼는 소리가 들린다. 로빈은 침대에 앉아 무릎을 껴안은 채 울고 있다.
 	<br><br>
 
-	<<link [[Comfort|Docks_Robin Comfort]]>><<npcincr Robin love 1>><<npcincr Robin trauma -1>><</link>><<glove>><<lrtrauma>><br>
+	<<link [[위로한다|Docks_Robin Comfort]]>><<npcincr Robin love 1>><<npcincr Robin trauma -1>><</link>><<glove>><<lrtrauma>><br>
 	<<link [[무시한다|Docks_Robin Ignore]]>><</link>>
 
 
 <<elseif Time.days gte 1 and _robin.init is 0 and Time.hour gte 7 and Time.hour lte 20 and !(Time.schoolDay and between(Time.hour, 8, 15))>>
 	<<set $robindebt to 0>><<set $robindebtlimit to 5>>
-	<<npc Robin>><<initnpc Robin>><<person1>>당신은 누군가 뒤에서 소리치는 걸 듣는다. "얘!" 로빈이다. <<HePost "은">> 고아원에 사는 다른 고아다. 로빈은 당신과 동갑이지만, 항상 당신을 우러러보고 있다. <<HePost "은">> 당신을 향해 뛰어오다가 제때 속도를 멈추지 못하고는, 당신과 충돌하여 거의 넘어질 뻔한다. 당신은 <<hisPost "의">> 팔을 잡아 균형을 유지한다. "고마워." 로빈이 말한다. 쑥스러운듯 하지만 여전히 미소를 짓고 있다.
+	<<npc Robin>><<initnpc Robin>><<person1>>당신은 누군가 뒤에서 소리치는 걸 듣는다. "얘!" 로빈이다. 그는 고아원에 사는 다른 고아다. 로빈은 당신과 동갑이지만 항상 당신을 우러러보고 있다. 그는 당신을 향해 뛰어오다가 제때 속도를 멈추지 못하고는, 당신과 충돌하여 거의 넘어질 뻔한다. 당신은 그의 팔을 잡아 균형을 유지한다. "고마워." 로빈이 말한다. 쑥스러운 듯 보이지만 여전히 미소를 짓고 있다.
 	<br><br>
-	"어제는 보질 못했었네. 잊지마, 언제든지 원하면 <span class="gold">내 방으로 와서 날 볼 수 있어</span>. 보여줄 게 있거든. 정말 기대되네!" 로빈은 당신을 껴안고는, 뭐라고 반응하기도 전에 뛰어가 버린다.
+	"어제는 만나질 못했네. 잊지 마, 네가 원한다면 언제든 <span class="gold">내 방으로 와서 날 만날 수 있어</span>. 네게 보여줄 게 있거든. 정말 기대돼!" 로빈은 당신을 껴안고는, 뭐라고 반응하기도 전에 뛰어가 버린다.
 	<br><br>
 	<<endevent>>
 	<<link [[다음|Orphanage]]>><</link>>
@@ -2365,21 +2499,21 @@
 
 <<elseif $loft_whitney is 1>>
 	<<npc "Bailey">><<person1>>
-	A hand taps your shoulder. It's Bailey. "I'm taking that contraband," <<he>> says. Then, with barely a pause, snatches Whitney's cigarettes your from your grasp. <<He>> walks away without another word.
+	손 하나가 당신의 어깨를 두드린다. 베일리다. "그 밀수품은 가져가마," 그는 말하며, 거의 반응할 틈도 없이 휘트니의 담배를 당신의 손에서 낚아챈다. 그는 말없이 걸어간다.
 	<br><br>
 	<<endevent>>
 	<<link [[다음|Orphanage]]>><<set $loft_whitney to 3>><</link>>
 	<br>
 <<elseif $loft_whitney is 2>>
 	<<npc "Bailey">><<person1>><<generatey2>>
-	You find one of the residents, a <<person2>><<person>>, cowering before Bailey in the main hall.
+	당신은 중앙 복도에서, 베일리 앞에 웅크리고 있는 소년을 발견한다. 그는 고아원에 사는 아이 중 하나다.
 	<br><br>
 	<<person1>>
-	"Don't lie to me," Bailey says. "Hand over the contraband." <<He>> grasps the <<person2>><<persons>> arm, and snatches a packet of cigarettes from <<his>> grasp.
+	"거짓말 마라," 베일리가 말한다. "그 밀수품을 내 놔." 그는 소년의 팔을 그러쥐고, 그의 손에서 담배 한 갑을 낚아챈다.
 	<br><br>
-	"A bully made me do it!" the <<person>> says, but Bailey is already turning away, uncaring.
+	"일진들이 저에게 시킨 거예요!" 소년이 말하지만, 베일리는 신경 쓰지 않고 이미 몸을 돌린 뒤다.
 	<br><br>
-	You suspect the bully is Whitney. They failed to convince you to try smoking in the loft, so they conscripted someone else.
+	당신은 그 일진이 휘트니라고 의심한다. 그들은 다락방에서 담배를 피우도록 당신을 설득하는 것에 실패했기에, 다른 사람을 끌어들인 것이다.
 	<br><br>
 	<<endevent>>
 	<<link [[다음|Orphanage]]>><<set $loft_whitney to 4>><</link>>
@@ -2394,7 +2528,7 @@
 	<</if>>
 <<elseif $babyIntros and $babyIntros.Bailey and $babyIntros.Bailey.length gt 0>>
 	<<npc Bailey>><<person1>>
-	"There you are," a voice says. You turn to see Bailey approaching you.
+	"여기 있었군," 목소리가 들린다. 당신은 고개를 돌려 다가오는 베일리를 본다.
 	<br><br>
 
 	<<homeBabyIntro>>
@@ -2405,16 +2539,16 @@
 	<<set $christmas_event_2 to 1>>
 	<<pass 30>>
 	<<earnFeat "A Festive Home">>
-	크리스마스 트리가 활동의 중심지가 되어있다. 각각의 고아들이 하나 이상의 선물을 그들에게 보내고 있다. 참지 못한 아이들이 포장을 뜯고는, 당신이 산 옷을 찾아낸다. 대부분은 행복해 보이지만, 한 <<generatey1>><<person1>><<personPost "이">> 불평한다. "셔츠?" <<hePost "이">> 말한다. "이건 별로야. 난 콘솔을 원했는데."
+	크리스마스 트리가 활동의 중심지가 되어있다. 각각의 고아들이 하나 이상의 선물을 그들에게 보내고 있다. 참지 못한 아이들이 포장을 뜯고는, 당신이 산 옷을 찾아낸다. 대부분은 행복해 보이지만, 한 소년이 불평한다. "셔츠?" 그가 말한다. "이건 별로야. 난 게임기를 원했는데."
 	<br><br>
-	"감사할 줄 알아야지," 더 나이가 많은 <<generatey2>><<personsimplePost "이">> 말한다. "그 셔츠는 멋지고 따뜻해 보이는 걸." 고장난 유리창 사이로 들어오는 돌풍이 지지하듯 불어온다.<<ggghope>><<hope 10>>
+	"감사할 줄 알아야지," 더 나이가 많은 소녀가 말한다. "그 셔츠는 멋지고 따뜻해 보이는 걸." 고장난 유리창 사이로 들어오는 돌풍이 지지하듯 불어온다.<<ggghope>><<hope 10>>
 	<br><br>
 	<<endevent>><<npc Bailey>><<person1>>
-	베일리가 쳐다본다. 어떠한 선물도 <<himPost "을">> 화나게 만들진 않은 것 같다. "이 지저분한 것들 좀 치워라," <<hePost "이">> 여기저기 흩어져 있는 포장지들을 손짓하며 소리지른다. "너희 전부 다."
+	베일리가 쳐다본다. 어떠한 선물도 그를 화나게 만들진 않은 것 같다. "이 지저분한 것들 좀 치워라," 그가 이곳저곳에 흩어져 있는 포장지들을 손짓하며 소리지른다. "너희 전부 다."
 	<br><br>
-	종이가 걷히자, 트리 아래에 아직 가져가지 않은 선물을 발견한다. 거기엔 <<hisPost "의">> 이름이 적혀 있다. <<HePost "은">> 잠시 손으로 살펴 본 다음, 선물을 품에 안고 방을 나갔다.
+	종이가 치워지자, 트리 아래에서 아직 가져가지 않은 선물이 발견된다. 거기엔 그의 이름이 적혀 있다. 그는 잠시 손으로 살펴 본 다음, 선물을 품에 안고 방을 나갔다.
 	<br><br>
-	새로 온 아이 중 한명이 그 모습을 보고 웃는다. 나머지는 불안해 보인다.
+	새로 온 아이 중 하나가 그 모습을 보고 웃는다. 나머지는 불안해 보인다.
 	<br><br>
 
 	<<link [[다음|Orphanage]]>><<endevent>><</link>>
@@ -2431,45 +2565,87 @@
 <<elseif $christmas is 1 and Time.monthDay is 25 and $robinmissing is 0 and $christmas_gift_robin_wrapped is 1 and $christmas_gift_robin_given is undefined and Time.dayState isnot "night">>
 	<<set $christmas_gift_robin_given to true>>
 	<<christmas_robin>>
+<<elseif $auriga_artefact isnot undefined and Time.dayState isnot "night" and $avery_mansion is undefined and C.npc.Avery.state is "active" and averyMansionScore() gte 50>>
+	<<npc Avery>><<npc Bailey 2>><<person1>>
+	고아들이 창가에 모여 있다. 창밖을 보니 에이버리가 현관문을 향해 성큼성큼 걸어오고 있다. 그는 시야에서 사라진다. 잠시 후, 건물 안에 두 번의 굉음이 울려 퍼진다.
+	<br><br>
+	<<person2>>
+	베일리는 짜증스러운 표정으로 사무실에서 나온다. 그는 문틈으로 안을 들여다보고는 얼굴을 찡그리더니, 문을 연다.
+	<br><br>
+	<<link [[다음|Mansion Intro Orphanage]]>><</link>>
+	<br>
 <<elseif $daily.homeEvent isnot 1 and Time.hour gte 6 and Time.hour lte 21>>
 	<<set $daily.homeEvent to 1>>
 	<<homeevent>>
+<<elseif getRobinLocation() is "orphanage" and $avery_mansion and !$avery_mansion_robin and Time.hour gte 6 and Time.hour lte 21 and !$fromRobinRoom and $avery_fate isnot "fallen" and $avery_fate isnot "kicked">>
+	<<set $avery_mansion_robin to 1>>
+	<<npc Robin>><<person1>>
+	<<generatey2>>
+	<<if _robin.trauma gte 20>>
+		당신은 뒤쪽에서 발소리를 듣는다. 로빈이다. 그는 당신에게 미소 짓는다. "작별 인사 때 못 가서 미안해," 그가 말한다. "네 새 집이 좋은 곳이기를 바라. 내가 언제 한 번 놀러 가도 될까? 고아원 아이들이랑 같이, 네게 만들어주고 싶은 게 있어."
+		<br><br>
+
+		<<link [[에이버리의 주소를 알려준다|Home Robin Mansion Address]]>><</link>>
+		<br>
+		<<link [[좋은 생각이라고 말한다|Home Robin Mansion Nice]]>><</link>>
+		<br>
+		<<link [[로빈에게 에이버리의 저택에 가까이 가지 말 것을 경고한다|Home Robin Mansion Warn]]>><</link>>
+		<br>
+	<<else>>
+		로빈이 보드게임 상자 여러 개를 품에 안은 채, 방을 가로질러 걸어온다. 그는 당신을 보자마자 상자를 떨어뜨리고 황급히 달려온다.
+		<br><br>
+		"네가 살 곳을 찾았다는 이야기를 들었어," 그가 미소 지으며 말한다. "네가 급히 떠나서 작별 인사도 못 했지, 미안. 그래도 네가 아직 이곳에 올 수 있어서 기뻐. 새 집은 어때?"
+		<br><br>
+		<<link [[근사한 저택이라고 한다|Home Robin Mansion Fabulous]]>><</link>>
+		<br>
+		<<link [[특별할 것 없는 곳이라고 한다|Home Robin Mansion Nothing]]>><</link>>
+		<br>
+		<<link [[말하고 싶지 않다고 한다|Home Robin Mansion Refuse]]>><</link>>
+		<br>
+	<</if>>
 <<elseif Time.hour gte 16 and Time.hour lte 21 and getRobinLocation() is "orphanage"
 and !$fromRobinRoom and _robin.cdquest is 2 and _robin.trauma lte 20 and !$daily.robin.cdevent>>
 	<<set $daily.robin.cdevent to 1>>
 	<<npc Robin>><<person1>>
 	<<generatey2>><<person2>>
 
-	당신은 로빈이 <<person2>><<person_ gwa>> 이야기하는 것을 본다. 로빈은 당신에게 손을 흔든다.
+	당신은 로빈이 작은 소녀와 이야기하는 것을 본다. 로빈은 당신에게 손을 흔든다.
 	<br><br>
 
 	<<link [[다가간다|Robin CD Socialise]]>><</link>>
 	<br>
 	<<link [[무시한다|Orphanage]]>><<endevent>><</link>>
 <<else>>
+	<<if StartConfig.sneaky>>
+		/* ToDo: Gwylan */
+		사슬 튜닉을 입은 금발의 소녀가 노를 든 채로 구석에 서 있다.
+		<br><br>
+		<<wolficon>><<link [[다가간다|Orphanage Sneaky Bad Ends]]>><</link>> <i>Sneaky update: bad end shortcuts</i>
+		<br>
+	<</if>>
 	<<if $halloween is 1 and Time.monthDay is 31 and !$fromRobinRoom and $robinmissing is 0 and Time.hour gte 16 and Time.hour lt 19 and _robin.init is 1>>
 		<<if $halloween_robin_costume>>
-			You see Robin, dressed as a $halloween_robin_costume and surrounded by excited orphans.
+			당신은 $halloween_robin_costume 차림으로 분장한 채 흥분한 고아들에게 둘러싸인 로빈을 본다.
 		<<elseif _wraithEvent>>
-			You see someone wearing a bedsheet over their head. They're completely motionless, and the hall is empty and silent. <span class="red">The bedsheet is a terrible, familiar pale.</span>
+			당신은 머리 위로 침대보를 덮은 누군가를 본다. 그는 미동도 하지 않고, 복도는 텅 비어 조용하다. <span class="red">침대보는 익숙하고 끔찍한, 창백한 색이다.</span>
 			<br><br>
 
-			<span class="wraith">"Trick or treat."</span>
+			<span class="wraith">"트릭 오어 트릿."</span>
 			<br><br>
 
-			You stumble backwards and shriek, and in a single blink, the hall changes completely. Now you see Robin, surrounded by excited orphans and holding <<nnpc_his "Robin">> bedsheet in <<nnpc_his "Robin">> arms, looking at both you and the bedsheet with utter confusion in <<nnpc_his "Robin">> eyes.
+			당신은 뒤쪽으로 비틀거리며 비명을 지르고, 복도는 눈 깜짝할 사이에 모습을 바꾼다. 이제 당신은 흥분한 고아들에게 둘러싸여 침대보를 팔에 걸고 있는 로빈을 본다. 그는 극도의 혼란이 담긴 시선으로 당신과 침대보를 보고 있다.
 		<<else>>
-			당신은 누군가 머리 끝까지 침대 시트를 뒤집어쓰고 있는 걸 본다. 신난 고아들에게 둘러싸여 있다.
+			당신은 머리 위로 침대보를 덮은 누군가를 본다. 신난 고아들에게 둘러싸여 있다.
 		<</if>>
 		<br><br>
-		<<foodicon "halloween">><<link [[Approach them|Robin Trick Hall]]>><</link>>
+		<<foodicon "halloween">><<link [[다가간다|Robin Trick Hall]]>><</link>>
 		<br><br>
 	<</if>>
 	<<if $police_hack is 2 and ($pub_hack_job is 1 or $pub_hack_job is 2)>>
-		<<ind>><<link [[해커를 찾는다 (0:10)|Orphanage Hacker]]>><<pass 10>><</link>>
+		<<investigateicon>><<link [[해커를 찾는다 (0:10)|Orphanage Hacker]]>><<pass 10>><</link>>
 		<br><br>
 	<<elseif $pubfame and $pubfame.intro lte 2 and $pub_hack_job lte 3>>
-		<<ind>><<link [[해커를 찾는다 (0:10)|Orphanage Hacker]]>><<pass 10>><</link>>
+		<<investigateicon>><<link [[해커를 찾는다 (0:10)|Orphanage Hacker]]>><<pass 10>><</link>>
 		<br><br>
 	<</if>>
 	<<if $kylar_camera is 5>>
@@ -2477,7 +2653,7 @@ and !$fromRobinRoom and _robin.cdquest is 2 and _robin.trauma lte 20 and !$daily
 		<br><br>
 	<</if>>
 	<<if $christmas is 1 and Time.monthDay is 25 and Time.dayState isnot "night" and $exposed lte 0>>
-		<<ind>><<link [[크리스마스를 축하한다 (1:00)|Orphanage Christmas]]>><<pass 60>><<trauma -12>><<stress -6>><</link>><<lltrauma>><<lstress>>
+		<<icon "mainhall_christmas.png">><<link [[크리스마스를 축하한다 (1:00)|Orphanage Christmas]]>><<pass 60>><<trauma -12>><<stress -6>><</link>><<lltrauma>><<lstress>>
 		<br>
 	<</if>>
 	<<gardenicon>><<link [[정원 (0:01)|Garden]]>><<pass 1>><</link>>
@@ -2500,6 +2676,8 @@ and !$fromRobinRoom and _robin.cdquest is 2 and _robin.trauma lte 20 and !$daily
 		<br>
 	<</if>>
 	<<bathroomLink>>
+	<br>
+	<<kitchenicon "stove">><<link [[주방 (0:01)|Kitchen]]>><<pass 1>><</link>>
 	<br>
 	<<robinroom_link>>
 	<br>
@@ -2579,37 +2757,40 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 당신은 다른 고아들과 함께 크리스마스를 기념한다.
 <<rng>>
 <<if Time.hour gte 20>>
-	그들은 날이 저물자 장식을 달기 시작했다. 
+	그들은 날이 저물자 장식을 달기 시작했다.
 <<else>>
 	<<if $rng gte 91>>
-		갓 구운 쿠기가 이리 저리 나아간다. 당신은 하나 스스로 가저간다.<<lstress>><<stress -6>>
+		<<wearProp "cookie">>
+		갓 구운 쿠키가 이곳저곳으로 옮겨진다. 당신은 자신의 몫으로 하나를 챙긴다.<<lstress>><<stress -6>>
 	<<elseif $rng gte 81>>
-		밖이 얼마나 추운지 떠드는 이들이 있다. 당신은 동의하지 않을 수 없었다.
+		바깥이 얼마나 추운지에 대해 이야기하는 이들이 있다. 당신은 동의하지 않을 수 없다.
 	<<elseif $rng gte 71>>
-		한 <<generatey1>><<person1>><<personPost "이">> 다른 <<generatey2>><<person2>><<personPost>>에게 선물을 건네준다. <<HePost "은">> 매우 기뻐하고 있지만, 선물을 바로 풀어버릴 만큼 성질이 급하진 않다.
+		한 소년이 소녀에게 선물을 건네준다. 그녀는 매우 기뻐하고 있지만, 선물을 바로 풀어버릴 만큼 성질이 급하진 않다.
 	<<elseif $rng gte 61>>
 		<<if $robinmissing is 0>>
-			로빈이 작은 과자 봉지를 나눠주고 있다. 한 <<generatey1>><<person1>><<personPost "이">> 베일리를 감시하고 있다.
+			<<wearProp "packet of sweets">>
+			로빈이 작은 과자 봉지를 나눠주고 있다. 한 소년이 베일리를 감시하고 있다.
 		<<else>>
-			A <<generatey1>><<person1>><<person>> stares out the window. <<Hes>> worried about Robin.
+			한 소녀가 창밖을 바라본다. 그녀는 로빈을 걱정하고 있다.
 		<</if>>
 	<<elseif $rng gte 51>>
 		한 반짝이 조각 장식품이 바닥에 떨어져 있다. 당신은 그걸 주워 다시 원래대로 돌려 놓는다.
 	<<elseif $rng gte 41>>
-		몇몇 사람들이 고아원이 얼마나 추운지 불평을 하고 있다. <<generatey1>><<person1>>한 <<personPost "이">> 베일리에게 온도를 올려달라고 부탁하고 싶어 했지만, 다른 이들이 <<himPost "을">> 만류한다.
+		몇몇 사람들이 고아원이 얼마나 추운지 불평하고 있다. 한 소녀가 베일리에게 온도를 올려달라고 부탁하고 싶어 했지만, 다른 이들이 그녀를 만류한다.
 	<<elseif $rng gte 31>>
 		그들은 기뻐하며 환호하고 있다.
 	<<elseif $rng gte 21>>
-		누가 몰래 아드보트레이를 들고 왔다.
+		<<wearProp "alcohol" 0 "advocaat">>
+		누가 몰래 애드보카트를 들고 왔다.
 	<<elseif $rng gte 11>>
-		한 <<generatey1>><<person1>><<personPost "이">> 무명 파티에서 비싸고 전자적인 선물을 받았다. <<hePost "에게">> 질투의 눈빛이 쇄도한다.
+		귀여운 소녀가 선물 교환 파티에서 비싼 전자제품을 받았다. 그녀에게 질투의 눈빛이 쇄도한다.
 	<<else>>
-		홀은 웃음 소리로 가득 차있다
+		홀은 웃음 소리로 가득하다.
 	<</if>>
 <</if>>
 <br><br>
-<<endevent>>
-<<link [[다음|Orphanage]]>><</link>>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
 
 :: Orphanage Hide
 <<set $outside to 0>><<set $location to "home">><<effects>>
@@ -2617,15 +2798,15 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 <br><br>
 
 <<if $rng lte 80>>
-	<<personPost "은">> 눈길조차 주지 않고 지나쳐간다. 당신은 심장이 쿵쾅거리는 채로 안전한 자신의 방으로 돌아간다.
+	유연한 소년은 눈길조차 주지 않고 지나쳐간다. 당신은 심장이 쿵쾅거리는 채로 안전한 자신의 방으로 돌아간다.
 	<br><br>
 	<<link [[다음|Bedroom]]>><<endevent>><</link>>
 	<<exit>>
 <</if>>
 
-<<personPost "이">> 바로 밖에서 발걸음을 멈추자 심장 박동이 점차 빨라진다. 당신은 뭔가 몸을 가릴 수 있을만한 것을 찾으려 고개를 내민다. 하지만 빗자루와 병 밖에 없다. <<HePost "이">> 어둠 속에서 당신을 언뜻 본 것 같다. 당장은 제대로는 보지 못하나, 곧 눈이 어둠에 적응할 것이다.
+유연한 소년이 바로 밖에서 발걸음을 멈추자 심장 박동이 점차 빨라진다. 당신은 뭔가 몸을 가릴 수 있을만한 것을 찾으려 고개를 내민다. 하지만 빗자루와 병 밖에 없다. 그는 어둠 속에서 당신을 언뜻 본 것 같다. 당장은 제대로 보지 못하나, 곧 눈이 어둠에 적응할 것이다.
 <br><br>
-<<HePost "이">> 트레이를 잡는다. "청소 당번이네." 당신을 유일하게 가려주는 걸 움직이며 <<hePost "이">> 말한다.
+그는 트레이를 잡는다. "청소 당번이라니." 당신을 유일하게 가려주는 물건을 움직이며 그가 말한다.
 <br><br>
 <<set $skulduggerydifficulty to 400>>
 <<link [[속인다|Orphanage Hide Skul]]>><</link>><<skulduggerydifficulty>>
@@ -2635,17 +2816,17 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 
 :: Orphanage Flaunt
 <<set $outside to 0>><<set $location to "home">><<effects>>
-당신은 턱을 치켜든 채로, <<hePost "에게">> 몸을 과시하듯 내보이며 걸어간다.
+당신은 턱을 치켜든 채, 그에게 몸을 과시하듯 내보이며 걸어간다.
 <<if $rng gte 81>>
-	<<HePost "은">> 헉 하는 소리를 내고는 자신의 방으로 줄행랑을 친다.
+	그는 헉 하는 소리를 내고는 자신의 방으로 줄행랑을 친다.
 <<elseif $rng gte 61>>
-	<<HePost "은">> 입을 떡 벌리고, 얼어붙은 채로 당신이 지나가는 걸 지켜본다.
+	그는 입을 떡 벌리고, 얼어붙은 채로 당신이 지나가는 걸 지켜본다.
 <<elseif $rng gte 41>>
-	<<HePost "은">> 미소를 지으며 당신을 향해 휘파람을 분다.
+	그는 미소를 지으며 당신을 향해 휘파람을 분다.
 <<elseif $rng gte 21>>
-	<<HePost "은">> 얼굴을 붉히며 눈을 가린다.
+	그는 얼굴을 붉히며 눈을 가린다.
 <<else>>
-	<<HePost "은">> 손으로 눈을 가리지만, 손가락 사이로 당신을 훔쳐본다.
+	그는 손으로 눈을 가리지만, 손가락 사이로 당신을 훔쳐본다.
 <</if>>
 <<exhibitionism4>>
 <<fameexhibitionism 1>><<if $orphanageexposed is undefined>><<set $orphanageexposed to 1>><<else>><<set $orphanageexposed += 1>><</if>>
@@ -2653,9 +2834,9 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 <<if $orphanageexposed gte 10 and random(1, 100) gte 51>>
 	아직도 거칠게 숨을 내쉬고 있자니, 조용한 발걸음이 가까워져서는 가볍게 문 두들기는 소리가 난다.
 	<br><br>
-	당신은 몸이 보이지 않도록 문을 열고는, 그 틈으로 쳐다본다. <<personPost "이">> 맨 앞에 서있는데, 혼자가 아니다. 여러 명과 함께 있다. 복도에서 당신이 발가벗고 있는 걸 본 사람도 여럿 있지만, 대부분은 그렇지 못한 이들이다. 뒤쪽에 있는 이들은 까치발을 하고 있다.
+	당신은 몸이 보이지 않도록 문을 열고는, 그 틈으로 바깥을 쳐다본다. 유연한 소년이 맨 앞에 서있는데, 혼자가 아니다. 여러 명과 함께 있다. 복도에서 당신이 발가벗고 있는 걸 본 사람도 여럿 있지만, 대부분은 그렇지 못한 이들이다. 뒤쪽에 있는 이들은 까치발을 하고 있다.
 	<br><br>
-	"안녕." <<personPost "이">> 침을 꿀꺽 삼킨다. "내가 본 광경을 친구들에게 말해줬어. 호-혹시 다시 해줄 수 있어?"
+	"안녕." 그가 침을 꿀꺽 삼킨다. "내가 본 광경을 친구들에게 말해줬어. 호-혹시 다시 해줄 수 있어?"
 	<br><br>
 	<<if hasSexStat("exhibitionism", 5)>>
 		<<link [[과시한다|Orphanage Flaunt 2]]>><</link>><<exhibitionist5>>
@@ -2681,35 +2862,35 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 <br><br>
 <<skulduggerycheck>>
 <<if $skulduggerysuccess is 1>>
-	<span class="green"><<personPost "이">> 손잡이를 놓는다.</span> "아." <<hePost "이">> 말한다. "알았어. 방에서 기다리고 있을게." <<HePost "은">> 당신을 어둠 속에 두고 간다. 당신은 문이 닫히는 소리가 들릴 때까지 기다린다. 당신은 심장이 쿵쾅거리는 채로 안전한 자신의 방으로 돌아온다.
+	<span class="green">그가 손잡이를 놓는다.</span> "아," 그가 말한다. "알았어. 방에서 기다리고 있을게." 그는 당신을 어둠 속에 두고 간다. 당신은 문이 닫히는 소리가 들릴 때까지 기다린다. 당신은 심장이 쿵쾅거리는 채로 안전한 자신의 방으로 돌아온다.
 	<br><br>
 	<<skulduggeryuse>>
 	<<link [[다음|Bedroom]]>><<endevent>><</link>>
 	<<exit>>
 <</if>>
 
-"괜찮아 보이는데." <<hePost "이">> 말한다. <span class="red"><<HePost "은">> 계속해서 벽장으로부터 카트를 끌어당기고,</span> 당신이 노출된다. <<HePost "은">> 당신의 <<lewdnessPost "을">> 보고는 깜짝 놀라 손잡이를 놓는다.
+"괜찮아 보이는데," 그가 말한다. <span class="red">그는 계속해서 벽장으로부터 카트를 끌어당기고,</span> 당신은 노출된다. 그는 당신의 음란한 모습을 보고는 깜짝 놀라 손잡이를 놓는다.
 <<if $rng gte 81>>
-	<<HePost "은">> 헉 하는 소리를 내고는 벽에 기대어 선다.
+	그는 헉 하는 소리를 내고는 벽에 기대어 선다.
 <<elseif $rng gte 61>>
-	<<hePost "은">> 입을 떡 벌리고는, 얼어붙은 채로 당신을 훑어본다.
+	그는 입을 떡 벌리고는, 얼어붙은 채로 당신을 훑어본다.
 <<elseif $rng gte 41>>
-	<<HePost "은">> 미소를 지으며 당신에게 휘파람을 분다.
+	그는 미소를 지으며 당신에게 휘파람을 분다.
 <<elseif $rng gte 21>>
-	<<HePost "은">> 얼굴을 붉히며 눈을 가린다.
+	그는 얼굴을 붉히며 눈을 가린다.
 <<else>>
-	<<HePost "은">> 손으로 눈을 가리지만, 손가락 사이로 당신을 훔쳐본다.
+	그는 손으로 눈을 가리지만, 손가락 사이로 당신을 훔쳐본다.
 <</if>>
-얼굴이 붉어지고 심장이 쿵쾅거리는 채로, 당신은 <<hePost "을">> 지나쳐 복도를 달려가 자신의 방에 들어간다.
+얼굴이 붉어지고 심장이 쿵쾅거리는 채로, 당신은 그를 지나쳐 복도를 달려가 자신의 방에 들어간다.
 <br><br>
 <<if $orphanageexposed is undefined>><<set $orphanageexposed to 1>><<else>><<set $orphanageexposed += 1>><</if>>
 <<skulduggeryuse>>
 <<if $orphanageexposed gte 10 and random(1, 100) gte 51>>
 	아직도 거칠게 숨을 내쉬고 있자니, 조용한 발걸음이 가까워져서는 가볍게 문 두들기는 소리가 난다.
 	<br><br>
-	당신은 몸이 보이지 않도록 문을 열고는, 그 틈으로 쳐다본다. <<personPost "이">> 맨 앞에 서있는데, 혼자가 아니다. 복도에서 당신이 발가벗고 있는 걸 본 사람이 여럿 있었다. 뒤쪽에 있는 이들은 까치발을 하고 있다.
+	당신은 몸이 보이지 않도록 문을 열고는, 그 틈으로 쳐다본다. 유연한 소년이 맨 앞에 서있는데, 혼자가 아니다. 복도에서 당신이 발가벗고 있는 걸 본 사람이 여럿 있었다. 뒤쪽에 있는 이들은 까치발을 하고 있다.
 	<br><br>
-	"안녕." <<personPost "이">> 침을 꿀꺽 삼킨다. "내가 본 광경을 친구들에게 말해줬어. 호-혹시 다시 해줄 수 있어?"
+	"안녕." 그가 침을 꿀꺽 삼킨다. "내가 본 광경을 친구들에게 말해줬어. 호-혹시 다시 해줄 수 있어?"
 	<br><br>
 	<<if hasSexStat("exhibitionism", 5)>>
 		<<link [[과시한다|Orphanage Flaunt 2]]>><</link>><<exhibitionist5>>
@@ -2727,37 +2908,37 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 
 :: Orphanage Hide Throw
 <<set $outside to 0>><<set $location to "home">><<effects>>
-당신은 <<personPost>>에게 빗자루를 내던지고는 숨어있던 장소에서 뛰쳐나온다. <<HePost "은">> 눈을 감고는 팔을 내밀어 얼굴을 막는다.
+당신은 그에게 빗자루를 내던지고는 숨어있던 장소에서 뛰쳐나온다. 그는 눈을 감고는 팔을 내밀어 얼굴을 막는다.
 <<if $rng gte 51>>
-	빗자루 중 하나가 당신의 진로에 떨어지나, <span class="green">당신은 빗자루를 뛰어넘는다</span>. 심장이 쿵쾅거리는 채로, 당신은 복도를 내달려 <<personPost "이">> 알아차리기 전에 안전한 자신의 방으로 들어간다.
+	빗자루 중 하나가 당신의 진로에 떨어지나, <span class="green">당신은 빗자루를 뛰어넘는다</span>. 심장이 쿵쾅거리는 채로, 당신은 복도를 내달려 그가 알아차리기 전에 안전한 자신의 방으로 들어간다.
 	<br><br>
 	<<link [[다음|Bedroom]]>><<endevent>><</link>>
 	<<exit>>
 <</if>>
 
-빗자루 중 하나가 당신의 진로에 떨어져, <span class="red">당신은 넘어져서 바닥에 나동그라진다</span>.
+빗자루 중 하나가 당신의 진로에 떨어져, <span class="red">당신은 넘어지고 바닥에 나동그라진다</span>.
 <br><br>
-<<HePost "은">> 당신보다 먼저 정신을 차리고, 당신의 <<lewdnessPost "을">> 알아차리고는 깜짝 놀라 손잡이를 놓는다.
+그는 당신보다 먼저 정신을 차리고, 당신의 음란한 모습을 알아차리고는 깜짝 놀라 손잡이를 놓는다.
 <<if $rng gte 81>>
-	<<HePost "은">> 헉 하는 소리를 내고는 벽에 기대어 선다.
+	그는 헉 하는 소리를 내고는 벽에 기대어 선다.
 <<elseif $rng gte 61>>
-	<<hePost "은">> 입을 떡 벌리고는, 얼어붙은 채로 당신을 훑어본다.
+	그는 입을 떡 벌리고는, 얼어붙은 채로 당신을 훑어본다.
 <<elseif $rng gte 41>>
-	<<HePost "은">> 미소를 지으며 당신에게 휘파람을 분다.
+	그는 미소를 지으며 당신에게 휘파람을 분다.
 <<elseif $rng gte 21>>
-	<<HePost "은">> 얼굴을 붉히며 눈을 가린다.
+	그는 얼굴을 붉히며 눈을 가린다.
 <<else>>
-	<<HePost "은">> 손으로 눈을 가리지만, 손가락 사이로 당신을 훔쳐본다.
+	그는 손으로 눈을 가리지만, 손가락 사이로 당신을 훔쳐본다.
 <</if>>
 <<if $orphanageexposed is undefined>><<set $orphanageexposed to 1>><<else>><<set $orphanageexposed += 1>><</if>>
-얼굴이 붉어지고 심장이 쿵쾅거리는 채로, 당신은 <<hePost "을">> 지나쳐 복도를 내달려 자신의 방에 들어간다.
+얼굴이 붉어지고 심장이 쿵쾅거리는 채로, 당신은 그를 지나쳐 복도를 내달려 자신의 방에 들어간다.
 <br><br>
 <<if $orphanageexposed gte 10 and random(1, 100) gte 51>>
 	아직도 거칠게 숨을 내쉬고 있자니, 조용한 발걸음이 가까워져서는 가볍게 문 두들기는 소리가 난다.
 	<br><br>
-	당신은 몸이 보이지 않도록 문을 열고는, 그 틈으로 쳐다본다. <<personPost "이">> 맨 앞에 서있는데, 혼자가 아니다. 복도에서 당신이 발가벗고 있는 걸 본 사람이 여럿 있었다. 뒤쪽에 있는 이들은 까치발을 하고 있다.
+	당신은 몸이 보이지 않도록 문을 열고는, 그 틈으로 쳐다본다. 유연한 소년이 맨 앞에 서있는데, 혼자가 아니다. 복도에서 당신이 발가벗고 있는 걸 본 사람이 여럿 있었다. 뒤쪽에 있는 이들은 까치발을 하고 있다.
 	<br><br>
-	"안녕." <<personPost "이">> 침을 꿀꺽 삼킨다. "내가 본 광경을 친구들에게 말해줬어. 호-혹시 다시 해줄 수 있어?"
+	"안녕." 그가 침을 꿀꺽 삼킨다. "내가 본 광경을 친구들에게 말해줬어. 호-혹시 다시 해줄 수 있어?"
 	<br><br>
 	<<if hasSexStat("exhibitionism", 5)>>
 		<<link [[과시한다|Orphanage Flaunt 2]]>><</link>><<exhibitionist5>>
@@ -2776,9 +2957,9 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 :: Orphanage Flaunt 2
 <<set $outside to 0>><<set $location to "home">><<effects>>
 <<fameexhibitionism 20>>
-시샘을 피하고 싶었기에 당신은 문을 활짝 열고는 복도로 당당히 걸어나간다. 작은 군중이 나뉘어져 당신이 지나갈 수 있게 해준다. 당신은 서두르지 않으며, 캣워크 위를 걷는 것처럼 행동한다. 모두의 눈이 당신의 <<lewdnessPost "을">> 쳐다보고 있다. 세 명이 나란히 서있을 정도로 복도가 넓진 않기에, 당신은 나아가면서 다른 이들의 몸을 건드리며 가야 했다.
+시샘을 피하고 싶었기에 당신은 문을 활짝 열고는 복도로 당당히 걸어나간다. 작은 군중이 나뉘어져 당신이 지나갈 수 있게 해준다. 당신은 서두르지 않으며, 런웨이를 걷는 것처럼 행동한다. 모두의 눈이 당신의 음란한 모습을 쳐다보고 있다. 세 명이 나란히 서있을 정도로 복도가 넓진 않기에, 당신은 나아가면서 다른 이들의 몸을 건드리며 가야 했다.
 <br><br>
-"맘에 좀 드는 광경이었어?" 당신은 복도 끝에서 몸을 빙글 돌리며 그렇게 말한다. 당신은 다시 방으로 돌아가며, 문을 닫기 전에 어깨 너머로 가볍게 키스를 날린다. 문을 통해 흥분한 아이들의 소리를 듣자 심장이 미친듯이 뛴다.
+"마음에 드는 광경이었어?" 당신은 복도 끝에서 몸을 빙글 돌리며 그렇게 말한다. 당신은 다시 방으로 돌아가며, 문을 닫기 전에 어깨 너머로 가볍게 키스를 날린다. 문을 통해 흥분한 아이들의 소리를 듣자 심장이 미친듯이 뛴다.
 <br><br>
 <<link [[다음|Bedroom]]>><<endevent>><</link>>
 
@@ -2786,40 +2967,40 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 
 <<set $outside to 0>><<set $location to "home">><<effects>>
 <<fameexhibitionism 10>>
-그러지 않으면 이들이 당신을 가만 두지 않을 것이 두려워, 당신은 초조하게 문을 연다. <<covered>> 모두의 시선이 당신에게 꽂히며, 몸을 구석구석 훑어본다. "자-자아." 당신이 말한다. "원하는 걸 보여줬지." 당신은 문을 쾅 닫고는 등을 기대고는 주저앉는다. 심장이 미친듯이 뛴다. 이 정도로 저들의 호기심이 충족되었기를 바랄 뿐이다.
+거절하면 이들이 당신을 가만 두지 않을 것이 두려워, 당신은 초조하게 문을 연다. <<covered>> 모두의 시선이 당신에게 꽂히며, 몸을 구석구석 훑어본다. "자-자아." 당신이 말한다. "원하는 걸 봤겠지." 당신은 문을 쾅 닫고는 등을 기대고는 주저앉는다. 심장이 미친듯이 뛴다. 이 정도로 저들의 호기심이 충족되었기를 바랄 뿐이다.
 <br><br>
 <<link [[다음|Bedroom]]>><<endevent>><</link>>
 
 :: Orphanage Flaunt Refuse
 <<set $outside to 0>><<set $location to "home">><<effects>>
-수 많은 이들은 커녕, 단 한 명이라도 자신의 알몸을 보는 극심한 굴욕을 반복하고 싶지 않았기에, 당신은 고개를 내젓는다. 다시 문을 닫으려 하지만, 누군가 발을 그 틈에 집어넣어 그럴 수가 없다.
+수많은 이들은 커녕, 단 한 명이라도 자신의 알몸을 보는 극심한 굴욕을 반복하고 싶지 않았기에 당신은 고개를 내젓는다. 다시 문을 닫으려 하지만, 누군가 발을 그 틈에 집어넣어 그럴 수가 없다.
 <br><br>
 <<if $speech_attitude is "meek">>
 	"제-제발 날 그냥 내버려 둬." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"싫다고 했잖아." 당신이 말한다.
 <<else>>
-	"안돼." 당신이 말한다.
+	"못 해." 당신이 말한다.
 <</if>>
 <br><br>
-<<personPost "은">> 잠시 머뭇거리더니, 발을 뺀다. 문을 닫고는 자리에 주저앉는 동안 심장이 미친듯이 뛴다. 문 밖에서 여럿이 말다툼을 하는 소리가 들려오지만, 곧 저마다의 방으로 향한다.
+유연한 소년은 잠시 머뭇거리더니, 발을 뺀다. 문을 닫고는 자리에 주저앉는 동안 심장이 미친듯이 뛴다. 문 밖에서 여럿이 말다툼을 하는 소리가 들려오지만, 곧 저마다의 방으로 향한다.
 <br><br>
 <<link [[다음|Bedroom]]>><<endevent>><</link>>
 
 :: Molestation Alarm
 <<effects>><<set $rescued += 1>><<npcincr Bailey love -1>>
-당신은 베일리가 비명소리를 듣고는 복도를 걸어내려오는 소리를 듣는다. "그 안에서 죽어가고 있기라도 해야할 거야." <<person1>><<personPost "은">> 침대 위에 올라가서는 베일리가 뛰어 들어오는 순간 열려있던 창문 밖으로 뛰쳐 나간다.
+당신은 베일리가 비명소리를 듣고는 복도를 걸어내려오는 소리를 듣는다. "그 안에서 죽어가고 있기라도 해야할 거야." 그는 침대 위에 올라가서는 베일리가 뛰어들어오는 순간 열려있던 창문 밖으로 뛰쳐 나간다.
 <br><br>
 <<clotheson>>
 <<endcombat>>
-<<npc Bailey>><<person1>>"이 도시가 어떻게 되려는 건지 모르겠네." 베일리가 창문을 닫으며 말한다. <<HePost "은">> 당신을 향해 몸을 돌린다. "중요한 일이 아니면 귀찮게 하지 마." 베일리는 방을 나서면서 문을 쾅 닫고 나간다.
+"이 도시가 어떻게 되려는 건지 모르겠군." 베일리가 창문을 닫으며 말한다. 그는 당신을 향해 몸을 돌린다. "중요한 일이 아니면 귀찮게 하지 마." 베일리는 방을 나서면서 문을 쾅 닫고 나간다.
 <<endevent>>
 <br><br>
 <<link [[다음|Bedroom]]>><</link>>
 
 :: Molestation Escape
 <<effects>>
-<<He_ nun>> 고통에 차 물러서며, 당신이 도망치는 데 필요한 기회를 만들어 준다. <<tearful>> 당신은 화장실로 도망쳐 문을 잠근다. 화장실에는 <<he_ ga>> 포기하지 않는다면 탈출하는 데 쓸 수 있는 창문이 나 있다.
+그는 고통에 차 물러서며, 당신이 도망치는 데 필요한 기회를 만들어 준다. <<tearful>> 당신은 화장실로 도망쳐 문을 잠근다. 화장실에는 그가 포기하지 않는다면 탈출하는 데 쓸 수 있는 창문이 나 있다.
 <br><br>
 <<pass 30>>
 30분 동안 아무 일도 없자, 당신은 조용히 침실로 다시 돌아간다. 당신은 침실에 아무도 없는 걸 보고 안심한다.
@@ -2834,25 +3015,27 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 <br><br>
 옷을 벗는다면 더 기분이 좋을지도 모른다...
 <br><br>
-<<baskicon>><<link [[|Nude Bask]]>><<set $stress -= 40>><</link>><<exhibitionist1>><<lstress>>
+<<baskicon>><<link [[옷을 벗는다|Nude Bask]]>><<set $stress -= 40>><</link>><<exhibitionist1>><<lstress>>
 <br>
 <<ind>><<link [[그만둔다|Garden]]>><</link>>
 
 :: Nude Bask
 <<effects>>
-<<if $worn.upper.name isnot "naked">>당신은 <<trClothes "upper" $worn.upper.name "name" `$worn.lower.name isnot "naked" and $worn.upper.set isnot $worn.lower.set ? "을" : "과"` "sep">>_trResult<<if $worn.lower.name isnot "naked" and $worn.upper.set isnot $worn.lower.set>>_trPost <<trClothes "lower" $worn.lower.name "name" "을" "sep">>_trResult<</if>>_trPost 벗었다.<</if>>
-<br><br>
+<<if $worn.upper.name isnot "naked">>
+	You remove your $worn.upper.name<<if $worn.lower.name isnot "naked" and $worn.upper.set isnot $worn.lower.set>> and your $worn.lower.name<</if>>.
+	<br><br>
+<</if>>
 <<upperstrip>><<lowerstrip>>
 맨살에 느껴지는 온기가 환상적이다.
 <br>
 <<exhibitionism1>>
-<<set $danger to random(1, 10000)>><<set $dangerevent to 0>>
-<<if $danger gte (9900 - $allure) and $eventskip is 0>>
+
+<<if dangerEvent() and $eventskip is 0>>
 	눈을 뜨자 옷을 둔 곳에 아무 것도 없다. 당신은 당황하여 주변을 둘러보지만, 어디에도 옷은 없다. 누군가 가져간 것이 분명하다. 어쩌면 그 범인이 아직 근처에 있을지도 모른다.
 	<br><br>
 	<<link [[부른다|Bask Call]]>><</link>>
 	<br>
-	<<link [[몰래 안에 들어간다|Bask Sneak]]>><<set $upperoff to 0>><<set $loweroff to 0>><</link>>
+	<<link [[몰래 안으로 들어간다|Bask Sneak]]>><<set $upperoff to 0>><<set $loweroff to 0>><</link>>
 	<<exit>>
 <</if>>
 
@@ -2888,7 +3071,7 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 	<<controlloss>>
 	<<set $combat to 1>>
 
-	<<if $tentacledisable is "f">>
+	<<if $settings.tentaclesEnabled>>
 		<<set $enemytype to "tentacles">>
 		<<tentaclestart 2 15 "tendril">>
 	<<else>>
@@ -2901,12 +3084,12 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 <</if>>
 
 <<swarmeffects>>
-<<if $tentacledisable is "f">>
+<<if $settings.tentaclesEnabled>>
 	<<effectstentacles>>
 <</if>>
 
 <<swarm>>
-<<if $tentacledisable is "f">>
+<<if $settings.tentaclesEnabled>>
 	<<tentacles>>
 	<<statetentacles>>
 	<<actionsOmni>>
@@ -2923,7 +3106,7 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 :: Bath Slime Finish
 <<effects>>
 
-마지막 남은 물 한 방울까지 욕조에서 빠져나가며, 슬라임을 함께 데려간다. <<tearful>> 당신은 욕조에서 나온다.
+마지막 남은 물 한 방울이 욕조에서 빠져나가며, 슬라임을 함께 데려간다. <<tearful>> 당신은 욕조에서 나온다.
 <br><br>
 
 <<endcombat>>
@@ -2936,49 +3119,49 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 <<if $rng gte 51>>
 	당신은 숨바꼭질에 합류한다.
 		<<rng>>
-	<<if $rng gte 91>>
+		<<if $rng gte 91>>
 		당신은 큰 화초 뒤에 숨어서,
-	<<elseif $rng gte 81>>
+		<<elseif $rng gte 81>>
 		당신은 나무 뒤에 숨어서,
-	<<elseif $rng gte 71>>
+		<<elseif $rng gte 71>>
 		당신은 버려진 헛간 안에 숨어서,
-	<<elseif $rng gte 61>>
+		<<elseif $rng gte 61>>
 		당신은 고아원의 모퉁이를 돌아서,
-	<<elseif $rng gte 51>>
+		<<elseif $rng gte 51>>
 		당신은 덤불 뒤에 숨어서,
-	<<elseif $rng gte 41>>
+		<<elseif $rng gte 41>>
 		당신은 길다란 풀숲 안에 숨어서,
-	<<elseif $rng gte 31>>
+		<<elseif $rng gte 31>>
 		당신은 화단 뒤에 숨어서,
-	<<elseif $rng gte 21>>
-		당신은 돌 뒤에 숨어서,
-	<<elseif $rng gte 11>>
+		<<elseif $rng gte 21>>
+		당신은 바위 뒤에 숨어서,
+		<<elseif $rng gte 11>>
 		당신은 낡은 손수레 뒤에 숨어서,
-	<<else>>
+		<<else>>
 		당신은 덤불 밑에 숨어서,
 		<</if>>
-	<<generates1>><<person1>><<personPost "이">> 당신을 찾길 기다린다.
+		술래가 당신을 찾기를 기다린다.
 		<br><br>
 
-	<<set $danger to random(1, 10000)>><<set $dangerevent to 0>>
-	<<if $danger gte (9900 - $allure)>>
-		<<hePost "이">> 당신을 찾기까진 오래 걸리지 않는다. "찾았다!" <<personPost "이">> 당신을 숨은 장소에서 끄집어내며 외친다. 찾은 뒤에도 <<hePost "은">> 당신을 놓아주지 않고, 대신 가까이 잡아당긴 뒤 손으로 당신의 몸을 더듬는다.
-		<br><br>
 
-		<<link [[민다|Garden Shove]]>><</link>>
-		<br>
+	<<if dangerEvent()>>
+	소년이 당신을 찾기까진 오래 걸리지 않는다. "찾았다!" 그는 당신을 숨은 장소에서 끄집어내며 외친다. 찾은 뒤에도 그는 당신을 놓아주지 않고, 대신 가까이 잡아당긴 뒤 손으로 당신의 몸을 더듬는다.
+	<br><br>
+
+	<<link [[밀어다|Garden Shove]]>><</link>>
+	<br>
 	<<if hasSexStat("promiscuity", 2)>>
-			<<link [[내버려 둔다|Garden Sex]]>><<set $sexstart to 1>><</link>><<promiscuous2>>
-			<br>
-		<</if>>
+	<<link [[내버려 둔다|Garden Sex]]>><<set $sexstart to 1>><</link>><<promiscuous2>>
+	<br>
+	<</if>>
 	<<else>>
 		<<rng>>
 		<<if $rng gte 81>>
-		<<HePost "이">> 한 명 한 명 아이들을 찾아내는 소리가 들려오고, 곧 남아있는 건 당신 뿐이다. 몇 분이 더 흐르고 나자 <<hisPost "의">> 인내심도 바닥이 난다. "포기할게. 네가 이겼어." <<hePost "이">> 외친다. 당신은 의기양양하게 숨어있던 장소에서 나온다.
-			<br><br>
+		소년이 한 명 한 명 아이들을 찾아내는 소리가 들려오고, 곧 당신만이 남게 된다. 몇 분이 더 흐르고 나자 그의 인내심도 바닥이 난다. "포기할게. 네가 이겼어." 그가 외친다. 당신은 의기양양하게 숨어있던 장소에서 나온다.
+		<br><br>
 
 		<<else>>
-			<<hePost "이">> 당신을 찾기까진 오래 걸리지 않는다. "찾았다!" <<personPost "이">> 당신을 숨은 장소에서 끄집어내며 외친다. 반칙을 하고 있는게 분명하다.
+		소년이 당신을 찾기까진 오래 걸리지 않는다. "찾았다!" 그가 당신을 숨은 장소에서 끄집어내며 외친다. 반칙을 하고 있는게 분명하다.
 		<br><br>
 
 		<</if>>
@@ -2988,24 +3171,24 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 	<<exit>>
 <</if>>
 
-<<generates1>><<person1>><<personPost "이">> 당신을 향해 달려와서는 어깨를 쿡 찌른다. "이젠 네가 술래야!" <<hePost "은">> 신나서 그렇게 말한다.
+소년이 당신을 향해 달려와서는 어깨를 쿡 찌른다. "이젠 네가 술래야!" 그는 신나서 그렇게 말한다.
 <br><br>
 
 <<if $rng gte 81>>
-		당신은 다른 사람을 잡고는 놀이를 계속한다. <<personPost "을">> 쫓다가 <<hePost "이">> 바닥에 떨어져있던 나뭇가지에 발이 걸려 넘어지고, 당신도 같이 걸려 넘어진다. 당신은 <<HePost "의">> 위에 엎어진다.
-		<br><br>
+	당신은 다른 사람을 잡고는 놀이를 계속한다. 당신에게 쫓기던 소년이 바닥에 떨어져있던 나뭇가지에 발이 걸려 넘어지고, 당신도 같이 걸려 넘어진다. 당신은 그의 위 엎어진다.
+	<br><br>
 
-		<<link [[일어선다|Garden]]>><<endevent>><</link>>
-		<br>
+	<<link [[일어선다|Garden]]>><<endevent>><</link>>
+	<br>
 
-		<<link [[추파를 던진다|Garden Flirt]]>><</link>><<promiscuous1>>
+	<<link [[추파를 던진다|Garden Flirt]]>><</link>><<promiscuous1>>
 	<br>
 
 	<<else>>
-		당신은 다른 사람을 잡고는 한동안 놀이를 계속한다.
-		<br><br>
-		<<link [[다음|Garden]]>><<endevent>><</link>>
-		<br>
+	당신은 다른 사람을 잡고는 한동안 놀이를 계속한다.
+	<br><br>
+	<<link [[다음|Garden]]>><<endevent>><</link>>
+	<br>
 <</if>>
 
 :: Orphanage Intro
@@ -3015,18 +3198,15 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 <<set $rentstage to 1>>
 
 <<npc Bailey>><<person1>>
-당신은 베일리의 사무실에 들어간다. "무슨 일로 왔는지 다 알아." <<HePost "이">> 자신의 검은 머리카락을 쓸어넘기며 말한다. "내 보호 하에서 놔줘서, 독립적인 시민으로 만들어달라 하러 온 거겠지. 그렇게 해줄 수야 있어. 하지만 문제가 있어. 넌 내 지붕 밑에 살면서 내게 아무 것도 지불하지 않았어. 내게 빚이 있다 이 말이야. 그걸 전부 갚기 전엔, 놔줄 수 없어."
+당신은 베일리의 사무실에 들어간다. "무슨 일로 왔는지 다 안다." 그가 자신의 검은 머리카락을 쓸어넘기며 말한다. "내 보호를 풀고, 너를 독립적인 시민으로 만들어달라 하러 온 거겠지. 그렇게 해줄 수야 있어. 하지만 문제가 있어. 넌 내 지붕 밑에 살면서 내게 아무 것도 지불하지 않았지. 내게 빚이 있다 이 말이야. 그걸 전부 갚기 전엔, 놔줄 수 없어."
 <br><br>
-<<He_ nun>> <<his_ yi>> 책상에서 봉투를 하나 들어올려 내용물을 훑어본다. 당신은 당신의 이름을 언뜻 본다. <<He_ nun>> 당신의 신분증을 <<his_ yi>> 자켓에 집어넣으며 미소를 짓는다. "<<printmoney $rentmoney "pink">> 정도면 되겠지. 처음에는 말이야. 네가 그걸 어떻게 벌든 상관없어. 문을 두드리며 일을 찾아보던가. 너 자신을 발받침대로 빌려주던가. 혹은 훔치거나. 그냥 지금부터 매주 돈을 내면 돼. 그러지 않으면 다른 방법으로 네게서 <span class="red">돈을 짜내는</span> 수 밖에."
+그는 책상에서 봉투를 하나 들어올려 내용물을 훑어본다. 당신은 당신의 이름을 언뜻 본다. 그는 당신의 신분증을 자신의 자켓에 집어넣으며 미소를 짓는다. "<<printmoney $rentmoney "pink">> 정도면 되겠지, 처음에는 말이야. 네가 그걸 어떻게 벌든 상관없어. 문을 두드리며 일을 찾아보던가. 너 자신을 발 받침대로 빌려주던가. 혹은 도둑질을 하던가. 그냥 지금부터 매주 돈을 내면 돼. 그러지 않으면 다른 방법으로 네게서 <span class="red">돈을 짜내는</span> 수 밖에."
 <br><br>
 
 당신은 자신의 자그마한 침실로 돌아와서는 뭘 어떻게 할지 궁리한다.
-<br><br>
 
 <<endevent>>
 <hr>
-태도
-<br><br>
 <<attitudes>>
 <br>
 
@@ -3035,7 +3215,7 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 :: Bailey Rescue
 <<set $outside to 0>><<set $location to "home">><<effects>>
 <<set $stress -= 2000>>
-<<npc Bailey>><<person1>>당신은 얼굴에서 느껴지는 날카로운 고통에 잠에서 깬다. 베일리다. <<HePost "이">> 다시 당신의 뺨을 때린다. "네게 훌륭하디 훌륭한 침대를 줬더니, 바닥에서나 자고 있구나." <<HePost "은">> 쾅 소리를 내며 문을 닫고는 나간다.
+<<npc Bailey>><<person1>>당신은 얼굴에서 느껴지는 날카로운 고통에 잠에서 깬다. 베일리다. 그가 다시 당신의 뺨을 때린다. "네게 훌륭하디 훌륭한 침대를 줬더니, 바닥에서나 자고 있군." 그는 문을 쾅 닫고는 나간다.
 <br><br>
 <<pain 5>>
 <<link [[다음|Bedroom]]>><<endevent>><</link>>
@@ -3049,13 +3229,13 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 	아무런 예고도 없이 로빈의 방문이 벌컥 열린다. <span class="red">베일리다.</span>
 	<br><br>
 
-	"로빈의 방에서라면 숨을 수 있다고 생각했냐?" 베일리가 조소한다.
+	"로빈의 방이라면 숨을 수 있다고 생각했나?" 베일리가 조소한다.
 <<else>>
 	아무런 예고도 없이 방문이 벌컥 열린다. <span class="red">베일리다.</span>
 <</if>>
 
-<<if $exposed gte 1>>
-	<<nnpc_He_ ga "Bailey">> 당신을 잠깐 훑어본다. "옷 입어," <<nnpc_he_ ga "Bailey">> 말한다. <<nnpc_He_ ga "Bailey">> 손가락을 튕긴다. "당장."
+<<if $exposedRaw gte 1>>
+	베일리는 당신을 잠깐 훑어본다. "옷 입어," 그가 말하며, 손가락을 튕긴다. "당장."
 	당신은 전에 입었던 옷을 황급히 몸에 걸친다. <<bedclotheson "bed">>
 <</if>>
 <br><br>
@@ -3096,15 +3276,15 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 :: Nude Cat
 <<effects>>
 <<beastNEWinit 1 cat>>
-당신은 근처의 덤불 속에서 지켜보는 한 쌍의 눈을 보고는 하던 일을 멈춘다. <<beasttypePost>> 한 마리가 걸어나온다.
+당신은 근처의 덤불 속에서 지켜보는 한 쌍의 눈을 보고는 하던 일을 멈춘다. 고양이 한 마리가 걸어나온다.
 <br><br>
 <<saveNPC 0 nude_cat>>
 <<endmasturbation>>
 <<endcombat>>
 <<loadNPC 0 nude_cat>>
 
-<!-- Modified for Beast People -->
-<<if $monster is 1 or $bestialitydisable is "f">>
+
+<<if $monster is 1 or $settings.bestialityEnabled>>
 	<<link [[다리를 벌린다|Nude Oral]]>><<trauma -6>><<stress -12>><<arousal 600>><</link>><<ltrauma>><<lstress>><<garousal>><<deviant1>>
 	<br>
 <</if>>
@@ -3114,24 +3294,24 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 :: Nude Oral
 <<effects>>
 
-<<bHePost "은">> 호기심이 생긴 듯 당신의 다리 사이로 들어와 <<genitalsPost "을">> 바라본다. <<bHePost "은">> 살짝 냄새를 맡아보더니, 핥기 시작한다. 마치 <<bhis_ yi>> 혀가 거친 것을 알기라도 한듯, <<bHe_ nun>> 살살 핥는다. <<if playerChastity()>><<bhisPost "의">> 날렵한 혀에 <<worn_genitals_name_ i>> 제 역할을 하지 못한다.<</if>><<deviancy1>>
+고양이는 호기심이 생긴 듯 당신의 다리 사이로 들어와 질을 바라본다. 그는 살짝 냄새를 맡아보더니, 핥기 시작한다. 마치 그의 혀가 거친 것을 알기라도 하는 듯, 그는 살살 핥는다. <<if playerChastity()>>당신의 정조대는 그의 날렵한 혀에 제 역할을 하지 못한다.<</if>><<deviancy1>>
 
 <<if $arousal gte ($arousalmax / 5) * 4>>
 	<<arousal 2000 "genitals">>
-	당신은 누운 채로 <<bhisPost "의">> 귀를 어루만지며, 당신에게 쾌감을 주는 걸 내버려 둔다. <<bHePost "이">> 음란한 부위에 열중하는 동안 절정감이 점차 커지는게 느껴진다.
+	당신은 누운 채로 그의 귀를 어루만지며, 당신에게 쾌감을 주는 걸 내버려 둔다. 그가 음란한 부위에 열중하는 동안 쾌감이 점차 커지는게 느껴진다.
 	<br><br>
 
 	<<orgasm>>
 
 	<<if $femaleclimax is 1>>
-		<<beasttype_ un>> 액체가 나오지 않는다는 것에 실망한 것 처럼 보였고, 무언가 할 만한 다른 것을 찾아 다른 곳으로 떠난다.
+		고양이는 액체가 나오지 않는다는 것에 실망한 것처럼 보였고, 무언가 할 만한 다른 것을 찾아 다른 곳으로 떠난다.
 	<<else>>
-		<<beasttypePost "은">> 당신이 풀 위에서 절정에 몸부림치는 동안 새어나오는 액체를 핥는 걸 목표 삼아 열의를 기울인다. 경련이 진정되는 동안, <<beasttypePost "은">> 약간의 액체를 코에 묻힌 채로 뭔가 다른 걸 하러 떠나간다.
+		고양이는 당신이 풀 위에서 절정에 몸부림치는 동안 새어나오는 액체를 핥는 걸 목표 삼아 열의를 기울인다. 당신의 경련이 진정되는 동안, 그는 약간의 액체를 코에 묻힌 채로 뭔가 다른 걸 하러 떠나간다.
 	<</if>>
 	<br><br>
 
 <<else>>
-	당신은 누운 채로 <<bhisPost "의">> 귀를 어루만지며, <<beasttype_ i>> 당신에게 쾌감을 주는 걸 내버려 둔다. <<bHePost "은">> 곧 흥미를 잃었는지 당신에게서 떠나가, 다시 덤불 속으로 돌아간다.
+	당신은 누운 채로 그의 귀를 어루만지며, 당신에게 쾌감을 주는 걸 내버려 둔다. 그는 곧 흥미를 잃었는지 당신에게서 떠나가, 다시 덤불 속으로 돌아간다.
 	<br><br>
 <</if>>
 
@@ -3141,7 +3321,7 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 :: Nude Pet
 
 <<effects>>
-당신은 손을 뻗어 <<beasttypePost "을">> 쓰다듬는다. <<bHePost "은">> 당신의 손을 향해 몸을 쭉 늘이며 하품을 한다. 그러고는 꼬리를 돌려 왔던 길로 되돌아간다.
+당신은 손을 뻗어 고양이를 쓰다듬는다. 고양이는 당신의 손을 향해 몸을 쭉 늘이며 하품을 한다. 그러고는 꼬리를 돌려 왔던 길로 되돌아간다.
 <br><br>
 <<link [[다음|Nude Bask]]>><<clearNPC nude_cat>><<endevent>><</link>>
 <br>
@@ -3180,34 +3360,42 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 
 :: Sleep Rape Finish
 
-<<set $outside to 0>><<set $location to "town">><<effects>>
+<<set $outside to 0>><<set $location to "home">><<effects>>
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>><<set $forcedprostitutionstat += 1>><<fameprostitution 1>>
-	<<personPost "은">> 침대에서 일어서서 방을 빠져나간다. 베일리는 잠시 당신을 쳐다보더니, 문을 쾅 하고 닫는다.
+	침입자는 침대에서 일어서서 방을 빠져나간다. 베일리는 잠시 당신을 쳐다보더니, 문을 쾅 하고 닫는다.
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
-	<<link [[다음|Bed]]>><</link>>
+	<<if $robinbed is "theirs">>
+		<<link [[다음|Robin Bed]]>><</link>>
+	<<else>>
+		<<link [[다음|Bed]]>><</link>>
+	<</if>>
 <<elseif $enemyhealth lte 0>>
-	당신이 <<personPost "을">> 침대에서 떨구자, <<hePost "은">> 땅바닥에 나동그라진다. "망할 애새끼가." <<hePost "은">> 그렇게 말하며 베일리에게로 고개를 돌린다. "내 돈 돌려줘."
+	당신이 그를 침대에서 떨구자, 그는 땅바닥에 나동그라진다. "망할 애새끼가." 그는 그렇게 말하며 베일리에게로 고개를 돌린다. "내 돈 돌려줘."
 	<br><br>
-	베일리는 <<hePost "을">> 냉담하게 쳐다본다. "낸 만큼의 기회를 만들어 줬잖아. 당신이 이 녀석을 제대로 다루지 못한 게 내 탓은 아니지."
+	베일리는 그를 냉담하게 쳐다본다. "낸 만큼의 기회를 만들어 줬잖아. 당신이 이 녀석을 제대로 다루지 못한 게 내 탓은 아니지."
 	<br><br>
-	<<HePost "은">> 베일리를 노려보지만, 더는 이의를 제기하지 않는다. <<hePost "이">> 나가자 베일리는 쾅 하고 문을 닫는다.
+	그는 베일리를 노려보지만, 더는 이의를 제기하지 않는다. 그가 나가자 베일리는 문을 쾅 닫는다.
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
-	<<link [[다음|Bed]]>><</link>>
+	<<if $robinbed is "theirs">>
+		<<link [[다음|Robin Bed]]>><</link>>
+	<<else>>
+		<<link [[다음|Bed]]>><</link>>
+	<</if>>
 <<elseif $robinbed isnot undefined>>
-	당신의 외침에 응답하듯 로빈의 눈이 가볍게 떨리며 열린다. 로빈은 <<personPost "이">> 당신을 찍어누르고 있는 걸 보고는, <<HePost "의">> 얼굴을 걷어찬다. <<personPost "은">> 침대에서 굴러떨어진다. "망할 애새끼가." <<hePost "은">> 그렇게 말하며 베일리에게로 고개를 돌린다. "내 돈 돌려줘."
+	당신의 외침에 응답하듯 로빈의 눈이 가볍게 떨리며 열린다. 로빈은 그가 당신을 찍어누르고 있는 걸 보고는, 그의 얼굴을 걷어찬다. 그가 침대에서 굴러떨어진다. "망할 애새끼가." 그는 그렇게 말하며 베일리에게로 고개를 돌린다. "내 돈 돌려줘."
 	<br><br>
-	베일리는 <<hePost "을">> 냉담하게 쳐다본다. "낸 만큼의 기회를 만들어 줬잖아. 당신이 이 녀석들을 제대로 다루지 못한 게 내 탓은 아니지."
+	베일리는 그를 냉담하게 쳐다본다. "낸 만큼의 기회를 만들어 줬잖아. 당신이 이 녀석들을 제대로 다루지 못한 게 내 탓은 아니지."
 	<br><br>
-	<<HePost "은">> 베일리를 노려보지만, 더는 이의를 제기하지 않는다. <<hePost "아">> 나가자 베일리는 쾅 하고 문을 닫는다.
+	그는 베일리를 노려보지만, 더는 이의를 제기하지 않는다. 그가 나가자 베일리는 문을  닫는다.
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
-	<<npc Robin>><<person1>>로빈이 당신을 안아주나, 아직 완전히 잠이 깬 것 같지는 않다. <<HePost "은">> 다시 당신의 품 안에서 잠이 든다.
+	로빈이 당신을 안아주나, 아직 완전히 잠이 깬 것 같지는 않다. 그는 다시 당신의 품 안에서 잠이 든다.
 	<br><br>
 	<<npcincr Robin dom 1>>
 	<<endevent>>
@@ -3218,25 +3406,25 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 	<</if>>
 <<else>>
 	<<set $daily.kylar.sleepRape to true>>
-	당신이 비명을 지르자 카일라의 눈이 번쩍 뜨인다. <<nnpc_He_ ga "Kylar">> 침대에서 튀어나와, <<persons_ yi>> 발을 걸어 바닥에 넘어뜨린다. <<nnpc_He_ ga "Kylar">>
+	당신이 비명을 지르자 카일라의 눈이 번쩍 뜨인다. 그는 침대에서 튀어나와, 침입자의 발을 걸어 바닥에 넘어뜨린다. 그가
 	<<if currentSkillValue('skulduggery') gte 200>>
-		<<nnpc_his_ yi "Kylar">> <<if C.npc.Kylar.pronoun is "m">>바지<<else>>치마<</if>> 주머니 속 비밀 공간에서
+		<<if C.npc.Kylar.pronoun is "m">>바지<<else>>치마<</if>> 주머니 속 비밀 공간에서
 	<<else>>
 		허공에서
 	<</if>>
-	나이프를 꺼내 <<persons_ yi>> 목을 겨눈다.
+	나이프를 꺼내 그의 목을 겨눈다.
 	<br><br>
-	"워, 워!" <<person_ i>> 소리친다. "알겠어, 떠날게! 이런 미친!" 카일라는 뒤로 물러서지만, <<nnpc_his_ yi "Kylar">> 두 눈은 침입자에게 고정되어 있다. <<nnpc_He_ nun "Kylar">> 두 사람 사이를 막아선다.
+	"워, 워!" 침입자가 소리친다. "알겠어, 떠날게! 이런 미친!" 카일라는 뒤로 물러서지만, 그의 두 눈은 침입자에게 고정되어 있다. 그는 당신과 침입자의 사이를 막아선다.
 	<br><br>
-	<<person_ i>> 재빨리 문으로 기어간다. "내 돈 돌려줘," <<he_ ga>> 베일리에게 쉬익거리며 말한다.
+	침입자는 재빨리 문으로 기어간다. "내 돈 돌려줘," 그가 베일리에게 쉿쉿거리며 말한다.
 	<br><br>
-	베일리는 <<him_ ul>> 냉담하게 쳐다본다. "낸 만큼의 기회를 만들어 줬잖아. 당신이 이 녀석들을 제대로 다루지 못한 게 내 탓은 아니지."
+	베일리는 그를 냉담하게 쳐다본다. "낸 만큼의 기회를 만들어 줬잖아. 당신이 이 녀석들을 제대로 다루지 못한 게 내 탓은 아니지."
 	<br><br>
-	"난 그러려고 돈을 쓴 게 아냐!" <<He_ nun>> 베일리를 노려보지만, 더는 이의를 제기하지 않는다. 베일리는 카일라를 잠시 살펴보다가, 쾅 하고 문을 닫는다.
+	"난 이러려고 돈을 쓴 게 아냐!" 그는 베일리를 노려보지만, 더는 이의를 제기하지 않는다. 베일리는 카일라를 잠시 살펴보다가, 문을 쾅 닫는다.
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
-	<<npc Kylar>><<person1>>카일라는 침대로 돌아와,<<if $speech_attitude is "meek">> 또다시<</if>> 당신을 팔로 감싼다. <<His_ yi>> 심장 박동은 아주 빠르다. "괘-괜찮아," <<he_ ga>> 속삭인다. "내가 널 지켜냈어. 넌 안전해."
+	<<npc Kylar>><<person1>>카일라는 침대로 돌아와서, <<if $speech_attitude is "meek">> 또다시<</if>> 당신을 팔로 감싼다. 그의 심장 박동은 아주 빠르다. "괘-괜찮아," 그가 속삭인다. "내가 널 지켜냈어. 넌 안전해."
 	<<lksuspicion>><<npcincr Kylar rage -1>>
 	<br><br>
 	<<endevent>>
@@ -3249,7 +3437,7 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 <<if $pub_hack_job is 1 or $pubfame and $pubfame.intro is 1>>
 	고아들은 이따금 방을 바꾸기도 한다. 몇 번 실패한 뒤에야 당신은 제대로 된 문을 찾는다.
 	<br><br>
-	당신은 노크를 한다. 정적. "네?"
+	당신은 노크를 한다. 정적이 흐른다. "네?"
 	<br>
 	당신은 문을 연다. 한 사람이 일어나서 당신을 본다. "뭐야?"
 	<br><br>
@@ -3312,7 +3500,7 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 
 :: Orphanage Hacker Strip Refuse
 <<set $outside to 0>><<set $location to "town">><<effects>>
-"그럼 우리 대화도 여기서 끝이야. 생각이 바뀌면 다시 찾아와."
+"그럼 우리 대화는 여기서 끝이야. 생각이 바뀌면 다시 찾아와."
 <br><br>
 <<link [[다음|Orphanage]]>><<endevent>><</link>>
 
@@ -3322,17 +3510,17 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 <br><br>
 당신은 옷을 벗는다. <<if hasSexStat("exhibitionism", 4)>>실망스럽게도, 녀석은<<elseif $exhibitionism lt 15>>다행히도, 녀석은<<else>>녀석은<</if>> 당신이 옷을 벗는 것에 아무런 관심도 두지 않고, 당신의 옷에만 집중한다. 일단 당신이 완전히 알몸이 되자, 옷을 전부 강철 바구니에 집어넣는다. 곧 뚜껑이 닫힌다.
 <br><br>
-"패러데이 새장이야." 꼬마의 눈은 당신의 얼굴에 고정되어있다. "모든 통신을 막아줘. 도청기나 무선 통신 장치 같은 것들 말이야. 나가는 신호도 들어오는 신호도 없게 되지."
+"패러데이 새장이야." 녀석의 눈은 당신의 얼굴에 고정되어있다. "모든 통신을 막아줘. 도청기나 무선 통신 장치 같은 것들 말이야. 나가는 신호도 들어오는 신호도 없게 되지."
 <br>
-"뭐?"
+"What?"
 <br>
-꼬마는 길게 당신의 얼굴을 주시한다.
+녀셕은 당신의 얼굴을 길게 주시한다.
 <<if $hairlength gte 200>>
 	<<pass 5>>
 	<br>
 	"좋아. 있지, 만약- 잠깐! 시도는 좋네."
 	<br>
-	꼬마는 다가와서는 손가락으로 머리카락을 헤집으며, 안쪽을 확인한다. 만족한 듯이, 당신의 귀도 확인한다.
+	녀석은 다가와서는 손가락으로 당신의 머리카락을 헤집으며, 안쪽을 확인한다. 만족한 듯이, 당신의 귀도 확인한다.
 <</if>>
 <br><br>
 
@@ -3341,7 +3529,7 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 :: Orphanage Hacker Strip 2
 <<effects>>
 
-"좋아-좋아," 꼬마는 계속한다. "됐어. 만약 네가 나에 대해 안다면, 또 랜드리가 나에 대해 안다면, 더는 안전하지 않다는 소리야. 소문이 퍼지고 있다는 거지. 베일리가 뭔가 듣기까지는 시간 문제야.
+"좋아-좋아," 녀석은 계속한다. "됐어. 만약 네가 나에 대해 안다면, 또 랜드리가 나에 대해 안다면, 더는 안전하지 않다는 소리야. 소문이 퍼지고 있다는 거지. 베일리가 뭔가 듣기까지는 시간 문제야.
 그러면 큰일이지. 난 사라져야 해. 넌 나중에 도와줄게. 대신 당장 날 도와줘야 해. 딱 세 가지를 해줘야겠어."
 <br><br>
 
@@ -3379,7 +3567,7 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 <br>
 "아, 이런." 녀석의 눈이 커진다. "미안."
 <br>
-꼬마는 옷 바구니를 집어서는 당신에게 건넨다.
+녀석은 옷 바구니를 집어서는 당신에게 건넨다.
 <br>
 "미안. 까먹었어. 너... 어, 괜찮은 몸이네."
 <br><br>
@@ -3390,8 +3578,8 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 :: Shave
 <<effects>>
 <<dontHideForNow>>
-<<if $leftarm is "bound" and $rightarm is "bound">>
-	<span class="red">당신의 양팔이 묶여 있어</span>, 이 상태로는 음모에 무언가를 하는 것은 어려워 보인다.
+<<if pcAreArmsBound("both")>>
+	<span class="red">당신의 양팔이 묶여 있어서<</span>, 이 상태로는 음모에 무언가를 하는 것은 어려워 보인다.
 	<br>
 	<<link [[뒤로->Bathroom]]>><<dontHideRevert>><</link>>
 	<<exit>>
@@ -3399,33 +3587,33 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 
 <<shavestrip>>
 <<wearProp "razor">>
-당신은 옷을 벗고, 당신의 <<genitalsPost "을">> 본다.
-<br>
-<<if $worn.genitals.name is "chastity belt" or $worn.genitals.name is "gold chastity belt">>
+당신은 옷을 벗고, 당신의 질을 본다.
+<br><br>
+<<if playerChastity("hidden")>>
 	정조대 벨트가 몸에 딱 붙어 있어서 면도날이 음모에 닿는 건 불가능해 보인다.
-	<br>
+	<br><br>
 	<<link [[옷을 입는다->Bathroom]]>><<clotheson>><<dontHideRevert>><</link>>
 	<<exit>>
 <</if>>
 
-<<if $worn.genitals.name is "chastity cage">>
-당신의 자지가 정조대 안에 갇혀 있어서 주변을 면도하는 것은 까다롭겠지만, 큰 문제가 되지는 않는다.
-<br>
+<<if playerChastity("cage")>>
+	당신의 페니스가 정조대 안에 갇혀 있어서 주변을 면도하는 것은 까다롭겠지만, 큰 문제가 되지는 않는다.
+	<br><br>
 <</if>>
 <<if $pblevel gte 2 or $pbstrip gte 1 or $pblevelballs gte 2>>
 	<<shavestyleicon 'clean'>><<link [[깨끗이 면도한다 (0:15)->Shave clean]]>><<pass 15>><<arousal 100>><<set $pblevel to 0>><<set $pbgrowth to 0>><<set $pblevelballs to 0>><<set $pbgrowthballs to 0>><<set $pbstrip to 0>><<set $makeup.pbcolour to 0>><</link>>
 	<br>
 <</if>>
 <<if $pblevel gte 5 or $pbstrip gte 2 or ($pbstrip is 1 and $pblevel gte 2)>>
-	<<shavestyleicon 'strip'>><<link [[활주로를 만든다 (0:15)->Shave strip]]>><<pass 15>><<arousal 100>><<set $pbstripName to "깔끔한 활주로로">><<set $pblevel to 0>><<set $pbgrowth to 0>><<set $pbstrip to 1>><</link>>
+	<<shavestyleicon 'strip'>><<link [[활주로를 만든다 (0:15)->Shave strip]]>><<pass 15>><<arousal 100>><<set $pbstripName to "neat landing strip">><<set $pblevel to 0>><<set $pbgrowth to 0>><<set $pbstrip to 1>><</link>>
 	<br>
 <</if>>
 <<if $pblevel gte 5 or $pbstrip gte 3 or ($pbstrip gte 2 and $pblevel gte 2)>>
-	<<shavestyleicon 'heart'>><<link [[하트를 만든다 (0:15)->Shave strip]]>><<pass 15>><<arousal 100>><<set $pbstripName to "귀여운 하트 모양으로">><<set $pblevel to 0>><<set $pbgrowth to 0>><<set $pbstrip to 2>><</link>>
+	<<shavestyleicon 'heart'>><<link [[하트를 만든다 (0:15)->Shave strip]]>><<pass 15>><<arousal 100>><<set $pbstripName to "cute heart shape">><<set $pblevel to 0>><<set $pbgrowth to 0>><<set $pbstrip to 2>><</link>>
 	<br>
 <</if>>
 <<if $pblevel gte 5 or $pbstrip gte 4 or ($pbstrip gte 3 and $pblevel gte 2)>>
-	<<shavestyleicon 'triangle'>><<link [[삼각형을 만든다 (0:15)->Shave strip]]>><<pass 15>><<arousal 100>><<set $pbstripName to "깔끔한 삼각형으로">><<set $pblevel to 0>><<set $pbgrowth to 0>><<set $pbstrip to 3>><</link>>
+	<<shavestyleicon 'triangle'>><<link [[삼각형을 만든다 (0:15)->Shave strip]]>><<pass 15>><<arousal 100>><<set $pbstripName to "neat triangle">><<set $pblevel to 0>><<set $pbgrowth to 0>><<set $pbstrip to 3>><</link>>
 	<br>
 <</if>>
 <<if $player.ballsExist is true>>
@@ -3434,7 +3622,7 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 		<br>
 	<</if>>
 	<<if $pblevelballs gte 3>>
-		<<shavestyleicon 'balls'>><<link [[불알만 면도한다 (0:05)->Shave balls]]>><<pass 5>><<arousal 50>><<set $pblevelballs to 0>><<set $pbgrowthballs to 0>><<if $pblevel is 0 and $pbstrip is 0>><<set $makeup.pbcolour to 0>><</if>><</link>>
+		<<shavestyleicon 'balls'>><<link [[고환만 면도한다 (0:05)->Shave balls]]>><<pass 5>><<arousal 50>><<set $pblevelballs to 0>><<set $pbgrowthballs to 0>><<if $pblevel is 0 and $pbstrip is 0>><<set $makeup.pbcolour to 0>><</if>><</link>>
 		<br>
 	<</if>>
 <</if>>
@@ -3449,7 +3637,7 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 	<</link>>
 	<br>
 <</if>>
-<<if $worn.genitals.name isnot "chastity belt">>
+<<if !playerChastity("hidden")>>
 	<<cosmeticsicon "dyes">><<link [[음모를 염색한다->Dye pubic hair]]>><</link>>
 	<br>
 <</if>>
@@ -3460,7 +3648,7 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 
 당신은 면도 크림과 면도기를 든다.
 <br>
-당신은 다리를 벌리고 조심스럽게 음모를 밀기 시작한다. 몇 분 후, 당신의 <<genitals_arePost 2 "은">> 매끈하고 깔끔하게 바뀌어 있다.
+당신은 다리를 벌리고 조심스럽게 음모를 밀기 시작한다. 몇 분 후, 당신의 음부는 매끈하고 깔끔하게 바뀌어 있다.
 <br><br>
 <<link [[다음|Bathroom]]>><<clotheson>><<dontHideRevert>><</link>>
 
@@ -3478,7 +3666,7 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 
 당신은 면도 크림과 면도기를 든다.
 <br>
-당신은 욕조에 한쪽 다리를 올려 놓고, 조심스럽게 당신의 불알을 면도하기 시작한다. 몇 분 후, 당신의 불알은 매끈하고 깔끔하게 바뀌어 있다.
+당신은 욕조에 한쪽 다리를 올려 놓고, 조심스럽게 당신의 고환을 면도하기 시작한다. 몇 분 후, 당신의 고환은 매끈하고 깔끔하게 바뀌어 있다.
 <br><br>
 <<link [[다음|Bathroom]]>><<clotheson>><<dontHideRevert>><</link>>
 
@@ -3487,16 +3675,16 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 
 당신은 면도 크림과 면도기를 든다.
 <br>
-당신은 다리를 벌리고, 조심스럽게 음모를 밀기 시작한다. 몇 분 후, 당신의 <<genitals_arePost 2 "은">> 이제 매끄럽고 깨끗하게 <<print $pbstripName>> 장식되어 있다.
+당신은 다리를 벌리고, 조심스럽게 음모를 밀기 시작한다. 몇 분 후, 당신의 음부는 이제 매끄럽고 깨끗하게 장식되어 있다.
 <br><br>
 <<link [[다음|Bathroom]]>><<clotheson>><<dontHideRevert>><</link>>
 
 :: Shave trim
-<<effects>>
+<<effects>><<wearProp "scissors">>
 
 당신은 빗과 가위를 집어든다.
 <br>
-당신은 앉아서, 다리를 벌리고, 조심스럽게 음부를 다듬기 시작한다. 몇 분 후 당신의 <<genitalsPost 2 "은">> 깔끔하게 다듬어졌다.
+당신은 다리를 벌리고, 조심스럽게 음모를 밀기 시작한다. 몇 분 후 당신의 음모는 깔끔하게 다듬어졌다.
 <br><br>
 <<link [[다음|Bathroom]]>><<clotheson>><<dontHideRevert>><</link>>
 
@@ -3508,13 +3696,13 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 	당신은 염색약을 가지고 있지 않다. 아마 화장품 가게에 가서 몇 개 구매할 수 있을 것이다.
 	<br>
 <<else>>
-	<<handheldon>><<wearProp "hairdye">>
+	<<wearProp "hairdye">>
 	무슨 색으로 하겠습니까?
 	<br>
 	<<set _choice = _ownedColours[0].colour>>
 	<<for _i, _item range _ownedColours>>
 		<label><span class="grey-shadow"><span @class="'hair-' + _item.colour.replace(/ /g, '-')"><span class="colour-hair"><span style="color:#FD6064;"><<hairmapcolourtext _item.colour>></span></span></span></span>&nbsp;<<print '<<radiobutton "_choice" "'+_item.colour+'" ' + (_choice is _item.colour ? "checked" : "") + '>>'>></label>
-		&nbsp;×&nbsp;_item.count |
+		&nbsp;x&nbsp;_item.count |
 	<</for>>
 
 	<br><br>
@@ -3532,15 +3720,15 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 <br>
 <<arousal 100>>
 <br>
-몇 분 후 당신은 당신의 사적인 부분을 물로 헹구고 당신의 <<hairmapcolourtext $makeup.pbcolour>> 음모로 바뀐 <<genitals_ rul 2>> 바라본다.
+몇 분 후 당신은 당신의 사적인 부분을 물로 헹구고 당신의 <<hairmapcolourtext $makeup.pbcolour>>이 된 음모를 바라본다.
 <br><br>
 <<link [[다음|Bathroom]]>><<clotheson>><<dontHideRevert>><</link>>
 
 :: Mirror Bodywriting
-<<effects>>
+<<effects>><<wearProp "pen">>
 <<if $writeaction and $writebodyaction>>
 	<<add_bodywriting $writebodyaction $writeaction pen>>
-	당신은 <<bodypart $writebodyaction>>에 <span class="lewd"><<print '<<trBodyWriting $skin[$writebodyaction].writing>>"_trResult"'>></span>라고 쓴다.
+	당신은 <<bodypart $writebodyaction>>에 <span class="lewd">"<<print $skin[$writebodyaction].writing>>"</span>라고 쓴다.
 	<<unset $writeaction>><<unset $writebodyaction>>
 <<elseif $writeaction>>
 	<span class="blue">어디에 쓸 건지 정해야 한다.</span>
@@ -3552,7 +3740,7 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 	당신은 펜을 피부 위에서 맴돌게 한다.
 <</if>>
 <br><br>
-위치:
+Location:
 <br>
 <<for _active_bodypart range setup.bodyparts>>
 	<<if $skin[_active_bodypart].writing>>
@@ -3567,25 +3755,25 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 	<br>
 <</if>>
 <br>
-문자:
+Text:
 <br>
-<label><span class="lewd">£5어치 <<whorePost>> <<radiobutton "$writeaction" "five_pound_whore">></span></label> |
+<label><span class="lewd">£5어치 <<radiobutton "$writeaction" "five_pound_whore">></span></label> |
 <label><span class="lewd">한 발에 £10 <<radiobutton "$writeaction" "ten_pound_a_pop">></span></label> |
 <label><span class="lewd">한 번에 £25 <<radiobutton "$writeaction" "twenty_five_pound_per_fuck">></span></label> |
 <label><span class="lewd">£100 <<radiobutton "$writeaction" "one_hundred_pound">></span></label> |
-<label><span class="lewd">돈을 주면 강간이 아니지 <<radiobutton "$writeaction" "its_not_rape_if_you_pay_me">></span></label> |
-<label><span class="lewd"><<whorePost>> <<radiobutton "$writeaction" "whore">></span></label> |
+<label><span class="lewd">돈을 주면 강간이 아니야 <<radiobutton "$writeaction" "its_not_rape_if_you_pay_me">></span></label> |
+<label><span class="lewd">창녀 <<radiobutton "$writeaction" "whore">></span></label> |
 <label><span class="lewd">걸레 구직중 <<radiobutton "$writeaction" "slut_for_hire">></span></label> |
 <label><span class="lewd">몸 판매중 <<radiobutton "$writeaction" "body_for_sale">></span></label> |
 <br><br>
-<<link [[쓴다|Mirror Bodywriting]]>><</link>>
+<<link [[쓴다|Mirror Bodywriting]]>><<handheldon>><</link>>
 <br>
-<<link [[그만둔다|$passage_mirror]]>><<unset $writeaction>><<unset $writebodyaction>><</link>>
+<<link [[그만둔다|$passage_mirror]]>><<handheldon>><<unset $writeaction>><<unset $writebodyaction>><</link>>
 <br>
 
 :: Mirror Bodywriting Unused
 
-<<effects>>
+<<effects>><<wearProp "pen">>
 <<set _skin_keys to Object.keys(setup.bodywriting)>>
 <<if $mirror_bodypart>>
 	$mirror_bodypart
@@ -3595,13 +3783,13 @@ No soldier is a match for your unstoppable onslaught. Cheater.
 	<<add_bodywriting $mirror_bodypart $writeaction pen>>
 	<<unset $mirror_bodypart>><<unset $writeaction>>
 <<else>>
-	You hover the pen over your skin.
+	당신은 펜을 피부 위에서 맴돌게 한다.
 <</if>>
 <br><br>
 <<for _active_bodypart range setup.bodyparts>>
 	<<if $skin[_active_bodypart].writing>>
 	<<else>>
-		<<capture _active_bodypart>><<link [[Write|Mirror Bodywriting]]>><<set $mirror_bodypart to _active_bodypart>><</link>><</capture>> on your <<bodypart _active_bodypart>>
+		<<capture _active_bodypart>><<link [[쓴다|Mirror Bodywriting]]>><<set $mirror_bodypart to _active_bodypart>><</link>><</capture>> on your <<bodypart _active_bodypart>>
 		<br>
 	<</if>>
 <</for>>
@@ -3625,7 +3813,7 @@ Something non-explicit:
 	<</for>>
 	<br>
 <<else>>
-	Something lewd: <span class="pink">You're not lewd enough.</span>
+	Something lewd: <<insufficientStat "promiscuity" "to write anything">>
 	<br>
 <</if>>
 <br>
@@ -3639,23 +3827,23 @@ Something non-explicit:
 	<</for>>
 	<br>
 <<else>>
-	Something deviant: <span class="pink">You're not deviant enough.</span>
+	Something deviant: <<insufficientStat "deviancy" "to write anything">>
 	<br>
 <</if>>
 <br>
-<<link [[그만둔다|$passage_mirror]]>><</link>>
+<<link [[그만둔다|$passage_mirror]]>><<handheldon>><</link>>
 <br>
 
 :: Mirror Bodywriting Choice
 
 <<effects>>
-What do you want to write or draw on your $mirror_bodypart?
+당신의 $mirror_bodypart에 무엇을 쓸까?
 <br><br>
-<<link [[Something deviant|Mirror Bodywriting Deviant]]>><</link>>
+<<link [[이상성욕적인 것|Mirror Bodywriting Deviant]]>><</link>>
 <br>
-<<link [[Something lewd|Mirror Bodywriting Lewd]]>><</link>>
+<<link [[음란한 것|Mirror Bodywriting Lewd]]>><</link>>
 <br>
-<<link [[Something normal|Mirror Bodywriting Normal]]>><</link>>
+<<link [[평범한 것|Mirror Bodywriting Normal]]>><</link>>
 <br>
 
 :: Mirror Bodywriting Deviant
@@ -3669,7 +3857,7 @@ What do you want to write or draw on your $mirror_bodypart?
 	<</if>>
 <</for>>
 <br><br>
-<<link [[Write|Mirror Bodywriting Deviant]]>><</link>>
+<<link [[쓴다|Mirror Bodywriting Deviant]]>><</link>>
 <br>
 
 :: Mirror Bodywriting Lewd
@@ -3687,59 +3875,66 @@ What do you want to write or draw on your $mirror_bodypart?
 
 :: Mirror Locket
 <<effects>>
+<<neckstrip>><<set _colour to $carried.neck.colour>>
+<<wearProp "love locket" _colour>>
 당신은 목에 걸고 있던 로켓을 연다.
 <br><br>
 <div class="img-txt">
 	<div id="locket">
 		<span>
-			<img class="icon infront" @src="'img/ui/locket_'+$worn.neck.colour+'.png'">
-			<img class="icon" @src="'img/ui/locket_photo_'+$worn.neck.colour+'.png'">
+			<img class="icon infront" @src="'img/ui/locket_'+$carried.neck.colour.replace(' ', '_')+'.png'">
+			<img class="icon" @src="'img/ui/locket_photo_'+$carried.neck.colour.replace(' ', '_')+'.png'">
 		</span>
 	</div>
 	<div id="locket-txt">
-		<<if !$worn.neck.photo>>
-			비어 있지만, 사진 하나를 넣을 수 있는 공간이 있다.
-			<br><br>
-		<<elseif $worn.neck.photo is "Robin">>
-			로빈의 사진이 미소 짓고 있다.
-			<br><br>
-		<<elseif $worn.neck.photo is "Whitney">>
-			휘트니의 사진이 씩 웃고 있다.
-			<br><br>
-		<<elseif $worn.neck.photo is "Kylar">>
-			카일라의 사진이 당신을 뚫어져라 쳐다본다.
-			<br><br>
-		<<elseif $worn.neck.photo is "Eden">>
-			에덴의 엄격한 표정이 당신을 맞이한다.
-			<br><br>
-		<<elseif $worn.neck.photo is "Avery">>
-			사진 속 에이버리는 머리를 위로 젖힌 채 측면을 보고 있다.
-			<br><br>
-		<<elseif $worn.neck.photo is "Alex">>
-			말을 타는 알렉스의 사진이 당신을 맞이한다.
-			<br><br>
-		<<elseif $worn.neck.photo is "Sydney">>
-			기도에 열중하는 시드니의 사진이 당신을 맞이한다.
-			<br><br>
-		<<elseif $worn.neck.photo is "Black Wolf">>
-			평화롭게 잠든 검은 늑대의 사진이 들어 있다.
-			<br><br>
-		<<elseif $worn.neck.photo is "Great Hawk">>
-			조각상 같은 자세를 취한 거대 매의 사진이 들어 있다.
-			<br><br>
+		<<switch $carried.neck.photo>>
+			<<case "Robin">>
+				<<set _locket_text to "로빈의 사진이 미소 짓고 있다.">>
+			<<case "Whitney">>
+				<<set _locket_text to "휘트니의 사진이 씩 웃고 있다.">>
+			<<case "Kylar">>
+				<<set _locket_text to "카일라의 사진이 당신을 뚫어져라 쳐다본다.">>
+			<<case "Eden">>
+				<<set _locket_text to "에덴의 엄격한 표정이 당신을 맞이한다.">>
+			<<case "Avery">>
+				<<set _locket_text to "사진 속 에이버리는 머리를 위로 젖힌 채 측면을 보고 있다.">>
+			<<case "Alex">>
+				<<set _locket_text to "말을 타는 알렉스의 사진이 당신을 맞이한다.">>
+			<<case "Sydney">>
+				<<set _locket_text to "기도에 열중하는 시드니의 사진이 당신을 맞이한다.">>
+			<<case "Black Wolf">>
+				<<set _locket_text to "평화롭게 잠든 검은 늑대의 사진이 들어 있다.">>
+			<<case "Great Hawk">>
+				<<set _locket_text to "조각상 같은 자세를 취한 거대 매의 사진이 들어 있다.">>
+			<<case "Gwylan">>
+				<<if $gwylan?.timer?.nobody gte Time.date.timeStamp>>
+					<<set _locket_text to "사진이 왜곡되어 알아볼 수 없다.">>
+				<<elseif $hypnosis_traits.devotion gte 4>>
+					<<set _locket_text to "그윌란의 매혹적인 미소가 당신을 맞이한다. 사진은 거의 빛나는 것처럼 보인다.">>
+				<<else>>
+					<<set _locket_text to "그윌란의 쾌활한 미소가 당신을 맞이하지만, 그 얼굴의 나머지 부분은 흐릿하다.">>
+				<</if>>
+			<<default>>
+				<<set _locket_text to "비어 있지만, 사진 하나를 넣을 수 있는 공간이 있다.">>
+		<</switch>>
+		<<if C.npc["Ivory Wraith"].love gte 10 and (["haunt", "despair"].includes($wraith.state) or C.npc["Ivory Wraith"].lust gt 10) and $hallucinations gte 1 and ((random(1, 100) is 1) or ($controlled is 0 and random(1, 100) lte 5))>>
+			<<fadeText "<span class='wraith'>창백한 형체의 <<wraithEyes>> 시선이 당신을 꿰뚫어 본다.</span>" "<<print _locket_text>>">>
+		<<else>>
+			<<print _locket_text>>
 		<</if>>
+		<br><br>
 	</div>
 </div>
 
 <<for _npc range setup.NPCNameList>>
 	<<capture _npc>>
-		<<if $worn.neck.photo != _npc and ($loveInterest.primary is _npc or $loveInterest.secondary is _npc)>>
-			<span @class="'clothes-'+$worn.neck.colour"><<icon "locket.png">></span>
-			<<if $worn.neck.photo>>
-				<<link [[`사진을 ${_npc}의 것으로 교체한다`|Mirror Locket 2]]>><<set $worn.neck.photo to _npc>><</link>>
+		<<if $carried.neck.photo != _npc and (isLoveInterest(_npc))>>
+			<span @class="'clothes-'+$carried.neck.colour.replace(' ', '-')"><<icon "locket.png">></span>
+			<<if $carried.neck.photo>>
+				<<link [[`사진을 ${_npc}의 것으로 교체한다`|Mirror Locket 2]]>><<set $carried.neck.photo to _npc>><</link>>
 				<br>
 			<<else>>
-				<<link [[`${_npc}의 사진을 넣는다`|Mirror Locket 2]]>><<set $worn.neck.photo to _npc>><</link>>
+				<<link [[`${_npc}의 사진을 넣는다`|Mirror Locket 2]]>><<set $carried.neck.photo to _npc>><</link>>
 				<br>
 			<</if>>
 		<</if>>
@@ -3747,12 +3942,12 @@ What do you want to write or draw on your $mirror_bodypart?
 <</for>>
 <br>
 
-<<getouticon>><<link [[뒤로|$passage_mirror]]>><</link>>
+<<getouticon>><<link [[뒤로|$passage_mirror]]>><<handheldon>><<neckon>><</link>>
 
 :: Mirror Locket 2
 <<effects>>
 
-<<switch $worn.neck.photo>>
+<<switch $carried.neck.photo>>
 	<<case "Robin">>
 		당신은 로켓에 행복하게 웃는 로빈의 작은 사진을 넣는다.
 	<<case "Whitney">>
@@ -3771,19 +3966,27 @@ What do you want to write or draw on your $mirror_bodypart?
 		당신은 로켓에 평화롭게 잠든 검은 늑대의 작은 사진을 넣는다.
 	<<case "Great Hawk">>
 		당신은 로켓에 조각상 같은 자세를 취한 거대 매의 작은 사진을 넣는다.
+	<<case "Gwylan">>
+		<<if $gwylan?.timer?.nobody gte Time.date.timeStamp>>
+			당신은 로켓에 누군가의 작은 사진을 넣는다.
+		<<elseif $hypnosis_traits.devotion gte 4>>
+			당신은 로켓에 벨트 목걸이를 손에 든 채 유혹적으로 미소 짓는 그윌란의 작은 사진을 넣는다.
+		<<else>>
+			당신은 로켓에 쾌활하게 웃으며 손을 흔드는 그윌란의 작은 사진을 넣는다.
+		<</if>>
 <</switch>>
 <br><br>
 
-<<link [[다음|$passage_mirror]]>><</link>>
+<<link [[다음|$passage_mirror]]>><<handheldon>><<neckon>><</link>>
 
 :: Sold
 <<set $location to "town">><<set $outside to 0>><<effects>>
 <<generate1>><<generate2>><<person1>><<facewear 26>><<bind>>
-퍼뜩 정신을 차려보니, 자동차 뒷자석에 누워있다. 양팔은 등 뒤에서 밧줄로 묶여있고, 몸은 좌석에 묶여있다. 입에는 재갈이 물려져있다.
+퍼뜩 정신을 차려보니, 자동차 뒷자석에 누워있다. 양팔은 등 뒤에서 밧줄로 묶여있고, 몸은 좌석에 묶여있다. 입에는 재갈이 물려있다.
 <br><br>
-"쟤 일어났어." 조수석에 앉은 <<personPost "이">> 말한다.
+"그녀가 일어났어." 조수석에 앉은 남자가 말한다.
 <br>
-"좋아." 운전 중인 <<personPost "이">> 대답한다. "딱 시간 맞춰 일어났네."
+"좋아." 운전 중인 남자가 대답한다. "딱 시간 맞춰 일어났네."
 <br><br>
 이 위치에서는 창문 밖이 그다지 보이지 않는다. 하늘과 줄지어 서있는 가로등만이 보인다. 자동차는 어느 건물 안으로 들어가더니, 그 뒤로 문이 닫히는 소리가 들려온다.
 <br><br>
@@ -3791,11 +3994,11 @@ What do you want to write or draw on your $mirror_bodypart?
 
 :: Sold 2
 <<effects>>
-밧줄의 일부가 풀리나, 양팔은 여전히 묶인 상태다. 당신은 평범한 부엌을 지나, 거실 쪽으로 이끌려간다. 그러고는 소파 위로 밀쳐진다.
+밧줄의 일부가 풀리지만, 양팔은 여전히 묶인 상태다. 당신은 평범한 부엌을 지나 거실 쪽으로 끌려간다. 그러고는 소파 위로 밀쳐진다.
 <br><br>
-"자." <<person1>><<personPost "이">> 말한다. "널 얻으려고 그 고생을 다 했는데, 막상 여기 데려오니까 뭘 할지 정하질 못 하겠네."
+"자." 남자가 말한다. "널 얻으려고 그 고생을 다 했는데, 막상 여기 데려오니까 뭘 할지 정하질 못 하겠네."
 <br>
-"그냥 강간하지 그래." <<person2>><<personPost "이">> 다른 의자에 기대어 누우며 대답한다. "근데 쟤가 싫다는 말을 안 하면 강간이 아닐라나?"
+"그냥 강간하지 그래." 다른 남자가 의자에 기대 누우며 대답한다. "근데 쟤가 싫다는 말을 안 하면 강간이 아닐라나?"
 <br><br>
 둘은 한동안 당신의 운명에 대해 토론을 나눈다. 그 중 무엇 하나 당신에게 좋다고 말할 건 없다.
 <br><br>
@@ -3807,7 +4010,7 @@ What do you want to write or draw on your $mirror_bodypart?
 <<effects>>
 당신은 무릎을 꿇어 앉고는 그 상태에서 고개를 숙인다. 둘은 웃음을 터트린다.
 <br><br>
-"얜 그래도 이미 맘을 먹었구만." <<hePost "은">> 손을 뻗어 당신의 입에서 재갈을 벗겨낸다. "뭐 생각해둔 거라도 있어?"
+"얜 그래도 이미 맘을 먹었구만." 그는 손을 뻗어 당신의 입에서 재갈을 벗겨낸다. "뭐 생각해둔 거라도 있어?"
 <br><br>
 <<set $worn.face.type.push("broken")>>
 <<faceruined>>
@@ -3819,9 +4022,9 @@ What do you want to write or draw on your $mirror_bodypart?
 
 :: Sold Glare
 <<effects>>
-당신은 차례차례 <<fullGroupPost "을">> 노려보며, 둘의 시선에도 고개를 돌리지 않는다. 둘은 웃음을 터트린다.
+당신은 차례차례 그들을 노려보며, 둘의 시선에도 고개를 돌리지 않는다. 둘은 웃음을 터트린다.
 <br><br>
-"쟤도 다 생각이 있나본데." <<person1>><<personPost "이">> 그렇게 말하며 손을 뻗어 당신의 입에서 재갈을 벗겨낸다.
+"쟤도 다 생각이 있나본데." 그는 그렇게 말하며 손을 뻗어 당신의 입에서 재갈을 벗겨낸다.
 <br><br>
 <<set $worn.face.type.push("broken")>>
 <<faceruined>>
@@ -3839,12 +4042,12 @@ What do you want to write or draw on your $mirror_bodypart?
 <<elseif $speech_attitude is "bratty">>
 	"날 보내주는게 좋을걸." 당신이 말한다. "사람들이 날 찾고 있을 거야."
 <<else>>
-	"제발 보내주세요." 당신이 말한다. "이번 일은 그냥 없었던 셈 칠테니까요."
+	"제발 보내주세요." 당신이 말한다. "이번 일은 그냥 없었던 걸로 할 테니까요."
 <</if>>
 <br><br>
-둘은 서로를 빤히 쳐다보더니, 웃음을 터트린다. "우린 이미 너에 대해서 값을 치뤘어." <<person1>><<personPost "이">> 말한다. "그러니 낸 만큼은 써먹어 줘야지."
+둘은 서로를 빤히 쳐다보더니, 웃음을 터트린다. "우린 이미 너에 대해서 값을 치뤘어." 남자가 말한다. "그러니 낸 만큼은 써먹어 줘야지."
 <br>
-<<person2>><<personPost "이">> 제 친구 쪽으로 몸을 기울인다. 둘은 잠시 뭔가를 속닥거리다가, <<person1>><<personPost "이">> 다시 당신에게로 고개를 돌린다. "좋은 생각이 났어. 보내주기야 할텐데, 그럴라면 일을 좀 해줘야겠어."
+남자는 제 친구 쪽으로 몸을 기울인다. 둘은 잠시 뭔가를 속닥거리다가, 다시 당신에게로 고개를 돌린다. "좋은 생각이 났어. 보내주기야 할텐데, 그럴라면 일을 좀 해줘야겠어."
 <br><br>
 <<link [[다음|Sold Work]]>><</link>>
 
@@ -3858,7 +4061,7 @@ What do you want to write or draw on your $mirror_bodypart?
 	"협조할게요." 당신이 말한다. "그냥 상냥하게만 해줘요."
 <</if>>
 <br><br>
-"꽤 똑똑하구나." <<person1>><<personPost "이">> 잔에 스카치 위스키를 따르며 말한다. "저번 녀석보다 훨씬 나아."
+"꽤 똑똑하구나." 남자가 잔에 스카치 위스키를 따르며 말한다. "저번 녀석보다 훨씬 나아."
 <br><br>
 <<pass 2>>
 둘은 몇 분간 서로 귓속말을 하며, 때때로 당신 쪽으로 몰래 시선을 보낸다. 그러다 결국 합의점에 도달한다. "시킬 일이 있어."
@@ -3867,11 +4070,11 @@ What do you want to write or draw on your $mirror_bodypart?
 
 :: Sold Work
 <<effects>>
-"항상 나만의 <<if $player.gender_appearance is "m">>집사<<else>>메이드<</if>>가 있으면 좋겠다 싶었거든." <<person1>><<personPost "이">> 말한다. "그러니 몇 시간 동안 우릴 위해 일해줘야겠어. 잔을 채워주고, 볼거리도 제공해주고 말이야. 우리가 원하는 건 뭐든지 말이지. 그 대신, 범하지 않고 보내주마."
+"항상 나만의 <<if $player.gender_appearance is "m">>집사가<<else>>메이드가<</if>> 있으면 좋겠다 싶었거든," 남자가 말한다. "그러니 몇 시간 동안 우릴 위해 일해줘야겠어. 잔을 채워주고, 볼거리도 제공해주고 말이야. 우리가 원하는 건 뭐든지 말이지. 그 대신, 범하지 않고 보내주마."
 <br><br>
-"그게 싫다면 널 강제로 범해버릴 수도 있어." <<person2>><<personPost "이">> 말한다. "그럼 다른 쓰레기와 함께 내다버릴 거야. 그쪽을 더 선호한다면 말이지."
+"그게 싫다면 널 강제로 범해버릴 수도 있어." 남자가 말한다. "그리고 다른 쓰레기와 함께 내다버릴 거야. 그쪽을 더 선호한다면 말이지."
 <br><br>
-<<link [[탁자 위에 눕는다 (3:00)|Sold Work Accept]]>><<pass 60>><<trauma 6>><<stress 6>><</link>><<gtrauma>><<gstress>>
+<<link [[그들의 메이드가 된다 (3:00)|Sold Work Accept]]>><<pass 60>><<trauma 6>><<stress 6>><</link>><<gtrauma>><<gstress>>
 <br>
 <<link [[거절한다|Sold Work Refuse]]>><</link>>
 
@@ -3886,11 +4089,11 @@ What do you want to write or draw on your $mirror_bodypart?
 	"알겠어요." 당신이 말한다.
 <</if>>
 <br><br>
-둘은 당신으로 하여금 잔을 계속 채우고, 원할 때마다 부엌에서 간식거리를 가져오도록 시킨다. 딱히 필요하지 않을 때에는, 한쪽에 서있도록 한다. <<if $exposed gte 1>>당신은 이렇게 계속해서 노출하긴 싫다는 생각을 한다.<</if>> 둘은 대놓고 당신에게 음흉한 눈빛을 보내지만, 어떻게 할 방법이 없다. <<if $exposed gte 1>>양팔이 묶인 상태에서는 몸을 가릴 수도 없다.<</if>>
+둘은 당신이 하여금 잔을 계속 채우고, 원할 때마다 부엌에서 간식거리를 가져오도록 시킨다. 딱히 필요하지 않을 때에는, 한쪽에 서있도록 한다. <<if $exposed gte 1>>당신은 이렇게 계속해서 노출되고 싶지 않다는 생각을 한다.<</if>> 둘은 대놓고 당신에게 음흉한 눈빛을 보내지만, 어떻게 할 방법이 없다. <<if $exposed gte 1>>양팔이 묶인 상태에서는 몸을 가릴 수도 없다.<</if>>
 <br><br>
 
-<<if $footdisable is "f">>
-	<<person2>><<personPost "이">> 제 잔을 향해 손짓한다. 잔을 채우려고 몸을 굽히자, <<hePost "은">> 당신의 엉덩이를 걷어차 강제로 무릎을 꿇린다. 몸을 일으키기도 전에 당신의 등 위로 무게가 실린다. 곧 또 한 번 무게가 느껴진다. "발 받침대가 필요해서 말이지." <<HePost "이">> 말한다. "움직이지 마. 움직이는 발 받침대는 없으니까 말이야."
+<<if $settings.footFetishEnabled>>
+	남자가 제 잔을 향해 손짓한다. 잔을 채우려고 몸을 굽히자, 그는 당신의 엉덩이를 걷어차 강제로 무릎을 꿇린다. 몸을 일으키기도 전에 당신의 등 위로 무게가 실린다. 곧 또 한 번 무게가 느껴진다. "발 받침대가 필요해서 말이지." 그가 말한다. "움직이지 마. 움직이는 발 받침대는 없으니까 말이야."
 	<<gtrauma>><<gstress>><<gpain>><<trauma 6>><<stress 6>><<pain 6>>
 	<br><br>
 	<<link [[견딘다 (1:00)|Sold Work Foot]]>><<pass 60>><<sub 1>><<trauma 6>><<stress 6>><<arousal 4000>><</link>><<gtrauma>><<gstress>><<ggarousal>>
@@ -3900,7 +4103,7 @@ What do you want to write or draw on your $mirror_bodypart?
 <<else>>
 	그들은 당신에게 부엌에 가서 크림을 좀 가져오라 시킨다. 팔이 묶인 채로는 매우 불편했지만, 어떻게든 냉장고를 열어서 커다란 통을 집어들 수 있었다. 당신은 그 통을 거실로 가져간다.
 	<br><br>
-	"탁자 위에 누워," <<personPost "이">> 뚜껑을 열며 말한다. "접시가 다 싱크대에 있어서 말이야."
+	"탁자 위에 누워," 남자가 뚜껑을 열며 말한다. "접시가 다 싱크대에 있어서 말이야."
 	<br><br>
 	<<link [[받아들인다 (1:00)|Sold Work Food]]>><<trauma 6>><<stress 6>><<pass 60>><<sub 1>><<arousal 4000>><</link>><<gtrauma>><<gstress>><<ggarousal>>
 	<br>
@@ -3911,23 +4114,23 @@ What do you want to write or draw on your $mirror_bodypart?
 :: Sold Work Foot
 
 <<effects>>
-당신은 무릎 꿇고 엎드린 자세를 유지한다. 둘은 당신이 없기라도 한듯 계속해서 대화를 이어나가나, <<person2>><<personPost "은">> 계속해서 제 발 받침대가 얼마나 편안한지를 언급한다.
+당신은 무릎 꿇고 엎드린 자세를 유지한다. 둘은 당신이 없기라도 한듯 계속해서 대화를 이어나가고, 남자는 계속해서 제 발 받침대가 얼마나 편안한지를 언급한다.
 <br><br>
-서서히 지루해져갈 참에, 무언가 당신의 <<genitalsPost "을">> 건드리는 탓에 당신은 깜짝 놀라 비명을 내지른다.
+서서히 지루해져갈 참에, 무언가가 당신의 질을 건드리는 탓에 당신은 깜짝 놀라 비명을 내지른다.
 <<if playerChastity()>>
-	<<HePost "은">> 제 발로 당신의 <<trClothes "genitals" $worn.genitals.name "name" "을">>_trResult 들어올려, <<genitalsPost 1 "과">> <<bottomPost>>에 밀어댄다.
+	그는 자신의 발로 당신의 하의를 들어올려, 질과 엉덩이에 밀어댄다.
 <<else>>
-	<<HePost "은">> 무심하게 발가락으로 당신의 몸을 만진다.
+	그는 무심하게 발가락으로 당신의 몸을 만진다.
 <</if>>
 <<if $arousal gte $arousalmax>>
-	열기가 솟아오르는게 느껴진다. 이런 상황에서도 말이다. <<orgasm>> 곧 자신도 모르게 헐떡임이 튀어나온다. <<person2>><<personPost>>도 <<person1>><<personPost>>도 언급하지 않지만, 분명 눈치챘을 것이다.
+	열기가 솟아오르는게 느껴진다. 이런 상황에서도 말이다. <<orgasm>> 곧 자신도 모르게 헐떡임이 튀어나온다. 두 남자 모두 언급하지 않지만, 분명 눈치챘을 것이다.
 <<else>>
 	당신은 가만히 있는 채로, 어떻게든 느끼고 있다는 낌새를 눈치채지 못하게 한다.
 <</if>>
 <br><br>
-<<person2>><<personPost "은">> 이런 식으로 추행하는 것이 지루해졌는지, 당신보고 부엌에 가서 크림을 좀 가져오라 시킨다. 팔이 묶인 채로는 매우 불편했지만, 어떻게든 냉장고를 열어서 커다란 통을 집어들 수 있었다. 당신은 그 통을 거실로 가져간다.
+남자는 이런 식으로 추행하는 것이 지루해졌는지, 당신보고 부엌에 가서 크림을 좀 가져오라 시킨다. 팔이 묶인 채로는 매우 불편했지만, 어떻게든 냉장고를 열어서 커다란 통을 집어들 수 있었다. 당신은 그 통을 거실로 가져간다.
 <br><br>
-"탁자 위에 누워." <<personPost "이">> 뚜껑을 열머 말한다. "접시가 다 싱크대에 있어서 말이야."
+"탁자 위에 누워." 남자가 뚜껑을 열머 말한다. "접시가 다 싱크대에 있어서 말이야."
 <br><br>
 <<link [[받아들인다|Sold Work Food]]>><<trauma 6>><<stress 6>><<pass 60>><<sub 1>><<arousal 4000>><</link>><<gtrauma>><<gstress>><<ggarousal>>
 <br>
@@ -3935,38 +4138,38 @@ What do you want to write or draw on your $mirror_bodypart?
 
 :: Sold Work Food
 <<effects>>
-당신은 지시받은대로 탁자 위에 눕는다. <<person2>><<personPost "은">> 당신의 머리 뒤에 앉아, 목을 팔로 감싼다.
+당신은 지시대로 탁자 위에 눕는다. 남자는 당신의 머리 뒤에 앉아, 목을 팔로 감싼다.
 <<if $worn.upper.set is $worn.lower.set>>
 	<<if setup.clothes.lower[clothesIndex('lower', $worn.lower)].skirt is 1>>
-		<<person1>><<personPost "이">> 당신의 치마를 뒤집어, <<undiesPost "을">> 노출시킨다. 당신은 다리로 어떻게든 가려보려 하나, 딱히 소용은 없다. <<HePost "은">> 치마를 더더욱 끌어올려, 배까지 올려 <<undertopPost>>마저도 노출시킨다. <<HePost "은">> 당신의 가슴 위로 통을 들어올린다.
+		남자는 당신의 치마를 뒤집어, 팬티를 노출시킨다. 당신은 다리로 어떻게든 가려보려 하나, 딱히 소용은 없다. 그는 치마를 더더욱 잡아당기고, 배까지 올려 위쪽 속옷마저 노출시킨다. 그는 당신의 가슴 위로 통을 들어올린다.
 	<<else>>
-		<<person1>><<personPost "은">> 당신의 상의를 내려, <<undertopPost "을">> 노출시킨다. <<HePost "은">> 당신의 가슴 위로 통을 들어올린다.
+		남자는 당신의 상의를 내려, 위쪽 속옷을 노출시킨다. 그는 당신의 가슴 위로 통을 들어올린다.
 	<</if>>
 <<elseif !$worn.upper.type.includes("naked")>>
-	<<person1>><<personPost "은">> 당신의 상의를 들춰, <<undertopPost "을">> 노출시킨다. <<HePost "은">> 당신의 가슴 위로 통을 들어올린다.
+	남자는 당신의 상의를 들춰, 위쪽 속옷을 노출시킨다. 그는 당신의 가슴 위로 통을 들어올린다.
 <<else>>
-	<<person1>><<personPost "은">> 당신의 가슴 위로 통을 들어올린다.
+	남자는 당신의 가슴 위로 통을 들어올린다.
 <</if>>
-<<HePost "은">> 통을 기울여, 차가운 크림을 당신의 맨살에 붓는다. 당신은 느껴지는 한기에 몸을 꿈틀거리고 떨며, <<hePost "에게">> 상당한 즐거움을 제공해준다.
+그는 통을 기울여, 차가운 크림을 당신의 맨살에 붓는다. 당신은 느껴지는 한기에 몸을 꿈틀거리고 떨며, 그에게 상당한 즐거움을 제공해준다.
 <br><br>
 <<if !$worn.under_upper.type.includes("naked")>>
-	<<HePost "은">> 그 다음에는 <<trClothes "under_upper" $worn.under_upper.name "name" "을">>_trResult 내려, 당신의 <<breastsPost>>에 직접적으로 크림을 붓는다.
+	그는 당신의 상의를 들춰, 위쪽 속옷을 노출시킨다. 그는 당신의 가슴 위로 통을 들어올린다.
 <<else>>
-	<<HePost "은">> 당신의 <<breastsPost>>에 직접적으로 크림을 붓는다.
+	남자는 당신의 가슴 위로 통을 곧장 들어올린다.
 <</if>>
-맨살은 민감하여, 비명을 지르지 않는게 더 어렵다. 게다가 <<hisPost "의">> 혀가 피부에 닿자 더더욱 어려운 일이 된다. <<HePost "은">> 불규칙적으로 크림을 핥는다. 어쩔 때는 짧고 재빠르게, 어쩔 때는 길고 질질 끌며 핥는다.
+당신의 맨살은 민감해서, 비명을 지르지 않는게 더 어렵다. 그것은 그의 혀가 피부에 닿자 더더욱 어려운 일이 된다. 그는 불규칙적으로 크림을 핥는다. 어쩔 때는 짧고 재빠르게, 어쩔 때는 길게 질질 끌며 핥는다.
 <br><br>
 <<link [[다음|Sold Work Food 2]]>><</link>>
 
 :: Sold Work Food 2
 <<effects>>
-<<person2>><<personPost "은">> 통을 들고는 당신의 얼굴에다가 내용물을 붓는다. <<HePost "은">> 몸을 기울이고는 크림을 핥는다. 그 혀 움직임은 친구가 했을 때만큼이나 불규칙적이다. 당신의 얼굴이 깨끗해지자, <<hePost "은">> 혀로 당신의 입술을 훑으며, 어떻게든 비집고 들어가려 한다.
+남자는 통을 들고는 당신의 얼굴에다가 내용물을 붓는다. 그는 몸을 기울이고는 크림을 핥는다. 그 혀 움직임은 친구가 했을 때만큼이나 불규칙적이다. 당신의 얼굴이 깨끗해지자, 그는 혀로 당신의 입술을 훑으며, 어떻게든 비집고 들어가려 한다.
 <br><br>
 <<if $arousal gte $arousalmax>>
-	<<person1>><<personPost "이">> 당신의 <<breastsPost "을">> 애무하는 걸 더는 참을 수가 없다. <<orgasm>> 당신은 어쩔 수 없이 입을 연다. <<person2>><<personPost "은">> 그 틈을 놓치지 않고 당신의 열린 입 안에 혀를 집어넣는다. <<takeKissVirginity $NPCList[1] "rape">>
+	남자가 당신의 가슴을 애무하는 걸 더는 참을 수가 없다. <<orgasm>> 당신은 어쩔 수 없이 입을 연다. 그는 그 틈을 놓치지 않고 당신의 열린 입 안에 혀를 집어넣는다. <<takeKissVirginity $NPCList[1] "rape">>
 <<else>>
 <</if>>
-결국 둘 다 지루해진 모양이다. 아니면 단순히 크림이 동나서 그런 것일 수도 있다. "썩 나쁘진 않았지?" <<person2>><<personPost "이">> 당신의 팔을 묶고 있던 밧줄을 끊어내며 말한다.
+결국 둘 다 지루해진 모양이다. 아니면 단순히 크림이 동나서 그런 것일 수도 있다. "썩 나쁘진 않았지?" 남자는 당신의 팔을 묶고 있던 밧줄을 끊어내며 말한다.
 <<unbind>>
 <br><br>
 <<if $exposed gte 1>>
@@ -3991,9 +4194,9 @@ What do you want to write or draw on your $mirror_bodypart?
 <<elseif $speech_attitude is "bratty">>
 	"방금 그건 선 넘은 거지." 당신이 말한다. "이젠 됐어."
 <<else>>
-	"싫어요." 당신이 말한다. "시켜볼라면 시켜보시지 그래요."
+	"싫어요." 당신이 말한다. "어디 시켜보시지 그래요."
 <</if>>
-당신은 <<person1>><<personPost>>의 얼굴을 걷어찬다. <<HePost "은">> 얼굴을 움켜쥐고는 뒤로 자빠지고, <<person2>><<personPost "이">> 당신에게 달려든다.
+당신은 남자의 얼굴을 걷어찬다. 그는 얼굴을 움켜쥐고는 뒤로 자빠지고, 다른 남자가 당신에게 달려든다.
 <br><br>
 
 <<link [[다음|Sold Rape]]>><<set $molestationstart to 1>><</link>>
@@ -4001,7 +4204,7 @@ What do you want to write or draw on your $mirror_bodypart?
 :: Sold Work Foot Refuse
 <<effects>>
 
-당신은 <<person2>><<personPost>>의 발 밑에서 기어나와, 자리에서 일어난다. "그래, 고생하는 쪽을 택하겠다 이거-" <<HePost "이">> 말을 하던 중, 당신은 <<hisPost>> 가랑이를 걷어차서 말을 끊는다. <<HePost "은">> 고통에 찬 비명을 내지르지만, 곧 자리에서 다시 일어나 달려든다.
+당신은 남자의 발 밑에서 기어나와, 자리에서 일어난다. "그래, 고생하는 쪽을 택하겠다 이거-" 그가 말을 하던 중, 당신은 그의 가랑이를 걷어차서 말을 끊는다. 그는 고통에 찬 비명을 내지르지만, 곧 자리에서 다시 일어나 달려든다.
 <br><br>
 
 <<link [[다음|Sold Rape]]>><<set $phase to 1>><<set $molestationstart to 1>><</link>>
@@ -4014,11 +4217,11 @@ What do you want to write or draw on your $mirror_bodypart?
 <<elseif $speech_attitude is "bratty">>
 	"좆까." 당신이 말한다. "그 좆같은 선택지도 까잡수시고. 덤벼보시던가."
 <<else>>
-	"그건 옳지 않아요." 당신이 말한다. "사람을 이런 식으로 대하면 안된다구요."
+	"이건 옳지 않아요." 당신이 말한다. "사람을 이런 식으로 대하면 안 되는 거잖아요."
 <</if>>
 <br><br>
 
-"뭐 어때." <<person1>><<personPost "이">> 어깨를 으쓱인다. "이 편이 우리한테 더 잘 맞기도 하고 말이야."
+"뭐 어때." 남자가 어깨를 으쓱인다. "이 편이 우리한테 더 잘 맞기도 하고 말이야."
 <br><br>
 
 <<link [[다음|Sold Rape]]>><<set $molestationstart to 1>><</link>>
@@ -4029,14 +4232,14 @@ What do you want to write or draw on your $mirror_bodypart?
 당신은 머리를 뒤로 젖히고는 비명을 지른다.
 <br><br>
 
-"멍청한 애새끼가." <<person1>><<personPost "이">> 탁자를 뒤엎고는 서둘러 당신을 잡아챈다. "기꺼이 망가뜨려주지." <<HePost "이">> 손으로 당신의 입을 움켜쥐고, <<person2>><<personPost "이">> 당신을 붙잡는다.
+"멍청한 애새끼가." 남자가 탁자를 뒤엎고는 서둘러 당신을 잡아챈다. "기꺼이 망가뜨려주지." 그가 손으로 당신의 입을 움켜쥐고, 다른 남자가 당신을 붙잡는다.
 <br><br>
 
 거칠게 다뤄지는 탓에 나오는 울음소리도 묻힌다. 둘은 그렇게 당신을 붙잡은 채로 잠시 귀를 기울인다.
 
 
 <<if $rng lte 50>>
-	<span class="red">아무 일도 없다.</span> 누군가 눈치채지 않았음을 확신하며, <<person1>><<personPost "은">> 당신을 비웃는다. "혼내줄 시간이 됐네." <<hePost "이">> 말한다. "넌 우리의 장난감이야. 그리고 아무도 널 도우러 오지 않아."
+	<span class="red">아무 일도 없다.</span> 누군가 눈치채지 않았음을 확신하며, 남자는 당신을 비웃는다. "벌 줄 시간이 됐네." 그가 말한다. "넌 우리의 장난감이야. 그리고 아무도 널 도우러 오지 않아."
 	<br><br>
 
 	<<link [[다음|Sold Rape]]>><<set $molestationstart to 1>><</link>>
@@ -4044,9 +4247,9 @@ What do you want to write or draw on your $mirror_bodypart?
 <</if>>
 
 <<generate3>>
-잠시 뒤 <span class="green">누군가 문을 두들기는 소리가 들려온다.</span> "젠장." <<person1>><<personPost "이">> 말한다. <<HePost "은">> <<person2>><<personPost "을">> 쳐다본다. "뭘 가만히 있는 거야, 멍청아. 얼른 돌려보내."
+잠시 후, <span class="green">누군가 문을 두들기는 소리가 들려온다.</span> "젠장." 남자가 말한다. 그는 다른 남자를 쳐다본다. "뭘 가만히 있는 거야, 멍청아. 얼른 돌려보내."
 <br><br>
-<<person2>><<personPost "이">> 거실에서 나가고, 곧 현관문이 열리는 소리가 들린다. "별일 없죠?" 처음 듣는 <<person3>><<personsimple_ yi>> 목소리가 들려온다. "방금 비명소리를 들은 것 같아서요."
+남자가 거실에서 나가고, 곧 현관문이 열리는 소리가 들린다. "아무 일도 없나요?" 처음 듣는 여성의 목소리가 들려온다. "방금 비명소리를 들은 것 같아서요."
 <br>
 "별일 없어요. 제가 발가락을 찧어서 그런 거예요."
 <br>
@@ -4055,7 +4258,7 @@ What do you want to write or draw on your $mirror_bodypart?
 "뭘 그렇게 참견을 하려는 건지 모르겠군요."
 <br><br>
 
-<<person1>><<personPost>>도 긴장했는지, <<hisPost "의">> 손이 아플 정도로 당신의 얼굴을 꽉 붙잡는다.
+남자는 긴장했는지, 그의 손이 아플 정도로 당신의 얼굴을 꽉 붙잡는다.
 <br><br>
 
 <<link [[소리를 낸다|Sold Noise]]>><</link>>
@@ -4064,17 +4267,17 @@ What do you want to write or draw on your $mirror_bodypart?
 
 :: Sold Noise
 <<effects>>
-당신은 뒤집힌 탁자를 걷어찬다. 그 바람에 약해져있던 나무 탁자에서 콰직하는 소리가 난다.
+당신은 뒤집힌 탁자를 걷어찬다. 그 바람에 약해져있던 나무 탁자에서 부서지는 소리가 난다.
 <br><br>
 "방금 그 소리 들었어요. 들어가겠어요." 낯선 이가 그렇게 말한다. "안 그러면 시민의 의무를 다하지 못하는 것이니까요."
 <br>
 "그럴 일은 없어. 여기서 당장 꺼지지 않으면 혼쭐을 내주지."
 <br>
-"그렇다면 경찰을 부르도록 하죠." 그 말을 끝으로, 현관문이 쾅하고 닫힌다. <<person2>><<personPost "이">> 거실로 돌아온다.
+"그렇다면 경찰을 부르도록 하죠." 그 말을 끝으로, 현관문이 쾅하고 닫힌다. 남자가 거실로 돌아온다.
 <br><br>
 둘은 이 사고에 대해 서로를 비난하다가, 얼마 동안 언쟁을 벌이고는 당신을 계속 여기에 두는 위험을 감수할 순 없다는 결론을 내린다. 둘은 당신을 데리고 뒷문으로 나가, 정원 뒤쪽에 난 길로 향하는 문 앞에 도착하자, 바깥으로 떠민다.
 <br><br>
-"대가를 치르게 될 거다." <<person1>><<personPost "이">> 비틀거리는 당신에게 말한다. "양팔이 묶인 채로 어디 집까지 잘 가보지 그래." <<HePost "은">> 쾅하고 문을 닫는다.
+"대가를 치르게 될 거다." 남자가 비틀거리는 당신에게 말한다. "양팔이 묶인 채로 어디 집까지 잘 가보지 그래." 그는 문을 쾅 닫는다.
 <br><br>
 <<tearful>> 당신은 길을 따라 간다. 곧 하베스트 가 근처에 도착한다.
 <br><br>
@@ -4084,11 +4287,11 @@ What do you want to write or draw on your $mirror_bodypart?
 :: Sold Wait
 <<effects>>
 <<pass 2>>
-당신은 가만히 있으면서 문가에서 벌어지는 언쟁을 듣고만 있는다. 언쟁은 과열되다가, 곧 낯선 이가 경찰을 부르겠다고까지 말한다. <<person2>><<personPost "은">> 문을 닫아버리는 것으로 응수한다. <<HePost "은">> 거실로 돌아온다.
+당신은 가만히 있으면서 문가에서 벌어지는 언쟁을 듣고만 있는다. 언쟁은 과열되다가, 곧 낯선 이가 경찰을 부르겠다고까지 말한다. 남자는 문을 닫아버리는 것으로 응수한다. 그는 거실로 돌아온다.
 <br><br>
 둘은 이 사고에 대해 서로를 비난하다가, 얼마 동안 언쟁을 벌이고는 당신을 계속 여기에 두는 위험을 감수할 순 없다는 결론을 내린다. 둘은 당신을 데리고 뒷문으로 나가, 정원 뒤쪽에 난 길로 향하는 문 앞에 도착하자, 바깥으로 떠민다.
 <br><br>
-"대가를 치르게 될 거다." <<person1>><<personPost "이">> 비틀거리는 당신에게 말한다. "양팔이 묶인 채로 어디 집까지 잘 가보지 그래." <<HePost "은">> 쾅하고 문을 닫는다.
+"대가를 치르게 될 거다." 남자가 비틀거리는 당신에게 말한다. "양팔이 묶인 채로 어디 집까지 잘 가보지 그래." 그는 문을 쾅 닫는다.
 <br><br>
 <<tearful>> 당신은 길을 따라 간다. 곧 하베스트 가 근처에 도착한다.
 <br><br>
@@ -4128,9 +4331,9 @@ What do you want to write or draw on your $mirror_bodypart?
 <<effects>>
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
-	"돈 값은 하네." <<person1>><<personPost "이">> 소파에 기대어 앉으며 말한다. 그동안 <<person2>><<personPost "은">> 당신의 팔을<<unbind>> 풀어준 뒤, 천천히 끌고 간다.
+	"돈 값은 하네." 남자는 소파에 기대어 앉으며 말한다. 그동안 다른 남자가 당신의 팔을<<unbind>> 풀어준 뒤, 천천히 끌고 간다.
 	<br><br>
-	<<HePost "은">> 당신을 데리고 뒷문을 통해 집에서 나와, 정원 뒤쪽에 난 길로 향하는 문 밖으로 이끈다. "베일리한테 만족했다고 전해줘." 당신의 등 뒤로 문이 쾅하고 닫힌다.
+	그는 당신을 데리고 뒷문을 통해 집에서 나와, 정원 뒤쪽에 난 길로 향하는 문 밖으로 이끈다. "베일리한테 만족했다고 전해줘." 당신의 등 뒤로 문이 쾅하고 닫힌다.
 	<br><br>
 	<<tearful>> 당신은 길을 따라 간다. 곧 하베스트 가 근처에 도착한다.
 	<br><br>
@@ -4139,7 +4342,7 @@ What do you want to write or draw on your $mirror_bodypart?
 	<<link [[다음|Harvest Street]]>><<set $eventskip to 1>><</link>>
 	<br>
 <<else>>
-	<<person1>><<person_ un>> 탁자 위에서 미끄러져, 그 위에 쿵 하고 넘어진다. <<person2>><<person_ i>> 당신을 향해 팔을 휘두르지만, 그보다 당신의 움직임이 더 빠르다. 당신은 집 안을 내달려, 뒷문으로 빠져나와, 정원으로 간다. 거기엔 집 뒤로 빠져나가는 길로 향하는 문이 있다.
+	남자는 탁자 위에서 미끄러져, 그 위에 쿵 하고 넘어진다. 다른 남자가 당신을 향해 팔을 휘두르지만, 그보다 당신의 움직임이 더 빠르다. 당신은 집 안을 내달려, 뒷문으로 빠져나와, 정원으로 간다. 거기엔 집 뒤로 빠져나가는 길로 향하는 문이 있다.
 	<br><br>
 	<<tearful>> 당신은 길을 따라 간다. 곧 하베스트 가 근처에 도착한다.
 	<br><br>
@@ -4157,86 +4360,87 @@ What do you want to write or draw on your $mirror_bodypart?
 	<<set $eggLayNumber to $harpyEggs.count>>
 <</if>>
 
-You look over at Robin's sleeping form only to find <<him>> no longer sleeping. <<Hes>> gone straight from stirring to sitting upright, looking down at your unclothed lower half, eyes fixed on your <<if _eggnantGenital is "vagina">>drooling cunt<<else>>ass<</if>>, though <<his>> expression is tinged with concern at the way it's spreading open seemingly on its own.
+당신은 로빈을 바라본다. 그는 더 이상 잠들어 있지 않다. 그는 몸을 뒤척이다가 곧장 일어나서, 옷을 벗은 당신의 하체를 내려다본다. 그의 시선은 당신의 <<if _eggnantGenital is "vagina">>애액을 흘리는 질에<<else>>엉덩이에<</if>> 고정되어 있다. 하지만, 그의 얼굴에는 마치 스스로 열리고 있는 듯한 당신의 엉덩이를 향한 걱정이 묻어난다.
 <br><br>
 
-Robin stares on in abject horror as the egg's rounded bottom breaches your hole, a deep flush overtaking <<his>> face at the moan that escapes you. <<He>> opens <<his>> mouth like <<hes>> about to speak, but is cut off by the egg popping free with a squelch, leaving your entrance gaping slightly<<if _eggnantGenital is "vagina">>, muscles fluttering with residual contractions. Fluids leak from your parted <<pussy>> onto the newly-laid egg<</if>>. <<ggarousal>><<arousal 3000>>
+로빈은 알의 둥근 바닥 부분이 당신의 구멍에서 나오는 것을 공포에 질린 채 바라본다. 당신의 신음 소리에 그의 얼굴이 붉어진다. 그는 무언가 말하려는 듯 입을 벌린다. 알이 끈적이는 소리를 내며 빠져나와 당신의 구멍이 살짝 벌어지고, <<if _eggnantGenital is "vagina">>벌어진 질에서 애액이 새어 나와 새로 낳은 알 위로 떨어지며, <</if>>근육이 수축의 후유증으로 떨린다. <<ggarousal>><<arousal 3000>>
 <<if $arousal gte $arousalmax>>
 	<<orgasm>><<set _orgasmEgg to true>>
 <<else>>
 	<br><br>
 <</if>>
 
-Robin's mouth hangs similarly open. "Th-that..." <<He>> blinks and shakes <<his>> head.
+로빈의 입도 마찬가지로 벌어져 있다. "이-이게..." 그는 눈을 깜박이며 고개를 젓는다.
 <<if C.npc.Robin.dom lte 40>>
-	"You can, um... you can keep the... egg."
+	"너, 음... 그 계란은 네가 가지고 있어."
 <<else>>
-	"You, um... you can keep that."
+	"너, 음... 그건 네가 가지고 있어."
 <</if>>
 <br><br>
 
 <<if $eggLayNumber gte 2>>
-	You aren't finished, though. Robin lapses back into silence as you grunt, toes digging into the bedsheets. More fluids gush from your hole as the second egg shifts into place, passing through your <<if _eggnantGenital is "vagina">>cervix and sliding down your slick vaginal canal<<else>>rectum and sliding down your anal passage<</if>>.
-	You groan openly as the egg slides out, landing beside its sibling with a wet plop. <<arousal 1000>><<garousal>>
+	하지만 아직 끝나지 않았다. 당신이 끙끙거리며 발가락으로 침대 시트를 붙들자, 로빈은 다시 침묵에 빠진다. 두 번째 알이 자리를 잡고, <<if _eggnantGenital is "vagina">>자궁경부를 통과하며 미끄러운 질을 따라<<else>>직장을 거쳐 항문으로<</if>> 내려온다. 당신의 구멍에서 더 많은 액체가 뿜어져 나온다.
+	미끄러져 나온 알이 축축한 소리를 내며 다른 알 옆에 떨어지자, 당신은 숨죽여 신음한다. <<arousal 1000>><<garousal>>
 	<<if $arousal gte $arousalmax>>
 		<<orgasm>><<set _orgasmEgg to true>>
 	<<else>>
 		<br><br>
 	<</if>>
-	Robin watches, unblinking, waiting to see if you're done.
+	로빈은 눈 하나 깜박하지 않고 당신이 끝났는지를 지켜본다.
 	<br><br>
 
 	<<if $eggLayNumber gte 3>>
-		It's still not over, though. One final egg starts making its way down, and nudges into your most sensitive spot at a sharp angle, sending you over the edge<<if _orgasmEgg>> again<</if>>.
+		그럼에도, 아직 끝나지 않았다. 마지막 알 하나가 아래로 내려오기 시작하더니, 당신의 가장 민감한 부분을 날카로운 각도로 쿡 찌른다. 당신은<<if _orgasmEgg>> 또다시<</if>> 벼랑 끝으로 내몰린다.
 		<<orgasm>>
 	<</if>>
 
-	Robin heaves a sigh of relief when you return to normal.
+	당신이 정상으로 돌아오자 로빈은 안도의 한숨을 쉰다.
 <<else>>
-	Robin continues staring at you.
+	로빈은 계속해서 당신을 응시한다.
 <</if>>
-You shake your head and <<if $transformationParts.bird.plumage isnot "hidden">>puff up your plumage as you <</if>><<if $eggLayNumber gte 2>>gather your eggs into your arms<<else>>pick up your egg<</if>>, mind blank save for an overwhelming sensation of maternal bliss.
+당신은 고개를 저으며 <<if $transformationParts.bird.plumage isnot "hidden">>깃털을 부풀리고는 <</if>><<if $eggLayNumber gte 2>>알을 품에 안고<</if>>, 텅 빈 머릿속에서 압도적인 모성애와 행복감만을 느낀다.
 
 <<if playerIsPregnant() and _eggnant.type is "hawk">>
+	<<wearProp "egg" 0 "hawk">>
 	<<set _eggIcon to $eggLayNumber>>
-	<span class="lewd">You're certain the <<if $eggLayNumber gte 2>>eggs are<<else>>egg is<</if>> fertilised.</span> You should bring <<if $eggLayNumber gte 2>>them<<else>>it<</if>> back to your nest. You pick up <<number $eggLayNumber>> <<birdicon "eggs">> fertilised bird egg<<if $eggLayNumber gte 2>>s<</if>>.
-	<<if $eggLayNumber gte 2>>They're quite large, and you're left wondering how they all fit inside of you to begin with.<<else>>It's quite large, and you're left wondering why passing it didn't hurt more.<</if>>
+	<span class="lewd">당신은 <<pluralise $eggLayNumber "알이" "알들이">> 수정되었음을 확신한다.</span> 당신은 <<pluralise $eggLayNumber "그것을" "그것들을">> 둥지로 가져가야 한다. 당신은 수정된 <<number $eggLayNumber>> <<birdicon "알들을">> fertilised bird <<pluralise $eggLayNumber "알을">> 들어 올린다.
+	<<if $eggLayNumber gte 2>>그것들은 꽤 크다. 당신은 애초에 이것들이 어떻게 당신의 안에 있었는지를 의아하게 여긴다.<<else>>그것은 꽤 크다. 당신은 애초에 이것이 어떻게 당신의 안에 있었는지를 의아하게 여긴다.<</if>>
 	<<pregnancyFeats "pc">>
 	<<endPlayerPregnancy $location "inventory">>
 	<<set $harpyEggsPrevent to 28>>
 <<else>>
-	<span class="blue">You're fairly certain the egg<<if $eggLayNumber gte 2>>s<</if>> shouldn't be fertilised, though.</span> <<tending_pick bird_egg $eggLayNumber $eggLayNumber>>
+	<span class="blue">당신은 <<pluralise $eggLayNumber "알이">> 수정될 리 없다고 확신한다.</span> <<tending_pick bird_egg $eggLayNumber $eggLayNumber>>
 	<<unset $harpyEggs>>
 	<<set $harpyEggsPrevent to 14>>
 <</if>>
 <br><br>
 
-<<link [[다음|Robin Bed Egg Laying End]]>><</link>>
+<<link [[다음|Robin Bed Egg Laying End]]>><<handheldon>><</link>>
 <br>
 
 :: Robin Bed Egg Laying End
 <<effects>>
 
 <<if $robinbed is "yours">>
-	<<He>> tries to put on a sympathetic look, but <<his>>
+	그는 동정하는 표정을 지으려 하지만, 그의
 	<<if C.npc.Robin.dom lte 40>>
-		meek
+		소극적인
 	<<else>>
-		confused
+		혼란스러운
 	<</if>>
-	tone betrays <<him>>. "I can help you clean up?" <<He>> very obviously doesn't want to. You tell <<him>> that it's okay, and <<he>> leaves your room.
-
+	말투에서 속마음이 드러난다. "청소하는 거 도와줄까?" 그는 분명히 그렇게 하고 싶지 않은 것처럼 보인다. 당신은 그에게 괜찮다고 말한다. 그는 방을 나선다.
+	<br><br>
 	<<set $wardrobe_location to "wardrobe">>
 	<<wardrobeSelection true>>
 	<<radiooutfits>>
 <<else>>
-	<<He>> furrows <<his>> brows, looking at the puddle beneath you.
+	그는 눈살을 찌푸리며, 당신 아래에 고인 웅덩이를 바라본다.
 	<<if C.npc.Robin.dom lte 40>>
-		"W-well, I've got to clean this up now."
+		"으-음, 이제 치워야겠다."
 	<<else>>
-		"Now I have to clean this up..."
+		"이제 이걸 치워야겠네..."
 	<</if>>
-	You offer to help, but <<he>> tells you that it's okay. You return to your room.
+	당신은 도와주겠다고 하지만, 그는 괜찮다고 말한다. 당신은 방으로 돌아간다.
 	<<storeon "bed">>
 <</if>>
 <<if Time.hour is 6>><<run setRobinLocationOverride("orphanage", 6)>><</if>>
@@ -4254,31 +4458,31 @@ You shake your head and <<if $transformationParts.bird.plumage isnot "hidden">>p
 
 :: Hallway Flashing 1
 <<set $outside to 0>><<set $location to "home">><<effects>>
-With a discreet motion, you undo your towel. It falls to the ground, exposing your <<chest>> and <<genitals>>.
+당신은 조심스러운 동작으로 수건을 푼다. 수건이 바닥에 떨어지며, 당신의 가슴과 질을 드러낸다.
 <<exhibitionism5>>
-The <<person>>'s eyes widen, and <<he>> seems transfixed by your naked form.
+소년의 눈이 크게 뜨인다. 그는 당신의 나체에 넋을 잃은 것 같다.
 <br><br>
- <!-- Undress towel -->
- <<upperstrip>>
- <<lowerstrip>>
+<!-- Undress towel -->
+<<upperstrip>>
+<<lowerstrip>>
 <<if hasSexStat("exhibitionism", 5)>>
-	<<link [[Take things further|Hallway Flashing 2]]>><</link>><<exhibitionist5>>
+	<<link [[더 나아간다|Hallway Flashing 2]]>><</link>><<exhibitionist5>>
 	<br>
 <</if>>
-<<link [[End things here|Hallway Flashing End]]>><</link>>
+<<link [[여기서 멈춘다|Hallway Flashing End]]>><</link>>
 <br>
 
 :: Hallway Flashing 2
 <<effects>>
-"Oops, how clumsy. I guess I didn't tie the towel properly."
+"오, 이런. 나도 참 덜렁거린다니까. 수건을 제대로 안 묶었나 봐."
 <br><br>
-You pretend to cover yourself with your hands, but the positioning leaves all the important bits still uncovered.
+당신은 손으로 몸을 가리는 척하지만, 손의 위치가 당신의 중요 부위를 전부 드러내고 있다.
 <br><br>
-"R-right. Just be careful in the..."
+"그-그래. 조심해야지..."
 <br><br>
-The <<person>> stops mid-sentence as you provocatively bend over to grab the towel from the floor. Your back is to <<him>>, giving a full view of your <<bottom>> and <<genitals>>.
+당신이 도발적으로 몸을 숙여 바닥에 떨어진 수건을 잡으려 하자, 소년의 말이 멈춘다. 당신은 그를 등지고 있어서, 그를 향해 엉덩이와 질을 그대로 보여준다.
 <<exhibitionism5>>
-You pick up the towel, but let it fall from your hands once more, pretending to have a hard time holding onto the piece of cloth as your ass wiggles.
+당신은 수건을 집어들지만, 엉덩이를 흔들며 수건을 줍는 것이 어려운 척하고는 다시 한 번 떨어뜨린다.
 <br><br>
 <<link [[다음|Hallway Flashing 3]]>><</link>>
 <br>
@@ -4286,21 +4490,21 @@ You pick up the towel, but let it fall from your hands once more, pretending to 
 :: Hallway Flashing 3
 <<effects>>
 <<if random(1, 2) is 2>>
-	Deciding the <<person>> has seen enough, you finally pick the towel up from the floor. Still, you don't bother covering up just yet.
+	소년이 자신을 충분히 봤다고 여긴 당신은 마침내 수건을 집어든다. 하지만, 아직 몸을 가릴 생각은 없다.
 	<br><br>
-	"Hope you enjoyed the show," you say, giving <<him>> a wink. There's a shocked expression on <<his>> face.
+	"네가 즐겼기를 바라." 당신은 그에게 윙크한다. 그는 충격을 받은 것 같다.
 	<br><br>
-	Not giving the <<person>> time to think, you quickly pass <<him>> by and continue on your way.
+	당신은 그에게 생각할 틈을 주지 않고, 재빨리 지나친다.
 	<br><br>
 	<<clotheson>>
 	<<link [[다음|Orphanage]]>><<endevent>><</link>>
 	<br>
 <<else>>
-	Deciding the <<person>> has seen enough, you finally pick the towel up from the floor. Before you can stand up straight, however, you feel <<his>> hands on your exposed ass.
+	소년이 자신을 충분히 봤다고 여긴 당신은 마침내 수건을 집어든다. 하지만, 당신이 미처 몸을 세우기도 전에 그의 손이 당신의 드러난 엉덩이에 닿는 것이 느껴진다.
 	<br><br>
-	"Wait!" You shout. "I didn't..."
+	"잠깐만!" 당신이 소리친다. "나는..."
 	<br>
-	"Don't think you can just tease me like that, you <<bitch>>!" the <<person>> shouts back. "You had your fun, so it's my turn now."
+	"너만 누군가를 놀릴 수 있다고 생각하지 마, 이 썅년아! 소년이 소리친다. "너도 즐겼잖아. 이제는 내 차례야."
 	<br><br>
 	<<link [[다음|Hallway Flashing Rape]]>><<set $molestationstart to 1>><</link>>
 	<br>
@@ -4308,13 +4512,13 @@ You pick up the towel, but let it fall from your hands once more, pretending to 
 
 :: Hallway Flashing End
 <<effects>>
-Deciding the <<person>> has seen enough, you cover yourself with your arms as you grab the towel from the floor.
+소년이 자신을 충분히 봤다고 여긴 당신은, 팔로 몸을 감싸고 바닥에서 수건을 집어든다.
 <br><br>
-"Sorry, I guess I didn't tie it properly."
+"미안, 내가 제대로 안 묶었었나 봐."
 <br>
-"Oh. R-right." Your words bring <<him>> back down to earth. "N-no problem. Just be careful."
+"오. 그-그래." 당신의 말에 소년은 다시 현실로 돌아온다. "괘-괜찮아. 그냥 조심해."
 <br><br>
-You nod in response, passing <<him>> by and continuing on your way.
+당신은 고개를 끄덕이며, 소년을 지나친다.
 <br><br>
 <<clotheson>>
 <<link [[다음|Orphanage]]>><<endevent>><</link>>
@@ -4345,24 +4549,185 @@ You nod in response, passing <<him>> by and continuing on your way.
 :: Hallway Flashing Rape Finish
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
-	"Next time you want to get fucked, you should just ask," the <<person>> says snarkily.
+	"또 따먹히고 싶으면, 그냥 부탁하지 그래," 소년이 비꼬듯 말한다.
 	<br><br>
-	<<tearful>> you gather yourself. You don't respond. Instead, you walk away, not even bothering to pick your towel back up. You just want to leave <<him>> behind.
-	<br><br>
-	<<carriedClear "upper">>
-	<<carriedClear "lower">>
-	<<clotheson>>
-	<<endcombat>>
-	<<link [[다음|Orphanage]]>><</link>>
-	<br>
+	<<tearful>> 당신은 정신을 차린다. 당신은 대답하는 대신, 수건을 다시 주울 생각도 없이 걸어간다. 그저 그로부터 벗어나고 싶은 마음뿐이다.
 <<else>>
-	You finally manage to push the <<person>> away and use the opportunity to dash down the corridor.
+	마침내, 당신은 소년을 밀어내고 복도로 도망칠 기회를 잡는다.
 	<br><br>
-	<<tearful>> you gather yourself. You don't even bother grabbing your towel from the floor, only wanting to leave <<him>> behind.
-	<br><br>
-	<<carriedClear "upper">>
-	<<carriedClear "lower">>
-	<<clotheson>>
-	<<endcombat>>
-	<<link [[다음|Orphanage]]>><</link>>
+	<<tearful>> 당신은 정신을 차린다. 당신은 수건을 다시 주울 생각도 없이 걸어간다. 그저 그로부터 벗어나고 싶은 마음뿐이다.
 <</if>>
+<br><br>
+<<carriedClear "upper">>
+<<carriedClear "lower">>
+<<clotheson>>
+<<endcombat>>
+<<link [[다음|Orphanage]]>><</link>>
+<br>
+
+:: Kitchen
+<<set $outside to 0>><<set $location to "home">><<effects>><<set $bus to "orphanage_kitchen">>
+
+당신은 고아원 주방에 있다. 깨끗한 목제 조리대 위에는 높은 찬장이 벽을 따라 늘어서 있다. 냉장고와 대형 냉동고의 맞은편에는 오븐 두 개가 나란히 놓여 있다.
+<br><br>
+<<if !$loft_river>>
+	<<robinorphanagekitchen>>
+<</if>>
+
+<<if Time.dayState is "night">>
+	외풍에 벽에 걸린 식기들이 덜컹거린다.
+<<elseif Time.hour is 7>>
+	고아들이 아침 식사를 준비하며 이리저리 뛰어다닌다.
+<<elseif Time.hour is 18>>
+	고아들이 저녁 식사를 준비하며 이리저리 뛰어다닌다.
+<<else>>
+	<<if $orphan_hope gte 50>>
+		한 고아가 활기찬 걸음으로 바닥을 쓸고 있다.
+	<<elseif $orphan_hope gte 10>>
+		한 고아가 은밀한 농담에 미소 지으며 바닥을 쓸고 있다.
+	<<else>>
+		한 고아가 눈을 내리깐 채 바닥을 쓸고 있다.
+	<</if>>
+<</if>>
+<br><br>
+
+<<if Time.dayState is "night">>
+	<span class="purple">밤이 되면 베일리는 전기를 끊는다.</span> 당신은 어둠 속에서 요리할 수 없다.
+	<br><br>
+<<else>>
+
+	<<ingredientsSupplied "salt" "vegetable_oil" "bottle_of_milk" "flour" "pork" "chicken_egg" "turnip" "potato" "onion" "oats">>
+	<<ingredientsExceptions>>
+	<span class="pink">베일리는 다른 재료를 허용하지 않는다.</span> 당신이 이곳에서 만드는 재료만이 허용된다. 다른 재료를 사용하고 싶다면, 다른 주방을 찾아야 한다.
+	<br><br>
+	<<set _hourRestriction to 21>>
+	<<kitchenDisplay>>
+<</if>>
+
+<<main_hall_icon>><<link [[중앙 복도 (0:01)|Orphanage]]>><<pass 1>><<handheldon>><</link>>
+<br>
+
+:: Orphanage Sneaky Mansion
+<<effects>>
+<<npc Avery>><<person1>>
+"안녕." 당신이 다가가자, 소녀가 인사한다. "에이버리를 찾고 있니? 다뉴브 거리에 멋진 저택이 있다고 들었는데, 넌 언젠가 거기서 살 수 있을지도 몰라. 원한다면 내가 시기를 앞당겨 줄까?"
+<br><br>
+<<link [[받아들인다|Orphanage Sneaky Mansion 2]]>><<set $auriga_artefact to "Avery">><<if C.npc.Avery.state is "dismissed">><<unDismissAvery>><</if>><<npcincr Avery love 100>><</link>> <i>Brings Avery's arc forward to right before their mansion is unlocked.</i>
+<br>
+<<link [[거절한다|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Orphanage Sneaky Mansion 2
+<<effects>>
+
+소녀가 미소 짓는다. "전화할게! 네가 낮에 고아원 중앙 복도에서 서성거리기만 하면 에이버리가 너를 데리러 올 거야. 행운을 빌게!"
+<br><br>
+검은색의 깔끔한 옷을 입은 금발의 키 큰 소녀가 어깨에 자루를 메고 걸어온다. 자루 속에서 무언가가 움직인다.
+<br><br>
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Orphanage Sneaky Bad Ends
+<<effects>>
+The girl puts the head of the paddle on your shoulder, as if to knight you. "Hey there. Like my outfit?" She fleeces down the skirt of the chain tunic. "You can get one of these too, now. All you need to do is raid the castle and lay the pr—"
+<br><br>
+
+She clears her throat. "The shop. It's at the forest shop. It'll be a bitch to find, though. Unless you cheat. No judgement." She shrugs. "Probably the hardest thing to find there, unless you've cozied up to Winter lately for old <<nnpc_gender "Winter">> story time.
+God, the things I would do to that dusty old fuck, if not for this." She shivers, flicking the halo above her head. "The shopkeep has some interesting things to say too, you know. If you really earn the stuff there, <<nnpc_he "Gwylan">> might just start to like you.
+Some of those clothes will be hard to reach. Now, I can't skip you to the end, but I can set you on the right path. Escaping any of those places will be on you, but it'll unlock those clothes for you all the same."
+<br><br>
+
+"So, what'll it be?"
+<br><br>
+
+<<link [[Underground Brothel Start (Slut Shirt)|Orphanage Sneaky Bad Ends 2]]>><<endevent>><<set $phase to "ubrothel">><</link>>
+<br>
+<<link [[Underground Farm Start (Cow Print Set and Cow Bell)|Orphanage Sneaky Bad Ends 2]]>><<endevent>><<set $phase to "ufarm">><</link>>
+<br>
+<<link [[Prison Start (Prison Set)|Orphanage Sneaky Bad Ends 2]]>><<endevent>><<set $phase to "prison">><</link>>
+<br>
+<<link [[Asylum (Unbound Straightjacket)|Orphanage Sneaky Bad Ends 2]]>><<endevent>><<set $phase to "asylum">><</link>>
+<br>
+<<link [[Eden/Black Wolf (Loincloth)|Orphanage Sneaky Bad Ends 2]]>><<endevent>><<set $phase to "forest">><</link>>
+<br>
+<<link [[Great Hawk (Feathered Accessories)|Orphanage Sneaky Bad Ends 2]]>><<endevent>><<set $phase to "hawk">><</link>>
+<br>
+<<link [[Walk away and consider calling the police|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Orphanage Sneaky Bad Ends 2
+<<effects>>
+<<switch $phase>>
+	<<case "ubrothel">>
+		"Interesting choice," she says. "A timeless classic, that. I'll tell Bailey. This will count as <span class="blue">you being sold</span>. Try to have fun." She holds the paddle in both hands, and brings it crashing down on your head.
+		<br><br>
+
+		You're sent directly through the crust of the earth, take multiple harsh turns, and land in some kind of underground river. It spits you out into a dark room, where a <<generate1>><<generate2>><<generate3>><<person1>><<person>> waits, as though expecting you.
+		<br><br>
+
+		<<link [[다음|Underground Intro]]>><<badEndTracking "Underground Dungeon" { reason: "soldBailey" }>><</link>>
+		<br>
+	<<case "ufarm">>
+		"Touch the cow, they said." She smirks. "Have fun with Remy."
+		<br><br>
+
+		She steps behind you, winding up the paddle and smacking you on the ass with incredible force. You fly out the nearest window and soar all the way to the moor.
+		<br><br>
+
+		<<if $worn.neck.name is "familiar collar" and $worn.neck.cursed is 1>>
+			<<link [[다음|Livestock Intro Familiar Collar]]>><<endevent>><</link>>
+		<<else>>
+			You land with perfect grace, and a collar is clamped around your neck.
+			<br><br>
+
+			<<link [[다음|Livestock Intro]]>><<endevent>><<leash 21>><<badEndTracking "Underground Farm" { reason: "abductedMoor" }>><</link>>
+		<</if>>
+		<br>
+	<<case "prison">>
+		"Hey, try passing out in the rut. It'll be fun. I promise." She holds the paddle in both hands, and uppercuts you with it. You fly through the orphanage roof, and land in the police station, aware that you've somehow committed an unforgivable crime.
+		<br><br>
+
+		You sit in your tiny cell and wonder what to do.
+		<br><br>
+
+		<<link [[다음|Police Cell]]>><<set $stat_police.pillory += 1>><<crimeUp 7000 "prostitution" "debug">><</link>>
+		<br>
+	<<case "asylum">>
+		She lighty taps you on the head with her paddle. "Bonk."
+		<br><br>
+
+		<span class="red">You remember something embarassing you did as a kid.</span> <<trauma 5000>><<note "+ + + + + + + + + + + + + Trauma" "red">>
+		<br><br>
+
+		<<controlloss>><<controlloss>><<controlloss>><<controlloss>>
+		<br><br>
+
+		"Wow, you look like shit," she says. "You should go see a doctor." She points in the direction of Nightingale Street. You decide it's a good idea and walk there now. <<ginsecurity "penis_small">>
+		<br><br>
+
+		<<endevent>>
+
+		<<link [[다음|Asylum Intro]]>><<badEndTracking "Asylum" { reason: "asylumHospital" }>><<pass 120>><</link>>
+		<br>
+
+	<<case "forest">>
+		She snickers. "Okay, come on now. That's a fifteen minute walk from here. You can manage that one yourself."
+		<br><br>
+
+		<<link [[다음|Orphanage]]>><<endevent>><</link>>
+		<br>
+
+	<<case "hawk">>
+		"Okay, now this is <i>beak</i>."
+		<br><br>
+
+		She steps behind you, winding up the paddle and smacking you on the ass with incredible force. You fly out the nearest window and soar all the way to the moor.
+		<br><br>
+
+		You're spotted mid-air by a pair of sharp eyes. <span class="red">Terror descends.</span>
+		<br><br>
+
+		<<link [[다음|Moor]]>><<set $moor to 50>><<set $eventskip to 1>><<moor_hunt_start>><<set $moor_hunt to 10>><</link>>
+		<br>
+<</switch>>
+

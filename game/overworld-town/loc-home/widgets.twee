@@ -1,39 +1,37 @@
 :: Widgets Home [widget]
 
 <<widget "home_outside">>
-	<<if $exposed gte 2>>
-		<<if Time.dayState is "night">>
-			<<if hasSexStat("exhibitionism", 4)>>
-				<<dooricon "orphanage">><<link [[살금살금 나간다 (0:02)|Home Leave Naked]]>><</link>><<if $daily.ex.fence isnot 1>><<exhibitionist4>><</if>>
-				<br>
+	<<if $exposed gte 1>>
+		<<set _ex to ($exposed >= 2 ? (Time.dayState == "night" ? 4 : 5) : (Time.dayState == "night" ? 2 : 3))>>
+		<<if hasSexStat("exhibitionism", _ex)>>
+			<<if Time.dayState is "night">>
+				<<dooricon "orphanage">><<link [[Sneak outside (0:02)|Home Leave]]>><<pass 2>><</link>>
+			<<else>>
+				<<dooricon "orphanage">><<link [[Sneak outside (0:05)|Home Leave]]>><<pass 5>><</link>>
 			<</if>>
-		<<else>>
-			<<if hasSexStat("exhibitionism", 5)>>
-				<<dooricon "orphanage">><<link [[살금살금 나간다 (0:05)|Home Leave Naked Day]]>><</link>><<if $daily.ex.fence isnot 1>><<exhibitionist5>><</if>>
-				<br>
-			<</if>>
-		<</if>>
-	<<elseif $exposed gte 1>>
-		<<if Time.dayState is "night">>
-			<<if hasSexStat("exhibitionism", 2)>>
-				<<dooricon "orphanage">><<link [[살금살금 나간다 (0:02)|Home Leave Undies]]>><</link>><<if $daily.ex.fence isnot 1>><<exhibitionist2>><</if>>
-				<br>
-			<</if>>
-		<<else>>
-			<<if hasSexStat("exhibitionism", 3)>>
-				<<dooricon "orphanage">><<link [[살금살금 나간다 (0:05)|Home Leave Undies Day]]>><</link>><<if $daily.ex.fence isnot 1>><<exhibitionist3>><</if>>
-				<br>
+			<<if $daily.ex.fence isnot 1>>
+				<<switch _ex>>
+					<<case 2>>
+						<<exhibitionist2>>
+					<<case 3>>
+						<<exhibitionist3>>
+					<<case 4>>
+						<<exhibitionist4>>
+					<<case 5>>
+						<<exhibitionist5>>
+				<</switch>>
 			<</if>>
 		<</if>>
+		<br>
 	<<else>>
 		<<if Time.hour gte 18 and Time.hour lte 20 and C.npc.Robin.trauma gte 40 and $robinmissing is 0 and !$robinTraumaVisit>>
-			<<dooricon "orphanage">><<link [[고아원에서 나간다 (0:01)|Robin Trauma Visit]]>><<set $phase to 2>><<pass 1>><</link>>
+			<<dooricon "orphanage">><<link [[Leave orphanage (0:01)|Robin Trauma Visit]]>><<set $phase to 2>><<pass 1>><</link>>
 			<br>
 		<<elseif $robinpaid gte 1 and Time.isWeekEnd() and $weekly.robinGift isnot 1 and Time.hour gte 7 and Time.hour lt 9 and C.npc.Robin.trauma lt 80 and random(1, 10) lte 3 and $robin.timer.hurt lt 1 and $robinmissing is 0>>
-			<<dooricon "orphanage">><<link [[고아원에서 나간다 (0:01)|Robin Weekend Gift]]>><<pass 1>><<set $weekly.robinGift to 1>><</link>>
+			<<dooricon "orphanage">><<link [[Leave orphanage (0:01)|Robin Weekend Gift]]>><<pass 1>><<set $weekly.robinGift to 1>><</link>>
 			<br>
 		<<else>>
-			<<dooricon "orphanage">><<link [[고아원에서 나간다 (0:01)|Domus Street]]>><<pass 1>><</link>>
+			<<dooricon "orphanage">><<link [[Leave orphanage (0:01)|Domus Street]]>><<pass 1>><</link>>
 			<br>
 		<</if>>
 	<</if>>
@@ -53,7 +51,7 @@
 	<<if $player.vaginaExist and $player.virginity.vaginal isnot true and !playerChastity("hidden")>>
 		<<bodyliquid "vagina" _liquid random(1,3)>>
 	<</if>>
-	<<if $player.virginity.anal isnot true and !playerChastity("anus") and $analdisable is "f">>
+	<<if $player.virginity.anal isnot true and !playerChastity("anus") and $settings.analEnabled>>
 		<<bodyliquid "anus" _liquid random(1,3)>>
 	<</if>>
 	<<if $player.virginity.oral isnot true>>
@@ -77,32 +75,32 @@
 	<<effects>>
 	<<sleepeffects>>
 
-	당신은 정신없고 혼란스러운 채로 깨어난다. 당신이 떠올릴 수 있는 마지막 기억은 <<if $robinbed is "theirs">>로빈과 함께<<else>>평소처럼<</if>> 침대에 기어들어가는 것이다. 하지만, 명백히 당신은 지금 침대에 있지 않은 것 같다. 당신은 이게 당신 귀에 있는 슬라임과 어떤 식으로도 연관된 일이라는 느낌이 든다.
+	You wake up in a confused and disoriented state. The last thing you recall is getting into bed <<if $robinbed is "theirs">>with Robin<<else>>like normal<</if>>. However, you're clearly not in it anymore. You have a feeling that the slime in your ear is involved in some way.
 	<br><br>
 	<<if $tutorial or $debug>>
-		<<set _newLocation to ["Residential alleyways", "Commercial alleyways", "Park", "Industrial alleyways"].random()>>
+		<<set _newLocation to ["Residential Alleyways", "Commercial Alleyways", "Park", "Industrial Alleyways"].random()>>
 		<<set $eventskip to 1>>
 
-		<<if random(0,100) gt 80 and (maleChance() lt 100 or $cbchance gt 0) and $earSlime.deviancy gte 3>>
-			<<set _coveredIn to "점액">>
+		<<if random(0,100) gt 80 and (maleChance() lt 100 or $settings.maleNPCVaginaChance gt 0) and $earSlime.deviancy gte 3>>
+			<<set _coveredIn to "slime">>
 			<<slimeWakeBodyliquid "goo">>
 		<</if>>
-		<<if random(0,100) gt 80 and (maleChance() gt 0 or $dgchance gt 0) and $earSlime.promiscuity gte 3>>
-			<<set _coveredIn to (_coveredIn is "점액" ? "점액과 정액" : "정액")>>
+		<<if random(0,100) gt 80 and (maleChance() gt 0 or $settings.femaleNPCPenisChance gt 0) and $earSlime.promiscuity gte 3>>
+			<<set _coveredIn to (_coveredIn is "slime" ? "slime and semen" : "semen")>>
 			<<slimeWakeBodyliquid "semen">>
 		<</if>>
 		<<if _coveredIn isnot undefined>>
-			그러한 예감과 함께, 당신은 당신이 <<print _coveredIn>>으로 뒤덮인 걸 깨닫는다. 이게 슬라임이 한 짓이라면, 당신이 잠든 동안 당신의 몸으로 재미를 보고 다녔던 게 틀림없다.
+			On top of this predicament, you find yourself covered in <<print _coveredIn>>. If this was the slime's doing, it clearly had its fun with your body while you slept.
 			<br><br>
 		<</if>>
-		주변을 둘러보니, 당신은 어떻게인지는 몰라도 <<putpost_ ro _newLocation>> 옮겨진 것 같다.
+		Having a look round your surroundings, you think that you've somehow been relocated to the <<print _newLocation.toLocaleLowerCase()>>.
 		<br><br>
-		<<link [[다음|_newLocation]]>><</link>>
+		<<link [[Next|_newLocation]]>><</link>>
 	<<else>>
 		<<set $tutorial to 1>>
-		<<generate1>><<person1>>아무런 조짐도 없이, 한 <<person_ i>> 옆을 지나치다가, 당신에게 부딪힌다. <<He_ nun>> 비틀거리면서 뒤로 물러나며 당신을 화난 눈으로 쳐다보지만, <<his_ yi>> 분노는 <<he_ ga>> 당신을 바라보자 호색함으로 바뀐다. "너는 이번 주에 내가 본 어떤 것들보다도 귀여워! 이리 와."
+		<<generate1>><<person1>>Without warning, a <<person>> passing by, bumps into you. <<He>> staggers back and looks at you with anger, but <<his>> rage turns to lechery as <<he>> beholds you. "You're the cutest thing I've seen all week! Come 'ere."
 		<br><br>
-		<<link [[다음|Tutorial]]>><<set $molestationstart to 1>><<set $tutorialExit to "Residential alleyways">><</link>>
+		<<link [[Next|Tutorial]]>><<set $molestationstart to 1>><<set $tutorialExit to "Residential Alleyways">><</link>>
 	<</if>>
 	<<exitAll>>
 <</widget>>
@@ -116,40 +114,40 @@
 	<<set _options to 1>>
 	<<if $player.penisExist and ($worn.genitals.name is "chastity parasite" or !playerChastity("penis"))>><<set _options++>><</if>>
 	<<if $player.vaginaExist and !playerChastity("vagina")>><<set _options++>><</if>>
-	<<if $analdisable is "f" and !playerChastity("anus")>><<set _options++>><</if>>
+	<<if $settings.analEnabled and !playerChastity("anus")>><<set _options++>><</if>>
 
 	<<arousal 10000>>
 	<<drugs 200>>
 	<<silently>><<orgasm>><</silently>>
-	당신은 몹시 흥분하고 혼란스러운 상태로 깨어난다. 당신은 일어나지 못하는 채 스스로의 몸을 바라보지만, 당신이
+	You wake up in a highly aroused and disoriented state. Unable to get up, you look at yourself, only to find that you're unable to stop
 	<<if $player.penisExist and ($worn.genitals.name is "chastity parasite" or !playerChastity("penis"))>>
 		<<if $worn.genitals.name is "chastity parasite">>
-			당신의 가랑이 사이의 기생충을 격렬히 쥐어짜는 것을 멈출 수 없다는 사실만을 깨닫는다. 쾌락의 물결이 당신에게 퍼져나가며 당신을 <<if _deniedOrgasm>>거의 한계 끝까지<<else>>한계 너머로<</if>> 밀어붙이고, 곧바로 두 번째 절정이<<if _deniedOrgasm>> 찾아오려다 만다<<else>> 찾아온다<</if>>.
+			aggressively squeezing the parasite between your legs. The waves of pleasure flowing through you sends you <<if _deniedOrgasm>>close to the edge<<else>>over the edge<</if>>, immediately followed by a second<<if _deniedOrgasm>> ruined<</if>> orgasm.
 			<br><br>
 			<<orgasm>>
 			<<orgasm>>
 			<<set _multiple to true>>
 		<<else>>
-			당신의 자지를 격렬히 문지르는 것을 멈출 수 없다는 사실만을 깨닫는다. 쾌락이 빠르게 당신을 <<if _deniedOrgasm>>거의 한계 끝까지<<else>>한계 너머로<</if>> 밀어붙인다.
+			aggressively stroking your penis. The pleasure quickly sends you <<if _deniedOrgasm>>close to the edge<<else>>over the edge<</if>>.
 			<br><br>
 			<<orgasm>>
 		<</if>>
 	<<elseif $player.vaginaExist and !playerChastity("vagina") and _rng gte 100 / Math.clamp(_options - 1, 1, Infinity)>>
-		당신의 보지에 손가락을 격렬히 넣었다 뺐다 하는 것을 멈출 수 없다는 사실만을 깨닫는다. 쾌락이 빠르게 당신을 <<if _deniedOrgasm>>거의 한계 끝까지<<else>>한계 너머로<</if>> 밀어붙인다.
+		aggressively fingering your pussy. The pleasure quickly sends you <<if _deniedOrgasm>>close to the edge<<else>>over the edge<</if>>.
 		<br><br>
 		<<orgasm>>
-	<<elseif $analdisable is "f" and !playerChastity("anus") and _rng gte 100 / Math.clamp(_options - 2, 1, Infinity)>>
-		당신의 항문에 손가락을 격렬히 넣었다 뺐다 하는 것을 멈출 수 없다는 사실만을 깨닫는다. 쾌락이 빠르게 당신을 <<if _deniedOrgasm>>거의 한계 끝까지<<else>>한계 너머로<</if>> 밀어붙인다.
+	<<elseif $settings.analEnabled and !playerChastity("anus") and _rng gte 100 / Math.clamp(_options - 2, 1, Infinity)>>
+		aggressively fingering your anus. The pleasure quickly sends you <<if _deniedOrgasm>>close to the edge<<else>>over the edge<</if>>.
 		<br><br>
 		<<orgasm>>
 	<<else>>
-		당신의 젖꼭지를 격렬히 꼬집는 것을 멈출 수 없다는 사실만을 깨닫는다. 쾌락이 빠르게 당신을 <<if _deniedOrgasm>>거의 한계 끝까지<<else>>한계 너머로<</if>> 밀어붙인다.
+		aggressively pinching your nipples. The pleasure quickly sends you <<if _deniedOrgasm>>close to the edge<<else>>over the edge<</if>>.
 		<br><br>
 		<<orgasm>>
 	<</if>>
-	마지막으로 절정이<<if _deniedOrgasm>> 찾아오려다 만<<else>> 찾아온<</if>> 후, 당신은 몸에 대한 통제권을 되찾는다. 당신은 천천히 마음을 가라앉히고, 다시 잠에 들려 시도한다.
+	After the final<<if _deniedOrgasm>> ruined<</if>> orgasm subsides, you regain control over your body. You slowly calm down and attempt to go back to sleep.
 	<br><br>
-	<<link [[다음|$passage]]>><</link>>
+	<<link [[Next|$passage]]>><</link>>
 
 	<<exitAll>>
 <</widget>>
@@ -157,15 +155,17 @@
 <<widget "orphanageWard">>
 	<<if $debug is 1 or $ward_unlocked>>
 		<br>
-		<<if $exposed gt 0 or ["split dress", "short ballgown", "large towel", "cropped hoodie", "slut shirt,", "tie-front top", "towel top"].includes($worn.upper.name) or ["split dress skirt", "short ballgown skirt", "micro pleated skirt", "miniskirt", "towel skirt"].includes($worn.lower.name)>>
-			<span class="pink">당신은 어린이 수용실로 들어가기엔 너무 음란한 복장을 하고 있다.</span>
-		<<elseif $liquidcount gte 1>>
-			<span class="pink">당신은 어린이 수용실로 들어가기 전에 몸을 깨끗이 씻어야만 한다.</span>
+		<<if inappropriatePlayerState("clothes")>>
+			<<childicon "blocks">><span class="pink">You're dressed too indecently to enter the youth ward.</span>
+		<<elseif inappropriatePlayerState("fluids")>>
+			<<childicon "blocks">><span class="pink">You should clean yourself before entering the youth ward.</span>
+		<<elseif inappropriatePlayerState("drugs")>>
+			<<childicon "blocks">><span class="pink">You're too intoxicated to enter the youth ward.</span>
 		<<else>>
 			<<if !$orphanageWardIntro>>
-				<<childicon "blocks">><<link [[어린이 수용실 (0:01)|Orphanage Ward Intro]]>><<pass 1>><</link>>
+				<<childicon "blocks">><<link [[Ward (0:01)|Orphanage Ward Intro]]>><<pass 1>><</link>>
 			<<else>>
-				<<childicon "blocks">><<link [[어린이 수용실 (0:01)|Orphanage Ward]]>><<pass 1>><</link>>
+				<<childicon "blocks">><<link [[Ward (0:01)|Orphanage Ward]]>><<pass 1>><</link>>
 			<</if>>
 		<</if>>
 	<</if>>
@@ -173,18 +173,18 @@
 
 <<widget "orphanageWardOptions">>
 	<<getChildrenIds `{location:"home", father:"Ivory Wraith"}`>><<rngWraith 1 "night">>
-	<<if _childrenIds.length gte 1 and _wraithEvent and !$possessed>>
-		<<childicon "crib">><<link [[아기 방|Orphanage Ward Wraith Sing]]>><<set $exitPassage to $passage>><</link>>
+	<<if _childrenIds.length gte 1 and _wraithEvent and !$possessed and !$daily.wraithNursery>>
+		<<childicon "crib">><<link [[Nursery|Orphanage Ward Wraith Sing]]>><<set $exitPassage to $passage>><</link>>
 		<br>
 	<<else>>
-		<<childicon "crib">><<link [[아기 방|Childrens Home]]>><<set $exitPassage to $passage>><</link>>
+		<<childicon "crib">><<link [[Nursery|Childrens Home]]>><<set $exitPassage to $passage>><</link>>
 		<br>
 	<</if>>
 	<<if $hallucinations gte 2 and $rng is 100>>
-		<<main_hall_icon>><<link [[중앙 복도|Orphanage Ward Door]]>><</link>>
+		<<main_hall_icon>><<link [[Main hall|Orphanage Ward Door]]>><</link>>
 		<br>
 	<<else>>
-		<<main_hall_icon>><<link [[중앙 복도|Orphanage]]>><</link>>
+		<<main_hall_icon>><<link [[Main hall|Orphanage]]>><</link>>
 		<br>
 	<</if>>
 <</widget>>
@@ -195,28 +195,28 @@
 			Robin is in the bath.
 			<br>
 		<</if>>
-		<<bathroomicon>><<link [[욕실 (0:01)|Robin Bath]]>><<pass 1>><</link>>
+		<<bathroomicon>><<link [[Bathroom (0:01)|Robin Bath]]>><<pass 1>><</link>>
 	<<else>>
 		<<if $robinBathKnown>>
 			<<unset $robinBathKnown>>
 		<</if>>
-		<<bathroomicon>><<link [[욕실 (0:01)|Bathroom]]>><<pass 1>><</link>>
+		<<bathroomicon>><<link [[Bathroom (0:01)|Bathroom]]>><<pass 1>><</link>>
 	<</if>>
 <</widget>>
 
 <<widget "generateSleepLinks">>
 	<<set _sleep_passage to _args[0]>>
-	<<set _maxHours to ($sleeptrouble is 1 and $controlled is 0) ? 10 : 8>>
+	<<set _maxHours to ($sleeptrouble is 1 and $controlled is 0 and !$hypnosis_traits.slumber) ? 10 : 8>>
 	<<for _i = _maxHours; _i > 0; _i-->>
 		<<if _i is 1>>
-			<<link [[1시간 잔다|_sleep_passage]]>><<set $sleephour to 1>><</link>> &#8194;(<<timeAfterXHours 1>>)<<ltiredness>>
+			<<link [[Sleep for 1 hour|_sleep_passage]]>><<set $sleephour to 1>><</link>> &#8194;(<<timeAfterXHours 1>>)<<ltiredness>>
 		<<else>>
 			<<capture _i>>
-				<<link [[_i + "시간 잔다"|_sleep_passage]]>><<set $sleephour to _i>><</link>> (<<timeAfterXHours _i>>)<<ltiredness>>
+				<<link [["Sleep for " + _i + " hours"|_sleep_passage]]>><<set $sleephour to _i>><</link>> (<<timeAfterXHours _i>>)<<ltiredness>>
 			<</capture>>
 		<</if>>
 		<br>
 	<</for>>
-	<<link [[그냥 잔다|_sleep_passage]]>><<set $sleephour to -1>><</link>> (??:??)<<ltiredness>>
+	<<link [[Just sleep|_sleep_passage]]>><<set $sleephour to -1>><</link>> (??:??)<<ltiredness>>
 	<br><br>
 <</widget>>

@@ -1,109 +1,165 @@
 :: Eerie Mirror
 
 <<effects>>
-당신은 거울에 다가가서, 거울의 깊이를 들여다 본다. 거울은 더 이상 반사된 주변을 보이지 않고, 기이한 빛을 발한다. 보라색이나 분홍색, 어쩌면 빨간색으로.
+You walk up to the mirror and gaze into its depths. It no longer reflects, but glows with a curious light. It's purple, or pink, or maybe red.
 <br><br>
-빛은 형태를 갖추고, 당신 앞에서 공간을 확장한다. 하나의 촉수가 나타났다. 가까이에서 춤을 추고 있다.
+The light takes shape and extends into the space in front of you. <span class="lewd">A single tentacle.</span> It dances closer.
 <br><br>
-<<link [[본다|Eerie Mirror 2]]>><</link>><<deviant1>>
+<<if !pcAreArmsBound("both") and $angel gte 4 and $angelBanish gte 1>>
+	<<skinicon "banish">><<link [[Banish|Eerie Mirror Banish]]>><<set $phase to 0>><<angelBanishAction>><</link>><<angelBanishNote>>
+	<br>
+<</if>>
+<<crimeicon "mark">><<link [[Watch|Eerie Mirror 2]]>><</link>><<deviant1>>
 <br>
-<<link [[물러난다|Eerie Mirror Stop]]>><</link>>
+<<getouticon>><<link [[Pull away|Eerie Mirror Stop]]>><</link>>
 <br>
 
 :: Eerie Mirror Stop
 
 <<effects>>
-당신은 거울에서 물러난다. 빛이 곧 꺼진다.
+You pull away from the mirror. The light goes out at once.
 <br><br>
-<<bedicon>><<link [[물러난다|Bedroom]]>><<handheldon>><<unset $mirrorMenu>><<unset $bodywritingSet>><<postMirror>><</link>>
-<<mirror>>
+<<bedicon>><<link [[Step away|Bedroom]]>><</link>>
+<br>
+<<mirroricon "home">><<link [[Mirror|Mirror]]>><<preMirror>><</link>>
+<br>
+
+:: Eerie Mirror Banish
+
+<<effects>>
+<<if $phase is 1>> /* Entertaining the tentacle */
+	You decide you've had enough of this farce.
+<<elseif $phase is 2>> /* Playing with multiple tentacles */
+	This is becoming too dangerous to continue playing around.
+<<else>> /* First exposure */
+	You can't allow something like this to exist.
+<</if>>
+<br><br>
+You focus your mind on the mirror and the <<= $phase isnot 2 ? "abomination" : "abominations">> crawling through it, then make an intricate gesture with your hand and slap your palm against the mirror's surface.
+<span class="green">The <<= $phase isnot 2 ? "tentacle shimmers and recoils" : "tentacles shimmer and recoil">> from you,</span> the light winking out immediately.
+<br><br>
+You're left alone in the darkness of your room once more.
+<br><br>
+<<bedicon>><<link [[Step away|Bedroom]]>><</link>>
+<br>
+<<mirroricon "home">><<link [[Mirror|Mirror]]>><<preMirror>><</link>>
+<br>
 
 :: Eerie Mirror 2
 
 <<effects>>
-촉수가 당신의 볼을 어루만진다. 녀석이 맥동한다. 각각의 파동이 당신의 피부 속에 스며들어, 당신의 몸에 잔물결을 일으킨다. 당신은 떨고 있다. 냄새가 달콤한다.
+The tentacle caresses your cheek. It pulses. Each wave enters your skin and ripples down your body. You shiver. It smells so sweet.
+<br><br>
 <<deviancy1>>
-<<link [[핥는다|Eerie Mirror 3]]>><</link>><<deviant1>>
-<br>
-<<link [[물러난다|Eerie Mirror Stop]]>><</link>>
+
+<<if !pcAreArmsBound("both") and $angel gte 4 and $angelBanish gte 1>>
+	<<skinicon "banish">><<link [[Banish|Eerie Mirror Banish]]>><<set $phase to 1>><<angelBanishAction>><</link>><<angelBanishNote>>
+	<br>
+<</if>>
+<<if !$worn.face.type.includes("gag")>>
+	<<brothelicon>><<link [[Offer tongue|Eerie Mirror 3]]>><</link>><<deviant1>><<kissvirginitywarning>>
+	<br>
+<</if>>
+<<getouticon>><<link [[Pull away|Eerie Mirror Stop]]>><</link>>
 <br>
 
 :: Eerie Mirror 3
 
 <<effects>>
-당신은 혀를 내밀고 촉수가 더 가까이 움직이기 시작하자, 가슴이 설레인다. 촉수는 몸 주변에 얽힐 때까지 빠르게 움직인다.
-녀석이 당신의 입술에 쿡 누른다. 당신에게 키스하고 있다. <<takeKissVirginity "Eerie Mirror Tentacle" "tentacle">>
-<<deviancy1>>
-끝부분에서 분홍색 액체가 떨어진다.
+Your heart flutters as you stick out your tongue, and the tentacle wiggles closer. It flicks the tip before weaving around until
+it nudges your lips. It's kissing you. <<takeKissVirginity "Eerie Mirror Tentacle" "tentacle">>
 <br><br>
-<<if hasSexStat("deviancy", 2)>>
-	<<link [[핥는다|Eerie Mirror 4]]>><</link>><<drugs 60>><<deviant2>>
+<<deviancy1>>
+
+A pink liquid drips from the tip.
+<br><br>
+<<if !pcAreArmsBound("both") and $angel gte 4 and $angelBanish gte 1>>
+	<<skinicon "banish">><<link [[Banish|Eerie Mirror Banish]]>><<set $phase to 1>><<angelBanishAction>><</link>><<angelBanishNote>>
 	<br>
 <</if>>
-<<link [[물러난다|Eerie Mirror Stop]]>><</link>>
+<<if hasSexStat("deviancy", 2)>>
+	<<brothelicon>><<link [[Lick|Eerie Mirror 4]]>><</link>><<drugs 60>><<deviant2>>
+	<br>
+<</if>>
+<<getouticon>><<link [[Pull away|Eerie Mirror Stop]]>><</link>>
 <br>
 
 :: Eerie Mirror 4
 
 <<effects>>
-당신은 촉수의 끝을 핥아, 분홍색 액체의 맛을 본다. 달콤하고, 따뜻하다. 당신은 핥짝거리면서, 오싹한 따뜻함을 느낀다.
-당신의 입과 목이 벌어진다.
-<<deviancy2>>
-다른 촉수 몇 개가 빛에서 형성된다. 녀석들은 가까이에서 춤을 추고 있다.
+You lick the tip of the tentacle, and taste the pink liquid. <span class="lewd">It's sweet, and warm.</span> You lap it up and feel the shuddering warmth
+spread down your mouth and throat.
 <br><br>
-<<if hasSexStat("deviancy", 2)>>
-	<<link [[핥는다|Eerie Mirror 5]]>><<drugs 60>><</link>><<deviant2>>
+<<deviancy2>>
+
+Several other tentacles form from the light. They dance closer.
+<br><br>
+<<if !pcAreArmsBound("both") and $angel gte 4 and $angelBanish gte 1>>
+	<<skinicon "banish">><<link [[Banish|Eerie Mirror Banish]]>><<set $phase to 2>><<angelBanishAction>><</link>><<angelBanishNote>>
 	<br>
 <</if>>
-<<link [[물러난다|Eerie Mirror Stop]]>><</link>>
+<<if hasSexStat("deviancy", 2)>>
+	<<brothelicon>><<link [[Lick|Eerie Mirror 5]]>><<drugs 60>><</link>><<deviant2>>
+	<br>
+<</if>>
+<<getouticon>><<link [[Pull away|Eerie Mirror Stop]]>><</link>>
 <br>
 
 :: Eerie Mirror 5
 <<effects>>
 <<if $moonstate is "morning">>
-	당신은 계속해서 촉수의 끝을 핥짝거리며, 달콤한 액체를 맛본다. 녀석은 원하는 것처럼 당신의 혀를 밀어낸다.
-	당신의 입 속으로 들어간다.
-	<<deviancy2>>
-	그 빛은 섬뜩한 빨간 빛으로 밝아지고, 다른 촉수들이 당신의 손, 팔, 다리, 엉덩이를 휘감는다. 기쁨의 전율이 느껴진다.
-	녀석들이 닿는 어느 부분이든지. 녀석들은 부드러운 리듬에 맞춰 쥐어짜고, 애무한다.
+	You continue to lick the tip of the tentacle, and taste the sweet liquid. It pushes against your tongue, as if it wants to
+	enter your mouth.
 	<br><br>
-	<<if hasSexStat("deviancy", 5)>>
-		<<link [[삼킨다|Eerie Mirror 6]]>><</link>><<oralvirginitywarning>><<deviant5>>
+	<<deviancy2>>
+
+	The light brightens to an eerie red, and other tentacles twist around your arms, legs and hips. Shivers of pleasure emanate
+	from wherever they touch. They squeeze and caress to a gentle rhythm.
+	<br><br>
+	<<if !pcAreArmsBound("both") and $angel gte 4 and $angelBanish gte 1>>
+		<<skinicon "banish">><<link [[Banish|Eerie Mirror Banish]]>><<set $phase to 2>><<angelBanishAction>><</link>><<angelBanishNote>>
 		<br>
 	<</if>>
-	<<link [[물러난다|Eerie Mirror Stop]]>><</link>>
+	<<if hasSexStat("deviancy", 5)>>
+		<<brothelicon>><<link [[Swallow|Eerie Mirror 6]]>><</link>><<deviant5>><<oralvirginitywarning>>
+		<br>
+	<</if>>
+	<<getouticon>><<link [[Pull away|Eerie Mirror Stop]]>><</link>>
 	<br>
 <<else>>
-	첫번째 촉수가 물러나고, 당신에게 깊은 갈망을 남긴다. 끝이 아니다. 다른 촉수가 당신의 팔과 다리, 엉덩이에 휘감긴다. 
-	녀석들이 닿는 곳 마다 기쁨의 전율이 느껴진다.
-	녀석들은 부드러운 리듬에 맞춰 쥐어짜고, 애무한다.
+	The first tentacle retracts, leaving you with a deep longing. It doesn't last. The other tentacles twist around your arms, legs
+	and hips. Shivers of pleasure emanate from wherever they touch.
+	They squeeze and caress to a gentle rhythm.
+	<br><br>
 	<<deviancy2>>
-	빛이 희미해지고, 촉수가 그와 함께 사라진다.
+
+	The light fades, and the tentacles fade with it.
 	<br><br>
-	<<bedicon>><<link [[물러난다|Bedroom]]>><<handheldon>><<unset $mirrorMenu>><<unset $bodywritingSet>><<postMirror>><</link>>
-	<br><br>
-	<<mirror>>
+	<<bedicon>><<link [[Step away|Bedroom]]>><</link>>
+	<br>
+	<<mirroricon "home">><<link [[Mirror|Mirror]]>><<preMirror>><</link>>
+	<br>
 <</if>>
 
 :: Eerie Mirror 6
 <<effects>>
-당신은 첫번째 촉수를 
+You take the first tentacle into your
 <<if $player.virginity.oral is true>>
-	처녀 입으로 받아 들이고 빨기 시작한다. <span class="red">이상한 맛이 난다.</span>
+	virgin mouth and start sucking. <span class="red">It tastes strange.</span>
 <<else>>
-	입으로 받아 들이고 빨기 시작한다.
+	mouth and start sucking.
 <</if>>
-당신은 달콤하고 따뜻한 액체를 꿀꺽 마신다.
-<<takeVirginity "Eerie Mirror Tentacle" "oral">>
-<<oralstat>>
-<<oralejacstat>>
-<<ejacstat>>
-<<deviancy5>>
-<<undress "wardrobe">>
-다른 촉수들은 화려한 솜씨로 당신의 옷을 벗기고, 당신의 팔과 다리, 엉덩이에 더욱 휘감기는 동시에,
-당신의 <<genitalsPost>> 가까이에서 꿈틀댄다.
+You gulp down the sweet and warm liquid.
+<<takeVirginity "Eerie Mirror Tentacle" "oral">><<oralstat>><<oralejacstat>><<ejacstat>>
 <br><br>
-<<link [[다음|Eerie Mirror Tentacles]]>><<set $sexstart to 1>><</link>>
+<<deviancy5>>
+
+<<undress "wardrobe">>
+The other tentacles remove your clothing with a precise dexterity. They further twist around your arms, legs
+and hips while <span class="lewd">wiggling closer to your <<genitals>></span>.
+<br><br>
+<<link [[Next|Eerie Mirror Tentacles]]>><<set $sexstart to 1>><</link>>
+<br>
 
 :: Eerie Mirror Tentacles
 <<if $sexstart is 1>>
@@ -117,7 +173,7 @@
 	<<tentaclestart 10 15>>
 	<<set $mouthstate to "tentacledeep">><<set $mouthuse to "tentacle">><<set $tentacles[0].shaft to "shoulders">><<set $tentacles[0].head to "mouthdeep">><<set $mouthtarget to "tentacles">>
 <</if>>
-<span class="lewd">붉은 안개가 거울에서 나와, 당신의 기분을 이상하게 만들고 있다.</span><<drugs 1>>
+<span class="lewd">A red mist is coming from the mirror, and it's making you feel funny.</span><<drugs 1>>
 <br>
 <<statetentacles>>
 
@@ -127,26 +183,29 @@
 <<tentacles>>
 <<actionstentacles>>
 <<if $tentacles.active lte ($tentacles.max / 2)>>
-	<span id="next"><<link [[다음|Eerie Mirror Tentacles Finish]]>><</link>></span><<nexttext>>
+	<span id="next"><<link [[Next|Eerie Mirror Tentacles Finish]]>><</link>></span><<nexttext>>
 <<else>>
-	<span id="next"><<link [[다음|Eerie Mirror Tentacles]]>><</link>></span><<nexttext>>
+	<span id="next"><<link [[Next|Eerie Mirror Tentacles]]>><</link>></span><<nexttext>>
 <</if>>
+<br>
 
 :: Eerie Mirror Tentacles Finish
 <<effects>>
 
-아무런 경고 없이, 촉수가 당신을 꽉 잡고 거울 쪽으로 끌어당긴다.
+Without warning, the tentacles tighten their grip and pull you towards the mirror.
 <br><br>
-당신은 비명을 질러 도움을 구하려 했지만, <span class="pink">최음제가 목소리를 음란한 신음으로 만든다.</span> 어떤 것들은 당신의 <<genitalsPost>>에 문지르고 있지만, 대부분은 당신을 끌어당긴다.
+You try to scream for help, <span class="pink">but the aphrodisiacs make it sound like a lewd moan.</span> Some rub against your <<genitals>>, but most keep pulling you. You hit the surface of the mirror and pass right through, sinking into it's depths.
 <br><br>
 <<endcombat>>
 
-<<link [[다음|Eerie Mirror Tentacle Plains]]>><<set $sexstart to 1>><</link>>
+<<link [[Next|Eerie Mirror Tentacle Plains]]>><<set $sexstart to 1>><</link>>
+<br>
 
 :: Eerie Mirror Tentacle Plains
 <<location "tentworld">><<set $outside to 0>><<effects>>
 <<tentacleworldintro>>
-거울을 들여다 보자, 이질적인 풍경을 발견한다.
-거대한 촉수가, 하늘을 향해 몸을 비틀고 있다. <span class="red">여기에서 오르가즘을 느끼는 것은 위험할 것이다.</span>
+On being pulled through the mirror, you find yourself on an alien landscape.
+Giant tentacles writhe against the sky. <span class="red">An orgasm here could be dangerous.</span>
 <br><br>
-<<link [[다음|Tentacle Plains]]>><<set $tentacleEntrance to "mirror">><</link>>
+<<link [[Next|Tentacle Plains]]>><<set $tentacleEntrance to "mirror">><</link>>
+<br>
