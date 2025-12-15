@@ -11,7 +11,7 @@ function sexToysInventoryInit() {
 			V.player.inventory.sextoys[category].forEach((item, index) => {
 				if (setupItem) {
 					const itemClassName = category.replace(/\s/g, "_") + "_" + index;
-					const itemStatus = item.worn ? "착용중" : item.carried ? "소지중" : "";
+					const itemStatus = item.worn ? "착용중" : item.carried ? "소지 중" : "";
 					const itemColour = setupItem.colour === 1 ? "clothes-" + item.colour : "";
 					mainGrid.innerHTML += `<div id="sti_item_${itemClassName}" class="sti_cell sti_full" onclick="window.sexToysInventoryOnItemClick(${index},\`${category}\`)" class="">
 							<div style="position:relative;z-index: 1;">
