@@ -1,0 +1,4867 @@
+:: Widgets Audience [widget]
+<<widget "audiencecamera">>
+	<<exposure>>
+	<<if $audienceselector is 1>>
+		<<set $audiencedesc to "흥분한">>
+		<<set $audiencecamera to $audiencecamera1>>
+	<<elseif $audienceselector is 2>>
+		<<set $audiencedesc to "얼굴이 빨개진">>
+		<<set $audiencecamera to $audiencecamera2>>
+	<<elseif $audienceselector is 3>>
+		<<set $audiencedesc to "열렬한">>
+		<<set $audiencecamera to $audiencecamera3>>
+	<<elseif $audienceselector is 4>>
+		<<set $audiencedesc to "욕망적인">>
+		<<set $audiencecamera to $audiencecamera4>>
+	<<elseif $audienceselector is 5>>
+		<<set $audiencedesc to "갈망하는">>
+		<<set $audiencecamera to $audiencecamera5>>
+	<<elseif $audienceselector is 6>>
+		<<set $audiencedesc to "활기찬">>
+		<<set $audiencecamera to $audiencecamera6>>
+	<</if>>
+	<<rng>>
+	<<if $swarm and $swarm.amount and $swarm.amount.active and $swarm.amount.active[0] gt 0 and $rng gte 51>>
+		<<audiencecameraswarm>>
+	<<elseif $rng gte 81 and $facepic isnot 1>>
+		<<set $facepic to 1>>
+		$audiencedesc <<putpost $audiencecamera "이">> 카메라를 당신의 얼굴로 향했다. 플래시가 터지고, <<ahe "은">> 사진을 찍었다.
+		<<cleareventpool>>
+		<<if $vaginastate isnot 0 and $vaginastate.endsWith("penetrated")>>
+			<<addinlineevent "" 3>>
+			<<personselect $vaginatarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<pShesPost "이">> 짐승 자지가 보지에 넣어진 채 가 버렸어! 말도 안 돼."
+					<<else>>
+						"<<beasttypePost "이">> 공공장소에서 널 따먹고 있는데, 넌 오르가즘을 느꼈어. 어떻게 이 부끄러움을 견딜 수 있지?"
+					<</if>>
+				<<elseif $leglocktarget isnot undefined>>
+					<<if $face is "covered">>
+						"<<= $position is "doggy" ? "<<beasttype_ ul>> 향해 몸을 뒤로 밀어대고" : "다리로 <<beasttype_ ul>> 감싸고")>> 있는 주제에, 인간으로서의 존엄성이 있는 척 하지 말라고."
+					<<else>>
+						"이 <<bitch_ nun>> 내가 보고 싶은 것 보다도 훨씬 더 <<bred>> 것을 원하고 있어!"
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"넌 <<beasttypePost>> 새끼야. 위엄 있는 척 가식 떨지마."
+					<<else>>
+						"이 <<bitchPost "이">> 범해지는 걸 볼 수 있어서 기쁜데."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"보지에 채워져서 가 버리는 건 정상이야. 부끄러워 할 필요 없어."
+					<<else>>
+						"<<pshePost "이">> 가 버릴 때 <<pshePost "의">> 귀여운 표정 좀 봐. 좀 더 <<pherPost "의">> 보지를 따먹어."
+					<</if>>
+				<<elseif $leglocktarget isnot undefined>>
+					<<if $face is "covered">>
+						"부끄러운 척 하지 마, 너는 말 그대로 <<= $position is "doggy" ? "<<personselect $vaginatarget>><<him_ ul>> 향해 몸을 밀어붙이고" : "<<personselect $vaginatarget>><<him_ ul>> 네 안에 밀어넣고")>> 있잖아."
+					<<else>>
+						"너 이거 좋아하지, 그렇지 않아? 네 다리를 봐, 네 얼굴을 보라고."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"부끄러워하지 마. 보지가 괴롭혀지는 네 얼굴을 보여줘."
+					<<else>>
+						"보지에 쿵쿵 부딪히는 동안의 얼굴이 너무 귀여워."
+					<</if>>
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if $vaginastate isnot 0 and $vaginastate.endsWith("imminent")>>
+			<<addinlineevent "" 3>>
+			<<personselect $vaginatarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<pshePost "은">> 이미 가 버린거야? 쟤는 정말 <<beasttypePost>> 걸레야."
+					<<else>>
+						"단지 <<beasttypePost "의">> 자지가 들어온다는 생각만으로 충분히 <<phimPost "을">> 가 버리게 했어."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"손을 움직여, <<beasttypePost "이">> 널 따먹을 때 너의 표정을 보고 싶어."
+					<<else>>
+						"그게 <<phimPost "을">> 확실히 범할 때의 <<pherPost "의">> 표정을 찍고싶어."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<pshePost "은">> 이미 가 버린거야?"
+					<<else>>
+						"단지 기대만으로 <<phimPost "을">> 가 버리게 했어."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"손을 움직여, 그게 네 안에 넣을 때 표정 보고 싶어."
+					<<else>>
+						"안에 넣을 때, <<pherPost "의">> 사진을 찍고 싶어."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $vaginastate isnot 0 and $vaginastate.endsWith("entrance")>>
+			<<addinlineevent "" 3>>
+			<<personselect $vaginatarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pshePost "은">> 이미 가 버린거야?"
+				<<else>>
+					"단지 기대만으로 <<phimPost "을">> 가 버리게 했어."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"손 치워, 그게 네 안에 넣을 때 표정 보고 싶어."
+				<<else>>
+					"안에 넣을 때, <<pherPost "의">> 사진을 찍고 싶어."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"왜 그렇게 부끄러워하는 거야? 신체 접촉이 없으니 야한 짓도 아니라고."
+				<<else>>
+					"<<pherPost "가">> 그곳을 드러냈을 때 짓는 표정을 찍고 싶어."
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "penetrated">>
+			<<addinlineevent "" 3>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"네 자지가 괴롭혀져서 가 버리는 것은 정상이야. 부끄러워 할 필요 없어."
+				<<else>>
+					"<<pshePost "이">> 가 버릴 때 귀여운 모습을 봐! 좀 더 <<phimPost "을">> 따먹어."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"부끄러워하지 마. 네 자지가 괴롭혀지고 있는 얼굴을 보고 싶어"
+				<<else>>
+					"<<pshePost "의">> 자지가 따먹힐 때 귀여운 모습을 봐! 좀 더 <<phimPost "을">> 따먹어."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "imminent">>
+			<<addinlineevent "" 3>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pshePost "은">> 이미 가 버린거야?"
+				<<else>>
+					"단지 기대만으로 <<phimPost "을">> 가 버리게 했어."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"손 치워, 안에 넣을 때 네 표정을 보고 싶어."
+				<<else>>
+					"안에 넣을 때 <<pherPost "의">> 표정을 찍고 싶어."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "entrance">>
+			<<addinlineevent "" 3>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pshePost "은">> 이미 가 버린거야?"
+				<<else>>
+					"단지 기대만으로 <<phimPost "을">> 가 버리게 했어."
+				<</if>>
+			<<elseif $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2) and (!playerChastity("hidden","penis") or playerHasStrapon())>>
+				<<if $face is "covered">>
+					"손 치워, 안에 넣을 때 네 표정을 보고 싶어."
+				<<else>>
+					"안에 넣을 때, <<pherPost "의">> 표정을 찍고 싶어."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"왜 그렇게 부끄러워하는 거야? 신체 접촉이 없으니 야한 짓도 아니라고."
+				<<else>>
+					"<<pherPost "가">> 그곳을 드러냈을 때 짓는 표정을 찍고 싶어."
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "otheranus">>
+			<<addinlineevent "" 3>>
+			<<personselect $penistarget>>
+			<<if playerHasStrapon()>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"손 치워, 네가 가 버리는 표정을 보고 싶어."
+					<<else>>
+						"내 생각에는 네가 <<phimPost "을">> 가 버리게 만드는 것 같아. 좀 더 <<phimPost "을">> 따먹어."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"다른 사람의 엉덩이에 박는걸로 부끄러워 하는거야? 귀여워라."
+					<<else>>
+						"<<pshePost "의">> 페니스 밴드 자지가 박힐 때 귀여운 모습을 봐! 좀 더 <<phimPost "을">> 따먹어."
+					<</if>>
+				<</if>>
+			<<elseif $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"손 치워, 네가 다른 사람의 엉덩이로 가 버리는 표정을 보고 싶어."
+				<<else>>
+					"내 생각에는 네 엉덩이가 <<phimPost "을">> 가 버리게 만드는 것 같아. 좀 더 <<phimPost "을">> 따먹어."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"다른 사람의 엉덩이에 박는걸로 부끄러워 하는거야? 귀여워라."
+				<<else>>
+					"<<pshePost "의">> 자지가 박힐 때 귀여운 모습을 봐! 좀 더 <<phimPost "을">> 따먹어."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "otheranusimminent">>
+			<<addinlineevent "" 3>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"부끄러워하지 마. 카메라에 오르가즘하는 얼굴을 보여줘."
+				<<else>>
+					"단지 네 엉덩이로 <<pherPost "의">> 자지에 박는게, <<phimPost "을">> 가 버리게 만들어."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"손 치워, 안에 넣을 때 네 표정을 보고 싶어."
+				<<else>>
+					"<<pShesPost "의">> 얼굴이 빨개졌어! 어쩜 이리 귀여울수가."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "otheranusentrance">>
+			<<addinlineevent "" 3>>
+			<<personselect $penistarget>>
+			<<if $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2) and (!playerChastity("hidden","penis") or playerHasStrapon())>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"부끄러워하지 마. 카메라에 오르가즘하는 얼굴을 보여줘."
+				<<else>>
+					"단지 네 엉덩이로 <<pherPost "의">> 자지에 박는게, <<phimPost "을">> 가 버리게 만들어."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"손 치워, 그게 네 안에 넣을 때 표정 보고 싶어."
+				<<else>>
+					"<<pShesPost "의">> 얼굴이 빨개졌어! 어쩜 이리 귀여울수가."
+				<</if>>
+			<</if>>
+		<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"가릴 필요 없어, 문질러지는 걸로 가는 건 완전 정상이라고."
+					<<else>>
+						"예민하기도 하지, <<pherPost "가">> 몇 번 쓰다듬는 것만으로 가 버렸어."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"얼굴을 보여 줘, 그곳이 드러났을 때 네가 짓는 표정을 찍고 싶다고."
+					<<else>>
+						"카메라를 보고 웃어 봐. 네가 이런 식으로 <<print either("엉덩이를", "엉덩짝을", "궁둥이를")>> 드러내는 걸 좋아한다는 걸 보여 줘."
+					<</if>>
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if ["othervaginaentrance","othervaginaimminent","othervagina"].includes($vaginastate)>>
+			<<addinlineevent "" 3>>
+			<<personselect $vaginatarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pherPost "가">> 지금 가는 얼굴을 숨기려고 하는 건가?"
+				<<else>>
+					"가위치기로 이렇게까지 즐길 수 있을 줄은 몰랐는데."
+				<</if>>
+			<<elseif $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2) and !playerChastity("hidden","vagina")>>
+				<<if $face is "covered">>
+					"정말로 얼굴을 가리면 뭔가 바뀔 거라고 생각해?"
+				<<else>>
+					"<<pherPost "가">> 보지를 교차할 때의 표정을 찍었어."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"왜 그렇게 부끄러워하는 거야? 신체 접촉이 없으니 야한 짓도 아니라고."
+				<<else>>
+					"<<pherPost "가">> 그곳을 드러냈을 때 짓는 표정을 찍고 싶어."
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if ["otherpenisntrance","otherpenisimminent","otherpenis"].includes($penisstate)>>
+			<<addinlineevent "" 3>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"왜 얼굴을 가리는 거야? 좆 비비는 걸 즐기는 게 부끄러워? 카메라에 담고 싶은데!"
+				<<else>>
+					"사진 찍을 거야. 최고의 가는 얼굴을 보여달라고."
+				<</if>>
+			<<elseif $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2) and !playerChastity("hidden","penis")>>
+				<<if $face is "covered">>
+					"얼굴 좀 작작 가리고 네 좆이 즐기는 꼴을 좀 보라고."
+				<<else>>
+					"그래서, 이게 프로팅을 즐기는 <<girlPost "의">> 얼굴인가?"
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"왜 그렇게 부끄러워하는 거야? 신체 접촉이 없으니 야한 짓도 아니라고."
+				<<else>>
+					"<<pherPost "가">> 그곳을 드러냈을 때 짓는 표정을 찍고 싶어."
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if $anusstate isnot 0 and $anusstate.endsWith("penetrated") and $anusstate isnot "othermouthpenetrated">>
+			<<addinlineevent "" 3>>
+			<<personselect $anustarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<beasttypePost "에게">> 박혀서 가 버리고 있으면서, 무슨 품위를 지키겠다고 얼굴을 가리고 있는 거야?"
+					<<else>>
+						"<<beasttypePost "에게">> 따먹혀서 가 버리는 <<pherPost "의">> 훌륭한 얼굴 사진 찍었어."
+					<</if>>
+				<<elseif $leglocktarget isnot undefined>>
+					<<if $face is "covered">>
+						"항문을 범해지면서도 애정에 굶주린 네 <<bitchPost>> 얼굴을 우리에게 보여줘!"
+					<<else>>
+						"너에 대해서 잘은 모르지만, <<pshe_ ga>> 저 <<beasttype_ ul>> 엄청 좋아하고 있다고 생각해."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"자, 얼굴 좀 보여줘. <<beasttypePost "에게">> 엉덩이를 따먹힐 때의 얼굴을 보고 싶어."
+					<<else>>
+						"저 <<beasttypePost "에게">> 엉덩이를 따먹히는 <<pherPost "의">> 얼굴이 너무 귀여워."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"엉덩이를 따먹혀서 가 버리고 있는 주제에, 무슨 품위를 지키겠다고 얼굴을 가리고 있는 거야?"
+					<<else>>
+						"가 버리는 <<pherPost "의">> 훌륭한 얼굴 사진 찍었어."
+					<</if>>
+				<<elseif $leglocktarget isnot undefined>>
+					<<if $face is "covered">>
+						"그래서 네가 얼굴을 가려봐야 뭐 하겠다는 거야? 모두가 네가 <<= $position is "doggy" ? "<<personselect $anustarget>><<him_ ul>> 향해 몸을 뒤로 밀어대고" : "다리로 <<personselect $anustarget>><<him_ ul>> 감싸고">> 있는 것을 볼 수 있는데 말야, 똥꼬 걸레 같으니라고."
+					<<else>>
+						"<<= $position is "doggy" ? "몸을 뒤로 밀어내는" : "다리로 감싸고 있는">> 걸 보니, 네 엉덩이가 이걸 좋아하는 게 분명하군."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"자, 얼굴 좀 보여줘. 엉덩이를 따먹힐 때의 얼굴을 보고 싶어."
+					<<else>>
+						"엉덩이가 괴롭혀지는 <<pherPost "의">> 얼굴 너무 귀여워."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $anusstate isnot 0 and $anusstate.endsWith("imminent")>>
+			<<addinlineevent "" 3>>
+			<<personselect $anustarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"원한다면 얼굴은 가려도 되지만, 저 <<beasttypePost "에게">> 엉망진창으로 가 버리고 있다는 건 모두 알 수 있을 거야."
+					<<else>>
+						"<<pherPost "이">> <<beasttypePost "에게">> 엉덩이 끝을 눌리는 것만으로 엉망으로 가 버렸어."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"부끄러워하지 마. <<beasttypePost "에게">> 엉덩이를 찔릴 때의 네 얼굴을 찍고 싶어."
+					<<else>>
+						"<<beasttypePost>> <<bitchPost "처럼">> 카메라를 향해 웃어봐, 이 걸레야."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"원한다면 얼굴은 가려도 되지만, 엉망진창으로 가 버리고 있다는 건 모두 알 수 있을 거야."
+					<<else>>
+						"<<pherPost "이">> 엉덩이 끝을 눌리는 것만으로 엉망으로 가 버렸어."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"부끄러워하지 마. 엉덩이를 찔릴 때의 네 얼굴을 찍고 싶어."
+					<<else>>
+						"뒷구멍 걸레처럼 카메라를 향해 웃어봐."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $anusstate isnot 0 and $anusstate.endsWith("entrance")>>
+			<<addinlineevent "" 3>>
+			<<personselect $anustarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"원한다면 얼굴은 가려도 되지만, 엉망진창으로 가 버리고 있다는 건 모두 알 수 있을 거야."
+				<<else>>
+					"<<pShesPost "이">> <<pherPost "의">> 엉덩이 끝을 눌리는 것만으로 엉망으로 가 버렸어."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"부끄러워하지 마. 엉덩이를 찔릴 때의 네 얼굴을 찍고 싶어."
+				<<else>>
+					"뒷구멍 걸레처럼 카메라를 향해 웃어봐."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthstate is "penetrated">>
+			<<addinlineevent "" 2>>
+			<<personselect $mouthtarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<beasttypePost "의">> 자지를 빨면서 가 버리는 <<pshePost "의">> 모습이 정말 귀여워. <<pShesPost "도">> 부끄러운가 봐."
+					<<else>>
+						"<<beasttypePost "의">> 자지를 빨면서 가 버리는 <<pshePost "의">> 모습이 정말 귀여워."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"손 치워 <<bitchPost "아">>, 즐기는 데 방해가 된다고."
+					<<else>>
+						"<<beasttypePost>> 자지의 맛이 어때?"
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"자지를 빨면서 가 버리는 <<pshePost "의">> 모습이 정말 귀여워. <<pShesPost "도">> 부끄러운가 봐."
+					<<else>>
+						"자지를 빨면서 가 버리는 <<pshePost "의">> 모습이 정말 귀여워."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"손 치워 <<bitchPost "아">>, 즐기는 데 방해가 된다고."
+					<<else>>
+						"따먹히는 얼굴 사진 찍었어."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthstate is "imminent">>
+			<<addinlineevent "" 2>>
+			<<personselect $mouthtarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"원한다면 얼굴을 가려도 좋아, 네가 즐기고 있다는 건 알고 있어."
+					<<else>>
+						"<<pShesPost "은">> 벌써 가고 있어, <<beasttypePost "의">> 자지를 맛보고 싶어서 참을 수 없나봐."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"<<pherPost "의">> 손을 치워, 네가 <<pherPost "의">> 입을 범하기 시작할 때 <<pherPost "의">> 얼굴을 보고 싶어."
+					<<else>>
+						"그게 <<pherPost "의">> 입을 범하기 시작할 때 <<pherPost "의">> 얼굴을 보고 싶어."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"원한다면 얼굴을 가려도 좋지만, 네가 즐기고 있다는 건 알고 있어."
+					<<else>>
+						"<<pShesPost "은">> 벌써 가고 있어, 이제 <<phimPost>>에게 자지 맛 좀 보여 줄 때야."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"<<pherPost "의">> 손을 치워, 네가 <<pherPost "의">> 입을 범하기 시작할 때 <<pherPost "의">> 얼굴을 보고 싶어."
+					<<else>>
+						"네가 <<pherPost "의">> 입을 범하기 시작할 때 <<pherPost "의">> 얼굴을 보고 싶어."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthstate is "entrance">>
+			<<addinlineevent "" 2>>
+			<<personselect $mouthtarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"원한다면 얼굴을 가려도 좋지만, 네가 즐기고 있다는 건 알고 있어."
+					<<else>>
+						"<<pShesPost "은">> 벌써 가고 있어, <<beasttypePost "의">> 자지를 맛보고 싶어서 참을 수 없나봐."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"<<pherPost "의">> 손을 치워, 그게 <<pherPost "의">> 입을 범하기 시작할 때 <<pherPost "의">> 얼굴을 보고 싶어."
+					<<else>>
+						"그게 <<pherPost "의">> 입을 범하기 시작할 때 <<pherPost "의">> 얼굴을 보고 싶어."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"원한다면 얼굴을 가려도 좋지만, 네가 즐기고 있다는 건 알고 있어."
+					<<else>>
+						"<<pShesPost "은">> 벌써 가고 있어, 이제 <<phimPost>>에게 자지 맛 좀 보여 줄 때야."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"<<pherPost "의">> 손을 치워, 그게 <<pherPost "의">> 입을 범하기 시작할 때 <<pherPost "의">> 얼굴을 보고 싶어."
+					<<else>>
+						"네가 <<pherPost "의">> 입을 범하기 시작할 때 <<pherPost "의">> 얼굴을 보고 싶어."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthstate is "othervagina">>
+			<<addinlineevent "" 2>>
+			<<personselect $mouthtarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<pShe_ ga>> <<beasttype_ yi>> 보지에 얼굴을 파묻은 채로 가버리고 있어. <<pshe_ ga>> 부끄러워하는 것도 당연하지."
+					<<else>>
+						"<<pShe_ ga>> <<beasttype_ yi>> 보지에 얼굴을 파묻은 채로 가버리고 있어. 우와."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"부끄러워 하지 말라고. 네가 <<beasttype_ yi>> 보지를 빨아먹는 것을 좋아하는 것 다 아니까."
+					<<else>>
+						"<<pshe_ ga>> <<beasttype_ yi>> 보지에 얼굴을 파묻고 있다니 믿어지지 않아."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"부끄러워 하지 말라고. 그 보지를 빨아먹고 있는 네 얼굴을 보고 싶으니까."
+					<<else>>
+						"<<pShe_ ga>> 저 보지로 끝장나게 가버리고 있어."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"<<pShe_ ga>> 얼굴을 가리고 있어서 <<pshe_ ga>> 얼마나 보지에 얼굴을 파묻고 있는 것을 좋아하는지 볼 수가 없잖아."
+					<<else>>
+						"<<pher_ yi>> 얼굴을 비벼봐. <<pher_ yi>> 얼굴이 그렇게 쓰여지는 것을 <<pshe_ ga>> 좋아할 거라고 내가 장담하지."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthuse is "facesit" and $mouthstate is "vagina">>
+			<<addinlineevent "" 2>>
+			<<personselect $mouthtarget>>
+			<<if $orgasmdown gte 1>>
+				<<switch random(3)>>
+					<<case 0>>
+						"<<pher_ yi>> 얼굴에 앉는 것을 <<pshe_ ga>> 얼마나 좋아하는지 보라고."
+					<<case 1>>
+						"이런. 얼굴에 앉아있어서 <<pher_ yi>> 가버리는 얼굴을 잘 볼 수가 없잖아."
+					<<case 2>>
+						"저 보지를 보면 <<pshe_ ga>> 얼마나 흥분했는지 알 수 있지. <<pShe_ nun>> 얼굴에 누가 앉아있는 것으로도 가버리는걸."
+					<<case 3>>
+						"<<pshe_ ga>> 얼마나 <<pher_ yi>> 얼굴에 누군가 앉는 것을 좋아하는지 보여줄 때까지 기다릴 수가 없어."
+				<</switch>>
+			<<else>>
+				<<if $enemyanger gte 30>>
+					<<switch random(2)>>
+						<<case 0>>
+							"<<pShe_ ga>> 저기 진짜로 파묻히려고 하네."
+						<<case 1>>
+							"이런, <<pher_ yi>> 얼굴이 벌개지고 있어! 계속 <<phim_ ul>> 앉혀놓으라고!"
+						<<case 2>>
+							"네 얼굴 위에 누군가를 앉히는 것을 좋아하지, <<slut_ a>>?"
+					<</switch>>
+				<<else>>
+					<<switch random(2)>>
+						<<case 0>>
+							"집에서 가장 좋은 의자로군."
+						<<case 1>>
+							"<<pHer_ yi>> 얼굴은 완벽한 왕좌인 것 같아."
+						<<case 2>>
+							"너는 거기 아래 있는 것을 즐기는 것 같구나."
+					<</switch>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthuse is "facesit" and $mouthstate is "anal">>
+			<<addinlineevent "" 2>>
+			<<personselect $mouthtarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $mouthactiondefault is "anallick">>
+					<<switch random(2)>>
+						<<case 0>>
+							"<<pShe_ ga>> 엉덩이를 핥는 것 만으로 가버렸어. 착한 <<girl_ iya>>."
+						<<case 1>>
+							"봐! <<pShe_ ga>> <<pher_ yi>> 입으로 저 항문을 핥는 것 만으로 오르가즘을 느꼈어."
+						<<case 2>>
+							"<<pShe_ ga>> 엉덩이를 핥는 것 만으로 가버렸어. 다른 사람에게도 알려주고 싶어."
+					<</switch>>
+				<<elseif $mouthactiondefault is "analkiss">>
+					<<switch random(2)>>
+						<<case 0>>
+							"엉덩이에 키스하는 것 만으로도 <<pshe_ ga>> 가버렸어. 참 순종적인 <<slut_ iya>>."
+						<<case 1>>
+							"항문에 키스하는 것 만으로도 가버렸다고? 그렇게 되도록 몸이 적응되어 있구나, <<bitch_ ya>>!"
+						<<case 2>>
+							"<<pShe_ ga>> 엉덩이에 키스하는 것 만으로도 가버렸어. <<phimPost>>에게 계속 하게 해!"
+					<</switch>>
+				<<else>>
+					"네 입에 있는 항문 만으로도 가 버리기에 충분한가 보지? 부인하지 말라고!"
+				<</if>>
+			<<elseif $enemyanger gte 30>>
+				<<switch random(2)>>
+					<<case 0>>
+						"착한 <<slut_ i>> 되어 그 엉덩이를 핥으라고."
+					<<case 1>>
+						"계속 해, 그 엉덩이에 키스하라고, 그래야 하는 걸 알잖아, <<slut_ a>>."
+					<<case 2>>
+						"<<pShe_ nun>> 그 엉덩이 밑에서 짓눌러지고 있고, <<pshe_ ga>> 분명 그걸 좋아하고 있을 거야."
+				<</switch>>
+			<<else>>
+				<<switch random(2)>>
+					<<case 0>>
+						"이 변태 <<bitch_ nun>> <<pher_ yi>> 입 위에 누가 앉는 것을 분명 좋아하고 있을 거야."
+					<<case 1>>
+						"그 항문이 맛있기를 바라."
+					<<case 2>>
+						"<<pHer_ yi>> 얼굴이 엉덩이로 전부 가려졌어. 이걸 주변에 당장이라도 보여주고 싶어."
+				<</switch>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $vaginastate is "othermouth">>
+			<<addinlineevent "" 2>>
+			<<personselect $vaginatarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"가려도 숨길 수 없어, 보지가 핥아지는 건 너에겐 너무 강한 자극이야."
+				<<else>>
+					"<<phimPost "이">> 움찔거리는 걸 봐! 네 혀가 <<phimPost "에겐">> 너무 강했나본데."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"왜 그래? 보지가 핥아지는 게 부끄러워?"
+				<<else>>
+					"<<phimPost "을">> 혀로 더 괴롭혀, <<phimPost "이">> 움찔거리는 모습을 보고 싶다고."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $vaginastate is "othermouthimminent">>
+			<<addinlineevent "" 2>>
+			<<personselect $vaginatarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"카메라에 오르가즘은 숨길 수 없어."
+				<<else>>
+					"<<pShesPost "이">> 싸고 있어, 지금 혀로 괴롭히면 <<phimPost "이">> 견디지 못할 거 같은데. 해 버려."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"부끄러워하지 마. 보지 핥아지는 거 좋아하잖아?"
+				<<else>>
+					"보지 핥아지는 걸 좋아하는구나?"
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $vaginastate is "othermouthentrance">>
+			<<addinlineevent "" 2>>
+			<<personselect $vaginatarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"카메라에 오르가즘은 숨길 수 없어."
+				<<else>>
+					"<<pShesPost "이">> 싸고 있어, 지금 혀로 괴롭히면 <<phimPost "이">> 견디지 못할 거 같은데. 해 버려."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"부끄러워하지 마. 보지 핥아지는 거 좋아하잖아?"
+				<<else>>
+					"보지 핥아지는 걸 좋아하는구나?"
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "othermouth">>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"부끄러워하지 마. 자지를 빨려서 가 버리는 건 정상이야."
+				<<else>>
+					"<<pherPost "의">> 완벽한 오르가즘 얼굴 사진을 찍었어."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"<<pShesPost "이">> 자기의 자지가 빨리는 걸 부끄러워하고 있어! 정말 사랑스러워."
+				<<else>>
+					"더 세게 빨아 봐, <<pshePost "이">> 얼마나 귀엽게 보일지 보고 싶어.
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "othermouthimminent">>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pShesPost "은">> 벌써 가고 있어, 지금 빨면 <<phimPost "이">> 견디지 못할 거 같은데. 해 봐.
+				<<else>>
+					"<<pShesPost "은">> 벌써 가고 있어, 지금 빨면 <<phimPost "이">> 견디지 못할 거 같은데. 해 봐.
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"손 치워, 네 자지가 빨릴 때의 표정을 보고 싶어."
+				<<else>>
+					"빨리기 시작할 때의 <<pherPost "의">> 표정이 기대되는걸."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "othermouthentrance">>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pShesPost "은">> 벌써 가고 있어, 지금 빨면 <<phimPost "이">> 견디지 못할 거 같은데. 해 봐.
+				<<else>>
+					"<<pShesPost "은">> 벌써 가고 있어, 지금 빨면 <<phimPost "이">> 견디지 못할 거 같은데. 해 봐.
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"손 치워, 네 자지가 빨릴 때의 표정을 보고 싶어."
+				<<else>>
+					"빨리기 시작할 때의 <<pherPost "의">> 표정이 기대되는걸."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $anusstate is "othermouthpenetrated">>
+			<<addinlineevent "" 2>>
+			<<personselect $anustarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"얼굴 가려도 소용없어, 이미 우리는 네가 변태라는 걸 알고 있는걸."
+				<<else>>
+					"이 걸레는 <<pherPost "의">> 엉덩이가 혀로 괴롭혀지는 걸 좋아하나본데."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"손 치워 <<bitchPost "아">>, 엉덩이가 혀로 괴롭혀질 때 네가 어떻게 느끼는지 보고 싶다고."
+				<<else>>
+					"<<pherPost "의">> 엉덩이를 더 깊숙이 괴롭혀, <<pshePost "이">> 좋아하는 것 같아."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $anusstate is "othermouthimminent">>
+			<<addinlineevent "" 2>>
+			<<personselect $anustarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"얼굴 가려도 소용없어, 이미 우리는 네가 변태라는 걸 알고 있는걸."
+				<<else>>
+					"이 걸레는 <<pherPost "의">> 엉덩이가 혀로 괴롭혀지는 걸 좋아하나본데."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"손 치워 <<bitchPost "아">>, 엉덩이가 혀로 괴롭혀질 때 네가 어떻게 느끼는지 보고 싶다고."
+				<<else>>
+					"<<pherPost "의">> 엉덩이를 더 깊숙이 괴롭혀, <<pshePost "이">> 좋아하는 것 같아."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $anusstate is "othermouthentrance">>
+			<<addinlineevent "" 2>>
+			<<personselect $anustarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"얼굴 가려도 소용없어, 이미 우리는 네가 변태라는 걸 알고 있는걸."
+				<<else>>
+					"이 걸레는 <<pherPost "의">> 엉덩이가 혀로 괴롭혀지는 걸 좋아하나본데."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"손 치워 <<bitchPost "아">>, 엉덩이가 혀로 괴롭혀질 때 네가 어떻게 느끼는지 보고 싶다고."
+				<<else>>
+					"<<pherPost "의">> 엉덩이를 더 깊숙이 괴롭혀, <<pshePost "이">> 좋아하는 것 같아."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthstate is "kiss">>
+			<<addinlineevent "" 1>>
+			<<personselect $mouthtarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pShePost "이">> 키스한 걸로 가 버린거야? 순수한 거야, 아니면 야한 거야?"
+				<<else>>
+					"<<pShePost "이">> 키스한 걸로 가 버렸어! 순수한 거야, 아니면 야한 거야?"
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"<<pShesPost "은">> 키스받은게 부끄러운가 봐. 정말 사랑스러워."
+				<<else>>
+					"로맨틱한 장면이야."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthstate is "kissimminent">>
+			<<addinlineevent "" 1>>
+			<<personselect $anustarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pShePost "이">> 키스한 걸로 가 버린거야? 순수한 거야, 아니면 야한 거야?"
+				<<else>>
+					"<<pShePost "이">> 키스한 걸로 가 버렸어! 순수한 거야, 아니면 야한 거야?"
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"<<pShesPost "은">> 키스받은 게 부끄러운가 봐. 정말 사랑스러워."
+				<<else>>
+					"로맨틱한 장면이야."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthstate is "kissentrance">>
+			<<addinlineevent "" 1>>
+			<<personselect $anustarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pShePost "이">> 키스할거란 생각만으로 가 버린거야? 순수한 거야, 아니면 야한 거야?"
+				<<else>>
+					"<<pShePost "이">> 키스할거란 생각만으로 가 버렸어! 순수한 거야, 아니면 야한 거야?"
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"<<pShesPost "은">> 키스하는 게 부끄러운가 봐. 정말 사랑스러워."
+				<<else>>
+					"로맨틱한 장면이야."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<addinlineevent "" 1>>
+			<<if $orgasmdown gte 1>>
+				<<if $enemytype is "beast">>
+					<<if $face is "covered">>
+						"<<beasttypePost "에게">> 가 버려서 부끄러운거야?"
+					<<else>>
+						"저 <<beasttypePost "이">> 너를 엉망으로 가 버리게 한 모양인데, 증거 사진도 찍었다고.
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"얼굴은 숨겨도, 오르가즘은 못 숨기지."
+					<<else>>
+						"가 버리는 얼굴이 참 귀여워, 증거 사진도 찍었다고."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					<<if $pain gte 80>>
+						"원한다면 얼굴은 가려도 좋지만, 눈물은 볼 수 있어."
+					<<elseif $pain gte 40>>
+						"카메라에 눈물은 숨길 수 없어."
+					<<else>>
+						"부끄러워하지 마. 카메라가 네 예쁜 얼굴을 찍게 해 줘."
+					<</if>>
+				<<else>>
+					<<if $pain gte 80>>
+						"<<pShesPost "이">> 울고 있어. 불쌍해라."
+					<<elseif $pain gte 40>>
+						"속상해 하지 마, 카메라를 향해 웃어봐."
+					<<else>>
+						"웃어 보렴, <<girlPost "아">>."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<<runeventpool>>
+	<<elseif $rng gte 61 and $breastpic isnot 1>>
+		<<set $breastpic to 1>>
+		$audiencedesc <<putpost $audiencecamera "이">> <<ahis>> 카메라를 당신의 <<exposedupper_ ro>> 향한다. 플래시가 터지고, <<ahe "은">> 사진을 찍는다.
+		<<rng>>
+		<<if $player.breastsize is 0>>
+			<<if $player.gender_appearance is "m">>
+				<<if $worn.upper.exposed gte 2>>
+					<<if $rng gte 67>>
+						"남자아이들은 이런 귀여운 젖꼭지를 가지고 있구나."
+					<<elseif $rng gte 33>>
+						"매끈한 가슴이 참 아름다워."
+					<<elseif $rng gte 21 and $anusdoubletarget isnot undefined and $NPCList[$anustarget].penis is "anusdouble" and $NPCList[$anusdoubletarget].penis is "anusdouble">>
+						"<<pHer_ yi>> 딱딱한 <<nipples_ ga>> 모든 것을 말해주네. 이 <<girl_ un>> 항문에 딱딱한 두 자지가 들어오는 것을 좋아하고 있어!"
+					<<else>>
+						"부끄러워하지 마. 네 젖꼭지는 야한 게 아니야."
+					<</if>>
+				<<else>>
+					<<if $rng gte 67>>
+						"걔 윗옷 좀 벗겨, 그 예쁜 가슴 좀 보고 싶어."
+					<<elseif $rng gte 33>>
+						"저 윗옷 아래에 뭐가 있는지 사진으로 찍었으면 좋겠어."
+					<<else>>
+						"옷으로 가려저 있어도 사랑스러운 가슴이 있다는 건 알겠어."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $worn.upper.exposed gte 2>>
+					<<if $rng gte 67>>
+						"네 유두 맛있어 보여."
+					<<elseif $rng gte 33>>
+						"<<pherPost "의">> 가슴은 너무 납작해서 남자아이라고 해도 믿겠어."
+					<<elseif $rng gte 21 and $anusdoubletarget isnot undefined and $NPCList[$anustarget].penis is "anusdouble" and $NPCList[$anusdoubletarget].penis is "anusdouble">>
+						"<<pHer_ yi>> 소년 <<nipples_ ga>> 정말 딱딱해! 이 절벽 <<bitch_ nun>> 항문에 딱딱한 두 자지가 들어오는 것을 좋아하고 있어!"
+					<<elseif $rng gte 21 and $vaginadoubletarget isnot undefined and $NPCList[$vaginatarget].penis is "vaginadouble" and $NPCList[$vaginadoubletarget].penis is "vaginadouble">>
+						"<<pHer_ yi>> <<nipples_ ga>> 정말 딱딱해! 이 절벽 <<bitch_ nun>> 자지 둘이 찔러대는 것을 좋아하고 있어!"
+					<<else>>
+						"내가 그녀의 귀여운 가슴 사진을 찍었다는 것이 중요하지. 나중에 필요할지도 몰라."
+					<</if>>
+				<<else>>
+					<<if $rng gte 67>>
+						"그녀의 옷 아래를 보고싶어."
+					<<elseif $rng gte 33>>
+						"다른 여자아이들이 네 가슴을 보고 놀리니?"
+					<<else>>
+						"걱정하지 마, 가슴 없이도 넌 귀여워."
+					<</if>>
+				<</if>>
+			<</if>>
+			<<insecurity "breasts_small" 1>><<ginsecurity "breasts_small">>
+		<<elseif $player.breastsize lte 5>>
+			<<if $player.gender_appearance is "m">>
+				<<if $worn.upper.exposed gte 2>>
+					<<if $rng gte 67>>
+						"네 솟아오른 가슴은 마치 여자아이의 가슴 같아."
+					<<elseif $rng gte 33>>
+						"이 작은 가슴 좀 봐. 다른 남자아이들이 괴롭힐 것 같은데."
+					<<else>>
+						"부끄러워하지 마. 네 젖꼭지는 야한 게 아니야, 여자아이의 가슴처럼 생겼더라도."
+					<</if>>
+				<<else>>
+					<<if $rng gte 67>>
+						"걔 윗옷 좀 벗겨, 그 예쁜 가슴 좀 보고 싶어."
+					<<elseif $rng gte 33>>
+						"저 윗옷 아래에 뭐가 있는지 사진으로 찍었으면 좋겠어."
+					<<else>>
+						"옷으로 가려져 있어도 사랑스러운 가슴이 있다는 건 알겠어."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $worn.upper.exposed gte 2>>
+					<<if $rng gte 67>>
+						"그녀의 조그마한 가슴이 너무 귀여워."
+					<<elseif $rng gte 33>>
+						"이제 네 가슴이 커지더라도, 작고 귀여웠을 때의 증거는 내가 가지고 있을 거야."
+					<<elseif $rng gte 20 and $anusdoubletarget isnot undefined and $NPCList[$anustarget].penis is "anusdouble" and $NPCList[$anusdoubletarget].penis is "anusdouble">>
+						"<<pHer_ yi>> <<nipples_ ga>> 정말 단단해! 이 <<bitch_ ga>> 동시 삽입을 좋아하는가 봐!"
+					<<elseif $rng gte 20 and $vaginadoubletarget isnot undefined and $NPCList[$vaginatarget].penis is "vaginadouble" and $NPCList[$vaginadoubletarget].penis is "vaginadouble">>
+						"<<pHer_ yi>> <<nipples_ ga>> 정말 단단해! 이 <<bitch_ ga>> 동시 삽입을 좋아하는가 봐!"
+					<<else>>
+						"네 작은 가슴을 부끄러워하지 마, 네 가슴은 사랑스러워."
+					<</if>>
+				<<else>>
+					<<if $rng gte 67>>
+						"<<pherPost "의">> <<trClothes "upper" $worn.upper.name "name">>_trResult 아래로 조그마한 가슴의 윤곽이 보여."
+					<<elseif $rng gte 33>>
+						"<<pherPost "의">> 윗옷을 벗겨, <<pherPost "의">> 가슴을 찍고 싶어."
+					<<else>>
+						"<<pherPost "의">> 작은 가슴을 보고싶어, 분명 훌륭할 거야."
+					<</if>>
+				<</if>>
+			<</if>>
+			<<insecurity "breasts_small" 1>><<ginsecurity "breasts_small">>
+		<<elseif $player.breastsize lte 7>>
+			<<if $worn.upper.exposed gte 2>>
+				<<if $rng gte 67>>
+					"네 가슴, 사진이 잘 받는걸."
+				<<elseif $rng gte 33>>
+					"네 가슴은 시선을 끌어."
+				<<else>>
+					"네 가슴 사진은 유용하게 쓰일 거야."
+				<</if>>
+			<<else>>
+				<<if $rng gte 67>>
+					"<<pherPost "의">> 윗옷을 벗겨, <<pherPost "의">> 가슴을 찍고 싶어."
+				<<elseif $rng gte 33>>
+					"부끄러워하지 마, 아직 가슴이 드러나지도 않았어."
+				<<else>>
+					"옷으로 가려져 있어도 <<pherPost "의">> 가슴이 얼마나 사랑스러운지 알겠어."
+				<</if>>
+			<</if>>
+			<<insecurity "breasts_big" 1>><<ginsecurity "breasts_big">>
+		<<elseif $player.breastsize lte 10>>
+			<<if $worn.upper.exposed gte 2>>
+				<<if $rng gte 67>>
+					"<<pherPost "의">> 가슴이 아름답게 튀어나왔어."
+				<<elseif $rng gte 33>>
+					"아주 인상적인 가슴이야."
+				<<elseif $rng gte 20 and $anusdoubletarget isnot undefined and $NPCList[$anustarget].penis is "anusdouble" and $NPCList[$anusdoubletarget].penis is "anusdouble">>
+					"나는 그들의 자지가 <<pher_ yi>> <<slutPost>> 항문을 유린할 때 <<pher_ yi>> 젖가슴이 어떻게 흔들리는지 보는 게 좋아!"
+				<<elseif $rng gte 20 and $vaginadoubletarget isnot undefined and $NPCList[$vaginatarget].penis is "vaginadouble" and $NPCList[$vaginadoubletarget].penis is "vaginadouble">>
+					"나는 그들의 자지가 <<pher_ yi>> <<slutPost>> 보지를 유린할 때 <<pher_ yi>> 젖가슴이 어떻게 흔들리는지 보는 게 좋아!"
+				<<else>>
+					"부끄러워하지 마, 큰 가슴에 자신감을 가져."
+				<</if>>
+			<<else>>
+				<<if $rng gte 67>>
+					"<<pherPost "의">> 가슴이 정말 보이는 것처럼 클까? 알아보는 방법은 하나뿐이야."
+				<<elseif $rng gte 33>>
+					"<<pherPost "의">> 윗옷을 벗겨, <<pherPost "의">> 큰 가슴 사진을 찍어서 나중에 쓰고 싶어."
+				<<else>>
+					"저렇게 큰 가슴은 옷 밑에 숨겨져 있을 때 더 야해."
+				<</if>>
+			<</if>>
+			<<insecurity "breasts_big" 1>><<ginsecurity "breasts_big">>
+		<<else>>
+			<<if $worn.upper.exposed gte 2>>
+				<<if $rng gte 67>>
+					"진짜 거대한 젖가슴인데."
+				<<elseif $rng gte 33>>
+					"이걸로 이 마을의 모든 아기를 먹일 수도 있겠어."
+				<<else>>
+					"증거 사진을 찍어서 다행이야. 그렇지 않으면 누구도 이렇게 큰 가슴을 믿지 않을 거야."
+				<</if>>
+			<<else>>
+				<<if $rng gte 67>>
+					"분명 이렇게 큰 가슴을 가짜로 만들 순 없겠지."
+				<<elseif $rng gte 33>>
+					"<<pherPost "의">> 윗옷을 벗겨, 이 거대한 걸 찍고 싶어."
+				<<else>>
+					"이렇게 큰 가슴은 옷 밑에 숨겨져 있을 때 더 야해."
+				<</if>>
+			<</if>>
+			<<insecurity "breasts_big" 2>><<ginsecurity "breasts_big">>
+		<</if>>
+	<<elseif $rng gte 41 and $bottompic isnot 1>>
+		<<set $bottompic to 1>>
+		$audiencedesc <<putpost $audiencecamera "이">> 카메라를 당신의 <<bottomPost "으로">> 향했다. 플래시가 터지고, <<ahe "은">> 사진을 찍었다.
+		<<rng>>
+		<<if $anusstate isnot 0 and $anusstate.endsWith("penetrated") and $anusstate isnot "othermouthpenetrated">>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					"<<beasttypePost "이">> 싸고 있는 <<pherPost "의">> 엉덩이를 괴롭히는 멋진 클로즈업 사진을 찍었어."
+				<<elseif $leglocktarget isnot undefined>>
+					"<<phim_ i>> <<= $position is "doggy" ? "<<pher_ yi>> 엉덩이를 <<beasttypePost>>에게 밀어대고" : "<<pher_ yi>> 다리로 <<beasttype_ ul>> 감싸고">> 있는 멋진 클로즈업 사진을 찍었어."
+				<<else>>
+					"<<beasttypePost "이">> <<pherPost "의">> 엉덩이를 괴롭히는 멋진 클로즈업 사진을 찍었어."
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					"따먹히고 있는 <<pherPost "의">> 훌륭한 엉덩이 사진 찍었어. <<phimPost "이">> 떠는 것 좀 봐."
+				<<elseif $leglocktarget isnot undefined>>
+					"<<phim_ i>> <<pher_ yi>> 엉덩이가 따먹히면서도 <<= $position is "doggy" ? "엉덩이를 뒤로 밀어대는" : "<<pher_ yi>> 다리로 감싸고">> 있는 멋진 클로즈업 사진을 찍었어."
+				<<else>>
+					"따먹히고 있는 <<pherPost "의">> 훌륭한 엉덩이 사진 찍었어."
+				<</if>>
+			<</if>>
+		<<elseif $anusstate isnot 0 and $anusstate.endsWith("imminent")>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					"<<pShesPost "이">> 벌써 가 버렸어, <<pshePost "이">> <<beasttypePost "의">> 제대로 된 항문 섹스를 어떻게 견딜지 궁금한걸."
+				<<else>>
+					"그게 <<phimPost "을">> 제대로 따먹기 시작할 때의 모습을 보고 싶은걸."
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					"<<pShesPost "이">> 벌써 가 버렸어, <<pshePost "이">> 제대로 된 항문 섹스를 어떻게 견딜지 궁금한걸."
+				<<else>>
+					"그게 <<pherPost "의">> 엉덩이에 제대로 들어갈 때의 모습을 보고 싶은걸."
+				<</if>>
+			<</if>>
+		<<elseif $anusstate isnot 0 and $anusstate.endsWith("entrance")>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					"저게 <<pherPost "의">> 걸레 엉덩이를 따먹을 것 같아!"
+				<<else>>
+					"저게 <<pherPost "의">> 엉덩이를 따먹을 것 같아!"
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					"이 작은 걸레의 엉덩이에 완전히 박았으면 좋겠어."
+				<<else>>
+					"<<pherPost "의">> 엉덩이에 완전히 박았으면 좋겠어."
+				<</if>>
+			<</if>>
+		<<elseif $anusstate is "othermouthpenetrated">>
+			<<if $orgasmdown gte 1>>
+				"<<pShesPost "이">> 자기 엉덩이가 핥아지는 것에 반응하고 있어."
+			<<else>>
+				"완전히 깊숙이 넣은 모양인데."
+			<</if>>
+		<<elseif $anusstate is "othermouthimminent">>
+			<<if $orgasmdown gte 1>>
+				"<<pher_ yi>> 가버리는 엉덩이 맛이 어때?"
+			<<else>>
+				"<<pshePost "의">> 맛이 어때?"
+			<</if>>
+		<<elseif $anusstate is "othermouthentrance">>
+			<<if $orgasmdown gte 1>>
+				"<<phimPost>>에게 감당할 수 없을 정도인가 봐. 참을 수 없어."
+			<<else>>
+				"<<pherPost "의">> 엉덩이를 맛볼 생각이야?"
+			<</if>>
+		<<elseif $anusstate isnot 0 and $anusstate.startsWith("double")>>
+			<<if $NPCList[$anustarget].penis is "anusdouble" and $NPCList[$anusdoubletarget].penis is "anusdouble">>
+				<<if $orgasmdown gte 1>>
+					"이건 베스트 샷이야! <<phim_ i>> <<pher_ yi>> 항문에 자지 두 개를 넣고 경련하는 걸 봐!"
+				<<else>>
+					<<set _myrng to random(1,2)>>
+					<<switch _myrng>>
+						<<case 1>>
+							"<<pher_ yi>> 항문에 동시 삽입하는 멋진 클로즈업 사진을 찍었어. 대단한 <<slut_ iya>>!"
+						<<case 2>>
+							"그래 바로 그거야, 그 자지 두 개를 받아들여, 지저분한 <<slut_ a>>! 카메라는 너를 사랑한다고!"
+					<</switch>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					"<<pShe_ ga>> 벌써 가버리고 있어, 어떻게 <<pshe_ ga>> 항문 동시 삽입을 제대로 받아들이는지 궁금해."
+				<<else>>
+					"나는 자지 두 개가 <<pher_ yi>> 항문 안에 들어가는 장면을 잡고 싶어."
+				<</if>>
+			<</if>>
+		<<else>>
+			<<if $orgasmdown gte 1>>
+				<<if $worn.lower.exposed gte 2 and $worn.under_lower.exposed gte 1>>
+					<<if $rng gte 67>>
+						"<<pherPost "의">> 훌륭한 맨 엉덩이 사진을 한 장 찍었어."
+					<<elseif $rng gte 33>>
+						"이렇게 때리기 좋은 엉덩이는 처음 보는데."
+					<<else>>
+						"<<pherPost "의">> 오르가즘은 <<pherPost "의">> 엉덩이를 아름답게 떨게 했어."
+					<</if>>
+				<<else>>
+					<<if $rng gte 67>>
+						"<<pShesPost "은">> 정말 야한 <<girlPost "이야">>, <<pShesPost "은">> 벌을 받아야겠는데."
+					<<elseif $rng gte 33>>
+						"<<pshePost "이">> 부들거리는 동안 <<pherPost "의">> 옷을 벗겨, <<pherPost "의">> 깔끔한 엉덩이 사진을 찍고 싶어."
+					<<else>>
+						"<<pherPost "의">> 엉덩이는 옷을 입었는데도 너무 야해."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $worn.lower.exposed gte 2 and $worn.under_lower.exposed gte 1>>
+					<<if $rng gte 67>>
+						"엉덩이가 이렇게 드러나서 부끄럽니?"
+					<<elseif $rng gte 33>>
+						"<<pherPost "의">> 훌륭한 엉덩이 사진을 한 장 찍었어."
+					<<else>>
+						"<<pherPost "의">> 발가벗은 엉덩이는 너무 야해."
+					<</if>>
+				<<else>>
+					<<if $rng gte 67>>
+						"이 <<girlPost "은">> 예쁜 엉덩이를 가지고 있는걸."
+					<<elseif $rng gte 33>>
+						"<<pherPost "의">> 엉덩이를 벗겨, 더 나은 사진을 찍고 싶어."
+					<<else>>
+						"옷을 입었는데도 <<pherPost "의">> 엉덩이는 훌륭해."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</if>>
+	<<elseif $rng gte 21 and $genitalpic isnot 1>>
+		<<set $genitalpic to 1>>
+		$audiencedesc <<putpost $audiencecamera "이">> <<ahis>> 카메라를 당신의 <<exposedlower_ ro>> 향한다. 플래시가 터지고, <<ahe "은">> 사진을 찍는다.
+		<<rng>>
+		<<cleareventpool>>
+		<<if $vaginastate isnot 0 and $vaginastate.endsWith("penetrated")>>
+			<<addinlineevent "" 2>>
+			<<personselect $vaginatarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					"자지에 박혀서 움찔거리는 <<phimPost "의">> 모습을 사진으로 담았어."
+				<<elseif playerBellyVisible() and $settings.pregnancySpeechEnabled>>
+					"<<pshes_ ga>> 벌써 임신해 버렸어도, <<pshe_ nun>> 암캐처럼 교미되는 것을 정말 그만둘 수 없는 것 같아!"
+				<<elseif $leglocktarget isnot undefined>>
+					"<<phim_ i>> <<= $position is "doggy" ? "<<beasttype_ ul>> 향해 <<pherself_ rul>> 뒤로 밀어대고" : "<<pher_ yi>> 다리로 <<beasttype_ ul>> 감싸고">> 있는 것 좀 봐! 이상성욕 암캐 같으니라고!"
+				<<else>>
+					"와, <<pherPost "의">> 보지가 저 <<beasttypePost "에게">> 엄청나게 쑤셔지고 있어."
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					"자지에 박혀서 움찔거리는 <<phimPost "의">> 모습을 사진으로 담았어."
+				<<elseif playerBellyVisible() and $settings.pregnancySpeechEnabled>>
+					"글쎄, <<pshe_ ga>> 예전에 임신하지 않았다고 하더라도, 지금 <<pshe_ nun>> 거의 임신했을 것 같은데..."
+				<<elseif $leglocktarget isnot undefined>>
+					"<<pShes_ ga>> 네게 안에 싸 달라고 간청하고 있잖아! <<phimPost>>에게 <<pshe_ ga>> 원하는 것을 주라고!"
+				<<else>>
+					"와, <<pherPost "의">> 보지가 엄청나게 쑤셔지고 있어."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<<elseif $vaginastate isnot 0 and $vaginastate.endsWith("imminent")>>
+			<<addinlineevent "" 2>>
+			<<personselect $vaginatarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					"아직 넣지도 않았는데 <<pherPost "의">> <<bitchPost>> 보지가 움찔거리고 있어. <<pShePost "은">> 교미하길 기대하고 있나 봐."
+				<<else>>
+					"<<pherPost "의">> 보지가 따먹힐 때의 순간을 보고 싶어."
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					"아직 넣지도 않았는데 <<pherPost "의">> 보지가 움찔거리고 있어. 완전 걸레잖아."
+				<<else>>
+					"<<pherPost "의">> 보지가 따먹힐 때의 순간을 보고 싶어."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<<elseif $vaginastate isnot 0 and $vaginastate.endsWith("entrance")>>
+			<<addinlineevent "" 2>>
+			<<personselect $vaginatarget>>
+			<<if $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2)>>
+				<<if !playerChastity("hidden","vagina")>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					"<<pShesPost "은">> 작은 자극에도 가 버리고 있어. <<beasttypePost "과">> 섹스하는 건 <<phimPost "을">> 완전히 망가뜨릴지도 몰라."
+				<<else>>
+					"네 보지는 곧 받아야 하는 대접을 받게 될 거야."
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					"<<pShesPost "은">> 작은 자극에도 가 버리고 있어. <<pherPost "의">> 보지를 따먹는 건 <<phimPost "을">> 완전히 망가뜨릴지도 몰라."
+				<<else>>
+					"네 보지는 곧 받아야 하는 대접을 받게 될 거야."
+				<</if>>
+			<</if>>
+		<<elseif $enemytype is "beast">>
+					<<if $orgasmdown gte 1>>
+						"이 걸레는 <<beasttypePost "가">> 정조대를 찔러대는 것만으로도 가 버리고 있어."
+					<<else>>
+						"<<pherPost "의">> 정조대가 <<beasttypePost "의">> 자지 때문에 조금씩 망가지고 있군."
+					<</if>>
+				<<else>>
+					<<if $orgasmdown gte 1>>
+						"가 버린 거야? 그 정조대가 너를 자지로부터 완전히 지켜주지는 못한 것 같은데."
+					<<else>>
+						"이 정조대 아래에 뭐가 있을지 돈을 걸었어야 했는데."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $enemytype is "beast">>
+					<<if $orgasmdown gte 1>>
+						"네가 옷을 다 입은 상태에서조차 <<beasttypePost "의">> 자지로 가 버리는 클로즈업 사진을 찍었어."
+					<<else>>
+						"이 <<beasttypePost "가">> 자기 좆 냄새로 네 가랑이에 표식을 남기려는 것 같은데. 널 좋아하는 게 틀림없어."
+					<</if>>
+				<<else>>
+					<<if $orgasmdown gte 1>>
+						"이 자지가 옷을 벗지도 않은 너를 보내버리는 클로즈업 사진을 찍었어."
+					<<else>>
+						"Why are you stroking <<phim>> like this? Remove <<pher>> <<if _bottom.name_simple isnot undefined>>_bottom.name_simple<<else>>_bottom.name<</if>> and fuck whatever <<pshe>> is hiding beneath."
+					<</if>>
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<<elseif $vaginastate isnot 0 and $vaginastate.startsWith("double")>>
+			<<addinlineevent "" 2>>
+			<<if $NPCList[$vaginatarget].penis is "vaginadouble" and $NPCList[$vaginadoubletarget].penis is "vaginadouble">>
+				<<if $orgasmdown gte 1>>
+					"이건 베스트 샷이야! <<phim_ i>> <<pher_ yi>> 보지에 자지 두 개를 넣고 경련하는 걸 봐!"
+				<<else>>
+					<<set _myrng to random(1,2)>>
+					<<switch _myrng>>
+						<<case 1>>
+							"<<pher_ yi>> 보지에 동시 삽입하는 멋진 클로즈업 사진을 찍었어. 대단한 <<slut_ iya>>!"
+						<<case 2>>
+							"그래 바로 그거야, 그 자지 두 개를 받아들여, 지저분한 <<slut_ a>>! 카메라는 너를 사랑한다고!"
+					<</switch>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					"<<pShe_ ga>> 벌써 가버리고 있어, 어떻게 <<pshe_ ga>> 보지 동시 삽입을 제대로 받아들이는지 궁금해."
+				<<else>>
+					"나는 자지 두 개가 <<pher_ yi>> 보지 안에 들어가는 장면을 잡고 싶어."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<<elseif $vaginastate is "othermouth">>
+			<<addinlineevent "" 2>>
+			<<personselect $vaginatarget>>
+			<<if $orgasmdown gte 1>>
+				"<<pherPost "의">> 보지는 기쁘게 떨리고 있어."
+			<<else>>
+				"혀를 완전히 깊숙이 넣었구나."
+			<</if>>
+			<</addinlineevent>>
+		<<elseif $vaginastate is "othermouthimminent">>
+			<<addinlineevent "" 2>>
+			<<personselect $vaginatarget>>
+			<<if $orgasmdown gte 1>>
+				"<<pherPost "의">> 보짓물 맛있어?"
+			<<else>>
+				"<<pherPost "의">> 보지 맛있어?"
+			<</if>>
+			<</addinlineevent>>
+		<<elseif $vaginastate is "othermouthentrance">>
+			<<addinlineevent "" 2>>
+			<<personselect $vaginatarget>>
+			<<if $orgasmdown gte 1>>
+				"<<pherPost "의">> 보짓물 맛있어?"
+			<<else>>
+				"<<pherPost "의">> 보지 맛있어?"
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "penetrated">>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if playerHasStrapon()>>
+				"와, 저 페니스 밴드 자지에 박히는 보지 좀 봐!"
+			<<elseif $orgasmdown gte 1>>
+				"보지에 박은 채로 움찔거리는 <<phimPost "의">> 모습, 사진으로 담았어."
+			<<else>>
+				"와, <<pherPost "의">> 자지가 제대로 박고 있어."
+			<</if>>
+			<</addinlineevent>>
+		<<elseif $penisstate is "imminent">>
+			<<addinlineevent "" 2>>
+			<<if playerHasStrapon()>>
+				"<<pher_ yi>> 페니스 밴드 자지가 박히는 순간을 찍어야 해!"
+			<<elseif $orgasmdown gte 1>>
+				"아직 넣지도 않았는데 <<pherPost "의">> 자지가 움찔거리고 있어. 완전히 걸레잖아."
+			<<else>>
+				"<<pherPost "의">> 자지가 범해질 때의 순간을 보고 싶어."
+			<</if>>
+			<</addinlineevent>>
+		<<elseif $penisstate is "entrance">>
+			<<addinlineevent "" 2>>
+			<<if $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2)>>
+			<<if playerHasStrapon()>>
+				"<<pshe_ ga>> 저 물건을 어떻게 쓰는 지 알았으면 좋겠어!"
+			<<elseif !playerChastity("hidden","penis")>>
+				<<if $orgasmdown gte 1>>
+				"<<pShesPost "은">> 저런 작은 자극에도 가 버리고 있어, <<phimPost "을">> 따 먹는 건 <<phimPost "을">> 완전히 망가뜨릴지도 몰라."
+			<<else>>
+				"네 자지는 곧 받아야 할 대접을 받게 될 거야."
+			<</if>>
+		<<else>>
+					<<if $orgasmdown gte 1>>
+						"Quick, <<pshe>> can't react. Pull harder on <<pher>> $worn.genitals.name."
+					<<else>>
+						"You will only get to pleasure a ?vulva through your $worn.genitals.name. How sad."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					"Are you cumming from simply feeling a ?vulva through your clothes?"
+				<<else>>
+					"Remove your clothes, don't you want to feel this ?vulva directly?"
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<<elseif $penisstate is "otheranus">>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if playerHasStrapon()>>
+				"<<pher_ yi>> 페니스 밴드 자지가 그 항문에 박히는 멋진 사진을 찍었어!"
+			<<elseif $orgasmdown gte 1>>
+				"엉덩이에 박은 채로 움찔거리는 <<phimPost "의">> 모습, 사진으로 담았어."
+			<<else>>
+				"와, <<pherPost "의">> 자지가 제대로 박고 있어."
+			<</if>>
+			<</addinlineevent>>
+		<<elseif $penisstate is "otheranusimminent">>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if playerHasStrapon()>>
+				"<<pshe_ ga>> 저 물건을 어떻게 쓰는 지 알았으면 좋겠어!"
+			<<elseif $orgasmdown gte 1>>
+				"아직 넣지도 않았는데 <<pherPost "의">> 자지가 움찔거리고 있어. 완전히 걸레잖아."
+			<<else>>
+				"<<pherPost "의">> 자지가 범해질 때의 순간을 보고 싶어."
+			<</if>>
+			<</addinlineevent>>
+		<<elseif $penisstate is "otheranusentrance">>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2) and (!playerChastity("hidden","penis") or playerHasStrapon())>>
+			<<if playerHasStrapon()>>
+				"<<pher_ yi>> 장난감이 그 항문을 유린하는 것을 보고 싶어."
+			<<elseif $orgasmdown gte 1>>
+				"<<pShesPost "은">> 저런 작은 자극에도 가 버리고 있어, <<phimPost "을">> 따 먹는 건 <<phimPost "을">> 완전히 망가뜨릴지도 몰라."
+			<<else>>
+				"네 자지는 곧 받아야 할 대접을 받게 될 거야."
+			<</if>>
+		<<else>>
+			<<if $orgasmdown gte 1>>
+					"더럽게 야하네! <<phimPost "는">> 엉덩이를 직접 만져지지도 않았는데 가 버렸어."
+				<<else>>
+					"네가 그 엉덩이로 뭘 하던, 영원히 내 앨범에 저장될 거야."
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<<elseif $penisstate is "othermouth">>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if playerHasStrapon()>>
+				"와, 너 진짜 <<pher_ yi>> 페니스 밴드 자지로 입을 따먹히고 있구나!"
+			<<elseif $orgasmdown gte 1>>
+				"<<pherPost "의">> 정액 맛있어?"
+			<<else>>
+				"<<pshesPost "이">> 네 입에 싸고 있네."
+			<</if>>
+			<</addinlineevent>>
+		<<elseif $penisstate is "othermouthimminent">>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if playerHasStrapon()>>
+				"그렇지, 그 장난감을 입에 넣어."
+			<<elseif $orgasmdown gte 1>>
+				"<<phimPost "의">> 자지를 어서 입에 넣어. <<phimPost "이">> 움찔거리는 모습을 더 보고 싶어."
+			<<else>>
+				"<<pherPost "의">> 자지 맛있어?"
+			<</if>>
+			<</addinlineevent>>
+		<<elseif $penisstate is "othermouthentrance">>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if playerHasStrapon()>>
+				"네가 <<pher_ yi>> 장난감을 입에 넣는 것을 보고 싶어."
+			<<elseif $orgasmdown gte 1>>
+				"<<phimPost "의">> 자지를 어서 입에 넣어. <<phimPost "이">> 움찔거리는 모습을 더 보고 싶어."
+			<<else>>
+				"<<pherPost "의">> 자지 맛있어?"
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if ["othervaginaentrance","othervaginaimminent","othervagina"].includes($vaginastate)>>
+			<<addinlineevent "" 2>>
+			<<personselect $vaginatarget>>
+			<<if $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2)>>
+				<<if !playerChastity("hidden","vagina")>>
+					<<if $orgasmdown gte 1>>
+						"Incredible! <<pHer>> <<pussy>> is gushing juices over yours."
+					<<else>>
+						"I want to take a cute photo of your <<pussies>> kissing."
+					<</if>>
+				<<else>>
+					<<if $orgasmdown gte 1>>
+						"Quick, <<pshe>> can't react. Pull harder on <<pher>> $worn.genitals.name."
+					<<else>>
+						"You will only get to pleasure a ?vulva through your $worn.genitals.name. How sad."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					"Are you cumming from simply feeling a ?vulva through your clothes?"
+				<<else>>
+					"Remove your clothes, don't you want to feel this ?vulva directly?"
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if ["otherpenisntrance","otherpenisimminent","otherpenis"].includes($penisstate)>>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2)>>
+				<<if playerHasStrapon()>>
+					<<if $orgasmdown gte 1>>
+						"<<pShe>> must be really pent up to cum by frotting through a strap-on."
+					<<elseif npcHasStrapon($penistarget)>>
+						"This fencing match with strap-on cocks is fascinating."
+					<<else>>
+						"Be careful to not hurt your <<npcPenisSimple>> by stroking <<pher>> strap-on."
+					<</if>>
+				<<elseif !playerChastity("hidden","penis")>>
+					<<if $orgasmdown gte 1>>
+						"This photo gets all the details of <<phim>> cumming on your <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>>."
+					<<else>>
+						"How cute, your <<penis>> is sharing its juices with that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>>."
+					<</if>>
+				<<else>>
+					<<if $orgasmdown gte 1>>
+						"You're cumming? This $worn.genitals.name couldn't protect you fully from that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>>."
+					<<else>>
+						"I should have taken bets on what's under this $worn.genitals.name."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+						"I'm taking a closeup of the <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> that made you orgasm while still fully clothed."
+					<<else>>
+						"Why are you stroking <<phim>> like this? Remove <<pher>> <<if _bottom.name_simple isnot undefined>>_bottom.name_simple<<else>>_bottom.name<</if>> and fuck whatever <<pshe>> is hiding beneath."
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if $speechmasturbate gte 1>>
+			<<addinlineevent "" 1>>
+			<<if $rng lt 34>>
+				"이 <<bitch_ ga>> 자위하는 것 좀 봐!"
+			<<elseif $rng lte 67>>
+				"<<phim_ i>> 자위하는 멋진 사진을 찍었어!"
+			<<else>>
+				"<<phim_ i>> 자위하는 것은 나를 너무 흥분시켜."
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $orgasmdown gte 1>>
+			<<if !($worn.under_lower.exposed gte 1 and $worn.lower.exposed gte 2)>>
+				<<addinlineevent "" 3>>
+					"가 버리면서 움찔거리는거야?"
+				<</addinlineevent>>
+			<<else>>
+				<<if playerChastity()>>
+					<<addinlineevent "" 4>>
+					<<if $rng gte 67>>
+							"<<trClothes "genitals" $worn.genitals.name "name" "을">>_trResult 입은 채로 가 버리다니, 너 걸레구나?"
+						<<elseif $rng gte 33>>
+							"누가 그 정조대 좀 풀거나 부숴 봐, 그게 좋은 사진을 망치고 있어."
+						<<else>>
+							"가 버리면서 움찔거리는거야?"
+						<</if>>
+					<</addinlineevent>>
+				<</if>>
+				<<if playerHasStrapon()>>
+					<<addinlineevent "" 3>>
+						"가 버리면서 움찔거리는거야?"
+					<</addinlineevent>>
+				<<elseif $player.penisExist && !playerChastity("hidden")>>
+					<<addinlineevent "" 4>>
+					<<if $orgasmcount lt 24>>
+							<<if $rng gte 67>>
+								"허공으로 흩뿌린 <<pherPost "의">> 애액 사진으로 찍었어."
+							<<elseif $rng gte 33>>
+								"<<phimPost "이">> 싸는 것 좀 봐!"
+							<<else>>
+								<<phimPost "이">> 싸는 거 사진으로 찍었어. 수치스럽지."
+							<</if>>
+						<<else>>
+							<<if $rng gte 67>>
+								"<<phimPost "이">> 싸는 걸 찍었는데, 아무것도 나오질 않았네."
+							<<elseif $rng gte 33>>
+								"이 <<girlPost "은">> 제대로 싸지도 못해, 불쌍해라."
+							<<else>>
+								"<<pherPost "의">> 오르가즘은 실망스럽게 말랐어. 적어도 사진은 찍었네."
+							<</if>>
+						<</if>>
+					<</addinlineevent>>
+				<</if>>
+				<<if $player.vaginaExists && !playerChastity("hidden")>>
+					<<addinlineevent "" 4>>
+						<<if $vaginause is "cover">>
+							"손 치워, 네가 쌀 때 보지의 사진을 깔끔하게 찍고 싶다고."
+						<<else>>
+							"절정에 다다라서 움찔거리는 <<pherPost "의">> 보지, 사진으로 완벽히 찍었어."
+						<</if>>
+						<</addinlineevent>>
+					<</if>>
+				<</if>>
+			<</if>>
+			<<if $worn.under_lower.exposed gte 1 and $worn.lower.exposed gte 2>>
+			<<if playerChastity("hidden")>>
+				<<addinlineevent "" 1>>
+				<<if $rng gte 91 and $anusstate isnot 0 and $anusstate.endsWith("penetrated") and $anusstate isnot "othermouthpenetrated">>
+						"애널 보호대를 했어야지, 안에 싼다."
+					<<elseif $rng gte 76>>
+						"그게 순결을 유지하는 데 도움이 될지."
+					<<elseif $rng gte 51>>
+						"누가 이 정조대 좀 풀거나 부숴 봐, 누군가는 좋은 시간을 보낼 수 있겠는데."
+					<<elseif $rng gte 26>>
+						"저 장치 밑에 뭐가 있는지 볼 수 없다는 게 아쉽네."
+					<<else>>
+						"정말 아쉽네, 거기를 가지고 노는 것을 기대했었는데 말야."
+					<</if>>
+					<</addinlineevent>>
+			<<else>>
+				<<if $player.vaginaExist>>
+					<<addinlineevent "" 1>>
+					<<if $vaginause is "cover">>
+						<<if $rng gte 67>>
+							"Move your hand, I want to see your ?vulva."
+						<<elseif $rng gte 33>>
+							"Aww, <<pshes>> shy."
+						<<else>>
+							"Someone move <<pher>> hand out the way, I want a shot of <<pher>> ?vulva."
+						<</if>>
+					<<else>>
+						<<if $rng gte 67>>
+							"I got a great picture of <<pher>> cute ?vulva."
+						<<elseif $rng gte 33>>
+							"Don't be shy, everyone should know how beautiful your ?vulva is."
+						<<else>>
+							"If you don't want your ?vulva photographed, you shouldn't act like a slut."
+						<</if>>
+					<</if>>
+					<</addinlineevent>>
+				<</if>>
+				<<if $player.penisExist>>
+					<<addinlineevent "" 1>>
+					<<if playerChastity("cage")>>
+						<<if $penisuse is "cover">>
+						<<if $rng gte 67>>
+							"손 치워, 네 자지를 보고 싶다고."
+						<<elseif $rng gte 33>>
+							"아아, <<pshesPost "은">> 부끄러운가 봐."
+						<<else>>
+							"누가 <<pherPost "의">> 손 좀 치워 봐, <<pherPost "의">> 자지를 찍고 싶다고."
+						<</if>>
+					<<else>>
+						<<switch $player.penissize>>
+							<<case 4>>
+								<<if $rng gte 67>>
+									"거대한걸!"
+								<<elseif $rng gte 33>>
+									"<<pherPost "의">> 자지는 무서울 정도로 커."
+								<<else>>
+									"이렇게 거대한 자지는 처음 봐."
+								<</if>>
+							<<insecurity "penis_big" 1>><<ginsecurity "penis_big">>
+							<<case 3>>
+								<<if $rng gte 67>>
+									"내가 생각한 것보다 더 큰데."
+								<<elseif $rng gte 33>>
+									"부끄러워하지 마. 네 자지를 자랑스러워해야지."
+								<<else>>
+									"<<pherPost "의">> 자지는 완벽한 크기야."
+								<</if>>
+							<<insecurity "penis_big" 1>><<ginsecurity "penis_big">>
+							<<case 2>>
+								<<if $rng gte 67>>
+									"<<pherPost "의">> 귀여운 자지 사진 잘 찍었어."
+								<<elseif $rng gte 33>>
+									"부끄러워하지 마, 네 자지가 얼마나 아름다운지 모두가 알아야 해."
+								<<else>>
+									"네 자지가 찍히는 게 싫으면, 걸레처럼 굴지 마."
+								<</if>>
+							<<case 1 2>>
+								<<if $rng gte 67>>
+									"작은걸!"
+								<<elseif $rng gte 33>>
+									"작고 귀여운 자지네."
+								<<else>>
+									"<<pherPost "의">> 자지는 더 클 줄 알았는데."
+								<</if>>
+							<<insecurity "penis_small" 1>><<ginsecurity "penis_small">>
+							<<case 0>>
+								<<if $rng gte 67>>
+									"<<pShes>> so tiny<<if playerHasStrapon()>>, no wonder <<pshes>> wearing a strapon<</if>>!"
+								<<elseif $rng gte 33>>
+									"I can't believe it's so tiny! Almost a shame it's locked up."
+								<<else>>
+									"I've never seen such a pathetic penis."
+								<</if>>
+								<<insecurity "penis_small" 2>><<ginsecurity "penis_small">>
+							<<case -1>>
+								<<if $rng gte 67>>
+									"<<pShes>> so tiny<<if playerHasStrapon()>>, no wonder <<pshes>> wearing a strapon<</if>>!"
+								<<elseif $rng gte 33>>
+									"Did it get locked up because of how small it is?"
+								<<else>>
+									"Such a shame the pathetic penis is all locked up.<<if playerHasStrapon()>> Bet you love using your strapon.<</if>>"
+								<</if>>
+								<<insecurity "penis_small" 3>><<ginsecurity "penis_small">>
+							<<case -2>>
+								<<if $rng gte 67>>
+									"I thought that was a locked up clit!<<if playerHasStrapon()>> No wonder <<pshes>> wearing a strapon.<</if>>"
+								<<elseif $rng gte 33>>
+									"Clearly deserved to be locked up for being so useless!<<if playerHasStrapon()>> Bet you love using your strapon.<</if>>"
+								<<else>>
+									"Is there even anything locked up in there?<<if playerHasStrapon()>> Almost missed it due to your strapon.<</if>>"
+								<</if>>
+								<<insecurity "penis_small" 4>><<ginsecurity "penis_small">>
+						<</switch>>
+					<</if>>
+				<<else>>
+						<<if $penisuse is "cover">>
+							<<if $rng gte 67>>
+								"Move your hand, I want to see your penis."
+							<<elseif $rng gte 33>>
+								"Aww, <<pshes>> shy."
+							<<else>>
+								"Someone move <<pher>> hand out the way, I want a shot of <<pher>> penis."
+							<</if>>
+						<<else>>
+							<<switch $player.penissize>>
+								<<case 4>>
+									<<if $rng gte 67>>
+										"<<pShes>> huge<<if playerHasStrapon()>>, why would you even wear a strapon<</if>>!"
+									<<elseif $rng gte 33>>
+										"<<pHer>> penis is freakishly big."
+									<<else>>
+										"I've never seen such a huge cock."
+									<</if>>
+									<<insecurity "penis_big" 1>><<ginsecurity "penis_big">>
+								<<case 3>>
+									<<if $rng gte 67>>
+										"<<pShes>> bigger than I expected.<<if playerHasStrapon()>> <<pShe>> should get rid of <<pher>> strapon.<</if>>"
+									<<elseif $rng gte 33>>
+										"Don't be shy, you should be proud of your penis."
+									<<else>>
+										"<<pHer>> penis is the perfect size.<<if playerHasStrapon()>> You should get rid of your strapon.<</if>>"
+									<</if>>
+									<<insecurity "penis_big" 1>><<ginsecurity "penis_big">>
+								<<case 2>>
+									<<if $rng gte 67>>
+										"I got a great picture of <<pher>> cute penis<<if playerHasStrapon()>> hidden behind <<pher>> strapon<</if>>."
+									<<elseif $rng gte 33>>
+										"Don't be shy, everyone should know how beautiful your penis is."
+									<<else>>
+										"If you don't want your penis photographed, you shouldn't act like a slut."
+									<</if>>
+								<<case 1>>
+									<<if $rng gte 67>>
+										"<<pShes>> so small!"
+									<<elseif $rng gte 33>>
+										"Such a small and cute penis."
+									<<else>>
+										"I thought <<pher>> penis would be bigger."
+									<</if>>
+									<<insecurity "penis_small" 1>><<ginsecurity "penis_small">>
+								<<case 0>>
+									<<if $rng gte 67>>
+										"<<pShes>> so tiny<<if playerHasStrapon()>>, no wonder you're wearing a strapon<</if>>!"
+									<<elseif $rng gte 33>>
+										"I can't believe it's so tiny!"
+									<<else>>
+										"I've never seen such a pathetic penis."
+									<</if>>
+									<<insecurity "penis_small" 2>><<ginsecurity "penis_small">>
+								<<case -1>>
+									<<if $rng gte 67>>
+										"<<pShes>> so tiny<<if playerHasStrapon()>>, no wonder you're wearing a strapon<</if>>!"
+									<<elseif $rng gte 33>>
+										"It's like a large clit. Have you considered putting it in a cage?"
+									<<else>>
+										"I've never seen such a useless penis<<if playerHasStrapon()>>, bet you love using your strapon<</if>>."
+									<</if>>
+									<<insecurity "penis_small" 3>><<ginsecurity "penis_small">>
+								<<case -2>>
+									<<if $rng gte 67>>
+										"I thought that was a clit<<if playerHasStrapon()>>, no wonder you're wearing a strapon<</if>>!"
+									<<elseif $rng gte 33>>
+										"Could anyone even feel anything if you fucked them with it?"
+									<<else>>
+										"I've never seen such a useless penis. Why isn't it in a cage?"
+									<</if>>
+									<<insecurity "penis_small" 4>><<ginsecurity "penis_small">>
+							<</switch>>
+						<</if>>
+					<</if>>
+					<</addinlineevent>>
+						<</if>>
+				<</if>>
+			<<else>>
+				<<addinlineevent "" 1>>
+				<<if $player.gender_appearance is "m">>
+				<<if $penisuse is "cover">>
+					<<if $rng gte 67>>
+						"손 치워, 부푼 거기를 보고 싶다고."
+					<<elseif $rng gte 33>>
+						"아아, <<pshesPost "은">> 부끄러운가 봐."
+					<<else>>
+						"누가 <<pherPost "의">> 손 좀 치워 봐, <<pherPost "의">> 부푼 곳을 찍고 싶다고."
+					<</if>>
+				<<else>>
+					<<if !calculatePenisBulge()>>
+						<<if $rng gte 67>>
+							"부푼 곳이 어디 있는 거야, 제발 <<pshe_ ga>> 사실 여자애라고 하지는 말아줘."
+						<<elseif $rng gte 33>>
+							"네 자지가 너무 작아서 아랫도리를 부풀리지도 못하는 거야?"
+						<<else>>
+							"부풀어 있는 것을 기대했는데, 보이지가 않네."
+						<</if>>
+					<<elseif $rng gte 67>>
+						"<<pherPost "의">> 귀엽게 부푼 곳 사진으로 잘 찍었어."
+					<<elseif $rng gte 33>>
+						"부끄러워하지 마. 네 부푼 곳이 얼마나 아름다운지 모두가 알아야 해."
+					<<else>>
+						"부푼 거기가 찍히는 게 싫다면, 걸레처럼 굴지 마."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $vaginause is "cover">>
+					<<if $rng gte 67>>
+						"좋아, 네가 <<slut_ i>> 아닌 척 하라고."
+					<<elseif $rng gte 33>>
+						"아아, <<pshesPost "은">> 부끄러운가 봐."
+					<<else>>
+						"<<pher_ yi>> 손 아래의 젖은 자국은 뭐지?"
+					<</if>>
+				<<else>>
+					<<if $rng gte 67>>
+						"<<pher_ yi>> 아름다운 다리를 멋지게 찍었어."
+					<<elseif $rng gte 33>>
+						"그 옷을 찢어버려. <<pher_ yi>> 보지를 보고 싶다고."
+					<<else>>
+						"이 <<slut_ un>> <<pher_ yi>> 보지를 보여주는 것을 참지 못하고 있다고 확신해."
+					<</if>>
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<runeventpool>>
+	<<elseif $bodypic isnot 1>>
+		<<set $bodypic to 1>>
+		$audiencedesc <<putpost $audiencecamera "이">> <<ahis>> 카메라가 모든 장면을 한 번에 담을 수 있도록 뒤로 몸을 기울인다. 플래시가 터지고, <<ahe "은">> 사진을 찍었다.
+		<<cleareventpool>>
+		<<if $vaginastate isnot 0 and $vaginastate.endsWith("penetrated")>>
+			<<addinlineevent "" 3>>
+			<<personselect $vaginatarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"원한다면 얼굴을 가려도 좋지만, 네가 <<beasttypesPost>> 암캐라는 건 변하지 않아."
+					<<else>>
+						"<<beasttypesPost "이">> <<phimPost "을">> 절정까지 박아 댔고, 나에겐 그 증거가 있어."
+					<</if>>
+				<<elseif $leglocktarget isnot undefined>>
+					<<if $face is "covered">>
+						"네 암캐 얼굴을 가릴 수는 있겠지만, 네 암캐 다리는 거짓말을 못 하는 걸!"
+					<<elseif $speechcamerapose is 1>>
+						"바로 그거야, <<bred>> 동안 카메라를 향해 웃어봐!"
+					<<else>>
+						"착한 <<beasttype_ a>>, 이 암캐에게 <<pher_ yi>> 주제를 알려주렴. <<pShesPost>>도 네게 그렇게 해 달라고 하잖아."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"얼굴 그만 가리고 카메라를 향해 웃어봐."
+					<<elseif $speechcamerapose is 1>>
+						"바로 그거야, <<beasttype_ yi>> <<bitchPost>> 처럼 포즈를 취해 봐!"
+					<<else>>
+						"착한 <<beasttypePost "아">>, 이 암캐에게 자기 주제를 가르쳐 줘."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"원한다면 얼굴을 가려도 좋지만, 상황을 더 꼴리게 만들 뿐이야."
+					<<else>>
+						"<<phimPost "을">> 절정까지 박아 댔어. 계속해봐."
+					<</if>>
+				<<elseif $leglocktarget isnot undefined>>
+					<<if $face is "covered">>
+						"얼굴 좀 그만 가리고 있어. <<= $position is "doggy" ? "우리 모두 네가 이걸 좋아하는 걸 알아!" : "팔로도 <<personselect $vaginatarget>><<him_ ul>> 감싸라고!">>"
+					<<elseif $speechcamerapose is 1>>
+						"바로 그거야, 창녀처럼 <<= $position is "doggy" ? "<<personselect $vaginatarget>><<him_ ul>> 향해 몸을 뒤로 밀어대면서" : "다리로 감싸고서">> 카메라를 향해 웃어봐!"
+					<<else>>
+						"이 <<slut_ un>> 네가 싸는 걸 다 받아줄 거야."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"얼굴 그만 가리고 카메라를 향해 웃어봐."
+					<<elseif $speechcamerapose is 1>>
+						"바로 그거야, <<slutPost>> 처럼 포즈를 취해 봐!"
+					<<else>>
+						"이 걸레에게 <<pshesPost "이">> 뭘 잘하는지 보여줘."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $vaginastate isnot 0 and $vaginastate.endsWith("imminent")>>
+			<<addinlineevent "" 3>>
+			<<personselect $vaginatarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"벌써 간 거야? 아직 넣지도 않았는데."
+					<<else>>
+						"이제 네 아랫구멍은 <<beasttypePost "의">> 거야, 걸레야."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"얼굴 그만 가려, 삽입당할 때 네 표정을 담고 싶다고."
+					<<elseif $speechcamerapose is 1>>
+						"이 <<slut_ un>> 이제 <<beasttypePost>>에게 따먹힐 텐데, 아직 어떻게 하면 잘 찍힐지에 대해 고민하고 있네."
+					<<else>>
+						"이제 네 아랫구멍은 <<beasttypePost "의">> 거야."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<pherPost "의">> 보지에 넣지도 않았는데 벌써 가 버렸어."
+					<<else>>
+						"이제 못 빠져나간다, 이 걸레야."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"얼굴 그만 가려, 삽입당할 때 네 표정을 담고 싶다고."
+					<<elseif $speechcamerapose is 1>>
+						"자지가 삽입될 때 네가 그 포즈를 계속 하고 있을 지 보고 싶어."
+					<<else>>
+						"뭘 기다리는 거야? <<phimPost "을">> 따먹어."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $vaginastate isnot 0 and $vaginastate.endsWith("entrance")>>
+			<<addinlineevent "" 3>>
+			<<personselect $vaginatarget>>
+			<<if $enemytype is "beast">>
+				<<if $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2)>>
+					<<if !playerChastity("hidden","vagina")>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"벌써 간 거야? 아직 넣지도 않았는데."
+					<<else>>
+						"이제 네 아랫구멍은 <<beasttypePost "의">> 거야, 걸레야."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"얼굴 그만 가려, 삽입당할 때 네 표정을 담고 싶다고."
+					<<elseif $speechcamerapose is 1>>
+						"<<beasttypePost>>에게 삽입당하려고 하면서 의기양양해 한 누군가가 있다니."
+					<<else>>
+						"이제 네 아랫구멍은 <<beasttypePost "의">> 거야."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"Look better, or it will take advantage of your spasms to break your $worn.genitals.name."
+							<<else>>
+								"Is that <<beasttype>> trying to break <<pher>> $worn.genitals.name with its <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>>?"
+							<</if>>
+						<<else>>
+							<<if $face is "covered">>
+								"Cover your face as much as you want, your $worn.genitals.name won't save you from that <<beasttype>>."
+							<<elseif $speechcamerapose is 1>>
+								"Why are you teasing this poor <<beasttype>> with your $worn.genitals.name?"
+							<<else>>
+								"That <<beasttype>> clearly smelled something to fuck beneath this $worn.genitals.name."
+							<</if>>
+						<</if>>
+					<</if>>
+				<<else>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"Stop hiding your face. You're clothed, it's fine to show that you're cumming from a <<beasttype>> <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>>."
+						<<else>>
+							"A <<beasttype>> <<npcPenisSimple>> stroking your clothes is enough to make your cum?"
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"<<pShe>> can hide <<pher>> face, I'm more interested in seeing that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> fuck whatever <<pshe>> has under <<pher>> <<if _bottom.name_simple isnot undefined>>_bottom.name_simple<<else>>_bottom.name<</if>>."
+						<<elseif $speechcamerapose is 1>>
+							"Now, present whatever you have under <<if _bottom.plural>>these<<else>>this<</if>> <<if _bottom.name_simple isnot undefined>>_bottom.name_simple<<else>>_bottom.name<</if>>."
+						<<else>>
+							"I can't wait to see where the <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> stroking <<pher>> clothes is going."
+						<</if>>
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2)>>
+					<<if !playerChastity("hidden","vagina")>>
+						<<if $orgasmdown gte 1>>
+							<<if $face is "covered">>
+							"<<pherPost "의">> 보지에 넣지도 않았는데 벌써 가 버렸어."
+					<<else>>
+						"이제 못 빠져나간다, 이 걸레야."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"얼굴 그만 가려, 삽입당할 때 네 표정을 담고 싶다고."
+					<<elseif $speechcamerapose is 1>>
+						"그게 들어갈 때 <<pshe_ ga>> 저 포즈를 계속 취하고 있기를 바라."
+					<<else>>
+						"뭘 기다리는 거야? <<phimPost "을">> 따먹어."
+					<</if>>
+				<</if>>
+			<<else>>
+						<<if $orgasmdown gte 1>>
+							<<if $face is "covered">>
+								"I need to see <<pher>> face, <<pshe>> must be a famous whore to cum while wearing a $worn.genitals.name."
+							<<else>>
+								"<<pShe>> came from your <<npcPenisSimple>> rubbing <<pher>> $worn.genitals.name!"
+			<</if>>
+		<<else>>
+							<<if $face is "covered">>
+								"<<pShe>> isn't looking! Take advantage and get into this $worn.genitals.name."
+							<<elseif $speechcamerapose is 1>>
+								"Are you some kind of <<if $player.virginity.penile is true and $player.virginity.vaginal is true>>virgin<<else>>pure<</if>> harlot? Not for long, your $worn.genitals.name is ready to break."
+							<<else>>
+								"Is there something to fuck beneath this $worn.genitals.name? Only one way to know."
+							<</if>>
+						<</if>>
+					<</if>>
+				<<else>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"Are you too ashamed to look at the <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> that made you cum through your clothes?"
+						<<else>>
+							"This <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> must be magic, to make <<phim>> cum through <<pher>> clothes."
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"<<pShe>> can hide <<pher>> face, I'm more interested in seeing that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> fuck whatever <<pshe>> has under <<pher>> <<if _bottom.name_simple isnot undefined>>_bottom.name_simple<<else>>_bottom.name<</if>>."
+						<<elseif $speechcamerapose is 1>>
+							"Now, present whatever you have under <<if _bottom.plural>>these<<else>>this<</if>> <<if _bottom.name_simple isnot undefined>>_bottom.name_simple<<else>>_bottom.name<</if>>."
+						<<else>>
+							"I can't wait to see where the <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> stroking <<pher>> clothes is going."
+						<</if>>
+					<</if>>
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if $vaginastate is "doubleentrance" or $vaginastate is "doubleimminent">>
+			/* Neither dick in */
+			<<addinlineevent "" 3>>
+			<<if $vaginadoubletarget isnot undefined and $NPCList[$vaginatarget].penis isnot "vaginadouble" and $NPCList[$vaginadoubletarget].penis isnot "vaginadouble">>
+				<<if $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2)>>
+					<<if !playerChastity("hidden","vagina")>>
+					<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<pherPost "의">> 보지에 넣지도 않았는데 벌써 가 버렸어."
+					<<else>>
+						"이제 못 빠져나간다, 이 걸레야."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"얼굴 그만 가려, 두 자지가 들어갈 때의 네 표정을 담고 싶다고."
+					<<elseif $speechcamerapose is 1>>
+						"두 자지가 들어갈 때 <<phim_ i>> 저 포즈를 계속 취한 모습을 보고 싶어."
+					<<else>>
+						"뭘 기다리는 거야? <<phimPost "을">> 따먹어."
+					<</if>>
+						<</if>>
+					<<elseif $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"If you don't want to show what's under this $worn.genitals.name, at least let us see your orgasm face."
+						<<else>>
+							"Keep cumming, your spasms help to remove your $worn.genitals.name."
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"Poor thing, <<pshe>> can't bear the sight of two <<penises>> savagely destroying <<pher>> $worn.genitals.name."
+						<<elseif $speechcamerapose is 1>>
+							"Do you think you're smart? These two <<penises>> will make short work of your $worn.genitals.name."
+						<<else>>
+							"I can't wait to capture <<pher>> expression when <<pher>> $worn.genitals.name will finally break under these <<penises>>."
+						<</if>>
+					<</if>>
+				<<else>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"You may refuse to watch, but these <<penises>> are ready for you."
+						<<else>>
+							"Cumming just at the sight of two <<penises>> ready for you? No good, slut."
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"You're no fun, have a look at these two <<penises>> stroking your <<if _bottom.name_simple isnot undefined>>_bottom.name_simple<<else>>_bottom.name<</if>>."
+						<<elseif $speechcamerapose is 1>>
+							"I'm immortalising your willingness to welcome two <<penises>>."
+						<<else>>
+							"Do you see how eager these two <<penises>> are to meet what you have under <<if _bottom.plural>>these<<else>>this<</if>> <<if _bottom.name_simple isnot undefined>>_bottom.name_simple<<else>>_bottom.name<</if>>?"
+						<</if>>
+					<</if>>
+				<</if>>
+			/* One dick in, the other at entrance */
+			<<elseif $vaginadoubletarget isnot undefined and (($NPCList[$vaginatarget].penis is "vaginadouble" and $NPCList[$vaginadoubletarget].penis isnot "vaginadouble")
+				or ($NPCList[$vaginatarget].penis isnot "vaginadouble" and $NPCList[$vaginadoubletarget].penis is "vaginadouble"))>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<pHer_ yi>> 보지에 두 자지가 들어갈 거라는 생각만으로 가버리고 있어!"
+					<<else>>
+						"이제 자지 둘로 채워지게 될거아, <<slut_ a>>."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"얼굴 그만 가려, 두 자지가 들어갈 때의 네 표정을 담고 싶다고."
+					<<elseif $speechcamerapose is 1>>
+						"두 자지가 들어간다는 생각만으로 저 <<slut_ un>> <<pher_ yi>> 정신을 놓아 버린 것 같아."
+					<<else>>
+						"뭘 기다리고 있는 거야? 이제 <<phimPost>>에게 같이 찔러넣으라고."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "penetrated">>
+			<<addinlineevent "" 3>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"원한다면 얼굴을 가려도 좋지만, 상황을 더 꼴리게 만들 뿐이야."
+				<<else>>
+					"<<phimPost "을">> 절정까지 박아 댔어, 계속해봐."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"얼굴 그만 가리고 카메라를 향해 웃어봐."
+				<<elseif $speechcamerapose is 1>>
+					"바로 그거야, 보지가 너를 유린할 때 <<slutPost>>처럼 포즈를 취해 봐."
+				<<else>>
+					"이 육변기에게 <<pshesPost "이">> 뭘 잘하는지 가르쳐 줘."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "imminent">>
+			<<addinlineevent "" 3>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pherPost "의">> 자지가 들어가지도 않았는데, 벌써 가 버렸어."
+				<<else>>
+					"이제 못 빠져나간다, 이 걸레야."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"얼굴 그만 가려, 삽입당할 때 네 표정을 담고 싶다고."
+				<<elseif $speechcamerapose is 1>>
+					"<<pshe_ ga>> <<slutPost>>처럼 포즈를 취하고 있을 동안, 빨리 <<phim_ ul>> 범하라고."
+				<<else>>
+					"뭘 기다리는 거야? <<phimPost "을">> 따먹어."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "entrance">>
+			<<addinlineevent "" 3>>
+			<<personselect $penistarget>>
+			<<if $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2)>>
+				<<if (!playerChastity("hidden","penis") or playerHasStrapon())>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pherPost "의">> 자지가 들어가지도 않았는데, 벌써 가 버렸어."
+				<<elseif $speechcamerapose is 1>>
+				<<else>>
+					"이제 못 빠져나간다, 이 걸레야."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"얼굴 그만 가려, 삽입당할 때 네 표정을 담고 싶다고."
+				<<elseif $speechcamerapose is 1>>
+					"바로 그거야, 잘 따먹히도록 하라고."
+				<<else>>
+					"뭘 기다리는 거야? <<phimPost "을">> 따먹어."
+				<</if>>
+			<</if>>
+		<<else>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"Stop hiding your face, it only makes breaking your $worn.genitals.name easier."
+						<<else>>
+							"Will anyone believe you're pure after seeing pictures of you cumming while a ?vulva fucks your $worn.genitals.name?"
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"Why are you hiding? You can't bear the sight of your $worn.genitals.name getting broken?"
+						<<elseif $speechcamerapose is 1>>
+							"Such a naughty <<girl>>, teasing <<him>> with a $worn.genitals.name."
+						<<else>>
+							"I've seen it move! One inch away from revealing the treasures under this $worn.genitals.name."
+						<</if>>
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"I can understand that you're getting overwhelmed, but try not ruining my photos."
+					<<else>>
+						"Now that you came, <<girl>>, you can give it back to that ?vulva."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"You should give a better look at that ?vulva, since you will soon get acquainted."
+					<<elseif $speechcamerapose is 1>>
+						"Now I have all the evidence that <<pshe>> is ready and willing."
+					<<else>>
+						"Your ?vulva looks great, kissing that <<if _bottom.name_simple isnot undefined>>_bottom.name_simple<<else>>_bottom.name<</if>>."
+					<</if>>
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "otheranus">>
+			<<addinlineevent "" 3>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pshe_ ga>> 온 몸을 비틀어대는 것 좀 봐."
+				<<else>>
+					"<<phimPost "을">> 절정까지 박아 댔어, 계속해봐."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"<<pShe_ nun>> 정말 수줍어하고 귀여운 것 같아."
+				<<elseif $speechcamerapose is 1>>
+					"이 육변기는 <<pshe_ ga>> 무엇을 잘 하는지 알고 있는 것 같아."
+				<<else>>
+					"이 육변기에게 <<pshesPost "이">> 뭘 잘하는지 가르쳐 줘."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "otheranusimminent">>
+			<<addinlineevent "" 3>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pherPost "의">> 자지가 들어가지도 않았는데, 벌써 가 버렸어."
+				<<else>>
+					"이제 못 빠져나간다, 이 걸레야."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"얼굴 그만 가려, 삽입당할 때 네 표정을 담고 싶다고."
+				<<elseif $speechcamerapose is 1>>
+					"그게 들어갈 떄 <<pshe_ ga>> 저 포즈를 계속 취가고 있을 수 있는지 궁금하네."
+				<<else>>
+					"뭘 기다리는 거야? <<phimPost "을">> 따먹어."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "otheranusentrance">>
+			<<addinlineevent "" 3>>
+			<<personselect $penistarget>>
+			<<if $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2)>>
+				<<if (!playerChastity("hidden","penis") or playerHasStrapon())>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pherPost "의">> 자지가 들어가지도 않았는데, 벌써 가 버렸어."
+				<<else>>
+					"이제 못 빠져나간다, 이 걸레야."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"얼굴 그만 가려, 삽입당할 때 네 표정을 담고 싶다고."
+				<<elseif $speechcamerapose is 1>>
+					"저게 바로 열정적인 <<slut_ yi>> 모습이지, 내가 본 게 맞다면 말이지만."
+				<<else>>
+					"뭘 기다리는 거야? <<phimPost "을">> 따먹어."
+				<</if>>
+			<</if>>
+		<<else>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"You have every right to feel ashamed. You came in the most humiliating way possible despite being locked up."
+						<<else>>
+							"I can't believe <<pshe>> feels so good through <<pher>> $worn.genitals.name."
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"You don't want to be photographed? Maybe you're ashamed of your $worn.genitals.name?"
+						<<elseif $speechcamerapose is 1>>
+							"Just wait a moment, then you'll be free from this $worn.genitals.name and will play with that <<print either("ass", "ass", "butt")>>."
+						<<else>>
+							"Bouncing on <<pher>> $worn.genitals.name seems to feel good."
+						<</if>>
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<pHer>> embarrassment at cumming fully clothed only makes it better."
+					<<else>>
+						"Shake in rhythm with that <<print either("ass", "ass", "butt")>>!"
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"Can anyone hold <<pher>> face in clear view? I want a picture while <<pshe>> still has some clothes on."
+					<<elseif $speechcamerapose is 1>>
+						"<<pShe>> is clearly enjoying this dance."
+					<<else>>
+						"What are you waiting for? Remove <<pher>> <<if _bottom.name_simple isnot undefined>>_bottom.name_simple<<else>>_bottom.name<</if>>."
+					<</if>>
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if ["othervaginaentrance","othervaginaimminent","othervagina"].includes($vaginastate)>>
+			<<addinlineevent "" 2>>
+			<<personselect $vaginatarget>>
+			<<if $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2)>>
+				<<if !playerChastity("hidden","vagina")>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"It's useless to suppress your moans, your twitching ?vulva doesn't lie."
+						<<else>>
+							"<<pShes>> shaking in ecstasy, that ?vulva must feel really good."
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"Don't you like the feeling of your <<pussies>> joined together?"
+						<<elseif $speechcamerapose is 1>>
+							<<if ["kissentrance","kissimminent","kiss"].includes($mouthstate) and $moutharget is $vaginatarget>>
+								"How romantic, they are smooching while their <<pussies>> are also kissing."
+							<<else>>
+								"Your <<pussies>> are already kissing, you should give <<him>> a smooch."
+							<</if>>
+						<<else>>
+							"The way they are rubbing their <<pussies>> together looks so pleasurable."
+						<</if>>
+					<</if>>
+				<<else>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"Stop hiding your face, it only makes breaking your $worn.genitals.name easier."
+						<<else>>
+							"Will anyone believe you're pure after seeing pictures of you cumming while a ?vulva fucks your $worn.genitals.name?"
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"Why are you hiding? You can't bear the sight of your $worn.genitals.name getting broken?"
+						<<elseif $speechcamerapose is 1>>
+							"Such a naughty <<girl>>, teasing <<him>> with a $worn.genitals.name."
+						<<else>>
+							"I've seen it move! One inch away from revealing the treasures under this $worn.genitals.name."
+						<</if>>
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"I can understand that you're getting overwhelmed, but try not ruining my photos."
+					<<else>>
+						"Now that you came, <<girl>>, you can give it back to that ?vulva."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"You should give a better look at that ?vulva, since you will soon get acquainted."
+					<<elseif $speechcamerapose is 1>>
+						"Now I have all the evidence that <<pshe>> is ready and willing."
+					<<else>>
+						"Your ?vulva looks great, kissing that <<if _bottom.name_simple isnot undefined>>_bottom.name_simple<<else>>_bottom.name<</if>>."
+					<</if>>
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if ["otherpenisntrance","otherpenisimminent","otherpenis"].includes($penisstate)>>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2)>>
+				<<if playerHasStrapon()>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"You can try suppressing your moans, but the way you're shaking this <<if random(1, 4) is 1>><<penis>><<else>><<penisSimple>><</if>> betrays your orgasm."
+						<<else>>
+							"<<pShes>> revelling in ecstasy, how much can <<pshe>> feel through <<pher>> <<if random(1, 4) is 1>><<penis>><<else>><<penisSimple>><</if>>?"
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"Don't you like the feeling of your <<if npcHasStrapon($penistarget)>>strap-ons<<else>><<penises>><</if>> grinding together?"
+						<<elseif $speechcamerapose is 1>>
+							<<if ["kissentrance","kissimminent","kiss"].includes($mouthstate) and $moutharget is $vaginatarget>>
+								"How romantic, they are smooching while their <<if npcHasStrapon($penistarget)>>strap-ons<<else>><<penises>><</if>> are also kissing."
+							<<else>>
+								"Your <<if npcHasStrapon($penistarget)>>strap-ons<<else>><<penises>><</if>> are already kissing, you should give <<him>> a smooch."
+							<</if>>
+						<<else>>
+							"The way they are rubbing their <<if npcHasStrapon($penistarget)>>strap-ons<<else>><<penises>><</if>> together looks so pleasurable."
+						<</if>>
+					<</if>>
+				<<elseif !playerChastity("hidden","penis")>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"It's useless to suppress your moans, your twitching <<penisSimple>> doesn't lie."
+						<<else>>
+							"<<pShes>> shaking in ecstasy, that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> must feel really good."
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"Don't you like the feeling of your <<penises>> joined together?"
+						<<elseif $speechcamerapose is 1>>
+							<<if ["kissentrance","kissimminent","kiss"].includes($mouthstate) and $moutharget is $vaginatarget>>
+								"How romantic, they are smooching while their <<penises>> are also kissing."
+							<<else>>
+								"Your <<penises>> are already kissing, you should give <<him>> a smooch."
+							<</if>>
+						<<else>>
+							"The way they are rubbing their <<penises>> together looks so pleasurable."
+						<</if>>
+					<</if>>
+				<<else>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"I need to see <<pher>> face, <<pshe>> must be a famous whore to cum while wearing a $worn.genitals.name."
+						<<else>>
+							"<<pShe>> came from your <<npcPenisSimple>> rubbing <<pher>> $worn.genitals.name!"
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"<<pShe>> isn't looking! Take advantage and get into this $worn.genitals.name."
+						<<elseif $speechcamerapose is 1>>
+							"Are you some kind of <<if $player.virginity.penile is true and $player.virginity.vaginal is true>>virgin<<else>>pure<</if>> harlot? Not for long, your $worn.genitals.name is ready to break."
+						<<else>>
+							"Is there something to fuck beneath this $worn.genitals.name? Only one way to know."
+						<</if>>
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"Are you too ashamed to look at the <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> that made you cum through your clothes?"
+					<<else>>
+						"This <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> must be magic, to make <<phim>> cum through <<pher>> clothes."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"<<pShe>> can hide <<pher>> face, I'm more interested in seeing that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> fuck whatever <<pshe>> has under <<pher>> <<if _bottom.name_simple isnot undefined>>_bottom.name_simple<<else>>_bottom.name<</if>>."
+					<<elseif $speechcamerapose is 1>>
+						"Now, present whatever you have under <<if _bottom.plural>>these<<else>>this<</if>> <<if _bottom.name_simple isnot undefined>>_bottom.name_simple<<else>>_bottom.name<</if>>."
+					<<else>>
+						"I can't wait to see where the <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> stroking <<pher>> clothes is going."
+					<</if>>
+				<</if>>
+			<</if>>
+			<</addinlineevent>>
+		<</if>>
+		<<if $anusstate isnot 0 and $anusstate.endsWith("penetrated") and $anusstate isnot "othermouthpenetrated">>
+			<<addinlineevent "" 3>>
+			<<personselect $anustarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"항문에 <<beasttypesPost>>의 자지를 넣고 가버리고 있으면서, 네가 지킬 만한 존엄성이 얼마나 남아 있다고 생각하는 거야?"
+					<<else>>
+						"그래, 그 짐승 자지에 박혀서 가 버려. 네가 어떤 <<bitchPost>>인지 보여줘."
+					<</if>>
+				<<elseif $leglocktarget isnot undefined>>
+					<<if $face is "covered">>
+						"착한 <<beasttype_ a>>. <<pshe_ ga>> 일어날 힘도 없을 때 까지 멈추지 마."
+					<<elseif $speechcamerapose is 1>>
+						"이 암캐는 자기 주제를 알고 있어: <<pher_ yi>> 항문에 <<beasttype_ yi>> 자지를 박히면서 말야."
+					<<else>>
+						"착한 <<beasttype_ a>>, 이 암캐에게 <<pher_ yi>> 주제를 알려주렴. <<pShesPost>>도 네게 그렇게 해 달라고 하잖아."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"착한 <<beasttypePost "아">>, 이 <<bitchPost "을">> 엉망으로 따먹어 줘."
+					<<elseif $speechcamerapose is 1>>
+						"저게 바로 열정적인 <<bitch_ yi>> 모습이지, 내가 본 게 맞다면 말이지만."
+					<<else>>
+						"착한 <<beasttypePost "아">>, 이 <<girlPost>>에게 <<pherPost "의">> 주제를 가르쳐 줘."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"항문에 자지를 넣고 가버리고 있으면서, 네가 지킬 만한 존엄성이 얼마나 남아 있다고 생각하는 거야?"
+					<<else>>
+						"그래, 그 자지에 박혀서 가 버려. 네가 어떤 씹걸레인지 보여줘."
+					<</if>>
+				<<elseif $leglocktarget isnot undefined>>
+					<<if $face is "covered">>
+						"<<pshe_ ga>> 축 늘어질 때 까지 <<pher_ yi>> 엉덩이를 따먹어!"
+					<<elseif $speechcamerapose is 1>>
+						"바로 그거야, <<= $position is "doggy" ? "<<personselect $vaginatarget>><<him_ ul>> 향해 몸을 뒤로 밀어대면서" : "다리로 감싸고서">> 카메라를 향해 웃어봐!"
+					<<else>>
+						"<<phim_ ul>> 더 세게 유린하라고. <<pshe_ ga>> 그것에 대해 불평하지는 않을 거라 생각해."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"<<phimPost "을">> 더 세게 따먹어!"
+					<<elseif $speechcamerapose is 1>>
+						"저게 바로 열정적인 <<slut_ yi>> 모습이지, 내가 본 게 맞다면 말이지만."
+					<<else>>
+						"이 <<girlsPost>>의 엉덩이를 더 유린해, 난 더 많은 사진을 원한다고."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $anusstate isnot 0 and $anusstate.endsWith("imminent")>>
+			<<addinlineevent "" 3>>
+			<<personselect $anustarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"싫은 좋으면서, 아닌 척하지 마."
+					<<else>>
+						"어쩔 수 없는 <<bitchPost>>구만."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"손을 움직여, 네 엉덩이를 범할 때의 표정을 보고 싶어."
+					<<elseif $speechcamerapose is 1>>
+						"이 <<bitch_ ga>> 얼마나 열정적인지 봐."
+					<<else>>
+						"착한 <<beasttypePost "아">>, <<phimPost "을">> 네 암캐로 만들어."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"우리에겐 오르가즘을 숨길 수 없다고."
+					<<else>>
+						"어쩔 수 없는 <<bitchPost>>구만."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"손을 움직여, 네 엉덩이를 범할 때의 표정을 보고 싶어."
+					<<elseif $speechcamerapose is 1>>
+						"저게 네 안에 들어가도 네가 계속 그렇게 자신감 있어 보일까, 궁금하네?"
+					<<else>>
+						"<<phimPost "을">> 따먹어서 싸게 만들어."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $anusstate isnot 0 and $anusstate.endsWith("entrance")>>
+			<<addinlineevent "" 3>>
+			<<personselect $anustarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"우리에겐 오르가즘을 숨길 수 없다고."
+					<<else>>
+						"어쩔 수 없는 <<bitchPost>>구만."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"좋은 섹스가 이 <<bitchPost>>에게 자기 주제를 가르쳐 줄 거야."
+					<<elseif $speechcamerapose is 1>>
+						"이 <<bitch_ ga>> 자신감이 넘치는 게 좋아."
+					<<else>>
+						"그게 <<phimPost "을">> 따먹으려는 거 같은데, 사진 찍을 게 기대돼."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"우리에겐 오르가즘을 숨길 수 없다고."
+					<<else>>
+						"어쩔 수 없는 <<bitchPost>>구만."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"이 <<girlPost "은">> 자기 주제를 배울 필요가 있겠어."
+					<<elseif $speechcamerapose is 1>>
+						"이 <<slut_ i>> 자신감이 넘치는 게 좋아."
+					<<else>>
+						"<<phimPost "을">> 따먹어서 싸게 만들어."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $anusstate is "doublepenetrated">>
+			<<addinlineevent "" 3>>
+			<<personselect $anustarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"자지 두 개를 항문에 넣고 가버리고 있으면서, 네가 지킬 만한 존엄성이 얼마나 남아 있다고 생각하는 거야?"
+				<<else>>
+					"바로 그거야, 그 자지들로 가버리라고. 온 세상에 네가 얼마나 대단한 <<slutPost>> 인지 보여주라고."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"<<phimPost>>에게 더 세게 박아버려! 이 <<bitch_ nun>> 너희 둘 다 받아들일 수 있으니까!"
+				<<elseif $speechcamerapose is 1>>
+					"잘도 하네."
+				<<else>>
+					"이 <<girl_ yi>> 항문을 계속 유린해, 나는 더 많은 사진을 찍고 싶다고."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthstate is "penetrated">>
+			<<addinlineevent "" 2>>
+			<<personselect $mouthtarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<pshePost "이">> 입에 저렇게 넣을 수 있다는 게 놀라운데."
+					<<else>>
+						"<<pshePost "이">> 가 버릴 때 저게 <<pherPost "의">> 목 안으로 싸면 좋겠어."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"<<beasttypePost "은">> 어느 구멍에 박든 개의치 않는 것 같아."
+					<<elseif $speechcamerapose is 1>>
+						"이 <<bitch_ nun>> <<beasttype_ yi>> 정액에 중독되어 있어, <<phim_ ul>> 좀 봐."
+					<<else>>
+						"사실 <<beasttypePost>> 자지의 맛을 좋아하지?"
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<pshePost "이">> 입에 저렇게 넣을 수 있다는 게 놀라운데."
+					<<else>>
+						"<<pshePost "이">> 가 버릴 때 <<pherPost "의">> 목 안으로 싸 줘."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"어떤 구멍도 쓸 수 있는 모양이야."
+					<<elseif $speechcamerapose is 1>>
+						"네가 저 맛있는 정액을 참지 못한다고 확신해."
+					<<else>>
+						"자지는 맛있어? 입에 가득 찬 상태에선 대답하지 마."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthstate is "imminent">>
+			<<addinlineevent "" 2>>
+			<<personselect $mouthtarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<pherPost "의">> 손 좀 치워. 이 <<bitchPost "이">> 누구인지 찍고 싶다고."
+					<<else>>
+						"입에 <<beasttypePost "의">> 자지를 문 채로 가 버리는 모습은 아주 훌륭할 거야."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"멈추지 마, 이 <<bitchPost>>에게 자기 가치가 어느 정도인지 보여줘."
+					<<elseif $speechcamerapose is 1>>
+						"해 봐, 그걸 빨아!"
+					<<else>>
+						"이 <<bitchPost>>의 입에 가득 찬 걸 보고 싶어."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<pherPost "의">> 손 좀 치워. 이 걸레가 누구인지 찍고 싶다고."
+					<<else>>
+						"자지를 물고 가 버리는 모습은 아주 훌륭할 거야."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"멈추지 마, 이 <<bitchPost>>에게 자기 가치가 어느 정도인지 보여줘."
+					<<elseif $speechcamerapose is 1>>
+						"집어넣기 전에 네 정액을 날려 버리지 마, 이 <<bitch_ nun>> 목이 마르다고."
+					<<else>>
+						"이 <<bitchPost>>의 입에 가득 찬 걸 보고 싶어."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthstate is "entrance">>
+			<<addinlineevent "" 2>>
+			<<personselect $mouthtarget>>
+			<<if $enemytype is "beast">>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<pherPost "의">> 손 좀 치워. 이 <<bitchPost "이">> 누구인지 찍고 싶다고."
+					<<else>>
+						"입에 <<beasttypePost "의">> 자지를 문 채로 가 버리는 모습은 아주 훌륭할 거야."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"멈추지 마, 이 <<bitchPost>>에게 자기 가치가 어느 정도인지 보여줘."
+					<<elseif $speechcamerapose is 1>>
+						"완전한 고깃구멍 같으니."
+					<<else>>
+						"이 <<bitchPost>>의 입에 가득 찬 걸 보고 싶어."
+					<</if>>
+				<</if>>
+			<<else>>
+				<<if $orgasmdown gte 1>>
+					<<if $face is "covered">>
+						"<<pherPost "의">> 손 좀 치워. 이 걸레가 누구인지 찍고 싶다고."
+					<<else>>
+						"자지를 물고 가 버리는 모습은 아주 훌륭할 거야."
+					<</if>>
+				<<else>>
+					<<if $face is "covered">>
+						"멈추지 마, 이 <<bitchPost>>에게 자기 가치가 어느 정도인지 보여줘."
+					<<elseif $speechcamerapose is 1>>
+						"저 맛있어 보이는 자지를 참을 수 없구나, 그렇지?"
+					<<else>>
+						"이 <<bitchPost>>의 입에 가득 찬 걸 보고 싶어."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthuse is "facesit">>
+			<<addinlineevent "" 2>>
+			<<personselect $mouthtarget>>
+			<<if $orgasmdown gte 1>>
+				<<switch random(2)>>
+					<<case 0>>
+						"이 <<slut_ un>> 정말 <<pher_ yi>> 얼굴에 누군가 앉히는 것을 좋아하나본데. <<pShe_ ga>> 가버리고 있어."
+					<<case 1>>
+						"정말 순종적인 조그마한 <<bitch_ iya>>, <<pher_ yi>> 얼굴을 이렇게 학대당하면서도 흥분하는 것을 보면 말이지."
+					<<case 2>>
+						"<<pShe_ nun>> 얼굴에 누군가 앉히고 흥분하고 있어. <<phim_ ul>> 더 세게 앉히라고!"
+				<</switch>>
+			<<elseif $enemyanger gte 30>>
+				<<switch random(4)>>
+					<<case 0>>
+						"네 밑에 있는 그 패배자의 얼굴을 눌러 질식시켜 버리라고."
+					<<case 1>>
+						"<<phim_ ul>> <<pher_ yi>> 자리로 보내라고, 네 아래 말이야."
+					<<case 2>>
+						"시작하라고, <<pher_ yi>> 얼굴에 박아버려."
+					<<case 3>>
+						"보지와 항문으로 그 <<slut_ ul>> 질식시켜 버려."
+					<<case 4>>
+						"그 육변기에게 <<pher_ yi>> 주제를 알게 해 줘."
+				<</switch>>
+			<<else>>
+				<<switch random(2)>>
+					<<case 0>>
+						"최소한 이 <<slut_ un>> <<pher_ yi>> 주제를 알고 있군."
+					<<case 1>>
+						"<<pher_ yi>> 얼굴에 그 엉덩이를 대고 앉으라고."
+					<<case 2>>
+						"<<girl_ i>> <<pher_ yi>> 얼굴에 누군가 앉히는 것을 보는 게 좋다니까."
+				<</switch>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $vaginastate is "othermouth">>
+			<<addinlineevent "" 2>>
+			<<personselect $mouthtarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<phimPost "을">> 질식시키지 않도록 조심해, 먼저 사진을 더 찍고 싶다고."
+				<<else>>
+					"<<pShesPost "이">> 싸고 있어, 어쩔 수 없는 육변기인가봐."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"됐어, <<pherPost "의">> 입에 가져다 대."
+				<<elseif $speechcamerapose is 1>>
+					"<<phim_ i>> 태연한 척 하는 것 좀 봐."
+				<<else>>
+					"보지는 맛있어? 입에 가득 찬 상태에선 대답하지 마."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $vaginastate is "othermouthimminent">>
+			<<addinlineevent "" 2>>
+			<<personselect $vaginatarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pherPost "의">> 손 좀 치워. 이 걸레가 누구인지 찍고 싶다고."
+				<<else>>
+					"보지에 입이 묻힌 상태에서 가 버리는 모습은 아주 훌륭할 거야."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"멈추지 마, 이 <<bitchPost>>에게 자기 가치가 어느 정도인지 보여줘."
+				<<elseif $speechcamerapose is 1>>
+					"이 <<bitch_ nun>> 진짜 창부처럼 보여."
+				<<else>>
+					"<<pherPost "의">> <<bitchPost>> 입에 가져다 대."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $vaginastate is "othermouthentrance">>
+			<<addinlineevent "" 2>>
+			<<personselect $vaginatarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pherPost "의">> 손 좀 치워. 이 걸레가 누구인지 찍고 싶다고."
+				<<else>>
+					"보지에 입이 묻힌 상태에서 가 버리는 모습은 아주 훌륭할 거야."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"멈추지 마, 이 <<bitchPost>>에게 자기 가치가 어느 정도인지 보여줘."
+				<<elseif $speechcamerapose is 1>>
+					"네가 그 맛을 좋아한다고 확신해."
+				<<else>>
+					"<<pherPost "의">> <<bitchPost>> 입에 가져다 대."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "othermouth">>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pShesPost "은">> 네 입안에 싸는 게 부끄러운가 봐, 귀엽기도 하지."
+				<<else>>
+					"이 <<girlPost "은">> 분명히 즐기고 있어, 멈추지 마."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"<<pShesPost "은 ">> <<pherPost "의">> 자지가 빨리는 게 부끄러운가 봐, 귀엽기도 하지."
+				<<elseif $speechcamerapose is 1>>
+					"<<phim_ i>> 저걸 좋아하는 것 좀 봐."
+				<<else>>
+					"카메라를 향해 웃어봐 <<girlPost "아">>, 자지를 빨려서 기쁘지 않니?"
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "othermouthimminent">>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"마를 때까지 <<phimPost "을">> 짜 내."
+				<<else>>
+					"얼굴에 정액이 묻을까 봐 걱정되지 않니?"
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"<<phimPost "을">> 잘 핥아줘."
+				<<elseif $speechcamerapose is 1>>
+					"가버릴 때 <<pshe_ ga>> 훨씬 더 귀여울 거라고 확신해."
+				<<else>>
+					"<<phimPost "이">> 네 얼굴에 싸는 사진을 찍고 싶어."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "othermouthentrance">>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"마를 때까지 <<phimPost "을">> 짜 내."
+				<<else>>
+					"얼굴에 정액이 묻을까 봐 걱정되지 않니?"
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"<<phimPost "을">> 잘 핥아줘."
+				<<elseif $speechcamerapose is 1>>
+					"<<phim_ ul>> 말라버릴 때까지 핥아줘."
+				<<else>>
+					"<<phimPost "이">> 네 얼굴에 싸는 사진을 찍고 싶어."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $penisstate is "otherpenis" and $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2) and !playerHasStrapon()>>
+			<<addinlineevent "" 2>>
+			<<personselect $penistarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"그 자지로 가버리면서 계속 <<pher_ yi>> 얼굴을 가리고 있네. 귀여워라!"
+				<<else>>
+					"<<pher_ yi>> 정액이 뿌려지는 것 좀 봐, 그게 저 자지를 뒤덮고 있어!"
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"그래, 그 <<penises>> 서로 힘껏 치라고!"
+				<<elseif $speechcamerapose is 1>>
+					"네가 포즈를 취하고 있는 것을 봐서 좋은데."
+				<<else>>
+					"<<phim_ i>> 저 자지 위로 사정하는 멋진 사진을 찍었으면 좋겠어!"
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $anusstate is "othermouthpenetrated">>
+			<<addinlineevent "" 2>>
+			<<personselect $anustarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pShesPost "이">> 부끄러운가 봐! 정말 사랑스러워."
+				<<else>>
+					"엉덩이에 누군가의 혀가 삽입된 채로 가 버리다니, 넌 정말 야한 <<girlPost "이야">>."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"<<pherPost "의">> 손 때문에 <<pherPost "의">> 깔끔한 얼굴 사진을 찍을 수가 없어."
+				<<elseif $speechcamerapose is 1>>
+					"부끄러워 하지도 않아!"
+				<<else>>
+					"이 걸레의 또 다른 좋은 사진이야."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $anusstate is "othermouthimminent">>
+			<<addinlineevent "" 2>>
+			<<personselect $anustarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pShesPost "이">> 부끄러운가 봐! 정말 사랑스러워."
+				<<else>>
+					"<<pShesPost "은">> 벌써 가고 있어, <<phimPost "이">> 기절하지 않게 조심해."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"얼굴을 가려서 뭐가 좋은지 모르겠는데."
+				<<elseif $speechcamerapose is 1>>
+					"멋진 포즈야."
+				<<else>>
+					"<<phimPost "을">> 핥아 줄 거야? 사진이 필요할 거 같은데."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $anusstate is "othermouthentrance">>
+			<<addinlineevent "" 2>>
+			<<personselect $anustarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pShesPost "이">> 부끄러운가 봐! 정말 사랑스러워."
+				<<else>>
+					"<<pShesPost "은">> 벌써 가고 있어, <<phimPost "이">> 기절하지 않게 조심해."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"얼굴을 가려서 뭐가 좋은지 모르겠는데."
+				<<elseif $speechcamerapose is 1>>
+					"핥아지고 있는 동안 그 포즈를 계속 취하라고."
+				<<else>>
+					"<<phimPost "을">> 핥아 줄 거야? 사진이 필요할 거 같은데."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthstate is "kiss">>
+			<<addinlineevent "" 1>>
+			<<personselect $mouthtarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"네 예쁜 얼굴을 가리지 마."
+				<<else>>
+					"그 키스가 정말 만족스러웠던 거야, 아니면 <<pshePost "이">> 가고 있는 거야?"
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"귀엽고 로맨틱해."
+				<<elseif $speechcamerapose is 1>>
+					"이 <<girl_ un>> 저걸 좋아하는군."
+				<<else>>
+					"정말 로맨틱해."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthstate is "kissimminent">>
+			<<addinlineevent "" 1>>
+			<<personselect $mouthtarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"네 예쁜 얼굴을 가리지 마."
+				<<else>>
+					"그 키스가 정말 만족스러웠던 거야, 아니면 <<pshePost "이">> 가고 있는 거야?"
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"귀엽고 로맨틱해."
+				<<elseif $speechcamerapose is 1>>
+					"이건 너무 귀여워 보여."
+				<<else>>
+					"정말 로맨틱해."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $mouthstate is "kissentrance">>
+			<<addinlineevent "" 1>>
+			<<personselect $mouthtarget>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"<<pshesPost "은">> 부끄러워서 움찔거리고 있는 거야?"
+				<<else>>
+					"<<pShesPost "은">> 기대감에 떨고 있어."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"귀엽고 로맨틱해."
+				<<elseif $speechcamerapose is 1>>
+					"프로인데."
+				<<else>>
+					"정말 로맨틱해."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if playerBellyVisible() and $settings.pregnancySpeechEnabled>>
+			<<addinlineevent "" 1>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"네가 누군지 누가 알아챌까 봐 두렵니, 임신한 <<bitch_ ya>>?"
+				<<else>>
+					"이 <<bitch_ ga>> 임신한 것도 무리가 아니지, <<pher_ ga>> 가버리는 것 좀 봐!"
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					"이 임신한 <<slut_ i>> 부끄러워 하네!"
+				<<elseif $speechcamerapose is 1>>
+					"<<pher_ yi>> 아기 아빠에게 미안해지네."
+				<<else>>
+					"저 임신한 배의 멋진 사진을 찍었어."
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<</if>>
+		<<if $enemytype isnot "beast">>
+			<<if $christmas is 1>>
+				<<if $orgasmdown gte 1>>
+					<<addinlineevent "" 1>>
+					"How lucky: Christmas comes once a year, and I got the photo."
+					<</addinlineevent>>
+				<</if>>
+				<<if $mouthstate is "kissentrance" and $player.virginity.kiss is true>>
+					<<addinlineevent "" 12>>
+					<<if $speechcamerapose is 1>>
+						"How kind, gifting your first kiss for Christmas."
+					<<else>>
+						"Under the mistletoe? No excuses, give <<him>> your first kiss."
+					<</if>>
+					<</addinlineevent>>
+				<</if>>
+				<<if ["kiss","kissimminent"].includes($mouthstate)>>
+					<<addinlineevent "" 3>>
+					<<if $speechcamerapose is 1>>
+						"Hold still! A kiss under the mistletoe deserves a photo."
+					<<else>>
+						"Whether you want it or not, this kiss is <<his>> Christmas gift."
+					<</if>>
+					<</addinlineevent>>
+				<</if>>
+				<<if ($vaginastate isnot 0 and $vaginastate.endsWith("penetrated")) or ($anusstate isnot 0 and $anusstate.endsWith("penetrated") and $anusstate isnot "othermouthpenetrated")>>
+				/* To work even with double penetration */
+					<<addinlineevent "" 1>>
+					"So thoughtful of you, getting stuffed for Christmas."
+					<</addinlineevent>>
+				<</if>>
+				<<if $penisstate is "penetrated" or $penisstate is "otheranus">>
+					<<addinlineevent "" 1>>
+					"So thoughtful of you, doing the stuffing for Christmas."
+					<</addinlineevent>>
+				<</if>>
+				<<if $vaginastate is "doublepenetrated" or $anusstate is "doublepenetrated" or ($vaginastate is "penetrated" and $anusstate is "penetrated")>>
+					<<addinlineevent "" 1>>
+					"Double penetration? Santa will have plenty of space to go down that chimney."
+					<</addinlineevent>>
+				<</if>>
+				<<if $leglocktarget isnot undefined>>
+					<<addinlineevent "" 2>>
+					<<personselect $leglocktarget>>
+					"Look at <<pher>> <<= $position is "doggy" ? "butt pushing" : "legs pulling">> desperately, <<pshe>> seems so eager to get <<pher>> Christmas present."
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+			<<if $valentines is 1>>
+				<<if $mouthstate is "kissentrance">>
+					<<addinlineevent "" 6>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"You're cumming before the kiss? No wonder you can't face your valentine."
+						<<else>>
+							"Just thinking about a Valentine's smooch makes <<phim>> cum."
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"Too ashamed to look at your own valentine."
+						<<elseif $speechcamerapose is 1>>
+							"Hold still. A kiss with your soon-to-be valentine deserves a photo."
+						<<else>>
+							"You should smile, for the camera and for your valentine."
+						<</if>>
+					<</if>>
+					<</addinlineevent>>
+				<</if>>
+				<<if $mouthstate is "kissentrance" and $player.virginity.kiss is true>>
+					<<addinlineevent "" 12>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"Stop hiding, that's how you ruin your very first Valentine's kiss."
+						<<else>>
+							"So, this is Valentine's? I can't wait to watch your very first kiss while you're helpless."
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"You waited for Valentine's for your first kiss, and still can't face it?"
+						<<elseif $speechcamerapose is 1>>
+							"Hold that pose, I'm taking a photo of your first Valentine's kiss."
+						<<else>>
+							"Your first Valentine's kiss makes for a good spectacle."
+						<</if>>
+					<</if>>
+					<</addinlineevent>>
+				<</if>>
+				<<if ["kiss","kissimminent"].includes($mouthstate)>>
+					<<addinlineevent "" 3>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"Is <<pshe>> cumming? Valentine's really does make kisses feel stronger."
+						<<else>>
+							"How delightfully shameful. Cumming because of a Valentine's kiss."
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"At least pretend you like your valentine."
+						<<elseif $speechcamerapose is 1>>
+							"What a <<slut>>, <<pshes>> proudly showing off <<pher>> Valentine's kiss."
+						<<else>>
+							"How romantic, a Valentine's kiss!"
+						<</if>>
+					<</if>>
+					<</addinlineevent>>
+				<</if>>
+				<<if ["entrance","imminent"].includes($mouthstate)>>
+					<<addinlineevent "" 3>>
+					<<personselect $mouthtarget>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"How cute, <<pshes>> trying to hide <<pshe>> had an orgasm from kissing <<pher>> valentine's <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>>."
+						<<else>>
+							"The idea of giving a Valentine's kiss to <<if random(1, 10) is 1>>a <<npcPenis>><<else>>that <<npcPenisSimple>><</if>> was enough to break <<pher>> mind."
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"Shy about your future Valentine? Why, look at that handsome <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>>."
+						<<elseif $speechcamerapose is 1>>
+							"Pose nicely before sucking on that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>>: that's as romantic as Valentine's will get for you."
+						<<else>>
+							"Kissing <<if random(1, 10) is 1>>a <<npcPenis>><<else>>that <<npcPenisSimple>><</if>> for Valentine's is so humiliating, this is gold."
+						<</if>>
+					<</if>>
+					<</addinlineevent>>
+				<</if>>
+				<<if ["entrance","imminent"].includes($mouthstate) and $player.virginity.oral is true and $player.virginity.kiss is true>>
+					<<addinlineevent "" 12>>
+					<<personselect $mouthtarget>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"Too shy for a photo of your first kiss with your valentine's <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>>?"
+						<<else>>
+							"Be ready, any first kiss on Valentine's Day is a memory for life. Yours will be to <<his>> <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>>."
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"Your first Valentine's kiss is to <<if random(1, 10) is 1>>a <<npcPenis>><<else>>that <<npcPenisSimple>><</if>>, and you can't even face the camera. I wonder why."
+						<<elseif $speechcamerapose is 1>>
+							"<<pShes>> trying so hard to look worthy of <<pher>> first kiss on valentine's, even if it's with <<if random(1, 10) is 1>>a <<npcPenis>><<else>>that <<npcPenisSimple>><</if>>."
+						<<else>>
+							"A first Valentine's kiss to remember, unfortunately it will be with <<if random(1, 10) is 1>>a <<npcPenis>><<else>>that <<npcPenisSimple>><</if>>."
+						<</if>>
+					<</if>>
+					<</addinlineevent>>
+				<</if>>
+				<<if $mouthstate is "penetrated">>
+					<<addinlineevent "" 2>>
+					<<personselect $mouthtarget>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">>
+							"Hiding your face won't hide the orgasmic spasms your valentine's <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> gave you."
+						<<else>>
+							"Is sucking that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> for Valentine's so overwhelming?"
+						<</if>>
+					<<else>>
+						<<if $face is "covered">>
+							"We deserve to see your face during such an original Valentine's kiss."
+						<<elseif $speechcamerapose is 1>>
+							"Believing <<pshes>> kissing <<pher>> valentine is the last thing keeping <<pher>> sanity."
+						<<else>>
+							"Getting face fucked for Valentine's is romantic, in the most humiliating way."
+						<</if>>
+					<</if>>
+					<</addinlineevent>>
+				<</if>>
+				<<if $mouthstate is "othervagina">>
+					<<addinlineevent "" 4>>
+					<<personselect $mouthtarget>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">><<print either(
+							"\"How cute, <<pshes>> trying to hide <<pshe>> had an orgasm from kissing <<pher>> valentine's <<npcVagina>>.\"",
+							"\"Hiding your face won't hide the orgasmic spasms your valentine's <<npcVagina>> gave you.\""
+						)>>
+						<<else>><<print either(
+							"\"The idea of giving a Valentine's kiss to a <<npcVagina>> was enough to break <<pher>> mind.\"",
+							"\"Is licking a <<npcVagina>> for Valentine's so overwhelming?\""
+						)>>
+						<</if>>
+					<<else>>
+						<<if $face is "covered">><<print either(
+							"\"Shy about your future valentine? Why, look at that beautiful <<npcVagina>>.\"",
+							"\"We deserve to see your face during such an original Valentine's kiss.\""
+						)>>
+						<<elseif $speechcamerapose is 1>><<print either(
+							"\"Pose nicely before licking that <<npcVagina>>: that's as romantic as Valentine's will get for you.\"",
+							"\"Believing <<pshes>> kissing <<pher>> valentine is the last thing keeping <<pher>> sanity intact.\""
+						)>>
+						<<else>><<print either(
+							"\"Kissing a <<npcVagina>> for Valentine's is so humiliating, this is gold.\"",
+							"\"Getting a faceful of <<npcVagina>> for Valentine's is romantic, in the most humiliating way.\""
+						)>>
+						<</if>>
+					<</if>>
+					<</addinlineevent>>
+				<</if>>
+				<<if $mouthstate is "otheranus">>
+					<<addinlineevent "" 4>>
+					<<personselect $mouthtarget>>
+					<<if $orgasmdown gte 1>>
+						<<if $face is "covered">><<print either(
+							"\"How cute, <<pshes>> trying to hide <<pshe>> had an orgasm from kissing <<pher>> valentine's <<npcAnus>>.\"",
+							"\"Hiding your face won't hide the orgasmic spasms your valentine's <<npcAnus>> gave you.\""
+						)>>
+						<<else>><<print either(
+							"\"The idea of giving a Valentine's kiss to an <<npcAnus>> was enough to break <<pher>> mind.\"",
+							"\"Is licking an <<npcAnus>> for Valentine's so overwhelming?\""
+						)>>
+						<</if>>
+					<<else>>
+						<<if $face is "covered">><<print either(
+							"\"Shy about your future valentine? Why, look at that beautiful <<npcAnus>>.\"",
+							"\"We deserve to see your face during such an original Valentine's kiss.\""
+						)>>
+						<<elseif $speechcamerapose is 1>><<print either(
+							"\"Pose nicely before licking that <<npcAnus>>: that's as romantic as Valentine's will get for you.\"",
+							"\"Believing <<pshes>> kissing <<pher>> valentine is the last thing keeping <<pher>> sanity intact.\""
+						)>>
+						<<else>><<print either(
+							"\"Kissing an <<npcAnus>> for Valentine's is so humiliating, this is gold.\"",
+							"\"Getting a faceful of <<npcAnus>> for Valentine's is romantic, in the most humiliating way.\""
+						)>>
+						<</if>>
+					<</if>>
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+		<</if>>
+		<<set _tf to checkTFparts()>>
+		<<if $enemytype isnot "beast">>
+			<<if $angel gte 6 and (_tf.angelHalo or _tf.angelWings)>>
+				<<if $player.bodyliquid["anus"].semen + $player.bodyliquid["anus"].goo gte 1>>
+					<<addinlineevent "" 0.5>>
+					"I've got a picture of <<if $player.bodyliquid["anus"].semen>>cum<<else>>fluids<</if>> drooling out of <<pher>> <<print either("ass", "ass", "butt")>>, is that how <<pshe>> keeps <<pher>> purity?"
+					<</addinlineevent>>
+				<</if>>
+				<<if $orgasmdown is 1>>
+					<<addinlineevent "" 1>>
+					"A saintly beacon of purity, lost to Heaven in one orgasmic wave."
+					<</addinlineevent>>
+					<<if $player.condom and !playerHasStrapon() and !$femaleclimax>>
+						<<addinlineevent "" 1>>
+						"Once this condom is fully filled with your <<semen>>, you should wear it as a holy relic."
+						<</addinlineevent>>
+					<</if>>
+				<</if>>
+				<<if playerChastity()>>
+					<<addinlineevent "" 0.5>>
+					"That $worn.genitals.name under <<pher>> angel costume... Is this a challenge?"
+					<</addinlineevent>>
+				<</if>>
+				<<if ($vaginastate isnot 0 and $vaginastate.endsWith("imminent")) or ($penisstate is "imminent" and !playerHasStrapon())>>
+					<<addinlineevent "" 2>>
+					"I'm goin to capture the exact second this angel falls."
+					<</addinlineevent>>
+				<</if>>
+				<<if $vaginastate is "othervagina">>
+					<<addinlineevent "" 1>>
+					"Sure, tribbing saves your virginity, but not your purity... or your reputation once these pics get out."
+					<</addinlineevent>>
+				<</if>>
+				<<if $vaginastate is "othermouth" and $orgasmdown>>
+					<<addinlineevent "" 1>>
+					<<personselect $vaginatarget>>
+					"What a <<slut>>! Cumming while <<he>> licks your holiest place clean."
+					<</addinlineevent>>
+				<</if>>
+				<<if $penisstate is "otheranusimminent" and !playerHasStrapon()>>
+					<<addinlineevent "" 2>>
+					"Did you expect to be deflowered by <<print either("ass", "ass", "butt")>>fucking when you put on that angel costume?"
+					<</addinlineevent>>
+				<</if>>
+				<<if $penisstate is "otherpenis">>
+					<<addinlineevent "" 1>>
+						"Sure, frotting saves your virginity, but not your purity... or your reputation once these pics get out."
+					<</addinlineevent>>
+				<</if>>
+				<<if $thighuse is "penis" and $player.penisExist and !playerHasStrapon()>>
+					<<addinlineevent "" 1>>
+					<<personselect $thightarget>>
+					"Look, the angel is trying to save <<pher>> purity by keeping away that <<if random(0, 10) is 0>><<npcPenis>><<else>><<npcPenisSimple>><</if>> with <<pher>> thighs!"
+					<</addinlineevent>>
+				<</if>>
+				<<if $penisstate is "othermouth" and !playerHasStrapon() and !$femaleclimax and !$player.condom>>
+					<<addinlineevent "" 1>>
+					"Does <<pher>> <<semen>> taste divine, or the same as any other cheap whore?"
+					<</addinlineevent>>
+				<</if>>
+				<<if $penisstate is "otheranusrub" and !playerHasStrapon()>>
+					<<addinlineevent "" 1>>
+					<<personselect $penistarget>>
+					"Stop with the rubbing, I want to see this so-called angel fall to anal."
+					<</addinlineevent>>
+				<</if>>
+				<<if $penisstate is "clit" and !playerHasStrapon()>>
+					<<addinlineevent "" 1>>
+					"I never thought an angel could find the clit. That may save <<pher>> purity for now."
+					<</addinlineevent>>
+				<</if>>
+				<<if playerHasStrapon()>>
+					<<switch $penisstate>>
+					<<case "penetrated">>
+						<<addinlineevent "" 1>>
+						"Aren't angels meant to protect virginity, not take it away?"
+						<</addinlineevent>>
+					<<case "otheranus">>
+						<<addinlineevent "" 1>>
+						"Is assfucking someone with a strap-on some sort of divine intervention? How depraved."
+						<</addinlineevent>>
+					<<case "othermouth">>
+						<<addinlineevent "" 1>>
+						<<personselect $mouthtarget>>
+						"Did this angel mistake <<him>> for a sea turtle? <<pShes>> practically choking <<him>> with that plastic cock."
+						<</addinlineevent>>
+					<</switch>>
+				<</if>>
+				<<if $anusstate isnot 0 and $anusstate.endsWith("imminent") and $player.virginity.anal is true>>
+					<<addinlineevent "" 2>>
+					"Stop fighting it. Your first anal might hurt, but at least your holy place stays untouched."
+					<</addinlineevent>>
+				<</if>>
+				<<if $anusstate is "doubleimminent" and $player.virginity.anal is true>>
+					<<addinlineevent "" 2>>
+					"Two <<penises>> for a first time anal, <<pher>> <<print either("ass", "ass", "butt")>> is gonna be in a sorry state. How is that pure?"
+					<</addinlineevent>>
+				<</if>>
+				<<if $anusstate isnot 0 and $anusstate.endsWith("penetrated") and $anusstate isnot "othermouthpenetrated">>
+					<<addinlineevent "" 1>>
+					"Are you a buttslut, wearing an angel costume to entice strangers into fucking your <<print either("ass", "ass", "butt")>>?"
+					<</addinlineevent>>
+				<</if>>
+				<<if $NPCList[$anustarget].penis is "anusdouble" and $NPCList[$anusdoubletarget].penis is "anusdouble">>
+					<<addinlineevent "" 1>>
+					"They found the perfect anal loophole to save your virginity. Enjoy!"
+					<</addinlineevent>>
+				<</if>>
+				<<if $anusstate isnot 0 and $anusstate.endsWith("penetrated") and $anusstate isnot "othermouthpenetrated" and $mouthstate is "penetrated">>
+					<<addinlineevent "" 1>>
+					"This angelic whore gets anally spitroasted just to keep <<pher>> virginity safe."
+					<</addinlineevent>>
+				<</if>>
+				<<if $anusstate is "othermouthpenetrated" and $orgasmdown>>
+					<<addinlineevent "" 1>>
+					<<personselect $anustarget>>
+					"What a <<slut>>! Cumming while <<he>> licks your dirtiest place clean."
+					<</addinlineevent>>
+				<</if>>
+				<<if $mouthstate is "imminent" and $player.vaginaExist>>
+					<<if $player.virginity.oral is true>>
+						<<addinlineevent "" 4>>
+						<<personselect $mouthtarget>>
+						"You have the choice, angel <<girl>>: either give up your oral virginity... or lose it down there."
+						<</addinlineevent>>
+					<</if>>
+					<<addinlineevent "" 1>>
+					<<personselect $mouthtarget>>
+					"To save your cherished virginity down there, you must taste that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>>."
+					<</addinlineevent>>
+				<</if>>
+				<<if $mouthstate is "othervaginaimminent" and $player.penisExist>>
+					<<addinlineevent "" 1>>
+					<<personselect $mouthtarget>>
+					"To save your cherished virginity down there, you must taste that <<npcVagina>>."
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+			<<if $demon gte 6 and (_tf.demonHorns or _tf.demonWings or _tf.demonTail)>>
+				<<if (setup.bodyliquid.outerbodyparts.filter(p => $player.bodyliquid[p].semen).length + setup.bodyliquid.outerbodyparts.filter(p => $player.bodyliquid[p].goo).length) gte 8>>
+					<<addinlineevent "" 0.5>>
+					"<<pShes>> covered in lewd fluids. Is <<pshe>> so committed to playing the role of a demon that <<pshe>> took a cum bath?"
+					<</addinlineevent>>
+				<</if>>
+				<<if $orgasmdown is 1>>
+					<<addinlineevent "" 1>>
+					"<<pShes>> cumming so hard it looks like <<pshes>> draining you dry."
+					<</addinlineevent>>
+					<<if !$femaleclimax and !$player.condom and (!$player.penisExist or !["penetrated","otheranus","othermouth"].includes($penisstate))>>
+						<<addinlineevent "" 1>>
+						"<<pShes>> reaching the peak of corruption, showering everyone with <<pher>> <<semen>>."
+						<</addinlineevent>>
+					<</if>>
+				<</if>>
+				<<if $leglocktarget isnot undefined>>
+					<<addinlineevent "" 2>>
+					<<personselect $leglocktarget>>
+					"<<pHer>> <<= $position is "doggy" ? "butt is pushing back hard against" : "legs are locked tight around">> <<him>> to claim <<his>> soul."
+					<</addinlineevent>>
+				<</if>>
+				<<if $vaginastate isnot 0 and $vaginastate.endsWith("penetrated")>>
+					<<if $settings.pregnancySpeechEnabled is true>>
+						<<addinlineevent "" 1>>
+						"Stop breeding <<phim>>, <<pshes>> gonna birth an army of hellspawn."
+						<</addinlineevent>>
+					<</if>>
+					<<addinlineevent "" 1>>
+					<<personselect $vaginatarget>>
+					"Got a perfect shot of <<pher>> demonic <<pussy>> swallowing <<if random(1, 10) is 1>>a <<npcPenis>><<else>>that <<npcPenisSimple>><</if>>."
+					<</addinlineevent>>
+				<</if>>
+				<<if $vaginastate is "doublepenetrated">>
+					<<addinlineevent "" 1>>
+					"Two <<penises>> at once? Are you sure <<pshes>> wearing a costume?"
+					<</addinlineevent>>
+				<</if>>
+				<<if $vaginastate is "othervagina">>
+					<<addinlineevent "" 1>>
+					<<personselect $vaginatarget>>
+					"Tribbing? That's a way to deny <<if $player.gender_appearance is "m">>an incubus<<else>>a succubus<</if>>, it's well known <<pshe>> can only claim your soul during penetration."
+					<</addinlineevent>>
+				<</if>>
+				<<if $penisstate is "penetrated">>
+					<<if $settings.pregnancySpeechEnabled is true and $orgasmdown gte 1>>
+						<<addinlineevent "" 1>>
+						"Is <<pshe>> breeding you? That's how demonic invasions begin."
+						<</addinlineevent>>
+					<</if>>
+					<<addinlineevent "" 1>>
+					<<personselect $penistarget>>
+					"<<pHer>> demonic <<penisSimple>> is claiming that <<npcVagina>> completely."
+					<</addinlineevent>>
+				<</if>>
+				<<if $penisstate is "otheranus">>
+					<<addinlineevent "" 1>>
+					"How does it feel to wear a slutty demon costume just so you can fuck that <<print either("ass", "ass", "butt")>>?"
+					<</addinlineevent>>
+				<</if>>
+				<<if $penisstate is "otherpenis">>
+					<<if !playerHasStrapon() and $orgasmdown is 1>>
+						<<addinlineevent "" 1>>
+						<<personselect $penistarget>>
+							<<if $femaleclimax>>
+								"Was this <<if $player.gender_appearance is "m">>incubus<<else>>succubus<</if>>' <<penisSimple>> drained so much that <<pshe>> doesn't have any more <<semen>> to share with yours?"
+							<<elseif $player.condom>>
+								"Smart, ths condom prevents spreading <<pher>> demonic corruption to your <<npcPenisSimple>>."
+							<<else>>
+								"<<pShes>> marking that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> with <<pher>> demonic <<semen>>."
+							<</if>>
+						<</addinlineevent>>
+					<</if>>
+					<<addinlineevent "" 1>>
+					<<personselect $penistarget>>
+						"Frotting? That's one way to deny <<if $player.gender_appearance is "m">>an incubus<<else>>a succubus<</if>>, it's well known <<pshe>> can only claim your soul during penetration."
+					<</addinlineevent>>
+				<</if>>
+				<<if $penisstate is "othermouth">>
+					<<addinlineevent "" 1>>
+					"Think you're <<if $player.gender_appearance is "m">>an incubus<<else>>a succubus<</if>>? Because you are moaning like a <<bitch>>."
+					<</addinlineevent>>
+				<</if>>
+				<<if $anusstate isnot 0 and $anusstate.endsWith("penetrated") and $anusstate isnot "othermouthpenetrated">>
+					<<addinlineevent "" 1>>
+					"Every demon loves it up the <<print either("ass", "ass", "butt")>>, stop pretending otherwise."
+					<</addinlineevent>>
+				<</if>>
+				<<if $anusstate is "doublepenetrated">>
+					<<addinlineevent "" 1>>
+					"<<pHer>> <<print either("ass", "ass", "butt")>> takes two at the same time? <<pShe>> really trained for that <<if $player.gender_appearance is "m">>incubus<<else>>succubus<</if>> role."
+					<</addinlineevent>>
+				<</if>>
+				<<if $mouthstate is "penetrated">>
+					<<addinlineevent "" 1>>
+					"Drink it all down, <<if $player.gender_appearance is "m">>incubus<<else>>succubus<</if>>. It'll quench your thirst."
+					<</addinlineevent>>
+				<</if>>
+				<<if $mouthstate is "othervagina">>
+					<<addinlineevent "" 1>>
+					"This demon got quite the sexual appetite, look how <<pshe>> eats pussy."
+					<</addinlineevent>>
+				<</if>>
+				<<if (($vaginastate is "doublepenetrated" and (($anusstate isnot 0 and $anusstate.endsWith("penetrated") and $anusstate isnot "othermouthpenetrated") or !$settings.analEnabled)) /* all double vaginal cases (two double penetrations doesn't seem intended)  */
+				or ((($vaginastate isnot 0 and $vaginastate.endsWith("penetrated")) or !$player.vaginaExist) and $anusstate is "doublepenetrated") /* all double anal cases */
+				or ($vaginastate isnot 0 and $vaginastate.endsWith("penetrated") and $anusstate isnot 0 and $anusstate.endsWith("penetrated") and $anusstate isnot "othermouthpenetrated" and !settings.analDoubleEnabled and !settings.vaginalDoubleEnabled) /* case 1+1 */
+				or ($vaginastate isnot 0 and $vaginastate.endsWith("penetrated") and !$settings.analEnabled) /* 1 vaginal and no anal */
+				or (!$player.vaginaExist and $anusstate isnot 0 and $anusstate.endsWith("penetrated") and $anusstate isnot "othermouthpenetrated")) /* no vaginal and 1 anal */
+				and $mouthstate is "penetrated">>
+					<<addinlineevent "" 2>>
+					<<if $rng %2>>
+						"That's how you satisfy a sex demon. <<pHer>> holes couldn't possibly take more."
+					<<else>>
+						"You did it! You made this slutty <<if $player.gender_appearance is "m">>incubus<<else>>succubus<</if>> completely airtight."
+					<</if>>
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+			<<if $fallenangel gte 0 and (_tf.fallenAngelHalo or _tf.fallenAngelWings)>>
+				<<if $player.bodyliquid["vagina"].semen + $player.bodyliquid["vagina"].goo gte 1>>
+					<<addinlineevent "" 0.5>>
+					"Just got a shot of <<if $player.bodyliquid["vagina"].semen>>cum<<else>>fluids<</if>> oozing from <<pher>> <<pussy>>. No wonder why <<pshes>> fallen."
+					<</addinlineevent>>
+				<</if>>
+				<<if $player.bodyliquid["penis"].semen + $player.bodyliquid["penis"].goo gte 1 and !playerHasStrapon()>>
+					<<addinlineevent "" 0.5>>
+					"Just got a shot of <<if $player.bodyliquid["penis"].semen>>cum<<else>>fluids<</if>> dripping off of <<pher>> <<if random(1, 4) is 1>><<penis>><<else>><<penisSimple>><</if>>. No wonder why <<pshes>> fallen."
+					<</addinlineevent>>
+				<</if>>
+				<<if $orgasmdown is 1>>
+					<<addinlineevent "" 1>>
+					"Already cumming? This fallen angel is hooked on sinful bliss."
+					<</addinlineevent>>
+					<<if !$femaleclimax and !$player.condom>>
+						<<addinlineevent "" 1>>
+						"Stop pretending you've got any purity left. All that <<semen>> proves you're just a filthy <<slut>>."
+						<</addinlineevent>>
+					<</if>>
+				<</if>>
+				<<if playerChastity()>>
+					<<addinlineevent "" 0.5>>
+					"Getting locked in chastity is a twisted way to redemption."
+					<</addinlineevent>>
+				<</if>>
+				<<if ($player.virginity.vaginal is true and $vaginastate isnot 0 and $vaginastate.endsWith("imminent")) or ($player.virginity.penile is true and $penisstate is "imminent" and !playerHasStrapon())>>
+					<<addinlineevent "" 2>>
+					"So, <<pshe>> was still a bit virginal? Not for much longer, this will fall too."
+					<</addinlineevent>>
+				<</if>>
+				<<if $vaginastate isnot 0 and $vaginastate.endsWith("penetrated")>>
+					<<if $settings.pregnancySpeechEnabled is true>>
+						<<addinlineevent "" 1>>
+						"This might be divine, but don't expect a virgin birth."
+						<</addinlineevent>>
+					<</if>>
+					<<addinlineevent "" 1>>
+					<<personselect $vaginatarget>>
+					"You've fallen anyway, might as well enjoy the earthly delights of sex."
+					<</addinlineevent>>
+				<</if>>
+				<<if $vaginastate is "doublepenetrated">>
+					<<addinlineevent "" 1>>
+					"When <<pshe>> breaks the holy rules, <<pshe>> doesn't half-ass it, straight in with two <<penises>> at once."
+					<</addinlineevent>>
+				<</if>>
+				<<if $penisstate is "othermouth" and !playerHasStrapon() and !$femaleclimax and !$player.condom>>
+					<<addinlineevent "" 1>>
+					"Got a photo of this broken angel used as a cum dispenser."
+					<</addinlineevent>>
+				<</if>>
+				<<if $penisstate is "penetrated">>
+					<<if $settings.pregnancySpeechEnabled is true and $orgasmdown gte 1>>
+						<<addinlineevent "" 1>>
+						"This might be divine, but don't expect a virgin birth."
+						<</addinlineevent>>
+					<</if>>
+					<<addinlineevent "" 1>>
+					<<personselect $penistarget>>
+					"You've fallen anyway, might as well enjoy the earthly delights of sex."
+					<</addinlineevent>>
+				<</if>>
+				<<if $anusstate is "penetrated">>
+					<<addinlineevent "" 1>>
+					"Did you fall from grace for being an anal whore?"
+					<</addinlineevent>>
+				<</if>>
+				<<if $anusstate is "penetrated" and playerChastity()>>
+					<<addinlineevent "" 1>>
+					"A bit late to realise you should have stuck to your <<print either("ass", "ass", "butt")>> hole, ditch that $worn.genitals.name."
+					<</addinlineevent>>
+				<</if>>
+				<<if $anusstate is "doublepenetrated">>
+					<<if _tf.fallenAngelHalo>>
+						<<addinlineevent "" 1>>
+						"Double anal? Soon, this halo won't be the only thing broken."
+						<</addinlineevent>>
+					<</if>>
+					<<if _tf.fallenAngelWings>>
+						<<addinlineevent "" 1>>
+						"Double anal? Soon, these wings won't be the only thing scuffed."
+						<</addinlineevent>>
+					<</if>>
+				<</if>>
+				<<if $mouthstate is "penis">>
+					<<personselect $mouthtarget>>
+					<<if npcHasStrapon()>>
+						<<addinlineevent "" 1>>
+						"Still as innocent as an angel. Yes, go on, gag on that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>>, that's a lovely photo."
+						<</addinlineevent>>
+					<</if>>
+					<<addinlineevent "" 1>>
+					"Still as sexually clueless as an angel. Yes, go on, gag on that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>>, that's a lovely photo."
+					<</addinlineevent>>
+				<</if>>
+				<<if $mouthstate is "othervagina">>
+					<<personselect $mouthtarget>>
+					<<addinlineevent "" 1>>
+					"Still as sexually clueless as an angel. Yes, go on, choke on that <<npcVagina>>, that's a lovely photo."
+					<</addinlineevent>>
+				<</if>>
+				<<if $mouthstate is "otheranus">>
+					<<addinlineevent "" 1>>
+					"Eating ass? That's clearly worthy of defilement."
+					<</addinlineevent>>
+				<</if>>
+				<<if $trauma gte 4500>>
+					<<if _tf.fallenAngelHalo>>
+						<<addinlineevent "" 1>>
+						"<<pHer>> mind looks as broken as <<pher>> costume halo. Carry on, I will capture every second of it."
+						<</addinlineevent>>
+					<</if>>
+					<<if _tf.fallenAngelWings>>
+						<<addinlineevent "" 1>>
+						"<<pHer>> mind looks as damaged <<pher>> costume wings. Carry on, I will capture every second of it."
+						<</addinlineevent>>
+					<</if>>
+				<</if>>
+				<<if $pain gte 40>>
+					<<addinlineevent "" 1>>
+					"How committed to the defiled angel role, <<pshes>> even crying."
+					<</addinlineevent>>
+				<</if>>
+				<<if $pain gte 100>>
+					<<addinlineevent "" 2>>
+					"Wearing a fallen angel costume, it's only fitting to end up writhing in agony."
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+		<</if>>
+		<<if $cat gte 6 and (_tf.catEars or _tf.catTail)>>
+			<<if $enemytype is "beast">>
+				<<if $NPCList[0].type.includes("cat")>>
+					<<addinlineevent "" 1>>
+					"These pictures will make for an excellent documentary on the sexual habits of cats."
+					<</addinlineevent>>
+				<<elseif $NPCList[0].type.includes("wolf") or $NPCList[0].type.includes("dog")>>
+					<<addinlineevent "" 1>>
+					"Learn the laws of nature: cats captured by some $NPCList[0].type need to submit."
+					<</addinlineevent>>
+				<<elseif $settings.pregnancySpeechEnabled is true>>
+					<<addinlineevent "" 1>>
+					"This deviant cat<<girl>> thinks it can crossbreed with that $NPCList[0].type."
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+			<<if setup.bodyliquid.outerbodyparts.filter(p => $player.bodyliquid[p].semen).length gte 5>>
+				<<if setup.bodyliquid.outerbodyparts.filter(p => $player.bodyliquid[p].goo).length gte 5>>
+					<<addinlineevent "" 0.5>>
+					"Covered in semen and lewd fluids, did you forget to groom yourself? You make for a terrible cat."
+					<</addinlineevent>>
+				<<else>>
+					<<addinlineevent "" 0.5>>
+					"Covered in semen, did you forget to groom yourself? You make for a terrible cat."
+					<</addinlineevent>>
+				<</if>>
+			<<elseif setup.bodyliquid.outerbodyparts.filter(p => $player.bodyliquid[p].goo).length gte 5>>
+				<<addinlineevent "" 0.5>>
+				"Covered in lewd fluids, did you forget to groom yourself? You make for a terrible cat."
+				<</addinlineevent>>
+			<</if>>
+			<<if $orgasmdown is 1>>
+				<<addinlineevent "" 1>>
+				"Those orgasmic moans could almost sound like meowing."
+				<</addinlineevent>>
+				<<if !$femaleclimax and !$player.condom>>
+					<<addinlineevent "" 1>>
+					"This territorial cat<<girl>> is spraying <<pher>> <<semen>> everywhere!"
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+			<<if $leglocktarget isnot undefined>>
+				<<addinlineevent "" 1>>
+				"No escape from this kitty's claws."
+				<</addinlineevent>>
+			<</if>>
+			<<if playerChastity()>>
+				<<addinlineevent "" 0.5>>
+				"Did curiosity lock the cat in this $worn.genitals.name?"
+				<</addinlineevent>>
+			<</if>>
+			<<if ($player.virginity.vaginal is true and $vaginastate isnot 0 and $vaginastate.endsWith("imminent"))>>
+				<<addinlineevent "" 2>>
+				"I'm ready to take a closeup of this kitty's pussy getting deflowered."
+				<</addinlineevent>>
+			<</if>>
+			<<if ($player.virginity.penile is true and $penisstate is "imminent" and !playerHasStrapon())>>
+				<<addinlineevent "" 2>>
+				"I'm ready to take a closeup of this kitty's cock getting deflowered."
+				<</addinlineevent>>
+			<</if>>
+			<<if $vaginastate isnot 0 and $vaginastate.endsWith("penetrated")>>
+				<<if $settings.pregnancySpeechEnabled is true>>
+					<<addinlineevent "" 1>>
+					"This alley cat will soon have another litter."
+					<</addinlineevent>>
+				<</if>>
+				<<addinlineevent "" 1>>
+				"Pound <<pher>> pussy harder, <<pshes>> in heat."
+				<</addinlineevent>>
+			<</if>>
+			<<if $vaginastate is "doublepenetrated" and $settings.pregnancySpeechEnabled is true>>
+				<<addinlineevent "" 1>>
+				"Two <<penises>> at once? This litter will be massive."
+				<</addinlineevent>>
+			<</if>>
+			<<if $vaginastate is "othermouth" and $orgasmdown>>
+				<<addinlineevent "" 1>>
+				<<personselect $vaginatarget>>
+				"What a pathetic cat<<girl>>, stand still while <<he>> licks you clean."
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "othermouth" and !playerHasStrapon() and !$femaleclimax and !$player.condom>>
+				<<addinlineevent "" 1>>
+				"The kitty is bursting! How did <<pshe>> hide all that cream?"
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "penetrated">>
+				<<if $settings.pregnancySpeechEnabled is true and $orgasmdown gte 1>>
+					<<addinlineevent "" 1>>
+					"This <<if $player.gender_appearance is "m">>tomcat<<else>>pussycat<</if>> is breeding new strays."
+					<</addinlineevent>>
+				<</if>>
+				<<addinlineevent "" 1>>
+				<<personselect $penistarget>>
+				"This pussy is thirsty for cream, feed it now!"
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "otheranus">>
+				<<addinlineevent "" 1>>
+				"Look at <<pher>> <<if random(1, 4) is 1>><<penis>><<else>><<penisSimple>><</if>> scraping every inch of that <<print either("ass", "ass", "butt")>>."
+				<</addinlineevent>>
+			<</if>>
+			<<if $anusstate is "penetrated">>
+				<<addinlineevent "" 1>>
+				"Think you'll get a treat for taking it up the <<print either("ass", "ass", "butt")>>, kitty?"
+				<</addinlineevent>>
+			<</if>>
+			<<if $anusstate is "doublepenetrated">>
+				<<addinlineevent "" 1>>
+				"I knew cats were flexible, but not down there."
+				<</addinlineevent>>
+			<</if>>
+			<<if $anusstate is "othermouthpenetrated" and $orgasmdown>>
+				<<addinlineevent "" 1>>
+				<<personselect $anustarget>>
+				"You're climaxing from having your <<print either("ass", "ass", "butt")>> groomed? You're not fit for that cat costume."
+				<</addinlineevent>>
+			<</if>>
+			<<if $mouthstate is "othervagina">>
+				<<addinlineevent "" 1>>
+				"This kitty is purring while grooming your pussy, how cute."
+				<</addinlineevent>>
+			<</if>>
+			<<if $mouthstate is "otheranus">>
+				<<addinlineevent "" 1>>
+				"Does <<pshe>> have <<pher>> tongue in your ass? This grooming has gone wrong."
+				<</addinlineevent>>
+			<</if>>
+			<<if ["breasts","nipple"].includes($mouthstate)>>
+				<<addinlineevent "" 1>>
+				"The cute kitty is drinking milk straight from the tap."
+				<</addinlineevent>>
+			<</if>>
+			<<if $mouthstate is "penis" and !npcHasStrapon()>>
+				<<addinlineevent "" 1>>
+				"The cute kitty is drinking cream straight from the tap."
+				<</addinlineevent>>
+			<</if>>
+		<</if>>
+		<<if $wolfgirl gte 6 and (_tf.wolfEars or _tf.wolfTail)>>
+			<<if $enemytype is "beast">>
+				<<if $NPCList[0].type.includes("wolf")>>
+					<<addinlineevent "" 1>>
+					"This <<bitch>> bows to the alpha, as per the pack rules."
+					<</addinlineevent>>
+				<<elseif $NPCList[0].type.includes("fox")>>
+					<<addinlineevent "" 1>>
+					"Outfoxed and fucked? This poor <<if $player.gender_appearance is "m">>wolfboy<<else>>wolfgirl<</if>> didn't see it coming."
+					<</addinlineevent>>
+				<<else>>
+					<<addinlineevent "" 1>>
+					"This wolf's desperate, humping that $NPCList[0].type."
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+			<<if $orgasmdown is 1>>
+				<<addinlineevent "" 1>>
+				"<<pShes>> howling to the moon, like a <<bitch>> in heat!"
+				<</addinlineevent>>
+				<<if !$femaleclimax and !$player.condom>>
+					<<addinlineevent "" 1>>
+					"Is <<pshe>> trying to mark <<pher>> territory with <<pher>> <<semen>>?"
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+			<<if $leglocktarget isnot undefined>>
+				<<addinlineevent "" 1>>
+				<<personselect $leglocktarget>>
+				"<<pShes>> going wild, pinning <<him>> down as some prey."
+				<</addinlineevent>>
+			<</if>>
+			<<if playerChastity()>>
+				<<addinlineevent "" 0.5>>
+				"A true alpha wouldn't be tamed by a $worn.genitals.name."
+				<</addinlineevent>>
+			<</if>>
+			<<if $enemyno gte 3>>
+				<<addinlineevent "" 0.5>>
+				"The pack's running a train. Hold still, I'm taking a group photo."
+				<</addinlineevent>>
+			<</if>>
+			<<if $vaginastate isnot 0 and $vaginastate.endsWith("penetrated")>>
+				<<if $settings.pregnancySpeechEnabled is true>>
+					<<addinlineevent "" 1>>
+					"<<pShe>> really is a breeding <<bitch>>."
+					<</addinlineevent>>
+				<</if>>
+				<<addinlineevent "" 1>>
+				"<<pShes>> begging to get knotted."
+				<</addinlineevent>>
+			<</if>>
+			<<if $vaginastate is "doublepenetrated" and $settings.pregnancySpeechEnabled is true>>
+				<<addinlineevent "" 1>>
+				"This <<if $player.gender_appearance is "f">>she-<</if>>wolf handles two at once and will soon raise twins."
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "othermouth">>
+				<<addinlineevent "" 1>>
+				<<personselect $penistarget>>
+				"Smile for the camera when that knot locks in <<his>> mouth."
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "penetrated">>
+				<<if $settings.pregnancySpeechEnabled is true and $orgasmdown gte 1>>
+					<<addinlineevent "" 1>>
+					"This <<if $player.gender_appearance is "m">>wolfboy<<else>>wolfgirl<</if>> is siring new pups."
+					<</addinlineevent>>
+				<</if>>
+				<<addinlineevent "" 1>>
+				<<personselect $penistarget>>
+				"<<pShes>> in full rut, look at that furious pounding."
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "otheranus">>
+				<<addinlineevent "" 1>>
+				"I'm ready for a photo when <<pher>> <<if random(1, 4) is 1>><<penis>><<else>><<penisSimple>><</if>> knots that <<print either("ass", "ass", "butt")>>."
+				<</addinlineevent>>
+			<</if>>
+			<<if $anusstate is "penetrated">>
+				<<addinlineevent "" 1>>
+				"Omega wolves are a myth? Then explain why this bottom <<bitch>>'s <<print either("ass", "ass", "butt")>> is so full."
+				<</addinlineevent>>
+			<</if>>
+			<<if $anusstate is "doublepenetrated">>
+				<<addinlineevent "" 1>>
+				"<<pHer>> ass is about to get double-knotted, I wonder what it looks like?"
+				<</addinlineevent>>
+			<</if>>
+			<<if $vaginastate is "othervagina">>
+				<<addinlineevent "" 1>>
+				"<<pShes>> getting scent-marked by the alpha by rubbing <<pussies>>!"
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "otherpenis">>
+				<<addinlineevent "" 1>>
+				"<<pShes>> getting scent-marked by the alpha by rubbing <<penises>>!"
+				<</addinlineevent>>
+			<</if>>
+			<<if $mouthstate is "penetrated">>
+				<<if npcHasStrapon()>>
+					<<addinlineevent "" 1>>
+					"Try to bite all you want now that you're muzzled."
+					<</addinlineevent>>
+				<<else>>
+					<<addinlineevent "" 1>>
+					<<personselect $mouthtarget>>
+					"How can <<he>> trust having <<his>> <<npcPenisSimple>> anywhere near those teeth?"
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+			<<if $enemyanger lte 0>>
+				<<addinlineevent "" 0.5>>
+				"Who's a good <<girl>>? You're a good <<girl>>!"
+				<</addinlineevent>>
+			<</if>>
+		<</if>>
+		<<if $fox gte 6 and (_tf.foxEars or _tf.foxTail)>>
+			<<if $enemytype is "beast">>
+				<<if $NPCList[0].type.includes("fox")>>
+					<<addinlineevent "" 1>>
+					"Only another fox can outfox this one. Now <<pshe>> gets properly fucked."
+					<</addinlineevent>>
+				<<elseif $settings.pregnancySpeechEnabled is true>>
+					<<addinlineevent "" 1>>
+					"This sly fox went feral and started humping that $NPCList[0].type."
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+			<<if $orgasmdown is 1>>
+				<<addinlineevent "" 1>>
+				"This <<bitch>> is yipping through orgasmic waves."
+				<</addinlineevent>>
+			<</if>>
+			<<if $leglocktarget isnot undefined>>
+				<<addinlineevent "" 1>>
+				<<personselect $leglocktarget>>
+				"There's no escape from this <<if $player.gender_appearance is "m">>fox<<else>>vixen<</if>>'s grip."
+				<</addinlineevent>>
+			<</if>>
+			<<if playerChastity()>>
+				<<addinlineevent "" 0.5>>
+				"This trickster fox is hiding <<pher>> trasures with a $worn.genitals.name."
+				<</addinlineevent>>
+			<</if>>
+			<<if $enemyno gte 3>>
+				<<addinlineevent "" 0.5>>
+				"The fox has been caught by the hunters, now comes the punishment."
+				<</addinlineevent>>
+			<</if>>
+			<<if $player.virginity.vaginal is true and $vaginastate isnot 0 and $vaginastate.endsWith("imminent")>>
+				<<addinlineevent "" 2>>
+				<<personselect $vaginastarget>>
+				"Brace yourself, <<if $player.gender_appearance is "m">>Mr.<<else>>Mrs.<</if>> Fox, that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> is about to show you a new trick."
+				<</addinlineevent>>
+			<</if>>
+			<<if $player.virginity.penile is true and $penisstate is "imminent" and !playerHasStrapon()>>
+				<<addinlineevent "" 2>>
+				"Be ready, <<if $player.gender_appearance is "m">>Mr.<<else>>Mrs.<</if>> Fox, that <<npcVagina>> is about to show you a new trick."
+				<</addinlineevent>>
+			<</if>>
+			<<if $vaginastate isnot 0 and $vaginastate.endsWith("penetrated")>>
+				<<if $settings.pregnancySpeechEnabled is true>>
+					<<addinlineevent "" 1>>
+					"Breed <<pher>> full of kits and <<pshe>>'ll be bonded for life."
+					<</addinlineevent>>
+				<</if>>
+				<<addinlineevent "" 1>>
+				"The deeper you fuck a fox<<girl>>, the deeper the bond."
+				<</addinlineevent>>
+			<</if>>
+			<<if $vaginastate is "doublepenetrated">>
+				<<addinlineevent "" 1>>
+				"Double fucking this <<if $player.gender_appearance is "m">>fox<<else>>vixen<</if>> messes up <<pher>> bonding forever. No one can serve two masters."
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "othermouth">>
+				<<addinlineevent "" 1>>
+				<<personselect $penistarget>>
+				"So cute, the shy fox<<girl>> is getting <<pher>> <<if random(1, 4) is 1>><<penis>><<else>><<penisSimple>><</if>> sucked. Smile for the photo!"
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "penetrated">>
+				<<if $settings.pregnancySpeechEnabled is true and $orgasmdown gte 1>>
+					<<addinlineevent "" 1>>
+					"The sly fox<<girl>> is about to get baby trapped!"
+					<</addinlineevent>>
+				<</if>>
+				<<addinlineevent "" 1>>
+				<<personselect $penistarget>>
+				"<<pShes>> barking like a desperate dog while pounding this <<npcVagina>>."
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "otheranus">>
+				<<addinlineevent "" 1>>
+				"Can foxes bond through anal? This slut's <<print either("ass", "ass", "butt")>> says yes!"
+				<</addinlineevent>>
+			<</if>>
+			<<if $anusstate is "penetrated">>
+				<<addinlineevent "" 1>>
+				"The cunning fox got caught and fucked in the <<print either("ass", "ass", "butt")>>? What a shame."
+				<</addinlineevent>>
+			<</if>>
+			<<if $anusstate is "doublepenetrated">>
+				<<addinlineevent "" 1>>
+				"Foxes are monogamous? This one's <<print either("ass", "ass", "butt")>> has space for two."
+				<</addinlineevent>>
+			<</if>>
+			<<if $mouthstate is "penetrated">>
+				<<if npcHasStrapon()>>
+					<<addinlineevent "" 1>>
+					"The cunning fox has been fucked stupid, <<pshes>> sucking on a plastic toy."
+					<</addinlineevent>>
+				<<else>>
+					<<addinlineevent "" 1>>
+					<<personselect $mouthtarget>>
+					"Look at the camera while sucking that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>>. This will illustrate how to tame a fox."
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+			<<if $enemyanger gte 60>>
+				<<addinlineevent "" 0.5>>
+				"<<pShe>> has <<pher>> tail up, spank that naughty fox."
+				<</addinlineevent>>
+			<</if>>
+		<</if>>
+		<<if $cow gte 6 and (_tf.cowHorns or _tf.cowTail)>>
+			<<if $enemytype is "beast">>
+				<<if $NPCList[0].type.includes("wolf")>>
+					<<addinlineevent "" 1>>
+					"The wolf caught this <<if $player.gender_appearance is "m">>bull<<else>>cow<</if>>. Thankfully, it only wants to fuck <<pher>>."
+					<</addinlineevent>>
+				<<elseif $settings.pregnancySpeechEnabled>>
+					<<addinlineevent "" 1>>
+					"This cow is in <<if $player.gender_appearance is "m">>rut<<else>>heat<</if>> and humping that $NPCList[0].type."
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+			<<if (setup.bodyliquid.outerbodyparts.filter(p => $player.bodyliquid[p].semen).length + setup.bodyliquid.outerbodyparts.filter(p => $player.bodyliquid[p].goo).length) gte 8>>
+				<<addinlineevent "" 0.5>>
+				"This <<if $player.gender_appearance is "m">>bull<<else>>cow<</if>> is covered in lewd fluids, milking went completely wrong."
+				<</addinlineevent>>
+			<</if>>
+			<<if $orgasmdown is 1>>
+				<<addinlineevent "" 1>>
+				"<<pShes>> mooing in pleasure, <<pshe>> clearly loves it."
+				<</addinlineevent>>
+			<</if>>
+			<<if playerChastity()>>
+				<<addinlineevent "" 0.5>>
+				"This naughty <<if $player.gender_appearance is "m">>bull<<else>>cow<</if>> is penned in chastity."
+				<</addinlineevent>>
+			<</if>>
+			<<if $vaginastate isnot 0 and $vaginastate.endsWith("penetrated")>>
+				<<if $settings.pregnancySpeechEnabled is true and $orgasmdown gte 1>>
+					<<addinlineevent "" 1>>
+					"Breed this <<if $player.gender_appearance is "m">>bull<<else>>cow<</if>> <<bitch>>. <<pShe>> will soon drop another calf."
+					<</addinlineevent>>
+				<</if>>
+				<<addinlineevent "" 1>>
+				"Gentle <<if $player.gender_appearance is "m">>bulls<<else>>cows<</if>> are rewarded with gentle loving."
+				<</addinlineevent>>
+			<</if>>
+			<<if $vaginastate is "doublepenetrated">>
+				<<addinlineevent "" 1>>
+				"Two <<penises>> at once? This <<if $player.gender_appearance is "m">>bull<<else>>cow<</if>> must be loose and well trained."
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "penetrated">>
+				<<if $settings.pregnancySpeechEnabled is true and $orgasmdown gte 1 and !$femaleclimax and !$player.condom>>
+					<<addinlineevent "" 1>>
+					"This <<slut>> <<if $player.gender_appearance is "m">>bull<<else>>cow<</if>> is pumping cum deep. A new calf is coming soon."
+					<</addinlineevent>>
+				<</if>>
+				<<addinlineevent "" 1>>
+				<<personselect $penistarget>>
+					"Gentle <<if $player.gender_appearance is "m">>bulls<<else>>cows<</if>> are rewarded with a rough ride."
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "othermouth">>
+				<<addinlineevent "" 1>>
+				<<personselect $penistarget>>
+				"Milking your cock with <<his>> mouth is the best way to get cream."
+				<</addinlineevent>>
+			<</if>>
+			<<if $anusstate is "penetrated">>
+				<<addinlineevent "" 1>>
+				<<personselect $anustarget>>
+				"With <<pher>> <<print either("ass", "ass", "butt")>> fucked, this will soon become a rodeo."
+				<</addinlineevent>>
+			<</if>>
+			<<if $anusstate is "doublepenetrated">>
+				<<addinlineevent "" 1>>
+				"Double anal? That's a prize <<if $player.gender_appearance is "m">>bull<<else>>cow<</if>> if I've seen one!"
+				<</addinlineevent>>
+			<</if>>
+			<<if $mouthstate is "penetrated">>
+				<<addinlineevent "" 1>>
+				<<personselect $mouthtarget>>
+				"Look at the camera while milking that <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> with your mouth. Now say moo!"
+				<</addinlineevent>>
+			<</if>>
+			<<if $mouthstate is "othervagina">>
+				<<addinlineevent "" 1>>
+				<<personselect $mouthtarget>>
+				"This thirsty <<if $player.gender_appearance is "m">>bull<<else>>cow<</if>> is lapping pussy juice like fresh milk."
+				<</addinlineevent>>
+			<</if>>
+			<<if $mouthstate is "otheranus">>
+				<<addinlineevent "" 1>>
+				<<personselect $mouthtarget>>
+				"This <<if $player.gender_appearance is "m">>bull<<else>>cow<</if>> is eating ass like fresh pasture grass."
+				<</addinlineevent>>
+			<</if>>
+			<<if ["breasts","nipple"].includes($mouthstate) and $settings.breastFeedingEnabled is true>>
+				<<addinlineevent "" 1>>
+				"I thought cattle drank water, but this <<if $player.gender_appearance is "m">>bull<<else>>cow<</if>> is thirsty for milk."
+				<</addinlineevent>>
+			<</if>>
+			<<if ["handedge","leftwork"].includes($leftaction) or ["handedge","rightwork"].includes($rightaction)>>
+				<<addinlineevent "" 1>>
+				"Good job. Every <<if $player.gender_appearance is "m">>bull<<else>>cow<</if>> needs to learn how to milk a dick properly."
+				<</addinlineevent>>
+			<</if>>
+			<<if ["handedge","leftwork"].includes($leftaction) and ["handedge","rightwork"].includes($rightaction)>>
+				<<addinlineevent "" 1>>
+				"<<pShes>> an expert at milking <<penises>>, but aren't <<if $player.gender_appearance is "m">>bulls<<else>>cows<</if>> the ones who are supposed to get milked?"
+				<</addinlineevent>>
+			<</if>>
+			<<if $leftaction is "leftmasturbatepenis" or $rightaction is "rightmasturbatepenis">>
+				<<addinlineevent "" 1>>
+				"<<pShes>> milking <<pherself>> like a proper dairy <<if $player.gender_appearance is "m">>bull<<else>>cow<</if>>."
+				<</addinlineevent>>
+			<</if>>
+			<<if $enemyanger gte 60>>
+				<<addinlineevent "" 0.5>>
+				"This <<if $player.gender_appearance is "m">>bull<<else>>cow<</if>> has some fight in <<phim>>. Time to brand <<phim>>."
+				<</addinlineevent>>
+			<</if>>
+			<<if $enemyno gte 3>>
+				<<addinlineevent "" 0.5>>
+				"The cow<<if $NPCList[0].pronoun is "m">>boys<<else>>girls<</if>> are taming this <<if $player.gender_appearance is "m">>bull<<else>>cow<</if>>."
+				<</addinlineevent>>
+			<</if>>
+		<</if>>
+		<<if $harpy gte 6 and (_tf.birdWings or _tf.birdTail or _tf.birdPlumage)>>
+			<<if $enemytype is "beast">>
+				<<if $NPCList[0].type.includes("fox")>>
+					<<addinlineevent "" 1>>
+					"The sly fox is raiding the bird's nest and fucking <<pher>>."
+					<</addinlineevent>>
+				<<elseif $NPCList[0].type.includes("cat")>>
+					<<addinlineevent "" 1>>
+					"Cat catches the bird? Looks more like cat fucks the bird."
+					<</addinlineevent>>
+				<<else>>
+					<<addinlineevent "" 1>>
+					"This flighty bird flocks with that $NPCList[0].type."
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+			<<if setup.bodyliquid.outerbodyparts.filter(p => $player.bodyliquid[p].semen).length gte 5>>
+				<<addinlineevent "" 0.5>>
+				"Poor bird, can you even fly with these feathers matted with cum?"
+				<</addinlineevent>>
+			<</if>>
+			<<if setup.bodyliquid.outerbodyparts.filter(p => $player.bodyliquid[p].goo).length gte 5>>
+				<<addinlineevent "" 0.5>>
+				"Poor bird, can you even fly with these feathers matted with lewd fluids?"
+				<</addinlineevent>>
+			<</if>>
+			<<if $orgasmdown is 1>>
+				<<addinlineevent "" 1>>
+				"<<pShes>> chirping through that orgasm. It sounds like a mating call."
+				<</addinlineevent>>
+			<</if>>
+			<<if $leglocktarget isnot undefined>>
+				<<addinlineevent "" 1>>
+				<<personselect $leglocktarget>>
+				"<<pShes>> caught <<him>> in <<pher>> talons, no escape from there."
+				<</addinlineevent>>
+			<</if>>
+			<<if playerChastity()>>
+				<<addinlineevent "" 0.5>>
+				"Caged in chastity, this poor bird can only sing <<pher>> frustrations."
+				<</addinlineevent>>
+			<</if>>
+			<<if $player.virginity.vaginal is true and $vaginastate isnot 0 and $vaginastate.endsWith("imminent")>>
+				<<addinlineevent "" 2>>
+				<<personselect $vaginastarget>>
+				"I'm ready to see this bird's virgin <<pussy>> get raided."
+				<</addinlineevent>>
+			<</if>>
+			<<if $player.virginity.penile is true and $penisstate is "imminent" and !playerHasStrapon()>>
+				<<addinlineevent "" 2>>
+				"I got a close-up ready. Time to pluck this bird's <<if random(1, 4) is 1>><<penis>><<else>><<penisSimple>><</if>>."
+				<</addinlineevent>>
+			<</if>>
+			<<if $vaginastate isnot 0 and $vaginastate.endsWith("penetrated")>>
+				<<if $settings.pregnancySpeechEnabled is true and $orgasmdown gte 1>>
+					<<addinlineevent "" 1>>
+					"This bird will soon lay another clutch of eggs."
+					<</addinlineevent>>
+				<</if>>
+				<<addinlineevent "" 1>>
+				"Pound that <<pussy>> harder. This bird is squawking for more."
+				<</addinlineevent>>
+			<</if>>
+			<<if $vaginastate is "doublepenetrated" and $settings.pregnancySpeechEnabled is true>>
+				<<addinlineevent "" 1>>
+				"Two <<penises>> at once? This harpy's nest is getting a cuckoo clutch."
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "penetrated">>
+				<<if $settings.pregnancySpeechEnabled is true and $orgasmdown gte 1 and !$femaleclimax and !$player.condom>>
+					<<addinlineevent "" 1>>
+					"This stupid bird will soon discover what happens when <<pshe>> cums inside."
+					<</addinlineevent>>
+				<</if>>
+				<<addinlineevent "" 1>>
+				<<personselect $penistarget>>
+					"That <<npcVagina>> is hungry, feed it with your seed."
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "otheranus">>
+				<<addinlineevent "" 1>>
+				"<<pShes>> making <<pher>> nest in that <<print either("ass", "ass", "butt")>>."
+				<</addinlineevent>>
+			<</if>>
+			<<if $penisstate is "othermouth">>
+				<<addinlineevent "" 1>>
+				<<personselect $penistarget>>
+				"<<Hes>> sucking your little pecker down there. That's adorable."
+				<</addinlineevent>>
+			<</if>>
+			<<if $anusstate is "penetrated">>
+				<<addinlineevent "" 1>>
+				<<personselect $anustarget>>
+				"That's what <<pshe>> deserves for luring <<him>> with <<pher>> siren's song."
+				<</addinlineevent>>
+			<</if>>
+			<<if $anusstate is "doublepenetrated">>
+				<<addinlineevent "" 1>>
+				"Are you migrating? Because you have <<penises>> from all over the world in your <<print either("ass", "ass", "butt")>>."
+				<</addinlineevent>>
+			<</if>>
+			<<if $mouthstate is "penetrated">>
+				<<if npcHasStrapon()>>
+					<<addinlineevent "" 1>>
+					"The bird is sucking plastic now. <<pShes>> much too used to feeders."
+					<</addinlineevent>>
+				<<else>>
+					<<addinlineevent "" 1>>
+					<<personselect $mouthtarget>>
+					"Look at the camera while you drink from the feeder, bird."
+					<</addinlineevent>>
+				<</if>>
+			<</if>>
+			<<if $mouthstate is "othervagina">>
+				<<addinlineevent "" 1>>
+				<<personselect $mouthtarget>>
+				"Look how the lovebird is kissing that <<npcVagina>>!"
+				<</addinlineevent>>
+			<</if>>
+			<<if $mouthstate is "otheranus">>
+				<<addinlineevent "" 1>>
+				<<personselect $mouthtarget>>
+				"This poor bird has no sense of direction. <<pShe>> is lost tongue deep in that <<print either("ass", "ass", "butt")>>."
+				<</addinlineevent>>
+			<</if>>
+		<</if>>
+		<<addinlineevent "" 1>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+					"완전히 걸레잖아."
+				<<else>>
+					"<<pherPost "의">> 떨림이 사진에 담겼으면 좋겠어."
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+					<<if $pain gte 80>>
+						"<<pshesPost "이">> 아픈 것 같아. 멈추지 마."
+					<<elseif $pain gte 40>>
+						"눈물을 가리려 애쓰지 마, 우린 다 볼 수 있어."
+					<<else>>
+						"손을 움직여 <<bitchPost "아">>, 네 얼굴 사진을 찍고 싶다고."
+					<</if>>
+				<<elseif $speechcamerapose is 1>>
+					<<if $pain gte 80>>
+						"고통에도 포즈를 취하다니. 용감한데."
+					<<elseif $pain gte 40>>
+						"용감한 얼굴을 하라고, 알았지?"
+					<<else>>
+						"이 <<slut_ un>> 카메라가 어떻게 생긴 건지 알고 있구만."
+					<</if>>
+				<<else>>
+					<<if $pain gte 80>>
+						"이제 모든 사람이 네가 얼마나 불쌍한지 알게 되겠지."
+					<<elseif $pain gte 40>>
+						"잘 찍혔네, 이건 눈물인가?"
+					<<else>>
+						"친구들과 나눠 볼 생각에 기대되는걸."
+					<</if>>
+				<</if>>
+			<</if>>
+		<</addinlineevent>>
+		<<runeventpool>>
+	<</if>>
+
+	<<if $face isnot "covered">>
+		<<if $exposed is 1>>
+			<<fameexhibitionism 1 "pic">>
+		<<elseif $exposed gte 2>>
+			<<fameexhibitionism 2 "pic">>
+		<</if>>
+		<<if playerBellyVisible()>>
+			<<famepregnancy 1 "pic">>
+		<</if>>
+		<<if $sexavoid is 0 or $rapeavoid is 0>>
+			<<if $consensual is 1>>
+				<<famesex 1 "pic">>
+			<<else>>
+				<<famerape 1 "pic">>
+			<</if>>
+			<<if $enemytype is "beast">>
+				<<famebestiality 1 "pic">>
+			<</if>>
+		<</if>>
+	<</if>>
+<</widget>>
+
+<<widget "ahis">>
+	<<if $audiencecamera is "man">>
+		그의
+	<<elseif $audiencecamera is "boy">>
+		그의
+	<<elseif $audiencecamera is "woman">>
+		그녀의
+	<<elseif $audiencecamera is "girl">>
+		그녀의
+	<</if>>
+<</widget>>
+
+<<widget "ahe">>
+	<<if $audiencecamera is "man">>
+		<<set _trResult to "그">><<trPost 1 _args[0] _args[1]>><<print _trResult>>
+	<<elseif $audiencecamera is "boy">>
+		<<set _trResult to "그">><<trPost 1 _args[0] _args[1]>><<print _trResult>>
+	<<elseif $audiencecamera is "woman">>
+		<<set _trResult to "그녀">><<trPost 1 _args[0] _args[1]>><<print _trResult>>
+	<<elseif $audiencecamera is "girl">>
+		<<set _trResult to "그녀">><<trPost 1 _args[0] _args[1]>><<print _trResult>>
+	<</if>>
+<</widget>>
+
+<<widget "audiencespeech">>
+	<<set $audiencemember to 0>>
+	<<rng>>
+	<<if $audienceforceboy is 1>>
+		<<set $audiencemember to "boy">>
+	<<elseif $audienceforcegirl is 1>>
+		<<set $audiencemember to "girl">>
+	<<elseif $location is "school" or $location is "pool" or $audienceforceteen is 1>>
+		<<if maleChance() is 0>>
+			<<set $audiencemember to "girl">>
+		<<elseif maleChance() is 100>>
+			<<set $audiencemember to "boy">>
+		<<elseif $rng gte 51>>
+			<<set $audiencemember to "boy">>
+		<<else>>
+			<<set $audiencemember to "girl">>
+		<</if>>
+	<<else>>
+		<<if maleChance() is 0>>
+			<<set $audiencemember to "woman">>
+		<<elseif maleChance() is 100>>
+			<<set $audiencemember to "man">>
+		<<elseif $rng gte 51>>
+			<<set $audiencemember to "man">>
+		<<else>>
+			<<set $audiencemember to "woman">>
+		<</if>>
+	<</if>>
+
+	<<rng>>
+	<<if $rng gte 91 and $audiencecamera6 is 0>>
+		<span class="pink">한 <<putpost $audiencemember "이">> 휴대폰을 꺼내 당신에게 카메라를 향하고 있다.</span>
+		<<if $audiencecamera1 is 0>>
+			<<set $audiencecamera1 to $audiencemember>>
+		<<elseif $audiencecamera2 is 0>>
+			<<set $audiencecamera2 to $audiencemember>>
+		<<elseif $audiencecamera3 is 0>>
+			<<set $audiencecamera3 to $audiencemember>>
+		<<elseif $audiencecamera4 is 0>>
+			<<set $audiencecamera4 to $audiencemember>>
+		<<elseif $audiencecamera5 is 0>>
+			<<set $audiencecamera5 to $audiencemember>>
+		<<elseif $audiencecamera6 is 0>>
+			<<set $audiencecamera6 to $audiencemember>>
+		<</if>>
+	<<else>>
+		<<if $vaginastate is "penetrated">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $vaginastate is "imminent">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $vaginastate is "entrance">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $penisstate is "penetrated">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $penisstate is "imminent">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $penisstate is "entrance">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $penisstate is "otheranus">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $penisstate is "otheranusimminent">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $penisstate is "otheranusentrance">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $anusstate is "penetrated">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $anusstate is "imminent">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $anusstate is "entrance">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $mouthstate is "penetrated">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $mouthstate is "imminent">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $mouthstate is "entrance">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $vaginastate is "othermouth">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $vaginastate is "othermouthimminent">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $vaginastate is "othermouthentrance">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $penisstate is "othermouth">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $penisstate is "othermouthimminent">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $penisstate is "othermouthentrance">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $anusstate is "othermouthpenetrated">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $anusstate is "othermouthimminent">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $anusstate is "othermouthentrance">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $mouthstate is "kiss">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $mouthstate is "kissimminent">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<elseif $mouthstate is "kissentrance">>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<<else>>
+			<<if $orgasmdown gte 1>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<<else>>
+				<<if $face is "covered">>
+
+				<<else>>
+
+				<</if>>
+			<</if>>
+		<</if>>
+	<</if>>
+<</widget>>
+
+<<widget "audience">>
+	<div @class="($debugLines ? 'debugLines-audience' : '')">
+	<<set $audiencepresent to 1>>
+	<<if $enemyanger gte 100>>
+		<<if $enemyarousal gte (($enemyarousalmax / 10) * 8)>>
+			군중들은 당신이 희귀하고 위험한 짐승인 것처럼 겁내면서도 주위로 몰려든다.
+		<<elseif $enemyarousal gte (($enemyarousalmax / 10) * 4)>>
+			대부분의 군중들은 당신이 해칠 것을 두려워하며 거리를 둔다.
+		<<else>>
+			군중들은 당신이 해칠 것을 두려워하며 거리를 둔다.
+		<</if>>
+		<br>
+	<<elseif $enemyanger gte 60>>
+		<<if $enemyarousal gte (($enemyarousalmax / 10) * 8)>>
+			군중들은 욕망과 조심성을 가지고 주위로 몰려든다.
+		<<elseif $enemyarousal gte (($enemyarousalmax / 10) * 4)>>
+			군중들은 안전한 거리에서 구경한다. 용기 있는 몇몇은 더 가까이 온다.
+		<<else>>
+			군중들은 안전한 거리에서 구경한다.
+		<</if>>
+		<br>
+	<<elseif $enemyanger gte 20>>
+		<<if $enemyarousal gte (($enemyarousalmax / 10) * 8)>>
+			군중들은 다음에 무슨 일이 일어날지 궁금해 하며 주위로 몰려든다.
+		<<elseif $enemyarousal gte (($enemyarousalmax / 10) * 4)>>
+			흥분한 군중들이 주위로 몰려든다.
+		<<else>>
+			군중들이 흥미를 가지고 구경한다.
+		<</if>>
+		<br>
+	<<else>>
+		<<if $enemyarousal gte (($enemyarousalmax / 10) * 8)>>
+			군중들은 좋은 자리를 다투며 주위로 몰려든다.
+		<<elseif $enemyarousal gte (($enemyarousalmax / 10) * 4)>>
+			군중들이 흥미를 가지고 구경한다. 몇몇은 사람들을 밀치면서 더 좋은 자리를 찾는다.
+		<<else>>
+			군중들이 흥미를 가지고 구경한다.
+		<</if>>
+		<br>
+	<</if>>
+
+	<<if $location isnot "prison">>
+		<<if $audiencecamera1 isnot 0>>
+			<<set $audienceselector to 1>>
+			<<audiencecamera>>
+			<br>
+		<</if>>
+
+		<<if $audiencecamera2 isnot 0>>
+			<<set $audienceselector to 2>>
+			<<audiencecamera>>
+			<br>
+		<</if>>
+
+		<<if $audiencecamera3 isnot 0>>
+			<<set $audienceselector to 3>>
+			<<audiencecamera>>
+			<br>
+		<</if>>
+
+		<<if $audiencecamera4 isnot 0>>
+			<<set $audienceselector to 4>>
+			<<audiencecamera>>
+			<br>
+		<</if>>
+
+		<<if $audiencecamera5 isnot 0>>
+			<<set $audienceselector to 5>>
+			<<audiencecamera>>
+			<br>
+		<</if>>
+
+		<<if $audiencecamera6 isnot 0>>
+			<<set $audienceselector to 6>>
+			<<audiencecamera>>
+			<br>
+		<</if>>
+
+		<<set $facepic to 0>>
+		<<set $breastpic to 0>>
+		<<set $bottompic to 0>>
+		<<set $genitalpic to 0>>
+		<<set $bodypic to 0>>
+
+		<<if $audiencecamera1 isnot 0 and $face is "covered">>
+			<span class="teal">적어도 당신의 얼굴은 가려졌다.</span>
+			<br>
+		<</if>>
+
+		<<audiencespeech>>
+		/*<br> commented out due to excess space they caused*/
+		<<if $rng - $enemyanger + (($enemyarousalmax / $enemyarousal) * 100) gte 0>>
+			<<audiencespeech>>
+			/*<br>*/
+		<</if>>
+		<<if $rng - $enemyanger + (($enemyarousalmax / $enemyarousal) * 100) gte 20>>
+			<<audiencespeech>>
+			/*<br>*/
+		<</if>>
+		<<if $rng - $enemyanger + (($enemyarousalmax / $enemyarousal) * 100) gte 40>>
+			<<audiencespeech>>
+			/*<br>*/
+		<</if>>
+		<<if $rng - $enemyanger + (($enemyarousalmax / $enemyarousal) * 100) gte 60>>
+			<<audiencespeech>>
+			/*<br>*/
+		<</if>>
+		<<if $rng - $enemyanger + (($enemyarousalmax / $enemyarousal) * 100) gte 80>>
+			<<audiencespeech>>
+			/*<br>*/
+		<</if>>
+	<</if>>
+	</div>
+<</widget>>

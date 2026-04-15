@@ -1,0 +1,2757 @@
+:: Nightmare Test
+<<effects>>
+
+<<link [[악몽: 에덴|Nightmare Eden]]>><<set $sleephour to 1>><<set $nightmareExit to "Eden Cabin Bed">><</link>>
+<br>
+<<link [[악몽: 유령|Nightmare Wraith]]>><<set $sleephour to 1>><<set $nightmareExit to "Bed">><</link>>
+<br>
+<<link [[악몽: 하퍼|Nightmare Harper]]>><<set $sleephour to 1>><<set $nightmareExit to "Bed">><</link>>
+<br>
+<<link [[악몽: 거대 매|Nightmare Bird]]>><<set $sleephour to 1>><<set $nightmareExit to "Bird Tower Bed">><</link>>
+<br>
+<<link [[악몽: 타락한 시드니|Nightmare Corrupt Sydney]]>><<set $sleephour to 1>><<set $nightmareExit to "Bed">><</link>>
+<br>
+<<link [[악몽: 알렉스|Nightmare Alex]]>><<set $sleephour to 1>><<set $nightmareExit to "Farm Alex Bed">><</link>>
+<br>
+<<link [[악몽: 희망 없는 순환|Nightmare Witch]]>><<set $sleephour to 1>><<set $nightmareExit to "Bed">><</link>>
+<br>
+<<link [[악몽: 사무실|Nightmare Office]]>><<set $sleephour to 1>><<set $nightmareExit to "Bed">><</link>>
+<br>
+
+<<link [[뒤로|Bedroom]]>><</link>>
+<br>
+
+:: Nightmare Eden
+<<effects>><<nightmareStart "eden">><<set $location to "cabin">>
+
+<<generate1>><<npc "Eden" 2>><<person2>>
+<<set $NPCList[0] to clone($NPCList[1])>>
+<<set $NPCList[0].description to "shadowed">>
+<<set $NPCList[0].role to ($pronoun is "m" ? "man" : "woman")>>
+<<set $NPCList[0].name_known to 0>>
+<<clearsinglenpc 1>><<person1>>
+
+당신은 잠자리에 들려 애쓴다. 잠이 쉽사리 오지 않는다. 가라앉아야 할 심장 박동이 빨라진다. 당신의 눈은 감겨 있지만, 모든 것이 마치 대낮인 양 선명하게 보인다.
+<br><br>
+
+그림자가 오두막 구석으로 모여든다. 그림자는 가지를 뻗듯이, 비썩 마른 손가락을 더듬거린다. 에덴의 존재가 주는 보호 속에서도, 당신은 그것의 손가락이 살결에 닿는 것을 느낄 수 있다.<<stress 6>><<gstress>>
+<br><br>
+
+<<if $nightmaresSeen.includes("eden")>>
+	무언가 잘못되었다. 당신은 이 광경을 본 적이 있다. <span class="purple">이건 현실이 아니다.</span>
+	<br><br>
+
+	<<link [[깨어난다|Nightmare Eden Wake]]>><<set $phase to 0>><</link>><<nightmareWakeDifficulty>>
+	<br>
+<</if>>
+<<link [[에덴을 깨운다|Nightmare Eden 2]]>><<set $phase to 0>><</link>>
+<br>
+<<link [[이불 밑으로 숨는다|Nightmare Eden 2]]>><<set $phase to 1>><</link>>
+<br>
+
+:: Nightmare Eden Wake
+<<effects>>
+
+<<if $phase is 2>>
+	한 남자가 가까이 다가온다. 당신은 순순히 받아들이지 않는다. 눈을 뜨면, 에덴의 곁으로 돌아가 있을 것이다. 그가 당신을 지켜줄 것이다.
+<<elseif $phase is 1>>
+	침식해 오는 손들이 당신의 정신을 공포로 집어 삼키려 한다. 당신은 무릎 꿇지 않는다. 몸이 없다면, 남은 것은 정신 뿐이다. 당신은 눈을 감고 정신을 집중한다.
+<<else>>
+	공포감이 정신의 한편에서 어른거리지만, 당신은 그것을 구석으로 밀어낸다. 두려워할 것은 아무것도 없다. 에덴이 곁에 있다면. 당신은 눈을 감고 몸의 긴장을 푼다.
+<</if>>
+<br><br>
+
+<<if $willpowerSuccess>>
+	당신의 몸이 경련한다. 무엇이 당신을 짓누르고 있었는 지는 몰라도, <span class="green">당신은 어떻게든 몸의 통제력을 일부 되찾을 수 있었다.</span> 입을 열기에는 충분한 수준이다.
+	<br><br>
+
+	당신의 입에서 찢어질 듯한 비명이 새어나온다. 당신은 목이 쓰라릴 때까지 계속 비명을 지른다. 아픔은 중요치 않다. 그림자를 쫓아내기엔 충분하다.
+	<br><br>
+
+	누군가가 당신의 어깨를 붙잡고 강제로 일으켜 세운다. 구석을 보던 당신의 주의가 돌려진다. 겁에 질린 당신은 이윽고 낯익은 시선과 마주한다. 에덴이다.
+	<br><br>
+
+	<<link [[다음|Nightmare Eden Wake 2]]>><</link>>
+	<br>
+<<else>>
+	<<if $phase is 2>>
+		당신은 에덴의 생각에 집중하려 애쓴다. 그의 얼굴이 심상 속에서 뒤틀리며, <span class="red">어두컴컴한 흉물처럼 녹아내린다.</span> 당신은 공포에 눈을 떴지만, 바로 그 그림자와 정면으로 마주할 뿐이었다. 그가 당신을 덮쳐온다.<<stress 12>><<ggstress>>
+		<br><br>
+
+		<<link [[다음|Nightmare Eden Molestation]]>><<set $phase to 1>><<set $molestationstart to 1>><</link>>
+		<br>
+	<<elseif $phase is 1>>
+		<span class="red">무언가가 당신의 목을 간질여</span> 집중을 깨뜨린다. 황급히 눈을 뜬 당신은 몸 주위를 휘감은 채 서서히 형태를 취하며 당신을 집어삼켜 가는 그림자 덩어리와 눈이 마주친다.<<stress 6>><<gstress>>
+		<br><br>
+
+		<<link [[다음|Nightmare Eden 3]]>><<set $phase to 1>><</link>>
+		<br>
+	<<else>>
+		당신이 눈을 감아도, 그림자는 계속해서 꿈틀거린다. <span class="red">떨쳐 버릴 수가 없다.</span> 정체 불명의 힘이 당신을 짓누른 채, 벗어나지 못하도록 당신의 정신을 침범한다.<<stress 6>><<gstress>>
+		<br><br>
+
+		<<link [[다음|Nightmare Eden 2]]>><<set $phase to 1>><</link>>
+		<br>
+	<</if>>
+<</if>>
+
+:: Nightmare Eden 2
+<<effects>>
+
+<<if $phase is 1>>
+	당신은 이불로 몸을 감추려 한다.
+<<elseif $phase is 0>>
+	당신은 에덴을 흔들어 깨우려 한다.
+<</if>>
+할 수 없다. <span class="red">한 발짝도 움직일 수 없다.</span> 그림자가 다가와도 손가락 하나 까딱할 수 없다. 그림자는 침대 주위를 돌며, 팔을 뻗었다가 마지막 순간에 도로 집어넣는다. 한번 잡을 때마다 당신을 가까이 끌어당긴다.<<stress 6>><<gstress>>
+<br><br>
+
+에덴은 눈앞의 위험에도 아랑곳않고 당신의 곁에서 코를 골고 있다. 그가 당신을 지켜주겠다고 했다. 당신을 안전하게 보호해 주겠다고 했다. 당신은 그저 그를 깨우기만 하면 된다.
+<br><br>
+
+<<if $nightmaresSeen.includes("eden")>>
+	<<link [[깨어난다|Nightmare Eden Wake]]>><<set $phase to 1>><</link>><<nightmareWakeDifficulty>>
+	<br>
+<</if>>
+<<link [[움직이려 시도한다|Nightmare Eden 3]]>><<set $phase to 1>><</link>>
+<br>
+<<link [[비명을 지른다|Nightmare Eden 3]]>><<set $phase to 0>><</link>>
+<br>
+
+:: Nightmare Eden 3
+<<effects>>
+
+<<if $phase is 1>>
+	필사적인 노력에도 불구하고, 당신의 몸은 단단히 얼어붙었다. 제자리에서 몸서리만 칠 수 있을 뿐이다.
+<<else>>
+	당신의 정신은 비명을 지르고 있건만, 입술은 굳게 닫혀 있다. 힘없이 흐느끼는 소리만이 새어나올 뿐이다.
+<</if>>
+에덴은 꿈쩍도 하지 않는다.<<stress 6>><<gstress>>
+<br><br>
+
+추상적인 형태가 우뚝 솟은 형상으로 합쳐진다. 그것은 말없이 당신의 무력한 몸 너머에 서서 날카로운 손을 뻗는다. 손은 가까워질수록 점점 형태가 명확해진다. 점차 색이 스며들더니 마침내 무표정한 남자의 모습을 취한다.
+<br><br>
+
+오두막은 쥐 죽은 듯 고요하다. 에덴이 옆에 있는지도 확신할 수 없다. 이곳엔 당신과 남자, 둘 뿐이다.
+<br><br>
+
+<<if $nightmaresSeen.includes("eden")>>
+	<<link [[깨어난다|Nightmare Eden Wake]]>><<set $phase to 2>><</link>><<nightmareWakeDifficulty>>
+	<br>
+<</if>>
+<<link [[몸부림친다|Nightmare Eden Molestation]]>><<set $phase to 1>><<set $molestationstart to 1>><</link>>
+<br>
+<<link [[받아들인다|Nightmare Eden Molestation]]>><<set $phase to 0>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Nightmare Eden Molestation
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<set $trance to 1>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemyanger to 70>>
+	<<set $enemytrust to 0>>
+	<<if $phase is 1>>
+		당신은 자신을 내리누르는 힘에 마지막으로 힘없이 한번 저항한다. 아무 소용도 없다. 당신의 의지가 남자에게 굴복한다.
+	<<else>>
+		당신의 몸과 마음은 무력하게 남자의 의지에 굴복한다.
+	<</if>>
+	그가 당신에게 손을 얹는다. 차갑다.
+	<<controlloss>>
+	<<molested>>
+	<<set $enemyarousalmax to 250>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Nightmare Eden Molestation Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Nightmare Eden Molestation]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Nightmare Eden Molestation Finish
+<<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<set _nn to 0>>
+	<<set $pronoun to $NPCList[0].pronoun>>
+	<<set $NPCList[0].intro to 1>>
+	<<ejaculation-eden>>
+
+	<<animateCombat>>
+
+	그는 당신의 머리카락을 어루만지며 얼굴로 흘러내린 가닥을 부드럽게 치우다가, 여전히 얼어붙어 있는 당신의 몸에서 물러난다.
+<<else>>
+	남자는 침대에서 떨어져 그림자의 일부가 된다. 그림자는 바닥으로 몸부림치며 여전히 얼어붙어 있는 당신의 몸에서 물러난다.
+<</if>>
+<br><br>
+
+당신은 그가 구석으로 미끄러지듯 돌아가는 것을 바라본다.그의 그림자가 서서히 사라지자, 당신의 근육에서 긴장이 풀리며 보이지 않는 구속구로부터 해방된다.
+<br><br>
+
+<<tearful>> 당신은 일어나 앉는다. 어두운 구석에서 <<if $pain gte 20>>눈물로 젖은<</if>> 눈을 뗄 수 없다.
+<br><br>
+
+<<link [[다음|Nightmare Eden End]]>><<endcombat>><<clotheson>><</link>>
+<br>
+
+:: Nightmare Eden End
+<<effects>><<nightmareEnd>>
+<<npc "Eden">><<person1>>
+
+<<if Time.hour gte 0 and Time.hour lte 6>>
+	당신은 에덴에게 손을 뻗어 그의 팔을 찾는다. 당신은 그 팔에 자신의 팔을 휘감는다. 그는 아직 여기 있다. 지금껏 내내 이곳에 있었다.
+<<else>>
+	당신은 에덴을 찾아 손을 뻗는다. 느껴지는 것은 당신 옆의 빈 자리 뿐이다. 에덴은 먼저 일어난 것이 틀림없다. 당신은 그가 그저 일어난 것일 뿐이기를 바란다.
+<</if>>
+<br><br>
+
+그는 당신을 구해주지 않았다. 너는 안전할 거라고 맹세했으면서. 왜 거짓말을 했지?<<stress 18>><<gggstress>>
+<br><br>
+
+<<link [[다음|$nightmareExit]]>><<unset $nightmareExit>><<endevent>><</link>>
+<br>
+
+:: Nightmare Eden Wake 2
+<<effects>><<nightmareEnd>>
+<<npc "Eden">><<person1>>
+
+"뭐였어?" 그가 캐묻는다. "무슨 일이야?"
+<br><br>
+
+그는 대답을 기다리지 않는다. 그는 이미 총을 손에 든 채 일어서 있다. 당신의 시선이 구석에 머무르자, 그가 당신의 얼굴 앞에서 손가락을 튕긴다.
+<br><br>
+
+"어이! 뭘 쳐다보는 거야?"
+<br><br>
+
+<<link [[말한다|Nightmare Eden Console]]>><</link>>
+<br>
+<<link [[아무것도 아니라고 우긴다|Nightmare Eden Insist]]>><</link>>
+
+:: Nightmare Eden Console
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"저-저쪽에 뭔가 있었어요," 당신이 말한다. "그게, 그게 저를 데려가려 했어요. 그게-" 당신은 기댈 곳을 찾아 에덴에게 매달린 채 숨을 헐떡인다.
+<<elseif $speech_attitude is "bratty">>
+	"있었어요... 뭔가가!" 당신이 소리친다. "저기 저쪽에, 뭔가 끔찍한 게 있었거든요." 당신은 그를 구석 쪽으로 밀어붙인다.
+<<else>>
+	"못 보셨어요?" 당신이 속삭인다. "그 괴물이요. 바로 저기 있었어요." 당신은 그의 따뜻한 품에 파고들며, 구석을 향해 고개를 까딱인다.
+<</if>>
+<br><br>
+
+그는 당신을 무시한다. "아무것도 없잖아," 그가 당신을 다시 내려다보며 중얼거린다. "그냥 악몽이겠지."
+<br><br>
+
+당신은 반박할 기회조차 없다.
+<<if Time.hour gte 0 and Time.hour lte 6>>
+	그의 총이 벽에 부딪히고, 침대가 삐걱거리고, 그는 순식간에 곯아떨어진다.
+<<else>>
+	그는 생각에 빠진 당신을 혼자 두고 쿵쿵거리며 밖으로 나간다.
+<</if>>
+<br><br>
+
+에덴 말이 맞다. 전부 꿈일 뿐이다.
+<br><br>
+
+<<link [[다음|$nightmareExit]]>><<unset $nightmareExit>><<endevent>><</link>>
+<br>
+
+:: Nightmare Eden Insist
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"그-그냥 악몽을 꾼 것 뿐이에요," 당신이 불안한 듯 미소지으며 말한다. "걱정하실 것 없어요." 그의 표정만으로는 그가 당신을 믿는지 확신할 수 없다.
+<<elseif $speech_attitude is "bratty">>
+	"그냥 개꿈이었어요," 당신이 중얼거린다. "괜찮을 거예요." 에덴이 코웃음을 친다.
+<<else>>
+	"그냥 악몽이었던 것 같아요," 당신이 말한다. 그는 당신을 잠시 바라보다가 등을 돌린다.
+<</if>>
+<br><br>
+
+"악몽 하나 때문에 그 난리라니," 그는 한숨을 쉬며 <<if Time.hour gte 0 and Time.hour lte 6>>꿈나라로 돌아간다<<else>>쿵쿵거리며 밖으로 도로 나간다<</if>>.
+<br><br>
+
+에덴 말이 맞다. 전부 꿈일 뿐이다.
+<br><br>
+
+<<link [[다음|$nightmareExit]]>><<unset $nightmareExit>><<endevent>><</link>>
+<br>
+
+:: Nightmare Wraith
+<<effects>><<nightmareStart "wraith">><<set $location to "temple">>
+<<set Time.setTime(12, 0)>>
+
+당신은 불안한 잠으로 빠져든다.
+<br><br>
+
+당신은 잔디밭에 엎어진 채로 눈을 뜬다. 눈을 깜빡이며 가시지 않은 잠기운을 떨쳐내고, 당신은 몸을 일으켜 주위를 둘러본다.
+<br><br>
+
+당신은 어느 사원이 내려다보이는 언덕에 서있다. 뒤편의 숲 사이로 연기와 웃음소리가 흘러나온다. 어째서인지, 모든 것이 익숙하게 느껴진다.
+<<if $awarelevel gte 2>>
+	숲의 호숫가인 것 같지만, 물은 보이지 않는다.
+<</if>>
+<br><br>
+
+<<if $nightmaresSeen.includes("wraith")>>
+	당신은 이곳을 알고 있다. 여긴 현실이 아니다. <span class="purple">여긴 위험하다.</span>
+	<br><br>
+
+	<<link [[깨어난다|Nightmare Wraith Wake]]>><<set $phase to 0>><</link>><<nightmareWakeDifficulty>>
+	<br>
+	<span class="nextLink"><<link [[머무른다.|Nightmare Wraith 2]]>><<set $phase to 1>><</link>></span>
+	<br>
+<<else>>
+	<<link [[다음|Nightmare Wraith 2]]>><<set $phase to 0>><</link>>
+	<br>
+<</if>>
+
+:: Nightmare Wraith Wake
+<<effects>>
+
+<<if $phase is 2>>
+	바람과 물살이 당신의 얼굴을 후려치지만, 당신은 아랑곳하지 않는다. 이건 현실이 아니다. 깨어나면 전부 사라질 것이다. 당신은 눈을 감는다.
+<<elseif $phase is 1>>
+	당신은 눈을 감고 귀를 막는다. 아름답든 아니든, 노랫소리가, 혹은 노래를 부르는 이가, 당신을 조종하게 둘 수는 없다. 당신은 깨어나려 애쓴다.
+<<else>>
+	당신은 눈을 감고 정신을 집중한다. 여기가 어디든, 머물러 있을 가치는 없다. 당신은 심호흡을 하고 깨어날 의지를 다진다.
+<</if>>
+<br><br>
+
+<<if $willpowerSuccess>>
+	몸이 차갑다. 죽은 듯이 차갑다. 공포가 밀려오지만, 당신은 순순히 압도당하지 않는다. 현실이 코앞이다. 
+	<br><br>
+
+	"<span class="wraith">어둠 속에 숨어, <<pcpetname "Wraith">>. 스스로의 안에 숨어.</span>"
+	<br><br>
+
+	얼어붙은 손가락이 당신의 뺨에 스친다. 당신은 짧게 숨을 들이마시며 눈을 뜬다.
+	<br><br>
+
+	<<link [[다음|Nightmare Wraith End]]>><<endevent>><<set $phase to 1>><</link>>
+	<br>
+<<else>>
+	<<set $nightmareWake++>>
+
+	<<if $phase is 2>>
+		<span class="red">거대한 파도가 당신을 덮쳐 바닥으로 쓰러트린다.</span> 당신은 일어나려 했지만, 보이지 않는 존재가 당신을 짓누른다. 창백한 형상이 당신 너머에 서서 그 <<wraithEyes>> 눈으로 당신을 꿰뚫어본다.<<stress 6>><<gstress>>
+		<br><br>
+
+		<span class="nextLink"><<link [[지켜본다.|Nightmare Wraith 4]]>><</link>></span>
+		<br>
+	<<elseif $phase is 1>>
+		그러나 노력에도 불구하고 <span class="red">정신을 돌릴 수는 없었다.</span> 노랫소리가 안도감이 들도록 당신을 구슬린다. 당신의 눈이 저절로 뜨인다. 손은 힘없이 양 옆으로 늘어진다. 당신이 할 수 있는 것은 지켜보는 것 뿐이다. 지켜보며 듣는 것 뿐.<<stress 6>><<gstress>>
+		<br><br>
+
+		<span class="nextLink"><<link [[듣는다.|Nightmare Wraith 3]]>><</link>></span>
+		<br>
+	<<else>>
+		<span class="red">속삭이는 소리가 당신의 집중을 깨트린다.</span> 들은 시간은 1초도 채 되지 않았지만, 그것만으로도 충분했다. 노랫소리는 당신을 현실로 가지 못하게 붙들고 가지 말라며 구슬린다. <span class="red">당신은 제자리에 뿌리박힌다.</span><<stress 6>><<gstress>>
+		<br><br>
+
+		<span class="nextLink"><<link [[본다.|Nightmare Wraith 2]]>><<set $phase to 0>><</link>></span>
+		<br>
+	<</if>>
+<</if>>
+
+:: Nightmare Wraith 2
+<<effects>>
+<<set Weather.set("heavyClouds", true)>>
+
+<<if $phase is 1>>
+	아름다운 노랫소리의 기억이 당신의 정신을 가득 채운다. 그 소리가 다시 듣고 싶어진다. <span class="blue">다시 들어야만 한다.</span>
+	<br><br>
+
+	사방을 둘러보니, 저 멀리 그 자가 보인다.
+<<else>>
+	당신의 시야 한구석에 무언가가 보인다. 멀리 떨어진 곳에 한 인물이 서있다.
+<</if>>
+칙칙한 갈색 로브와 창백한 백발 외의 이목구비는 알아볼 수 없다.
+<br><br>
+
+희미하지만, 그 자는 노래하고 있는 것 같다. 당신이 모르는 언어지만 곡조는 나지막하다. 오래 들으면 들을수록 당신의 마음이 고요해진다.
+<br><br>
+
+그 자의 목소리가 커진다. 언덕 맨 아래에서 무언가 움직이는 것이 보인다. 사원에서 물이 흘러나온다.
+<br><br>
+
+<<if $nightmaresSeen.includes("Wraith")>>
+	<<link [[깨어난다|Nightmare Wraith Wake]]>><<set $phase to 1>><</link>><<nightmareWakeDifficulty>>
+	<br>
+<</if>>
+<span class="nextLink"><<link [[듣는다.|Nightmare Wraith 3]]>><</link>></span>
+<br>
+
+:: Nightmare Wraith 3
+<<effects>>
+<<set Time.setTime(20, 0)>>
+<<set Weather.set("heavyPrecipitation", true)>>
+
+차분함이 사라지기 시작한다. 그 자의 목소리는 점점 더 커지고, 곡조는 애절하고 필사적으로 변해간다.
+<br><br>
+
+더 많은 물이 사원의 문과 창문에서 쏟아져 나와, 마침내 홍수처럼 불어난다. 언덕 아래의 분지가 점점 채워진다. 바람이 물을 싣고 불어와, 당신과 그 자를 흠뻑 적신다.
+<br><br>
+
+바람에 머리카락이 날리자, 그 자의 얼굴이 선명하게 보인다. 그 얼굴은 점차 창백해지다가, 이내 투명해진다. 목소리는 이제 날카롭게 울부짖는 소리가 되었다.
+<br><br>
+
+그것의 목에서 무언가 방울지듯 떨어져 발치에 웅덩이를 이룬다.
+<br><br>
+
+<<if $nightmaresSeen.includes("Wraith")>>
+	<<link [[깨어난다|Nightmare Wraith Wake]]>><<set $phase to 2>><</link>><<nightmareWakeDifficulty>>
+	<br>
+<</if>>
+<span class="nextLink"><<link [[지켜본다.|Nightmare Wraith 4]]>><</link>></span>
+<br>
+
+:: Nightmare Wraith 4
+<<effects>><<set $forcedBloodmoon to true>>
+<<set Time.setTime(21, 0)>>
+
+숲은 적막하다. 바람이 나무를 흔드는 소리조차 없다.
+<br><br>
+
+"<span class="wraith">영원히 얼어붙어,</span>" 형체가 말한다. "<span class="wraith">차갑게, 숨가쁘게.</span>"
+<br><br>
+
+당신은 시선을 돌려 그것을 마주한다. 그것은 감정이 보이지 않는 얼굴로 당신을 똑바로 응시하고 있다.
+<br><br>
+
+"<span class="wraith">그들과 함께하겠니, <<pcpetname "Wraith">>?</span>"
+<br><br>
+
+<<link [[가만히 있는다|Nightmare Wraith 5]]>><<set $phase to 1>><</link>>
+<br>
+<<link [[도망친다|Nightmare Wraith 5]]>><<set $phase to 0>><</link>>
+<br>
+
+:: Nightmare Wraith 5
+<<effects>>
+
+<<if $phase is 1>>
+	당신은 가까이 다가오는 형체를 쳐다본다. 그것은 부드럽게 당신을 바닥으로 이끈다. 갑자기 밀려드는 <<if $settings.tentaclesEnabled>>촉수가<<else>>창백한 팔이<</if>> 그것의 등 뒤에서 튀어나와 당신을 찍어누른다.
+<<else>>
+	당신은 나무 사이로 도망치려 했지만, 형체의 공격은 빨랐다. 그것은 당신에게 덤벼들어 <<if $settings.tentaclesEnabled>>꿈틀대는 촉수로<<else>>몸부림치는 팔로<</if>> 당신을 찍어누른다.
+<</if>>
+<br><br>
+
+당신의 몸에서 체온이 빠져나간다. 형체의 머리카락에서 물이 당신의 얼굴로 뚝뚝 떨어진다.
+<br><br>
+
+<<if $wraith.state is "haunt">>
+	"<span class="wraith"><<pcPetname "Wraith">>. 너는 나의 것을 가져갔어. 적어도 온기만큼은 나누어 줄 수 있겠지.</span>"
+<<elseif $wraith.state is "despair">>
+	"<span class="wraith">네 온기를 빌려줘. 너무 추워. 언제나 너무나도 추워.</span>"
+<<else>>
+	"<span class="wraith">네 온기를 빌려줘.</span>"
+<</if>>
+<br><br>
+
+<<endevent>>
+<<generateWraith 1 true>><<initWraith "abomination">>
+
+<<link [[다음|Nightmare Wraith Rape]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Nightmare Wraith Rape
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+<</if>>
+
+<<effectsWraith>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Nightmare Wraith Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Nightmare Wraith Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Nightmare Wraith Rape Finish
+<<effects>>
+
+<<if $enemyhealth lte 0 and $wraith.type is "man">>
+		창백한 형상은 쉭쉭거리며 물러난다.
+		<br><br>
+
+		"<span class="wraith">무지한 것.</span>" 그것은 뒤로 떠올라, 새로 만들어진 호수를 향해 움직인다. "<span class="wraith">맹목적이고 여려. 따스하지만, 흐릿해.</span>"
+		<br><br>
+
+		그것은 호수 깊이 가라앉으며 당신을 노려본다. 그 주위로 물거품이 떠오른다.
+		<<set $wraith.defeated++>>
+<<else>>
+	<<ejacW>>
+	<<if $enemyanger gt 0>>
+		"<span class="wraith">이 정도의 생기. 얼마나 오래 갈까?</span>"
+		<br><br>
+
+		그것은 천천히 물러나며, 당신의 몸을 어루만진다. 그것은 마지막으로 당신의 허벅지를 세게 꼬집고 위로 떠오른다.
+		<br><br>
+
+		그것은 얼굴에 불길한 미소를 띤 채 뒤로 떠올라, 호수의 물 속으로 가라앉는다. 그 주위로 물거품이 피어난다.
+	<<else>>
+		"<span class="wraith">메아리.</span>" 그것이 차가운 손가락 하나로 당신의 뺨을 스친다. "<span class="wraith">기억.</span>"
+		<br><br>
+
+		그것은 천천히 물러나며 당신의 몸을 어루만진다. 놓아주기를 망설이는 것 같다.
+		<br><br>
+
+		이전만큼이나 평온한 모습으로, 그것은 뒤로 부유하기 시작한다. 그것은 당신에게 시선을 고정한 채 물 속으로 가라앉는다. 그 주위로 물거품이 떠오른다.
+	<</if>>
+<</if>>
+<br><br>
+
+<<link [[다음|Nightmare Wraith 6]]>><<endcombat>><</link>>
+<br>
+
+:: Nightmare Wraith 6
+<<effects>><<set $location to "lake_ruin">>
+
+물이 풍덩 소리를 내며 휘돌고, 형체는 더 이상 보이지 않는다. 당신은 밀려오는 파도를 피하려고 황급히 뒤로 기어간다. 파도는 빠르고 난폭하게 덮쳐온다.
+<br><br>
+
+<span class="red">무언가가 당신의 발목을 붙잡는다.</span> 거품으로 만들어진 손이 당신의 발목에 꽉 감겨 있다. 풀밭에 엎어진 당신의 얼굴에 진흙이 튄다. 창백한 손들이 당신의 몸 위로 기어온다.
+<br><br>
+
+당신은 손에 붙잡혀 호수로 끌려 간다. 차가운 물이 당신의 호흡을 남김없이 집어삼킨다. <span class="red">숨을 쉴 수가 없다!</span>
+<br><br>
+
+물결 밑으로 끌려 가는 당신의 머리 위로 진홍색의 달빛이 흩어진다.
+<br><br>
+
+<span class="nextLink"><<link [[가라앉아.|Nightmare Wraith End]]>><<clotheson>><<unset $forcedBloodmoon>><<set $phase to 0>><</link>></span>
+<br>
+
+:: Nightmare Wraith End
+<<effects>><<nightmareEnd>>
+
+<<if $phase is 1>>
+	당신은 자리에서 벌떡 일어선다. 숲의 소리가 서서히 가라앉는다. 당신은 잠에서 깨어났다.
+	<br><br>
+
+	산들바람이 당신을 스쳐 지나간다. 어느새 몸이 뜨거워져 있다. 뺨을 제외한 몸 전체가 불타는 것만 같다.<<stress 2>><<gstress>>
+<<else>>
+	당신은 어느 소리에 잠을 깬다. 자면서 손을 휘젓다가 벽을 내리친 모양이다.<<pain 1>><<gpain>>
+	<br><br>
+
+	당신은 덜덜 떨면서 일어나 앉아 주변을 둘러본다. 물도, 창백한 형체도 없다. 이곳은 안전하다.
+	<<if ["asylum", "prison"].includes($location)>>
+		상대적으로는.
+	<</if>>
+	그저 꿈이었을 뿐이다.
+<</if>>
+<br><br>
+
+<<link [[다음|$nightmareExit]]>><<unset $nightmareExit>><</link>>
+<br>
+
+:: Nightmare Bird
+<<effects>><<nightmareStart "bird">><<set $location to "tower">>
+<<npc "Great Hawk">><<person1>>
+
+당신은 불안한 잠으로 빠져든다.
+<br><br>
+
+당신은 거센 바람에 번쩍 정신을 차린다. 당신은 온기를 찾아 당신 <<if $monster is 1>>남편의<<else>>짝의<</if>> 품 속으로 파고 들었지만, 그의 존재가 느껴지지 않는다. 아무것도 느껴지지 않는다. 바람과 등을 찌르는 듯한 통증이 느껴질 뿐이다.
+<br><br>
+
+눈을 뜨니, 당신은 저 멀리 서 있는 탑을 바라보고 있다. 당신은 아래를 내려다본다. <span class="red">광활하게 펼쳐진 암흑이 당신을 마주한다.</span> 땅은 <<if Time.dayState is "night">>밤의 어둠으로<<else>>안개로<</if>> 덮여 있다.<<stress 6>><<gstress>>
+<br><br>
+
+거대한 날개 한 쌍이 머리 위에서 퍼덕인다. 당신의 <<if $monster is 1>>남편이다<<else>>짝이다<</if>>.
+그는 당신을 꽉 붙잡고 탑으로 옮긴 후 바닥에 내던진다. 그의 발톱 아래 드러누운 당신의 위로 그의 날개가 
+<<if Time.dayState is "night">>
+	별빛을 집어삼킨다
+<<else>>
+	당신의 위로 커다란 그림자를 드리운다
+<</if>>
+.
+<br><br>
+
+<<if $nightmaresSeen.includes("bird")>>
+	무언가가 이상하다. <span class="purple">그는 당신의 <<if $monster is 1>>남편이<<else>>짝이<</if>> 아니다.</span>
+	<br><br>
+
+	<<link [[깨어난다|Nightmare Bird Wake]]>><</link>><<willpowerdifficulty 1 1000>>
+	<br>
+<</if>>
+<<link [[달랜다|Nightmare Bird 2]]>><<set $phase to 1>><<sub 1>><</link>><<gmystery>>
+<br>
+<<link [[꾸짖는다|Nightmare Bird 2]]>><<set $phase to 0>><<def 1>><</link>><<gmystery>>
+<br>
+
+:: Nightmare Bird Wake
+<<effects>>
+
+이런 곳에는 있고 싶지 않다. <<if $monster is 1>>이게 누군지는 몰라도 이 자가 아니라<<else>>이게 무엇이든 간에 이것이 아니라<</if>> 당신의 <<if $monster is 1>>남편과<<else>>짝과<</if>> 함께 둘만의 둥지에 있고 싶다. 당신은 눈을 감는다.
+<br><br>
+
+<<if $willpowerSuccess>>
+	당신을 둘러싼 세상이 서서히 사라지고 <span class="green">현실에게 자리를 내준다.</span> 거대 매는 날카롭게 소리를 지르다가 마침내 사라진다.
+	<br><br>
+
+	<<link [[다음|Nightmare Bird End]]>><<endevent>><</link>>
+	<br>
+<<else>>
+	<span class="red">끔찍한 울음소리가 당신을 현실로부터 찢어 놓는다.</span> 그의 발톱이 당신의 가슴을 파고들어 움직이지 못하게 붙잡는다. 당신은 몸도 정신도 갇혀 버렸다.<<stress 6>><<pain 4>><<gstress>><<gpain>>
+	<br><br>
+
+	<<link [[다음|Nightmare Bird 2]]>><<set $phase to 2>><</link>>
+	<br>
+<</if>>
+
+:: Nightmare Bird 2
+<<effects>>
+
+<<if $phase is 1>>
+	당신은 몸을 받치고 일어나 그에게 손을 내민다.
+	<<if $speech_attitude is "meek">>
+		"차-착하지, 착하지, 기분이 안 좋구나. 침대로 가자." 당신이 달래듯 말한다.
+	<<elseif $speech_attitude is "bratty">>
+		"뭐 잘못 먹었냐? 가서 잠이나 자, 닭대가리야." 당신이 말한다.
+	<<else>>
+		"걱정 마, 좀 쉬면 괜찮아질 거야." 당신이 속삭인다.
+	<</if>>
+	<br><br>
+
+	<<if $monster is 1>>
+		<span class="red">그는 날카롭게 울부짖으며 사납게 팔을 쳐낸다.</span>
+	<<else>>
+		<span class="red">그는 울부짖으며 손을 물려고 든다.</span>
+	<</if>>
+	당신은 뒤로 휘청인다. 그의 시선이 당신을 뒤쫓는다.<<stress 6>><<gstress>>
+	<br><br>
+<<elseif $phase is 0>>
+	<<if $speech_attitude is "meek">>
+		"제발 그만해, 나 자야 한단 말이야." 당신은 둥지에 몸을 파묻으며 칭얼거린다.
+	<<elseif $speech_attitude is "bratty">>
+		당신은 무시하듯 몸을 돌린다. "작작 좀 해, 나 자려 하고 있잖아." 당신이 투덜거린다. 
+	<<else>>
+		당신은 돌아 누워서 한숨을 내쉰다. "나 자고 있잖아. 다시 깨우지 마." 당신이 말한다.
+	<</if>>
+	<br><br>
+
+	끔찍한 울음소리와 함께 <span class="red">그가 발톱으로 당신의 목을 붙잡아</span> 다시 자신과 눈이 마주치도록 비튼다.<<stress 6>><<gstress>>
+	<br><br>
+<</if>>
+
+그는 몸을 기대어 
+<<if $monster is 1>>
+	서로의 얼굴이 마주 보이도록 당신을 둥지에 도로 눕힌다. 머리칼은 텁수룩하게 엉켜 있고, 
+<<else>>
+	부리가 당신의 얼굴과 같은 높이가 되도록 당신을 둥지에 도로 눕힌다. 깃털은 평소처럼 정돈된 흔적 없이 거칠고, 
+<</if>>
+발톱은 오늘따라 더 날카롭게 느껴진다. 그의 눈빛에는 당신을 알아보는 기색이 한 줌도 보이지 않는다. 그저 사납고 야생적인 욕정만이 존재할 뿐이다.
+<br><br>
+
+경고도 없이 그가 당신에게 달려든다!
+<br><br>
+
+<<link [[다음|Nightmare Bird Rape]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Nightmare Bird Rape
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<beastCombatInit>>
+	<<set $enemytrust -= 100>>
+	<<set $enemyanger += 200>>
+	<<set $enemyhealthmax to 600>>
+	<<set $enemyhealth to 600>>
+	<<if $monster isnot 1>>
+		<<set $position to "doggy">>
+		<<set $NPCList[0].stance to "top">>
+	<</if>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<br><br>
+<<beast $enemyno>>
+<br><br>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Nightmare Bird Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Nightmare Bird Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Nightmare Bird Rape Finish
+<<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<beastejaculation>>
+
+	그는 
+	<<if $monster is 1>>
+		입을 꾹 다물고 당신을 응시한다.
+	<<else>>
+		꼼짝도 않고 당신을 응시한다.
+	<</if>>
+	그는 갑작스럽게 하늘로 날아오르더니, 발톱으로 당신을 낚아채서 탑의 가장자리로 끌고 간다.
+<<else>>
+	그는 움찔하며 날카롭게 울부짖는다. 느닷없이, 그가 발톱으로 당신을 낚아채서 탑의 가장자리로 끌고 간다.
+<</if>>
+당신은 또 다시 저 아래의 시커먼 심연을 마주한다. 살 속으로 깊이 파고드는 그의 발톱이 당신을 꽉 붙든다.
+<br><br>
+
+그러더니, 그가 당신을 놓아버린다.<<stress 12>><<ggstress>>
+<br><br>
+
+추락하는 당신의 시야에서 거대 매는 자취를 감춘다.
+<<if $speech_attitude is "meek">>
+	당신은 애원하고 간청하며 그를 애타게 부른다. 바람에 당신의 울음소리가 흩어진다.
+<<elseif $speech_attitude is "bratty">>
+	당신은 다급하게 그를 향해 손을 뻗는다. 손에 잡히는 것은 바람 뿐이다.
+<<else>>
+	당신은 큰 소리로 도움을 요청하며 팔다리를 마구 흔든다. 돌아오는 것은 바람소리 뿐이다.
+<</if>>
+쓰레기처럼 무력하게 버려진 채 당신은 아래로 떨어진다.
+<br><br>
+
+<<link [[다음|Nightmare Bird End]]>><<endcombat>><<clotheson>><</link>>
+<br>
+
+:: Nightmare Bird End
+<<effects>><<nightmareEnd>>
+<<npc "Great Hawk">><<person1>>
+
+당신은 땀에 젖은 채 몸을 떨며 잠에서 깨어난다. 다행히도 안전한 둥지 안이다. 거대 매는 아무것도 모르고 당신의 곁에서 평온한 잠에 빠져 있다. 당신은 잠자는 그를 한동안 응시하다가, 탑 너머로 시선을 돌린다.
+<br><br>
+
+꿈의 몽롱한 기운이 가시고 나서도, 탑의 가장자리 너머에는 어둠밖에 보이지 않는다. 당신은 오한에 떤다.<<stress 6>><<gstress>>
+<br><br>
+
+<<link [[다음|$nightmareExit]]>><<unset $nightmareExit>><<endevent>><</link>>
+<br>
+
+:: Nightmare Harper
+<<effects>><<nightmareStart "harper">><<set $location to "asylum">>
+<<silently>><<ruined>><</silently>>
+<<upperwear "patient gown">>
+<<npc Harper>><<generate2>><<generate3>><<generate4>><<person1>>
+
+당신은 불안한 잠으로 빠져든다.
+<br><br>
+
+당신은 눈부신 빛에 눈을 떠 일어나 앉았지만, 움직일 수가 없다. 팔다리가 묶여 있다. 고개조차 돌릴 수 없다.<<stress 6>><<gstress>>
+<br><br>
+
+주변을 훑어보니 주위에 무엇이 있는지 얼핏 보인다. 윤이 나는 하얀 벽. 의자 세 개. 그 앞에는 테이블에 놓인 기이한 기계 하나. 방 안에는 아무도 없다.
+<br><br>
+
+<<if $nightmaresSeen.includes("harper")>>
+	당신은 여기가 어딘지 알고 있다. 이건 현실이 아니다. <span class="purple">이곳은 안전하지 않다.</span>
+	<br><br>
+
+	<<link [[깨어난다|Nightmare Harper Wake]]>><<set $phase to 0>><</link>><<nightmareWakeDifficulty>>
+	<br>
+<</if>>
+<<link [[몸부림친다|Nightmare Harper 2]]>><<set $phase to 1>><<pain 6>><</link>>
+<br>
+<<link [[기다린다|Nightmare Harper 2]]>><<set $phase to 0>><<stress 6>><</link>>
+<br>
+
+:: Nightmare Harper Wake
+<<effects>>
+
+<<if $phase is 2>>
+	점점 더 가까이 다가오는 메스에 당신의 심장이 요동치지만, 그럼에도 당신은 눈을 꾹 감는다. 이건 현실이 아니다. 당신에게 상처를 주진 못한다. 당신은 잠에서 깨어나려 의지력을 발휘한다.
+<<elseif $phase is 1>>
+	당신은 하퍼와 그 일행을 무시한다. 눈만 뜬다면 저들은 당신을 해칠 수 없다. 당신은 눈을 감는다.
+<<else>>
+	몸부림쳐도 소용 없다. 탈출하려면 정신을 깨끗하게 비워야 한다. 당신은 눈을 감는다.
+<</if>>
+<br><br>
+
+<<if $willpowerSuccess>>
+	방이 점점 밝아진다. 빛이 당신의 눈꺼풀 너머로 번쩍이고, <span class="green">팔다리가 풀려나는 것이 느껴진다.</span> 당신의 온몸이 자유로이 풀려난다. 당신은 새하얀 공백으로 계속해서 추락하다가 마침내 착지한다. 시야가 점차 선명해진다.
+	<br><br>
+
+	<<link [[다음|Nightmare Harper End]]>><<endevent>><<set $phase to 1>><</link>>
+	<br>
+<<else>>
+	<<set $nightmareWake++>>
+
+	<<if $phase is 2>>
+		칼날이 갈수록 당신의 몸을 더 깊게 파고든다. 아무 생각도 할 수가 없다. <span class="red">공포가 너무나도 생생하다.</span> 당신은 본능에 휩싸여 필사적으로 구속구를 잡아당긴다.<<stress 6>><<gstress>>
+		<br><br>
+
+		<<link [[다음|Nightmare Harper 4]]>><<set $phase to 1>><</link>>
+		<br>
+	<<elseif $phase is 1>>
+		"완벽해, 제대로 긴장을 풀고 있구나." 하퍼가 말한다. <span class="red"><<person1>>그의 말이 당신의 집중을 깨트린다.</span> 당신은 불안하게 이 사람에서 저 사람으로 시선을 옮긴다. 당신의 머릿속으로 불길함이 스멀스멀 돌아온다.<<stress 6>><<gstress>>
+		<br><br>
+
+		<<link [[다음|Nightmare Harper 3]]>><<set $phase to 0>><</link>>
+		<br>
+	<<else>>
+		당신은 집중하려 애썼지만, <span class="red">무언가가 당신의 마음 한구석에 걸린다.</span> 자신이 왜 여기 있는지는 기억나지 않지만, 당신은 이곳이 위험함을 알고 있다. <span class="red">당신은 집중력을 상실한다.</span><<stress 6>><<gstress>>
+		<br><br>
+
+		<<link [[다음|Nightmare Harper 2]]>><<set $phase to 2>><</link>>
+		<br>
+	<</if>>
+<</if>>
+<br><br>
+
+:: Nightmare Harper 2
+<<if $phase is 1>>
+	당신은 팔다리를 구속한 가죽 끈을 애써 잡아당긴다. 힘껏 노력했음에도 불구하고, 그저 손목의 맨살이 쓸리기만 할 뿐이다.<<gpain>>
+<<elseif $phase is 0>>
+	끈이 너무 꽉 매여 있다. 탈출하려 해도 아프기만 할 뿐일 것이다. 달리 할 수 있는 것도 없으니 당신은 긴장이 흐르는 침묵 속에서 앉아 기다린다.<<gstress>>
+<</if>>
+<br><br>
+
+등 뒤에서 문이 열린다. 수술복을 입은 사람 두 명이 들어온다. 다른 두 명이 뒤를 따른다. 그 중 한명은 당신이 아는 얼굴이다. 의사 하퍼다.
+<br><br>
+
+"반갑구나." 그가 동료를 테이블로 이끌며 말한다. 나머지 사람들은 당신 앞으로 카트를 끌고 온다. 안에는 일종의 기계 같은 것이 들어 있다.
+<br><br>
+
+<<if $nightmaresSeen.includes("harper")>>
+	<<link [[깨어난다|Nightmare Harper Wake]]>><<set $phase to 1>><</link>><<nightmareWakeDifficulty>>
+	<br>
+<</if>>
+<<link [[따진다|Nightmare Harper 3]]>><<def 1>><<set $phase to 1>><</link>>
+<br>
+<<link [[조용히 있는다|Nightmare Harper 3]]>><<set $phase to 0>><</link>>
+<br>
+
+:: Nightmare Harper 3
+<<effects>>
+
+<<if $phase is 1>>
+	<<if $speech_attitude is "meek">>
+		"여-여긴 어디예요?" 당신은 애타게 말한다.
+		<br><br>
+
+		하퍼는 미소를 지으며 클립보드에서 고개를 든다. "걱정하지 마렴, 여긴 안전하단다. 아무 일도 없을 거야." 그가 말한다. 
+	<<elseif $speech_attitude is "bratty">>
+		"야!" 당신은 구속구에 묶인 채 몸부림치며 소리친다. "이게 뭔데 씨발?"
+		<br><br>
+
+		하퍼는 얼굴을 찌푸린다. 그가 한숨을 내쉰다. "곧 치료를 시작할 거야. 그런 말은 삼가해주렴."
+	<<else>>
+		"무슨 짓을 하려는 거예요?" 당신이 묻는다.
+		<br><br>
+
+		하퍼는 클립보드에 무언가를 적는다. 뭐라고 썼는지는 알아볼 수 없다. "곧 알게 될 거야. 너를 위한 거니까 불안해하지 마렴." 그가 말한다.
+	<</if>>
+	<br><br>
+<</if>>
+
+두 잡역부가 기계의 설치를 마치고 테이블 위의 장치에 연결한다.
+<<if $fluid_forced_stat gte 100>>
+	제대로 조립된 모습을 보니 몰라볼 수가 없다. <span class="lewd">레미의 농장에서 쓰던 착유기다.</span>
+<<else>>
+	제대로 조립되긴 했지만 저게 뭔지 감을 잡을 수가 없다.
+<</if>>
+하퍼는 잡역부들은 무시하고 친구에게 시선을 향한다. <<person2>>그 역시 하퍼처럼 하얀 코트를 입고 있다.
+<br><br>
+
+"이쪽은 제 환자들 중 한 명입니다," <<person1>>그가 입을 연다. "저희의 최신 치료 계획에 최적의 실험체가 될 거라 생각했죠. 부디 집중해주세요."
+<br><br>
+
+그가 잡역부들을 향해 고개를 까딱인다. 그 중 한 명인 <<person3>>남자가 당신의 어깨를 붙잡는다. 다른 한 명은 메스를 꺼내든다. <span class="red"><<person4>>그가 칼날을 당신의 가슴에 가져다 댄다.</span><<stress 6>><<gstress>>
+<br><br>
+
+<<if $nightmaresSeen.includes("harper")>>
+	<<link [[깨어난다|Nightmare Harper Wake]]>><<set $phase to 2>><</link>><<nightmareWakeDifficulty>>
+	<br>
+<</if>>
+<<link [[몸부림친다|Nightmare Harper 4]]>><<def 1>><<set $phase to 1>><<pain 6>><</link>>
+<br>
+<<link [[내버려둔다|Nightmare Harper 4]]>><<sub 1>><<set $phase to 0>><<stress 6>><</link>><<gstress>>
+<br>
+
+:: Nightmare Harper 4
+<<effects>>
+
+<<if $phase is 1>>
+	당신은 온 몸을 비튼다. <<person3>>남자는 당신을 붙든 손에 힘을 넣는다. 당신은 그의 손아귀 안에서 숨을 쉬려고 고군분투한다.<<pain 2>><<gpain>>
+	<br><br>
+
+	<<person4>>남자는 아랑곳 않고 하던 일을 이어간다. 칼날이 당신의 가운을 찢었지만 그 이상으로는 들어오지 않는다.
+<<else>>
+	당신은 눈을 굳게 감고 마음의 준비를 한다. 감사하게도, 칼날은 당신의 가운을 찢은 시점에서 멈춘다.
+<</if>>
+그는 천을 잘라내어 
+<<if playerChastity()>>
+	<span class="lewd">당신의 정조대를 드러낸다.</span> 하퍼가 얼굴을 찌푸린다. "이거 결과가 왜곡될지도 모르겠는걸."
+	<br><br>
+	<<if $worn.genitals.name is "chastity parasite">>
+		<<person1>>그는 당신의 등 뒤에서 기계를 움직인다. <<person4>>그가 당신의 질에 작은 패드를 부착하고 재빨리 기계에 연결한다. <span class="red">당신은 갑작스레 질에 가해지는 타는 듯한 통증에 비명을 지른다.</span> 통증이 가라앉자, 당신의 정조대가 먼지로 변한다.
+	<<else>>
+		<<person1>>그가 코트 자락에서 날카로운 도구를 꺼내자 <<person4>>다른 남자가 그것을 받아 든다. 그는 수술을 하는 듯 정확한 손짓으로 도구의 끝을 정조대의 열쇠 구멍에 밀어넣는다. 구멍에서 찰칵 하는 소리가 난다. <span class="red">당신은 갑작스레 질에 가해지는 타는 듯한 통증에 비명을 지른다.</span> 통증이 가라앉자, 당신의 정조대가 바닥으로 무거운 소리를 내며 떨어진다.
+	<</if>>
+	<<set $worn.genitals.type.push("broken")>><<genitalsruined>><<ruined>>
+	<<stress 12>><<pain 10>><<ggstress>><<gggpain>>
+<<else>>
+	<span class="lewd">당신의 질을 드러낸다.</span>
+	<<ruined>><<stress 6>><<gstress>>
+<</if>>
+<br><br>
+
+<<if hasSexStat("exhibitionism", 5)>>
+	노출에는 익숙하지만, 저들의 전문적이고 무심한 태도는 당신의 흥분을 자극하기엔 부족하다.
+<<else>>
+	노출의 수치심으로 숨이 막히지만 당신이 할 수 있는 것은 없다.
+<</if>>
+당신이 할 수 있는 것은 무력하게 구속된 채 하퍼가 당신의 헐벗은 몸을 다루는 광경을 지켜보는 것 뿐이다. "좋습니다," 그가 잡역부들에게 말한다. "그럼 이제 치료를 시작하도록 하겠습니다."
+<br><br>
+
+<<link [[다음|Nightmare Harper 5]]>><</link>>
+<br>
+
+:: Nightmare Harper 5
+<<effects>>
+
+<<person4>>남자가 당신이 앉은 의자에 달린 스위치를 올린다. 의자가 순식간에 뒤로 젖혀지며 당신을 뒤로 눕힌다.
+<br><br>
+
+"건강한 몸 없이는 건강한 정신도 없지." 하퍼가 말한다. <<person1>>그의 신호에 맞춰 잡역부들이 기계에게 다가간다.
+<br><br>
+
+<<if $player.penisExist and $lactating is 1>>
+	<<set $phase2 to 2>>
+	<<person3>>남자는 유리로 된 펌프를, 그의 동료는 고무 재질의 컵 두 개를 집어 들고 <span class="lewd">당신의 페니스와 <<breasts>>에 부착한다.</span> 고무제 밀봉 링이 살에 딱 달라붙는다.
+<<elseif $player.penisExist>>
+	<<set $phase2 to 1>>
+	<<person3>>남자는 당신의 페니스를 손에 들고, <<person4>>다른 남자는 기다란 고무 튜브를 펼친다. 튜브 끝에는 유리로 된 펌프가 고정되어 있다. 그는 펌프를 아래로 내려 <span class="lewd">당신의 페니스에 연결한다.</span> 고무제 밀봉 링이 살에 딱 달라붙는다.
+<<else>>
+	<<set $phase2 to 0>>
+	<<person3>>그가 작은 알약 모양의 물건을 꺼낸다. <span class="lewd">그는 그것을 노출된 당신의 클리토리스에 가져다 대고</span> 테이프로 고정시킨다. 그의 동료는 고무 재질의 컵 두 개를 당신의 <<breasts>>에 부착한다. 고무제 밀봉 링이 유두 주변에 딱 달라붙는다.
+<</if>>
+<<stress 6>><<arousal 100>><<gstress>><<garousal>>
+<br><br>
+
+하퍼가 <<person4>>남자를 향해 고개를 끄덕인다. 스위치가 켜지는 소리와 함께 기계가 윙윙대며 작동하기 시작한다.
+<br><br>
+
+<<link [[다음|Nightmare Harper Machine]]>><<set $phase to "start">><<person1>><</link>>
+<br>
+
+:: Nightmare Harper Machine
+<<effects>>
+
+<<if $phase is "resist">>
+	당신은 집요한 기계의 공격으로부터 정신을 돌리려 애쓴다.
+	<<if $willpowerSuccess>>
+		<span class="green">당신은 성공적으로 감각에서 벗어난다.</span> 현실이 아닌 것처럼 느껴질 정도다.
+	<<else>>
+		<span class="red">그러나 <<if $phase2 is 0>>진동의 힘이<<else>>흡입의 힘이<</if>> 너무 강했다.</span> 당신은 이전보다도 더 달아오른 느낌이 든다.<<arousal 2500>><<garousal>>
+	<</if>>
+	<br><br>
+
+	<<print either(
+		`"치료에는 시간이 걸립니다, 금방 준비될 거예요." 하퍼가 동료에게 말한다.`,
+		`하퍼가 숫자를 부르자 일꾼들이 그에 맞게 기계를 조정한다.`,
+		`하퍼가 고개를 젓는다. "협조를 해줘야 치료가 효과가 있지."`,
+		`하퍼는 흥미로운 듯 바라보며 이따금씩 기록을 남긴다.`,
+		`하퍼가 얼굴을 찌푸린다. "그렇게 긴장하면 몸에 안 좋아."`
+	)>>
+<<elseif $phase is "struggle">>
+	당신은 구속당한 상태에서도 몸을 비틀어 기계를 가격한다.
+	<<if $physiqueSuccess>>
+		<<set $harperNightmareMachine -= 1>>
+		<span class="green">당신의 힘 앞에 기계에서 스파크가 튀어오른다.</span> 비록 한순간이지만 튜브가 자리를 벗어난다.
+	<<else>>
+		<span class="red">기계는 꿈쩍도 하지 않는다.</span> 기계의 <<if $phase2 is 0>>진동에<<else>>흡입에<</if>> 당신의 저항은 순식간에 힘을 잃는다.<<arousal 2500>><<garousal>>
+	<</if>>
+	<br><br>
+
+	<<print either(
+		`"지금은 저항할지 몰라도, 장담컨데 얼마 못 갈 겁니다." 하퍼가 동료에게 말한다.`,
+		`하퍼가 짜증스럽게 혀를 찬다. "적당히 좀 해주겠니. 이것도 다 너를 위한 거야."`,
+		`하퍼가 숫자를 부르자 일꾼들이 그에 맞게 기계를 조정한다.`,
+		`하퍼는 흥미로운 듯 바라보며 이따금씩 기록을 남긴다.`,
+		`하퍼가 한숨을 쉰다. "네가 긴장을 풀어야 편해지지."`
+	)>>
+<<elseif $phase is "let">>
+	당신은 "치료"가 진행되게 내버려 둔다.
+	<<switch $phase2>>
+		<<case 2>>
+			튜브가 당신의 페니스를 꽉 조이고 위아래로 흔든다.
+			<<if $arousal gte 5000>>
+				그 움직임은 신속하고 기계적이어서 고통스러울 정도다.
+			<<else>>
+				처음에는 느리게 시작했지만 천천히 속도를 높인다.
+			<</if>>
+			그 위에선 컵이 당신의 <<breasts>>을 옥죈다. <span class="lewd">당신에게서 쥐어짜인 정액과 모유가 튜브를 타고 방울져 흐른다.</span>
+		<<case 1>>
+			튜브가 당신의 페니스를 꽉 조이고 위아래로 흔든다.
+			<<if $arousal gte 5000>>
+				그 움직임은 신속하고 기계적이어서 고통스러울 정도다.
+			<<else>>
+				처음에는 느리게 시작했지만 천천히 속도를 높인다.
+			<</if>>
+			<span class="lewd">당신에게서 쥐어짜인 정액이 튜브를 타고 방울져 흐른다.</span>
+		<<default>>
+			당신의 질에 달린 장치가 진동한다.
+			<<if $arousal gte 5000>>
+				그 압박만으로도 충분히 견디기가 힘들다.
+			<<else>>
+				처음에는 약하게 시작했지만 천천히 강도를 높인다.
+			<</if>>
+			그 위에선 컵이 <<if $player.breastsize is 0>>당신의 흉부를 꾹 짓누른다<<else>>당신의 <<breasts>>을 옥죈다<</if>>.
+			<<if $lactating is 1>>
+				<span class="lewd">새어나온 우유가 튜브를 타고 방울져 흐른다.</span>
+			<<else>>
+				유두를 비틀고 잡아당기는 자극에 쾌감에 젖은 숨소리가 새어나온다.
+			<</if>>
+	<</switch>>
+	당신은 구속구에 묶인 채 몸을 떤다.<<garousal>><<arousal 2500>>
+	<br><br>
+
+	<<print either(
+		`하퍼가 숫자를 부르자 일꾼들이 그에 맞게 기계를 조정한다.`,
+		`"경련하는 모습을 한번 보세요," 하퍼가 동료에게 이른다.`,
+		`하퍼는 흥미로운 듯 바라보며 이따금씩 기록을 남긴다.`,
+		`하퍼가 박수를 친다. "정말 멋진 홍조야!"`,
+		`하퍼가 미소짓는다. "옳지. 기분 좋지 않니?"`
+	)>>
+<<elseif $phase is "start">>
+	<<set $harperNightmareTimer to 9>>
+	<<set $harperNightmareMachine to 4>>
+	<<set $position to "missionary">>
+
+	기계가 웅웅거린다. 당신은 불편함에 몸을 꼼지락거리지만 구속구 때문에 움직일 수가 없다. 하퍼와 <<person2>>그가 시선을 집중한다.<<person1>>
+<</if>>
+<br><br>
+
+<<switch $phase2>>
+	<<case 2>><<barn_img both no_livestock table>>
+	<<case 1>><<barn_img penis no_livestock table>>
+	<<default>><<barn_img breasts no_livestock table>>
+<</switch>>
+<br><br>
+
+<<if $arousal gte $arousalmax>>
+	감각이 너무 과하다. <<orgasm>>
+
+	<<link [[다음|Nightmare Harper Machine Finish]]>><<set $phase to "orgasm">><</link>>
+	<br>
+<<elseif $harperNightmareMachine lte 0>>
+	<span class="green">기계에서 쉬익 하는 소리가 나며 </span>당신을 들쑤시던 기구가 <<if $phase2 isnot 1>>가슴과 <</if>>고간에서 떨어져 나간다. 하퍼가 펜을 주먹으로 꽉 쥔다.
+	<br><br>
+
+	<<link [[다음|Nightmare Harper Machine Finish]]>><<set $phase to "break">><</link>>
+	<br>
+<<elseif $harperNightmareTimer lte 0>>
+	기계에서 뭔가 딸깍 하는 소리가 난다. 빛이 번쩍이더니 갑작스레 <span class="green">기계가 멈춘다.</span> 연료가 다 떨어진 것 같다. 하퍼가 얼굴을 찌푸린다.
+	<br><br>
+
+	<<link [[다음|Nightmare Harper Machine Finish]]>><<set $phase to "timer">><</link>>
+	<br>
+<<else>>
+	<<set $harperNightmareTimer -= 1>>
+
+	<<link [[저항한다|Nightmare Harper Machine]]>><<set $phase to "resist">><</link>><<willpowerdifficulty 1 $willpowermax>>
+	<br>
+	<<link [[몸부림친다|Nightmare Harper Machine]]>><<set $phase to "struggle">><</link>><<physiquedifficulty 1 $physiquemax>>
+	<br>
+	<<link [[내버려둔다|Nightmare Harper Machine]]>><<set $phase to "let">><</link>>
+	<br>
+<</if>>
+
+:: Nightmare Harper Machine Finish
+<<effects>>
+
+<<if $phase is "orgasm">>
+	"아주 좋아," 하퍼가 말한다. 그는 동료를 가까이 부르더니 신나게 당신의 신체부위를 가리킨다. "훨씬 긴장이 풀린 것 같네요. 그래 보이지 않나요?"
+	<br><br>
+
+	그들은 당신의 헐벗은 몸을 쿡쿡 찔러대며 대화를 나눈다. 구속된 상태로는 그들을 멈추거나 몸을 가리는 것조차 할 수 없다.<<stress 6>><<gstress>>
+	<br><br>
+
+	마침내 그가 미소를 지으며 당신의 머리에 손을 얹는다. "잘해 주었어. 이젠 쉴 시간이란다." 그가 말한다.
+<<elseif $phase is "break">>
+	하퍼가 한숨을 쉰다. "그렇게 말썽 피우면 안되지. 널 도와주려 하는 거잖니." 그 목소리에는 명백한 분노가 묻어나 있지만, 그는 다시 평소와 같은 미소를 걸치고 동료에게 돌아선다.
+	<br><br>
+
+	"이번은 시범이었다고 칩시다. 추후에도 시험이 필요한 게 정상이죠. 일단은 이걸 방으로 데려가 주세요." 그가 말한다.
+<<else>>
+	하퍼가 한숨을 쉰다. "실망스러워라. 어쩌면 겁을 먹어서인지도 모르겠네요. 공포가 쾌감을 저하시키기도 하니까요."
+	<br><br>
+
+	그가 손가락을 튕기자 잡역부들이 앞으로 다가온다. "다음에 다시 해보도록 하자꾸나." 그가 당신의 머리를 쓰다듬는다. "방으로 돌아갈 시간이야."
+<</if>>
+<br><br>
+
+<<link [[다음|Nightmare Harper 6]]>><<unset $harperNightmareMachine>><<unset $harperNightmareTimer>><</link>>
+<br>
+
+:: Nightmare Harper 6
+<<effects>>
+
+<<person3>>남자가 당신의 팔을 붙들고 움직이지 못하게 고정하자 하퍼가 코트에서 주사기를 꺼낸다. 하퍼가 뚜껑을 여는 소리에 당신의 팔에 힘이 들어간다.
+<br><br>
+
+"눈을 감으렴," 당신의 살에 바늘을 박아넣으며 <<person1>>그가 속삭인다.<<gpain>>
+<br><br>
+
+약효는 빨리 나타난다. 온 몸이 탈진 상태에 휩싸인다. 팔다리는 구속구로부터 풀려났지만 당신은 여전히 움직일 수 없다. 몽롱해진 당신의 몸은 들어 올려져 들것에 실린다.
+<br><br>
+
+하퍼가 실려가는 당신을 뒤따라온다. "몸조심하렴." 그의 목소리도 당신의 귀로는 겨우 알아들을 수 있을 수준이다. 그는 문이 닫히기 전까지 계속해서 당신을 지켜본다. 문과 함께 당신의 눈도 감긴다.
+<br><br>
+
+<<link [[다음|Nightmare Harper End]]>><<machine_end>><<endevent>><</link>>
+<br>
+
+:: Nightmare Harper End
+<<effects>><<nightmareEnd>>
+
+<<tearful>> 당신은 일어나 앉는다.
+<<if $phase is 1>>
+	시야는 아직도 흐릿하지만, 
+<<else>>
+	몸은 아직도 흥분으로 불타고 있지만, 
+<</if>>
+이제는 안전하다. 그저 꿈이었을 뿐이다.
+<br><br>
+
+<<link [[다음|$nightmareExit]]>><<unset $nightmareExit>><</link>>
+<br>
+
+:: Nightmare Corrupt Sydney
+<<effects>><<nightmareStart "sydneyCorrupt">><<set $location to "temple">>
+
+<<npc Sydney>><<person1>>
+<<if $phase2 is "stay">>
+	무언가가 당신을 떠나지 못하게 가로막는다. 어쩌면 여기서 알아야 할 게 있을지도 모른다. 당신은 문 쪽을 바라본다.
+<<else>>
+	당신에게 편안한 잠은 찾아오지 않는다.
+	<br><br>
+	주변의 모든 것이 소용돌이친다. 세상이 흐릿한 잿빛이다. 당신은 어지러운 몸을 일으켜 세운다.
+	<br><br>
+	시야가 점차 선명해진다. 마침내 이곳이 회색 대리석으로 된 복도임이 보인다. 복도는 두 갈래로 갈라져 있다.
+	<br><br>
+	각 복도의 끝에는 문이 하나씩 있다.
+<</if>>
+<br><br>
+
+<<if $nightmaresSeen.includes("sydneyCorrupt") and $phase2 isnot "stay">>
+	당신은 이 장소를 알고 있다. 어느 기이한 꿈 속에서 본 적이 있다.
+	<br><br>
+	<<link [[깨어나려 한다|Nightmare Corrupt Sydney Wake]]>><<set $phase to 0>><</link>><<nightmareWakeDifficulty>>
+	<br>
+	<<link [[꿈 속에 남는다|Nightmare Corrupt Sydney]]>><<set $phase2 to "stay">><</link>>
+	<br>
+<<else>>
+	<<link [[왼쪽 문|Nightmare Corrupt Sydney 2]]>><<set $phase to 0>><</link>>
+	<br>
+	<<link [[오른쪽 문|Nightmare Corrupt Sydney 2]]>><<set $phase to 1>><</link>>
+	<br>
+<</if>>
+
+:: Nightmare Corrupt Sydney Wake
+<<effects>>
+
+당신은 눈을 감고 천천히 깊은 숨을 들이쉬고 내쉰다. 머릿속으로는 주문을 외운다. 일어나. 일어나. 되뇌이면 되뇌일수록 그 소리는 점점 커진다. 어느샌가 당신은 소리를 지르고 있다.
+<br><br>
+<<if $willpowerSuccess>>
+	<<nightmareEnd>>
+	<span class="green">당신은 화들짝 놀라 정신을 차린다.</span> 일어나 앉은 채 거칠게 숨을 쉬는 당신의 피부를 식은땀이 뒤덮고 있다. 이젠 괜찮다. 당신은 더 이상 꿈에 갇혀 있지 않다.
+	<br><br>
+
+	<<link [[다음|$nightmareExit]]>><<unset $nightmareExit>><<endevent>><</link>>
+	<br>
+<<else>>
+	당신은 눈을 뜬다. <span class="red">아직도 꿈 속이다.</span> 당신의 시선이 문 쪽을 향한다.
+	<br><br>
+
+	<<link [[왼쪽 문|Nightmare Corrupt Sydney 2]]>><<set $phase to 0>><</link>>
+	<br>
+	<<link [[오른쪽 문|Nightmare Corrupt Sydney 2]]>><<set $phase to 1>><</link>>
+	<br>
+<</if>>
+
+:: Nightmare Corrupt Sydney 2
+<<effects>>
+
+<<if $nightmaresSeen.includes("sydneyCorrupt") and $sydneyNightmareDoor isnot $phase>>
+	<<set $frozenValues.sydneyNightmareDoor to 2>>
+<<else>>
+	<<set $frozenValues.sydneyNightmareDoor to $phase>>
+<</if>>
+
+당신은 <<= $phase is 0 ? "왼쪽" : "오른쪽">> 문을 고른다.
+
+<<if $nightmaresSeen.includes("sydneyCorrupt")>>
+	<<if $sydneyNightmareDoor is 2>>
+		어차피 어느 쪽을 고르든 차이는 없다. 양쪽 모두 같은 방으로 이어지니까.
+	<<else>>
+		무엇이 일어날지 아는 채로 당신은 문을 향해 걸어간다.
+	<</if>>
+<</if>>
+
+<<if $nightmaresSeen.includes("sydneyCorrupt") and $sydneyNightmareDoor isnot $phase and $sydneyNightmareDoor isnot 2>>
+	지난번에는 한쪽 문을 골랐으니, 이번에는 반대쪽으로 가보는 것은 어떨까?
+	<br><br>
+	당신은 무거운 몸을 이끌고 저번에는 택하지 않았던 문을 향해 비틀대며 걸어간다.
+	<br><br>
+	당신은 문에 도달하자 마자 문을 밀어 제낀다. 실망스럽게도 지난번과 같은 회색 문이 당신을 맞이한다.
+<<else>>
+	걷기가 힘들다. 몸이 무겁게 느껴진다.
+	<br><br>
+	당신은 겨우 문까지 도달한다. 앞으로 가면 갈수록 어깨가 무거워진다. 하지만 문을 열고 안으로 들어가자 마자 갑자기 모든 것이 가벼워진다.
+<</if>>
+<br><br>
+방은 텅 비었다. 당신이 들어온 문을 빼면 문도 없다.
+<br><br>
+
+<<if $nightmaresSeen.includes("sydneyCorrupt")>>
+	<<link [[다음|Nightmare Corrupt Sydney 3]]>><</link>>
+	<br>
+<<else>>
+	<<link [[돌아가서 다른 문을 열어본다|Nightmare Corrupt Sydney 3]]>><<set $phase to 0>><</link>>
+	<br>
+	<<link [[숨은 출구를 찾는다|Nightmare Corrupt Sydney 3]]>><<set $phase to 1>><</link>>
+	<br>
+<</if>>
+
+:: Nightmare Corrupt Sydney 3
+<<effects>>
+
+<<if $nightmaresSeen.includes("sydneyCorrupt")>>
+	당신은 익숙한 소리를 기다리며 방 안으로 발을 디딘다. 뻔하게도 천장 쪽에서 시드니의 웃음소리가 들려온다. 지난번과는 다르게 마음이 놓이지 않는다.
+<<else>>
+	당신은 <<= $phase is 0 ? "반대쪽 방에 가보기로 한다" : "감춰진 것이 있는지 찾아보기로 한다">>.
+	<br><br>
+	고작 두 걸음을 떼기도 전에 천장 쪽에서 침묵을 깨고 키득거리는 소리가 들려온다.
+	<br><br>
+	당신은 얼떨떨하게 천장을 올려다본다. 천장 한가운데에 구멍이 뚫려 있다.
+	<br><br>
+	구멍에서 또다른 웃음소리가 들린다. 어딘가 익숙하고 마음이 놓이는 소리다.
+<</if>>
+<br><br>
+
+<<link [[웃음소리를 살핀다|Nightmare Corrupt Sydney 4]]>><</link>>
+<br>
+<<if $numberify_enabled is 1>>
+	<<fadeText "<span class='linkBlue' style= 'cursor: pointer'>(2) 도망친다</span>" "<<link [[웃음소리를 살핀다|Nightmare Corrupt Sydney 4]]>><</link>>">>
+<<else>>
+	<<fadeText "<span class='linkBlue' style= 'cursor: pointer'>도망친다</span>" "<<link [[웃음소리를 살핀다|Nightmare Corrupt Sydney 4]]>><</link>>">>
+<</if>>
+<br>
+
+:: Nightmare Corrupt Sydney 4
+<<effects>>
+
+<<if $nightmaresSeen.includes("sydneyCorrupt")>>
+	당신은 무엇을 해야 할지 알고 있다. 당신은 앞으로 걸음을 내딛고, 구멍 너머로 시드니가 뒷모습만을 잠시 보인 채 달려가는 모습을 지켜본다.
+	<br><br>
+	기이하게도 몸이 스스로 움직인다. 지난번에도 이랬던가?<<awareness 1>><<gawareness>>
+<<else>>
+	당신은 소리에 이끌린다. 구멍 쪽으로 다가가는 당신의 심장이 미친듯이 뛴다. 당신은 숨을 참고 구멍 너머를 들여다본다.
+	<br><br>
+	구멍은 다른 방으로 이어지는 듯 하다. 가장자리에 누군가가 서있다. 뒷모습밖에 보이지 않지만, 그 머리카락과 옷은 알아볼 수 있다.
+	<br><br>
+	시드니다.
+<</if>>
+<br><br>
+
+<<link [[부른다|Nightmare Corrupt Sydney 5]]>><<set $phase to 0>><</link>>
+<br>
+<<if $numberify_enabled is 1>>
+	<<fadeText "<span class='linkBlue' style= 'cursor: pointer'>(2) 도망친다</span>" "<<link [[다가간다|Nightmare Corrupt Sydney 5]]>><<set $phase to 1>><</link>>">>
+<<else>>
+	<<fadeText "<span class='linkBlue' style= 'cursor: pointer'>도망친다</span>" "<<link [[다가간다|Nightmare Corrupt Sydney 5]]>><<set $phase to 1>><</link>>">>
+<</if>>
+<br>
+
+:: Nightmare Corrupt Sydney 5
+<<effects>>
+
+<<if $nightmaresSeen.includes("sydneyCorrupt")>>
+	구태여 부를 필요는 없다. 도망치고 싶어도 당신의 몸이 허락하지 않을 것이다. 위로 가야 한다.
+<<else>>
+	<<= $phase is 0 ? "입이 쉬이 떨어지지 않음에도, 당신은 시드니의 이름을 부른다" : "당신은 손을 위로 뻗는다. 구멍 가장자리에 겨우 손이 닿는다">>.
+	<br><br>
+	시드니가 웃음을 멈춘다. 당신은 다시 <<= $phase is 0 ? "소리치려 했지만" : "올라가려 했지만">> 그는 그럴 틈도 없이 달려가 버린다.
+<</if>>
+<br><br>
+
+<<link [[뛰어오른다|Nightmare Corrupt Sydney 6]]>><</link>>
+<br>
+<<if $numberify_enabled is 1>>
+	<<fadeText "<span class='linkBlue' style= 'cursor: pointer'>(2) 더 크게 소리친다</span>" "<<link [[뛰어오른다|Nightmare Corrupt Sydney 6]]>><</link>>">>
+<<else>>
+	<<fadeText "<span class='linkBlue' style= 'cursor: pointer'>더 크게 소리친다</span>" "<<link [[뛰어오른다|Nightmare Corrupt Sydney 6]]>><</link>>">>
+<</if>>
+<br>
+
+:: Nightmare Corrupt Sydney 6
+<<effects>>
+
+당신은 자리에서 뛰어올라 미끄러운 바닥을 겨우겨우 붙들고 몸을 끌어당기려 애쓴다.
+
+<<if $nightmaresSeen.includes("sydneyCorrupt")>>
+	<<= $athletics gte 600 ? "위로 올라가기는 어렵지 않다" : "2층으로 올라가기는 고역이다">>.
+	<br><br>
+	이미 몇 차례 올라와 보았으니 시드니가 위에 없음은 뻔하다.
+	<br><br>
+	주변을 둘러봐도 역시 아무것도 보이지 않는다.
+<<else>>
+	<<if $athletics gte 600>>
+		구멍 밖으로 나오기는 큰 힘이 들지 않는다.
+	<<else>>
+		구멍 밖으로 간신히 빠져 나오기까지 수 차례 시도가 필요하다. 위층에 도달했을 무렵, 당신의 숨은 가빠져 있다.<<tiredness 5>><<gtiredness>>
+	<</if>>
+	<br><br>
+	새롭게 도달한 방을 살펴보았지만 들어왔던 길 말고는 아무것도 보이지 않는다. 시드니는 사라졌다.
+	<br><br>
+	시드니는 어디로 간 걸까?
+<</if>>
+<br><br>
+
+<<link [[돌아간다|Nightmare Corrupt Sydney 7]]>><</link>>
+<br>
+<<if $numberify_enabled is 1>>
+	<<fadeText "<span class='linkBlue' style= 'cursor: pointer'>(2) 더 찾아본다</span>" "<<link [[돌아간다|Nightmare Corrupt Sydney 7]]>><</link>>">>
+<<else>>
+	<<fadeText "<span class='linkBlue' style= 'cursor: pointer'>더 찾아본다</span>" "<<link [[돌아간다|Nightmare Corrupt Sydney 7]]>><</link>>">>
+<</if>>
+<br>
+
+:: Nightmare Corrupt Sydney 7
+<<effects>>
+
+<<if $nightmaresSeen.includes("sydneyCorrupt")>>
+	꿈이 당신의 행동을 지배한다. 강제로 구멍 쪽으로 돌아서는 몸을 당신은 아마도 정신 안쪽인 듯한 곳에서 바라본다. 당신은 뛰어내릴 준비를 한다. 시드니가 키득거린다. 그러나 당신이 1층으로 다시 내려가자 그는 보이지 않는다. 지난번과 똑같이 방으로 들어오는 문도 사라져 있다.
+	<br><br>
+	하지만 이번에는 시드니가 웃지 않는다. "오고 있어?" 그가 놀리듯 말한다. 알 수 없는 곳에서 나오는 목소리가 사방에서 울린다.
+<<else>>
+	당신은 별 수 없이 다시 구멍 아래를 내려다본다.
+	<br><br>
+	당신이 막 내려가려던 차에, 아래층에서 구두 소리와 함께 다시금 키득거리는 소리가 들려온다. 이번에도 역시 시드니다.
+	<br><br>
+	당신은 몸을 숙여 착지하고 곧장 주변을 둘러본다. 그러나 여전히 방은 텅 비어있다.
+	<br><br>
+	홀로 길을 잃은 당신의 머리가 점점 더 어지러워지기 시작한다. 주변의 세세한 부분들이 흐릿해지다, 또다른 웃음소리에 집중력이 돌아온다. 이번에는 위층이다.
+<</if>>
+<br><br>
+
+<<link [[시드니를 쫓는다|Nightmare Corrupt Sydney 8]]>><</link>>
+<br>
+<<if $numberify_enabled is 1>>
+	<<fadeText "<span class='linkBlue' style= 'cursor: pointer'>(2) 문을 찾는다</span>" "<<link [[시드니를 쫓는다|Nightmare Corrupt Sydney 8]]>><</link>>">>
+<<else>>
+	<<fadeText "<span class='linkBlue' style= 'cursor: pointer'>문을 찾는다</span>" "<<link [[시드니를 쫓는다|Nightmare Corrupt Sydney 8]]>><</link>>">>
+<</if>>
+<br>
+
+:: Nightmare Corrupt Sydney 8
+<<effects>>
+
+<<if $nightmaresSeen.includes("sydneyCorrupt")>>
+	시드니가 벌써 입을 열었다는 것에 혼란을 느끼며 당신은 재빨리 아래로 내려간다. 착지의 충격에 몸의 통제권이 조금 돌아온 것 같다. 그러나 노력이 무색하게도 아래층에는 역시 시드니가 보이지 않는다.
+	<br><br>
+	지쳤지만 멈출 수도 없이 당신의 의식은 다시 몽롱해진다.
+	<br><br>
+	스스로의 의지로 통제권을 내주고, 당신은 반복을 받아들인다. 위, 아래, 위, 아래, 팔에 감각이 사라지고 다리가 후들거릴 때까지. 차가운 바닥에 쓰러져 시드니가 찾아오기를 기다리게 될 때까지.
+<<else>>
+	패닉하기 시작한 당신은 시드니를 쫓아 부랴부랴 위층으로 돌아간다. 이 이상한 장소에서 낯익은 것은 시드니 뿐이다. 그러나 여전히 시드니는 어느 방에서도 보이지 않는다.
+	<br><br>
+	당신은 어느샌가 위로 올라갔다가 뛰어내리기를 반복하고 또 반복하고 있다. 방 사이를 이동할 때마다 방은 점점 작아지고 벽의 빛깔은 점점 어두워지는 것 같다. 대리석에 균열이 나타난다.
+	<br><br>
+	당신은 이윽고 기진맥진해진다. 마지막으로 한번 올라간 끝에, 당신은 힘이 빠져 숨을 헐떡이며 바닥에 드러눕는다.
+<</if>>
+<br><br>
+"벌써 지쳤어?"
+<br><br>
+당신의 위로 그림자가 드리운다. 시드니가 쭈그려 앉아 당신의 머리를 쓰다듬는다. "미안해, 너라면 따라잡을 수 있을 줄 알았어. 그래도 재밌었지?"
+<br><br>
+그가 당신에게 손을 뻗는다.
+<br><br>
+
+<<link [[시드니의 손을 잡는다|Nightmare Corrupt Sydney 9]]>><</link>>
+<br>
+<<link [[시드니의 손을 잡는다|Nightmare Corrupt Sydney 9]]>><</link>>
+<br>
+
+:: Nightmare Corrupt Sydney 9
+<<effects>>
+
+<<if $nightmaresSeen.includes("sydneyCorrupt")>>
+	당신의 손이 멋대로 움직여 시드니의 손을 꽉 쥐려 안간힘을 쓴다. 그러나 손을 잡기 전에 두 번째 시드니가 구석에서 모습을 드러낸다.
+	<br><br>
+	"건드리면 안 된다고 했잖아. 두 번씩이나 말해줘야 해?"
+	<br><br>
+	두 번째 시드니는 처음에는 겁을 먹은 모습이었다. 지금은 배신감을 느끼는 듯한 모습이다.
+	<br><br>
+	<<if $sydneyNightmareSyd is 0>> /* Only chosen 1st Sydney (Corrupt) */
+		"네가 거짓말쟁이인 건 얘도 알아. 난 아무 문제 없어, 네가 문제지." 가까운 시드니가 멀리 있는 시드니를 가로막으려 움직이며 씩씩댄다. 당신의 시야를 막으려 하는 걸까, 그의 시야를 막으려 하는 걸까?
+	<<elseif $sydneyNightmareSyd is 1>> /* Only chosen 2st Sydney (Pure) */
+		"지난번에 네가 거짓말을 했으니까 그렇지. 나에 대해서 온갖 끔찍한 악담을 해댔으니 이젠 진실을 알려줄 차례야." 가까운 시드니가 자신 있게 말하며 뒤로 돌아 다른 시드니를 마주한다.
+	<<else>> /* Done both */
+		"뻔하잖아, 얘는 내가 진짜인 걸 아니까." 가까운 시드니가 눈을 굴리며 비웃듯이 말한다. "이 짓거리를 충분히 했으니까, 그 정도는 알거야." 그가 부드러운 눈으로 당신을 내려다보며 다시 당신을 쓰다듬기 시작한다.
+	<</if>>
+<<else>>
+	당신은 내밀어진 손을 향해 팔을 뻗는다. 손이 닿기 전에 또 다른 목소리가 입을 연다.
+	<br><br>
+	"그 녀석을 건드리지 마. 진짜가 아니야."
+	<br><br>
+	당신은 힘겹지만 어떻게든 고개를 들어 새 인물을 바라본다. 구석에는 공포에 질린 눈으로 바라보던 또 한명의 시드니가 안절부절 못하는 손으로 십자가를 만지작거리고 있다.
+	<br><br>
+	"안 돼, 안 돼, 저 녀석 말은 듣지 마." 당신과 가까운 쪽의 시드니가 눈살을 찌푸리며 말한다. 그는 몸을 움직여 당신이 새로운 시드니를 보지 못하도록 가린다. "당연히 내가 진짜지. 나 알잖아 그치, 내 사랑?"
+<</if>>
+<br><br>
+
+<<link [[가까운 시드니에게 손을 뻗는다|Nightmare Corrupt Sydney 10]]>><<set $phase to 0>><</link>>
+<br>
+<<link [[새 시드니를 부른다|Nightmare Corrupt Sydney 10]]>><<set $phase to 1>><</link>>
+<br>
+
+
+:: Nightmare Corrupt Sydney 10
+<<effects>>
+
+<<if $phase is 0>> /* Reach out to the closer Sydney */
+	당신은 손을 들어올려 그의 손가락을 훑는다. 새로운 시드니는 <<= $nightmaresSeen.includes("sydneyCorrupt") ? "한숨을 내쉬고 고개를 저으며 앞으로 걸어온다" : "숨이 턱 막힌 소리를 내더니 손으로 얼굴을 가린 채 앞으로 황급히 달려온다">>. 그는 당신의 손을 붙잡아 치우고 당신의 몸을 자신에게 끌어당긴다.
+
+	<<if $nightmaresSeen.includes("sydneyCorrupt")>>
+		<br><br>
+		"어쩜 그렇게 어리석을 수가 있어? 제발, 뭐가 옳은지 너도 알잖아." 당신에게 말하는 그의 목소리는 거의 경건한 수준이다.
+	<</if>>
+<<else>> /* Call out for the new Sydney */
+	"도와줘," 당신이 속삭인다. 더 큰 소리로는 말할 수가 없다.
+	<br><br>
+	"내가 도와줄게," 첫 번째 시드니가 작게 대답하며 <<= $nightmaresSeen.includes("sydneyCorrupt") ? "미소짓다가, 상대 시드니가 다시 입을 열자 미소를 거둔다" : "미소 짓는다">>.
+	<br><br>
+	"그녀에게 필요한 건 네가 아니라 나야." <<= $nightmaresSeen.includes("sydneyCorrupt") ? "그가" : "새로운 시드니가">> 앞으로 다가와 반대쪽에 쭈그려 앉으며 밀어붙인다. 그는 당신의 머리를 다정하게 안고 자신의 무릎으로 옮긴다.
+
+	<<if $nightmaresSeen.includes("sydneyCorrupt")>>
+		<br><br>
+		그는 혀를 차면서도 상대를 보려 하지도 않고 먼저 당신의 머리를 쓰다듬는다. "이쯤 되면 그녀가 도와달라 부른 건 내 쪽인 걸 알 텐데."
+	<</if>>
+<</if>>
+
+<<if $nightmaresSeen.includes("sydneyCorrupt")>>
+	<br><br>
+	당신은 혼란에 빠진 채 누워 있는다. <span class="red">이런 건 기억에 없다.</span>
+<</if>>
+<br><br>
+"넌 선택할 권리조차 안 주고 있잖아." 첫 번째 시드니가 당신의 손을 채가며 으르렁거린다.
+<br><br>
+"너야말로 거짓에 절어 있어." 새로운 시드니가 독기 서린 말투로 되받아친다. "죄인 같으니. 그저 한때의 모습이 타락해 버린 꼴에 불과해."
+<br><br>
+"그러는 넌 얼마나 순수하다고?"
+<br>
+"너보다는 훨씬 도덕적이거든."
+<br>
+"억압된 걸레 주제에."
+<br>
+"추잡한 피학성애자가!"
+
+<<if $nightmaresSeen.includes("sydneyCorrupt")>>
+	<br><br>
+	당신은 드러누운 채 두 사람이 싸우는 모습을 지켜본다. 어쩐지 익숙하다. 예전에도 이런 적이 있었던가? 확실하지가 않다.
+<</if>>
+<br><br>
+
+<<link [[순수한 시드니를 가로막는다|Nightmare Corrupt Sydney 11]]>><<set $phase to 0>><</link>>
+<br>
+<<link [[타락한 시드니를 가로막는다|Nightmare Corrupt Sydney 11]]>><<set $phase to 1>><</link>>
+<br>
+
+
+:: Nightmare Corrupt Sydney 11
+<<effects>>
+
+<<if $nightmaresSeen.includes("sydneyCorrupt") and $sydneyNightmareSyd isnot $phase>>
+	<<set $frozenValues.sydneyNightmareSyd to 2>>
+<<else>>
+	<<set $frozenValues.sydneyNightmareSyd to $phase>>
+<</if>>
+
+"네 말이 맞아." 당신이 굳센 목소리로 말한다. 두 시드니는 그 즉시 싸움을 멈추고 동시에 당신을 내려다본다.
+<br><br>
+"어느 쪽 말하는 거야, 자기?" 아마도 타락한 쪽인 것 같은 시드니가 몸을 숙이고 묻는다.
+<br><br>
+<<if $phase is 0>> /* Interrupt Pure Sydney */
+	"너." 당신은 이곳에서 처음으로 본 시드니와 눈을 마주친다.
+	<br><br>
+	다른 시드니는 흠칫하더니 역겹다는 듯한 소리를 내며 자리를 떠난다. "애초에 이렇게 되어선 안 됐어. 이런 어둠의 길을 걷지 말았어야 했어."
+	<br><br>
+	어둠이 스며들어 대리석을 회색에서 검은색으로 물들인다. 당신이 택한 시드니가 당신에게 매달리자 균열이 갈수록 넓어진다. 다른 시드니는 어두워지는 세계와 대비되게 갈수록 밝아지고 또 밝아진다.
+	<br><br>
+	대리석이 조각조각 무너져 내린다. 당신 아래의 바위가 떨어지자 당신은 공중에 떠있는 상태가 된다.
+	<br><br>
+	다른 시드니는 마지막으로 한번 배신감에 찬 눈빛을 보내고는 눈부신 빛 속으로 사라진다.
+<<else>> /* Interrupt Corrupt Sydney */
+	"이쪽," 당신은 미소지으며 새로운 시드니에게 손을 뻗어 볼을 감싼다. "순수한 쪽."
+	<br><br>
+	타락한 시드니는 마치 얻어맞기라도 한 것처럼 당신을 잡은 손을 놓는다. "나를 사랑하는 줄 알았는데." 그가 눈물이 고이기 시작하는 눈으로 울먹인다. 다른 시드니는 자리에서 일어난다.
+	<br><br>
+	방 안이 점점 하얗게 변하며 고쳐지기 시작한다. 원래 상태로 돌아온 후에도 멈추지 않고 갈수록 밝아지고 밝아지다가 끝내 그림자조차 보이지 않게 된다. 밝아지는 빛과 함께 첫 번째 시드니가 흐릿해져 간다.
+	<br><br>
+	그의 몸은 녹아내리듯 사라지다가, 마지막까지 당신을 바라보는 상심한 눈빛을 끝으로 모습을 감춘다.
+<</if>>
+<<stress 6>><<trauma 6>><<gstress>><<gtrauma>>
+<br><br>
+
+<<link [[다음|Nightmare Corrupt Sydney 12]]>><</link>>
+<br>
+
+:: Nightmare Corrupt Sydney 12
+<<effects>><<clothesstrip>>
+
+<<if $phase is 0>> /* Interrupt Pure Sydney = Corrupt Sydney End*/
+	"날 선택해 줄 줄 알았어." 시드니가 웃으며 당신에 볼에 입맞추고는 자리에서 일어난다. 그는 일어나는 당신의 손을 잡아 부축해주고, 아무것도 없어 보이는 공간으로 당신을 이끈다. 시간이 조금 흐른 뒤에야 어둠 속에서 새롭게 나타난 문이 보인다.
+	<br><br>
+	"이쪽이야." 그가 서서히 다리에 감각이 돌아오기 시작하는 당신을 거의 끌고 가다시피 하며 재촉한다.
+	<br><br>
+	당신은 이 문 너머에 무엇이 있는지 알고 있다. 공기가 향으로 가득 찬 기도실이다.
+	<br><br>
+	"그 녀석은 자기가 무슨 소리를 하는 건지도 몰랐을 걸." 시드니가 당신의 팔을 놓아주며 말한다. 그는 재빨리 옷을 벗기 시작한다. "너도 기억하지? 우린 원래 이런 식으로 사랑을 표현하잖아."
+	<br><br>
+	당신은 들뜬 시드니의 도움을 받아 마지못해 옷을 벗는다.
+	<br><br>
+	"이러니까 너 진짜 섹시하다," 그가 당신을 밀어 눕히며 속삭인다. "내가 널 얼마나 사랑하는지 보여줄게."
+	<br><br>
+	시드니가 당신의 쇄골에 입을 맞추자 당신의 몸에 전율이 흐른다. 이상하게도 그는 더 가지 않고 뒤로 물러난다.
+	<br><br>
+	"시드니?" 당신은 왜 갑자기 멈추었는지 의아하여 묻는다. 그때 그의 어깨 너머로 이상한 것이 나타난다.
+	<br><br>
+	촉수 한 가닥이 그의 어깨를 휘감고, 앞으로 뻗어 나와 당신의 무릎에 스친다.
+	<br><br>
+	"안심해, 자기야." 시드니가 다시 말한다. 촉수가 더 많이 나타난다.
+<<else>> /* Interrupt Corrupt Sydney = Pure Sydney End */
+	"따라와," 시드니가 급히 당신을 일으켜 세운다. 당신은 눈을 껌뻑이며 시키는 대로 그에게 기댄다. 다리에 서서히 감각이 돌아온다. "맹세컨데 넌 옳은 선택을 한 거야."
+	<br><br>
+	당신은 앞서가는 시드니를 따라 비틀거리며 걸어간다. 한 걸음을 디딜 때마다 연기가 발을 휘감는다. 끝이 보이지 않는 풍경 사이로 새로운 문이 나타나 저절로 열린다. 당신은 그 안으로 이끌려 들어간다.
+	<br><br>
+	문 너머의 공간은 몇 가지 차이를 빼면 사원과 비슷하다. 중심부에 놓인 화려한 제단이 당신의 눈길을 끈다.
+	<br><br>
+	시드니는 멈추어 서서 당신의 얼굴을 감싸 안는다. "넌 정화되어야 해. 그 가짜의 손길에 몸을 내주었으니까 말이야. 괜찮아, 네 탓을 하려는 건 아니야. 넌 몰랐잖아."
+	<br><br>
+	당신의 다리에는 이제 힘이 많이 돌아왔기에 계단을 내려가 제단에 오르는 것은 어렵지 않다. 시드니가 당신이 옷 벗는 것을 도와주고 어떻게 제단에 누워야 하는지 알려준다. 한 계단마다 그는 격려의 말을 내뱉는다.
+	<br><br>
+	마지막 계단에 오르자 시드니가 기도를 올리며 계단을 성유로 장식한다. 그는 만족한 듯 뒤로 물러서서 고개를 끄덕인다. "준비는 끝났어. 부디 저항하지 말아줘."
+	<br><br>
+	시드니가 뒤로 물러서자 당신의 살에 소름이 돋는다. 무엇에 저항을 해?
+	<br><br>
+	무언가 축축한 것이 제단 위에 철퍽인다. 촉수 한 가닥이 느릿하게 석재의 가장자리를 따라 꿈틀거린다. 더 많은 촉수가 뒤따른다.
+	<br><br>
+	"그냥 가만히 있어." 시드니가 건조한 어조로 말한다. 그 역시 옷을 벗은 상태로, 좁혀오는 촉수와 함께 제단으로 올라온다.
+<</if>>
+<br><br>
+
+<<link [[다음|Nightmare Corrupt Sydney Rape]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Nightmare Corrupt Sydney Rape
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+
+	<<maninit>><<npcexpose>>
+
+	<<if $pain gte 80>>
+		<<set $pain to 80>>
+	<</if>>
+	<<set $enemyarousalmax to 800>>
+	<<set _randomtentacles to random(8, 12)>>
+	<<makeAbomination _randomtentacles 8 "tentacle" "tentacle" true>>
+<</if>>
+
+<<effects>>
+<<effectsabomination>>
+<<abomination>>
+<<stateabomination>>
+<br><br>
+<<actionsabomination>>
+
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0)>>
+	<span id="next"><<link [[다음|Nightmare Corrupt Sydney Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Nightmare Corrupt Sydney Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Nightmare Corrupt Sydney Rape Finish
+<<effects>>
+
+<<if $phase is 0>> /*Corrupt Sydney End*/
+	<<if $enemyhealth lte 0>>
+		촉수들이 움츠러들고, 시드니는 자신의 배를 붙든다.
+		<br><br>
+		"대체 왜 그래? 네가 선택한 거잖아." 시드니가 뒤로 기어가며 낮은 어조로 말한다.
+		<br><br>
+		"내가 너를 위해 해준 게 얼만데 넌 그걸 이렇게 갚는 거야? 난 그 모든 걸 다 감수했는데도?"
+		<br><br>
+		시드니는 이성을 잃고 고함치더니, 당신이 기어서 자리를 뜨려고 하자 더 화를 내며 움츠러든 당신의 몸을 향해 거침없이 다가온다. 시드니는 손을 들어올렸지만, 그 손이 당신을 치기 전에 빛줄기가 기도실의 벽을 뚫고 들어온다.
+	<<elseif $enemyarousal gte $enemyarousalmax>>
+		<<ejaculation>>
+
+		만족한 촉수들이 힘없이 물러난다. 시드니는 당신의 곁에 누워 흡족하게 한숨을 내쉰다.
+		<br><br>
+		"그거 알아? 널 만나기 전이었다면 이런 짓은 결코 안 했을 거야." 그가 행복하게 하품을 하며 기지개를 편다. "네가 나를 얼마나 바꿔 놓았는지 몰라."
+		<br><br>
+		시드니는 한번 더 하려는 기색이 만면하게 다시 당신의 위로 올라타려 한다. 그러나 얼마 못가 환한 빛이 기도실의 벽을 뚫고 비친다. 시드니는 깜짝 놀라고 눈이 부셔 뒤로 급히 뛰어내린다.
+	<<else>>
+		분노한 촉수가 당신의 목을 세게 감싸고 수 초간 꽉 졸랐다가 마침내 당신을 풀어준다.
+		<br><br>
+		시드니 역시 당신의 반항에 불만스러운 듯 조소한다. "네가 선택한 거야, 네가 나를 이렇게 만들었잖아. 이건 다 네 탓이야."
+		<br><br>
+		촉수들이 다시금 당신을 휘감기 시작하고, 그는 당신을 때리려고 손을 들어올린다. 그러나 그 손이 당신을 치기 전에 빛줄기가 기도실의 벽을 뚫고 들어온다. 그 밝기에 시드니는 눈을 가린 채 물러나고, 당신은 그 틈을 타 방 구석으로 기어간다. 촉수 역시 움츠러든다.
+	<</if>>
+	<br><br>
+	방 안이 열기에 휩싸이고, 불꽃이 피어올라 당신과 시드니를 떼놓는다. 그는 다시 한번 당신에게 손을 뻗으려 하지만 불꽃에 가로막힌다. 화염은 점점 높이 치솟아 결국에는 시드니가 당신에게 돌아오라고 외치는 소리밖에 들리지 않게 된다.
+<<else>> /* Pure Sydney End*/
+	<<if $enemyhealth lte 0>>
+		촉수들이 기분 나쁜 모양새로 움츠러들고, 시드니는 자신의 배를 붙든다.
+		<br><br>
+		"안돼!" 그가 소리친다. "왜 이러는 거야, 넌 이제 더럽혀진 채 살아야 한단 말이야."
+		<br><br>
+		시드니는 주저앉아 무릎을 꿇은 채 자기 머리카락을 잡아당기며 중얼중얼거린다. 당신은 촉수를 경계하며 제단에서 내려온다. 촉수는 어디에도 보이지 않는다.
+		<br><br>
+		"제-제대로 했어야 했는데, 서약을 맺었어야 했는데." 시드니가 낙심한 듯 훌쩍인다.
+		<br><br>
+
+		<<silently>><<endcombat>><</silently>>
+		<<npc Sydney>><<person1>>
+		<<link [[시드니에게 손을 뻗는다|Nightmare Corrupt Sydney Rape Finish 2]]>><<set $phase to 0>><</link>>
+		<br>
+		<<link [[그저 지켜본다|Nightmare Corrupt Sydney Rape Finish 2]]>><<set $phase to 1>><</link>>
+		<br>
+		<<exit>>
+	<<elseif $enemyarousal gte $enemyarousalmax>>
+		<<ejaculation>>
+
+		만족한 촉수들이 힘없이 물러난다. 시드니는 평온한 얼굴로 당신의 곁에 눕는다.
+		<br><br>
+		"정말 잘해줬어, 네가 무척 자랑스러워." 그가 말한다. 그는 당신을 향해 손을 들어 올렸다가, 당신에게 닿기 직전 사원이 울리는 충격에 멈춘다.
+		<br><br>
+		사원이 또다시 흔들리자 시드니는 겁먹은 표정으로 절박하게 당신을 붙잡으려 한다. 그러나 이미 늦었다. 제단이 반으로 갈라지고, 당신은 가지 말라고 애타게 부르는 시드니의 목소리를 남겨 둔 채 어두컴컴한 허공 속으로 소용돌이쳐 간다.
+	<<else>>
+		분노한 촉수가 당신의 목을 세게 감싸고 수 초간 꽉 졸랐다가 마침내 당신을 풀어준다.
+		<br><br>
+		시드니가 당신을 노려본다. "왜 저항하는 거야? 정화되는 거잖아, 저항할 필요는 하나도 없는데."
+		<br><br>
+		촉수들이 다시 당신의 다리로 기어 오르려 하지만, 그 직전에 울리는 소리가 사원을 뒤흔든다. 두 번째는 첫 번째 소리보다 훨씬 강하게 울리며 대리석에 균열을 만든다. 사원이 조금씩 무너져 간다. 시드니와 촉수는 따로 떨어진 풍경 속에서 멀어지는 당신을 두고 뒤로 물러난다.
+	<</if>>
+<</if>>
+<br><br>
+<<silently>><<endcombat>><</silently>>
+
+<<link [[다음|Nightmare Corrupt Sydney End]]>><<clotheson>><<endevent>><</link>>
+<br>
+
+
+:: Nightmare Corrupt Sydney Rape Finish 2
+<<effects>>
+
+<<if $phase is 0>> /* Reach out */
+	당신은 죄책감에 시드니를 껴안으려 한다. 그에게 닿기 직전 우르릉거리는 소리가 바닥을 뒤흔든다. 당신이 하마터면 넘어질 뻔 할 즈음에 흔들림이 잦아든다. 그러나 머지않아 흔들림이 되돌아온다. 이번에는 훨씬 더 격렬하다.
+<<else>> /* Just watch */
+	당신은 그저 도망치고 싶다는 심정으로 제자리에서 그가 허물어지는 광경을 바라본다. 당신은 눈을 감고 다른 곳으로 가고 싶다고 빈다. 그 순간 땅이 우르릉거리며 흔들린다. 당신이 하마터면 넘어질 뻔 할 즈음에 흔들림이 잦아든다. 그러나 머지않아 흔들림이 되돌아온다. 이번에는 훨씬 더 격렬하다.
+<</if>>
+<br><br>
+
+사원이 무너지기 시작한다. 시드니와 당신 사이의 땅이 갈라져도 시드니는 한 치도 움직이지 않는다. 당신과 시드니는 따로 떨어진다. 세계가 어둠 속으로 추락한다.
+<br><br>
+
+<<link [[다음|Nightmare Corrupt Sydney End]]>><<clotheson>><<endevent>><</link>>
+<br>
+
+:: Nightmare Corrupt Sydney End
+<<effects>><<nightmareEnd>>
+
+당신은 화들짝 놀라며 깨어난다. 일어나 앉아서 거칠게 숨을 쉬는 당신의 몸은 식은땀으로 덮여 있다. 당신은 한순간 여기가 어디인지 잊었다가 서서히 주변을 다시 알아본다.
+<br><br>
+다 끝났다. 이건 더 이상 꿈이 아니다. 당신은 안전하다.
+<br><br>
+
+<<link [[다음|$nightmareExit]]>><<unset $nightmareExit>><</link>>
+<br>
+
+:: Nightmare Alex
+<<effects>><<nightmareStart "Alex">><<set $location to "alex_cottage">>
+<<npc Alex>><<person1>>
+
+A loud bang jolts you awake. The sound of footsteps echo from somewhere below you. Glancing around, you see a room in disarray and blacked-out windows.
+<br><br>
+The heavy stench of alcohol permeates the air and crawls down your throat. It burns as it goes down.
+<br><br>
+<<if $nightmaresSeen.includes("Alex")>>
+	Something's wrong. You know this place. It's 'Alex's' room. <span class="purple">It isn't real.</span>
+	<br><br>
+
+	<<link [[Wake up|Nightmare Alex Wake]]>><<set $phase to 0>><</link>><<nightmareWakeDifficulty>>
+	<br>
+<</if>>
+<<link [[다음|Nightmare Alex 2]]>><</link>>
+<br>
+
+:: Nightmare Alex Wake
+<<effects>>
+
+You curl into a ball and dig your fingers into your legs. This isn't real. <<if isLoveInterest("Alex")>>This isn't your Alex.<</if>> You dig your nails into your skin, until they break the surface.
+<br><br>
+<<if $willpowerSuccess>>
+	You manage to push past the smell of booze. <span class="green">The pain brings you back to reality.</span>
+	<br><br>
+
+	<<link [[다음|Nightmare Alex End]]>><<endevent>><<nightmareEnd>><<set $phase to 0>><</link>>
+	<br>
+<<else>>
+	The vile scent of booze pulls most of your focus. <span class="red">The pain is not enough to wake yourself up.</span>
+	<br><br>
+
+	<<link [[다음|Nightmare Alex 2]]>><</link>>
+	<br>
+<</if>>
+
+:: Nightmare Alex 2
+<<effects>>
+
+The door opens and a redheaded <<nnpc_gendery "Alex">> approaches you. It's Alex. <<He>> wordlessly climbs on top of you.
+<<if $settings.asphyxiaLevel gte 1>>
+	Alex wraps <<his>> hands around your neck. <<He>> presses <<his>> thumbs into your windpipe. Breathing becomes a struggle. Your gasps for air, only for <<him>> to press harder.
+<<else>>
+	Alex grips you by your chin and slaps your face.
+<</if>>
+<br><br>
+<<He>> reeks of alcohol, and <<his>> eyes are dark and empty, yet filled with contempt.
+<<if C.npc.Alex.dom gte 30>>
+	"You said you would help out around here, but I'm always stuck cleaning up your fuckups."
+	<br><br>
+	<<if C.npc.Alex.lust gte 60>>
+		<<He>> <<npcUndressText $NPCList[0] "lower" "self">> and
+		<<if $NPCList[0].penis isnot "none">>
+			grips the base of <<his>> dick.
+		<<else>>
+			pulls <<his>> boyshorts aside.
+		<</if>>
+		"I deserve something for busting my ass out there."
+	<<else>>
+		Alex presses <<his>> forehead to your own. "Thought I would finally get some help around here. Should've known better than to trust a townie to do anything right."
+	<</if>>
+<<else>>
+	"How is some damn townie better at farm work than me? I busted my ass, just to be outdone by a city slicker."
+	<br><br>
+	<<if C.npc.Alex.lust gte 60>>
+		<<He>> <<npcUndressText $NPCList[0] "lower" "self">> and
+		<<if $NPCList[0].penis isnot "none">>
+			grips <<his>> dick.
+		<<else>>
+			pulls <<his>> boyshorts aside.
+		<</if>>
+		"Don't I deserve something for working as hard as I do?"
+	<<else>>
+		Alex presses <<his>> nose to your own. "Why'd you come around? Why did you have to come and ruin my life?"
+	<</if>>
+<</if>>
+<br><br>
+
+<<link [[다음|Nightmare Alex Rape]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Nightmare Alex Rape
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+
+	<<maninit>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+<span id="next"><<link [[다음|Nightmare Alex Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+<span id="next"><<link [[다음|Nightmare Alex Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Nightmare Alex Rape Finish
+<<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+
+	Alex snickers, leaning back. <<He>> soon climbs off the bed and grabs a stray bottle of alcohol from the nightstand. <<He>> pays you no mind while <<he>> downs the bottle.
+	<br><br>
+	"You stay there and look cute, you hear? Might need you again soon." <<He>> glances back at you with a smirk and leaves you alone on the bed.
+	<br><br>
+	You don't have the strength to move, nor the will. You curl up on your broken body and end up falling asleep, your body trembling all the while.
+<<else>>
+	You manage to free yourself from Alex and scramble to the door. It's jammed. <<Hes>> screaming incoherent nonsense. A glass bottle smashes just beside your head as you struggle to open the door.
+	<br><br>
+	Alex closes the distance; <<hes>> mere millimetres away. The door finally opens, and you rush out into the void.
+<</if>>
+<br><br>
+<<silently>><<endcombat>><</silently>>
+
+<<link [[다음|Nightmare Alex End]]>><<clotheson>><<nightmareEnd>><<set $phase to 1>><</link>>
+
+:: Nightmare Alex End
+<<effects>>
+<<npc Alex>><<person1>>
+
+<<if $phase is 1>>
+	You awake, shaking. The memories of the nightmare play repeatedly in your head.<<stress 18>><<trauma 18>><<gggstress>><<gggtrauma>>
+	<br><br>
+	You slept, but your body and mind feel utterly exhausted.<<tiredness 15>><<gggtiredness>>
+	<br><br>
+	A door opens somewhere, and you freeze at the sound of Alex's voice. <<He>> seems to be addressing the farm animals. You wait for <<him>> to start marching upstairs, expecting your nightmare to become a reality. When the door shuts once more, you can't help but still feel unnerved.
+	<br><br>
+	Alex would never hurt you like that, would <<he>>? <<He>> kept you around all this time. If <<he>> hated you, <<he>> would make you leave, right?
+<<else>>
+	You awake in a cold sweat.<<stress 12>><<trauma 12>><<ggstress>><<ggtrauma>>
+	<br><br>
+	You feel dizzy. Your body is more tired than it was before you slept.<<tiredness 10>><<ggtiredness>>
+	<br><br>
+	The sound of footsteps and a voice from downstairs causes you to jump. It's Alex, droning on about some of the farm animals. You suddenly don't feel safe with <<him>> in the cottage, though you can't explain why.
+<</if>>
+<br><br>
+
+<<link [[다음|$nightmareExit]]>><<unset $nightmareExit>><<endevent>><</link>>
+<br>
+
+
+:: Nightmare Witch
+<<effects>><<nightmareStart "witch">><<set $location to "old_temple">>
+<<set Time.setTime(18, 30)>><<set Weather.set("heavyClouds", true)>>
+
+You fall into a restless sleep. You toss and turn. It feels as though you're sleeping on cold stone.
+<br><br>
+
+You jolt up to the sound of a whip cracking, and someone crying out in pain.
+<br><br>
+
+You rub your eyes, struggling to see through the gloom. A torch casts the long shadow of a whip over you, as it comes down again.
+<br><br>
+
+You see a man with long blond hair in a suit of chainmail, with a large black cloth adorned over it.
+His back is turned to you. He brings his whip down one last time, before stepping aside and fading away into the stone wall.
+<br><br>
+
+<<if $nightmaresSeen.includes("witch")>>
+	You know this place. It isn't real, you don't think. The witch slowly looks up at you as she pants for breath. <span class="pink">She seems to faintly recognise you.</span>
+	<br><br>
+
+	<<link [[Wake up|Nightmare Witch Wake]]>><</link>><<nightmareWakeDifficulty>>
+	<br>
+	<<link [[Talk|Nightmare Witch 2]]>><</link>>
+	<br>
+<<else>>
+	A woman sits, bound by silver manacles, against the wall. She slowly looks up at you as she pants for breath.
+	<br><br>
+
+	Her grey eye widens in surprise upon seeing you. She coughs. <span class="pink">Glowing pink fluid trails down her chin into a silver vessel.</span>
+	<br><br>
+
+	You can't help but feel she looks familiar. The left half of her face is obscured by swirling shadows, while the right sports a fresh burn.
+	<br><br>
+
+	<<link [[다음|Nightmare Witch 2]]>><</link>>
+	<br>
+<</if>>
+
+:: Nightmare Witch Wake
+<<effects>>
+
+You know the way out. You unlock the cell door and leave the dungeon, looking over your shoulder one last time.
+<br><br>
+
+<<if $willpowerSuccess>>
+	You resist the urge to turn around. She isn't real.
+	<br><br>
+
+	<<link [[다음|Nightmare Witch End]]>><</link>>
+	<br>
+<<else>>
+	You walk down the corridor, up the long stone steps, and emerge... back in her cell. She stares at you.
+	<br><br>
+
+	You sit down.
+	<br><br>
+
+	<<link [[다음|Nightmare Witch 2]]>><</link>>
+	<br>
+<</if>>
+
+:: Nightmare Witch 2
+<<effects>>
+
+She dissolves into blackness as the torch goes out.
+<br><br>
+
+Another torch is lit in the cell. She appears under it, now naked, being scrubbed down and washed by the same man from before.
+<br><br>
+
+A black antler emerges from the left side of her head. The man disappears again. She starts to crawl towards you, her mouth hanging open, revealing no tongue within.
+<br><br>
+
+She says nothing, but you can hear words being spoken into your head.
+<br><br>
+
+<<if $nightmaresSeen.includes("witch")>>
+	'Why did you return?'
+<<else>>
+	'Did you enjoy watching me suffer?'
+<</if>>
+<br><br>
+
+She doesn't wait for your answer. Her shadow turns, passing over the torch, snuffing it out.
+<br><br>
+
+<<link [[다음|Nightmare Witch 3]]>><</link>>
+<br>
+
+:: Nightmare Witch 3
+<<effects>>
+
+Another torch flickers to life. She and the gaoler appear again. A cross is being branded into her flesh.
+<br><br>
+
+She's screaming in pain, but the words continue. 'This isn't your prison.'
+<br><br>
+
+A torrent of silver needles fall from the ceiling. She vanishes behind them.
+The needles all land in a bucket.
+<br><br>
+
+Another torch is lit. The two are sharing a stolen meal.
+<br><br>
+
+The words become more clear. 'I am trapped in this story. Reliving it over and over. It has been... so long.
+I know not which retelling is accurate. Each has pieces of the truth lost in lies. I have heard... seen it so many times. Who am I?'
+<br><br>
+
+<<link [[Tell the witch her name|Nightmare Witch 4]]>><<set $phase to 1>><</link>>
+<br>
+<<link [[Say nothing|Nightmare Witch 4]]>><<set $phase to 2>><</link>>
+<br>
+
+:: Nightmare Witch 4
+<<effects>>
+
+<<if $phase is 1>>
+	You try to say her name aloud. The word refuses to leave your lips. Yet, she seemed to hear it.
+	<br><br>
+
+	'That is what the townsfolk called me. Was it my true name?' She shakes her head, uncertain.
+<<else>>
+	You sit in silence.
+	<br><br>
+
+	'Perhaps the name should remain lost.' She shakes her head, uncertain.
+<</if>>
+'I do not... I do not go by that name any longer. That name passed on with...'
+<br><br>
+
+Her expression becomes unreadable as the gaoler reappears in front of her, gently covering her with a bedsheet.
+<br><br>
+
+'...him.' She stares.
+<br><br>
+
+'I believe... we are both dreaming. You, and whomever I am a memory of. I keep returning here. Others who hear the tale end up here, sometimes. The story is a curse.
+Am I truly her? I awaken, and forget, until I am brought here again. And again. And again. And again. And again.'
+<br><br>
+
+<span class="red">A coil of chains slithers around you like a snake.</span> The room flips, and you're suddenly hanging from the ceiling.
+She looks at you apologetically. 'Just remain still. This is not your prison. You will not face punishment, for you have not transgressed.'
+<br><br>
+
+You swing back and forth, making your stomach rise.
+<<if $nightmaresSeen.includes("witch")>>
+	'Has your answer changed since last we met? Grant me closure that I might find rest.'
+<<else>>
+	'You... you may be able to aid me. Provide me relief, however temporary.'
+<</if>>
+<br><br>
+
+She reappears with the gaoler. They are embracing.
+'Which do you <span class="gold">believe</span> rings the most true?'
+<br><br>
+
+<<if $hcEndings.includes("S")>>
+	<<link [[Faith|Nightmare Witch Faith]]>><</link>>
+<<else>>
+	<span class="black">You haven't heard this version of the story yet.</span>
+<</if>>
+<br>
+<<if $hcEndings.includes("A")>>
+	<<link [[Love|Nightmare Witch Love]]>><</link>>
+<<else>>
+	<span class="black">You haven't heard this version of the story yet.</span>
+<</if>>
+<br>
+<<if $hcEndings.includes("B")>>
+	<<link [[Desperation|Nightmare Witch Desperation]]>><</link>>
+<<else>>
+	<span class="black">You haven't heard this version of the story yet.</span>
+<</if>>
+<br>
+<<if $hcEndings.includes("C")>>
+	<<link [[Perdition|Nightmare Witch Perdition]]>><</link>>
+<<else>>
+	<span class="black">You haven't heard this version of the story yet.</span>
+<</if>>
+<br>
+<<if $hcEndings.includes("D")>>
+	<<link [[Stagnation|Nightmare Witch Stagnation]]>><</link>>
+<<else>>
+	<span class="black">You haven't heard this version of the story yet.</span>
+<</if>>
+<br>
+<<if $hcEndings.includes("E")>>
+	<<link [[Paranoia|Nightmare Witch Paranoia]]>><</link>>
+<<else>>
+	<span class="black">You haven't heard this version of the story yet.</span>
+<</if>>
+<br>
+<<if $hcEndings.includes("F")>>
+	<<link [[Hatred|Nightmare Witch Hatred]]>><</link>>
+<<else>>
+	<span class="black">You haven't heard this version of the story yet.</span>
+<</if>>
+<br>
+<<link [[Say nothing|Nightmare Witch Nothing]]>><</link>>
+<br>
+
+:: Nightmare Witch Faith
+<<effects>><<set Weather.set("lightPrecipitation", true)>><<set $location to "forest">>
+
+She lets out a soft laugh as recognition crosses her face. She fades away. 'If only it could be the whole truth.
+I was still his prisoner. My love for him did not change that simple fact. I could not walk. I was weak.'
+<br><br>
+
+She reappears in the gaoler's arms. He's carrying her away into the forest. Her fists clench, and her face falls to an expression of terrible understanding.
+'I would gladly accept being his prisoner alone. Yet, I did not expect to remain his prisoner after my body had died.'
+She suddenly looks afraid. The tears begin to flow. 'Why must you believe this one? This...'
+<br><br>
+
+The scene fades away, before coming back into focus. You're in a small wooden cabin. She sits in a rocking chair. The gaoler kneels before her, his head pressed into her... baby bump.
+She wipes her eyes. 'This is why I can never forget. This is why I remain trapped here. He made me so happy. So very happy. A heretic, a monster like me did not deserve it.'
+<br><br>
+
+The scene fades away again. You're outside, the sound of gentle rain and wind meeting your ears.
+<br><br>
+
+The gaoler sits on the grass in front of a stone object. Beside him, a little girl in a green dress stands sobbing. The chains are gone. You approach.
+<br><br>
+
+You peer over the gaoler's shoulder. It's a grave marker. A stone cross, engraved with a name.
+<br><br>
+
+<span class="narration">Nona ap Fayne</span>
+<br><br>
+
+The girl turns to you, as if suddenly able to see you.
+<br><br>
+
+"Thank you," she says with Nona's voice. "I'll forget when I come here again. But thank you, even for just one night's rest..."
+<br><br>
+
+<<link [[Wake up|Nightmare Witch End]]>><</link>>
+<br>
+
+:: Nightmare Witch Love
+<<effects>><<set Weather.set("clear", true)>><<set $location to "forest">>
+<<set Time.setTime(23, 0)>>
+
+She fades away, laughing with devious glee.
+<br><br>
+
+The gaoler appears, strings attached to his head and limbs. The demon towers above you, working his strings like a puppet.
+<br><br>
+
+"He was so eager to give me his heart. Was it so wrong for me to take it?" Her voice sounds more real, yet there's an eerie hiss to it. A tentacle in her mouth acts as her tongue. She puts a hand up to it and giggles as they both vanish again.
+<br><br>
+
+A stone altar appears before you. They both lie on it, and she moans in ecstasy. A regal pair of antlers adorn her head, a pair of purple wings on her back.
+"He was h... hhhaaappy. I know that much to be true, from- ah! From this telling."
+<br><br>
+
+Her legs, enwreathed in tentacles, wrap around his waist as he reaches climax. "It would have been a waste to let him be free. He was mine. Mine alone."
+<br><br>
+
+They vanish once more. She appears behind you, walking on legs braced by tentacles. Her blackened, elongated arms nearly touch the ground. The gaoler stumbles behind her.
+Her look of smug superiority fades into a sad smile. "In truth, I think he and I were both prisoners. Prisoners and gaolers of one another. As cold as my heart was..."
+<br><br>
+
+A tear rolls down the demon's cheek. "I did not want to let him go. I could not. Perhaps I did not love him, but I know he loved me. It was something I could indulge, if nothing else."
+<br><br>
+
+She puts a black claw over her chest, and the other over her tummy. "No... no, there was more. I—wait, don't leave! We were so close to the truth!"
+<br><br>
+
+<<link [[Wake up|Nightmare Witch End]]>><</link>>
+<br>
+
+:: Nightmare Witch Desperation
+<<effects>><<set Weather.set("clear", true)>><<set $location to "forest">>
+<<set Time.setTime(23, 0)>>
+
+She fades away, and something roars in the distance.
+<br><br>
+
+'There's... familiarity here. Many truths, and many lies. It falters in context.' Four long, glassy, spider-like limbs reach out from the dark, carrying her broken body.
+<br><br>
+
+'Was this the end? No. I remember. This is the story that ends best for him.' An approximation of a sad smile crosses her split jaws.
+'He was looking for me. I was looking for him, too. I believed myself to be the monster that the cloister made me. Despite that, I wished to see him one last time before my body failed.'
+<br><br>
+
+She fades away. You're in a small clearing. The gaoler is holding an infant with tiny twig-like antlers on her head.
+<br><br>
+
+'We did see each other again, although he would never realise it.' The bushes rustle as someone flees the clearing.
+<br><br>
+
+A person with leaves in their hair turns to you. You don't catch what they say before you wake up.
+<br><br>
+
+<<link [[Wake up|Nightmare Witch End]]>><</link>>
+<br>
+
+:: Nightmare Witch Perdition
+<<effects>>
+
+She vanishes, and reappears with a silk cord around her neck. Her face is flushed and full of sadistic desire.
+<br><br>
+
+She brings down a black claw on a man in monk's robes. The gaoler stands behind her, whipping the monk if he moves too much.
+<br><br>
+
+She seems embarrassed. 'I remember. I was terrified of the hounds after what they did to me.
+This... act of ours, it helped alleviate my mental strain. It was only ever us, though. I was never used to punish the sins of others.'
+<br><br>
+
+She obediently barks at her master. The gaoler lifts her, carrying her like a princess to their bedchamber.
+<br><br>
+
+'Did I grow affectionate for him? I must have. There was so much more than this, however. This was only a fraction of a truth.'
+<br><br>
+
+<<link [[Wake up|Nightmare Witch End]]>><</link>>
+<br>
+
+:: Nightmare Witch Stagnation
+<<effects>>
+
+Her body slumps over, like an unwanted doll cast aside.
+<br><br>
+
+'Trapped. Trapped within a broken body, unable to move, forever.' Her skin takes on the texture of fabric. She's suddenly impaled by countless silver needles. Cotton spills from her insides.
+<br><br>
+
+'It was maddening. He... helped me. His pure touch granted me strength. Clarity.' One by one, the needles are pulled out. A pair of hands gently pick her up.
+<br><br>
+
+The gaoler holds the doll up to his cheek, before vanishing.
+<br><br>
+
+He reappears with a sewing needle, stitching closed the countless <span class="tentacle">holes</span> in the doll. His fingers are covered in small bandages.
+<br><br>
+
+When he's finished, he turns around and hands the doll to someone. A little girl, who looks a lot like the witch, and a lot like him too.
+She looks up to him with wonder, before hugging his waist. He returns the embrace.
+<br><br>
+
+She runs off into another room, where the witch sits in a rocking chair. The girl shows her the doll with pure joy, jumping up and down. The witch smiles warmly.
+<br><br>
+
+Her face suddenly changes to confusion. 'I... I don't understand...'
+<br><br>
+
+<<link [[Wake up|Nightmare Witch End]]>><</link>>
+<br>
+
+:: Nightmare Witch Paranoia
+<<effects>>
+
+She vanishes, along with the cell. Empty red light surrounds you.
+<br><br>
+
+'The cloister. They called themselves family, yet they so often turned their wrath on one another.'
+<br><br>
+
+The gaoler appears, wearing rags, bound to a chunk of wall floating in the nothingness.
+<br><br>
+
+'It did not end like this. There was doubt in his heart, this much is true. It drove him to do... something.
+I can't remember what.'
+<br><br>
+
+His chains suddenly burst, falling far below. He begins to run towards a stone altar.
+<br><br>
+
+'No closure, only more questions.'
+<br><br>
+
+<<link [[Wake up|Nightmare Witch End]]>><</link>>
+<br>
+
+:: Nightmare Witch Hatred
+<<effects>>
+
+Her limp legs begin to fuse together. Her body elongates.
+<br><br>
+
+The serpent coils around you. Her face comes very close to yours. <span class="red">Your joints all lock up, and you can't move!</span>
+<br><br>
+
+'There was much hatred between us. This is true. It would eventually destroy us.' She tightens around you. <span class="red">You can't breathe.</span> 'Suffocating, binding hatred.'
+<br><br>
+
+You shed your skin. She emerges from you.
+<br><br>
+
+<<link [[Wake up|Nightmare Witch End]]>><</link>>
+<br>
+
+:: Nightmare Witch Nothing
+<<effects>>
+
+She vanishes.
+<br><br>
+
+'Is the only way to be free to forget?'
+<br><br>
+
+A long silence follows.
+<br><br>
+
+'If I forget this, I may forget everything.'
+<br><br>
+
+<<link [[Wake up|Nightmare Witch End]]>><</link>>
+<br>
+
+:: Nightmare Witch End
+<<effects>><<nightmareEnd>>
+
+You shiver as you wake.
+<br><br>
+
+It was only a dream. A story is just a story.
+<br><br>
+
+<<link [[다음|$nightmareExit]]>><<unset $nightmareExit>><</link>>
+<br>
+
+:: Nightmare Gwylan
+<<effects>><<nightmareStart "gwylan">><<set $location to "docks">>
+<<set Time.setTime(15, 33)>><<set Weather.set("heavyClouds", true)>>
+<<npc Gwylan>><<person1>><<set $dockCount to 2>>
+You smell salt in the air, and open your eyes. You're at the docks on Mer Street.
+<br><br>
+
+A <<personsimple>> stands at the very end of the furthest dock, <<his>> mousy hair blowing in the wind. <<He>> gently sways to a rhythm you can't hear, <span class="teal">but know</span>.
+<br><br>
+
+<<if $nightmaresSeen.includes("gwylan")>>
+	You know what this is. The ocean threatens to swallow you already. It isn't real, you hope.
+	<br><br>
+
+	<<link [[Wake up|Nightmare Gwylan Wake]]>><</link>><<gwylanWillpowerDifficulty>>
+	<br>
+<<else>>
+	You squint, trying to see clearly. Your eyes sting. The reflection on the top of the ocean is nearly perfect in clarity. For a moment, you feel like you're falling upwards.
+	<br><br>
+<</if>>
+<<link [[Approach|Nightmare Gwylan 2]]>><</link>>
+<br>
+<<link [[Leave|Nightmare Gwylan Leave]]>><</link>>
+<br>
+
+:: Nightmare Gwylan Wake
+<<effects>>
+You turn around and run, your eyes closed. You need to be anywhere else. Away from the ocean.
+<br><br>
+
+<<if $willpowerSuccess>>
+	You hear Gwylan's voice singing to you. You cover your ears. It does nothing to muffle the song, <span class="green">but it keeps you focused</span>. The air rushes by you as water spouts descend, trying to pull you into oblivion. You will them away.
+	<br><br>
+
+	<<link [[다음|Nightmare Gwylan End]]>><</link>>
+	<br>
+<<elseif $hypnosis_traits.devotion gte 4>>
+	You hear Gwylan's voice singing to you. <<hypnosisText "<span class='red'>Your body turns around on its own.</span>">> Your eyes open. <<Hes>> on every street corner, staring at you with those empty eyes.
+	You run right into <<nnpc_his "Gwylan">> embrace. A paradox of terror and relief pulls you in opposite directions, as hundreds of Gwylans giggle and drag you back to the docks.
+	<br><br>
+
+	<<link [[다음|Nightmare Gwylan 2]]>><<set $phase to "forced">><</link>>
+	<br>
+<<else>>
+	You hear a familiar voice singing to you. <span class="red">It's so sweet, so alluring.</span> You must have turned around without realising it, as you hear your footsteps on wood once more.
+	<br><br>
+
+	<<link [[다음|Nightmare Gwylan 2]]>><</link>>
+	<br>
+<</if>>
+
+:: Nightmare Gwylan Leave
+<<effects>>
+You turn to leave, stepping back onto Mer Street.
+<br><br>
+
+You feel like you walk for ages. It takes you far too long realise that instead of Starfish Street, you're back on Mer Street. Another dock sits on the ocean before you. You look back, and can still see the first.
+<br><br>
+
+<<link [[Step onto the docks|Nightmare Gwylan 2]]>><</link>>
+<br>
+<<link [[Go back to the first dock|Nightmare Gwylan Leave 2]]>><<set $phase to "back">><</link>>
+<br>
+<<link [[Keep walking|Nightmare Gwylan Leave 2]]>><<set $phase to "persist">><</link>>
+<br>
+
+:: Nightmare Gwylan Leave 2
+<<effects>><<set $dockCount++>>
+<<if $phase is "persist">>
+	You clench your fists and keep walking. A third dock stretches out over the ocean.
+	<br><br>
+<<elseif $phase is "back">>
+	You make your way back to the first dock.
+	<<if $dockCount gte 4>>
+		At least, you're mostly sure it's the first one.
+	<</if>>
+	<br><br>
+<</if>>
+
+You are on Mer Street. A dock sits on the surface of the water. Someone stands at the very end.
+<br><br>
+
+<<if $dockCount gte 9>>
+	The docks form a nine-pointed star, with you at the center. No matter where you turn, only the docks, and the ocean beyond, stretch on.
+	<br><br>
+
+	<<link [[Step onto the docks|Nightmare Gwylan 2]]>><<set $phase to 0>><</link>>
+	<br>
+<<else>>
+	<<if $dockCount gte 5>>
+		<<Number $dockCount>> docks stretch out into the ocean. The same person stands at the end of each.
+		<br><br>
+	<</if>>
+
+	<<link [[Step onto the docks|Nightmare Gwylan 2]]>><<set $phase to 0>><</link>>
+	<br>
+	<<if $phase isnot "back">>
+		<<link [[Go back to the first dock|Nightmare Gwylan Leave 2]]>><<set $phase to "back">><</link>>
+		<br>
+	<</if>>
+	<<link [[Keep walking|Nightmare Gwylan Leave 2]]>><<set $phase to 0>><</link>>
+	<br>
+<</if>>
+
+:: Nightmare Gwylan 2
+<<effects>>
+<<if $phase is "forced">>
+	You're dragged onto the dock, innumerable soft hands forcing you to stand. They guide your steps forward, and you're unable to resist, merely a puppet on strings.
+	<br><br>
+
+	The other Gwylans all fall apart and rush ahead in ribbons of themselves, joining the one in front of you as the song reaches a crescendo.
+<<else>>
+	You can hear the <<personsimple>> at the end singing as you approach. The dock seems to be extending as you walk, as <<he>> doesn't seem to be getting any closer.
+	<br><br>
+
+	The song is scrambled. The words don't make sense, but you know it's coming to an end. This fills you with dread, but you don't know why.
+<</if>>
+<br><br>
+
+With a final note, the dock between you compresses, bringing you right behind <<him>> in an instant.
+<br><br>
+
+<<if $phase isnot "forced">>
+	You recognise <<him>> now. It's Gwylan.
+<</if>>
+<<His>> clothes are waterlogged and torn. The smell of saltwater and brine is overwhelming.
+<br><br>
+
+<<link [[Talk to <<him>>|Nightmare Gwylan 3]]>><<set $phase to "talk">><</link>>
+<br>
+<<link [[Turn around and leave|Nightmare Gwylan 3]]>><<set $phase to "leave">><</link>>
+<br>
+<<link [[Hug <<him>>|Nightmare Gwylan 3]]>><<set $phase to "hug">><</link>>
+<br>
+
+:: Nightmare Gwylan 3
+<<effects>>
+<<if $phase is "talk">>
+	You open your mouth to speak, but only whalesong escapes.
+<<elseif $phase is "leave">>
+	You turn to leave, but your legs aren't there anymore.
+<<else>>
+	You reach out to <<him>>, but the space between you is infinite. <<He>> can touch you, yet you can't touch <<him>>.
+<</if>>
+<br><br>
+<<set $phase to 0>>
+
+You hear a low gurgle.
+<br><br>
+
+The ocean's surface reflects silver manacles and needles.
+<br><br>
+
+It reflects planes flying overhead, dropping payloads that float upward. They fall forever.
+<br><br>
+
+It reflects a neverending array of burning docks in the sky, spinning into each other in endless ruin.
+<br><br>
+
+It reflects the forest.
+<br><br>
+
+A circle forms in the water before <<him>>.
+<br><br>
+
+It reflects everything.
+<br><br>
+
+Water droplets rise, falling into the sky.
+<br><br>
+
+It reflects everybody.
+<br><br>
+
+The reflection becomes imperfect as the disturbance deepens, a crown of water rising as the clouds darken.
+<br><br>
+
+It reflects nobody.
+<br><br>
+
+Nobody turns around.
+<br><br>
+
+<<link [[Look|Nightmare Gwylan 4]]>><<set $phase to "look">><</link>>
+<br>
+<<link [[Close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes close your eyes|Nightmare Gwylan 4]]>><<set $phase to "close">><</link>>
+<br>
+
+:: Nightmare Gwylan 4
+<<effects>><<set Weather.set("lightPrecipitation", true)>>
+<<if $phase is "look">>
+	Your eyes <span class="witch">yearn</span> for the sting of the saltwater.
+	<br><br>
+
+	<<He>> turns.
+	<br><br>
+
+	<<His>> eye sockets are empty.
+	<br><br>
+
+	Yet, you can read <<his>> expression. You can read it painfully well. Ennui. Hopelessness. A tired smile. Saltwater leaks from the corners.
+	<br><br>
+
+	<<His>> chest is hollow. <<His>> ribs make a cage for a black, unbeating heart in a void of static.
+<<else>>
+	You close your eyes, unable to bear the sting of the saltwater anymore.
+	<br><br>
+
+	<<He>> turns. You don't know how long <<he>> stares at you, but you can feel <<his>> gaze peeling you apart.
+<</if>>
+<br><br>
+
+<<His>> mouth opens.
+<br><br>
+
+<b>"<span class="witch">All returns to the tide.</span>"</b>
+<br><br>
+
+<<link [[...|Nightmare Gwylan Tornado]]>><</link>>
+<br>
+
+:: Nightmare Gwylan Tornado
+<<effects>><<set Weather.set("heavyPrecipitation", true)>>
+The circle of water rises into the sky to meet the clouds. It spins in a vortex, screaming as though it were in pain. It grows.
+<br><br>
+
+The wind rushes towards it. You feel yourself being pulled in. It grows further.
+<br><br>
+
+The entire horizon is consumed by the water spout, or perhaps you're already inside of it. The ocean sings in agony.
+<br><br>
+
+Gwylan takes your hands with a loving smile. You feel it gnaw at your spine.
+<<if $phase is "close">>
+	When did your eyes open? Why are Gwylan's eyes empty?
+<</if>>
+<br><br>
+
+<<link [[Return|Nightmare Gwylan Whalefall]]>><<set $phase to "go">><</link>>
+<br>
+<<link [[Resist|Nightmare Gwylan Whalefall]]>><<set $phase to "stay">><</link>>
+<br>
+
+:: Nightmare Gwylan Whalefall
+<<effects>>
+
+<<He>> says something to you, but you can't hear it over the death scream of the sea.
+<br><br>
+
+<<He>> pulls on your hands, and starts to fall backwards.
+<<if $phase is "go">>
+	You step forward in turn, taking the plunge with <<him>>.
+	<br><br>
+
+	You embrace as you break the surface.
+	<br><br>
+
+	<<He>> sighs with relief. Or maybe that was you. Neither of you will be alone in the end, at least.
+	<br><br>
+
+	You pull your head back to look at <<him>> one last time, before the last light of the surface winks out.
+	<<His>> eyes are no longer empty. <<His>> tears float upwards past you. <<He>> smiles lovingly, and <<his>> heart starts to beat.
+	<br><br>
+
+	The screams of the world fade away as you sink yet further. You're plunged into the darkness of the ocean floor.
+	<br><br>
+
+	With one final embrace, the two of you land at the bottom, at long last.
+	<br><br>
+
+	You settle into the sediment, kicking up silt. <<His>> hands dig into your back and you hold <<him>> tighter, each of you making sure the other is still there in the pitch-blackness. Your heartbeats ring out together.
+	<br><br>
+
+	Your bodies nourish the rebirth of the world. Your ribcages link in an eternal embrace. Nobody remembers either of you.
+<<else>>
+	You refuse to leave. <<He>> falls regardless, <span class="red">taking your hands with <<him>></span>.
+	<br><br>
+
+	<<His>> smile vanishes, replaced by a look of agonising betrayal. A thin black line shoots down from the sky, straight through <<his>> heart. You've broken a promise.
+	<br><br>
+
+	<<He>> vanishes under the waves.
+	<br><br>
+
+	You stand alone in the vortex. You remain in a vast sea of nothing, an abyss that will never support life again. You never remember who was here with you. The sky goes dark.
+<</if>>
+<<set $phase to 0>>
+<br><br>
+
+<<link [[다음|Nightmare Gwylan End]]>><</link>>
+<br>
+
+:: Nightmare Gwylan End
+<<effects>><<nightmareEnd>>
+
+You shiver and cough as you wake. Your tongue is horribly dry, and you feel like there's a hole in your chest.
+<br><br>
+
+It was only a dream. You feel dizzy.
+<br><br>
+
+<<link [[다음|$nightmareExit]]>><<unset $nightmareExit>><</link>>
+<br>
+
+:: Nightmare Office
+<<effects>><<nightmareStart "office">><<set $location to "office">>
+
+You find yourself thinking about your day as you try to fall asleep. You flip the pillow over to the cold side and shove your arm underneath before closing your eyes.
+<br><br>
+Your ears ring as if they're muffling your thoughts, and you blink in a vain attempt to shake it away. A strange sense of uncanniness falls over you as you hear the methodical clacking of a keyboard.<<stress 6>><<gstress>>
+<br><br>
+
+<<if $nightmaresSeen.includes("office")>>
+	You know this place. It isn't real.
+	<br><br>
+	<<link [[Try to wake up|Nightmare Office Wake]]>><<set $phase to 0>><</link>><<nightmareWakeDifficulty>>
+	<br>
+	<<link [[Stay in the dream|Nightmare Office 2]]>><<set $phase to 1>><</link>>
+	<br>
+<<else>>
+	<<link [[다음|Nightmare Office 2]]>><<set $phase to 2>><</link>>
+	<br>
+<</if>>
+
+:: Nightmare Office Wake
+<<effects>>
+
+<<if $willpowerSuccess>>
+	This doesn't feel right. You force yourself to turn around and rush out the door of the building.
+	<br><br>
+	<<link [[다음|Nightmare Office End]]>><</link>>
+	<br>
+<<else>>
+	You fail to wake up. You must press forward. There is work to be done.
+	<br><br>
+	<<link [[다음|Nightmare Office 2]]>><<set $phase to 3>><</link>>
+	<br>
+<</if>>
+
+:: Nightmare Office 2
+<<effects>>
+
+"You have an assignment waiting," you hear someone call out from behind a computer.
+<br><br>
+
+<<if $phase is 3>>
+	You shake yourself from your stupor and report in for your assignment.
+	<br><br>
+<<else>>
+	You have work to do. You can't just slack off like this; you have to do your job.
+	<br><br>
+<</if>>
+
+A poster sits in front of you. You grab it and trudge along to the copying room. You place the poster on top of the copy machine. You click the button to start it up. Nothing happens.
+<br><br>
+
+You take a step back and look at the shredder next to the copying machine. The shredder is on, judging by the soft hum it emits. You glance at the outlets behind the two machines, and sure enough, the shredder is plugged in, while the copier is not.
+<br><br>
+
+You wedge yourself between the two machines to reach the outlet, unplugging one and plugging in the other with a swift motion.
+<br><br>
+
+As soon as you plug it in, however, you realise that <span class="red">you are stuck.</span>
+<br><br>
+
+Someone's coming. You feel a presence looming over you.
+<br><br>
+
+<<link [[Stay still|Nightmare Office 3]]>><<set $phase to 1>><</link>>
+<br>
+<<link [[Try to turn around|Nightmare Office 3]]>><<set $phase to 2>><</link>>
+<br>
+<<link [[Try to break free|Nightmare Office 3]]>><<set $phase to 3>><</link>>
+<br>
+
+:: Nightmare Office 3
+<<effects>>
+
+<<switch $phase>>
+	<<case 1>>
+		You freeze up, hoping that staying still will make yourself less noticeable. It doesn't work.
+	<<case 2>>
+		You try to turn around to the figure, but you can barely twist your body to get a good look.
+	<<case 3>>
+		You feel adrenaline rush through you as you try and thrash backward, like a cornered animal.
+<</switch>>
+<br><br>
+
+<<if $daily.officeManagerMasturbate is true and $moleststat gte 10 and $rapestat gte 5>>
+	<<generateManager>><<person1>><<set $phase to 1>>
+<<elseif $averyragerevealed is 1 and C.npc.Avery.rage gte 60 and $weekly.averyAssistant?.work>>
+	<<npc Avery>><<person1>><<set $phase to 2>>
+<<else>>
+	<<generate1>><<person1>><<set $phase to 3>>
+<</if>>
+
+You can feel your heartbeat in your ears as something slides across your hip. There is a sudden sickening twist in your gut as you recognise the scent in the air. <span class="red">It's the same fragrance that <<if $phase is 1>><<office_manager>><<elseif $phase is 2>>Avery<<else>>your coworker<</if>> wears.</span><<stress 6>><<gstress>>
+<br><br>
+
+<<link [[다음|Nightmare Office Rape]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Nightmare Office Rape
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+	<<set $position to "doggy">>
+	<<set $position_lock to 1>>
+	<<if $phase is 2>>
+		"There you are, you worthless <<bitch>>," <<he>> says, forcefully grabbing your hip. "Let's put this body into good use, shall we?"
+	<<else>>
+		"I need you to help me with something," <<he>> says as <<he>> tightens <<his>> grip on your hip, <<his>> fingers smoothly caressing your skin under your clothes.
+	<</if>>
+	<br><br>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Nightmare Office Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Nightmare Office Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Nightmare Office Rape Finish
+<<effects>>
+
+<<if $enemyhealth lte 0>>
+	You shove <<him>> off you, and <<he>> falls back on the ground.
+	<<if $phase is 2>>
+		"You'll regret this." <<He>> stares at you furiously before exiting the room.
+	<<else>>
+		<<He>> stares at you in shock before exiting the room.
+	<</if>>
+	<br><br>
+
+	<<tearful>> you sit up. You hear the sound of the printer whirring to life as copies start to shoot out all across the room.
+	<br><br>
+	A copy lands on your lap, and you see the image of yourself in a compromising position.<<stress 6>><<gstress>>
+	<br><br>
+
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	As <<he>> climaxes, you can hear the sound of the copier going off as copies start to shoot out all across the room.
+	<br><br>
+
+	<<tearful>> you lay motionless on the ground. <<He>> redresses <<himself>> and places one in your hand. It's still warm from the printer.
+	<br><br>
+
+	<<if $phase is 2>>
+		"This is <<= either ("the only thing you're good for", "what you were made for")>>. Remember that." <<He>> cocks <<his>> head. "Actually, you should be grateful for getting raped in the first place. Looking good while doing it, too,"
+	<<else>>
+		"You really do make cute faces,"
+	<</if>>
+	<<he>> says with a soft laugh before leaving the copy room.<<stress 6>><<gstress>>
+	<br><br>
+<</if>>
+
+<<link [[다음|Nightmare Office End]]>><<set $phase to 1>><</link>>
+<br>
+
+:: Nightmare Office End
+<<effects>><<nightmareEnd>>
+
+<<if $phase is 1>>
+	You look down at the freshly copied picture and see your own face, in a compromising position, staring back at you.<<stress 6>><<gstress>>
+	<br><br>
+	You startle awake and find yourself face down in your pillow. Turning your head over, you let out a breath. It was only a dream.
+	<br><br>
+<<else>>
+	You find yourself almost falling out of your bed while tangled in your blanket, and you see the pillow lying on the floor. You're safe. It was just a dream.
+	<br><br>
+<</if>>
+
+<<link [[다음|$nightmareExit]]>><<unset $nightmareExit>><<endevent>><</link>>

@@ -1,0 +1,223 @@
+:: Avery Widgets [widget]
+<<widget "avery_cards_init">>
+	<<set $avery_cards to {}>>
+	<<set $avery_cards.drink to {}>>
+	<<set $avery_cards.drink.avery to "">>
+	<<set $avery_cards.drink.bailey to "">>
+	<<set $avery_cards.drink.leighton to "">>
+	<<set $avery_cards.drink.quinn to "">>
+	<<set $avery_cards.skill to {}>>
+	<<set $avery_cards.skill.avery to 50>>
+	<<set $avery_cards.skill.bailey to 50>>
+	<<set $avery_cards.skill.leighton to 50>>
+	<<set $avery_cards.skill.quinn to 50>>
+	<<set _rng to random(1, 4)>>
+	<<if _rng is 4>>
+		<<set $avery_cards.skill.avery += 1>>
+		<<set $avery_cards.skill.bailey += 2>>
+		<<set $avery_cards.skill.leighton += 3>>
+		<<set $avery_cards.skill.quinn += 4>>
+	<<elseif _rng is 3>>
+		<<set $avery_cards.skill.avery += 4>>
+		<<set $avery_cards.skill.bailey += 1>>
+		<<set $avery_cards.skill.leighton += 2>>
+		<<set $avery_cards.skill.quinn += 3>>
+	<<elseif _rng is 2>>
+		<<set $avery_cards.skill.avery += 3>>
+		<<set $avery_cards.skill.bailey += 4>>
+		<<set $avery_cards.skill.leighton += 1>>
+		<<set $avery_cards.skill.quinn += 2>>
+	<<else>>
+		<<set $avery_cards.skill.avery += 2>>
+		<<set $avery_cards.skill.bailey += 3>>
+		<<set $avery_cards.skill.leighton += 4>>
+		<<set $avery_cards.skill.quinn += 1>>
+	<</if>>
+	<<if $avery_cards_drinks_known is undefined>>
+		<<set $avery_cards_drinks_known to []>>
+	<</if>>
+<</widget>>
+
+<<widget "avery_cards_end">>
+	<<unset $avery_cards>>
+	<<clearNPC "Quinn_driver">>
+	<<clearNPC "Quinn_guard_1">>
+	<<clearNPC "Quinn_guard_2">>
+	<<clearNPC "Quinn_victim">>
+	<<clearNPC "Leighton_date">>
+<</widget>>
+
+<<widget "avery_cards_drink_text">>
+	<<print $avery_cards.drink[_args[0]]>>
+<</widget>>
+
+<<widget "card_skill">>
+	<<set $avery_cards.skill[_args[0]] += _args[1]>>
+<</widget>>
+
+<<widget "gcardskill">>
+	<<if !$settings.blindStatsEnabled>> |
+		<span class="def">+ <<print _args[0]>>의 카드 기술</span>
+	<</if>>
+<</widget>>
+
+<<widget "ggcardskill">>
+	<<if !$settings.blindStatsEnabled>> |
+		<span class="def">+ + <<print _args[0]>>의 카드 기술</span>
+	<</if>>
+<</widget>>
+
+<<widget "gggcardskill">>
+	<<if !$settings.blindStatsEnabled>> |
+		<span class="def">+ + + <<print _args[0]>>의 카드 기술</span>
+	<</if>>
+<</widget>>
+
+<<widget "lcardskill">>
+	<<if !$settings.blindStatsEnabled>> |
+		<span class="sub">- <<print _args[0]>>의 카드 기술</span>
+	<</if>>
+<</widget>>
+
+<<widget "llcardskill">>
+	<<if !$settings.blindStatsEnabled>> |
+		<span class="sub">- - <<print _args[0]>>의 카드 기술</span>
+	<</if>>
+<</widget>>
+
+<<widget "lllcardskill">>
+	<<if !$settings.blindStatsEnabled>> |
+		<span class="sub">- - - <<print _args[0]>>의 카드 기술</span>
+	<</if>>
+<</widget>>
+
+<<widget "avery_cards_win">>
+	<<unset $cards_win>>
+	<<set $avery_cards_win to $avery_cards.skill.avery>>
+	<<set $bailey_cards_win to $avery_cards.skill.bailey>>
+	<<set $leighton_cards_win to $avery_cards.skill.leighton>>
+	<<set $quinn_cards_win to $avery_cards.skill.quinn>>
+
+	<<set _names to ['avery_cards_win', 'bailey_cards_win', 'leighton_cards_win', 'quinn_cards_win']>>
+	<<run _names.sort((a, b) => { return State.variables[b] - State.variables[a] })>>
+
+	<<set $cards_win to _names[0]>>
+
+	<<unset $avery_cards_win>>
+	<<unset $bailey_cards_win>>
+	<<unset $leighton_cards_win>>
+	<<unset $quinn_cards_win>>
+<</widget>>
+
+<<widget "avery_date_options">>
+<<if $avery_location is 3>><<set $avery_location to 0>><<set $averydateattended to 1>><<set $averydatemissed to 0>>
+	<<if $avery_cards_intro gte 1>>
+		<<He_ nun>> 바브 가를 운전해, 베일리의 아파트 단지까지 차를 몰고 간다. "오늘은 내 지인을 만날 거란다," 에이버리는 차에서 내리며 말한다. "최대한 예의 바르게 행동하렴."
+		<br><br>
+
+		<<link [[다음|Avery Cards Repeat]]>><<set $outside to 0>><</link>>
+		<br>
+	<<else>>
+		<<He_ nun>> 바브 가를 운전해, 한 아파트 단지까지 차를 몰고 간다. "오늘 밤에는 내 지인들을 만날 거란다," 에이버리는 차에서 내리며 말한다. "아주 존경할 만한 분들이지."
+		<br><br>
+		<<link [[쓰레기장 같은 아파트라고 한다|Avery Cards Dump]]>><<npcincr Avery love 1>><<set $endear -= 10>><</link>>
+		<br>
+		<<link [[침묵한다|Avery Cards Intro]]>><</link>>
+		<br>
+	<</if>>
+<<elseif $avery_location is 2>><<set $avery_location to 3>>
+	<<wearProp "key">>
+	<<He_ nun>> 하이 가를 운전해, 호화스런 호텔로 차를 몰고 간다. <<He_ ga>> 방 번호가 적힌 키를 건넨다. "자. 이거 받고 이따 위에서 보자. 나는 주차하고 갈게." 당신은 차에서 나와 안으로 들어간다.
+	<br><br>
+
+	<<link [[다음|Avery Hotel]]>><<handheldon>><</link>>
+	<br>
+<<elseif $avery_location is 1>><<set $avery_location to 2>>
+
+	<<generate2>>
+	<<He_ nun>> 다뉴브 가를 지나, 한 저택 대문 앞에 선다. <<He_ ga>> 창문을 열어 하인 유니폼을 입은 <<person2>><<person_>>에게 표를 보여주고, 그 사람은 뒤에 다른 차가 멈추자 손짓으로 에이버리의 차를 보낸다.
+	<br><br>
+	<<endevent>><<npc Avery>><<person1>>
+
+	<<link [[다음|Avery Party]]>><</link>>
+	<br>
+<<else>><<set $avery_location to 1>>
+	<<He_ nun>> 콘누다투스 가를 운전해 한 레스토랑에 주차한다. <<He_ nun>> 당신을 레스토랑으로 이끌듯 <<his_ yi>> 손을 건넨다.
+	<br><br>
+
+	<<link [[잡는다|Avery Date 2]]>><<set $phase to 1>><</link>><<handholdingvirginitywarning>>
+	<br>
+	<<link [[거절한다|Avery Date 2]]>><<set $phase to 2>><<npcincr Avery love -1>><<set $endear -= 10>><</link>><<lendear>><<llove>>
+	<br>
+<</if>>
+<</widget>>
+
+<<widget "averyofficeoptions">>
+	<<if $daily.averyOfficeBan isnot true>>
+		<<if Time.hour gte 15>>
+			<<link [[다음|Avery Office Off Work]]>><</link>>
+			<<exit>>
+		<<else>>
+			<<icon "projectMaths.png">><<link [[일한다 (1:00)|Avery Office Work]]>><<endevent>><<pass 60>><<set $daily.officeHoursWorked to ($daily.officeHoursWorked or 0) + 1>><</link>>
+			<br>
+		<</if>>
+	<</if>>
+	<<getouticon>><<link [[떠난다 (0:05)|Avery Office Leave]]>><<pass 5>><<endevent>><</link>>
+	<br>
+<</widget>>
+
+<<widget "averyofficewage">>
+	<<set _averyPay to (C.npc.Avery.love / 2) + $endear * 2 - C.npc.Avery.rage>>
+	<<if _averyPay lt 5>>
+		<<set _averyPay to 5>>
+	<</if>>
+	<<if _args[0] is "pay">><<moneyGain _averyPay>><</if>>
+<</widget>>
+
+<<widget "averyspa">>
+	<<if $averySpaBanWeeks is 0>>
+		<<unset $averySpaBanWeeks>>
+		<<set $averyRejectedSpa to true>>
+	<</if>>
+	<<if $averyragerevealed is 1>>
+		<<set _rageColour to (
+			C.npc.Avery.rage gte 80 ? "red" :
+			C.npc.Avery.rage gte 60 ? "pink" :
+			C.npc.Avery.rage gte 40 ? "purple" :
+			C.npc.Avery.rage gte 20 ? "lblue" : "green"
+		)>>
+	<<else>>
+		<<set _rageColour to "green">>
+	<</if>>
+	<span @class="_rageColour">에이버리다.</span>
+	<br><br>
+	<<He_ nun>> 당신을 보고 놀란 것처럼 보이지만, 빠르게 그것을 감춘다.
+	<br><br>
+	"과연," <<he_ ga>> 수건을 풀어 옆으로 치우며 말한다.
+	<<if $averySeen.includes("spa")>>
+		<<if $averyragerevealed is 1 and (C.npc.Avery.rage gte 60 or $averyRejectedSpa)>>
+			"네가 이번에는 내 말에 순종할지 궁금하군." <<He_ nun>> 눈썹을 치켜올린다.
+		<<else>>
+			"다시 만나니 좋구나, <<pcpetnamePost "Avery">>. 네가 잘 해줄 거라고 믿어. 그렇지 않니?"
+		<</if>>
+	<<else>>
+		"여기서 너를 볼 줄은 몰랐는데
+		<<if $averyragerevealed is 1 and C.npc.Avery.rage gte 60>>
+			. 특히 요즘 네가 보이는 태도를 생각하면 말이야. 누군가를 섬긴다니. <<He_ nun>> 눈썹을 치켜올린다.
+		<<else>>
+			, <<pcpetnamePost "Avery">>."
+		<</if>>
+	<</if>>
+	<br><br>
+	<<He_ nun>> 팔을 머리 아래로 접으며 테이블에 눕는다.
+	<br><br>
+	어떻게 행동할 것인가?
+	<br><br>
+
+	<<link [[귀엽게 행동한다|Avery Spa]]>><<set $spa.behaviour to "cute">><</link>><<note "+ Endearment?" "teal">>
+	<br>
+	<<link [[세련되게 행동한다|Avery Spa]]>><<set $spa.behaviour to "sophisticated">><</link>><<note "+ Endearment?" "teal">>
+	<br>
+	<<link [[유혹하듯이 행동한다|Avery Spa]]>><<set $spa.behaviour to "alluring">><</link>><<promiscuous1>><<note "+ Endearment?" "teal">>
+	<br>
+<</widget>>

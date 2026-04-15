@@ -1,0 +1,1376 @@
+:: Tentacle Forest Enable
+<<effects>>
+<<set $settings.tentaclesEnabled to true>>
+<span class="green">당신은 마음을 가다듬고, 문에 집중한다.</span> 내면의 정신적 장벽이 부서진다.
+<br><br>
+<i><span class="lewd">촉수가 활기를 띤다.</span></i>
+<br><br>
+<<link [[다음|Tentacle Forest Entrance]]>><<set $tentacleEntrance to "hookah">><<endevent>><</link>>
+<br>
+
+:: Tentacle Forest Entrance
+<<location "tentworld">><<set $outside to 0>><<effects>>
+<<undress "hookah">>
+<<set $tentacle_forest_lurker to []>>
+<<set $tentacle_forest_time to 0>>
+
+당신은 거대한 촉수로 둘러싸인 채 황량한 평원에서 깨어난다. 촉수들 사이에는 눈에 띄지 않는 통로가 있다.
+<br><br>
+
+따뜻한 바람이 머리카락을 곤두세운다. <span class="lewd">당신의 옷이 사라졌다.</span>
+<br><br>
+
+<<if $arousal gte 6000>>
+    <<set $arousal to 6000>>
+<</if>>
+<span class="red">이곳에서 오르가즘을 느끼는 것은 위험할 것이다.</span>
+<br><br>
+
+<<link [[다음|Tentacle Forest]]>><</link>>
+<br>
+
+:: Tentacle Forest
+<<set $bus to "tentacle_forest_main">><<effects>>
+
+당신은 촉수 숲에 있으며, 평원은 빽빽한게 들어찬 거대한 촉수들로 둘러싸여있다. 오르막과 내리막 두 개의 길로 이어진다.
+<br><br>
+
+<<tentacle_forest_safe_orgasm>>
+<<tentacle_forest_time>>
+<br><br>
+
+<<if $tentacle_forest_time gte 60>>
+    <<tentacle_forest_end_scene>>
+<<elseif $stress gte $stressmax>>
+    <<tentacle_forest_stress_scene>>
+<<elseif $arousal gte 10000 and !$tentacle_forest_lurker.includes("defeated")>>
+    <<tentacle_forest_orgasm_scene>>
+<<else>>
+    <<link [[올라간다 (0:05)|Tentacle Forest Pool]]>><<tentacle_forest_pass 5>><</link>><<note "숲 안으로 이동한다" "lblue">>
+    <br>
+    <<link [[내려간다 (0:05)|Tentacle Forest Stream]]>><<tentacle_forest_pass 5>><</link>><<note "숲 안으로 이동한다" "lblue">>
+    <br><br>
+    <<link [[기어오른다 (0:05)|Tentacle Forest Climb]]>><<tentacle_forest_pass 5>><</link>><<willpowerdifficulty 1 1200>>
+    <br><br>
+    이상한 과일이 가느다란 가지에 매달려있다. 손에 닿을 듯 하다.
+    <br>
+    <<link [[먹는다 (0:15)|Tentacle Forest Hands]]>><<tentacle_forest_pass 15>><</link>><<note "+ 손 기술?" "blue">>
+    <br><br>
+    <<link [[깨어난다|Tentacle Forest Wake]]>><</link>>
+<</if>>
+
+:: Tentacle Forest Wake
+<<effects>>
+
+당신은 물담배 가게 응접실에 대해 생각한다. 그리고 두 개의 몸이 느껴지는 것을 깨닫는다. 하나는 촉수 숲에, 또 하나는 쿠션에 기대있다.
+<br><br>
+
+<<tentacle_forest_end_scene>>
+
+
+:: Tentacle Forest Orgasm
+<<effects>>
+
+당신은 천장 틈새를 통해 숲 아래 동굴로 들어간다. 그리고 당신의 엉덩이로 얕은 분홍색 웅덩이에 착지한다.
+<br><br>
+
+<<if $tentacle_forest_lurker.includes("defeated")>>
+    당신은 발버둥친다. <span class="green">당신을 맞이하는 생명체는 없다.</span> 당신은 벽을 타, 천장의 틈새를 뚫고 탈출한다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest]]>><</link>>
+    <br>
+<<else>>
+
+    자동차 크기의 구근 촉수가 천장을 가로질러 꿈틀거린다. 거대한 주둥이를 제외하면 눈이나 다른 외형적 특징은 없다. 거대한 혀가 나타나, 공기를 핥는다. 그 생명체는 <span class="purple">당신쪽으로 기울어진다.</span>
+    <br><br>
+
+    <<if !$tentacle_forest_lurker.includes("hide")>>
+        <<set $skulduggerydifficulty to 500>>
+        <<link [[웅덩이 아래로 숨는다|Tentacle Forest Orgasm Hide]]>><<set $skulduggerydifficulty to 500>><</link>><<skulduggerydifficulty 500>>
+        <br>
+    <</if>>
+    <<if !$tentacle_forest_lurker.includes("run")>>
+        <<link [[도망친다|Tentacle Forest Orgasm Run]]>><</link>><<athleticsdifficulty 1 800>>
+        <br>
+    <</if>>
+    <<if !$tentacle_forest_lurker.includes("scare")>>
+        <<link [[위협한다|Tentacle Forest Orgasm Scare]]>><</link>><<willpowerdifficulty 1 800>>
+        <br>
+    <</if>>
+    <<set $skulduggerydifficulty to 1000>>
+    <<link [[매복한다|Tentacle Forest Orgasm Ambush]]>><<set $skulduggerydifficulty to 1000>><</link>><<skulduggerydifficulty>>
+    <br>
+
+<</if>>
+
+
+:: Tentacle Forest Orgasm Hide
+<<effects>>
+
+당신은 당신의 냄새가 가려지기를 바라며, 액체 아래로 잠수한다.
+<br><br>
+
+<<skulduggerycheck>>
+<<if $skulduggerysuccess is 1>>
+
+    생명체가 천장 아래로 떨어지면서 걸죽한 액체에 파도를 일으켜 당신을 들어올리지만, <span class="green">당신은 여전히 액체에 잠겨있다.</span>
+	<br><br>
+
+    생명체가 꿈틀대며 벗어나는 소리가 들리지만, 당신은 신중을 기하며 잠시 숨을 참는다.
+    <br><br>
+
+	<<skulduggeryuse>>
+
+    <i>생명체는 두 번은 속지 않을 것이다. 다시 오르가즘을 느끼는 것은 위험할 것이다.</i>
+    <<set $tentacle_forest_lurker.pushUnique("hide")>>
+    <br><br>
+
+	당신은 찐득한 웅덩이에서 빠져나와, 주위를 둘러본다. 경사면이 바위로 된 벽 중 하나로 이어져, 천장의 틈을 향한다. 당신은 경사를 타고 올라가, 촉수숲으로 빠져나온다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest]]>><</link>>
+    <br>
+
+<<else>>
+
+	생명체가 천장 아래로 떨어지면서 걸죽한 액체에 파도를 일으켜, <span class="red">당신을 웅덩이 밖으로 들어올린다.</span> 생명체는 당신의 냄새를 알아차리고 당신을 향해 나.
+	<br><br>
+
+	<<skulduggeryuse>>
+
+	<<link [[다음|Tentacle Forest Orgasm Defeat]]>><</link>>
+	<br>
+
+<</if>>
+
+:: Tentacle Forest Orgasm Run
+<<effects>>
+
+당신은 걸죽한 액체가 허락하는 한 최대한 빠르게 돌아서 달려갔고, 한 걸음 내딛을 때마다 액체가 덩어리로 뿜어져 나온다. 생명체가 떨어지자 동굴이 흔들린다. 당신은 쫓아오는 소리가 들리지만, 눈길조차 주지 못한다.
+<br><br>
+앞쪽 천장에 균열이 있다. 당신은 근처 바위를 딛고 기어오를 수 있을테지만, 생명체가 주위에 있는 소리가 들린다. 생명체는 다시 바닥에 부딪히고, 땅이 심하게 흔들릴 정도로 가까이 있다.
+<<if $athleticsSuccess>>
+    <span class="green">당신은 균형을 유지한다.</span>
+    <br><br>
+
+    당신은 바위를 기어올라 틈새를 통해 촉수숲으로 빠져나온다. 생명체가 따라오기엔 너무 비좁다.
+    <br><br>
+    <<set $tentacle_forest_lurker.pushUnique("run")>>
+    <i>생명체는 당신의 체력을 알아차렸다. 달리기는 두 번 다시 효과가 없을 것이다. 다시 오르가즘을 느끼는 것은 위험할 것이다.</i>
+
+    <br><br>
+
+    <<link [[다음|Tentacle Forest]]>><</link>>
+    <br>
+<<else>>
+    <span class="red">당신은 발을 헛디뎌 넘어진다.</span>
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Orgasm Defeat]]>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Orgasm Scare
+<<effects>>
+
+<<if $willpowerSuccess>>
+    당신은 생명체를 향해 돌진하며, 액체 덩어리를 강하게 찬다. <span class="green">당신의 공격성은 생명체를 놀래켰고, </span>그것은 겁에 질려 몸을 움츠린다.
+    <br><br>
+
+    <<set $tentacle_forest_lurker.pushUnique("scare")>>
+    <i>생명체는 당신의 속임수에 단련되었다. 위협은 두 번 다시 효과가 없을 것이다. </i>
+    <br><br>
+
+    당신은 동굴의 벽면을 따라 천장의 틈새까지 올라가서 촉수숲으로 빠져나온다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest]]>><</link>>
+    <br>
+<<else>>
+    당신은 생명체를 향해 돌진하지만, <span class="red">걸죽한 액체가 당신을 느리게 했고</span> 당신의 기습은 통하지 않았다. <<gwillpower>><<willpower 3>>
+    <br><br>
+
+    생명체는 당신에게서 불과 몇 피트 떨어진 천장에서 떨어지면서 액체의 파동을 일으켜 당신의 엉덩이를 때린다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Orgasm Defeat]]>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Orgasm Ambush
+<<effects>>
+
+당신은 웅덩이로 뛰어들어 부상당한 동물처럼 이리저리 뛰어다닌다. 생명체가 천장에서 떨어지면서 땅이 진동하고 몸을 비틀며 다가온다.
+<br><br>
+
+<<skulduggerycheck>>
+<<if $skulduggerysuccess is 1>>
+    <<earnFeat "Lurker Beyond">>
+	당신은 계속 뛰어다니며 생명체가 약해질 때까지 지켜본다. <span class="green">당신은 패턴을 알아차린다.</span> 생명체는 끊임없이 공기를 핥으며 당신을 맛보지만, 방향을 틀때마다 멈춘다. 혼란스러운 움직임에 감춰져있지만 움직임과 동시에 방향을 틀 수는 없다.
+	<br><br>
+
+    생명체의 주둥이가 불과 몇 걸음 떨어진 곳에 있다. 당신은 그 생명체 옆을 돌아 달린다. 그것은 최대한 빨리 돌지만, 당신에게는 너무 느리다. 당신은 꼬리 모양으로 가늘어지는 몸통 바로 뒤에 붙어있을 수 있다.
+    <br><br>
+
+    생각이 머리를 강타한다. 터무니없는 생각이다. 하지만 정말 그럴까?
+    <br><br>
+
+    당신은 한 손으로 생명체의 꼬리를 붙잡고, 거의 힘을 들이지 않고 동굴 너머로 던진다. 생명체는 벽에 부딪혀 폭발하고, 동굴 안에 많은 액체를 흩뿌린다.
+    <br><br>
+
+    생명체는 패배했고, 당신이 천장의 틈새로 올라가 촉수숲으로 돌아가는 것을 막을 수 있는 것은 아무것도 없다.
+    <br><br>
+
+    <span class="green"><i>당신이 다시 오르가즘을 느껴도, 생명체는 당신을 방해하지 않을 것이다. </i></span>
+    <br><br>
+    <<set $tentacle_forest_lurker.pushUnique("defeated")>>
+
+	<<skulduggeryuse>>
+
+	<<link [[다음|Tentacle Forest]]>><</link>>
+    <br>
+
+<<else>>
+
+	당신은 생명체가 약해질 때까지 지켜본다. 유일하게 눈에 띄는 특징은 주둥이다. 그게 약점일까?
+    <br><br>
+
+    <span class="red">결정할 시간이 없다.</span> 이미 당신에게 달려있다. 당신은 생명체에게 주먹부터 날린다. 하지만 당신의 무력한 일격은 생명체의 질긴 가죽에 튕겨 나가고, 그 충격에 당신은 엉덩방이를 찧으며 고꾸라진다.
+	<br><br>
+
+	<<skulduggeryuse>>
+
+	<<link [[다음|Tentacle Forest Orgasm Defeat]]>><</link>>
+    <br>
+
+<</if>>
+
+:: Tentacle Forest Orgasm Defeat
+<<effects>>
+
+<<if $settings.voreEnabled>>
+
+    생명체는 당신의 얼굴을 주둥이로 잡아 공중으로 들어 올리고, 중력은 당신을 더 깊이 미끄러트린다. 당신은 생명체의 입 옆면을 밀어내며 허리 밑으로 빨려 들어가지 않도록 막는다.
+    <br><br>
+    희미한 분홍색 빛이 내부를 비춘다. 생명체의 혀가 당신의 얼굴과 <<breasts_ rul>> 스친다. 그리고 당신의 몸과 자신의 입술사이로 미끄러져, 당신의 <<genitals_ wa>> 허벅지 사이를 꿈틀거리며 당신의 <<bottom_ ul>> 핥는다.<<gggarousal>><<arousal 3000>>
+    <br><br>
+    허벅지 사이에 끼어 있는 혀가 당신을 더 깊이 끌어들이려고 한다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Orgasm Defeat 2]]>><</link>>
+    <br>
+<<else>>
+생명체는 당신을 향해 달려들다가, 이내 멈춰 선다. <span class="blue">무엇인가 당신을 향해 오고있다.</span> 당신은 그것을 알아차린다. 생명체도 알아차리고, 동굴 깊숙한 곳으로 도망친다.
+<br><br>
+시간이 갈라져 이방인에게 길을 내어준다. 이내 당신을 감싸며 소용돌이치고, 세계가 무너진다.
+<br><br>
+
+<<link [[다음|Flats Hookah End]]>><<tentacleworldend>><</link>>
+<br>
+<</if>>
+
+:: Tentacle Forest Orgasm Defeat 2
+<<effects>>
+
+생명체는 당신의 엉덩이를 꽉 쥐며 더 깊이 끌어당긴다. 당신은 잡을 수 있는 것을 찾아 헤매지만, 가장 좋은 것은 위에 매달려 있는 두꺼운 목젖뿐이다.
+<br><br>
+
+당신의 들어올린 팔이 당신의 <<breasts>>을 드러낸다. 생명체 내부 깊숙한 곳에서 두 개의 촉수가 나타나 당신을 향해 몰래 다가온다.
+<br><br>
+
+<<link [[가슴을 가린다|Tentacle Forest Orgasm Defeat Cover]]>><</link>>
+<br>
+<<link [[매달린다|Tentacle Forest Orgasm Defeat Cling]]>><</link>>
+<br>
+
+
+:: Tentacle Forest Orgasm Defeat Cover
+<<effects>>
+
+당신은 당신의 <<breasts>>을 촉수의 관심으로부터 보호한다. 하지만 당신은 목젖을 잡지 못해, 생명체의 혀가 당신을 입 속 깊숙이 목구멍으로 밀어넣는다.
+<br><br>
+
+육벽은 당신을 완전히 가두고, 기묘한 리듬으로 꽉 조여 당신을 더 깊이 밀어넣는다. 벽의 구멍들은 달콤한 향기가 나는 액체를 뿜어내고, 당신을 더듬고 꿈틀거리는 덩굴손을 만들어내, <span class="pink">당신을 더욱 민감하게 만든다.</span><<genital_sensitivity 0.5>>
+<br><br>
+
+이것은 당신에게 너무 벅찬 일이다. 당신은 기절한다.
+<br><br>
+
+<<link [[다음|Flats Hookah End]]>><<passout>><<tentacleworldend>><</link>>
+<br>
+
+:: Tentacle Forest Orgasm Defeat Cling
+<<effects>>
+
+당신은 목젖에 매달려 생명체가 당신을 더 깊이 끌어당기는 것을 막지만, 촉수가 뱀처럼 기어올라 당신의 <<breasts>>에 달라붙는다.
+<br><br>
+
+<<if $lactating is 1 and $settings.breastFeedingEnabled and $milk_amount gte 1>>
+    그들은 혀로 당신의 엉덩이를 밀면서 당신의 꼿꼿한 젖꼭지에서 젖을 빨아들인다.
+    <<set $milk_produced_stat += 800>>
+    <<milk_amount -800>>
+<<else>>
+    그들의 혀가 당신의 엉덩이를 밀면서 당신의 살을 쥐어짜고 반죽한다.
+<</if>>
+<br><br>
+
+이것은 당신에게 너무 벅찬 일이다. 당신은 기절한다.
+<br><br>
+
+<<link [[다음|Flats Hookah End]]>><<passout>><<tentacleworldend>><</link>>
+<br>
+
+:: Tentacle Forest Climb
+<<effects>>
+
+가까이서 보면, 큰 촉수에는 깊은 못 자국이 있고 두꺼운 혹들이 울퉁불퉁하게 나 있다. 촉수에 닿기만 하면 몸을 가누고 위로 올라갈 수 있을 만큼 충분하다.
+<br><br>
+<<if $willpowerSuccess>>
+    <span class="green">촉수가 몸을 비틀고 구부려 당신이 지나가기 더 쉽게 만드는 것 같다. </span> 촉수의 도움으로, 당신은 숲 바닥까지 높이 올라갈 수 있다.
+    <br><br>
+    촉수는 꼭대기로 갈수록 점점 가늘어져 그 너머의 풍경이 훤히 들여다 보인다. 숲은 멀리까지 뻗어 있지만, 희미한 안개가 공중에 떠 있어 지평선을 삼킨다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Climb 2]]>><</link>>
+    <br>
+<<else>>
+    그러나, <span class="red">촉수는 당신의 노력에 반항한다.</span> 촉수는 이리저리 꼬이고 뒤틀려, 매 순간이 고역이다. 결국 당신의 손가락이 미끄러지고, 땅으로 떨어진다. 다행히도 그리 높진 않았다.<<gpain>><<pain 4>><<gwillpower>><<willpower 3>>
+    <br><br>
+
+    <<link [[다음|Tentacle Forest]]>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Climb 2
+<<effects>>
+
+땅은 아래로 경사져 오르락내리락한다. 올라가면 반짝이는 웅덩이가 보인다. 그 너머에는 작고 하얀 촉수로 뒤덮인 또 다른 평원이 있고, 또 그 너머에는 커다란 문이 있다. 여기서도 거대한 자물쇠를 볼 수 있다.
+<br><br>
+
+반대 방향으로는 시냇물이 흐르고, 시냇물은 아래로 흐르다가 굽이친다. 수면에서 작은 형체들이 뛰어오른다. 시냇물은 넓은 꽃잎을 가진 꽃들로 가득 찬 평원으로 이어진다. 꽃들은 부자연스러운 리듬으로 움직인다.
+<br><br>
+
+시냇물은 계속 흐르다가 협곡 아래로 사라진다. 깊은 곳에서 촉수들이 솟아오르는데, 당신이 매달려 있는 생명체만큼이나 크지만 훨씬 가늘다. 안개는 더 짙어 보인다. <<if $tentacle_forest_key isnot 1>>촉수 중 하나는 금속 물체를 감싸고 있다.<</if>>
+<br><br>
+
+<<link [[다음|Tentacle Forest Climb 3]]>><</link>>
+<br>
+
+:: Tentacle Forest Climb 3
+<<effects>>
+
+당신은 숲 바닥으로 기어오른다. 가까이 다가갈수록 촉수가 아래로 휘어지고, 당신은 뛰어내린다.
+<br><br>
+
+<<link [[다음|Tentacle Forest]]>><</link>>
+<br>
+
+:: Tentacle Forest Stream
+<<set $bus to "tentacle_forest_stream">><<effects>>
+
+당신은 촉수숲 속, 흐르는 개울 옆에 있다. 바닥은 보이지 않고, 민달팽이 같은 이상한 생물들이 수면에서 뛰어오른다. 그것들은 평원 한쪽 가장자리에 있는 폭포수를 타고 추락하여 반대편 촉수 사이로 사라진다.
+<br><br>
+
+<<tentacle_forest_safe_orgasm>>
+<<tentacle_forest_time>>
+<br><br>
+
+<<if $tentacle_forest_time gte 60>>
+    <<tentacle_forest_end_scene>>
+<<elseif $town_projects.bridge gte 5>>
+
+    <<if $settings.slugsEnabled>>
+        다리는 당신이 건너기를 기다린다. 하지만 뛰어오르는 민달팽이들이 문제가 될 수 있다.
+        <br><br>
+        <<if $tentacle_forest_time gte 60>>
+            <<tentacle_forest_end_scene>>
+        <<elseif $stress gte $stressmax>>
+            <<tentacle_forest_stress_scene>>
+        <<elseif $arousal gte 10000 and !$tentacle_forest_lurker.includes("defeated")>>
+            <<tentacle_forest_orgasm_scene>>
+        <<else>>
+            <<if $tentacle_forest_stream is undefined>>
+                <<set $tentacle_forest_stream to 5>>
+            <</if>>
+            <<switch $tentacle_forest_stream>>
+                <<case 5>>
+                    <span class="pink">개울에는 뛰어오르는 민달팽이가 가득하다.</span>
+                <<case 4>>
+                    <span class="purple">개울에는 아직도 뛰어오르는 민달팽이가 가득하다.</span>
+                <<case 3>>
+                    <span class="blue">당신의 노력으로 민달팽이의 수는 줄었지만, 여전히 많은 민달팽이가 수면 위로 뛰어오른다.</span>
+                <<case 2>>
+                    <span class="lblue">개울은 당신이 발견했을 때보다 훨씬 비어 있지만, 여전히 여러 마리의 민달팽이가 여기저기서 터져 나온다.</span>
+                <<case 1>>
+                    <span class="teal">개울은 거의 맑고, 가끔씩 홀로 있는 민달팽이가 보일 뿐이다.</span>
+                <<default>>
+                    <span class="green">개울에는 민달팽이가 없다.</span>
+            <</switch>>
+            <br><br>
+            <<if $tentacle_forest_stream gte 1>>
+                <<link [[민달팽이를 잡아 더 안전하게 건넌다 (0:05)|Tentacle Forest Stream Catch]]>><<tentacle_forest_pass 5>><</link>><<tendingdifficulty 1 400>>
+                <br>
+            <</if>>
+            <<set _stream_difficulty to 300 * $tentacle_forest_stream>>
+            <<link [[최대한 빨리 건넌다 (0:05)|Tentacle Forest Stream Fast]]>><<tentacle_forest_pass 5>><</link>><<athleticsdifficulty 1 _stream_difficulty>><<note "숲 안으로 이동한다" "lblue">>
+            <br>
+            <<link [[천천히 건너며 다가오는 민달팽이를 막는다. (0:05)|Tentacle Forest Stream Slow]]>><<tentacle_forest_pass 5>><</link>><<willpowerdifficulty 1 _stream_difficulty>><<note "숲 안으로 이동한다" "lblue">>
+            <br><br>
+           <<if $settings.footFetishEnabled>>
+                뚱뚱한 민달팽이 중 일부가 해안에 밀려와 개울로 돌아가려 꿈틀댄다.
+                <br>
+                <<link [[밟고 지나간다 (0:15)|Tentacle Forest Feet]]>><<tentacle_forest_pass 15>><</link>><<note "+ 발 기술?" "blue">>
+                <br><br>
+            <</if>>
+            <<link [[출발점으로 돌아간다 (0:05)|Tentacle Forest]]>><<tentacle_forest_pass 5>><</link>>
+            <br>
+        <</if>>
+     <<else>>
+        매우 천천히 지나가지 않으면 휩쓸릴 위험이 있다.
+        <br><br>
+
+        <<link [[건넌다|Tentacle Forest Stream Safe]]>><<tentacle_forest_pass 20>><<arousal 2000>><</link>><<ggarousal>>
+        <br><br>
+       <<if $settings.footFetishEnabled>>
+            뚱뚱한 민달팽이 중 일부가 해안에 밀려와 개울로 돌아가려 꿈틀댄다.
+            <br>
+            <<link [[밟고 지나간다 (0:15)|Tentacle Forest Feet]]>><<tentacle_forest_pass 15>><</link>><<note "+ 발 기술?" "blue">>
+            <br><br>
+        <</if>>
+        <<link [[출발점으로 돌아간다 (0:05)|Tentacle Forest]]>><<tentacle_forest_pass 5>><</link>>
+        <br>
+    <</if>>
+<<elseif $town_projects.bridge is 4>>
+    <<set $town_projects.bridge to 5>>
+    물속에 다리가 생겨 무너진 기둥들을 연결한다. 다리는 낮게 지어졌고, 물이 넘쳐흐르기 때문에 건너기는 여전히 어려울 것이지만, <span class="green">이제 건널 수 있다.</span>
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Stream]]>><</link>>
+    <br>
+<<else>>
+    <<if $town_projects.bridge is undefined>>
+        <<set $town_projects.bridge to 1>>
+    <</if>>
+    양쪽에 두 개의 기둥이 있는 걸 보면, 예전에는 다리가 있었다는 것을 알 수 있다. 촉수를 휘몰아치는 물 속으로 걷어차면, 촉수는 즉시 물속으로 끌려들어가 수면 위로 올라오지 않는다. <span class="blue">지금은</span> 건널 수 없다.
+    <br><br>
+   <<if $settings.footFetishEnabled>>
+        뚱뚱한 민달팽이 중 일부가 해안에 밀려와 개울로 돌아가려 꿈틀댄다.
+        <br>
+        <<link [[밟고 지나간다 (0:15)|Tentacle Forest Feet]]>><<tentacle_forest_pass 15>><</link>><<note "+ 발 기술?" "blue">>
+        <br><br>
+    <</if>>
+    <<link [[돌아간다|Tentacle Forest]]>><</link>>
+    <br>
+<</if>>
+
+
+:: Tentacle Forest Stream Catch
+<<effects>><<wearProp "tenta slug">>
+
+당신은 개울가에 무릎을 꿇고 수면 아래에서 꿈틀거리는 민달팽이를 관찰한다.
+<<if $tendingSuccess>>
+    <span class="green">당신은 한 마리를 낚아챈다.</span> 두껍고 무겁고 꿈틀댄다. 뒤에 있는 거대한 촉수들 사이에 던져 넣고, 또 하나 낚아챈다.
+    <br><br>
+
+    곧 개체수가 크게 줄어든다.
+    <<set $tentacle_forest_stream -= 1>>
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Stream]]>><</link>>
+    <br>
+<<else>>
+    당신은 한 마리를 낚아챈다. <span class="red">하지만 당신의 손아귀에서 벗어나 팔 위로 기어오른다.</span> 당신은 잡으려 하지만, 민달팽이는 당신의 가슴으로 뛰어올라 당신의 <<genitals_ rul>> 통해 미끄러진 뒤, 다시 개울로 뛰어든다.<<garousal>><<arousal 1000>>
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Stream]]>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Stream Fast
+<<effects>>
+
+<<if $athleticsSuccess>>
+    당신은 최대한 빨리 개울을 건넌다. 민달팽이가 당신에게 달려들지만, <span class="green">당신은 민달팽이를 피해</span> 건너편에 도달한다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Flowers]]>><</link>>
+    <br>
+<<else>>
+    당신은 최대한 빨리 개울을 건넌다. 민달팽이가 당신에게 달려들어 <span class="red">허리를 강타해 당신은 균형을 잃는다.</span> 당신은 개울로 넘어진다.
+    <br><br>
+
+    당신은 휩쓸리는 것을 피하지만, 더 많은 민달팽이가 수면 위로 뛰어오른다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Stream Struggle]]>><<set $struggle_start to 1>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Stream Slow
+<<effects>>
+
+<<if $willpowerSuccess>>
+    당신은 개울을 건너며 조심스럽게 관찰한다. 민달팽이가 수면위로 뛰어올라 당신을 향하지만, <span class="green">당신은 주먹으로 쳐낸다.</span>
+    <br><br>
+
+    당신은 패배한 민달팽이들의 흔적을 뒤로하고 건너편에 도달한다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Flowers]]>><</link>>
+    <br>
+<<else>>
+    당신은 개울을 건너며 조심스럽게 관찰한다. 민달팽이가 수면위로 뛰어올라 당신을 향한다. 당신은 주먹으로 쳐내려 하지만, <span class="red">수가 너무 많았다.</span> 당신은 개울로 넘어진다.<<gwillpower>><<willpower 3>>
+    <br><br>
+
+    당신은 휩쓸리는 것을 피하지만, 더 많은 민달팽이가 수면 위로 뛰어오른다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Stream Struggle]]>><<set $struggle_start to 1>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Stream Struggle
+<<effects>>
+
+<<if $struggle_start is 1>>
+	<<struggle_init>>
+	<<set $struggle.creature to "slug">>
+	<<struggle_creatures 2 1>>
+	<<set $combat to 1>>
+	<<controlloss>>
+	<<violence 1>>
+	<<molested>>
+    <<set $timer to 20>>
+	<<unset $struggle_start>>
+<</if>>
+
+<<if $tentacle_forest_stream is 5 and $timer is 1 or $tentacle_forest_stream is 4 and $timer is 5 or $tentacle_forest_stream is 3 and $timer is 9 or $tentacle_forest_stream is 2 and $timer is 14 or $tentacle_forest_stream is 1 and $timer is 18>>
+	<<struggle_add 1 1>>/*Adds more creatures, with a specific health.*/
+	<span class="pink">또다른 생명체가 달려든다!</span>
+	<br><br>
+<</if>>
+
+<<struggle>>
+
+<<if $struggle.done gte $struggle.number>>
+	<span id="next"><<link [[다음|Tentacle Forest Stream Struggle End]]>><</link>></span>
+	<br>
+<<elseif $orgasmdown gte 1>>
+    <span id="next"><<link [[다음|Tentacle Forest Stream Struggle End 2]]>><</link>></span>
+    <br>
+<<else>>
+	<span id="next"><<link [[다음|Tentacle Forest Stream Struggle]]>><</link>></span>
+	<br>
+<</if>>
+
+:: Tentacle Forest Stream Struggle End
+<<effects>>
+
+마지막 민달팽이를 물리치자, 다른 민달팽이들은 두려움에 떨며 다가오지 못한다. 당신은 강 건너편에 도달한다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Tentacle Forest Flowers]]>><</link>>
+<br>
+
+:: Tentacle Forest Stream Struggle End 2
+<<effects>>
+
+오르가즘에 휩쓸려 물에 떠내려간다. 민달팽이들은 당신의 취약한 상태를 이용하는 대신 상류로 도망간다.
+<br><br>
+
+땅이 흔들리고 갈라진다. 촉수들이 터져 나와 격렬하게 움직인다. 당신을 향한다.
+<br><br>
+
+촉수들은 당신의 오르가즘이 가라앉기 전에 당신의 팔다리를 붙잡고 아래로 끌어내린다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Tentacle Forest Orgasm]]>><</link>>
+<br>
+
+:: Tentacle Forest Stream Safe
+<<effects>>
+
+당신은 한 발짝씩 내딛으며, 확실한 방향을 잡는다. 강은 넓지만, 문제없이 건너편까지 갈 수 있다.
+<br><br>
+
+<<link [[다음|Tentacle Forest Flowers]]>><</link>>
+<br>
+
+
+:: Tentacle Forest Flowers
+<<set $bus to "tentacle_forest_flowers">><<effects>>
+
+당신은 촉수숲 속, 살결 같은 꽃들이 가득한 평원에 있다. 꽃잎은 당신을 따라 움직이고, 가까이 가면 보라색 안개를 내뿜는다.
+<br><br>
+
+<<tentacle_forest_safe_orgasm>>
+<<tentacle_forest_time>>
+<br><br>
+
+<<if $tentacle_forest_time gte 60>>
+    <<tentacle_forest_end_scene>>
+<<elseif $town_projects.road gte 5>>
+    평원에는 안전한 길이 나있다.
+    <br><br>
+    <<if $tentacle_forest_time gte 60>>
+        <<tentacle_forest_end_scene>>
+    <<elseif $stress gte $stressmax>>
+        <<tentacle_forest_stress_scene>>
+    <<elseif $arousal gte 10000 and !$tentacle_forest_lurker.includes("defeated")>>
+        <<tentacle_forest_orgasm_scene>>
+    <<else>>
+        <<link [[달린다 (0:05)|Tentacle Forest Flowers Run]]>><<tentacle_forest_pass 5>><</link>><<willpowerdifficulty 1 1000>><<note "숲 안으로 이동한다" "lblue">>
+        <br>
+        <<link [[노래하며 건넌다 (0:05)|Tentacle Forest Flowers Sing]]>><<tentacle_forest_pass 5>><</link>><<tendingdifficulty 1 1000>><<note "숲 안으로 이동한다" "lblue">>
+        <br><br>
+
+        평원의 가장자리에는 덩굴이 드리워져 있고, 역겹도록 달콤한 꿀이 뚝뚝 떨어진다.
+        <<if $backgroundTraits.includes("plantlover") and $nectar_timer lte 14>>
+            당신은 냄새를 맡고 찡그린다. 이건 당신이 중독된 그 꿀이 아니다. 이걸로는 갈증이 해소되지 않는다.
+        <</if>>
+        <br>
+        <<link [[빤다 (0:15)|Tentacle Forest Oral]]>><<tentacle_forest_pass 15>><</link>><<note "+ 입 기술?" "blue">>
+        <br><br>
+        <<link [[출발점으로 돌아간다 (0:05)|Tentacle Forest]]>><<tentacle_forest_pass 5>><</link>>
+        <br>
+    <</if>>
+<<elseif $town_projects.road gte 4>>
+    <<set $town_projects.road to 5>>
+    두꺼운 분홍색 유리벽으로 된 길이 나타나 평원의 한쪽을 다른 쪽과 연결한다. 길 위에는 안개가 짙게 드리워져 있지만, <span class="green">이제 건널 수 있다.</span>
+    <br><br>
+    <<link [[다음|Tentacle Forest Flowers]]>><</link>>
+    <br>
+<<else>>
+    향기만 맡아도 머리가 어지러울 정도이고, 건너편은 너무 멀어서 숨을 참을 수 없다. <span class="blue">당신은 다른 방법을 찾아야 한다.</span>
+    <<if $town_projects.road is undefined>>
+        <<set $town_projects.road to 1>>
+    <</if>>
+    <br><br>
+
+    평원의 가장자리에는 덩굴이 드리워져 있고, 역겹도록 달콤한 꿀이 뚝뚝 떨어진다.
+    <<if $backgroundTraits.includes("plantlover") and $nectar_timer lte 14>>
+        당신은 냄새를 맡고 찡그린다. 이건 당신이 중독된 그 꿀이 아니다. 이걸로는 갈증이 해소되지 않는다.
+    <</if>>
+    <br>
+    <<link [[빤다 (0:15)|Tentacle Forest Oral]]>><<tentacle_forest_pass 15>><</link>><<note "+ 입 기술?" "blue">>
+    <br><br>
+    <<link [[돌아간다|Tentacle Forest]]>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Flowers Run
+<<effects>>
+
+당신은 향기로운 꽃들이 즐비한 길을 따라 달린다. 멀리 떨어져 있어도 꽃가루가 당신의 감각을 자극한다. <<garousal>><<arousal 600>><<hallucinogen 120>>
+<br><br>
+<<if $willpowerSuccess>>
+    당신은 어지럽지만, <span class="green">하던 일에 집중해</span> 건너편에 도달한다. 당신은 숲을 계속해서 나아간다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Cliff]]>><</link>>
+    <br>
+<<else>>
+    당신은 어지러움을 느끼고, <span class="red">바닥으로 쓰러진다.</span> 당신은 끝까지 기어가려하지만, 촉수가 뱀처럼 당신을 휘감는다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Flowers Tentacles]]>><<set $molestationstart to 1>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Flowers Sing
+<<effects>>
+
+당신은 콧노래를 부르며 걷고, 꽃들은 당신의 마음을 달래준다. 멀리 떨어져 있어도 꽃가루가 당신의 감각을 자극한다. <<garousal>><<arousal 600>><<hallucinogen 120>>
+<br><br>
+<<if $tendingSuccess>>
+    부드러운 멜로디가 떠오른다. <span class="green">꽃들은 노래를 듣고 꽃잎을 닫는다.</span> 당신은 평원 건너편에 도달한다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Cliff]]>><</link>>
+    <br>
+<<else>>
+    꽃잎은 당신의 목소리에 축 늘어지지만, <span class="red">안개는 더 자욱해지고,</span> 당신은 점점 더 어지러워지다가 결국 비틀거리며 넘어진다.
+    <br><br>
+
+    당신이 일어서기 전에 촉수가 뱀처럼 당신을 휘감는다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Flowers Tentacles]]>><<set $molestationstart to 1>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Flowers Tentacles
+<<effects>>
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<set $combat to 1>>
+	<<set $enemytype to "tentacles">>
+	<<molested>>
+	<<controlloss>>
+
+	<<tentaclestart 8 16>>
+
+<</if>>
+
+<<statetentacles>>
+
+
+<<effects>>
+<<effectstentacles>>
+<<tentacles>>
+<<actionstentacles>>
+
+<<if $orgasmdown gte 1>>
+	<span id="next"><<link [[다음|Tentacle Forest Flowers Tentacles Finish 2]]>><</link>></span><<nexttext>>
+<<elseif $tentacles.active lte ($tentacles.max / 2)>>
+	<span id="next"><<link [[다음|Tentacle Forest Flowers Tentacles Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Tentacle Forest Flowers Tentacles]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Tentacle Forest Flowers Tentacles Finish
+<<effects>>
+
+당신은 꿈틀거리는 촉수에서 벗어나 남은 길을 헤쳐나간다.
+<br><br>
+
+<<tearful>> 당신은 숲 속으로 더 깊이 들어간다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Tentacle Forest Cliff]]>><</link>>
+<br>
+
+:: Tentacle Forest Flowers Tentacles Finish 2
+<<effects>>
+
+오르가즘이 당신을 휘감고, 당신은 촉수들의 자비에 맡겨진다. 땅이 흔들리고 터진다. 촉수들이 터져 나와 격렬하게 움직인다. 당신을 향한다.
+<br><br>
+
+촉수들은 당신의 오르가즘이 가라앉기 전에 당신의 팔다리를 붙잡고 아래로 끌어내린다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Tentacle Forest Orgasm]]>><</link>>
+<br>
+
+:: Tentacle Forest Cliff
+<<set $bus to "tentacle_forest_cliff">><<effects>>
+
+당신은 촉수숲 속, 땅의 거대한 균열 끝에 서 있다. 틈 아래 깊은 어둠 속에서 가느다란 촉수들이 벽처럼 솟아오른다.
+저 멀리 평원이 끝도 없이 펼쳐진다. 하지만 가까이 보려 할수록, 그 끝은 더 멀어지는 것만 같다.
+<br><br>
+
+<<if $tentacle_forest_time gte 60>>
+    <<tentacle_forest_end_scene>>
+<<elseif $town_projects.diving gte 5>>
+    바위를 깎아 만들어진 계단이 가장자리를 타고 내려간다.
+    <br><br>
+
+    <<if $tentacle_forest_time gte 60>>
+        <<tentacle_forest_end_scene>>
+    <<elseif $stress gte $stressmax>>
+        <<tentacle_forest_stress_scene>>
+    <<elseif $arousal gte 10000 and !$tentacle_forest_lurker.includes("defeated")>>
+        <<tentacle_forest_orgasm_scene>>
+    <<else>>
+        <<if $tentacle_forest_key isnot 1>>
+            <<link [[계단을 수색한다 (0:05)|Tentacle Forest Cliff Key]]>><<tentacle_forest_pass 5>><</link>>
+            <br><br>
+        <</if>>
+
+        몇몇 촉수들이 도발하듯 당신을 유혹한다.
+        <br>
+        <<link [[싸운다 (0:15)|Tentacle Forest Chest]]>><<tentacle_forest_pass 15>><</link>><<note "+ 가슴 기술?" "blue">>
+        <br><br>
+        <<link [[출발점으로 돌아간다 (0:05)|Tentacle Forest]]>><<tentacle_forest_pass 5>><</link>>
+        <br>
+    <</if>>
+<<elseif $town_projects.diving gte 4>>
+    <<set $town_projects.diving to 5>>
+    바위를 깎아 만들어진 계단이 <span class="green">절벽 아래를 향한다.</span>
+    <br><br>
+    당신은 희미한 빛이 보인다. 촉수 하나가 저 멀리 아래에 있는 물체를 움켜쥐고 있다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Cliff]]>><</link>>
+    <br>
+<<else>>
+    절벽 가장자리를 내려다보니 희미한 빛이 보인다. 촉수 하나가 저 멀리 아래에 있는 물체를 움켜쥐고 있다. 하지만 그렇게 가파른 절벽을 내려갈 방법은 없다. <span class="blue">당신은 다른 방법을 찾아야 한다.</span>
+    <<if $town_projects.diving is undefined>>
+        <<set $town_projects.diving to 1>>
+    <</if>>
+    <br><br>
+
+    몇몇 촉수들이 도발하듯 당신을 유혹한다.
+    <br>
+    <<link [[싸운다 (0:15)|Tentacle Forest Chest]]>><<tentacle_forest_pass 15>><</link>><<note "+ 가슴 기술?" "blue">>
+    <br><br>
+    <<link [[돌아간다|Tentacle Forest]]>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Cliff Key
+<<effects>>
+
+<<set $tentacle_forest_key to 1>>
+당신은 계단을 내려간다. 가까이 다가가 보니 두꺼운 은색 금속제 열쇠다. 이곳과는 어울리지 않는 색이다.
+<br><br>
+
+당신은 짧은 틈 사이로 손을 뻗는다. 촉수는 아무 저항 없이 열쇠를 내준다.
+<br><br>
+
+<<link [[출발점으로 돌아간다|Tentacle Forest]]>><</link>>
+<br>
+
+:: Tentacle Forest Pool
+<<set $bus to "tentacle_forest_pool">><<effects>>
+
+당신은 촉수숲 속, 반짝이는 개울 옆에 있다. 물결은 무지개빛을 반사한다.
+<br><br>
+
+<<tentacle_forest_safe_orgasm>>
+<<tentacle_forest_time>>
+<br><br>
+
+<<if $tentacle_forest_time gte 60>>
+    <<tentacle_forest_end_scene>>
+<<elseif $town_projects.thicket gte 5>>
+    물은 잔잔하지만, 수많은 눈이 당신을 올려다본다. 당신은 신중해야 한다.
+    <br><br>
+    <<if $tentacle_forest_time gte 60>>
+        <<tentacle_forest_end_scene>>
+    <<elseif $stress gte $stressmax>>
+        <<tentacle_forest_stress_scene>>
+    <<elseif $arousal gte 10000 and !$tentacle_forest_lurker.includes("defeated")>>
+        <<tentacle_forest_orgasm_scene>>
+    <<else>>
+        <<link [[노를 젓는다 (0:05)|Tentacle Forest Pool Focus]]>><<tentacle_forest_pass 5>><</link>><<willpowerdifficulty 1 1000>><<note "숲 안으로 이동한다" "lblue">>
+        <br>
+        <<link [[수영한다 (0:05)|Tentacle Forest Pool Swim]]>><<tentacle_forest_pass 5>><</link>><<swimmingdifficulty 1 1000>><<note "숲 안으로 이동한다" "lblue">>
+        <br><br>
+        커다란 연꽃잎들이 개울 가장자리에 떠다닌다. 당신의 몸무게를 지탱할 수 있을 것 같다.
+        <br>
+        <<link [[앉는다 (0:15)|Tentacle Forest Bottom]]>><<tentacle_forest_pass 15>><</link>><<note "+ 엉덩이 기술?" "blue">>
+        <br><br>
+        <<link [[출발점으로 돌아간다 (0:05)|Tentacle Forest]]>><<tentacle_forest_pass 5>><</link>>
+        <br>
+    <</if>>
+<<elseif $town_projects.thicket gte 4>>
+    <<set $town_projects.thicket to 5>>
+    당신은 수면 아래를 들여다본다. 눈은 여전히 그 자리에 있지만, 물은 고요하고 부드럽다. <span class="green">이제 건널 수 있다.</span>
+    <br><br>
+    <<link [[다음|Tentacle Forest Pool]]>><</link>>
+    <br>
+<<else>>
+    건너편에 다른 길이 있지만, 수영하지 않고는 건널 수 없다. 당신은 수면 아래를 들여다본다. 수많은 눈이 당신과 시선을 마주치고, 물은 격렬하게 소용돌이친다. <span class="blue">당신은 다른 방법을 찾아야 한다.</span>
+    <<if $town_projects.thicket is undefined>>
+        <<set $town_projects.thicket to 1>>
+    <</if>>
+    <br><br>
+    커다란 연꽃잎들이 개울 가장자리에 떠다닌다. 당신의 몸무게를 지탱할 수 있을 것 같다.
+    <br>
+    <<link [[앉는다 (0:15)|Tentacle Forest Bottom]]>><<tentacle_forest_pass 15>><</link>><<note "+ 엉덩이 기술?" "blue">>
+    <br><br>
+    <<link [[돌아간다|Tentacle Forest]]>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Pool Focus
+<<water>><<waterbr 2>><<effects>>
+당신은 개울을 가로질러 노를 저으며 나아간다. 아래에서 당신의 무방비한 나체를 노려보는 눈빛이 느껴진다.
+
+<<if $willpowerSuccess>>
+    <span class="green">하지만 당신은 아래를 내려다보는 것을 참는다.</span> 당신은 개울 건너편에 도달하고, 숲 속으로 더 깊이 들어간다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Plants]]>><</link>>
+    <br>
+<<else>>
+    <span class="red">아래를 내려다보는 것을 참을 수 없다.</span> 그들과 당신의 시선이 마주치고, 촉수가 깊은 곳에서 솟아오른다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Pool Tentacles]]>><<set $molestationstart to 1>><</link>>
+    <br>
+<</if>>
+
+
+:: Tentacle Forest Pool Swim
+<<water>><<waterbr 2>><<effects>>
+당신은 개울을 헤엄치며 숨어 있던 눈들을 자극한다. 깊은 수심에서 촉수들이 솟구쳐 올라온다.
+<<if $swimmingSuccess>>
+    촉수들이 당신을 뒤쫓지만 <span class="green">당신이 더 빨랐다.</span>
+    <br><br>
+    당신은 개울 건너편에 도달하고, 숲 속으로 더 깊이 들어간다.
+    <br><br>
+    <<link [[다음|Tentacle Forest Plants]]>><</link>>
+    <br>
+<<else>>
+    촉수들이 당신을 뒤쫓는다. <span class="red">촉수 두어 개가 당신의 발목에 감긴다.</span> 그 짧은 순간이 다른 촉수들에게 따라잡히기엔 충분했다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Pool Tentacles]]>><<set $molestationstart to 1>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Pool Tentacles
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<set $combat to 1>>
+	<<set $enemytype to "tentacles">>
+	<<molested>>
+	<<controlloss>>
+
+	<<tentaclestart 8 16>>
+
+<</if>>
+<<water>><<waterbr 1>>
+<<statetentacles>>
+
+<<effects>>
+<<effectstentacles>>
+<<tentacles>>
+<<actionstentacles>>
+
+<<if $orgasmdown gte 1>>
+    <<link [[다음|Tentacle Forest Pool Tentacles Finish 2]]>><</link>>
+    <br>
+<<elseif $tentacles.active lte ($tentacles.max / 2)>>
+	<span id="next"><<link [[다음|Tentacle Forest Pool Tentacles Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Tentacle Forest Pool Tentacles]]>><</link>></span><<nexttext>>
+<</if>>
+
+
+:: Tentacle Forest Pool Tentacles Finish
+<<effects>>
+
+당신은 꿈틀거리는 촉수에서 벗어나 개울을 가로질러 남은 길을 헤쳐나간다.
+<br><br>
+
+<<tearful>> 당신은 숲 속으로 더 깊이 들어간다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Tentacle Forest Plants]]>><</link>>
+<br>
+
+
+:: Tentacle Forest Pool Tentacles Finish 2
+<<effects>>
+
+오르가즘이 당신을 휘감고, 당신은 촉수들의 자비에 맡겨진다. 물이 격렬하게 소용돌이친다. 당신을 아래로 끌어당긴다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Tentacle Forest Orgasm]]>><</link>>
+<br>
+
+:: Tentacle Forest Plants
+<<set $bus to "tentacle_forest_plants">><<effects>>
+
+당신은 촉수숲 속, 어깨 높이까지 자란 촉수들로 가득한 평원에 있다. 촉수의 밑부분은 짙은 보라색이고, 위로 갈수록 색이 옅어진다. 마치 긴 풀처럼 보인다.
+<br><br>
+
+<<tentacle_forest_safe_orgasm>>
+<<tentacle_forest_time>>
+<br><br>
+
+<<if $tentacle_forest_time gte 60>>
+    <<tentacle_forest_end_scene>>
+<<elseif $town_projects.green gte 5>>
+    몇몇 촉수는 오르기에 충분히 높지만, 당신은 신중을 기해야 한다.
+    <br><br>
+    <<if $tentacle_forest_time gte 60>>
+        <<tentacle_forest_end_scene>>
+    <<elseif $stress gte $stressmax>>
+        <<tentacle_forest_stress_scene>>
+    <<elseif $arousal gte 10000 and !$tentacle_forest_lurker.includes("defeated")>>
+        <<tentacle_forest_orgasm_scene>>
+    <<else>>
+        <<link [[흔든다 (0:05)|Tentacle Forest Plants Swing]]>><<tentacle_forest_pass 5>><</link>><<willpowerdifficulty 1 1000>><<note "숲 안으로 이동한다" "lblue">>
+        <br>
+        <<link [[오른다 (0:05)|Tentacle Forest Plants Climb]]>><<tentacle_forest_pass 5>><</link>><<athleticsdifficulty 1 1000>><<note "숲 안으로 이동한다" "lblue">>
+        <br><br>
+        비슷하지만 더 큰 촉수들이 당신 양쪽으로 솟아올라, 평원을 둘러싼 굵은 촉수들 사이를 누빌 만큼 높이 치솟는다. 당신 옆의 촉수들은 땅 가까이로 낮게 구부러져 있다.
+        <br>
+        <<link [[몸을 흔든다 (0:15)|Tentacle Forest Thighs]]>><<tentacle_forest_pass 15>><</link>><<note "+ 허벅지 기술?" "blue">>
+        <br><br>
+        <<link [[출발점으로 돌아간다 (0:05)|Tentacle Forest]]>><<tentacle_forest_pass 5>><</link>>
+        <br>
+    <</if>>
+<<elseif $town_projects.green gte 4>>
+    <<set $town_projects.green to 5>>
+    몇몇 촉수는 엄청난 크기로 자랐다. 촉수들은 스스로의 무게에 휘어지고, 당신이 닿을 수 있을 만큼 낮게 자랐다. <span class="green">이제 건널 수 있다.</span>
+    <br><br>
+    <<link [[다음|Tentacle Forest Plants]]>><</link>>
+    <br>
+<<else>>
+    당신은 그 사이를 밀어내려고 하지만, 보기보다 훨씬 튼튼해 오히려 당신을 밀어낸다. 마치 통과할 수 없는 장벽이다. <span class="blue">당신은 다른 방법을 찾아야 한다.</span>
+    <<if $town_projects.green is undefined>>
+        <<set $town_projects.green to 1>>
+    <</if>>
+    <br><br>
+    비슷하지만 더 큰 촉수들이 당신 양쪽으로 솟아올라, 평원을 둘러싼 굵은 촉수들 사이를 누빌 만큼 높이 치솟는다. 당신 옆의 촉수들은 땅 가까이로 낮게 구부러져 있다.
+    <br>
+    <<link [[몸을 흔든다 (0:15)|Tentacle Forest Thighs]]>><<tentacle_forest_pass 15>><</link>><<note "+ 허벅지 기술?" "blue">>
+    <br><br>
+    <<link [[Turn back|Tentacle Forest]]>><</link>>
+    <br>
+<</if>>
+
+
+:: Tentacle Forest Plants Swing
+<<effects>>
+
+당신은 공중으로 크게 뛰어올라 가장 가까이에 매달려 있는 촉수를 잡는다.
+<<if $willpowerSuccess>>
+    당신은 기세를 몰아 다음 촉수로, 그다음 촉수로 달려가 <span class="green">평원을 전부 건넌다.</span> 당신은 숲 속으로 더 깊이 들어간다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Door]]>><</link>>
+    <br>
+<<else>>
+    당신은 다음에 어떻게 해야할지 망설인다. <span class="red">곧이어 당신의 손이 미끄러진다.</span>
+    <br><br>
+    당신은 꿈틀대는 촉수 위에 떨어진다.
+    <br><br>
+    <<link [[다음|Tentacle Forest Plants Tentacles]]>><<set $molestationstart to 1>><</link>>
+    <br>
+<</if>>
+
+
+
+:: Tentacle Forest Plants Climb
+<<effects>>
+
+당신은 가장 가까운 촉수의 울퉁불퉁한 줄기를 타고 올라간다. 촉수는 다른 촉수 쪽으로 휘어진다. 촉수 사이엔 약간의 틈이 있다.
+<<if $athleticsSuccess>>
+    <span class="green">당신은 틈새를 뛰어넘는다.</span> 당신은 촉수 사이로 나아가 평원 건너편에 도달한다.
+    <br><br>
+
+    <<link [[다음|Tentacle Forest Door]]>><</link>>
+    <br>
+<<else>>
+    <span class="red">곧이어 당신의 손이 미끄러진다.</span> 당신은 꿈틀대는 촉수 위에 떨어진다.
+    <br><br>
+    <<link [[다음|Tentacle Forest Plants Tentacles]]>><<set $molestationstart to 1>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Plants Tentacles
+<<effects>>
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<set $combat to 1>>
+	<<set $enemytype to "tentacles">>
+	<<molested>>
+	<<controlloss>>
+
+	<<tentaclestart 8 15>>
+
+<</if>>
+
+<<statetentacles>>
+
+
+<<effects>>
+<<effectstentacles>>
+<<tentacles>>
+<<actionstentacles>>
+
+<<if $orgasmdown gte 1>>
+	<span id="next"><<link [[다음|Tentacle Forest Plants Tentacles Finish 2]]>><</link>></span><<nexttext>>
+<<elseif $tentacles.active lte ($tentacles.max / 2)>>
+	<span id="next"><<link [[다음|Tentacle Forest Plants Tentacles Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Tentacle Forest Plants Tentacles]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Tentacle Forest Plants Tentacles Finish
+<<effects>>
+
+
+당신은 꿈틀거리는 촉수에서 벗어나 땅으로 떨어진다. 당신은 평원을 헤쳐나간다.
+<br><br>
+
+<<tearful>> 당신은 숲 속으로 더 깊이 들어간다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Tentacle Forest Door]]>><</link>>
+<br>
+
+:: Tentacle Forest Plants Tentacles Finish 2
+<<effects>>
+
+오르가즘이 당신을 휘감고, 당신은 촉수들의 자비에 맡겨진다. 땅이 흔들리고 터진다. 촉수들이 터져 나와 격렬하게 움직인다. 당신을 향한다.
+<br><br>
+
+촉수들은 당신의 오르가즘이 가라앉기 전에 당신의 팔다리를 붙잡고 아래로 끌어내린다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Tentacle Forest Orgasm]]>><</link>>
+<br>
+
+:: Tentacle Forest Door
+<<set $bus to "tentacle_forest_door">><<effects>>
+
+당신은 촉수숲 속, 거대한 돌문 앞에 서있다. 거대한 틀의 크기에 비해 열쇠구멍은 작디작고, 손이 닿는 거리에 있다.
+<br><br>
+<<if $tentacle_forest_time gte 60>>
+    <<tentacle_forest_end_scene>>
+<<elseif $tentacle_forest_key is 1>>
+    <<if $hookah_plot gte 1>>
+        <<link [[들어간다|Tentacle Forest Prison]]>><</link>>
+        <br>
+    <<else>>
+        <span class="green">계곡 아래에서 찾은 열쇠가 맞을 것이다.</span>
+        <br><br>
+        <<link [[들어간다|Tentacle Forest Quinn]]>><</link>>
+        <br>
+    <</if>>
+    <<link [[입구로 돌아간다|Tentacle Forest]]>><</link>>
+    <br>
+<<else>>
+    <<link [[다음|Tentacle Forest]]>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Prison
+<<set $bus to "tentacle_forest_prison">><<effects>>
+
+문이 딸깍 소리와 함께 열린다. 당신은 문을 당겨 열고, 매캐한 바람에 쓰러지지 않도록 몸을 단단히 지탱한다.
+<br><br>
+
+당신은 보라색 빛으로 물든 터널에 들어선다. 이 통로는 다른 복도들로 이어진다. 벽엔 기묘한 상징들이 새겨져 있다.
+<br><br>
+
+<<if $tentacle_forest_time gte 60>>
+    <<tentacle_forest_end_scene>>
+<<elseif $stress gte $stressmax>>
+    <<tentacle_forest_stress_scene>>
+<<elseif $arousal gte 10000 and !$tentacle_forest_lurker.includes("defeated")>>
+    <<tentacle_forest_orgasm_scene>>
+<<else>>
+    <<if $settings.analEnabled>>
+        <<link [[해독한다 (0:15)|Tentacle Forest Anal]]>><<tentacle_forest_pass 15>><</link>><<note "+ 항문 기술?" "blue">>
+        <br>
+    <</if>>
+    <<link [[출발점으로 돌아간다|Tentacle Forest]]>><</link>>
+    <br>
+<</if>>
+
+:: Tentacle Forest Quinn
+<<effects>>
+
+문이 딸깍 소리와 함께 열린다. 당신은 문을 당겨 열고, 매캐한 바람에 쓰러지지 않도록 몸을 단단히 지탱한다.
+<br><br>
+
+안은 희미한 보랏빛으로 가득한 터널이다. 멀리서 무언가 움직이는 게 보이지만, 너무 멀어서 자세히 보이진 않는다.
+<br><br>
+
+당신은 주 통로에서 갈라진 복도들을 지나며 안으로 들어서지만, 저 멀리의 움직임이 당신을 계속 유혹한다.
+<br><br>
+
+<<link [[다음|Tentacle Forest Quinn 2]]>><</link>>
+<br>
+
+:: Tentacle Forest Quinn 2
+<<effects>>
+<<set $hookah_plot to 1>>
+<<set $hookah_state to 2>>
+<<hookah_init>>
+<<npc Quinn>><<person1>>
+당신은 꿈틀거리는 그 형체에 다가선다. 그 중심엔 사람이 매달려 있다. 축 늘어진 몸은 강제로 감겨든 촉수들에 붙잡혀 있고, 그중 하나는 머리를 감싸 눈을 가리고 있다. 하지만 당신은 그 사람이 누구인지 단번에 알아본다. <span class="pink">퀸 시장이다.</span><<gggawareness>><<awareness 24>>
+<br><br>
+
+쿵 하는 소리가 들리고, 유리가 깨지는 소리가 들린다. 원인은 알 수 없다. "이 침입은," 실체없는 목소리가 메아리친다. "대가가 따를 것이다." 목소리가 터널에 울려 퍼지자 벽돌 하나씩 벽이 사라진다.
+<br><br>
+
+<span class="blue">벽 뒤로 넓은 공간이 보인다.</span> <span class="pink">당신의 마음은 그것을 받아들이지 않는다.</span> 현실은 도망치듯 서서히 해체된다.
+<br><br>
+
+<<link [[다음|Tentacle Forest Quinn 3]]>><<endevent>><<tentacleworldend>><</link>>
+<br>
+
+:: Tentacle Forest Quinn 3
+<<location "flats">><<set $outside to 0>><<effects>>
+
+<<storeon "hookah">>
+<<loadNPC 0 "hookah">><<person1>>
+
+당신은 물담배 가게에서 깨어난다. 당신은 혼자다. 물담배는 산산이 조각났고, 문은 경첩에서 떨어져 나와있다.
+<br><br>
+
+입구에 작은 안경 한 켤레가 놓여 있다. 왼쪽 다리에 종이 조각이 감겨 있다. 당신은 종이를 펼쳐본다. 급하게 휘갈겨 쓴 글씨가 적혀 있다.
+<br><br>
+
+"정말 오랫동안 찾아다녔습니다. <span class="green">안경과 응접실은 당신 것입니다.</span> 감사합니다."
+<br><br>
+<<earnFeat "Hookah Master">>
+<<specialClothesUnlock "set" "hookah">>
+<<link [[Look around|Tentacle Forest Quinn 4]]>><<facesend 31 $wardrobe_location>><</link>>
+<br>
+
+:: Tentacle Forest Quinn 4
+<<effects>>
+
+지금은 난장판이지만, 응접실은 한때 평범한 아파트였던 것 같다. 주방에는 작동중인 냉장고가 있다. 당신은 냉장고 문을 연다. 안에는 우리가 다섯 개 있다. <span class="pink">가장 낮은 곳에 이상한 생물이 꿈틀거리고 있다.</span>
+<br><br>
+당신은 응접실의 나머지 부분을 훑어본다. 침대는 어디에도 없고, 청소하려면 엄청난 노력이 필요할 것 같다.
+<br><br>
+
+<<link [[다음|Flats Hookah]]>><<endevent>><</link>>
+<br>
+
+:: Tentacle Forest Chest
+<<effects>>
+
+기묘한 경쟁심에 사로잡힌 당신은 촉수 하나를 바닥에 떨어뜨린 후, 이리저리 몸을 굴린다.
+<<set _rng to random(1, 2)>>
+<<if _rng is 1>>
+    당신은 마침내 당신의 무게로 촉수를 꼼짝 못하게 한다.
+    <br><br>
+    당신은 승리의 기쁨을 만끽한다.<<gchestskill>><<chestskill 1>>
+    <br><br>
+    <<destination_tentacle_forest>>
+<<else>>
+    이윽고 촉수가 당신을 옆으로 밀어낸다.
+    <br><br>
+    <<tentacle_forest_events>>
+<</if>>
+
+:: Tentacle Forest Bottom
+<<effects>>
+
+당신은 잎 위에 앉아 발을 물에 담근다. 체중을 앞뒤로 옮기면 앞으로 나아갈 수 있다.
+<<set _rng to random(1, 2)>>
+<<if _rng is 1>>
+    멀리 갈 수는 없지만, 작은 원을 그리며 움직이는 것만으로도 편안해진다.<<gbottomskill>><<bottomskill 1>>
+    <br><br>
+    <<destination_tentacle_forest>>
+<<else>>
+    첨벙 소리를 내며 물속으로 빠진다. 다행히 여기는 물이 얕다.
+    <br><br>
+    <<tentacle_forest_events>>
+<</if>>
+
+:: Tentacle Forest Thighs
+<<effects>>
+
+당신은 낮게 매달린 촉수 위로 올라가 허벅지 사이로 몸을 흔든다.
+<<set _rng to random(1, 2)>>
+<<if _rng is 1>>
+    촉수는 조금 흔들리지만, 간신히 붙잡는다. 당신은 더 큰 촉수들 사이를 지나 다시 평원으로 돌아간다.<<gthighskill>><<thighskill 1>>
+    <br><br>
+    <<destination_tentacle_forest>>
+<<else>>
+    촉수가 이리저리 흔들린다. 흔들림이 너무 심해서 붙잡을 수 없다. 당신은 곤두박질치며 바닥에 쓰러진다.
+    <br><br>
+    <<tentacle_forest_events>>
+<</if>>
+
+:: Tentacle Forest Oral
+<<effects>>
+
+당신은 덩굴 하나를 입으로 가져간다.
+<<set _rng to random(1, 2)>>
+<<if _rng is 1>>
+    덩굴은 당신의 머리를 따라오는 듯, 별 어려움 없이 입속으로 들어온다. 당신은 꿀을 열심히 핥아 먹는다.<<goralskill>><<oralskill 1>>
+    <br><br>
+    <<destination_tentacle_forest>>
+<<else>>
+    덩굴은 당신에게서 멀어지고, 당신이 계속 시도하자 당신의 뺨을 가볍게 때린다.
+    <br><br>
+    <<tentacle_forest_events>>
+<</if>>
+
+:: Tentacle Forest Hands
+<<effects>>
+
+당신이 과일을 향해 손을 뻗자, 과일이 매달린 촉수 ‘가지’들도 함께 들리며 과일을 손이 닿지 않는 곳으로 끌고 간다.
+<<set _rng to random(1, 2)>>
+<<if _rng is 1>>
+    <<wearProp "tenta fruit">>
+    당신은 뛰어올라 과일 하나를 낚아챈다.
+    <br><br>
+    과즙이 많은 것처럼 보이지만 맛은 돼지고기와 가장 비슷하다. <<ghandskill>><<handskill 1>>
+    <br><br>
+    <<destination_tentacle_forest>>
+<<else>>
+    당신이 뛰기만 해도 촉수가 반응해 튀어나간다.
+    <br><br>
+    <<tentacle_forest_events>>
+<</if>>
+
+:: Tentacle Forest Feet
+<<effects>>
+
+당신은 민달팽이 하나를 밟으려 하지만, 위협을 느낀 민달팽이는 갑자기 힘을 내더니 놀라운 속도로 미끄러지듯 도망친다.
+<<set _rng to random(1, 2)>>
+<<if _rng is 1>>
+    <<wearProp "tenta slug">>
+    당신은 민달팽이가 개울에 닿기 직전에 붙잡는다. 하얀 액체가 끝에서 뿜어져 나오며, 몸이 축 늘어지고 다른 민달팽이들과 비슷한 모습으로 변한다. 덩치를 줄인 민달팽이는 이내 개울 속으로 도망쳐 사라진다. <<gfeetskill>><<feetskill 1>>
+    <br><br>
+    <<destination_tentacle_forest>>
+<<else>>
+    민달팽이는 당신이 잡기 전에 개울로 미끄러진다.
+    <br><br>
+    <<tentacle_forest_events>>
+<</if>>
+
+:: Tentacle Forest Anal
+<<effects>>
+
+당신은 벽에 새겨진 상징을 읽어보려 애쓴다. 당신이 보는 순간 상징은 새로운 것으로 바뀌고,
+<<set _rng to random(1, 2)>>
+<<if _rng is 1>>
+    곧 기묘한 형상을 띤다. 그 의미가 당신의 머릿속을 가득 채운다. 당신의 얼굴이 붉어진다.<<ganalskill>><<analskill 1>>
+    <br><br>
+    <<destination_tentacle_forest>>
+<<else>>
+    곧 충격적인 형상을 띤다. 그 의미가 당신의 머릿속을 가득 채운다. 당신은 몸서리친다.
+    <<set _rng to random(1, 5)>>
+    <<switch _rng>>
+        <<case 1>>
+            <<if $awareness lt 600>>
+                <<gawareness>><<awareness 3>>
+            <<else>>
+                <<ggarousal>><<arousal 1800>>
+            <</if>>
+        <<case 2>>
+            <<ggarousal>><<arousal 1800>>
+        <<case 3>>
+            <<gstress>><<stress 18>>
+        <<case 4>>
+            <<gtrauma>><<trauma 18>>
+        <<case 5>>
+            <<gwillpower>><<willpower 3>>
+    <</switch>>
+    <br><br>
+    <<link [[다음|Tentacle Forest Prison]]>><</link>>
+    <br>
+<</if>>

@@ -1,0 +1,3152 @@
+:: Avery Cards Intro
+<<set $outside to 0>><<location "flats">><<effects>>
+<<set $avery_cards_intro to 1>><<set $dateCount.Total++>><<set $dateCount.Avery++>>
+
+에이버리는 당신을 건물로 이끈다. <<He_ nun>> 엘리베이터로 가려다가, 문이 열리자 걸음을 멈춘다. <<His_ nun>> 뭔가 불쾌한 냄새를 맡은 듯 코를 찌푸리더니 대신 계단 쪽을 택한다.
+<br><br>
+
+<<if $flats_progress gte 2>>
+    당신은 몇 층을 오른 다음 또다른 복도를 따라 걷는다. 에이버리는 <span class="purple">연꽃 모양 문고리</span>가 달린 문 앞에서 멈춘다. 베일리의 아파트다.
+    <br><br>
+    <<link [[경고한다|Avery Cards Intro Bailey Warn]]>><</link>>
+    <br>
+    <<link [[조용히 있는다|Avery Cards Intro 2]]>><</link>>
+    <br>
+<<elseif $flats_progress is 1>>
+    당신은 몇 층을 오른 다음 또다른 복도를 따라 걷는다. 에이버리는 <span class="purple">연꽃 모양 문고리</span>가 달린 문 앞에서 멈춘다. 당신은 이전에 들었던 경고를 떠올린다. 이곳엔 악인들이 살고 있다고.
+    <br><br>
+    <<link [[경고한다|Avery Cards Intro Warn]]>><</link>>
+    <br>
+    <<link [[조용히 있는다|Avery Cards Intro 2]]>><</link>>
+    <br>
+<<else>>
+    당신은 몇 층을 오른 다음 또다른 복도를 따라 걷는다. 에이버리는 연꽃 모양 문고리가 달린 문 앞에서 멈춘다.
+    <br><br>
+    <<link [[다음|Avery Cards Intro 2]]>><</link>>
+    <br>
+<</if>>
+
+:: Avery Cards Dump
+<<effects>>
+
+<<if $speech_attitude is "bratty">>
+    "당신이 이런 싸구려 같은 데에서 시간을 보내기도 한다니 놀랍네요," 당신이 말한다.
+<<elseif $speech_attitude is "meek">>
+    "여긴 어쩐지 무서워요," 당신이 말한다.
+<<else>>
+    "여긴 좀 위험해 보이는데요," 당신이 말한다. "이런 곳에 인맥이 있을 줄은 몰랐어요."
+<</if>>
+<br><br>
+
+에이버리가 웃으며 말한다. "맞는 말이지, 하지만 안에 들어가서는 그런 생각은 속으로만 하는 게 좋을거야."
+<br><br>
+
+<<link [[다음|Avery Cards Intro]]>><</link>>
+<br>
+
+:: Avery Cards Intro Bailey Warn
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    당신은 에이버리의 소매를 당긴다. "제발 열지 말아요," 당신이 말한다. "여긴 베일리가 사는 곳이에요. 고아원 주인이요."
+<<elseif $speech_attitude is "bratty">>
+    당신은 에이버리의 손목을 붙잡는다. "열지 마요," 당신이 말한다. "베일리가 여기 살아요. 고아원 운영하는 사람."
+<<else>>
+    당신은 문고리로 손을 뻗는 에이버리의 손목에 손을 얹는다. "열면 안돼요," 당신이 말한다. "여기 베일리의 아파트예요."
+<</if>>
+<br><br>
+
+"사랑스러운 <<pcpetname "Avery">>," 에이버리가 웃으며 당신의 머리를 쓰다듬는다. "누굴 만나려고 여기까지 온 거라 생각해?"
+<br><br>
+
+<<link [[다음|Avery Cards Intro 2]]>><</link>>
+<br>
+
+:: Avery Cards Intro Warn
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    당신은 에이버리의 소매를 당긴다. "제발 열지 마요," 당신이 말한다. "가까이 가면 안된다는 경고를 들은 적이 있어요."
+<<elseif $speech_attitude is "bratty">>
+    당신은 에이버리의 손목을 붙잡는다. "열지 마요," 당신이 말한다. "누가 이 아파트는 위험하다고 경고했거든요."
+<<else>>
+    당신은 문고리로 손을 뻗는 에이버리의 손목에 손을 얹는다. "열면 안돼요," 당신이 말한다. "이곳엔 위험한 사람들이 산다고 들었어요."
+<</if>>
+<br><br>
+
+"사랑스러운 <<pcpetname "Avery">>," 에이버리가 웃으며 당신의 머리를 쓰다듬는다. "그랬으면 좋겠구나."
+<br><br>
+
+<<link [[다음|Avery Cards Intro 2]]>><</link>>
+<br>
+
+
+:: Avery Cards Intro 2
+<<effects>>
+<<npc Bailey 2>>
+<<set $bailey_avery_met to 1>>
+에이버리는 문고리를 두 번 두드린다. 반대편에서 발소리가 들리더니, 열린 문 너머로 익숙한 얼굴이 드러난다. <span class="purple">베일리다.</span>
+<br><br>
+
+"늦지 않았으면 좋겠군요," 에이버리가 <<person1>><<his_ yi>> 손을 내밀며 말한다. 베일리는 <<him_ ul>> 무시하고, 대신 분노 비슷한 표정으로 당신을 응시한다. 에이버리는 거절당한 악수를 자연스럽게 당신의 어깨에 팔을 두르는 동작으로 전환한다. "파트너를 데려와도 괜찮다고 하셨죠."
+<br><br>
+
+베일리는 고개를 끄덕이고는 그제야 주의를 에이버리에게 돌린다. "동행할 파트너입니다," <<person2>><<he_ ga>> 말한다. "갖고 노는 상대가 아니라." <<He_ nun>> 당신과 에이버리가 들어올 수 있도록 옆으로 비킨다.
+<br><br>
+
+<<link [[다음|Avery Cards Intro 3]]>><</link>>
+<br>
+
+:: Avery Cards Intro 3
+<<effects>>
+
+<<npc Leighton 3>>
+<<npc Quinn 4>>
+
+방 안은 겉보기에는 별 특징이 없어 보인다.
+<<if $awarelevel gte 2>>
+    문틀에 기이한 문양들이 새겨져 있다.
+<</if>>
+천장에는 바닥과 마찬가지로 카펫이 깔려있다. 양쪽 모두 추상적인 뱀의 그림이 뒤틀린 형태로 수놓아져 있다. 안쪽에서 목소리와 잔이 부딪히는 소리가 들린다.
+<br><br>
+
+거실로 들어서자 중앙의 테이블을 둘러싼 의자 네 개가 보인다. 그 중 두 개에는 사람이 앉아있다. 한 명은 학교의 교장인 레이턴, 다른 하나는 
+<<person4>>
+<<if C.npc.Quinn.init is 1>>
+    시장, 퀸이다. 그들은 당신의 등장을 흥미를 감추지 못하고 바라본다. 에이버리는 당신에게서 떨어지지 않는다.
+    <br><br>
+    "제시간에 와 줘서 정말 기쁘네," 퀸이 에이버리에게 말한다. <<He_ ga>> 브랜디가 반쯤 채워진 잔을 손에 들고 일어선다. "거기다 걸맞는 짝까지 데려오다니." <<He_ ga>> 당신에게 손을 내민다. "자네 취향이 이렇게 훌륭한 줄은 몰랐어."
+    <br><br>
+    <<link [[악수한다|Avery Cards Intro Shake]]>><<set $endear += 10>><</link>><<gendear>>
+    <br>
+    <<link [[거절한다|Avery Cards Intro Shake Refuse]]>><<set $endear -= 10>><</link>><<glove Avery>><<lendear>>
+    <br>
+<<else>>
+    중년의 <<personsimple_ ida>>. <<He_ nun>> 당신의 등장을 흥미를 감추지 못하고 바라본다. 에이버리는 당신에게서 떨어지지 않는다.
+    <br><br>
+    "제시간에 와 줘서 정말 기쁘네," <<person_ i>> 에이버리에게 말한다. <<He_ ga>> 브랜디가 반쯤 채워진 잔을 손에 들고 일어선다. "거기다 걸맞는 짝까지 데려오다니." <<He_ ga>> 당신에게 손을 내민다. <span class="purple">"나는 퀸일세. 시장이지."</span>
+    <br><br>
+    <<link [[악수한다|Avery Cards Intro Shake]]>><<set $endear += 10>><</link>><<gendear>>
+    <br>
+    <<link [[거절한다|Avery Cards Intro Shake Refuse]]>><<set $endear -= 10>><</link>><<glove Avery>><<lendear>>
+    <br>
+<</if>>
+
+:: Avery Cards Intro Shake
+<<effects>>
+
+당신은 퀸과 악수한다. <<His_ yi>> 손아귀는 억세고 손바닥은 땀으로 축축하다.
+<br><br>
+<<person3>>"이 <<girl_ un>> 제 학생입니다," 레이턴이 자리에 앉은 채 당신을 향해 미소지으며 말한다.
+
+<<if $delinquency gte 400>>
+    "교직원들에겐 말하자면 공포의 대상이죠."
+    <br><br>
+    "공포의 대상?" 퀸이 말하자 때맞추어 베일리가 들어온다. "그럴 리가! 베일리 씨, 난 자네가 피보호자들을 수준 높게 키우는 줄 알았는데."
+<<elseif $delinquency gte 200>>
+    "훈육이 필요한 녀석이죠."
+    <br><br>
+    "훈육이 모자라?" 퀸이 말하자 때맞추어 베일리가 들어온다. "그럴 리가! 베일리 씨, 난 자네가 피보호자들을 수준 높게 키우는 줄 알았는데."
+<<elseif $delinquency gte 60>>
+    "대체로는 좋은 학생이죠."
+    <br><br>
+    "좋은 학생이라고?" 퀸이 말하자 때맞추어 베일리가 들어온다. "역시 채찍질로 교육하는 법을 잘 아는군."
+<<else>>
+    "이런 말을 해도 될 지 모르겠지만, 교육하기 아주 즐거운 학생이죠."
+    <br><br>
+    "내가 직접 교육하고 싶어질지도 모르겠어," 퀸이 말하자 때맞추어 베일리가 들어온다. "물론, 베일리의 허가가 있다면 말일세."
+<</if>>
+<br><br>
+
+베일리는 시장을 무시하고 에이버리와 함께 테이블에 앉는다. 퀸도 이내 자리로 돌아간다.
+<br><br>
+
+<<link [[다음|Avery Cards]]>><</link>>
+<br>
+
+:: Avery Cards Intro Shake Refuse
+<<effects>>
+
+당신은 퀸의 손을 쏘아본다. 퀸은 상처라도 받은 양 연극조로 손을 거둔다.
+<br><br>
+<<person3>>"이 <<girl_ un>> 제 학생입니다," 레이턴이 자리에 앉은 채 당신을 향해 미소지으며 말한다.
+
+<<if $delinquency gte 400>>
+    "교직원들에겐 말하자면 공포의 대상이죠."
+    <br><br>
+    "공포의 대상?" 퀸이 말하자 때맞추어 베일리가 들어온다. "그럴 리가! 베일리 씨, 난 자네가 피보호자들을 수준 높게 키우는 줄 알았는데."
+<<elseif $delinquency gte 200>>
+    "훈육이 필요한 녀석이죠."
+    <br><br>
+    "훈육이 모자라?" 퀸이 말하자 때맞추어 베일리가 들어온다. "그럴 리가! 베일리 씨, 난 자네가 피보호자들을 수준 높게 키우는 줄 알았는데."
+<<elseif $delinquency gte 60>>
+    "대체로는 좋은 학생이죠."
+    <br><br>
+    "좋은 학생이라고?" 퀸이 말하자 때맞추어 베일리가 들어온다. "역시 채찍질로 교육하는 법을 잘 아는군."
+<<else>>
+    "이런 말을 해도 될 지 모르겠지만, 교육하기 아주 즐거운 학생이죠."
+    <br><br>
+    "내가 직접 교육하고 싶어질지도 모르겠어," 퀸이 말하자 때맞추어 베일리가 들어온다. "물론, 베일리의 허가가 있다면 말일세."
+<</if>>
+<br><br>
+
+베일리는 시장을 무시하고 에이버리와 함께 테이블에 앉는다. 퀸도 이내 자리로 돌아간다.
+<br><br>
+
+<<link [[다음|Avery Cards]]>><</link>>
+<br>
+
+:: Avery Cards Repeat
+<<effects>>
+<<npc Bailey 2>>
+<<npc Leighton 3>>
+<<npc Quinn 4>>
+<<person2>>
+에이버리는 당신을 건물로 이끌고 엘리베이터에 타 베일리의 아파트로 향한다. 베일리는 에이버리를 살피는 듯 훑어보고는 당신과 에이버리를 안으로 들인다.
+<br><br>
+
+테이블에 앉은 레이턴과 퀸이 당신을 기다리고 있다. 당신이 도착하자 그들은 손에 든 빈 잔을 들어올린다. 에이버리가 자리에 앉자 베일리도 이내 뒤따른다.
+<br><br>
+
+<<link [[다음|Avery Cards]]>><</link>>
+<br>
+
+:: Avery Cards
+<<effects>>
+<<avery_cards_init>>
+참가자들이 자리를 잡는다.
+
+<<avery_cards_win>>
+
+<<if $cards_win is "avery_cards_win">>
+    <span class="blue">에이버리는 평소보다 자신감 있는 기운을 풍긴다.</span>
+<<elseif $cards_win is "bailey_cards_win">>
+    <span class="blue">베일리는 호스트 역할을 하는 것이 당연하다는 듯 편안해 보인다.</span>
+<<elseif $cards_win is "leighton_cards_win">>
+    <span class="blue">레이턴은 학교에서와 같은 권위적인 분위기를 풍긴다.</span>
+<<elseif $cards_win is "quinn_cards_win">>
+    <span class="blue">퀸의 얼굴에 음험한 미소가 번진다.</span>
+<</if>>
+당신이 앉을 자리는 없다.
+<br><br>
+"부디 브랜디 한 잔 가져다 주지 않겠나?" 베일리가 카드를 섞는 동안 퀸이 빈 잔을 당신에게 내밀면서 말한다. 에이버리는 시장의 명령에 고개를 끄덕여 찬성을 표하고 자신의 잔을 당신 쪽으로 민다.
+<br><br>
+"잔을 채워야겠군," 레이턴 또한 자신의 잔을 슬며시 내밀며 말한다. "진으로."
+<br><br>
+베일리는 당신의 시선을 눈치채고 고개를 끄덕인다. <<person2>><<He>>도 새 잔을 원하는 듯하다. "카운터에 쟁반이 있다."
+<br><br>
+
+<<link [[다음|Avery Cards Fetch]]>><</link>>
+
+
+:: Avery Cards Fetch
+<<effects>><<wearProp "drink tray">>
+
+당신은 쟁반을 집고 잔을 모아 주방으로 향한다. 찾기 어렵지 않도록 카운터에 술병이 가지런히 진열되어 있다.
+<br><br>
+누구의 잔에 무엇을 따를까?
+<br><br>
+에이버리의 잔:
+<br>
+<label><<foodicon "whisky">>위스키 <<radiobutton "$avery_cards.drink.avery" "whisky" checked>><<if $avery_cards_drinks_known.includes("avery")>><<lcardskill Avery>><</if>></label> |
+<label><<foodicon "brandy">>브랜디 <<radiobutton "$avery_cards.drink.avery" "brandy">> | </label>
+<label><<foodicon "gin">>진 <<radiobutton "$avery_cards.drink.avery" "gin">> | </label>
+<label><<foodicon "vodka">>보드카 <<radiobutton "$avery_cards.drink.avery" "vodka">> </label>
+<br>
+<label><<checkbox "$avery_cards.drink.avery_spit" "f" "t">> 침을 뱉는다 <<lstress>></label>
+<br><br>
+
+베일리의 잔:
+<br>
+<label><<foodicon "whisky">>위스키 <<radiobutton "$avery_cards.drink.bailey" "whisky" checked>> | </label>
+<label><<foodicon "brandy">>브랜디 <<radiobutton "$avery_cards.drink.bailey" "brandy">> | </label>
+<label><<foodicon "gin">>진 <<radiobutton "$avery_cards.drink.bailey" "gin">> | </label>
+<label><<foodicon "vodka">>보드카 <<radiobutton "$avery_cards.drink.bailey" "vodka">><<if $avery_cards_drinks_known.includes("bailey")>><<lcardskill Bailey>><</if>></label>
+<br>
+<label><<checkbox "$avery_cards.drink.bailey_spit" "f" "t">> 침을 뱉는다 <<lstress>></label>
+<br><br>
+
+레이턴의 잔:
+<br>
+<label><<foodicon "whisky">>위스키 <<radiobutton "$avery_cards.drink.leighton" "whisky" checked>> | </label>
+<label><<foodicon "brandy">>브랜디 <<radiobutton "$avery_cards.drink.leighton" "brandy">> | </label>
+<label><<foodicon "gin">>진 <<radiobutton "$avery_cards.drink.leighton" "gin">><<if $avery_cards_drinks_known.includes("leighton")>><<lcardskill Leighton>><</if>></label> |
+<label><<foodicon "vodka">>보드카 <<radiobutton "$avery_cards.drink.leighton" "vodka">></label>
+<br>
+<label><<checkbox "$avery_cards.drink.leighton_spit" "f" "t">> 침을 뱉는다 <<lstress>></label>
+<br><br>
+
+퀸의 잔:
+<br>
+<label><<foodicon "whisky">>위스키 <<radiobutton "$avery_cards.drink.quinn" "whisky" checked>> | </label>
+<label><<foodicon "brandy">>브랜디 <<radiobutton "$avery_cards.drink.quinn" "brandy">><<if $avery_cards_drinks_known.includes("quinn")>><<lcardskill Quinn>><</if>></label> |
+<label><<foodicon "gin">>진 <<radiobutton "$avery_cards.drink.quinn" "gin">> | </label>
+<label><<foodicon "vodka">>보드카 <<radiobutton "$avery_cards.drink.quinn" "vodka">></label>
+<br>
+<label><<checkbox "$avery_cards.drink.quinn_spit" "f" "t">> 침을 뱉는다 <<lstress>></label>
+<br><br>
+
+<<link [[따른다 (0:05)|Avery Cards Pour]]>><<pass 5>><</link>>
+<br>
+
+
+:: Avery Cards Pour
+<<effects>><<wearProp "drink tray">>
+<<set _targets = ["에이버리", "베일리", "레이턴", "퀸"]>>
+<<set _spitTargets = _targets.filter(t => $avery_cards.drink[`${t.toLowerCase()}_spit`] == "t")>>
+
+당신은 네 개의 잔에 술을 따른다.
+<br>
+<<for _target range _targets>>
+	<br>
+	당신은 <<= _target>>의 잔에 <<avery_cards_drink_text _target.toLowerCase() "을">> 따른다.
+	<br>
+<</for>>
+<br>
+
+<<switch _spitTargets.length>>
+	<<case 4>>
+		당신은 차별 없이 모든 잔에 침을 뱉는다.<<stress -24>>
+	<<case 3>>
+		당신은 <<= _targets.filter(t => !_spitTargets.includes(t))[0]>> 것만 빼고 모든 잔에 침을 뱉는다.<<stress -18>>
+	<<case 2>>
+		당신은 <<= _spitTargets.join(", ")>>의 잔에 침을 뱉는다.<<stress -12>>.
+	<<case 1>>
+		당신은 <<= _spitTargets>>의 잔만 따로 빼서 그 안에 침을 뱉는다.<<stress -6>>
+	<<default>>
+		당신은 어느 잔에도 침을 뱉지 않는다.
+<</switch>>
+<br><br>
+
+당신은 잔을 쟁반 위에 올리고 라운지로 나른다.
+<br><br>
+
+<<link [[다음|Avery Cards 2]]>><</link>>
+<br>
+
+
+:: Avery Cards 2
+<<effects>><<wearProp "drink tray">>
+
+당신이 쟁반을 들고 라운지에 들어선 순간 레이턴과 퀸의 웃음소리가 울려퍼지며 당신을 맞이한다. 농담을 성공한 듯 에이버리가 미소짓는다. 베일리는 카드를 섞는다.
+<br><br>
+
+"훌륭해," 당신이 쟁반을 테이블에 내려놓자 시장이 말한다. <<person4>><<He_ nun>> 자신의 잔을 집어들어 한입에 들이키고는 쟁반에 도로 세차게 내려놓는다.
+<br><br>
+<<if $avery_cards.drink.quinn is "브랜디">>
+    "브랜디로군," <<he_ ga>> 덧붙인다. "딱 내가 좋아하는 거야."<<glove>><<npcincr Quinn love 1>><<lcardskill Quinn>><<card_skill quinn -10>><<set $avery_cards_drinks_known.pushUnique("quinn")>>
+<<else>>
+    "내가 선호하는 건 아니군," <<he_ ga>> 덧붙인다. "보통은 브랜디를 고르는 편이네."<<set $avery_cards_drinks_known.pushUnique("quinn")>>
+<</if>>
+<br><br>
+
+<<link [[다음|Avery Cards 3]]>><</link>>
+<br>
+
+:: Avery Cards 3
+<<effects>>
+
+베일리는 자신의 잔을 냄새 맡더니 한 모금 마신다. <<person2>><<He_ nun>> 아무 말도 하지 않는다.
+<<if $avery_cards.drink.bailey is "보드카">>
+    <<lcardskill Bailey>><<card_skill bailey -10>><<set $avery_cards_drinks_known.pushUnique("bailey")>>
+<</if>>
+<br><br>
+
+레이턴은 보지도 않고 자신의 잔을 홀짝인다.
+<<if $avery_cards.drink.leighton is "진">>
+    <<He_ nun>> 만족스럽게 숨을 내쉬고 입술을 쩝쩝댄다.<<lcardskill Leighton>><<card_skill leighton -10>><<set $avery_cards_drinks_known.pushUnique("leighton")>>
+<</if>>
+<br><br>
+
+에이버리가 마지막으로 잔을 입에 댄다.
+<<if $avery_cards.drink.avery is "위스키">>
+    <<He_ nun>> 액체를 유심히 바라보더니 한 모금 마신다. "탁월한 선택이군요," <<he_ ga>> 당신이 아닌 베일리에게 말한다.<<lcardskill Avery>><<card_skill avery -10>><<set $avery_cards_drinks_known.pushUnique("avery")>><<gendear>><<set $endear += 10>>
+    <br><br>
+    "선물 받은 것들 중 하나입니다," 베일리가 답한다.
+    <br><br>
+<<else>>
+    <<He_ nun>> 액체를 유심히 바라보더니 당신을 째려본다. "난 위스키를 더 좋아한다," <<he_ ga>> 말한다. "다음에는 기억하도록 해."
+    <<llove>><<npcincr Avery love -1>><<set $avery_cards_drinks_known.pushUnique("avery")>><<lendear>><<set $endear -= 10>>
+    <br><br>
+<</if>>
+
+<<link [[다음|Avery Cards 4]]>><</link>>
+<br>
+
+:: Avery Cards 4
+<<effects>>
+
+모두가 각자 £100를 판돈으로 건다. 베일리가 카드를 돌린다. 참가자들이 자신의 카드를 살펴보는 동안 침묵이 내려앉는다.
+<br><br>
+<<avery_cards_win>>
+<<if $cards_win is "avery_cards_win">>
+    베일리는 곧장 폴드한다. 에이버리, 레이턴, 퀸은 조심스럽게 베트를 선언하고 카드를 공개한다. 승자는 에이버리다.
+    <br><br>
+    "첫 우승자는 회사원이 되었군," 퀸이 에이버리의 팔을 흔들며 말한다.
+<<elseif $cards_win is "bailey_cards_win">>
+    베일리가 자신의 잔을 한 모금 마신다. 에이버리, 레이턴, 퀸이 모두 폴드해 베일리가 승자가 된다. <<person2>><<He_ yi>> 패는 괜찮지만 최고는 아니다.
+    <br><br>
+    "첫 승리는 호스트에게 돌아가는 게 공평하지," 퀸이 말한다. "밤은 길다네."
+<<elseif $cards_win is "leighton_cards_win">>
+    네 명 모두 자신만만한 태도지만 거는 돈은 그렇지 않다. 카드가 공개된다. 승자는 레이턴이다.
+    <br><br>
+    "오늘 밤은 우리를 가르칠 생각인가, 레이턴?" 퀸이 <<person4>><<he_ nun>> 자신의 빈 잔을 한 모금 마시려 하다 묻는다.
+<<else>>
+    베일리와 에이버리가 동시에 폴드한다. 에이버리가 자신만만하게 굴다가 폴드해 승자는 퀸이 된다. <<person4>><<His_ yi>> 패는 별 볼일이 없다.
+    <br><br>
+    "시작이 좋군," 퀸 시장이 키득거린다. "베일리 이 친구야, 자네의 억센 운빨이 내게 옮은 걸지도 모르겠어."
+<</if>>
+<br><br>
+
+베일리가 당신을 흘겨본다. "그냥 있지 말고 쓸모 있게 굴어라. 청소라도 해."
+<br><br>
+
+<<person2>><<He_ nun>> 무엇을 청소할지는 설명하지 않는다. 방은 이미 깨끗해 보이지만, 몇몇 장식은 조금 닦아야 할 것 같다. 창문도 마찬가지다. 유리 장식장 안에 행주와 세정액이 있다.
+<br><br>
+
+<<link [[에이버리 뒤의 은식기를 닦는다 (0:20)|Avery Cards Polish Avery]]>><<pass 20>><<card_skill bailey 10>><</link>><<gcardskill Bailey>>
+<br>
+<<link [[베일리 뒤의 창문을 닦는다 (0:20)|Avery Cards Polish Bailey]]>><<pass 20>><<card_skill avery 10>><</link>><<gcardskill Avery>>
+<br>
+<<link [[레이턴 뒤의 장식장을 닦는다 (0:20)|Avery Cards Polish Leighton]]>><<pass 20>><<card_skill quinn on 10>><</link>><<gcardskill Quinn>>
+<br>
+<<link [[퀸 뒤의 거울을 닦는다 (0:20)|Avery Cards Polish Quinn]]>><<pass 20>><<card_skill leighton 10>><</link>><<gcardskill Leighton>>
+<br>
+
+:: Avery Cards Polish Avery
+<<effects>><<wearProp "rag" "white">>
+
+당신은 에이버리 뒤에 있는 은제 접시 몇 개, 주전자, 항아리를 닦는다. 전부 섬세한 무늬가 새겨져 있다.
+<br><br>
+
+당신은 일하면서 등 뒤로 게임을 엿듣는다. "참석할 수 있으셔서 다행입니다, 에이버리." 레이턴이 말한다. "그 파티에 초대받으신 것 아닌가 생각했습니다."
+<br><br>
+
+"파티라면 여럿 초대받았죠," 에이버리가 대답한다. "당연한 일입니다. 나중엔 성가셔지지만요."
+<br><br>
+
+<<link [[다음|Avery Cards 5]]>><</link>>
+<br>
+
+:: Avery Cards Polish Bailey
+<<effects>><<wearProp "rag" "white">>
+
+당신은 베일리 뒤의 창문을 닦는다. 창 밖으로 아래의 거리의 모습이 보인다.
+<br><br>
+
+당신은 일하면서 등 뒤로 게임을 엿듣는다. 이따금씩 목 뒤의 털이 곤두서 뒤를 돌아보자 퀸이 당신을 주시하고 있다.
+<br><br>
+
+"에이버리가 다 쓰고 나면 내가 저 <<girl_ ul>> 가져가도 되겠는가?" 퀸이 묻는다.
+<br><br>
+
+"안됩니다," 베일리가 대답한다. "에이버리와 제가 특별히 협상을 해 놓아서."
+<br><br>
+
+"유감이네," 퀸이 말한다. 당신의 몸에 소름이 돋는다.
+<br><br>
+
+<<link [[다음|Avery Cards 5]]>><</link>>
+<br>
+
+:: Avery Cards Polish Leighton
+<<effects>><<wearProp "rag" "white">>
+
+당신은 레이턴 뒤에 있는 유리 장식장을 닦는다. 안에는 여러 시대의 역사책이 진열되어 있다.
+<br><br>
+
+당신은 일하면서 등 뒤로 게임을 엿듣는다. "제 피보호자들이 당신의 높은 학문적 기준을 충족하고 있다고 알고 있습니다," 베일리가 말한다.
+<br><br>
+
+"그 말대로입니다," 레이턴이 대답한다. "그럼에도 때때로 갑작스레 성적이 떨어지는 학생이 있더군요. 기이한 일이지만 일대일 강의는 언제나 환영이죠."
+<br><br>
+
+<<link [[다음|Avery Cards 5]]>><</link>>
+<br>
+
+:: Avery Cards Polish Quinn
+<<effects>><<wearProp "rag" "white">>
+
+당신은 퀸 뒤의 거울을 닦는다. 유리에 더해 놋쇠로 된 틀도 함께 닦는다.
+<br><br>
+
+당신은 일하면서 등 뒤로 게임을 엿듣는다. "제가 했던 제안은 생각해 보셨습니까?" 에이버리가 묻는다.
+<br><br>
+
+"해 봤다네," 퀸이 대답한다. "오직 그 한 몫을 쫓는 손길이 너무 많은 것 같아 걱정일세. 내 힘이 닿는 데까지 자네 사례를 따져 보긴 하겠으나, 상황이 어떤지는 잘 알지 않나."
+<br><br>
+
+"걱정하지 마십시오," 에이버리가 말한다. "저도 잘 이해합니다."
+<br><br>
+
+다음 게임에선 에이버리가 치명적인 손해를 남겨, 퀸이 이득을 본다.
+<br><br>
+
+<<link [[다음|Avery Cards 5]]>><</link>>
+<br>
+
+
+:: Avery Cards 5
+<<effects>>
+
+<<if $rng gte 76>>
+    당신은 테이블로 돌아간다. 에이버리가 당신의 허리에 팔을 두르고 당신을 자신의 무릎 위로 끌어당긴다. 베일리가 흘겨본다.
+    <br><br>
+    "일 때문에 너무 바빠서," 에이버리의 손이 당신의 다리를 타고 올라간다. "긴장을 풀 시간이 정말 기다려지는군요." 퀸이 눈썹을 치켜올린다.
+    <br><br>
+    "저도 동행인을 데리고 올까 생각했습니다만," 레이턴이 당신을 음흉하게 보며 말한다. "전 신중할 필요가 있겠죠. 사람들이 저를 알아보면 쓸데없이 질문하기 시작할 것 아닙니까."
+    <br><br>
+    "저는 알아봐 주었으면 좋겠군요," 에이버리가 당신의 허벅지를 꽉 쥐며 말한다. "하지만 사람들은 이미 답도, 자신들이 바라보기만 할 수 있다는 것도 알고 있겠죠."<<ggcardskill Avery>><<card_skill avery 20>>
+    <br><br>
+
+	<<link [[다음 (0:40)|Avery Cards 6]]>><<pass 40>><</link>>
+	<br>
+
+<<elseif $rng gte 51>>
+    당신이 테이블로 돌아온 순간, <span class="purple">뱀 한 마리가 카펫 아래에서 기어나온다.</span>
+    <br><br>
+    <<willpowerdifficulty 1 200 silent>>
+    <<if $willpowerSuccess>>
+        <span class="green">당신과 베일리는 당황하지 않지만</span> 에이버리, 레이턴, 퀸은 하마터면 자리에서 뛰어오를 뻔 한다.<<lstress>><<stress -6>>
+    <<else>>
+        베일리는 당황하지 않지만 <span class="red">당신은 펄쩍 뛰어 피한다.</span> 에이버리, 레이턴, 퀸은 하마터면 자리에서 뛰어오를 뻔 한다.<<gstress>><<gwillpower>><<stress 6>><<willpower 1>>
+    <</if>>
+    <br><br>
+    베일리는 뱀이 자신의 팔을 휘감도록 내버려둔다. "왜 뱀을 키우시는 겁니까?" 레이턴이 묻는다.
+    <br><br>
+    "쥐를 잡으려고," 베일리가 대답한다.
+    <br><br>
+    "고양이는 생각해 본 적 없습니까?"
+    <br><br>
+    "고양이는 흔적을 남기잖습니까."
+    <br><br>
+    베일리는 잠시 뱀을 팔에 두르고 있다가 다시 카펫 아래로 돌려보낸다. 나머지 참가자들은 긴장의 끈을 놓지 않는다.<<ggcardskill Bailey>><<card_skill bailey 20>>
+    <br><br>
+    <<link [[다음 (0:40)|Avery Cards 6]]>><<pass 40>><</link>>
+    <br>
+
+<<elseif $rng gte 26>>
+    당신은 테이블로 돌아간다. "학교에 새 보안 장치를 설치했습니다," 레이턴이 곁에 둔 가방에 손을 넣으며 말한다. "정지 화면을 몇 장 가져왔는데 어떻게 생각하시는지."
+    <br><br>
+    <<He_ ga>> 사진 한 다발을 테이블 위에 뿌린다. 모두 학교 탈의실이나 샤워실의 사진인 듯 하다. <span class="pink">학생들이 각 시설을 사용하는 모습이 찍혀 있다.</span> 당신이 아는 이들도 보인다.<<gtrauma>><<gstress>><<trauma 6>><<stress 6>>
+    <br><br>
+    "환상적이야," 퀸이 레이턴을 도와 사진을 널찍이 퍼뜨리며 말한다. "여행 안내 책자에 써도 되겠어."
+    <br><br>
+    <<link [[조용히 있는다|Avery Cards Photos Silent]]>><</link>>
+    <br>
+    <<link [[사진 위로 음료를 쏟는다|Avery Cards Photos Spill]]>><<npcincr Leighton love -1>><<stress -6>><</link>><<llove>><<lstress>>
+    <br>
+<<else>>
+    당신이 테이블로 돌아오자 퀸이 자켓에서 작은 병을 꺼낸다. <<person4>><<He_ ga>> 우승이라도 한 양 병을 치켜든다.
+    <br><br>
+    "내가 좋은 물건을 가지고 왔네!" <<he_ ga>> 자신의 잔에 병의 내용물을 따르며 외친다. <<He_ nun>> 다시 병을 들어올린다. "누구 원하는 사람 없나?"
+    <br><br>
+    베일리는 고개를 젓지만 에이버리와 레이턴은 자신의 잔을 퀸에게 내민다. 시장은 과장된 동작으로 잔을 채우고 권하기라도 하는 듯 당신을 바라보지만, 베일리가 고개를 흔든다.
+    <br><br>
+    세 사람은 잔을 단숨에 들이킨다. 퀸은 상쾌한 듯 숨을 내쉬지만 에이버리와 레이턴은 부르르 몸을 떤다.<<ggcardskill Quinn>><<card_skill quinn 20>>
+    <br><br>
+    <<link [[다음 (0:40)|Avery Cards 6]]>><<pass 40>><</link>>
+    <br>
+
+<</if>>
+
+
+
+:: Avery Cards Photos Silent
+<<effects>>
+
+당신은 레이턴과 퀸이 사진을 정독하는 동안 아무 말도 하지 않는다. 에이버리 역시 사진을 바라보지만 베일리는 어서 게임을 재개하려 안달이 난 눈치다.<<ggcardskill Leighton>><<card_skill leighton 20>>
+<br><br>
+
+<<link [[다음|Avery Cards 6]]>><<pass 40>><</link>>
+<br>
+
+
+:: Avery Cards Photos Spill
+<<effects>>
+
+당신은 흥미가 생긴 것처럼 몸을 앞으로 숙였다가, 에이버리의 술잔을 사진 위로 쓰러트린다.
+<br><br>
+
+"이크," 레이턴과 퀸이 각자의 주머니에서 휴지와 손수건을 꺼내 술을 닦으려고 황급히 움직이는 동안 당신이 말한다.
+<br><br>
+
+"칠칠맞지 못하긴," 퀸이 말한다.
+<br><br>
+
+"걱정할 건 없습니다," 레이턴이 말한다. "더 인쇄하면 됩니다."<<ggcardskill Leighton>><<card_skill leighton 20>>
+<br><br>
+
+에이버리는 즐거워 보이지만 베일리는 어서 게임을 재개하려 안달이 난 눈치다.
+<br><br>
+
+<<link [[다음 (0:40)|Avery Cards 6]]>><<pass 40>><</link>>
+<br>
+
+
+:: Avery Cards 6
+<<effects>>
+
+게임은 계속되고, 판돈은 올라가고, 긴장은 고조된다. 에이버리가 지갑을 열고 클립으로 고정된 지폐 한 뭉치를 또 꺼낸다. 기분 좋은 딸깍 소리와 함께 클립이 풀린다.
+<br><br>
+
+말소리가 잦아들더니 이내 멈춘다. 퀸조차도 게임에 몰두해 입을 열지 않는다.
+<br><br>
+
+<<link [[에이버리를 방해한다|Avery Cards Distract Avery]]>><<npcincr Avery lust 10>><<card_skill avery -10>><</link>><<glust>><<lcardskill Avery>>
+<br>
+<<link [[베일리를 방해한다|Avery Cards Distract Bailey]]>><<npcincr Bailey lust 10>><<card_skill bailey -10>><</link>><<glust>><<lcardskill Bailey>>
+<br>
+<<link [[레이턴을 방해한다|Avery Cards Distract Leighton]]>><<npcincr Leighton lust 10>><<card_skill leighton -10>><</link>><<glust>><<lcardskill Leighton>>
+<br>
+<<link [[퀸을 방해한다|Avery Cards Distract Quinn]]>><<npcincr Quinn lust 10>><<card_skill quinn -10>><</link>><<glust>><<lcardskill Quinn>>
+<br>
+
+:: Avery Cards Distract Avery
+<<effects>>
+
+넷 모두 계속해서 판돈을 올린다. 모두가 자신에게 기회가 올 것을 기대하고 있거나, 최소한 그런 행세를 하고 있다.
+<br><br>
+
+당신은 에이버리의 어깨에 매달려 <<person1>><<his_ yi>> 카드를 읽는다. <<He_ yi>> 패는 굉장히 좋다. 당신은 <<his_ yi>> 얼굴에 <<breasts_ rul>> 들이댄다. <<He_ nun>> 다소 격하게 당신을 밀쳐내고, 나머지 셋은 전원 폴드를 선언한다.
+<br><br>
+
+"오늘 밤 본 최고의 광경이로군," 레이턴이 에이버리의 패를 보고 말한다. "그리고 난 하마터면 오늘 밤 최악의 실수를 저지를 뻔 했고."
+<br><br>
+
+에이버리는 말없이 비교적 빈약한 상금을 챙긴다.
+<br><br>
+
+<<link [[다음|Avery Cards 7]]>><</link>>
+<br>
+
+
+:: Avery Cards Distract Bailey
+<<effects>>
+
+베일리와 퀸이 교착 상태에 빠진다. 양쪽 모두 물러설 의지는 없어 보인다. 의자가 없어 당신은 베일리 옆에 무릎 꿇고 <<person2>><<his_ yi>> 카드를 바라본다. 약한 패다. <<He_ nun>> 블러핑을 하고 있다.
+<br><br>
+
+"가서 도움 될 만한 일이나 해라," 베일리가 당신 쪽은 보지도 않은 채 말한다. 당신은 자리를 옮기지만, <<his_ yi>> 목소리에는 동요가 선명하다. 타격은 확실히 가해졌다. 자신감을 되찾은 퀸이 씩 웃고, 베일리는 폴드를 선언한다.
+<br><br>
+
+"미안하게 됐네 친구," 퀸이 양팔로 딴 돈을 쓸어담으며 당신에게 윙크한다.
+<br><br>
+
+<<link [[다음|Avery Cards 7]]>><</link>>
+<br>
+
+:: Avery Cards Distract Leighton
+<<effects>>
+
+당신은 레이턴의 반대편, 퀸의 뒤에 선다. 당신은 허리를 숙여 바닥에 있는 무언가와 실랑이하는 체를 하며 공중에 <<bottom_ ul>> 흔든다.
+<br><br>
+
+원하던 효과가 있었는지 알 수 없었지만, 그때 에이버리의 목소리가 들린다.
+<br><br>
+
+"레이턴," <<person1>><<he_ ga>> 말한다.
+<br><br>
+
+대답이 없다.
+<br><br>
+
+"레이턴!"
+<br><br>
+
+"뭣? 아, 게임." <<person3>><<He_ nun>> 잠시 확신이 없는 기색을 보이다가 폴드를 선언한다. 이 선택이 잘못되었음이 이내 분명해진다.
+<br><br>
+
+<<link [[다음|Avery Cards 7]]>><</link>>
+<br>
+
+:: Avery Cards Distract Quinn
+<<effects>>
+
+베일리와 레이턴이 폴드를 선언해 에이버리와 퀸의 싸움이 된다. 당신은 에이버리 쪽을 보고 테이블에 앉아 퀸 쪽으로 <<bottom_ ul>> 내민다. 시장은 참지 못하고 당신의 엉덩이를 세게 후려친다. 울려퍼지는 짝 하는 타격음이 긴장감을 깨트린다.
+<br><br>
+"만져도 된다고 한 적은 없습니다만," 에이버리가 말한다. <<person1>><<His_ yi>> 목소리는 놀라울 정도로, 너무도 침착하다.
+<br><br>
+퀸은 양 손을 들어올리고는 고개를 숙인다. "미안하네, 친구여," <<person4>><<he_ ga>> 말한다. "난 자기 멋대로 행동했으나, 그것을 인정하지 않을 정도로 옹졸하진 않네. 보게." <<He_ nun>> 폴드를 선언해 에이버리에게 승리를 내준다. 강한 패였다.
+<br><br>
+<<link [[다음|Avery Cards 7]]>><</link>>
+<br>
+
+:: Avery Cards 7
+<<effects>>
+
+게임이 계속된다. 그때 베일리가 벽걸이 시계를 바라본다. "한 판만 더," <<person1>><<he_ ga>> 말한다. "가야 할 곳이 있어서."
+<br><br>
+
+카드가 분배된다. 참가자들은 굳은 얼굴로 자신의 카드를 확인한다.
+<br><br>
+
+"이게 마지막 게임이라면," 에이버리가 지폐 한 뭉치를 더 꺼내며 말한다. "더 흥미진진하게 해봅시다." <<person1>><<He_ nun>> 돈다발을 통채로 테이블 한가운데로 밀어넣는다. 퀸과 레이턴도 똑같이 하지만, 베일리는 고개를 젓는다.
+<br><br>
+
+"남은 현금이 없습니다," <<he_ ga>> 말한다.
+<br><br>
+
+<<He_ ga>> 폴드를 선언하려던 찰나에 퀸이 끼어든다. "잠시만," <<person4>><<he_ ga>> 말한다. <<His_ yi>> 시선이 당신에게 향한다.
+<br><br>
+
+에이버리는 곧바로 의도를 알아차린다. "이 <<girl_ un>> 제 동행인입니다," <<person1>><<he_ ga>> 분노로 떨리는 목소리로 말한다.
+<br><br>
+
+"당신 동행인은 맞지," 베일리가 동의한다. "하지만 제 소유이기도 합니다." 끔찍한 침묵이 뒤따른다.
+<br><br>
+
+<<link [[다음|Avery Cards 8]]>><</link>>
+<br>
+
+
+:: Avery Cards 8
+<<effects>>
+
+퀸이 손가락으로 테이블을 두드려 긴장을 깨트린다. "우린 모두 친구 아닌가," <<person4>><<he_ ga>> 에이버리에게 다가서며 말한다. <<He_ ga>> 목소리를 낮춘다. "분위기를 망치지 말게나."
+<br><br>
+에이버리는 베일리에게서 시선을 떼지 않는다. "좋습니다," <<person1>><<he_ ga>> 마침내 내뱉는다. "아이를 걸 겁니까 말 겁니까?"
+<br><br>
+베일리는 주저하다가 테이블 위의 돈무더기를 보더니 다시 한번 자신의 손을 바라본다. "이 아이와의 하룻밤을 걸겠습니다. 추가 규칙으로." <<person2>><<He_ ga>> 당신을 쳐다본다. "올라가."
+<br><br>
+
+<<link [[항의한다|Avery Cards Table Protest]]>><</link>>
+<br>
+<<link [[테이블 위에 웅크려 무릎 사이에 머리를 파묻는다|Avery Cards Table Huddle]]>><</link>>
+<br>
+<<link [[테이블 위에 올라가 편한 대로 앉는다|Avery Cards Table Comfortable]]>><</link>>
+<br>
+<<if hasSexStat("promiscuity", 2)>>
+    <<link [[테이블 위에 올라가 섹시한 포즈를 취한다|Avery Cards Table Sexy]]>><<set $endear += 10>><</link>><<promiscuous2>><<gendear>>
+<</if>>
+
+:: Avery Cards Table Protest
+<<effects>>
+
+당신은 항의하려고 입을 열지만 베일리가 당신의 말을 끊는다. "판돈은 테이블 위로 올라간다. 너는 판돈이고."
+<br><br>
+
+<<link [[테이블 위에 웅크려 무릎 사이에 머리를 파묻는다|Avery Cards Table Huddle]]>><</link>>
+<br>
+<<link [[테이블 위에 올라가 편한 대로 앉는다|Avery Cards Table Comfortable]]>><</link>>
+<br>
+<<if hasSexStat("promiscuity", 2)>>
+    <<link [[테이블 위에 올라가 섹시한 포즈를 취한다|Avery Cards Table Sexy]]>><<set $endear += 10>><</link>><<promiscuous2>><<gendear>>
+<</if>>
+
+:: Avery Cards Table Huddle
+<<effects>>
+
+당신은 테이블 위로 올라가 무릎 사이에 머리를 파묻는다. 당신 주변으로 누군가 돈을 쌓는 것이 느껴진다.
+<br><br>
+
+<<link [[다음|Avery Cards 9]]>><</link>>
+<br>
+
+:: Avery Cards Table Comfortable
+<<effects>>
+
+당신은 테이블 위로 올라가 책상다리를 한다. 퀸이 당신의 무릎 위로 돈을 쌓는다.
+<br><br>
+
+<<link [[다음|Avery Cards 9]]>><</link>>
+<br>
+
+:: Avery Cards Table Sexy
+<<effects>>
+
+당신은 테이블 위로 몸을 늘어트리고, 한 손으로는 머리를 받치고 다른 한 손은 엉덩이에 얹는다. 퀸은 마치 장식처럼 당신 주변에 돈을 쌓는다. <<promiscuity2>>
+
+<<link [[다음|Avery Cards 9]]>><</link>>
+<br>
+
+:: Avery Cards 9
+<<effects>>
+
+<<avery_cards_win>>
+<<earnFeat "Backroom Deals">>
+시간이 흐르고, 아무도 입을 열지 않는다. 이윽고 카드가 공개된다.
+<br><br>
+<<if $cards_win is "avery_cards_win">>
+    <span class="blue">승자는 에이버리다.</span>
+    <br><br>
+    <<link [[다음|Avery Cards Avery]]>><</link>>
+    <br>
+<<elseif $cards_win is "bailey_cards_win">>
+    <span class="blue">승자는 베일리다.</span>
+    <br><br>
+    <<link [[다음|Avery Cards Bailey]]>><</link>>
+    <br>
+<<elseif $cards_win is "leighton_cards_win">>
+    <span class="blue">승자는 레이턴이다.</span>
+    <br><br>
+    <<link [[다음|Avery Cards Leighton]]>><</link>>
+    <br>
+<<elseif $cards_win is "quinn_cards_win">>
+    <span class="pink">승자는 퀸이다.</span>
+    <br><br>
+    <<link [[다음|Avery Cards Quinn]]>><</link>>
+    <br>
+<</if>>
+
+:: Avery Cards Avery
+<<effects>>
+<<person1>>
+
+에이버리는 만족스러운 한숨을 내쉰다. <<He_ nun>> 당신을 포함한 상금을 팔로 감싸안는다. <<He_ nun>> 당신을 테이블 가장자리로 끌어당긴다.
+<br><br>
+"참석해 주셔서 감사합니다," 베일리가 카드를 회수하며 말한다. "이제 실례가 안되신다면."
+<br><br>
+퀸이 에이버리의 어깨에 손을 얹는다. "곰은 자극하지 않는 게 상책이지."
+<br><br>
+에이버리가 테이블에서 내려오는 당신을 돕는다. 당신과 에이버리는 레이턴과 퀸과 함께 밖으로 나간다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 2]]>><<endevent>><</link>>
+<br>
+
+:: Avery Cards Avery 2
+<<effects>>
+
+<<npc Avery>><<person1>>
+에이버리는 레이턴과 퀸에게 짧게 작별을 고하고 계단으로 걸어간다. <<He_ nun>> 어딘가로 빨리 가고 싶은 기색이다.
+<br><br>
+
+"파티에 갈 거야," 당신의 마음을 읽기라도 한 듯 에이버리가 말한다. "곧 시작하니까 뒤쳐지지 말아라."
+<br><br>
+
+<<link [[파티에 대해 묻는다|Avery Cards Avery Ask]]>><</link>>
+<br>
+<<link [[조용히 있는다|Avery Cards Avery Silent]]>><</link>>
+<br>
+
+:: Avery Cards Avery Ask
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    "파티라고요?" 당신이 묻는다. "누구 생일이에요?"
+<<elseif $speech_attitude is "bratty">>
+    "파티요?" 당신이 묻는다. "전 초대장 못 받았는데요."
+<<else>>
+    "파티요?" 당신이 묻는다. "저도 초대 받았어요?"
+<</if>>
+<br><br>
+
+"아주 비밀스러운 파티야," 에이버리가 말한다. "커플 전용이지."
+<br><br>
+
+당신은 계단을 내려가 에이버리의 차로 향한다. 에이버리가 문을 열고 당신은 차에 오른다.
+<br><br>
+
+차는 미끄러지듯 빌딩을 떠난다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 3]]>><</link>>
+<br>
+
+
+:: Avery Cards Avery Silent
+<<effects>>
+
+당신은 계단을 내려가 에이버리의 차로 향한다. 에이버리가 문을 열고 당신은 차에 오른다.
+<br><br>
+
+차는 미끄러지듯 빌딩을 떠난다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 3]]>><</link>>
+<br>
+
+:: Avery Cards Avery 3
+<<set $location to "town">><<set $bus to "barb">><<effects>>
+
+에이버리는 시내를 가로질러 하베스트 가 쪽으로 향한다. "마을에서 좀 멀어," <<he_ ga>> 한 손으로 운전대를 쥐고 말한다. "황무지야."
+<br><br>
+
+차는 하베스트 가를 지나친다. 에이버리는 마을 변두리로 이어지는 도로로 차를 몰아, 운전대를 쥐지 않은 손으로 한 버튼을 누른다. 조수석 앞의 보관함이 열리고, 텅 빈 눈 한 쌍이 모습을 드러낸다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 4]]>><</link>>
+<br>
+
+:: Avery Cards Avery 4
+<<effects>>
+
+엘크의 머리 형태를 한 가면이 당신을 응시한다. 머리 전체를 덮을 정도로 크다. "가면 무도회란다," 에이버리가 말한다. "엘크는 내 것이고 여우는 네 거야."
+<br><br>
+
+이제 보니 여우 얼굴 모양을 한 훨씬 작은 가면이 한쪽 구석에 구겨넣어져 있다. 당신의 눈과 코 일부를 가릴 수 있을 것이다.
+<br><br>
+
+<<link [[다음 (0:30)|Avery Cards Avery 5]]>><<pass 30>><</link>>
+<br>
+
+:: Avery Cards Avery 5
+<<set $location to "estate">><<effects>>
+
+마을을 벗어나 농경지로 향하는 동안 다른 차 몇몇이 함께한다. 언덕을 오르자 지평선 너머로 뻗은 황무지가 눈에 들어온다. 사유지를 내려다보는 우아한 저택 하나도 보인다.
+
+<<if $estate>>
+    <span class="purple">레미의 영지다.</span>
+<</if>>
+<br><br>
+
+내리막길에서 저택이 가려지기 전, 에이버리가 건물을 향해 손짓한다. "저기가 우리 목적지야."
+<br><br>
+
+<<if $estate>>
+    <<link [[경고한다|Avery Cards Avery Warn]]>><<set $endear += 10>><</link>><<gendear>>
+    <br>
+    <<link [[조용히 있는다|Avery Cards Avery 6]]>><</link>>
+    <br>
+<<else>>
+	<<link [[다음|Avery Cards Avery 6]]>><</link>>
+	<br>
+<</if>>
+
+
+:: Avery Cards Avery Warn
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    "저기 가 본 적이 있어요," 당신이 말한다. "주인은 위험한 사람이에요."
+<<elseif $speech_attitude is "bratty">>
+    "저기 주인이 누군지 알아요," 당신이 말한다. "아주 씹새끼거든요."
+<<else>>
+    "저 저기 알아요," 당신이 말한다. "위험한 곳이에요."
+<</if>>
+<br><br>
+
+에이버리가 고개를 끄덕인다. "나도 알아. 걱정하지 마. 넌 문제 없을거야. 특별히 준비를 했거든."
+<br><br>
+
+<<link [[다음|Avery Cards Avery 6]]>><</link>>
+<br>
+
+:: Avery Cards Avery 6
+<<effects>>
+
+<<generate2>><<person2>>
+에이버리가 황무지로 차를 돌린다. 언덕 위의 저택이 점점 가까워진다. 울타리가 시야에 들어오고, 도로의 끝에 대문이 보인다. 개 가면을 쓴 <<person_ i>> 그 옆에 서있다. 에이버리가 가까워지자 <<He_ ga>> 다가온다.
+<br><br>
+
+"가면을 쓰렴," 에이버리가 엘크 가면에 손을 뻗는다.
+<<if $worn.face.name isnot "naked">>
+	당신은 <<worn_face_name_ ul>> 벗고 <<person_ i>> 오기 전에 여우 가면을 쓴다.
+	<<set $avery_cards.face to $worn.face>><<faceruined true>>
+<<else>>
+	당신은 <<person_ i>> 오기 전에 여우 가면을 쓴다.
+<</if>>
+<<facewear "fox mask">>
+<br><br>
+
+"초대장?" <<he_ ga>> 에이버리의 차창에 몸을 숙여 묻는다. 에이버리가 주머니에서 종이 한 조각을 꺼낸다. <<person2>><<person_ un>> 종이 위로 손전등을 두 번 비추고 다시 돌려준다. "즐거운 밤 되십시오."
+<br><br>
+
+<<link [[다음|Avery Cards Avery 7]]>><<endevent>><</link>>
+<br>
+
+
+:: Avery Cards Avery 7
+<<effects>>
+
+<<npc Avery>><<person1>>
+에이버리는 영지로 들어서 언덕을 오른다. 또 다른 검문소를 개 가면을 쓴 <<people_ i>> 지키고 있다.
+<br><br>
+"가면은 계속 쓰고 있어," 에이버리가 말한다. "그리고 내 본명을 말해서도 안돼." <<He_ ga>> 차를 세운다. "날 엘크라고 불러."
+<br><br>
+저택으로 걸어가는 길은 길지 않지만 계단이 매우 가파르다. 저 위로 흐릿하게 보이는 건물에 현기증이 난다. 에이버리가 고개를 끄덕이자 또 다른 개 가면의 경비원이 문을 열어주고 당신은 안으로 들어간다.
+<br><br>
+<<link [[다음|Avery Cards Avery 8]]>><</link>>
+<br>
+
+:: Avery Cards Avery 8
+<<effects>>
+<<npc Remy 2>><<generate3>><<generateyv4>>
+당신은 널찍하고 화려하게 장식된 대기실로 들어선다. 짝지어 선 나선계단 두 개는 어두컴컴한 위층으로 이어진다.
+<br><br>
+당신의 앞에 엘크 가면을 쓴 <<person3>><<personsimple_ gwa>> <<his_ yi>> 팔을 잡고 있는 여우 가면의 <<person4>><<person_ i>> 등을 돌리고 서 있다. 이 엘크는 또다른 엘크와 대화하는 중이다. <<person2>><<his_ yi>> 가면에 달린 뿔의 끝은 은으로 도금되어 있다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 9]]>><</link>>
+<br>
+
+
+:: Avery Cards Avery 9
+<<effects>>
+
+<<person3>><<person_ gwa>> <<person4>><<person_ yi>> 저택 안쪽으로 걸어가고, 은각의 <<person2>><<personsimple_ yi>> 에이버리에게 다가온다.
+<br><br>
+
+<<if $remySeen.includes("livestock")>>
+	"에이버리," <<he_ ga>> 말한다. <<his_ yi>> 목소리에 당신의 몸이 떨린다. 근방의 농장에서 가축 취급을 받았던 기억이 되돌아온다. 이 목소리의 주인을 당신이 착각할 리가 없다. <span class="pink">레미다.</span>
+	<br><br>
+<<elseif $remySeen.length gte 1 or $avery_fate>>
+	 "에이버리," <<he_ ga>> 말한다. 이 목소리의 주인은 틀림없다. <span class="purple">레미다.</span>
+	<<if ($avery_fate is "saved" or $avery_fate is "fallen" or $avery_fate is "kicked")>>
+		<<He_ nun>> 가면을 벗지 않는다.
+	<<else>>
+		<<He_ ga>> 가면을 벗고 얼굴을 드러낸다.
+	<</if>>
+	<br><br>
+<<else>>
+    "에이버리," <<he_ ga>> 가면을 벗어 매력적인 얼굴과 <<if $pronoun is "m">>옅은 갈색의 짧은 머리<<else>><<his>>단정하게 쪽을 찐 옅은 갈색 머리<</if>>를 드러내며 말한다.
+    <br><br>
+<</if>>
+
+"레미," 에이버리가 말한다. "전 신원을 숨겨야 하는 것으로 알고 있었는데요."
+<br><br>
+레미가 웃는다. "죄송합니다, 앞으로는 계속 하이 엘크라고 불러드리죠. 그저 우린 즐거움을 위해 온 것이라고 일러드리려 한 것 뿐입니다."
+<<if $fox gte 6>>
+   <<He_ nun>> <<if !($avery_fate is "saved" or $avery_fate is "fallen" or $avery_fate is "kicked")>>다시 가면을 쓰면서 <</if>>당신의 귀와 꼬리를 바라본다. "당신의 파트너는 한층 더 노력했다니 잘됐군요. 중앙 홀로 오시죠. 곧 시작할 겁니다."
+<<else>>
+    <<if !($avery_fate is "saved" or $avery_fate is "fallen" or $avery_fate is "kicked")>><<He_ nun>> 다시 가면을 쓴다. <<else>><<he_ ga>> 지시한다. <</if>>"중앙 홀로 오시죠. 곧 시작할 참입니다."
+<</if>>
+<br><br>
+
+<<set $remySeen.pushUnique("manor")>>
+<<set $remySeenLast to "manor">>
+
+<<link [[다음|Avery Cards Avery 10]]>><</link>>
+<br>
+
+
+:: Avery Cards Avery 10
+<<effects>>
+
+당신은 에이버리와 함께, 개 가면을 쓴 경비원들과 여기저기 뛰어다니는 쥐 가면을 쓴 하인들을 지나 복도를 따라 걷는다. 저 앞에서 들리는 목소리와 음악소리가 점점 커진다.
+<br><br>
+
+당신은 샹들리에로 장식된 거대한 홀에 발을 들인다. 테이블 위에 음식이 놓여 있지만 대부분의 공간은 엘크와 여우 몇 쌍을 빼면 비어있다. 반대편에는 창문틀처럼 생긴 석조 아치들이 반원 형태로 늘어서 있다. 저택보다 훨씬 오래된 별개의 구조물의 일부같다.
+<br><br>
+
+"내 옆에만 붙어 있어라," 에이버리가 말한다. "예쁘장하게."
+<br><br>
+
+<<link [[에이버리가 시킨 대로 한다 (0:10)|Avery Cards Avery Pretty]]>><<pass 10>><<npcincr Avery love 1>><</link>><<glove>>
+<br>
+<<link [[이곳저곳을 돌아다닌다 (0:10)|Avery Cards Avery Wander]]>><<pass 10>><</link>>
+<br>
+
+:: Avery Cards Avery Pretty
+<<effects>>
+
+<<generateyv5>>
+에이버리 근처에 붙어 있기는 어렵지 않다. 당신은 <<person1>><<he_ ga>> 다른 엘크들과 담소를 나누는 동안 <<his_ yi>> 팔에 매달려 있는다. <<he_ ga>> 어떻게 엘크들을 구분하는지는 잘 모르겠다.
+<br><br>
+여우들의 신원은 훨씬 더 구별하기 쉽다. 대부분은 당신 또래다. 고아원에서 봤던 얼굴도 있다. 당신을 알아보자 <<person5>><<He_ nun>> 수치스러운 듯 시선을 피한다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 11]]>><</link>>
+<br>
+
+:: Avery Cards Avery Wander
+<<effects>>
+
+당신은 에이버리에게서 떨어져 돌아다닌다. 얼마 지나지 않아 <<person1>><<him_ un>> 다른 엘크들 사이로 사라진다. 한 문간에서 쥐 한 쌍이 가면을 들어올린 채 커다란 창문 밖으로 담배를 태우고 있다.
+<br><br>
+
+누군가 당신의 어깨에 손을 올린다. 에이버리다. "다시는 떨어지지 마라," <<he_ ga>> 분노 섞인 목소리로 말한다. 가면이 두껍고 깊어 <<his_ yi>> 흰자도 겨우 보일 정도다. "여긴 나 없이는 위험해."
+<br><br>
+
+<<link [[다음|Avery Cards Avery 11]]>><</link>>
+<br>
+
+
+:: Avery Cards Avery 11
+<<effects>>
+
+수다소리를 끊고 울리는 소리가 홀에 퍼져나간다. 모두의 고개가 석조 아치 사이 연단에 선 레미를 향한다.
+<br><br>
+"와주셔서 감사합니다," <<person2>><<he_ ga>> 말하기 시작한다. "오늘 우리는 부활의 의식을 목도할 것입니다. 여러분, 자리에 서주십시오."
+<br><br>
+엘크들이 홀의 한쪽으로 모여 한 줄로 선다. 에이버리도 똑같이 하지만, <<person1>><<he_ nun>> 당신에게서 눈을 떼지 않는다. 여우들은 자신이 없는 눈치지만, 몇몇은 엘크들을 따라 홀의 반대편에 일렬로 선다. 당신은 에이버리의 맞은편에 자리잡는다. 각 여우들은 엘크들과 짝을 맞춰 서 있는 듯 하다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 12]]>><</link>>
+<br>
+
+:: Avery Cards Avery 12
+<<effects>>
+
+<<npc Harper 6>>
+홀이 잠시 적막해지고 발소리와 한번의 기침 소리만이 들려온다. 레미가 연단에서 내려와 엘크들의 행렬에 합류한다. 그제서야 당신은 <<person2>><<his_ yi>> 반대편에 특이하게 생긴 여우 가면을 쓴 <<person6>><<personsimple_ yi>> 있음을 알아차린다. 더 크고 귀의 끝이 은으로 도금된 가면이다.
+<br><br>
+
+은빛 귀끝의 여우가 자신의 양손을 문지른다. 음악이 시작되고, 엘크들이 앞으로 걸어간다. 당신은 퍼뜩 에이버리에게 주의를 돌린다. <<person1>><<He_ ga>> 손을 내민다.
+<br><br>
+
+<<link [[잡는다|Avery Cards Avery Hand Take]]>><<npcincr Avery love 1>><</link>><<glove>>
+<br>
+<<link [[가만히 있는다|Avery Cards Avery Hand Still]]>><<set $endear += 10>><</link>><<gendear>>
+<br>
+
+:: Avery Cards Avery Hand Take
+<<effects>>
+
+<<endevent>>
+<<npc Avery>><<npc Remy 2>><<npc Harper 3>><<person1>>
+당신이 에이버리의 손을 잡자, <<he_ nun>> 놀라운 힘으로 당신을 <<his_ yi>> 몸 가까이 끌어당긴다. <<He_ nun>> 당신을 한 바퀴 빙글 돌린다. 언뜻 보니 홀 여기저기서 비슷한 광경이 눈에 들어온다.
+<br><br>
+
+불이 꺼진다. 여우 몇 명이 비명을 지른다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 13]]>><</link>>
+
+:: Avery Cards Avery Hand Still
+<<effects>>
+
+<<endevent>>
+<<npc Avery>><<npc Remy 2>><<npc Harper 3>><<person1>>
+
+당신은 미동도 하지 않지만, 에이버리는 기다리지 않는다. <<He_ nun>> 당신의 손을 낚아채고 놀라운 힘으로 당신을 가까이 끌어당긴다. <<He_ nun>> 당신을 한 바퀴 빙글 돌린다. 언뜻 보니 홀 여기저기서 비슷한 광경이 눈에 들어온다.
+<br><br>
+
+불이 꺼진다. 여우 몇 명이 비명을 지른다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 13]]>><</link>>
+
+:: Avery Cards Avery 13
+<<effects>>
+
+<<generate4>><<generate5>><<person4>>
+천장의 샹들리에가 사방으로 수 미터만 보일 정도의 어둑어둑한 보라빛 조명을 비춘다. 에이버리는 당신의 팔을 놓고 빙글 돌며 어둠 속으로 사라진다. 자신의 여우를 놓친 또다른 엘크가 <<person4>><<his_ yi>> 뒤를 이어 춤을 추며 나타나 당신을 똑바로 응시한다.
+<br><br>
+
+<<link [[에이버리를 따라잡는다|Avery Cards Avery Dance High]]>><</link>><<dancedifficulty 999 1000>>
+<br>
+<<link [[춤추는 이들 사이에서 쓰러지지 않게 힘쓴다|Avery Cards Avery Dance Med]]>><</link>><<dancedifficulty 1 1000>>
+<br>
+<<link [[흐름에 몸을 맡긴다|Avery Cards Avery Dance Low]]>><<stress -6>><</link>><<lstress>>
+<br>
+
+:: Avery Cards Avery Dance High
+<<effects>>
+<<dancedifficulty 999 1000 true>>
+<<if $danceSuccess>>
+    당신은 돌며 <<person4>><<persons_ yi>> 품으로 들어간다. <<He_ ga>> 당신을 세게 붙잡지만, 당신은 <<his_ yi>> 다리에 발목을 걸어 걷어찬다. 깜짝 놀란 <<His_ yi>> 손아귀 힘이 약해지자, <span class="green">당신은 몸을 비틀어 <<his_ yi>> 손에서 벗어나</span> 바닥으로 넘어지는 <<he_ rul>> 두고 떠난다.
+    <br><br>
+
+    다른 여우와 춤추고 있는 에이버리의 모습이 얼핏 보인다. <<He_ nun>> 여우를 다른 이의 팔로 넘기고 계속해서 움직인다. 당신은 엘크와 여우들 사이를 헤치고 이따금씩 몸을 더듬는 손을 피해 <<person1>><<him_ ul>> 뒤쫓아, 마침내 에이버리의 소매를 붙잡는다.
+    <br><br>
+
+    <<He_ ga>> 몸을 돌려 당신을 마주한다. 가면 너머로, 이같은 어둠 속에서도 <<his_ ga>> 놀랐음을 볼 수 있다. <<He_ nun>> 당신에게 성큼 다가와, 당신을 <<his_ yi>> 기다리던 품 속으로 쓰러트린다.<<ggglove>><<npcincr Avery love 6>>
+    <br><br>
+
+	<<link [[다음|Avery Cards Avery Dance High Success]]>><</link>>
+	<br>
+<<else>>
+    당신은 돌며 <<person4>><<persons_ yi>> 품으로 들어간다. 당신은 벗어나려 애썼지만, <span class="red">손아귀 힘이 너무 강하다.</span> 그의 손이 당신의 가슴을 타고 내려가며 더듬고 애무하다가 당신을 빙글 회전시키며 다른 엘크의 손으로 넘긴다.<<gstress>><<stress 6>>
+    <br><br>
+
+	<<link [[다음|Avery Cards Avery Dance Low]]>><</link>>
+	<br>
+<</if>>
+
+:: Avery Cards Avery Dance High Success
+<<effects>>
+
+에이버리는 가까이 몸을 숙였다가 갑자기 당신의 손을 놓는다. 엘크 두 명이 당신을 잡으려 무릎 꿇고 쓰러지는 당신을 받치지만, 에이버리는 또다시 모습을 감췄다. 당신은 엘크들에게 붙잡히기 전에 벌떡 일어나 계속해서 에이버리를 뒤쫓는다.
+<br><br>
+당신이 에이버리를 따라잡은 순간 어둠 속에서 은빛 뿔이 모습을 드러낸다. 레미와 에이버리가 서로를 스쳐 지나간다.
+<<if $auriga_artefact is undefined>>
+	<span class="pink">너무나도 창백한 하얀 빛이</span> 레미에게서 에이버리에게로 넘어가 에이버리의 옷 속으로 사라진다.<<ggawareness>><<awareness 12>>
+<</if>>
+<br><br>
+
+<<link [[다음|Avery Cards Avery 14]]>><</link>>
+<br>
+
+:: Avery Cards Avery Dance Med
+<<effects>>
+
+<<if $danceSuccess>>
+    <<person_ un>> 당신을 붙잡아 빙글빙글 돌리며 다른 엘크 <<person5>><<person_ yi>> 품으로 넘긴다. <span class="green">당신은 균형을 유지하고,</span> 빙빙 돌며 여우 한 명을 지나쳐 또 다른 엘크와 춤춘다.
+    <br><br>
+
+    당신은 홀을 가로질러 연달아 엘크들과 춤추며 그들과 발맞추어 적지 않은 수의 기운을 빼놓는다. 넋이 나간 여우들은 불운하게도 축 늘어진 채 한 엘크의 손에서 다른 엘크의 손으로 넘겨지며, 수많은 더듬는 손길을 맞이한다.<<ggendear>><<set $endear += 20>>
+    <br><br>
+
+	<<link [[다음|Avery Cards Avery 14]]>><</link>>
+	<br>
+<<else>>
+    <<person_ un>> 당신을 붙잡아 빙글빙글 돌리며 다른 엘크 <<person5>><<person_ yi>> 품으로 넘긴다. 당신은 자세를 유지하려 했지만, <span>격렬한 회전에 균형 감각을 상실한다.</span> 똑바로 서 있기가 힘들다.
+    <br><br>
+
+	<<link [[다음|Avery Cards Avery Dance Low]]>><</link>>
+	<br>
+<</if>>
+
+:: Avery Cards Avery Dance Low
+<<effects>>
+
+당신의 눈앞에서 흐릿한 엘크의 형상들이 춤추며 당신을 여기저기 패스한다. 그들의 손이 온 방향에서 당신을 더듬고 희롱한다. 당신만큼이나 통제력을 상실한 다른 여우들이 옆으로 지나간다.
+<br><br>
+
+가면과 어두운 조명 때문에 어느 엘크가 에이버리인지 알아볼 수 없다. 어쩌면 이 중 누구도 아닐지도 모른다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 14]]>><</link>>
+<br>
+
+:: Avery Cards Avery 14
+<<effects>>
+
+<<endevent>>
+<<npc Avery>>
+<<npc Remy 2>>
+<<npc Harper 3>>
+<<generateyv4>>
+<<generate5>>
+<<generate6>>
+
+누군가의 비명이 음악소리를 찢고 침묵을 가져온다. 조명이 다시 켜진다. 엘크들과 여우들이 둥글게 모여 선다.
+<br><br>
+
+당신은 가까이 다가간다. <<person4>><<person_ i>> 눈을 감은 채 바닥에 쓰러져 몸부림치고 있다. 귀 끝이 은으로 덮인 여우 가면을 쓴 <<person3>><<personsimple_ i>> 숨을 헐떡이며 <<person4>><<him_ ul>> 옆에서 지켜본다.
+<br><br>
+
+<<link [[도와주려 한다|Avery Cards Avery Help]]>><<famegood 6>><<stress 6>><<npcincr Avery love -1>><<set $endear += 10>><</link>><<llove>><<gstress>><<gendear>>
+<br>
+<<link [[바라본다|Avery Cards Avery Watch]]>><</link>>
+<br>
+
+:: Avery Cards Avery Help
+<<effects>>
+
+당신이 앞으로 나서려 하자 손이 당신의 어깨를 세게 붙잡는다. 에이버리다.
+<br><br>
+"할 수 있는 건 없어," <<person1>><<he_ ga>> 속삭인다. <<His_ ga>> 손에 힘을 준다. "네가 아닌 걸 다행으로 여기거라."
+<br><br>
+은 여우가 몸을 비트는 <<person4>><<person_ yi>> 주위를 어슬렁거린다. 그러더니 <<person3>><<he_ nun>> 고개를 뒤로 홱 젖히고, 귀청이 찢어질 듯한 울음소리를 내뱉는다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 15]]>><</link>>
+<br>
+
+:: Avery Cards Avery Watch
+<<effects>>
+
+당신은 은 여우가 몸을 비트는 <<person4>><<person_ yi>> 주위를 어슬렁대는 광경을 바라본다.
+<br><br>
+"저게 네가 아닌 걸 다행으로 여기거라," 누군가의 목소리가 당신에게 말한다. 에이버리다. "내가 없었다면 네가 됐을 수도 있어."
+<br><br>
+은 여우는 고개를 뒤로 홱 젖히고, 귀청이 찢어질 듯한 울음소리를 내뱉는다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 15]]>><</link>>
+<br>
+
+:: Avery Cards Avery 15
+<<effects>>
+
+다른 울음소리가 화답한다. 또 다른 울음소리가 뒤따른다. 개 가면을 쓴 경비원 두 명, <<person5>><<person_ gwa>> <<person6>><<person_ i>> 홀 반대편에서 각각 나타난다. 그들은 네 발로 엎드려 으르렁거리며 <<person4>><<person_ ul>> 향해 달려든다.
+<br><br>
+
+엘크들과 여우들이 길을 비킨다. 그들은 <<person>>에게 접근하자마자 덤벼들어, <<his_ yi>> 옷을 벗기고 양쪽에서 추행하기 시작한다.
+<br><br>
+
+<<He_ nun>> 힘없이 저항하지만 손길이 닿을 때마다 울먹이며 경련한다. 은 여우가 다시 울부짖는다. 대답하는 소리로 홀이 떨린다.
+<br><br>
+
+<<link [[다음 (0:05)|Avery Cards Avery 16]]>><<pass 5>><</link>>
+<br>
+
+:: Avery Cards Avery 16
+<<effects>>
+
+더 많은 개 가면의 경비원들이 홀로 밀려들어와 <<person4>><<person_ ul>> 휩싸고 주지육림에 합류한다. 은 여우는 마치 명령을 내리는 듯 계속해서 울부짖는다.
+<br><br>
+
+엘크들은 그 광경을 잠시 지켜보지만, 굳이 보고 있어야 한다고는 생각하지 않는 것 같다. 그들은 무리지어 담소를 나누며 레미가 서 있는 테이블 주변으로 향한다. 그러나 에이버리를 포함한 몇명은 계속해서 지켜본다.
+<br><br>
+
+<<link [[다음 (0:30)|Avery Cards Avery 17]]>><<pass 30>><</link>>
+<br>
+
+:: Avery Cards Avery 17
+<<effects>>
+
+<<person4>><<persons_ yi>> 울음소리가 미약하게 훌쩍이는 소리로 잦아들 때까지 추행은 계속된다. 으르렁대는 개 떼 사이로 이따금씩 <<him_ yi>> 모습이 얼핏 보인다. <<His_ yi>> 눈은 초점 없이 정면을 응시하고 있다.
+<br><br>
+
+레미가 손뼉을 치자 경비원들이 희생양에게서 떨어진다. <<person4>><<He_ un>> 미동 없이 누워 천장을 응시한다.
+<br><br>
+
+은 여우가 깡충대며 <<his_ yi>> 곁으로 다가가 놀라운 힘으로 <<him_ ul>> 들어올린다. 개들은 홀을 떠나고, <<person3>><<He_ nun>> <<person4>><<person_ ul>> 석조 아치로 옮긴다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 18]]>><</link>>
+<br>
+
+:: Avery Cards Avery 18
+<<effects>>
+
+은 여우가 <<person_ ul>> 아치 뒤의 연단에 올려놓는다. 엘크들과 여우들이 다시 반원을 그린다. 레미가 그들과 아치 사이에 서서 팔을 들어올리자 엘크들이 성가를 부르기 시작한다.
+<br><br>
+"가까이 가지 마," 에이버리가 경고한다. "눈을 가리렴."
+<br><br>
+
+<<link [[눈을 가린다|Avery Cards Avery Cover]]>><<set $endear += 10>><</link>><<gendear>>
+<br>
+<<link [[지켜본다|Avery Cards Avery Watch 3]]>><<pain 4>><<awareness 6>><</link>><<gpain>><<gawareness>>
+<br><br>
+
+:: Avery Cards Avery Cover
+<<effects>>
+
+노랫소리가 격렬해지고, 당신은 눈을 가린다. 강렬한 보라색의 빛이 당신의 눈꺼풀을 꿰뚫는다. 빛은 얼마 안 가 사라진다. 노랫소리가 빛에 잡아채인 것처럼 갑작스레 끝난다.
+<br><br>
+
+당신은 눈을 뜬다. <<person4>><<person_ un>> 사라졌다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 19]]>><</link>>
+<br>
+
+:: Avery Cards Avery Watch 3
+<<effects>>
+
+은 여우는 재빨리 연단에서 멀어지고, 레미가 은빛 칼을 꺼낸다. <<person2>><<He_ nun>> 큰 호를 그리며 칼을 휘둘러 세상에 구멍을 뚫는다. 노랫소리가 멈춘다. 빛이 눈부시다.
+<br><br>
+
+당신의 시야가 돌아온다. <<person4>><<person_ un>> 사라졌다.
+<br><br>
+
+<<link [[다음|Avery Cards Avery 19]]>><</link>>
+<br>
+
+:: Avery Cards Avery 19
+<<effects>>
+<<endevent>>
+<<npc Avery>>
+<<npc Remy 2>>
+<<person2>>
+<<if $auriga_artefact is undefined>>
+	<<world_corruption "hard" 1>>
+	<<set $auriga_artefact to "Avery">>
+	<<set $avery_li_notif to true>>
+<</if>>
+레미는 문 앞에 서서 각 커플에게 작별 인사를 한다. 짝 없는 엘크 한 명이 가장 먼저 떠난다. 레미가 <<his_ yi>> 머리에 핏빛 꽃으로 엮은 월계관을 씌운다. <<He_ nun>> 월계관을 받고 정면을 똑바로 응시하더니 침울하게 계단을 내려간다.
+<br><br>
+"와 주셔서 감사합니다," 레미가 에이버리의 손을 잡고 말한다. "제 저택이 편안했으면 좋겠군요."
+<br><br>
+<<specialClothesUnlock "item" "fox mask">>
+
+<<link [[다음 (0:30)|Avery Cards Avery 20]]>><<pass 30>><</link>>
+<br>
+
+
+:: Avery Cards Avery 20
+<<set $location to "town">><<set $bus to "harvest">><<effects>>
+<<person1>>
+에이버리는 말없이 마을로 차를 몬다. <<His_ nun>> 가끔씩 주머니에 든 무언가를 쥐면서 미소짓는다.
+<br><br>
+
+<<link [[왜 웃는 건지 물어본다|Avery Cards Avery Smiling]]>><</link>>
+<br>
+<<link [[주머니에 든 게 무엇인지 물어본다|Avery Cards Avery Pocket]]>><</link>>
+<br>
+<<link [[사라진 여우에게 무슨 일이 생긴 건지 물어본다|Avery Cards Avery Fox]]>><</link>>
+<br>
+<<link [[초대해 줘서 고맙다고 말한다|Avery Cards Avery Thank]]>><<npcincr Avery love 1>><</link>><<glove>>
+<br>
+<<link [[조용히 있는다|Avery Cards Avery End]]>><</link>>
+<br>
+
+:: Avery Cards Avery Smiling
+<<set $bus to "domus">><<effects>>
+
+<<if $speech_attitude is "meek">>
+    "웃으시는 얼굴 보니 기뻐요," 당신이 말한다. "왠지 말씀해 주실 수 있나요?"
+<<elseif $speech_attitude is "bratty">>
+    "뭘 그렇게 히죽거려요?" 당신이 묻는다.
+<<else>>
+    "왜 웃어요?" 당신이 묻는다.
+<</if>>
+<br><br>
+
+에이버리의 미소가 커진다. "오늘 밤은 운이 좋아." <<He_ ga>> 엑셀을 밟아 속도 제한을 넘긴다. "처음엔 너를 따고, 다음엔 입회권을 따냈으니."
+<br><br>
+
+<<link [[다음|Avery Cards Avery End]]>><</link>>
+<br>
+
+:: Avery Cards Avery Pocket
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    "주머니에 든 건 중요한 거예요?" 당신이 묻는다.
+<<elseif $speech_attitude is "bratty">>
+    "주머니에 그걸 자꾸 만지작거리시던데," 당신이 말한다. "그게 뭔데요?"
+<<else>>
+    "주머니에 든 건 뭐예요?" 당신이 묻는다.
+<</if>>
+<br><br>
+
+에이버리는 또 다시 주머니에 손을 뻗으려다 멈춘다. "그냥 선물이야," <<he_ ga>> 말한다. "주최자에게 받았지. 정말 영광이야."
+<br><br>
+
+<<link [[다음|Avery Cards Avery End]]>><</link>>
+<br>
+
+:: Avery Cards Avery Fox
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    "그 불쌍한 여우 분은 어떻게 된 거예요?" 당신이 묻는다. "개들에게 공격당한 분이요."
+<<elseif $speech_attitude is "bratty">>
+    "그 음험한 것들이 여우한테 무슨 짓을 한 거예요?" 당신이 묻는다. "개들한테 공격당한 녀석이요."
+<<else>>
+    "개들한테 공격당한 그 여우는 어떻게 된 거예요?" 당신이 묻는다.
+<</if>>
+<br><br>
+
+"나도 잘 몰라," 에이버리가 인정한다. "그런 걸로 머리 싸매지 마. 스트레스는 피부에 안좋아."
+<br><br>
+
+<<link [[다음|Avery Cards Avery End]]>><</link>>
+<br>
+
+:: Avery Cards Avery Thank
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    "이런 비밀스러운 파티에 초대해 주셔서 감사해요," 당신이 말한다.
+<<elseif $speech_attitude is "bratty">>
+    "초대해 줘서 고마워요," 당신이 말한다. "또라이들을 가까이서 보니 재밌네요."
+<<else>>
+    "초대해 주셔서 감사해요," 당신이 말한다. "재밌었어요."
+<</if>>
+<br><br>
+
+에이버리가 고개를 끄덕인다. "함께 와줘서 고맙구나," <<he_ ga>> 말한다. "조건에 맞는 사람은 많지 않거든."
+<br><br>
+
+<<link [[다음|Avery Cards Avery End]]>><</link>>
+<br>
+
+
+:: Avery Cards Avery End
+<<effects>>
+<<averyscore>>
+<<if $avery_mansion>>
+	<<set $bus to "avery_garage">>
+	<<money `((C.npc.Avery.love * 10 + $endear * 10 + 10) * 100)` "avery">>
+
+	에이버리는 저택 앞에 차를 세우고 차고로 들어간다. <<He_ nun>> 당신에게 <span class="gold">£<<print (C.npc.Avery.love * 10 + $endear * 10 + 10)>></span>를 건네고, 몸을 숙여 당신의 볼에 입을 맞춘다. "가면은 가져도 돼. 기념품이라 생각해."
+	<br><br>
+
+	<<He_ nun>> 차 문을 열고 내린다. 당신은 <<He_ rul>>따른다.
+	<br><br>
+
+<<link [[다음|Mansion Garage]]>><<avery_cards_end>><<endevent>><</link>>
+	<br>
+<<else>>
+	<<set $bus to "domus">>
+	<<money `((C.npc.Avery.love * 10 + $endear * 10 + 10) * 100)` "avery">>
+
+	에이버리는 고아원 밖에 차를 세운다. <<He_ nun>> 당신에게 <span class="gold">£<<print (C.npc.Avery.love * 10 + $endear * 10 + 10)>></span>를 건네고, 당신의 볼에 입을 맞춘 뒤 몸을 숙여 차 문을 연다. "베일리에게 안부 전해주렴," <<he_ ga>> 말한다. "그리고 손해에 애도를 표한다고도 전해주고." <<He_ ga>> 윙크한다. "가면은 가져도 돼. 기념품이라 생각해."
+	<br><br>
+
+	<<His_ yi>> 타이어가 미끄러지며 근처에 있던 고양이를 놀래킨다. 당신은 고아원으로 들어간다.
+	<br><br>
+
+	<<if $avery_li_notif>>
+		<<unset $avery_li_notif>>
+		<<loveInterestAdd "Avery">>
+		<br><br>
+	<</if>>
+
+	<<link [[다음|Orphanage]]>><<avery_cards_end>><<endevent>><</link>>
+	<br>
+<</if>>
+
+:: Avery Cards Bailey
+<<effects>>
+
+<<averyscore>>
+<<money `((C.npc.Avery.love * 10 + $endear * 10 + 10) * 100)` "avery">>
+
+"승자에게 전리품이 돌아가는 법이지," 퀸이 자신의 손해는 신경쓰지 않는 듯 말한다. 베일리는 돈더미를 향해 씩 웃어보인다. 돈더미가 어찌나 빨리 사라지는지 애초에 있긴 했던 건지 헷갈릴 정도다.
+<br><br>
+당신은 손님들에게 작별 인사를 하는 베일리 옆에 서서 기다린다. 레이턴이 당신 앞에 멈춰선다. "오늘 밤은 아주 모범생답게 행동했구나," <<person3>><<he_ ga>> 말한다. "학교에서도 계속 그러기를 바란다."
+<br><br>
+에이버리는 베일리에겐 아무 말도 하지 않고 당신 앞에 멈춰선다. "동행해 줘서 고맙다," 에이버리가 이를 악물고 말한다. "네 보호자가 안전하게 집까지 데려다 주겠지. 여기, 수고에 보답하는 선물이다." <<He_ nun>> 당신에게<span class="gold">£<<print (C.npc.Avery.love * 10 + $endear * 10 + 10)>></span>를 건넨다.
+<br><br>
+그것을 끝으로, <<he_ nun>> 뒤돌아보지 않고 나간다.
+<br><br>
+
+<<link [[다음|Avery Cards Bailey 2]]>><<endevent>><</link>>
+
+:: Avery Cards Bailey 2
+<<effects>>
+
+<<npc Bailey>><<person1>>
+
+"청소나 도와라," 문이 닫히자마자 베일리가 말한다. <<He_ nun>> 빈 잔을 쟁반에 모으기 시작한다. "그러고 나서 집까지 태워다 주마."
+<br><br>
+
+<<link [[돕는다 (0:05)|Avery Cards Bailey Help]]>><<pass 5>><</link>>
+<br>
+<<link [[보호자는 필요 없다고 말한다|Avery Cards Bailey Refuse]]>><</link>>
+<br>
+
+:: Avery Cards Bailey Help
+<<effects>>
+
+당신은 베일리가 청소하는 것을 돕는다. 봉투를 쓰레기로 채우고, 테이블 밑으로 기어들어가 바닥에 떨어진 간식과 땅콩을 줍는다.
+<br><br>
+
+당신과 베일리가 함께하니 손님들이 남기고 간 것을 치우는 데는 얼마 걸리지 않는다.
+<br><br>
+
+<<link [[다음|Avery Cards Bailey 3]]>><</link>>
+<br>
+
+:: Avery Cards Bailey Refuse
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    "밖이 어둡긴 해도," 당신이 말한다. "전 괜찮아요. 혼자 집에 갈 수 있어요."
+<<elseif $speech_attitude is "bratty">>
+    "손 잡고 데려다 줄 필요는 없거든요," 당신이 말한다. "집에는 혼자 갈게요."
+<<else>>
+    "혼자 걷는 건 익숙해요," 당신이 말한다.
+<</if>>
+<br><br>
+
+"오늘은 아니야," 베일리가 봉투에 쓰레기를 채우며 말한다. "고아원에 볼일이 있거든."
+<br><br>
+
+<<link [[돕는다 (0:05)|Avery Cards Bailey Help]]>><<pass 5>><</link>>
+<br>
+<<link [[돕지 않는다 (0:10)|Avery Cards Bailey Refuse 2]]>><<pass 10>><<stress -6>><</link>><<lstress>>
+<br>
+
+:: Avery Cards Bailey Refuse 2
+<<effects>>
+
+빠져나갈 길은 없어 보이지만, 당신은 베일리를 돕기를 거부한다. 당신은 이제는 비어있는 의자에 앉아 <<him_ ul>> 구경한다. <<he_ ga>> 신경을 쓰는 지는 몰라도 티는 내지 않는다.
+<br><br>
+
+베일리 혼자 청소하자니 시간이 조금 걸리지만, 마침내 끝이 보인다.
+<br><br>
+
+<<link [[다음|Avery Cards Bailey 3]]>><</link>>
+<br>
+
+:: Avery Cards Bailey 3
+<<effects>>
+
+베일리는 당신을 문 바깥의 복도로 데리고 간다. <<he_ nun>> 열쇠를 짤그락대며 문을 잠그고 계단 쪽으로 성큼성큼 걸어간다. 뒤처지지 않으려면 전속력을 내야 한다.
+<br><br>
+
+<<He_ nun>> 1층을 지나쳐 더 아래로 내려가, 어두운 지하 주차장으로 당신을 이끈다. <<He_ ga>> 자켓의 주머니를 두드리자 차에 불이 들어온다.
+<br><br>
+
+<<link [[다음|Avery Cards Bailey 4]]>><</link>>
+<br>
+
+:: Avery Cards Bailey 4
+<<set $location to "town">><<set $bus to "barb">><<effects>>
+
+차 문이 찰칵 하며 잠기고, 베일리는 빌딩을 떠나 가로등의 하얀 빛 사이로 차를 몬다.
+<br><br>
+바브 가에 다다를 즈음에 베일리의 휴대전화가 울린다. "무슨 일이지?" <<he_ ga>> 묻는다. 잠깐의 침묵. "가는 길이다."
+<br><br>
+<<He_ nun>> 방향을 바꾸다가 한 건물의 가장자리와 충돌할 뻔 한다.
+<br><br>
+
+<<link [[어디로 가는 것인지 묻는다|Avery Cards Bailey Ask]]>><</link>>
+<br>
+<<link [[조용히 있는다 (0:05)|Avery Cards Bailey 5]]>><<pass 5>><</link>>
+<br>
+
+:: Avery Cards Bailey Ask
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    "어디로 가는 거예요?" 당신이 묻는다. "고아원은 저쪽이잖아요."
+<<elseif $speech_attitude is "bratty">>
+    "고아원으론 안 갈 건가 보네," 당신이 말한다. "그래서 어디 가는 건데요?"
+<<else>>
+    "여긴 고아원 가는 길이 아니잖아요," 당신이 말한다. "어디 가는 거예요?"
+<</if>>
+<br><br>
+
+"그냥 우회하는 거다," 베일리가 대답한다. "네가 알 바는 아니야."
+<br><br>
+
+<<link [[다음 (0:05)|Avery Cards Bailey 5]]>><<pass 5>><</link>>
+<br>
+
+
+:: Avery Cards Bailey 5
+<<set $bus to "mer">><<effects>>
+
+<<generate2>>
+베일리는 클리프 가와 스타피시 가를 가로지른다. 메르 가에 다다르자, <<he_ nun>> 한 골목길로 들어서서 미로처럼 어지럽게 늘어선 녹슨 화물 컨테이너 무더기 옆에 차를 세운다.
+<br><br>
+<<person2>><<person_ i>> 어둠 속에서 모습을 드러낸다. 베일리는 눈 하나 깜짝하지 않고 창문을 내린다. <<person2>><<person_ i>> 당신을 슥 훑어본다. 밝은 데서 보니, <<person_ i>> 베일리의 부하 중 하나임을 알아볼 수 있다.
+<br><br>
+"찾았습니다," <<he_ ga>> 말한다.
+<br>
+베일리는 말없이 차에서 내린다. <<person1>><<He_ nun>> 열린 창문 너머로 당신을 바라본다. "5분 후에 돌아올 거다. 조용히 있어. 아무것도 건드리지 마."
+<br><br>
+그 말을 남기고, 베일리와 부하는 당신을 차 안에 홀로 남겨둔 채 컨테이너 미로 속으로 들어간다.
+<br><br>
+
+<<link [[다음 (0:02)|Avery Cards Bailey 6]]>><<pass 2>><<endevent>><</link>>
+<br>
+
+:: Avery Cards Bailey 6
+<<effects>>
+<<generate1>><<generate2>><<person1>>
+당신은 몇 분 동안 멀리서 자동차가 오가는 소리를 듣는다. 그때 누군가의 목소리가 점점 가까워진다.
+<br><br>
+창문으로 훔쳐보니, <<person_ gwa>> <<person2>><<person_ i>> 이쪽으로 걸어오고 있다.
+<br><br>
+"돌아가자," <<person_ i>> 말한다. "여긴 아무것도 없잖아, 그리고 뭔가 소름끼쳐."
+<br>
+"저기 차 보여?" <<person1>><<person_ i>> 당신 쪽을 가리키며 말한다. "저게 누구 건지 알아?"
+<br>
+<<person2>><<person_ i>> 발걸음을 멈춘다. "알지. 우리 진짜 가야 돼. 지금 당장."
+<br>
+"저건 베일리의 차야," <<person1>><<person_ i>> 멈추지 않고 말한다. "그리고 베일리는 지금 이곳에 없지. 분명 안에 좋은 게 있을거야."
+<br><br>
+
+<<link [[숨는다|Avery Cards Bailey Hide]]>><</link>>
+<br>
+<<if hasSexStat("promiscuity", 2)>>
+	<<link [[유혹한다|Avery Cards Bailey Seduce]]>><</link>><<promiscuous2>>
+	<br>
+<</if>>
+<<if displayDefiantOption(500)>>
+	<<link [[위협한|Avery Cards Bailey Intimidate]]>><<wolfDefiant 500>><</link>><<defianttext 500>>
+	<br>
+<</if>>
+
+
+:: Avery Cards Bailey Hide
+<<effects>>
+
+당신은 차의 뒤편으로 기어가 좌석 사이에 숨는다.
+<br><br>
+소리로 보아 <<person1>><<person_ gwa>> <<person2>><<person_ i>> 도착한 모양이다. "사물함 확인해 봐. 빨리! 시간이 없어."
+<br><br>
+뒤적거리는 소리에 이어 멀어지는 발소리가 들린다.
+<br><br>
+
+<<link [[다음 (0:03)|Avery Cards Bailey Hide 2]]>><<pass 3>><<endevent>><</link>>
+<br>
+
+
+:: Avery Cards Bailey Hide 2
+<<effects>>
+
+<<npc Bailey>><<person1>>
+몇 분이 지나고, 창문 앞에 나타난 베일리의 얼굴이 당신을 똑바로 쳐다본다.
+<br><br>
+"일어나," <<he_ ga>> 말한다.
+<br><br>
+당신은 베일리를 따라 조수석으로 기어가 앉는다.
+<br><br>
+고아원으로 가는 길은 특별한 일이 없다. 베일리가 당신을 안으로 에스코트한다.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<avery_cards_end>><<endevent>><</link>>
+<br>
+
+:: Avery Cards Bailey Seduce
+<<effects>>
+
+<<set $seductiondifficulty to 8000>>
+<<seductioncheck>>
+<<seductionskilluptext>>
+<<seductionskilluse>>
+
+당신은 2인조가 차에 도착할 때까지 기다린다. 그들이 조수석에 기대 앉은 당신을 발견한다.
+<br><br>
+"내가 말했잖아," <<person2>><<person_ i>> 말한다. "누가 있다고. 빨리 가자."
+<br>
+"그냥 꼬맹이잖아," <<person1>><<person_ i>> 대꾸한다.
+<br><br>
+
+"베일리가 절 혼자 두고 가버렸어요," 당신이 말한다. "이런 저를 이용해 먹을 생각이신가요?"
+<<promiscuity2>>
+
+<<if $seductionrating gte $seductionrequired>>
+
+    <<person_ gwa>> <<person2>><<person_ un>> 서로를 바라보다가, <span class="green">차 안으로 올라탄다.</span>
+	<br><br>
+
+	<<link [[다음|Avery Cards Bailey Sex]]>><<set $sexstart to 1>><</link>>
+	<br>
+<<else>>
+
+	<<person1>><<person_ un>> 유혹에 넘어간 것 같지만, <span class="red"><<person2>><<person_ i>> <<person1>><<his_ yi>> 얼굴을 후려친다.</span> "정신이 나간 거냐, 멍청한 거냐?" <<person2>><<He_ ga>> 어깨 너머를 훔쳐본다. "난 간다, 오든가 말든가."
+	<br><br>
+
+    <<person2>><<person_ un>> 뒤돌아 달려간다. <<person1>><<person_ un>> 사물함을 열어 아무 물건이나 집고는 동료를 뒤쫓아간다.
+    <br><br>
+
+	<<link [[다음|Avery Cards Bailey Seduce Fail]]>><<pass 3>><<endevent>><</link>>
+	<br>
+<</if>>
+
+:: Avery Cards Bailey Seduce Fail
+<<effects>>
+<<npc Bailey>><<person1>>
+2인조가 메르 가로 도망칠 무렵 베일리가 때맞춰 나타난다. <<He_ nun>> 당신이 아직 제자리에 있는지 확인하려는 듯 당신을 바라보더니, 사물함을 닫고 운전석에 앉는다.
+<br><br>
+고아원으로 가는 길은 특별한 일이 없다. 베일리가 당신을 안으로 에스코트한다.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<avery_cards_end>><<endevent>><</link>>
+<br>
+
+:: Avery Cards Bailey Sex
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+<<if _combatend>>
+	<span id="next"><<link [[다음|Avery Cards Bailey Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Avery Cards Bailey Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Avery Cards Bailey Sex Finish
+<<set $outside to 0>><<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	2인조는 진이 빠진 채 눈을 감고 좌석에 기댄다. 눈을 뜨자 부하들을 대동한 베일리가 그들을 내려다보고 있다.
+	<br><br>
+	그들은 차 밖으로 뛰쳐나가다가 나머지 부하들에게 가로막혀, 입이 틀어막힌 채 끌려나간다.
+	<br><br>
+    <<tearful>> 당신은 숨을 고른다.
+    <br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Avery Cards Bailey Seduce 2]]>><</link>>
+	<br>
+<<elseif $enemyhealth lte 0>>
+	2인조는 차 밖으로 도망치다가 베일리의 부하들에게 가로막힌다. 그들은 입이 틀어막힌 채 끌려나간다.
+	<br><br>
+    <<tearful>> 당신은 숨을 고른다.
+    <br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Avery Cards Bailey Seduce 2]]>><</link>>
+	<br>
+<<else>>
+    <<tearful>> 당신은 뒷좌석에 숨는다.
+    <br><br>
+    "사물함 확인해 봐. 빨리! 시간이 없어."
+    <br><br>
+    뒤적거리는 소리에 이어 멀어지는 발소리가 들린다.
+    <br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음 (0:03)|Avery Cards Bailey Hide 2]]>><</link>>
+<</if>>
+
+:: Avery Cards Bailey Seduce 2
+<<effects>>
+
+<<npc Bailey>><<person1>>
+"잘했다," 베일리가 운전석에 앉으며 말한다.<<glove>><<npcincr Bailey love 1>>
+<br><br>
+고아원으로 가는 길은 특별한 일이 없다. 베일리가 당신을 안으로 에스코트한다.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<avery_cards_end>><<endevent>><</link>>
+<br>
+
+:: Avery Cards Bailey Intimidate
+<<effects>>
+
+당신은 심호흡을 한번 하고 차에서 내린다. <<person1>><<person_ i>> 멈춰선다. <<person2>><<person_ un>> 몇 걸음 뒤로 물러선다.
+<br><br>
+
+"좀 더 가까이 와 봐," 당신이 말한다. "밝은 데로. 그래야 너네 얼굴을 기억하지."
+<br><br>
+
+<<person1>><<person_ i>> 웃음을 터뜨린다. "한낱 애새끼 주제에."
+<br>
+"베일리의 애새끼지," <<person2>><<person_ i>> 동료에게 상기시킨다.
+<br>
+"너희들이 두려워해야 할 건 베일리가 아닐텐데," 당신이 말한다. "이제 너희 발로 떠날래, 아니면 내가 직접 손을 더럽혀야 할까?"
+<br><br>
+<<person1>><<person_ un>> 잠시 고뇌한다. "엿이나 먹어라, 너도 베일리도." <<He_ nun>> 뒤돌아 걸어간다. <<person2>><<person_ i>> 안도의 한숨을 내쉰다.
+<br><br>
+
+<<link [[다음 (0:08)|Avery Cards Bailey Intimidate 2]]>><<pass 8>><</link>>
+<br>
+
+:: Avery Cards Bailey Intimidate 2
+<<effects>>
+
+<<endevent>>
+<<npc Bailey>><<person1>>
+2인조가 메르 가로 사라지고 베일리가 미로 사이에서 나타난다. <<He_ nun>> 그들이 지나가는 것을 보고는 당신 쪽으로 고개를 돌린다. "잘했다. 들어가라."<<glove>><<npcincr Bailey love 1>>
+<br><br>
+고아원으로 가는 길은 특별한 일이 없다. 베일리가 당신을 안으로 에스코트한다.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<avery_cards_end>><<endevent>><</link>>
+<br>
+
+:: Avery Cards Leighton
+<<effects>>
+<<person3>>
+"환상적이군," 레이턴이 자신의 가방을 들어올려 테이블 위의 상금을 쓸어담으며 말한다. <<He_ ga>> 당신에게 미소짓는다. "넌 가방에 들어가기엔 너무 큰 것 같구나."
+<br><br>
+<<if $avery_mansion is undefined>>
+	"자정 전에 고아원으로 돌려주셔야 합니다," 베일리가 손해에 대한 분노를 철저히 감춘 채 말한다. 에이버리는 그보다 철저하지 못하다.
+<<else>>
+	"자정 전까지 제게 돌려보내주시죠," 에이버리가 말한다.
+<</if>>
+<br>
+"나머지 상금을 써서 연장하는 건 어떨까 생각해 봤지만," 레이턴이 대답한다. "그 정도 시간이면 충분하지 않겠습니까."
+<br><br>
+
+<<link [[다음|Avery Cards Leighton 2]]>><</link>>
+<br>
+
+:: Avery Cards Leighton 2
+<<effects>>
+
+<<averyscore>>
+<<money `((C.npc.Avery.love * 10 + $endear * 10 + 10) * 100)` "avery">>
+
+베일리가 문간에서 손님들에게 작별 인사를 한다. 퀸이 <<person2>><<his_ wa>> 악수한다. "즐거운 저녁을 보내게 해 주어 고맙네," <<person4>><<he_ ga>> 말한다. "고아원에서, 거 뭐냐, 앞으로도 열심히 해 주게."
+<br><br>
+
+에이버리가 다음 차례다. <<person1>><<He_ nun>> 베일리에게 고개를 끄덕이고 당신을 바라본다.
+<br>
+"나와 함께 와 주어서 고맙구나," <<he_ ga>> 주머니에 손을 뻗으며 말한다. <<He_ nun>> 지폐를 더 꺼내 당신의 손에 <span class="gold">£<<print (C.npc.Avery.love * 10 + $endear * 10 + 10)>></span>를 쥐어준다.
+<br><br>
+
+"시장님 말씀대로," 에이버리가 나가자 레이턴이 베일리에게 말한다. "즐거운 저녁 감사하고, 앞으로도 성심껏 일해주시길. 당신 피후견인들 가르치기는 언제나 즐거우니까요."
+<br><br>
+베일리는 대답이 없다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton 3]]>><<endevent>><</link>>
+<br>
+
+:: Avery Cards Leighton 3
+<<set $bus to "barb">><<set $location to "town">><<effects>>
+
+<<npc Leighton>><<person1>>
+레이턴은 당신의 어깨에 팔을 두르고 복도를 따라 당신을 엘리베이터로 이끈다. <<He_ ga>> 1층의 버튼을 누른다. 엘리베이터가 흔들리며 움직이기 시작한다.
+<br><br>
+
+<<His_ yi>> 차가 바깥에 세워져 있다. "걱정 말거라," <<he_ ga>> 말한다. "이상한 계획 같은 건 없으니까. 같이 클럽에 가면 어떨까 생각했단다."
+<br><br>
+
+<<link [[좋은 생각이라고 말한다|Avery Cards Leighton Nice]]>><</link>>
+<br>
+<<link [[좀 더 조용한 곳이 좋다고 말한다|Avery Cards Leighton Quiet]]>><</link>>
+<br>
+<<link [[조용히 있는다|Avery Cards Leighton Silent]]>><</link>>
+<br>
+
+
+:: Avery Cards Leighton Nice
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    "괜찮을 것 같아요," 당신은 예의 바른 미소를 지어 보이며 말한다.
+<<elseif $speech_attitude is "bratty">>
+    "좋네요," 당신이 말한다. "좀 수준 높은 곳이기를 바랄게요. 그렇게 차려입고 왔으니까."
+<<else>>
+    "좋은 생각이네요," 당신이 말한다.
+<</if>>
+<br><br>
+"물론이지," 레이턴이 엔진 시동을 걸며 대답한다. "장담컨대 네가 아는 것보다 훨씬 좋은 곳일 거다."
+<br><br>
+
+<<link [[다음|Avery Cards Leighton Silent]]>><</link>>
+<br>
+
+:: Avery Cards Leighton Quiet
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    "혹시 소란스러운 곳일까요?" 당신이 말한다. "저는 조용한 곳이 더 좋아요."
+<<elseif $speech_attitude is "bratty">>
+    "너무 시끄럽지나 않았으면 좋겠네요," 당신이 말한다. "모처럼 격식 있게 차려입었는데."
+<<else>>
+    "너무 소란스러운 곳이 아니길 바랄게요," 당신이 말한다.
+<</if>>
+<br><br>
+
+"걱정하지 마라," 레이턴이 대답한다. "개인실을 지불하마. 상금을 써먹어야지."
+<br><br>
+
+<<link [[다음 (0:01)|Avery Cards Leighton Silent]]>><<pass 1>><</link>>
+<br>
+
+:: Avery Cards Leighton Silent
+<<set $bus to "connudatus">><<effects>>
+
+레이턴은 바브 가를 지나 코누다투스 가로 들어선다. <<He_ nun>> 각 공간이 VIP 전용으로 표시된 작은 주차장에 차를 세운다.
+<br><br>
+
+당신은 차에서 내린다. 레이턴은 팔을 내밀고 기대하는 듯 기다린다.
+<br><br>
+
+<<link [[레이턴의 팔을 감싼다|Avery Cards Leighton Hook]]>><<npcincr Leighton love 1>><</link>><<glove>>
+<br>
+<<link [[앞으로 걸어간다|Avery Cards Leighton Walk]]>><<npcincr Leighton love -1>><<def 1>><</link>><<llove>>
+<br>
+
+
+:: Avery Cards Leighton Hook
+<<effects>>
+
+당신은 자신의 팔로 레이턴의 팔을 감싼다. <<He_ nun>> 미소지으며 당신을 코누다투스 가로 안내한다.
+<br><br>
+
+"저기로 갈 거란다," 레이턴이 취객을 피하려 몸을 틀며 건너편의 나이트클럽을 가리킨다. 클럽의 벽을 뒤덮은 조명들은 깜빡거리고 색을 바꾸며 사방에 클럽의 이름을 알린다. 덩치 큰 경비원이 입구에 서있다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton 4]]>><</link>>
+<br>
+
+:: Avery Cards Leighton Walk
+<<effects>>
+
+당신은 레이턴의 앞으로 걸어간다. <<him_ un>> 어쩔 수 없이 따라잡으려고 속도를 높인다. "어디로 가는 지도 모르잖니," <<he_ ga>> 말한다. "저기야." <<He_ nun>> 건너편의 나이트클럽을 가리킨다. 클럽의 벽을 뒤덮은 조명들은 깜빡거리고 색을 바꾸며 사방에 클럽의 이름을 알린다. 덩치 큰 경비원이 입구에 서있다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton 4]]>><</link>>
+<br>
+
+:: Avery Cards Leighton 4
+<<effects>>
+
+"이름은?" 경비원이 당신을 경계하는 듯 바라보며 레이턴에게 묻는다.
+<br>
+"레이턴."
+<br><br>
+경비원이 옆으로 비켜선다. 당신은 레이턴과 함께 안으로 들어간다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton 5]]>><</link>>
+<br>
+
+:: Avery Cards Leighton 5
+<<effects>>
+
+당신은 저 아래 사람들이 붐비는 댄스 플로어로부터 3층 위에 설치된 통로로 들어선다. 땅을 파서 만든 건물임이 분명하다. 근처에 아래로 내려가는 계단이 보이지만, 레이턴은 당신을 이끌고 원형의 통로를 따라 반대편의 바로 향한다.
+<br><br>
+
+"원하는 것 아무거나 주문하거라," 레이턴이 당신이 앉을 스툴을 끌어온 뒤 상금을 카운터에 얹으며 말한다.
+<br><br>
+
+<<link [[아무것도 주문하지 않는다|Avery Cards Leighton Order Nothing]]>><</link>>
+<br>
+<<link [[물을 주문한다|Avery Cards Leighton Order Water]]>><</link>>
+<br>
+<<if playerIsPregnant() and playerAwareTheyArePregnant()>>
+	<span class="blue">임신 사실을 알면서 술을 마실 수는 없다.</span>
+<<else>>
+	<<link [[와인을 주문한다|Avery Cards Leighton Order Wine]]>><<alcohol 60>><</link>>
+	<br>
+	<<link [[뭔진 몰라도 가장 비싼 것을 주문한다|Avery Cards Leighton Order Expensive]]>><<npcincr Leighton love -1>><<drugs 60>><</link>><<llove>>
+<</if>>
+<br>
+
+:: Avery Cards Leighton Order Nothing
+<<effects>>
+
+"마음대로 해라," 레이턴이 말한다. "와인 한 잔 주시오."
+<br><br>
+<<His_ yi>> 와인은 길쭉하고 가느다란 잔에 담겨 나온다. <<He_ nun>> 미식가처럼 잔을 홀짝인다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton 6]]>><</link>>
+<br>
+
+
+:: Avery Cards Leighton Order Water
+<<effects>><<wearProp "vodka">>
+
+레이턴은 와인을 주문한다. 와인은 길쭉하고 가느다란 잔에 담겨 나온다. 당신이 시킨 물은 작은 타원형 잔에 담겨 나온다. 레이턴은 미식가처럼 자신의 잔을 홀짝인다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton 6]]>><</link>>
+<br>
+
+:: Avery Cards Leighton Order Wine
+<<effects>><<wearProp "red wine">>
+
+레이턴 역시 와인을 주문한다. 와인은 길쭉하고 가느다란 잔 두 개에 담겨 나온다. 레이턴은 자신의 잔을 당신의 것에 가볍게 맞대고 미식가처럼 와인을 홀짝인다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton 6]]>><</link>>
+<br>
+
+:: Avery Cards Leighton Order Expensive
+<<effects>><<wearProp "shot">>
+
+레이턴은 잠시 머뭇거리지만, 말없이 지폐 다발 전체를 넘긴다. 당신의 음료는 작은 잔에 담겨 나온다. 달콤한 향이 잔을 눈으로 보는 것보다도 먼저 느껴진다.
+<br><br>
+
+레이턴은 와인을 주문하고, 당신이 마시는 모습을 보며 자신의 잔을 미식가처럼 홀짝인다. 당신의 손가락과 발가락, 그리고 음부를 따라 온기가 퍼져나간다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton 6]]>><</link>>
+<br>
+
+:: Avery Cards Leighton 6
+<<effects>>
+
+<<generate2>>
+레이턴은 의자를 회전시켜 다른 고객들을 훑어본다. <<His_ yi>> 시선이 홀로 앉은 <<person2>><<person>>에게 향한다. "내 대신 저 사람한테 이야기하고 오거라," <<person1>><<he_ ga>> 바텐더의 주의를 끌며 말한다 "오늘 밤은 파트너 한 명으로는 부족할 것 같군. <<person2>><<him_ ul>> 이쪽으로 초대하렴."
+<br><br>
+
+당신은 <<person>>에게 걸어간다. <<He_ nun>> 당신을 위아래로 훑어보고는 당신이 입을 열기를 기다린다.
+<br><br>
+
+<<link [[시킨 대로 한다|Avery Cards Leighton Invite Asked]]>><</link>>
+<br>
+<<link [[레이턴의 유혹을 방해한다|Avery Cards Leighton Invite Freak]]>><</link>>
+<br>
+<<if hasSexStat("promiscuity", 2)>>
+    <<link [[직접 유혹하고 사랑의 도피를 한다|Avery Cards Leighton Invite Seduce]]>><</link>>
+    <br>
+<</if>>
+
+:: Avery Cards Leighton Invite Asked
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    "실례합니다," 당신이 말한다. "제 파트너께서 함께 마시지 않으시겠냐고 권하셨어요."
+<<elseif $speech_attitude is "bratty">>
+    "그쪽이 눈독 들여야 할 건 제가 아니거든요," 당신이 말한다. "제 파트너가 그쪽한테 한잔 사겠다네요."
+<<else>>
+    "제 파트너가 당신께 술 한잔 사고 싶어 하셔요," 당신이 말한다.
+<</if>>
+<br><br>
+
+<<person_ un>> 당신의 어깨 너머로 여분의 잔을 들고 눈썹을 치켜올린 채 기다리고 있는 레이턴을 바라본다.
+<br><br>
+
+<<person_ nun>> 잠시 생각에 빠졌다가, 자리에서 일어나 레이턴에게 걸어간다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton Trio]]>><</link>>
+<br>
+
+:: Avery Cards Leighton Invite Seduce
+<<effects>>
+
+<<set $seductiondifficulty to 8000>>
+<<seductioncheck>>
+<<seductionskilluptext>>
+<<seductionskilluse>>
+
+<<person2>>
+"저쪽에 있는 제 파트너는 당신께 술을 권하고 싶어 하는데," 당신은 몸을 가까이 숙이고 다정하게 말한다. "대신 저랑 같이 가는 건 어때요?"
+<<promiscuity2>>
+
+<<if $seductionrating gte $seductionrequired>>
+
+	<<person_ un>> 레이턴을 바라보고는, 당신을 향해 짓궃은 미소를 지어 보이더니, <span class="green">당신에게 자신의 팔을 내준다.</span>
+	<br><br>
+    당신은 함께 바를 나간다. 레이턴이 그 모습을 쳐다본다. <<person1>><<his_ yi>> 표정이 자신감에서 혼란으로, 혼란에서 분노로 변한다.<<llove>><<npcincr Leighton love -1>>
+    <br><br>
+
+	<<link [[다음|Avery Cards Leighton Seduce 2]]>><<saveNPC 1 "Leighton_date">><<endevent>><<loadNPC 0 "Leighton_date">><<person1>><</link>>
+	<br>
+<<else>>
+
+	<person_ un>> 레이턴을 바라보고는 다시 당신을 본다. "당신 파트너라고?" <<he_ ga>> 다시 한번 레이턴을 쳐다보며 묻는다. <span class="red">"난 그쪽 둘 다 있었으면 좋겠는데."</span>
+	<br><br>
+    <<He_ nun>> 자리에서 일어나 레이턴에게 걸어간다.
+    <br><br>
+
+	<<link [[다음|Avery Cards Leighton Trio]]>><</link>>
+	<br>
+
+<</if>>
+
+
+:: Avery Cards Leighton Invite Freak
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    "저쪽에 계신 분께서 당신과 이야기하고 싶어 하셨는데요," 당신이 말한다. "근데 뭔가 이상한 사람 같아요."
+<<elseif $speech_attitude is "bratty">>
+    "저기 웬 이상한 놈이 그쪽이랑 이야기하고 싶다는데요," 당신이 말한다. "나라면 저런 사람 안 믿어요."
+<<else>>
+    "저기 모르는 사람이 당신과 이야기하고 싶대요," 당신이 말한다. "좀 이상한 사람 같아요."
+<</if>>
+<br><br>
+
+<<person_ un>> 당신의 어깨 너머로 여분의 잔을 들고 눈썹을 치켜올린 채 기다리고 있는 레이턴을 바라본다.
+<br><br>
+
+"경고 고마워요," <<person_ i>> 말한다. <<He_ nun>> 레이턴에게 경계하는 눈빛을 보내고 바를 떠난다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton Duo]]>><<endevent>><<npc Leighton>><<person1>><</link>>
+<br>
+
+:: Avery Cards Leighton Duo
+<<effects>>
+
+레이턴이 자리로 돌아오는 당신을 노려본다. "무슨 말을 하고 온 거냐?" <<he_ ga>> 술을 들이킨다. "상관은 없지. 따라와라. 방을 잡아 뒀다. 더 이상 시간 낭비하긴 싫구나."
+<br><br>
+레이턴은 당신을 데리고 통로 뒤로 돌아가 계단을 한 층 내려간 뒤, 음악 소리가 멀어지는 옆길로 들어선다. 벽을 덮은 타일을 보라빛 조명이 비춘다.
+<br><br>
+레이턴은 가방에서 열쇠를 꺼내 복도의 문들 중 하나를 연다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton Duo 2]]>><</link>>
+<br>
+
+:: Avery Cards Leighton Duo 2
+<<effects>>
+
+방 너머에는 커다란 침대와 무대로 이어지는 또 다른 출입구가 있다. 레이턴은 들어온 문을 닫고 가방을 침대 옆의 테이블에 던진다.
+<br><br>
+"올라가거라," <<he_ ga>> 침대를 향해 손짓하며 말한다.
+<br><br>
+
+<<link [[침대로 올라간다|Avery Cards Leighton Duo Sex Intro]]>><</link>>
+<br>
+<<link [[거부한다|Avery Cards Leighton Duo Rape Intro]]>><</link>>
+<br>
+
+:: Avery Cards Leighton Duo Sex Intro
+<<effects>>
+
+당신이 침대에 오르자 레이턴이 당신 위로 올라탄다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton Duo Rape]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Avery Cards Leighton Duo Rape Intro
+<<effects>>
+
+"이건 부탁이 아니야," 레이턴이 당신의 팔을 붙잡으며 말한다. "난 정정당당하게 너를 따낸거다, 그러니 얌전히 쳐 올라가라고."
+<br><br>
+
+<<link [[다음|Avery Cards Leighton Duo Rape]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+
+
+:: Avery Cards Leighton Duo Rape
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Avery Cards Leighton Duo Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Avery Cards Leighton Duo Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Avery Cards Leighton Duo Rape Finish
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	레이턴은 침대에 누워 상금에 손을 뻗는다. "고맙다. 이제 나가 봐라."
+	<br><br>
+	<<tearful>> 당신은 침대에서 내려온다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+    <<link [[일단 몸을 씻어도 될지 묻는다|Avery Cards Leighton Freshen]]>><</link>>
+    <br>
+    <<link [[떠난다|Avery Cards Leighton End]]>><</link>>
+    <br>
+<<elseif $enemyhealth lte 0>>
+	당신은 레이턴을 밀쳐낸다. <<He_ nun>> 비틀대며 침대 옆의 장식장을 넘어뜨리고 상금을 창 밖으로 쳐서 날려버린다.
+	<br><br>
+	<<He_ nun>> 방에서 뛰쳐나간다. <<tearful>> 당신은 침대에서 내려온다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+
+    <<link [[일단 몸을 씻는다|Avery Cards Leighton Freshen 2]]>><</link>>
+    <br>
+    <<link [[떠난다|Avery Cards Leighton End]]>><</link>>
+    <br>
+<</if>>
+
+
+
+:: Avery Cards Leighton Freshen
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    "귀찮게 해서 죄송합니다," 당신이 묻는다. "혹시 욕실을 써도 괜찮을까요?"
+<<elseif $speech_attitude is "bratty">>
+    "먼저 샤워부터 하고요," 당신이 말한다.
+<<else>>
+    "그 전에 욕실을 써도 될까요?" 당신이 묻는다.
+<</if>>
+<br><br>
+<<npc Leighton>><<person1>>
+<<if C.npc.Leighton.love gte 1>>
+    레이턴은 잠시 돈 세는 것을 멈추고 고개를 끄덕인다.
+    <br><br>
+    샤워실엔 버튼이 여럿 달려 있다. 몇 개는 그냥 조명 조절 용도고, 나머지는 여러 방향에서 물을 뿌리거나 오일과 로션이 나오는 용도이다.<<lstress>><<stress -6>><<wash>><<towelup>>
+    <br><br>
+
+    당신은 몸을 씻고 말린 뒤 레이턴의 방을 나간다.
+	<br><br>
+
+	<<link [[다음 (0:05)|Avery Cards Leighton End]]>><<pass 5>><<endevent>><</link>>
+	<br>
+<<else>>
+    레이턴은 지폐에서 눈을 떼지 않고 고개를 흔든다. "더럽히기나 할 거면서. 경비 부르기 전에 나가라."
+    <br><br>
+
+    당신은 레이턴이 혼자 상금을 감상하도록 두고 떠난다.
+    <br><br>
+
+	<<link [[다음|Avery Cards Leighton End]]>><<endevent>><</link>>
+	<br>
+<</if>>
+
+:: Avery Cards Leighton Freshen 2
+<<effects>>
+
+당신은 방에 딸린 욕실에 들어가 샤워기를 튼다. 버튼이 여럿 달려 있다. 몇 개는 그냥 조명 조절 용도고, 나머지는 여러 방향에서 물을 뿌리거나 오일과 로션이 나오는 용도이다.<<lstress>><<stress -6>><<wash>><<towelup>>
+<br><br>
+
+당신은 몸을 씻고 말린 뒤 레이턴의 방을 나간다.
+<br><br>
+
+<<link [[다음 (0:05)|Avery Cards Leighton End]]>><<pass 5>><<endevent>><</link>>
+<br>
+
+
+:: Avery Cards Leighton Seduce 2
+<<effects>>
+
+<<person_ ul>> 당신을 통로 너머 출구로 이끈다. <<He_ un>> 어깨 너머를 흘깃 보더니, 씩 웃으며 당신을 옆의 문 너머로 밀어넣는다.
+<br><br>
+
+"그쪽 친구가 따라오고 있어," <<he_ ga>> 당신을 벽에 밀어붙이며 말한다. 이곳은 화장실이다. 사람은 없는 것 같다. "여기라면 안전하겠지."
+<br><br>
+
+바깥에서 희미한 음악소리를 뚫고 발소리가 들려온다. <<person_ i>> 당신을 화장실 칸으로 밀어넣고, 한 손으로 당신의 입을 막은 채 당신을 닫힌 문으로 밀어붙인다. <<His_ yi>> 다른 한 손이 정처없이 떠돈다.
+<br><br>
+
+<<link [[허락한다|Avery Cards Leighton Seduce Sex]]>><<set $sexstart to 1>><</link>>
+<br>
+<<link [[밀어낸다|Avery Cards Leighton Seduce Push]]>><</link>>
+<br>
+
+:: Avery Cards Leighton Seduce Sex
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemytrust += 100>>
+	<<set $timer to 5>>
+	<<enable_rescue>>
+<</if>>
+
+<<if $timer is 2>>
+    발소리가 화장실 바깥에서 멈춘다. 당신은 레이턴의 신발을 알아본다.
+    <br><br>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+<<if _combatend>>
+	<span id="next"><<link [[다음|Avery Cards Leighton Seduce Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Avery Cards Leighton Seduce Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Avery Cards Leighton Seduce Sex Finish
+
+<<set $outside to 0>><<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	<<person_ un>> 문을 열고 바깥을 엿본다. "아무도 없어. 내가 먼저 갈게. 괜히 위험을 무릅쓰진 말자고."
+	<br><br>
+	<<tearful>> 당신은 잠시 기다렸다가 화장실을 나간다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Avery Cards Leighton End]]>><</link>>
+	<br>
+<<elseif $enemyhealth lte 0>>
+	당신은 <<person_ ul>> 밀치고 화장실 문을 열어젖힌다.
+	<br><br>
+	<<tearful>> 도망치던 당신은 레이턴의 품에 뛰어든다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Avery Cards Leighton Seduce Caught]]>><</link>>
+	<br>
+<<else>>
+	당신의 목소리가 화장실에 울려퍼진다. 문이 열리고 레이턴이 모습을 드러낸다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Avery Cards Leighton Seduce Caught]]>><</link>>
+	<br>
+<</if>>
+
+
+:: Avery Cards Leighton Seduce Push
+<<effects>>
+
+당신은 <<person_ ul>> 밀쳐낸다. <<He_ nun>> 뒤로 비틀거리다가 소리치며 넘어진다.
+<br><br>
+
+문이 열리고 레이턴이 모습을 드러낸다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton Seduce Caught]]>><<endevent>><</link>>
+<br>
+
+:: Avery Cards Leighton Seduce Caught
+<<effects>>
+<<npc Leighton>><<person1>>
+
+레이턴은 당신의 팔을 붙잡아 화장실로부터 확 밀치고 안으로 들어간다. 무언가 세게 부러지는 소리와 무거운 것이 바닥으로 쓰러지는 소리가 들리고, 레이턴이 다시 나타난다. <<He_ ga>> 당신의 팔을 재차 붙잡는다.
+<br><br>
+
+"오늘 밤동안 너는 내 소유야," <<he_ ga>> 말한다. "다시는 잊어버리지 마라."
+<br><br>
+레이턴은 당신을 데리고 통로 뒤로 돌아가 계단을 한 층 내려간 뒤, 음악 소리가 멀어지는 옆길로 들어선다. 벽을 덮은 타일을 보라빛 조명이 비춘다.
+<br><br>
+레이턴은 가방에서 열쇠를 꺼내 복도의 문들 중 하나를 연다.
+<br><br>
+
+<<link [[다음 (0:10)|Avery Cards Leighton Duo 2]]>><<pass 10>><</link>>
+<br>
+
+:: Avery Cards Leighton Trio
+<<effects>>
+
+당신은 <<person2>><<person_ gwa>> 함께 레이턴에게 돌아간다. <<He_ ga>> 먼저 말문을 열지만, 레이턴은 모두에게 보이는 곳에서 당신을 더듬고 애무하는 것을 멈추지 않는다.
+<br><br>
+
+"같이 한적한 곳으로 가는 건 어떤가," 레이턴이 몇 분 뒤 말한다.
+<br><br>
+
+"그러죠," <<person_ i>> 대답한다. "저 애도 같이 온다면야."
+<br><br>
+
+<<link [[다음|Avery Cards Leighton Trio 2]]>><</link>>
+<br>
+
+
+:: Avery Cards Leighton Trio 2
+<<effects>>
+
+레이턴과 <<person2>><<person_ un>> 당신을 데리고 통로 뒤로 돌아가 계단을 한 층 내려간 뒤, 음악 소리가 멀어지는 옆길로 들어선다. 벽을 덮은 타일을 보라빛 조명이 비춘다.
+<br><br>
+
+당신은 숫자가 붙은 문 몇 개를 지나친다. 레이턴은 그 중 하나 앞에 멈춰서서, 가방에서 열쇠를 꺼내 문을 연다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton Trio 3]]>><</link>>
+<br>
+
+:: Avery Cards Leighton Trio 3
+<<effects>>
+
+레이턴은 당신에게 들어가라고 손짓하고 문을 닫는다.
+<br><br>
+방 너머에는 커다란 침대와 무대로 이어지는 또 다른 출입구가 있다. <<person2>><<person_ i>> 침대에 앉아 당신을 음흉하게 훑어본다.
+<br><br>
+"침대에 올라가라," 레이턴이 말한다. "오늘 밤 동안 너는 내 것이고, 이건 베일리의 그 멍청한 규칙에서도 벗어나지 않아."
+<br><br>
+
+<<link [[침대에 올라간다|Avery Cards Leighton Trio Sex Intro]]>><</link>>
+<br>
+<<link [[거부한다|Avery Cards Leighton Trio Rape Intro]]>><</link>>
+<br>
+
+:: Avery Cards Leighton Trio Sex Intro
+<<effects>>
+
+당신은 침대에 올라간다. <<person2>><<person_ i>> 당신을 가까이 끌어당긴다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton Trio Rape]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Avery Cards Leighton Trio Rape Intro
+<<effects>>
+
+"이건 부탁이 아니야," 레이턴이 당신을 <<person2>><<persons_ yi>> 품으로 밀어넣는다.
+<br><br>
+
+<<link [[다음|Avery Cards Leighton Trio Rape]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Avery Cards Leighton Trio Rape
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Avery Cards Leighton Trio Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Avery Cards Leighton Trio Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Avery Cards Leighton Trio Rape Finish
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	레이턴은 침대에 누워 상금에 손을 뻗는다. "고맙다. 이제 나가 봐라."
+	<br><br>
+	<<tearful>> 당신은 침대에서 내려온다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+    <<link [[일단 몸을 씻어도 될지 묻는다|Avery Cards Leighton Freshen]]>><</link>>
+    <br>
+    <<link [[떠난다|Avery Cards Leighton End]]>><</link>>
+    <br>
+<<elseif $enemyhealth lte 0>>
+	당신은 레이턴을 밀쳐낸다. <<He_ nun>> 비틀대며 침대 옆의 장식장을 넘어뜨리고 상금을 창 밖으로 쳐서 날려버린다.
+	<br><br>
+	<<He_ nun>> 방에서 뛰쳐나간다. <<tearful>> 당신은 침대에서 내려온다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+
+    <<link [[일단 몸을 씻는다|Avery Cards Leighton Freshen 2]]>><</link>>
+    <br>
+    <<link [[떠난다|Avery Cards Leighton End]]>><</link>>
+    <br>
+<</if>>
+
+
+
+
+:: Avery Cards Leighton End
+<<effects>>
+
+당신이 나이트클럽의 정문에 다가가자 경비원이 당신을 막아세우고, 건물 가장자리를 돌아 골목길로 이어지는 샛길을 가리킨다.
+<br><br>
+
+<<link [[다음|Commercial Alleyways]]>><<endevent>><<avery_cards_end>><</link>>
+<br>
+
+:: Avery Cards Quinn
+<<effects>><<person4>>
+
+"빅토리!" 퀸이 베일리와 에이버리를 향해 순서대로 미소지으며 외친다. 반응은 돌아오지 않는다. 퀸은 한치도 흔들리지 않는 미소를 유지한 채 당신에게 시선을 돌린다. <<him_ un>> 돈에는 관심이 없다.
+<br><br>
+
+"내가 이길 수도 있겠다고 생각했는데," 레이턴이 마지막 남은 술을 들이키며 말한다. "둘이서 즐거운 저녁 보내시기를."
+<br><br>
+
+<<link [[다음|Avery Cards Quinn 2]]>><</link>>
+<br>
+
+
+:: Avery Cards Quinn 2
+<<effects>>
+
+<<averyscore>>
+<<money `((C.npc.Avery.love * 10 + $endear * 10 + 10) * 100)` "avery">>
+
+베일리가 문간에서 손님들에게 작별 인사를 한다. 레이턴이 먼저 나가고 에이버리가 뒤따른다. <<person1>><<He_ ga>> 나가기 전에 당신에게 다가온다.
+<br><br>
+"나와 함께 와 주어서 고맙구나," <<he_ ga>> 이를 악물고 말한다. "수고에 보답해야겠지." <<He_ ga>> 퀸을 흘깃 바라본다. "어쩌면 병원비가 될 수도 있고." <<He_ nun>> 당신에게 <span class="gold">£<<print (C.npc.Avery.love * 10 + $endear * 10 + 10)>></span>를 건넨다.
+<br><br>
+
+에이버리가 떠나자 퀸이 베일리의 앞에 선다. "고맙네 베일리," <<person4>><<he_ ga>> 말한다. "걱정 말게나. 자네 피후견인은 상처 하나 없이 돌려줄 테니까."
+<br><br>
+"그래야지," 베일리가 말한다. "안 그랬다간 어떻게 되는지 알겠지."
+<br><br>
+퀸이 양손을 들어올린다. "나는 한다면 하는 사람일세."
+<br><br>
+베일리가 나가려는 당신의 팔을 붙잡고 가까이 몸을 숙인다. <span class="purple">"퀸이 주는 건 아무것도 먹거나 마시지 마라,"</span> <<person2>><<he_ ga>> 속삭인다.
+<br><br>
+
+<<link [[다음|Avery Cards Quinn 3]]>><<endevent>><</link>>
+<br>
+
+:: Avery Cards Quinn 3
+<<effects>>
+
+<<npc Quinn>><<person1>><<generate2>>
+<<saveNPC 1 "Quinn_driver">>
+당신과 퀸과 함께 복도와 계단을 따라 걷는다. <<His_ yi>> 차가 바깥에 세워져 있다. <<person2>><<person_ i>> 차에 기대 담배를 피우고 있다. <<He_ nun>> 퀸을 보자 담배를 밟아서 끈다.
+<br><br>
+"집으로 가주게," <<person_ i>> <<person1>><<him_ ul>> 위해 문을 열어주자 퀸이 말한다. 퀸은 당신에게 먼저 타라는 동작을 한다. 차의 내부는 호화롭고 널찍하다. 안전벨트는 어디에도 보이지 않는다.
+<br><br>
+
+<<link [[다음|Avery Cards Quinn 4]]>><</link>>
+<br>
+
+:: Avery Cards Quinn 4
+<<effects>>
+
+"이번엔 내가 술을 권할 차례겠지," 차가 덜컹거리며 출발하자 퀸이 버튼 하나를 누른다. <<him_ yi>> 앞에 있는 사물함이 열리고, 거품이 나는 분홍색 음료가 채워진 잔 두 개가 드러난다. <<He_ nun>> 잔을 양손에 하나씩 들고 당신에게 하나를 내민다.
+<br><br>
+
+이 정도 거리에서도 달콤한 냄새가 느껴진다. "알코올은 안 들었네," <<he_ ga>> 웃으며 말한다. "그보다 좋은 거지."
+<br><br>
+
+<<link [[제안받은 잔을 마신다|Avery Cards Quinn Offered]]>><<drugs 60>><<stress -6>><</link>><<gdrugged>><<lstress>>
+<br>
+<<link [[다른 잔을 마신다|Avery Cards Quinn Other]]>><<drugs 60>><<stress -6>><</link>><<gdrugged>><<lstress>>
+<br>
+<<link [[거절한다|Avery Cards Quinn Refuse]]>><</link>>
+<br>
+
+:: Avery Cards Quinn Offered
+<<effects>><<wearProp "fizzy drink">>
+
+당신은 퀸이 건넨 잔을 받아들고 한 모금 마신다. 퀸은 자신의 잔을 단숨에 들이킨다. 따스한 기운이 몸 속으로 퍼져나가 똬리를 튼 뱀처럼 당신의 허리 아래에 모인다.
+<br><br>
+
+"바로 이거야," 퀸이 말한다. "먼 길은 아니다만, 부디 좌석이 편안하기를 바라네. 진짜 가죽이거든."
+<br><br>
+
+<<link [[다음 (0:02)|Avery Cards Quinn 5]]>><</link>>
+<br>
+
+:: Avery Cards Quinn Other
+<<effects>><<wearProp "fizzy drink">>
+
+퀸은 당신이 다른 잔을 가져가는 것을 말리지 않는다. "현명하군," <<he_ nun>> 당신이 한 모금을 마시는 동안 자신의 잔을 한번에 꿀꺽 들이킨다. 따스한 기운이 몸 속으로 퍼져나가 똬리를 튼 뱀처럼 당신의 고간에 모인다.
+<br><br>
+
+"바로 이거야," 퀸이 말한다. "먼 길은 아니다만, 부디 좌석이 편안하기를 바라네. 진짜 가죽이거든."
+<br><br>
+
+<<link [[다음 (0:02)|Avery Cards Quinn 5]]>><</link>>
+<br>
+
+:: Avery Cards Quinn Refuse
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    "죄송해요," 당신이 말한다. "지금은 뭔가 마시고 싶지 않아요."
+<<elseif $speech_attitude is "bratty">>
+    "수상한 시장이 주는 수상한 음료는 안 마셔요," 당신이 말한다.
+<<else>>
+    "지금은 마실 기분이 아니예요," 당신이 말한다.
+<</if>>
+<br><br>
+
+퀸이 웃는다. "좋으실 대로," <<he_ ga>> 말한다. <<He_ nun>> 두 잔을 차례대로 한입에 들이킨다. "아아. 바로 이거야." <<He_ ga>> 자리에 비스듬히 기댄다. "먼 길은 아니다만, 부디 좌석이 편안하기를 바라네. 진짜 가죽이거든."
+<br><br>
+
+<<link [[다음|Avery Cards Quinn 5]]>><</link>>
+<br>
+
+:: Avery Cards Quinn 5
+<<effects>>
+
+<<person2>><<person_ un>> 코누다투스 가를 지나 다뉴브 가로 향한다. 차는 갈수록 고급스러워지는 주택들을 지나치다가, 거대한 대문 앞에 다다른다. 문 너머로 다른 건물들보다 높이 우뚝 선 저택이 있다.
+<br><br>
+
+차가 잠시 멈추자 대문이 덜컹거리며 열린다. "나의 집에 온 것을 환영하네," 퀸이 말한다. <<He_ ga>> 다른 버튼을 누른다. 찰칵하는 소리와 지직거리는 소리가 들린다. "아직은 돌아가지 말게나," <<he_ ga>> 아마도 운전기사에게 말한다. "가야 할 곳이 하나 더 있어."
+<br><br>
+
+<<link [[다음|Avery Cards Quinn 6]]>><</link>>
+<br>
+
+:: Avery Cards Quinn 6
+<<effects>>
+<<endevent>>
+<<npc Quinn>><<generate2>><<generate3>><<generateyv4>>
+<<saveNPC 1 "Quinn_guard_1">><<saveNPC 2 "Quinn_guard_2">><<saveNPC 3 "Quinn_victim">>
+퀸은 당신을 계단 위 저택 입구로 이끈다. 문이 열리고, 양쪽에 선 <<person2>><<person_ gwa>> <<person3>><<person_ i>> 모습을 드러낸다. 그들이 당신을 보고 활짝 웃는다.
+<br><br>
+"먼저 가시게," 퀸이 당신을 호화롭게 장식된 저택 내부로 안내하며 말한다. 풍경화와 초상화가 벽에 줄지어 걸려있다. 용과 싸우는 기사의 그림이 가장 눈에 들어온다.
+<br><br>
+"문은 오른쪽에 있네. <<print $NPCList[1].name>>, 손님께 길을 안내해 주게."
+<br><br>
+
+<<link [[다음|Avery Cards Quinn 7]]>><</link>>
+<br>
+
+:: Avery Cards Quinn 7
+<<effects>>
+
+<<person2>><<person_ un>> 벨트에서 쩔그럭대는 열쇠고리를 집어 나무로 된 문을 연다. 안쪽에는 지하로 내려가는 어두컴컴한 계단이 있다.
+<br><br>
+
+<<person_ gwa>> <<person3>><<person_ i>> 앞장선다. 퀸은 그림자처럼 뒤를 따른다.
+<br><br>
+
+<<link [[다음|Avery Cards Quinn 8]]>><</link>>
+<br>
+
+
+:: Avery Cards Quinn 8
+<<effects>>
+
+계단은 커다란 스크린 하나가 차지한 방으로 이어진다. 스크린 앞에 의자 하나가 놓여 있다. 덮개는 벽과 마찬가지로 붉은색이다.
+<br><br>
+
+"이거 좀 부끄럽구만," 퀸이 앞으로 걸어가 의자에 손을 얹으며 말한다. "난 말하자면 아마추어 감독일세. 그냥 개인적인 취미지, 내 작품을 대중에게 공개하기엔 너무 쑥스러워서 말이야. 그래도 관객이 한명쯤은 있었으면 해. 부디 앉게나." <<He_ ga>> 의자를 향해 손짓한다.
+<br><br>
+
+<<person2>><<person_ gwa>> <<person3>><<person_ i>> 문의 양쪽에 서 있지만 길을 막고 있지는 않다.
+<br><br>
+
+<<link [[앉는다|Avery Cards Quinn Sit]]>><</link>>
+<br>
+<<link [[어떤 영화를 만드는지 묻는다|Avery Cards Quinn Ask]]>><</link>>
+<br>
+<<if $drugged gte 1>>
+    <span class="pink">안개가 당신의 정신을 흐린다.</span>
+    <br>
+<<else>>
+    <<link [[도망친다|Avery Cards Quinn Run]]>><</link>><<athleticsdifficulty 1 1000>>
+    <br>
+<</if>>
+
+
+:: Avery Cards Quinn Sit
+<<effects>>
+
+당신은 의자에 앉는다. 편하긴 하지만 쿠션이 과할 정도로 푹신하다.
+<br><br>
+
+퀸이 과장된 동작으로 리모컨을 꺼내 스크린을 가리킨다. 짧은 지지직 소리와 함께 화면에 숫자가 나타난다.
+<br>
+"3."
+<br>
+"2."
+<br>
+"1."
+<br><br>
+
+스크린에 <<person4>><<person_ yi>> 모습이 비추어진다. <<He_ nun>> 중세식 감옥처럼 벽돌로 만들어진 작은 방에 서있다. <<He_ nun>> 겁에 질린 얼굴이다. 퀸은 당신과 함께 스크린을 바라보면서, 이따금씩 반응을 살피기라도 하는 듯 당신 쪽을 흘깃댄다.
+<br><br>
+
+<<link [[계속 본다|Avery Cards Quinn Sit 2]]>><</link>>
+<br>
+<<if $drugged gte 1>>
+    <span class="pink">안개가 당신의 정신을 흐린다.</span>
+    <br>
+<<elseif $pain gte 100>>
+    <span class="pink">당신은 도망치기엔 너무 심하게 다쳤다.</span>
+    <br>
+<<elseif $phase is 1>>
+	<span class="red">당신은 이미 도주를 시도했지만 통하지 않았다.</span>
+	<br>
+<<else>>
+    <<link [[도망친다|Avery Cards Quinn Run 2]]>><</link>><<athleticsdifficulty 1 1000>>
+    <br>
+<</if>>
+
+:: Avery Cards Quinn Ask
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+    "정말 기대돼요," 당신이 말한다. "어떤 종류의 영화를 만드세요?"
+<<elseif $speech_attitude is "bratty">>
+    "영화라고 부를 수 있을 만한 걸 만드는 건 맞아요?" 당신이 묻는다.
+<<else>>
+    "어떤 종류의 영화를 만드세요?" 당신이 묻는다.
+<</if>>
+<br><br>
+
+퀸이 웃음을 터뜨린다. "반전의 놀라움을 조금 포기하고 말해 보자면," 퀸이 말한다. "내가 만드는 건 공포 영화일세. 부디 자리에 앉게나."
+<br><br>
+
+<<if $drugged gte 1>>
+    <span class="pink">안개가 당신의 정신을 흐린다.</span>
+    <br>
+<<else>>
+    <<link [[도망친다|Avery Cards Quinn Run]]>><</link>><<athleticsdifficulty 1 1000>>
+    <br>
+<</if>>
+<<link [[앉는다|Avery Cards Quinn Sit]]>><</link>>
+<br>
+
+:: Avery Cards Quinn Run
+<<effects>>
+
+You turn and run.
+<<if $athleticsSuccess>>
+    <<person2>><<person_ gwa>> <<person3>><<person_ i>> 당신을 막아서려 하지만, <span class="green">당신이 그들보다 훨씬 빠르다.</span>
+    <br><br>
+    "쫓아가!" 계단을 뛰어오르는 당신의 뒤에서 퀸이 소리친다. 저택 입구에 다다르자 경보음이 울려퍼지고 저택 안에서 더 많은 발소리가 들려온다.
+    <br><br>
+
+	<<link [[다음|Avery Cards Quinn Escape]]>><</link>>
+	<br>
+<<else>>
+    <<person2>><<person_ gwa>> <<person3>><<person_ i>> <span class="red">문에 다다르기 전 당신을 붙잡는다.</span>
+    <br><br>
+    "이런 이런," 퀸이 말한다. "은혜를 원수로 갚지 말게나. 앉아. 당장."
+    <br><br>
+    탈출하려면 싸워야 할 것이다.
+    <br><br>
+
+    <<link [[싸운다|Avery Cards Quinn Fight]]>><<endevent>><<set $fightstart to 1>><</link>>
+    <br>
+    <<link [[앉는다|Avery Cards Quinn Sit]]>><<set $phase to 1>><</link>>
+    <br>
+<</if>>
+
+:: Avery Cards Quinn Fight
+<<if $fightstart is 1>>
+	<<set $fightstart to 0>>
+	<<neutral 1>>
+	<<npc "Quinn">><<loadNPC 1 "Quinn_guard_1">><<loadNPC 2 "Quinn_guard_2">><<person1>>
+	<<maninit>>
+	<<set $enemytrust -= 100>>
+	<<set $enemyanger += 200>>
+	<<npcidlegenitals>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+
+
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0)>>
+	<span id="next"><<link [[다음|Avery Cards Quinn Fight Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Avery Cards Quinn Fight]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Avery Cards Quinn Fight Finish
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation "short">>
+	퀸이 비틀대며 자신의 의자 위로 넘어지자, 의자의 구속 장치가 작동된다. 경호원들이 황급히 <<person1>><<him_ ul>> 풀어주려 달려간다.
+	<br><br>
+	<<tearful>> 당신은 방에서 탈출한다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Avery Cards Quinn Escape]]>><</link>>
+
+<<elseif $enemyhealth lte 0>>
+	퀸이 비틀대며 자신의 의자 위로 넘어지자, 의자의 구속 장치가 작동된다. 경호원들이 황급히 <<person1>><<him_ ul>> 풀어주려 달려간다.
+	<br><br>
+	<<tearful>> 당신은 방에서 탈출한다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Avery Cards Quinn Escape]]>><</link>>
+
+<<else>>
+	당신은 바닥에 쓰러진다. 계속 싸우기엔 너무 심하게 다쳤다. <<person2>><<person_ gwa>> <<person3>><<person_ i>> 당신을 스크린 앞의 의자로 끌고 간다.
+	<br><br>
+	<<tearful>> 당신은 다가올 일에 마음의 준비를 한다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Avery Cards Quinn Sit]]>><<npc Quinn>><<loadNPC 1 "Quinn_guard_1">><<loadNPC 2 "Quinn_guard_2">><<loadNPC 3 "Quinn_victim">><<person1>><</link>>
+
+<</if>>
+
+
+:: Avery Cards Quinn Fight 2
+<<if $fightstart is 1>>
+	<<set $fightstart to 0>>
+	<<neutral 1>>
+	<<npc "Quinn">><<loadNPC 1 "Quinn_guard_1">><<loadNPC 2 "Quinn_guard_2">><<person1>>
+	<<maninit>>
+	<<set $enemytrust -= 100>>
+	<<set $enemyanger += 200>>
+	<<npcidlegenitals>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+
+
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0)>>
+	<span id="next"><<link [[다음|Avery Cards Quinn Fight 2 Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Avery Cards Quinn Fight 2]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Avery Cards Quinn Fight 2 Finish
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	퀸이 비틀대며 자신의 의자 위로 넘어지자, 의자의 구속 장치가 작동된다. 경호원들이 황급히 <<person1>><<him_ ul>> 풀어주려 달려간다.
+	<br><br>
+	<<tearful>> 당신은 방에서 탈출한다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Avery Cards Quinn Escape]]>><</link>>
+
+<<elseif $enemyhealth lte 0>>
+	퀸이 비틀대며 자신의 의자 위로 넘어지자, 의자의 구속 장치가 작동된다. 경호원들이 황급히 <<person1>><<him_ ul>> 풀어주려 달려간다.
+	<br><br>
+	<<tearful>> 당신은 방에서 탈출한다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Avery Cards Quinn Escape]]>><</link>>
+
+<<else>>
+	당신은 바닥에 쓰러진다. 계속 싸우기엔 너무 심하게 다쳤다. <<person2>><<person_ gwa>> <<person3>><<person_ i>> 당신을 스크린 앞의 의자로 끌고 간다.
+	<br><br>
+	<<tearful>> 당신은 다가올 일에 마음의 준비를 한다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Avery Cards Quinn Sit 2]]>><<npc Quinn>><<loadNPC 1 "Quinn_guard_1">><<loadNPC 2 "Quinn_guard_2">><<loadNPC 3 "Quinn_victim">><<person1>><</link>>
+
+<</if>>
+
+
+:: Avery Cards Quinn Escape
+<<effects>>
+
+<<endevent>>
+<<beastNEWinit 3 dog>>
+당신은 밖으로 뛰어가, 대문으로 이어지는 길을 내달린다. 퀸의 운전기사가 잠시 당신을 바라보다가, 개가 짖는 소리에 차 안으로 숨는다.
+<br><br>
+
+당신은 대문까지 오는 데 성공했지만, 문은 굳게 닫혀 있다. 세 <<beastsplural_ i>> 저택 옆에서 나타나 당신을 향해 달려온다.
+<br><br>
+
+<<link [[싸운다|Avery Cards Quinn Dogs]]>><<set $molestationstart to 1>><</link>>
+<br>
+<<link [[힘으로 문을 연다|Avery Cards Quinn Escape Force]]>><</link>><<physiquedifficulty 10000 16000>>
+<br>
+<<if $physiquesize lte 10000>>
+    <<link [[철봉 사이로 비집고 나간다|Avery Cards Quinn Escape Squeeze]]>><</link>><<small_text>>
+    <br>
+<</if>>
+<<if $wolfgirl gte 6>>
+    <<link [[개들을 위협한다|Avery Cards Quinn Escape Intimidate]]>><</link>><<wolfgirl>>
+    <br>
+<</if>>
+
+:: Avery Cards Quinn Escape Force
+<<effects>>
+
+<<if $physiqueSuccess>>
+    당신은 양쪽 문을 잡고, 가공할 만한 힘을 들여 <span class="green">강제로 열어 젖혀</span> 바깥의 도로로 빠져나갈 만한 틈을 만든다.
+    <br><br>
+
+    당신은 도로를 따라 달리고, <<beastsplural_ un>> 퀸의 건물을 벗어나려다가 목걸이로 전기 충격을 받는다.
+    <br><br>
+
+	<<link [[다음|Danube Street]]>><<endevent>><<avery_cards_end>><</link>>
+	<br>
+<<else>>
+    당신은 양쪽 문을 잡고 강제로 열어 젖히려 했지만 <span class="red">아무런 소용이 없다.</span> 이내 <<beastsplural_ i>> 당신을 따라잡는다.
+    <br><br>
+
+	<<link [[다음|Avery Cards Quinn Dogs]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<</if>>
+
+:: Avery Cards Quinn Escape Squeeze
+<<effects>>
+
+당신은 작은 몸으로 철봉 사이를 비집고 들어가, <<beastsplural_ i>> 다가오기 직전에 탈출하는 데 성공한다.
+<br><br>
+
+당신은 거리를 따라 도망친다. <<beastsplural_ un>> 철봉 사이로 나가기엔 너무 크다.
+<br><br>
+
+<<link [[다음|Danube Street]]>><<endevent>><<avery_cards_end>><</link>>
+<br>
+
+
+:: Avery Cards Quinn Escape Intimidate
+<<effects>>
+
+당신은 뒤로 돌아서 다가오는 <<beastsplural_ ul>> 마주보고, 네 발로 엎드려 험악하게 으르렁거리는 소리를 낸다. 세 마리 모두 가던 길을 멈추고 귀와 꼬리를 내린다. 한번 더 울부짖자 그들은 반대편으로 도망친다.
+<br><br>
+
+<<beastsplural_ un>> 처리했고 인간 추적자들은 저 뒤에 있으니, 문 옆의 스위치를 찾을 시간은 충분하다. 문이 덜컹대며 열리고, 당신은 밖으로 탈출한다.
+<br><br>
+
+<<link [[다음|Danube Street]]>><<endevent>><<avery_cards_end>><</link>>
+<br>
+
+
+:: Avery Cards Quinn Dogs
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<beastCombatInit>>
+	<<beastTrainGenerate>>
+<</if>>
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<beast $enemyno>>
+<br><br>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Avery Cards Quinn Dogs End]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Avery Cards Quinn Dogs]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Avery Cards Quinn Dogs End
+<<effects>>
+<<if $enemyhealth lte 0>>
+	<<beastwound>>
+	<<if $combatTrain.length gt 0>>
+		<<beasttype_ un>> 고통과 공포로 물러서지만, 다른 하나가 달려들 준비를 한다.
+
+		<<combatTrainAdvance>>
+		<br><br>
+		<<link [[다음|Avery Cards Quinn Dogs]]>><</link>>
+	<<else>>
+		<<beasttype_ i>> 고통과 공포로 물러선다.
+		<<combatTrainAdvance>>
+		<br><br>
+		<<link [[다음|Avery Cards Quinn Dogs End]]>><<set $finish to 1>><</link>>
+	<</if>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<<beastejaculation>>
+	<<if $combatTrain.length gt 0>>
+		만족한 <<beasttype_ i>> 다른 하나에게 차례를 넘긴다.
+
+		<<combatTrainAdvance>>
+		<br><br>
+		<<link [[다음|Avery Cards Quinn Dogs]]>><</link>>
+	<<else>>
+		만족한 <<beasttype_ i>> 당신에게서 떨어진다.
+		<<combatTrainAdvance>>
+		<br><br>
+		<<link [[다음|Avery Cards Quinn Dogs End]]>><<set $finish to 1>><</link>>
+	<</if>>
+<<elseif $finish is 1>>
+	<<if $enemywounded is 1 and $enemyejaculated is 0>>
+		<<beasttype_ i>> 낑낑대며 도망친다.
+	<<elseif $enemywounded is 0 and $enemyejaculated is 1>>
+		<<beasttype_ un>> 만족한 채 떠난다.
+	<<elseif $enemywounded gte 2 and $enemyejaculated is 0>>
+		당신을 건드리는 것은 손해가 더 크다고 판단한 짐승은 도망친다.
+	<<elseif $enemywounded is 0 and $enemyejaculated gte 2>>
+		짐승은 힘이 빠진 채 벌벌 떠는 당신을 두고 떠난다.
+	<<elseif $enemywounded gte 1 and $enemyejaculated gte 1>>
+		짐승은 힘이 빠진 채 벌벌 떠는 당신을 두고 떠난다.
+	<</if>>
+	<br><br>
+
+    <<tearful>> 당신은 힘겹게 자리에서 일어선다. 퀸의 경호원들은 이제야 저택에서 나오는 참이다. <<beastsplural_ un>> 처리했으니, 당신은 추적자들이 다가오기 전에 문 옆의 스위치를 찾는 데 성공한다. 당신은 대문을 열고 바깥의 거리로 탈출한다.
+    <br><br>
+    <<clotheson>>
+    <<endcombat>>
+
+	<<link [[다음|Danube Street]]>><<avery_cards_end>><</link>>
+	<br>
+<</if>>
+
+
+:: Avery Cards Quinn Run 2
+<<effects>>
+
+당신은 의자에서 뛰어올라 출구로 달려간다.
+<<if $athleticsSuccess>>
+    <<person2>><<person_ gwa>> <<person3>><<person_ i>> 당신을 막으려 하지만, <span class="green">당신이 훨씬 빠르다.</span>
+    <br><br>
+
+    "쫓아가!" 계단을 뛰어오르는 당신의 뒤에서 퀸이 소리친다. 저택 입구에 다다르자 경보음이 울려퍼지고 저택 안에서 더 많은 발소리가 들려온다.
+    <br><br>
+
+	<<link [[다음|Avery Cards Quinn Escape]]>><</link>>
+	<br>
+<<else>>
+    <<person2>><<person_ gwa>> <<person3>><<person_ i>> 재빠르게 반응해, <span class="red">당신의 앞길을 가로막는다.</span>
+    <br><br>
+
+    "이런 이런," 퀸이 말한다. "내 인내심을 시험하지 말게나. 다시 앉아. 당장."
+    <br><br>
+
+    탈출하려면 싸워야 할 것이다.
+    <br><br>
+
+    <<link [[싸운다|Avery Cards Quinn Fight 2]]>><<endevent>><<set $fightstart to 1>><</link>>
+    <br>
+    <<link [[앉는다|Avery Cards Quinn Sit]]>><<set $phase to 1>><</link>>
+    <br>
+<</if>>
+
+:: Avery Cards Quinn Sit 2
+<<effects>>
+
+<<person4>><<person_ un>> 화면 밖의 무언가를 쳐다보다가, 어두운 형상이 화면을 채우자 공포에 질려 뒷걸음질친다. <<person_ i>> 비명을 지르는 순간 카메라가 돌아간다.
+<br><br>
+
+비명소리에 당신의 몸이 벌떡 일어서지만, 마치 대답이라도 하듯 의자 팔걸이에서 철제 구속구가 나타나 <span class="pink">당신을 속박한다.</span> 퀸이 가까이 다가온다. "튀어오를 정도라니 기쁘군," <<person1>><<he_ ga>> 말한다. "애초에 공포 영화였으니까. 그래도 겁먹을 필요는 없다네. 그냥 영화일 뿐 아닌가."
+<br><br>
+
+카메라가 제자리로 돌아오자, <<person4>><<person_ i>> 공포에 몸을 떨며 바닥에 웅크리고 있는 모습이 비추어진다.<<gtrauma>><<gstress>><<trauma 6>><<stress 6>>
+<br><br>
+
+<<link [[다음 (1:00)|Avery Cards Quinn Sit 3]]>><<pass 60>><</link>>
+<br>
+
+:: Avery Cards Quinn Sit 3
+<<effects>>
+
+다른 장면들이 이어진다. 모두 사람들이 잔인하게 폭행당하는 모습을 담고 있다. 몇 명은 시작부터 바닥이나 기둥에 묶여 있다. 몇 장면에선 인간이 가해자로 나온다. 어떨 땐 가해자가 흐리게 처리되어 있다. 어떨 땐 퀸 본인이 가해자로 등장한다.<<gtrauma>><<gstress>><<trauma 6>><<stress 6>>
+<br><br>
+<<set $quinn_movies_known to 1>>
+마지막 비명소리와 함께 영화는 갑작스레 끝을 맺는다. 그 자리를 대신해 나타난 단 하나의 <span class="purple">보라색 눈</span>이 당신을 꿰뚫어본다. 울부짖는 소리가 들리지만, 스피커에서 나는 소리가 아니다. 방의 나머지 부분은 당신의 의식 속에서 사라진다. 오직 눈밖에 보이지 않는다.
+<br><br>
+
+<<if $drugged gte 1>>
+    퀸이 음료를 건넸을 때부터 당신의 음부를 휘감고 있던 온기가 <span class="pink">갑작스레 살아 움직이며,</span> 당신의 팔다리를 타고 척추로 기어가 당신을 압도하려 한다.
+    <br><br>
+
+    <<link [[눈을 감는다|Avery Cards Quinn Sit Close]]>><</link>><<willpowerdifficulty 800 2000>>
+    <br>
+<<else>>
+    <<link [[눈을 감는다|Avery Cards Quinn Sit Close]]>><</link>><<willpowerdifficulty 400 1000>>
+    <br>
+<</if>>
+<<link [[마주본다 (0:30)|Avery Cards Quinn Stare]]>><<pass 30>><</link>><<gtrauma>><<gstress>><<ggwillpower>>
+<br>
+
+
+:: Avery Cards Quinn Sit Close
+<<effects>>
+
+<<if $willpowerSuccess>>
+    당신의 근육이 잠시 말을 듣지 않지만, <span class="green">이내 눈이 확 감겨</span> 눈 앞의 존재와의 눈맞춤을 차단한다. 오직 보라빛 기운만이 남는다.
+    <br><br>
+    "제기랄," 퀸이 말한다. "이 녀석의 눈꺼풀을 고정시켜!"
+    <br>
+    잠시 침묵이 이어진다. "의자로 그런 건 못합니다," <<person2>><<personsimple_ yi>> 목소리가 대답한다.
+    <br><br>
+    언쟁이 발발한다. 말다툼은 보라색 빛이 사라질 때까지도 이어진다. 당신은 눈을 뜨고 빈 화면을 마주한다.
+    <br><br>
+    <<link [[다음|Avery Cards Quinn End]]>><</link>>
+    <br>
+<<else>>
+    당신은 눈을 감으려 애쓰지만, <span class="red">아무 일도 생기지 않는다.</span> 당신의 근육이 말을 듣지 않는다.<<gtrauma>><<ggstress>><<gwillpower>><<stress 6>>
+    <br><br>
+
+	<<link [[다음 (0:30)|Avery Cards Quinn Stare]]>><<pass 30>><</link>>
+	<br>
+<</if>>
+
+
+:: Avery Cards Quinn Stare
+<<set $outside to 1>><<set $bus to "elk">><<set $location to "landfill">><<effects>>
+
+보라색 눈이 당신을 꿰뚫어보며, 당신의 의식을 빛으로 가득 채운다. 낯선 목소리가 당신의 귀에 불가해한 무언을 속삭인다. 낯선 색이 당신을 휘감고 공중으로 들어올려 한 곳에서 다른 곳으로 옮긴다.
+<<willpower 6>><<trauma 6>><<stress 6>>
+<br><br>
+당신은 하늘에 시선을 향한 채 몽롱한 상태로 정신을 차린다. 옷은 사라졌고, 점액이 당신의 몸을 덮고 있다. 당신은 주위를 둘러본다. 쓰레기가 머리 위로 산더미처럼 쌓여 있다. 이곳은 쓰레기 매립지다.
+<br><br>
+<<clothesruined>>
+<<outergoo>>
+<<tearful>> 당신은 자리에서 일어나 주위를 두리번거린다. 나가는 길이 보이지 않는다. 어디를 보아도 쓰레기 뿐이다. 근처 어딘가에서 중장비가 돌아가는 소리가 들린다.
+<br><br>
+
+<<set $trash to 50>>
+
+<<link [[다음|Trash]]>><<endevent>><<avery_cards_end>><</link>>
+
+:: Avery Cards Quinn End
+<<effects>>
+
+구속구가 열려 당신을 풀어준다.
+<br><br>
+"당장 교체가 필요하다고 전하게," 퀸이 말한다. <<person1>><<He_ nun>> 당신을 눈치채고는 잠시 말을 멈추고 옷매무새를 가다듬는다. "이 기아를 부지 밖으로 호송하게. 그리고 마실 것 한 잔 가져오고."
+<br><br>
+<<person3>><<person_ i>> 계단을 올라 당신을 저택의 정문으로 안내한다. <<loadNPC 4 "Quinn_driver">><<person5>><<person_ i>> 차 옆에서 기다리고 있다. <<He_ nun>> 당신을 보고 조수석 문들 중 하나를 연다.
+<br><br>
+
+<<if $avery_mansion>>
+	<<He_ nun>> 당신을 에이버리의 저택까지 태우고 가서, 정문 앞에 차를 세운다. "시장님이 바라던 대로 되지 않아서 다행입니다," 가던 길에 <<person5>><<he_ i>> 말한다. "시트를 치우는 게 꽤나 고역이거든요."
+	<br><br>
+	<<He_ nun>> 당신이 저택 정문을 통과할 때까지 차를 세운 채 대기한다.
+	<br><br>
+	<<link [[다음|Mansion Garden]]>><<endevent>><<avery_cards_end>><</link>>
+	<br>
+<<else>>
+	<<He_ nun>> 당신을 고아원까지 태우고 간다. "시장님이 바라던 대로 되지 않아서 다행입니다," 가던 길에 <<person5>><<he_ i>> 말한다. "시트를 치우는 게 꽤나 고역이거든요."
+	<br><br>
+	<<He_ nun>> 당신을 고아원 밖에 내려준다.
+	<br><br>
+
+	<<link [[다음|Domus Street]]>><<endevent>><<avery_cards_end>><</link>>
+	<br>
+<</if>>

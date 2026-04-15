@@ -1,0 +1,827 @@
+:: Leighton Private
+<<set $outside to 0>><<effects>>
+	<<endevent>>
+	<<npc Leighton>><<person1>>
+	당신은 레이턴을 무대 뒤로 이끈다. 빈 방을 찾던 중 그가가 당신의 팔을 잡는다. "이쪽 방이다." 그가 닫힌 문을 가리키며 말한다. 당신은 문을 연다.
+	<<endevent>>
+	<<beastNEWinit 1 dog>>
+	<<promiscuity3>>
+<<if $headblackmailed is 1 and $rng gte 61 and ($monster is 1 or $settings.bestialityEnabled)>><!-- Modified for Monster People -->
+	구석에 삼각대 카메라가 서 있다. 그 옆에는 개 한 마리가 벽에 쇠사슬로 묶여 앉아 있다. 그가 으르렁거린다. 그는 완전히 벌거벗었지만, 개의치 않는 듯하다. "날 놔줘! 나도 재밌게 놀고 싶어!"<</if>>
+	<br><br>
+
+	레이턴이 자리에 앉아 체인을 꽉 잡는다. 근처 테이블 위에는 빈 잔이 놓여 있고, 그 옆에는 와인 한 병이 열려 있다. "좋아." 교장이 말한다. "준비되면 언제든."
+	<br><br>
+
+	<<if hasSexStat("deviancy", 4)>>
+	<<link [[공연한다|Leighton Club Blackmail Beast]]>><</link>><<deviant4>>
+	<br>
+	<</if>>
+	<<link [[거절한다|Leighton Club Blackmail Beast Refuse]]>><</link>>
+	<br>
+
+<<elseif $headblackmailed is 1 and $rng gte 21>>
+	<<endevent>><<generatey1>><<generatey2>><<person1>>
+	이미 누군가 눈을 바닥에 고정시킨 채 소파에 앉아 있다. 그가 고개를 든다. 당신이 학교에서 본 적 있는 소년이다. 다른 <<person2>>소년이 그 옆에 앉아 벽을 바라보고 있다. 구석에는 삼각대 카메라가 놓여 있다.
+	<br><br>
+
+	레이턴은 자리에 앉아 한쪽 다리를 다른 쪽 다리 위에 올려놓는다. 근처 테이블 위에는 빈 잔이 놓여 있고, 그 옆에는 와인 한 병이 열려 있다. "좋아." 교장이 말한다. "준비되면 언제든."
+	<br><br>
+
+	<<link [[공연한다|Leighton Club Blackmail]]>><</link>>
+	<br>
+	<<link [[거절한다|Leighton Club Blackmail Refuse]]>><</link>>
+	<br>
+
+<<else>>
+	<<endevent>><<generatey1>><<person1>>
+	이미 누군가 눈을 바닥에 고정시킨 채 소파에 앉아 있다. 그가 고개를 든다. 당신이 학교에서 본 적 있는 소년이다.
+	<br><br>
+
+	레이턴은 자리에 앉아 한쪽 다리를 다른 쪽 다리 위에 올려놓는다. 근처 테이블 위에는 빈 잔이 놓여 있고, 그 옆에는 와인 한 병이 열려 있다. "좋아." 교장이 말한다. "준비되면 언제든."
+	<br><br>
+
+	<<link [[공연한다|Leighton Private 2]]>><</link>>
+	<br>
+		<<if hasSexStat("promiscuity", 4)>>
+		<<link [[레이턴에게 함께 할 것을 제안한다|Leighton Private 2 Join]]>><<promiscuous4>><</link>>
+		<br>
+		<</if>>
+	<<link [[거절한다|Leighton Private 2 Refuse]]>><</link>>
+	<br>
+<</if>>
+
+:: Leighton Club Blackmail
+<<set $outside to 0>><<effects>>
+
+당신은 끄덕인다. 소년들이 일어나자 레이턴이 카메라로 손을 뻗는다.
+<br><br>
+
+<<link [[다음|Leighton Club Blackmail Sex]]>><<set $sexstart to 1>><</link>>
+
+:: Leighton Club Blackmail Sex
+
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemytrust += 100>>
+<</if>>
+
+<<effects>>
+
+레이턴은 무표정으로 지켜보며 가끔 와인을 홀짝인다.
+<br><br>
+
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Leighton Club Blackmail Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Leighton Club Blackmail Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Leighton Club Blackmail Sex Finish
+<<set $outside to 0>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>>
+
+"학교에서 보자." 레이턴이 카메라를 집어 들고 테이블에 지폐 몇 장을 떨어뜨리며 말한다. <<tearful>> 당신은 돈을 센다. 당신은 <<printmoney 7000>><<money 7000 "prostitution">>를 얻었다.
+<br><br>
+<<fameprostitution 30 "vid">><<set $prostitutionstat += 1>>
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+<<elseif $enemyhealth lte 0>>
+
+<<person2>>소년은 고통스러워하며 바닥에 쓰러진다. <<tearful>> 당신은 기회를 잡아 방에서 도망친다.
+<br><br>
+<<famescrap 30 "vid">>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+<<else>>
+<<person1>>그가 당신에게서 물러난다. 레이턴은 혀를 차며 카메라를 집어 들고 아무 말 없이 떠난다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+<</if>>
+
+:: Leighton Club Blackmail Refuse
+<<set $outside to 0>><<effects>>
+
+당신은 거절한다. 레이턴은 한숨을 쉬며 두 사람에게 고개를 끄덕인다. 두 사람은 당신의 팔을 잡는다. "미안해," <<person2>>그가 속삭인다. 레이턴이 카메라를 켠다.
+<br><br>
+
+<<link [[다음|Leighton Club Blackmail Refuse Sex]]>><<set $molestationstart to 1>><</link>>
+
+:: Leighton Club Blackmail Refuse Sex
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+<</if>>
+
+<<effects>>
+
+레이턴은 무표정으로 지켜보며 가끔 와인을 홀짝인다.
+<br><br>
+
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Leighton Club Blackmail Refuse Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Leighton Club Blackmail Refuse Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Leighton Club Blackmail Refuse Sex Finish
+<<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>>
+
+"학교에서 보자." 레이턴이 카메라를 집어 들고 테이블에 지폐 몇 장을 떨어뜨리며 말한다. <<tearful>> 당신은 돈을 센다. 당신은 <<printmoney 3000>><<money 3000 "prostitution">>를 얻었다.
+<br><br>
+<<famerape 30 "vid">><<set $forcedprostitutionstat += 1>><<fameprostitution 30 "vid">>
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+<<else>>
+
+<<person2>>소년은 고통스러워하며 바닥에 쓰러진다. <<tearful>> 당신은 기회를 잡아 방에서 도망친다.
+<br><br>
+<<famescrap 30 "vid">>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+<</if>>
+
+:: Leighton Club Blackmail Beast
+<<effects>>
+당신은 끄덕이고, 개 앞에서 짝짓기 자세를 취한다.<<deviancy4>>
+
+<<link [[다음|Leighton Club Blackmail Beast Sex]]>><<set $sexstart to 1>><</link>>
+
+:: Leighton Club Blackmail Beast Sex
+
+<<if $sexstart is 1>>
+<<set $sexstart to 0>>
+<<consensual>>
+<<set $consensual to 1>>
+<<neutral 1>>
+	<<beastCombatInit>>
+
+<</if>>
+
+<<effects>>
+
+레이턴은 무표정으로 지켜보며 가끔 와인을 홀짝인다.
+<br><br>
+
+<<effectsman>>
+<br>
+<<beast $enemyno>>
+<br><br>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Leighton Club Blackmail Beast Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Leighton Club Blackmail Beast Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Leighton Club Blackmail Beast Sex Finish
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<beastejaculation>>
+"학교에서 보자." 레이턴이 카메라를 집어 들고 테이블에 지폐 몇 장을 떨어뜨리며 말한다. <<tearful>> 당신은 돈을 센다. 당신은 <<printmoney 10000>><<money 10000 "prostitution">>를 얻었다.
+<br><br>
+<<if $monster is 1>>
+	"놀아줘서 고마워," 개가 갑작스레 말한다. "여기는 더러운 사람들이 정말 많이 오는데, 그래도 넌 재밌는 사람이야. 난 네가 좋아."
+<</if>>
+<<fameprostitution 30 "vid">><<famebestiality 30 "vid">><<set $prostitutionstat += 1>>
+
+<<elseif $enemyhealth lte 0>>
+개가 울며 레이턴 뒤로 숨는다 . <<if $monster is 1>>"나 쟤 싫어!"<</if>> <<tearful>> 당신은 기회를 잡아 방에서 도망친다.
+<br><br>
+<<famescrap 30 "vid">>
+
+<<else>>
+
+개가 당신에게서 물러난다. 레이턴은 혀를 차며 카메라를 집어 들고 아무 말 없이 떠난다.
+<br><br>
+
+<</if>>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+:: Leighton Club Blackmail Beast Refuse
+<<effects>>
+당신은 거절한다. 레이턴이 웃는다. "그러기엔 너무 늦었어," 그가 말한다. 그는 벽에서 사슬을 풀어낸다. 개는 그가 카메라를 켜는 동안 당신을 경계한다.
+<br><br>
+<<link [[다음|Leighton Club Blackmail Beast Refuse Sex]]>><<set $molestationstart to 1>><</link>>
+
+:: Leighton Club Blackmail Beast Refuse Sex
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<beastCombatInit>>
+	<<set $NPCList[0].stance to "top">>
+	<br><br>
+<</if>>
+
+<<effects>>
+
+레이턴은 무표정으로 지켜보며 가끔 와인을 홀짝인다.
+<br><br>
+
+<<effectsman>>
+<br><br>
+<<beast $enemyno>>
+<br><br>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Leighton Club Blackmail Beast Refuse Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Leighton Club Blackmail Beast Refuse Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Leighton Club Blackmail Beast Refuse Sex Finish
+<<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+
+<<beastejaculation>>
+
+"그 자세가 잘 어울리는군." 레이턴이 카메라를 집어 들고 테이블 위에 지폐 몇 장을 떨어뜨리며 말한다. "학교에서 보자." <<tearful>> 당신은 돈을 센다. 당신은 <<printmoney 10000>><<money 10000 "prostitution">>를 얻었다.
+<br><br>
+<<famebestiality 30 "vid">><<famerape 30 "vid">><<set $forcedprostitutionstat += 1>><<fameprostitution 30 "vid">>
+
+<<else>>
+
+개가 울며 레이턴 뒤로 숨는다. <<if $monster is 1>>"나 쟤 싫어!"<</if>> <<tearful>> 당신은 기회를 잡아 방에서 도망친다.
+<br><br>
+<<famescrap 30 "vid">>
+<br><br>
+
+<</if>>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+:: Leighton Private 2
+<<effects>>
+레이턴이 카메라로 다가가고, 소년이 당신에게 다가온다.
+<br><br>
+
+<<link [[다음|Leighton Private 2 Sex]]>><<set $sexstart to 1>><</link>>
+
+:: Leighton Private 2 Sex
+
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemytrust += 100>>
+<</if>>
+
+<<effects>>
+
+레이턴은 무표정으로 지켜보며 가끔 와인을 홀짝인다.
+<br><br>
+
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Leighton Private 2 Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Leighton Private 2 Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Leighton Private 2 Sex Finish
+
+<<set $outside to 0>><<effects>>
+
+<<if $finish is 1>>
+<<person1>>그가 당신에게서 물러난다. 레이턴은 혀를 차며 아무 말 없이 떠난다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>><<fameprostitution 2>><<set $prostitutionstat += 1>>
+
+"소질있네." 레이턴이 지폐 몇 장과 잔을 테이블 위에 올려놓으며 말한다. "학교에서 보자." <<tearful>> 당신은 돈을 센다. 당신은 <<printmoney 8000>><<money 8000 "prostitution">>를 얻었다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+<<else>>
+
+<<person1>>그가 고통스러워하며 바닥에 쓰러진다. <<tearful>> 당신은 방에서 달려나간다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+<</if>>
+
+:: Leighton Private 2 Join
+<<effects>>
+
+<<set $seductiondifficulty to 6000>>
+<<seductioncheck>>
+
+<<promiscuity3>>
+
+<<if $seductionrating gte $seductionrequired>>
+"그래서 그냥 보고만 계시게요?" 당신은 소년의 옆에 앉아 말한다.
+<br>
+"기회를 놓칠 텐데요," 당신은 그의 가슴에 손을 뻗으며 말한다.
+<br>
+"아름답고," 당신은 그의 주무르기 시작한다.
+<br>
+"호기심 많은," 당신은 손을 아래로 뻗는다.
+<br>
+"두 명의," 당신은 손가락을 그의 배 아래로 내린다.
+<br>
+"학생에게," 당신은 손가락을 더 아래로 미끄러트린다.
+<br>
+"사랑하는 법을," 당신이 그의 사타구니에 손을 뻗자 그가 신음한다.
+<br>
+"가르쳐 주실 기회예요," 당신이 말을 마치자, 그가 당신을 끌어당겨 키스한다. <<takeKissVirginity $NPCList[0] "consensual">>
+<br><br>
+
+레이턴이 미소 짓는다. “내가 직접 가르치지 않는다면 내 입장이 모욕당하는 셈이지. 좋아, 그렇게 하지.” 교장은 소년 앞에 무릎을 꿇고, <<if $NPCList[0].penis isnot "none">>그의 페니스를 <<endevent>><<npc Leighton>><<person1>>그의 입에 머금는다.<<else>> 그녀의 질을 핥기 시작한다.<<endevent>><<npc Leighton>><<person1>><</if>> 그는 당신의 팔을 잡고 더 가까이 끌어당긴다.
+<<set $leightonseduce to true>>
+<br><br>
+<<link [[다음|Leighton Private 2 Join Sex]]>><<set $sexstart to 1>><</link>>
+<<else>>
+"같이 안 하실래요?" 당신은 소년의 옆에 앉아 말한다. "우리만 재미 보는 건 좀 불공평한 것 같은데."
+<br><br>
+
+레이턴은 소년이 당신을 끌어당겨 키스하자 잠시 멈췄다가 미소를 짓는다. 교장은 <<if C.npc.Leighton.pronoun is "m">>바지를 내려 그의 <<else>>치마를 들어올려 그녀의<</if>> <<if C.npc.Leighton.gender is "m">>발기한 페니스를 드러낸다.<<else>>질을 드러낸다.<</if>>
+<br><br>
+<<link [[다음|Leighton Private 2 Join Sex 2]]>><<set $sexstart to 1>><</link>>
+<</if>>
+
+:: Leighton Private 2 Join Sex
+
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemytrust += 100>>
+	<<set $NPCList[0].mouth to "none">>
+<</if>>
+
+레이턴은 계속해서 다른 학생의 성기를 입으로 봉사하는 한편, 그의 관심을 당신에게 집중한다.
+<br><br>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Leighton Private 2 Join Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Leighton Private 2 Join Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Leighton Private 2 Join Sex Finish
+
+<<set $outside to 0>><<effects>>
+
+<<if $finish is 1>>
+
+"실망이구나," 레이턴이 그의 주머니에서 돈을 꺼내며 말한다. <<tearful>> 당신은 그가 방을 떠나자 돈을 센다. 당신은 <<printmoney 8500>><<money 8500 "prostitution">>를 얻었다.
+<br><br>
+
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>><<set $prostitutionstat += 1>><<fameprostitution 2>>
+
+그 학생은 레이턴의 얼굴에 경련을 일으키더니 의자에 털썩 쓰러진다. "알아들을 수 있는 수업이었기를 바란다." 그가가 주머니에서 손수건을 꺼내 입을 닦으며 말한다. 그는 나가면서 당신 위에 지폐 몇 장을 떨어뜨린다. <<tearful>> 당신은 돈을 센다. 당신은 <<printmoney 12000>><<money 12000 "prostitution">>를 얻었다.
+<br><br>
+
+<<else>>
+
+당신은 레이턴을 밀친다. <<tearful>> 당신은 방에서 달려나간다.
+<br><br>
+
+<</if>>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+:: Leighton Private 2 Join Sex 2
+
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemytrust += 100>>
+<</if>>
+
+<<effects>>
+
+레이턴은 당신의 공연을 보며 자신을 쓰다듬는다. 
+<br><br>
+
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Leighton Private 2 Join Sex Finish 2]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Leighton Private 2 Join Sex 2]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Leighton Private 2 Join Sex Finish 2
+<<set $outside to 0>><<effects>>
+
+<<if $finish is 1>>
+
+"날 완전히 흥분시켜놓고는 그냥 멈추는 거야?" 레이턴이 실망한 채 명료하게 말한다. "꺼져."
+<br><br>
+
+<<tearful>> 당신은 방에서 나간다.
+<br><br>
+
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>><<set $prostitutionstat += 1>><<fameprostitution 2>>
+
+<<if C.npc.Leighton.gender is "m">>
+레이턴은 일어나 소년의 얼굴에 사정한다. "닦아라," 잠시 후 그가 말하며 소년 위에 손수건을 떨어뜨리고, 나가면서 당신 위에 지폐 몇 장을 남긴다. <<tearful>> 당신은 돈을 센다. 당신은 <<printmoney 8500>><<money 8500 "prostitution">>를 얻었다.
+<br><br>
+<<else>>
+레이턴은 눈을 감고 경련하더니, 일어나서 소년의 머리채를 잡는다. 그는 손가락을 소년의 입에 하나씩 밀어넣어 깨끗하게 빨아들이도록 한다. 그는 나가면서 당신 위에 지폐 몇 장을 남긴다. <<tearful>> 당신은 돈을 센다. 당신은 <<printmoney 8500>><<money 8500 "prostitution">>를 얻었다.
+<br><br>
+<</if>>
+
+<br><br>
+
+<<else>>
+
+당신은 소년을 밀친다. <<tearful>> 당신은 방에서 빠져나간다.
+<br><br>
+
+<</if>>
+
+<<clotheson>>
+<<endcombat>>
+<<unset $leightonseduce>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+:: Leighton Private 2 Refuse
+<<set $outside to 0>><<effects>>
+
+<<person1>>소년은 당신에게 실망한 눈빛을 보낸다. "좋지 않아," 레이턴이 얼굴을 찌푸린다. 교장이 문을 가리키고, 당신은 클럽으로 돌아간다.
+<br><br>
+<<endevent>>
+<<link [[다음|Brothel]]>><</link>>
+
+:: Leighton Club Ignore
+<<set $outside to 0>><<effects>>
+<<npc Leighton>><<person1>><<generate2>><<generate3>>
+분장실은 텅 비어 있다. 한 남자가 등을 돌린 채 의상 진열대를 살펴보고 있다. 레이턴이다.
+<br><br>
+
+<<link [[Confront|Leighton Club Confront]]>><</link>>
+<br>
+<<link [[숨는다 (0:03)|Leighton Club Hide]]>><</link>><<small_text>>
+<br>
+
+:: Leighton Club Confront
+<<set $outside to 0>><<effects>>
+당신은 서 있기로 결심한다. 레이턴이 돌아선다. "그렇게 겁먹을 필요 없어." 그가 미소를 지으며 말한다. "사람들 사이에서 날 못 봤나? 아니면 부끄러워서 그런가? 내가 쉽게 설명해 주지." 그가 카메라를 꺼낸다. "옷 입히기 놀이 어때? 말 잘 들으면 돈 좀 쥐여서 보내줄게." 그가 잠시 말을 멈춘다. "그리고 네 존엄성도."
+<br><br>
+
+<<link [[승낙한다 (1:00)|Club Cosplay]]>><<pass 60>><</link>>
+<br>
+<<link [[거절한다|Club Cosplay Rape]]>><</link>>
+<br>
+
+:: Leighton Club Hide
+<<set $outside to 0>><<effects>>
+<<if $rng gte 31 and $physiquesize lte 6000 or $rng gte 41 and $physiquesize lte 10000 or $rng gte 51 and $physiquesize lte 12000 or $rng gte 61>>
+그가 돌아서기 직전, 당신은 옷장에 숨는다. 당신은 틈으로 살짝 엿본다. "다 들렸어." 레이턴이 방을 훑어보며 말한다. "겁먹을 필요 없어."
+<br><br>
+
+발소리가 들린다. "뒤로 달려나갔나본데," <<person2>>다른 누군가의 목소리가 말한다.
+<br><br>
+
+"그럼 이미 다른 사람한테 붙잡혔겠네." 세 번째 목소리가 말한다.
+<br><br>
+
+레이턴이 시야에서 사라지고, <span class="green">문이 닫히는 소리가 들린다.</span> 당신은 몇 분간 기다린 후, 숨어 있던 곳에서 나온다.
+<br><br>
+
+<<endevent>>
+
+<<link [[떠난다|Brothel Dressing Room]]>><<pass 3>><</link>>
+<br>
+<<else>>
+
+그가 돌아서기 직전, 당신은 옷장에 숨는다. 당신은 틈으로 살짝 엿본다. "다 들렸어." 레이턴이 방을 훑어보며 말한다. "겁먹을 필요 없어."
+<br><br>
+<<endevent>><<generate1>><<generate2>><<person1>>
+발소리가 들리고, 그가 시야에 들어온다. "뒤로 달려나갔나본데," 그가 말한다.
+<br><br>
+
+경고없이, <span class="red">옷장 문이 활짝 열리고</span>, 웃고 있는 <<person2>>남자가 나타난다. "잡았다," 그가 당신의 어깨를 움켜쥐며 말한다. 그는 당신을 레이턴 앞으로 밀친다. <<person1>>그가 카메라를 설치하는 모습이 언뜻 보인다. 레이턴은 실망한 듯 고개를 젓고, 두 사람에게 고개를 끄덕인다.
+<br><br>
+
+<<link [[다음|Leighton Club Caught]]>><<set $molestationstart to 1>><</link>>
+<br>
+<</if>>
+
+:: Leighton Club Caught
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Leighton Club Caught Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Leighton Club Caught ]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Leighton Club Caught Finish
+<<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>>
+
+그들은 만족스러워하며 옷을 고쳐입는다. <<endevent>><<npc Leighton>><<person1>>레이턴이 미소를 지으며 카메라를 향해 걸어간다. "재밌게 보지," 그가 당신에게 동전을 던지며 말한다. 당신은 <<printmoney 3000>><<money 3000 "prostitution">>를 얻었다.
+<br><br>
+
+<<tearful>> 당신은 레이턴과 그의 친구들이 방을 떠나는 것을 지켜본다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+<<else>>
+
+그들이 당신에게 기회를 주며 물러난다. <<tearful>> 당신은 방에서 뛰쳐나간다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+<</if>>
+
+:: Club Cosplay
+<<set $outside to 0>><<effects>>
+
+"이해관계가 맞으니 좋군." 레이턴이 옷걸이를 뒤지며 말한다. 당신은 한 시간 동안 멋진 옷을 입고 멋진 포즈를 취했고, 레이턴이 모든 각도에서 꼼꼼하게 사진을 찍었다. 촬영 사이에 커튼 뒤에서 옷을 갈아입는 건 허락해 주지만, 어떤 옷들은 몸을 거의 가리지 않는다.
+
+<<if $player.gender_appearance is "f">>
+	<<if $rng gte 81>>
+	가장 과감한 것은 마이크로비키니다.
+	<<elseif $rng gte 61>>
+	가장 과감한 것은 가슴 부분이 너무 낮게 파여 있어 유륜이 살짝 보이는 작은 빨간색 드레스다.
+	<<elseif $rng gte 41>>
+	가장 과감한 것은 몸에 꼭 맞아 모든 윤곽이 드러나는 레오타드다.
+	<<elseif $rng gte 21>>
+	가장 과감한 것은 아주 짧은 치마인데, 카메라가 치마 밑을 비출까봐 걱정될 정도로 짧다.
+	<<else>>
+	가장 과감한 것은 아무 것도 걸치지 않은 오버사이즈 셔츠다. 허벅지까지 내려오지만, 셔츠 아랫부분을 더 당겨서 질이 보이지 않도록 해야 한다. 안타깝게도 이렇게 하면 <<breasts>> 위로 원단이 늘어나 몸에 꽉 낀다.
+	<</if>>
+<<else>>
+	<<if $rng gte 76>>
+	가장 과감한 것은 작은 수영복인데, 질에 딱 달라붙어 알몸보다 나을지 의문이 들 정도다.
+	<<elseif $rng gte 51>>
+	가장 과감한 것은 작은 샅바인데, 카메라가 치마 밑을 비출까봐 걱정될 정도로 짧다.
+	<<elseif $rng gte 26>>
+	가장 과감한 것은 몸에 꼭 맞아 모든 윤곽이 드러나는 레오타드다.
+	<<else>>
+	가장 과감한 것은 아무 것도 걸치지 않은 오버사이즈 셔츠다. 허벅지까지 내려오지만, 셔츠 아랫부분을 더 당겨서 질이 보이지 않도록 해야 한다. 안타깝게도 이렇게 하면 <<breasts>> 위로 원단이 늘어나 몸에 꽉 낀다.
+	<</if>>
+<</if>>
+
+<br><br>
+
+"그래도 잘 하는게 있긴 하네," 그가 당신이 옷을 갈아입으러 가기 전에 돈을 쥐어주며 말한다. <<tearful>> 당신은 돈을 센다. 당신은 <<printmoney 7500>><<money 7500 "prostitution">>를 얻었다.
+<br><br>
+
+<<clotheson>>
+<<endevent>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+:: Club Cosplay Rape
+<<set $outside to 0>><<effects>>
+
+"질문이 아니야." 레이턴이 이번엔 큰 소리로 말한다.
+
+<<endevent>><<generate1>><<generate2>><<person1>>
+
+남자들이 문을 닫고 들어온다. "네 자리를 잊었구나." 레이턴이 말을 이었다. "수업 시간이야." 두 사람은 한 걸음 더 다가와 당신의 팔을 잡는다. 레이턴은 미소를 지으며 카메라를 꺼낸다.
+<br><br>
+
+<<link [[다음|Club Cosplay Rape 2]]>><<set $molestationstart to 1>><</link>>
+
+:: Club Cosplay Rape 2
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+	<<hand_gag 0 left>>
+	<<enable_rescue>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Club Cosplay Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Club Cosplay Rape 2]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Club Cosplay Rape Finish
+<<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>>
+<<endevent>><<npc Leighton>><<person1>>
+"잘 알아들었길 바란다," 레이턴이 땅에 지폐 몇 장을 떨어트리며 말한다. "두 번 가르치는 건 질색이라," 그는 웃으며 친구들과 함께 방에서 나간다.
+<br><br>
+
+<<tearful>> 당신은 돈을 센다. 당신은 <<printmoney 3000>><<money 3000 "prostitution">>를 얻었다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+<<else>>
+
+깡패들이 당신에게서 물러선다. <<tearful>> 당신은 기회를 잡고 방에서 탈출한다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Brothel]]>><</link>>
+
+<</if>>
+
+:: Brothel Leighton Sit
+<<effects>>
+
+당신은 레이턴 옆에 앉고, 그는 당신의 어깨에 팔을 얹는다.
+<br><br>
+
+<<link [[귀엽게 행동한다|Brothel Leighton Cute]]>><</link>>
+<br>
+<<link [[냉담하게 행동한다|Brothel Leighton Aloof]]>><</link>>
+<br>
+
+:: Brothel Leighton Cute
+<<effects>>
+
+당신은 그가 댄서 중 누구와 섹스하고 싶은지 이야기하는 동안 레이턴의 어깨에 기댄다. 당신은 미소를 지으며 흥미로워 하는 듯한 소리를 낸다. 그는 만족한 눈치다.
+<br><br>
+
+"소질있네." 그가 말한다. "돈 내는 걸 깜빡할 뻔 했어." 그는 흔들던 지폐를 당신 앞 탁자 위에 내려놓고, 군중 속으로 사라진다.
+<br><br>
+
+당신은 <<printmoney 7500>><<money 7500 "prostitution">>를 얻었다.
+<br><br>
+
+<<endevent>>
+<<link [[다음|Brothel]]>><</link>>
+<br>
+
+:: Brothel Leighton Aloof
+<<effects>>
+
+당신은 팔짱을 끼고 레이턴에게서 시선을 돌린다. 그는 이야기를 나누려고 하지만, 당신은 무관심하게 중얼거리듯 답한다. 그는 흥미로워 보인다.
+<br><br>
+
+"차갑긴," 그가 말한다. "아니면 그냥 수줍은 건가?" 그는 흔들던 지폐를 당신 앞 탁자 위에 내려놓고, 군중 속으로 사라진다.
+<br><br>
+
+당신은 <<printmoney 7500>><<money 7500 "prostitution">>를 얻었다.
+<br><br>
+
+<<endevent>>
+<<link [[다음|Brothel]]>><</link>>
+<br>
+
+:: Brothel Leighton Angry
+
+<<effects>>
+"선생님이시잖아요." 당신은 말한다. "이렇게 행동하시면 안 돼요."
+<br><br>
+레이턴은 웃으며 지폐를 다시 주머니에 집어넣는다. "마음대로 해." 그는 댄서 중 한 명을 향해 돌아서며 말했다.
+<br><br>
+<<endevent>>
+<<link [[다음|Brothel]]>><</link>>
+<br>
+
+:: Brothel Leighton Refuse
+
+<<effects>>
+당신은 돌아서서 걸어간다. 레이턴이 무슨 말을 하더라도, 소음 속에 묻혀 버릴 것이다.
+<br><br>
+<<endevent>>
+<<link [[다음|Brothel]]>><</link>>
+<br>

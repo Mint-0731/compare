@@ -1,0 +1,680 @@
+:: Service Naked
+
+<<set $outside to 0>><<effects>>
+<<generate1>><<person1>>
+<<flaunting>> 당신은 편의점으로 다가간다. 당신은 심호흡을 하고, 자동문을 통과해 안으로 내딛는다.
+<<exhibitionism4>>
+<<if $rng gte 51>>
+	<<generate2>>
+	한 <<person1>>남자가 계산대에서 잡지를 읽고 있다. 그는 당신이 들어오는데 쳐다보지도 않는다.
+	<br><br>
+	당신은 진열대 사이의 통로를 돌아다니며, 사탕을 찾는다. 당신이 그것을 찾았을 때 당신은 문이 열리는 소리를 듣는다. 다른 누군가가 편의점 안에 있다.
+	<<garousal>><<arousal 600>>
+	<br><br>
+	당신이 새로 들어온 사람을 찾을 수 있을 지 확신하지 못하며, 당신은 통로 끝까지 걸어가, 모퉁이를 훔쳐본다. 당신은 뒤에서 쿵 하는 소리를 듣는다. 한 <<person2>>남자가 거기 서 있고, 그의 장바구니가 그 옆의 바닥에 떨어져 있으며 그의 입은 쩍 벌어져 있다. <<covered>>
+	<br><br>
+	그는 계산대 쪽을 흘낏 보더니, 싱긋 웃으며 당신에게 걸어온다. "편의점 안의 알몸 소녀라," 그가 말한다. "그것도 한 밤중에 말이지. 네가 네 자신을 다치게 하기 전에 내가 너를 만족시켜 주는 게 최선이겠군."
+	<br><br>
+	<<fameexhibitionism 1>>
+	<<link [[허락한다|Service Allow]]>><<arousal 5000>><</link>><<gggarousal>>
+	<br>
+	<<link [[거절한다|Service Refuse]]>><</link>>
+	<br>
+<<else>>
+	한 남자가 계산대에서 잡지를 읽고 있다. 그는 당신이 들어오자 당신을 흘낏 쳐다보더니, 다시 쳐다보며, 그의 얼굴에 충격받은 얼굴을 띄운다.
+	<<covered>>
+	<<fameexhibitionism 1>>
+	<<if $speech_attitude is "meek">>
+		"방해해서 죄송한데요," 당신은 말하며, 그 남자에게 다가간다. 당신은 태연한 척 하려고 노력하지만, 당신의 무릎이 떨리는 것을 느낀다. "여기 사탕을 파나요?"
+	<<elseif $speech_attitude is "bratty">>
+		"어이," 당신은 말하며, 그 남자에게 다가간다. 당신은 태연한 척 하려고 노력하지만, 당신의 무릎이 떨리는 것을 느낀다. "여기 사탕 팔아?"
+	<<else>>
+		"실례합니다," 당신은 말하며, 그 남자에게 다가간다. 당신은 태연한 척 하려고 노력하지만, 당신의 무릎이 떨리는 것을 느낀다. "여기 사탕을 파나요?"
+	<</if>>
+	<br><br>
+	"나-나-", 그 남자는 더듬거리며, 당신의 얼굴에 집중하려 노력한다. "무-물론. 내 말은, 그-그래. 바로 저기에." 그는 진열대 사이의 통로 중 한 곳을 가리킨다.
+	<br><br>
+	당신은 싸구려 사탕들이 진열되어 있는 것을 찾는다. 당신은 상표를 보기 위해 몸을 숙이며, 당신의 <<bottom>>를 그 남자의 방향으로 향한다. 당신은 바구니를 채운 후 그 남자에게 돌아온다. 그는 그의 이마를 닦는다.
+	<br><br>
+	"너-너 혹시 돈이 필요하니?" 그가 묻는다. 그는 금전등록기 안을 더듬거리더니, <span class="gold">£100</span>를 당신 앞에 내놓는다. "네가 나를 위해 포즈를 취해 주면 이걸 네게 주마. 계산대 위에서."
+	<br><br>
+	<<if hasSexStat("exhibitionism", 5)>>
+		<<link [[받아들인다|Service Pose]]>><</link>><<exhibitionist5>>
+		<br>
+	<<else>>
+		<span class="blue">당신은 그의 제안을 받아들이기에 충분한 노출광이 아니다.</span>
+		<br>
+	<</if>>
+	<<link [[거절한다|Service Pose Refuse]]>><</link>>
+	<br>
+<</if>>
+
+:: Service Undies
+
+<<set $outside to 1>><<effects>>
+<<generate1>><<person1>>
+<<flaunting>> 당신은 편의점으로 다가간다. 당신은 심호흡을 하고, 자동문을 통과해 안으로 내딛는다.
+<<exhibitionism2>>
+
+<<if $rng gte 51>>
+	<<wearProp "sucker">>
+	<<generate2>>
+	한 <<person1>>남자가 계산대에서 잡지를 읽고 있다. 그는 당신이 들어오는데 쳐다보지도 않는다.
+	<br><br>
+
+	당신은 진열대 사이의 통로를 돌아다니며, 사탕을 찾는다. 당신이 그것을 찾았을 때 당신은 문이 열리는 소리를 듣는다. 다른 누군가가 편의점 안에 있다.
+	<<garousal>><<arousal 600>>
+	<br><br>
+
+	당신이 새로 들어온 사람을 찾을 수 있을 지 확신하지 못하며, 당신은 통로 끝까지 걸어가, 모퉁이를 훔쳐본다. 당신은 뒤에서 쿵 하는 소리를 듣는다. 한 <<person2>>남자가 거기 서 있고, 그의 장바구니가 그 옆의 바닥에 떨어져 있으며 그의 입은 쩍 벌어져 있다. <<covered>>
+	<br><br>
+
+	잠시 후, 당신은 그 남자가 사준 막대사탕을 입에 물고, 밖으로 나온다.
+	<<lstress>><<stress -6>>
+	<br><br>
+
+	<<link [[다음|High Street]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+
+<<else>>
+	<<wearProp "chocolate">>
+	<<fameexhibitionism 1>>
+	한 남자가 계산대에서 잡지를 읽고 있다. 그는 당신이 들어오자 당신을 흘낏 쳐다보더니, 다시 쳐다보며, 그의 얼굴에 충격받은 얼굴을 띄운다. <<covered>>
+
+	<<if $speech_attitude is "meek">>
+		"방해해서 죄송한데요," 당신은 말하며, 그 남자에게 다가간다. 당신은 태연한 척 하려고 노력하지만, 당신의 무릎이 떨리는 것을 느낀다. "여기 사탕을 파나요?"
+	<<elseif $speech_attitude is "bratty">>
+		"어이," 당신은 말하며, 그 남자에게 다가간다. 당신은 태연한 척 하려고 노력하지만, 당신의 무릎이 떨리는 것을 느낀다. "여기 사탕 팔아?"
+	<<else>>
+		"실례합니다," 당신은 말하며, 그 남자에게 다가간다. 당신은 태연한 척 하려고 노력하지만, 당신의 무릎이 떨리는 것을 느낀다. "여기 사탕을 파나요?"
+	<</if>>
+	<br><br>
+
+	"나-나-", 그 남자는 더듬거리며, 당신의 얼굴에 집중하려 노력한다. "무-물론. 내 말은, 그-그래. 바로 저기에." 그는 진열대 사이의 통로 중 한 곳을 가리킨다.
+	<br><br>
+
+	당신은 싸구려 사탕들이 진열되어 있는 것을 찾는다. 당신은 상표를 보기 위해 몸을 숙이며, 당신의 <<bottom>>를 그 남자의 방향으로 향한다. 당신은 바구니를 채운 후 그 남자에게 돌아온다. 땀이 그의 얼굴 옆을 타고 굴러내린다.
+	<br><br>
+
+	그는 당신이 돈을 내지 않고 그 사탕을 가져가도록 허락한다. 당신은 편의점을 떠나기 전에 그에게 감사하며, 입 안에서 끓어오르는 달콤함을 즐긴다.
+	<<lstress>><<stress -6>>
+	<br><br>
+
+	<<link [[다음|High Street]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+
+<</if>>
+
+:: Service Allow
+<<effects>>
+
+당신은 그 자리에 그대로 서 있었고, 그 <<person2>>남자가 당신의 <<breasts>>에 손을 뻗어도 반항하지 않는다.
+
+<<if $player.breastsize gte 6>>
+	"멋진 크기인걸," 그가 그것을 받치고 애무하며 속삭인다.
+<<elseif $player.breastsize gte 3>>
+	"너무 귀여운걸," 그가 애무하고 희롱하며 속삭인다.
+<<else>>
+	"여기가 민감할 거라 확신해, 그렇지 않아?" 그가 희롱하고 꼬집으며 속삭인다.
+<</if>>
+"이렇게 알몸을 노출시키고 돌아다니는 것. 바보같은 짓이지만, 나는 불평하지 않겠어." 그의 손가락이 당신의 배를 타고, 당신의 질을 쓸어댈 때까지 내려간다.
+<br><br>
+
+<<if playerChastity("hidden")>>
+	"이런 것을 하고 있으면 너는 어느 정도 안전하겠군," 그가 그것의 가장자리를 잡고, 당신의 질에 닿도록 위로 잡아당기며 말한다.
+<<elseif $player.penisExist and $player.vaginaExist and playerChastity("cage")>>
+	"너는 사람들을 유혹하는 게 걱정되지도 않아? 자지와 보지를 둘 다 가지고 있는데, 자지만 안전한 채로?" 그가 속삭이며, 그의 손가락을 당신의 정조대가 채워진 페니스 위로 끝에서 끝까지 움직인다.
+<<elseif $player.penisExist and $player.vaginaExist>>
+	"너는 사람들을 유혹하는 게 걱정되지도 않아? 자지와 보지, 둘 다 무방비인 채로?" 그가 속삭이며, 그의 손가락을 당신의 페니스 위로 끝에서 끝까지 움직인다.
+<<elseif $player.penisExist and playerChastity("cage")>>
+	"이런 것을 하고 있으면 너는 어느 정도 안전하겠군," 그가 그것의 가장자리를 잡고, 당신의 페니스에 닿도록 위로 잡아당기며 말한다.
+<<elseif $player.penisExist>>
+	"너는 사람들을 유혹하는 게 걱정되지도 않아? 네 자지가 이렇게 무방비인 채로?" 그가 속삭이며, 그의 손가락을 당신의 페니스 위로 끝에서 끝까지 움직인다.
+<<else>>
+	"너는 사람들을 유혹하는 게 걱정되지도 않아? 네 보지가 이렇게 무방비인 채로?" 그가 속삭이며, 그의 손가락을 당신의 질 위로 움직인다.
+<</if>>
+<br><br>
+
+<<if $arousal gte $arousalmax>>
+	<<orgasm>> "정말 음란한 소녀군. 편의점 한 가운데에서 가버리다니."
+	<br><br>
+	<<fameexhibitionism 1>>
+	"거기 무슨 일 있나요?" 편의점 앞쪽에서, 아마도 그 <<person1>>종업원의 목소리가 묻는다. 당신은 그가 계산대를 돌아나오는 소리를 듣는다.
+	<br><br>
+
+	그가 통로 끝에 도착했을 때 당신은 계속 전율하고 있었다. "나가!" 그가 소리친다. "변태는 여기 들어올 수 없어. 내가 경찰을 부르기 전에 당장 나가."
+	<br><br>
+
+	당신과 그 <<person2>>남자는 편의점을 나온다. 차가운 바람이 당신을 맞이하며 그는 당신에게 윙크한다. "또 보자고, 음란한 소녀야."
+	<br><br>
+<<else>>
+	"거기 무슨 일 있나요?" 편의점 앞쪽에서, 아마도 그 <<person1>>종업원의 목소리가 묻는다. 당신은 그가 계산대를 돌아나오는 소리를 듣는다.
+	<br><br>
+
+	그 <<person2>>남자는 당신의 팔을 잡고 당신을 편의점에서 끌어낸다. "잡힐 수는 없지," 차가운 바람이 당신을 맞이하며 그가 말한다. "나는 지켜야 할 평판이 있어서 말이야. 또 보자고, 음란한 소녀야."
+	<br><br>
+<</if>>
+
+<<endevent>>
+<<link [[다음|High Street]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Service Refuse
+<<effects>>
+
+당신의 심장이 가슴에서 두방망이질을 치며, 당신은 뒤로 돌아 편의점에서 달려나온다. 당신은 골목길 안으로 들어와 모퉁이를 훔쳐본다. 누가 쫓아오지는 않는다.
+<br><br>
+
+<<link [[다음|High Street]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Service Pose
+<<effects>>
+
+당신은 당신의 <<bottom>>를 계산대 위에 누르며, 당신의 다리를 휙 돌려 그 남자를 마주본다. "이렇게요?" 당신의 다리를 벌리며, 당신은 묻는다.
+<<exhibitionism5>>
+
+"그-그래," 그 남자는 당신의 질에 눈을 고정시키며 말한다.
+
+<<if playerChastity("hidden")>>
+	"그게 사람들이 너를 이용하는 것을 막지는 않니?" 그가 말한다.
+	<br><br>
+<<elseif $player.penisExist and $player.vaginaExist>>
+	"너는 둘 다 가지고 있구나," 그는 헉 하는 소리를 낸다.
+	<<if $fame.exhibitionism gte 1000>>
+		"내가 계속 들어오던 노출광이 바로 너로구나."
+	<<elseif $fame.exhibitionism gte 400>>
+		"나는 그게 그냥 괴담인 줄만 알았어."
+	<<else>>
+		"이런 것이 가능할 거라고는 생각하지 못했는데."
+	<</if>>
+<<elseif $player.penisExist>>
+	<<if $player.penissize gte 3>>
+		"네 물건은 정말 크구나," 그가 말한다.
+	<<elseif $player.penissize lte 2>>
+		"그건 너무 귀여운걸," 그가 말한다.
+	<<else>>
+		"그건 너무 귀여운걸," 그가 말한다.
+	<</if>>
+<<else>>
+	"그건 너무 귀여운걸," 그가 말한다.
+<</if>>
+
+당신은 그가 올려둔 돈을 가지고, 당신의 다리를 오므린다. "돈 고마워요," 당신은 말하며, 당신의 <<bottom>>를 돌려 바닥에 내려선다. 당신은 편의점을 나가며 그의 눈이 당신을 향해 있는 것을 느낀다.
+<<money 10000>>
+<br><br>
+
+<<link [[다음|High Street]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Service Pose Refuse
+<<effects>>
+
+당신은 그 남자의 제안을 거절했지만, 그는 그것에 상관없이 그 사탕의 값을 받지 않는다. 차가운 바람이 당신을 맞이하며 당신은 끓어오르는 달콤함을 빨아먹는다.
+<<lstress>><<stress -6>>
+<br><br>
+
+<<link [[다음|High Street]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Streak Undies
+<<effects>>
+
+당신은 숨어있는 곳에서 살짝 고개를 내밀어 살펴본다. 거리는 사람들로 가득하다. 일단 밖으로 나가면 시선을 피할 길이 없을 것이다. 그런 생각에 숨이 턱 막힌다. <<flaunting>> 당신은 사방이 트인 곳으로 달려나간다.
+<<exhibitionism2>>
+일순간에 시선이 당신에게 집중된다. <<covered>> 누군가 휘파람을 불어, 더욱 많은 관심을 끈다. 거리는 번쩍이는 네온빛으로 물들어 있으며, 사람들이 당신이 뛰어가는 모습을 볼 수 있을 정도로 밝다. 하지만 지금 당신의 속도라면, 당신의 얼굴을 제대로 보기에는 충분치 않을지도 모르겠다.
+<br><br>
+
+<<if $rng gte 81>>
+	"잘 한다, 소녀야!"
+	<br>
+	"그녀가 뛰어가는 것 좀 봐!"
+	<br>
+	"내가 저렇게 용감했다면!"
+	<br><br>
+<<elseif $rng gte 61>>
+	"멋진 엉덩이야."
+	<br>
+	"젖통은 어떻고."
+	<br>
+	"어이! 난 저기 저 뛰어가는 애를 보고 있었다고!"
+	<br><br>
+<<elseif $rng gte 41>>
+	"누가 재미 좀 보고 있나보지."
+	<br>
+	"우리도 끼어도 되나?"
+	<br>
+	"난 너무 부끄러울 것 같아!"
+	<br><br>
+<<elseif $rng gte 21>>
+	"뛰어라 소녀야!"
+	<br>
+	"저 엉덩이 뛰어가는 것 좀 봐."
+	<br>
+	"나도 좀 가져와야겠어."
+	<br><br>
+<<else>>
+	"최고의 파티야."
+	<br>
+	"제길, 나 카메라 안 들고 왔다고."
+	<br>
+	"난 이걸 잊지 못할 거야."
+	<br><br>
+<</if>>
+
+<<if random(1, 2) is 2>>
+	<<generate1>><<person1>>
+	당신은 음식점 바깥에 줄지어 쌓여 있는 테이블 사이를 요리조리 빠져나가며, 상대적으로 안전한 골목 쪽을 향한다. 남자가 당신의 <<bottom>>를 찰싹 때리려 하지만, 당신이 더 빨랐다.
+	<br><br>
+
+	<<endevent>>
+	<<destinationeventend>>
+<<else>>
+	<<set $connudatus_stripped to 1>>
+	<<generate1>><<person1>>당신 앞의 한 남자가 그의 셔츠를 찢어 공중으로 벗어던진다. 다른 이들도 그 행동을 따라하며, 속옷만 남기고 옷을 벗는다.
+	<br><br>
+	당신은 거리의 끝에 도착했다. 더이상 달릴 필요는 없다. 많은 사람들이 당신만큼이나 옷을 걸치지 않고 있다. 몇몇은 당신보다도 더.<<garousal>><<arousal 600>>
+	<br><br>
+	<<endevent>>
+	<<destinationeventend>>
+<</if>>
+
+:: Streak Naked
+<<effects>>
+
+당신은 숨어있는 곳에서 살짝 고개를 내밀어 살펴본다. 거리는 사람들로 가득하며, 대부분은 갓 성인이 된 정도의 나이대다. 일단 밖으로 나가면 시선을 피할 길이 없을 것이다. 그런 생각에 숨이 턱 막힌다. <<flaunting>> 당신은 사방이 트인 곳으로 달려나간다.
+<<exhibitionism4>>
+일순간에 시선이 당신에게 집중된다. <<covered>> 누군가 휘파람을 불어, 더욱 많은 관심을 끈다. 거리는 번쩍이는 네온빛으로 물들어 있으며, 사람들이 당신이 뛰어가는 모습을 볼 수 있을 정도로 밝다. 하지만 지금 당신의 속도라면, 당신의 얼굴을 제대로 보기에는 충분치 않을지도 모르겠다.
+<br><br>
+
+<<if $rng gte 81>>
+	"잘 한다, 소녀야!"
+	<br>
+	"그녀가 뛰어가는 것 좀 봐!"
+	<br>
+	"내가 저렇게 용감했다면!"
+	<br><br>
+<<elseif $rng gte 61>>
+	"멋진 엉덩이야."
+	<br>
+	"젖통은 어떻고."
+	<br>
+	"어이! 저기 저 뛰어가는 애 좀 봐!"
+	<br><br>
+<<elseif $rng gte 41>>
+	"누가 재미 좀 보고 있나보지."
+	<br>
+	"우리도 끼어도 되나?"
+	<br>
+	"난 너무 부끄러울 것 같아!"
+	<br><br>
+<<elseif $rng gte 21>>
+	"뛰어라 소녀야!"
+	<br>
+	"저 엉덩이 뛰어가는 것 좀 봐."
+	<br>
+	"나도 좀 가져와야겠어."
+	<br><br>
+<<else>>
+	"최고의 파티야."
+	<br>
+	"제길, 나 카메라 안 들고 왔다고."
+	<br>
+	"난 이걸 잊지 못할 거야."
+	<br><br>
+<</if>>
+
+<<if random(1, 2) is 2>>
+	<<generate1>><<person1>>
+	당신은 음식점 바깥에 줄지어 쌓여 있는 테이블 사이를 요리조리 빠져나가며, 상대적으로 안전한 골목 쪽을 향한다. 남자가 당신의 <<bottom>>를 찰싹 때리려 하지만, 당신이 더 빨랐다.
+	<br><br>
+	<<endevent>>
+	<<generate1>><<generate2>><<generate3>><<person1>>
+	하지만 당신이 거리의 끝에 도착하자, 세 명의 남자가 나타나 당신과 부딪힌다. <<person1>>그 중 하나가 <span class="purple">당신의 어깨를 붙잡는다.</span>
+	<br><br>
+	"뭘 붙잡은거야?" 그가 묻는다.
+	<br>
+	"변태 같은데," <<person2>>그의 일행이 대꾸한다.
+	<br>
+	"그러면 뭐, 그녀를 도와주는 게 좋겠구만!"
+	<br><br>
+	그 세 명은 당신을 어깨 위에 짊어지려고 한다!
+	<br><br>
+
+	<<link [[저항한다|Streak Naked Resist]]>><</link>><<physiquedifficulty 1 20000>>
+	<br>
+	<<link [[순순히 따른다|Streak Naked Allow]]>><<stress 6>><<arousal 3000>><</link>><<gstress>><<gggarousal>>
+	<br>
+<<else>>
+	당신은 풀밭이 울타리를 이루고 있는 거리의 끝에 도착했다. 당신은 당신이 보인 대담함에 전율하며, 그 뒤로 숨는다.
+	<br><br>
+
+	<<endevent>>
+	<<destinationeventend>>
+<</if>>
+
+
+:: Streak Naked Resist
+<<effects>>
+
+<<if $physiqueSuccess>>
+	당신은 <<person1>>남자의 정강이를 걷어찬다. <span class="green">그의 팔이 느슨해지고 당신의 발이 다시 바닥에 닿아,</span> 당신이 근처 골목으로 달려나갈 기회를 만들어 준다.
+	<br><br>
+
+	당신은 몇분간 달리다 숨을 돌리기 위해 멈춰선다. 당신이 보인 대담함에 당신의 심장이 세차게 두근거린다.
+	<br><br>
+
+	<<endevent>>
+	<<destinationeventend>>
+<<else>>
+	당신은 <<person1>>남자로부터 벗어나려 시도하지만, <span class="red">그와 그의 친구들은 얼마 지나지 않아 당신의 발을 바닥에서 떼어놓는다.</span> 그들은 당신을 어깨 위에 태우고, 다시 거리 쪽으로 행진한다.
+	<br><br>
+
+	더욱 많은 손들이 당신에게 내밀어져, 당신을 애무하고 더듬으며, 당신을 들어 골목에서 더 멀리 떨어진 쪽으로 옮긴다. 네온 불빛 속에서, 당신이 보는 곳마다 환호하거나 비웃는 얼굴들로 가득하다.<<gstress>><<stress 6>><<gggarousal>><<arousal 4500>>
+	<br><br>
+
+	<<link [[다음|Street Naked 2]]>><</link>>
+	<br>
+<</if>>
+
+:: Streak Naked Allow
+<<effects>>
+
+당신은 순순히 들려진다. <<person1>>남자와 그의 친구들은 얼마 지나지 않아 당신의 발을 바닥에서 떼어놓는다. 그들은 당신을 어깨 위에 태우고, 다시 거리 쪽으로 행진한다.
+<br><br>
+
+더욱 많은 손들이 당신에게 내밀어져, 당신을 애무하고 더듬으며, 당신을 들어 골목에서 더 멀리 떨어진 쪽으로 옮긴다. 네온 불빛 속에서, 당신이 보는 곳마다 환호하거나 비웃는 얼굴들로 가득하다.
+<br><br>
+
+<<link [[다음|Street Naked 2]]>><</link>>
+<br>
+
+:: Street Naked 2
+<<effects>>
+<<fameexhibitionism 20>>
+<<if $arousal gte 10000>>
+	애무가 너무 심해서 견디기 힘들다. <<orgasm>>
+	그들은 경련하는 당신을 바닥에 내려놓는다. <<person1>>남자와 그의 친구들은 욕정으로 가득한 눈을 한 채 군중들 사이로 밀고 들어간다.
+	<br><br>
+
+	<<link [[다음|Street Naked Rape]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<<else>>
+	붉은 빛과 파란 빛이 얼굴들을 비춘다. 경찰차다. 경찰차에 타고 있는 이들은 몰려있는 사람들 탓에 혼란스러워하고 있다. 겁에 질린 군중들은 당신을 바닥에 내려놓고는 흩어진다. 당신은 경찰의 눈에 띄지 않기를 바라며, 그들 사이로 숨는다. 그리고 마침내 거리의 끝자락에 있는 그림자 진 골목에 도착하는 데 성공한다.
+	<br><br>
+
+	당신은 재빨리 다른 골목을 돌아, 고개를 살짝 내밀어 따라오는 사람이 없는지 확인한다.
+	<br><br>
+
+	<<endevent>>
+	<<destinationeventend>>
+<</if>>
+
+:: Street Naked Rape
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<audience>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Street Naked Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Street Naked Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Street Naked Rape Finish
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>><<famerape 10>>
+	붉은 빛과 파란 빛이 얼굴들을 비춘다. 경찰차다. 경찰차에 타고 있는 이들은 몰려있는 사람들 탓에 혼란스러워하고 있다. 겁에 질린 군중들이 흩어진다. 당신은 경찰의 눈에 띄지 않기를 바라며, 그들 사이로 숨는다. 그리고 마침내 거리의 끝자락에 있는 그림자 진 골목에 도착하는 데 성공한다.
+	<br><br>
+
+	당신은 재빨리 다른 골목을 돌아, 고개를 살짝 내밀어 따라오는 사람이 없는지 확인한다.
+	<br><br>
+
+<<else>>
+	<<famescrap 10>>
+	붉은 빛과 파란 빛이 얼굴들을 비춘다. 경찰차다. 경찰차에 타고 있는 이들은 몰려있는 사람들 탓에 혼란스러워하고 있다. 겁에 질린 군중들이 흩어진다. 당신은 경찰의 눈에 띄지 않기를 바라며, 그들 사이로 숨는다. 그리고 마침내 거리의 끝자락에 있는 그림자 진 골목에 도착하는 데 성공한다.
+	<br><br>
+
+	당신은 재빨리 다른 골목을 돌아, 고개를 살짝 내밀어 따라오는 사람이 없는지 확인한다.
+	<br><br>
+
+<</if>>
+<br><br>
+
+<<clotheson>>
+<<endevent>>
+<<destinationeventend>>
+
+:: Park Fountain
+<<effects>>
+
+당신은 중앙의 분수에 다가가며, 버려진 공원을 둘러보면서 뭐라도 움직이는 것이 있는지 확인한다. 멀리서 들리는 엔진 소리만이 다른 사람들의 존재를 알리는 유일한 흔적이다.
+<br><br>
+
+<<outfitChecks>>
+<<if _fullyNaked>>
+	<<set $phase to 0>>
+<<else>>
+	당신은 옷을 벗어 분수 가장자리에 쌓아둔다.
+	<<set $phase to 1>>
+	<<strip>>
+<</if>>
+<<covered>> 당신은 한쪽 발을 물에 담근다.
+<<if Time.season is "winter">>
+	물은 차갑지만, 주변 공기보다는 따뜻하다.
+<<elseif Time.season is "summer">>
+	물은 차갑고, 당신이 거기에 익숙해지는 데 약간의 시간이 걸린다.
+<<else>>
+	물은 차갑지만, 그렇게까지 차갑진 않다.
+<</if>>
+<<if currentSkillValue("history") gte 600>>
+	당신은 역사 선생님이 이 분수의 수원에 대해 웅얼거렸던 것을 기억한다. 이 아래에는 천연 대수층이 있다.
+<</if>>
+당신의 나머지 다리가 뒤따른다. 물은 당신의 허리까지 온다. 당신은 공원 한가운데에서 발가벗고 노출된 채로 걸어나가, 중앙의 폭포에 다다른다.
+<<exhibitionism4>>
+
+<<link [[다음|Park Fountain 2]]>><<pass 10>><</link>>
+<br>
+
+:: Park Fountain 2
+<<effects>>
+
+<<wash>>
+당신은 뽀득뽀득해질 때까지 씻으면서도 밤늦게 돌아다니는 사람이 있는지 귀와 눈을 열어둔다. 비록 버려졌더라도 이곳은 중심지에 위치해 있으니 말이다.
+<br><br>
+
+<<if $rng gte 61>>
+	하지만 아무도 나타나지 않는다. 고독한 박쥐 한 마리가 머리 위에서 앞뒤로 퍼덕거린다. 당신은 분수에서 걸어나와, <<if $phase is 1>>옷을 입기 전 몇 분동안 <</if>>산들바람이 당신의 몸을 말리도록 둔다.
+	<br><br>
+
+	<<clotheson>>
+
+	<<link [[다음|Park]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	<<generate1>><<generate2>>
+	<span class="purple">목소리가 들린다.</span> 당신은 가운데 기둥 너머로 빼꼼 고개를 내밀어, 두 개의 형체가 다가오는 것을 발견한다. 붙잡힌다면 위험해질 수 있겠다.
+	<br><br>
+
+	<<link [[물 속에 숨는다|Park Fountain Hide]]>><</link>><<swimmingdifficulty 1 1000>>
+	<br>
+	<<if hasSexStat("exhibitionism", 5)>>
+		<<link [[과시한다|Park Fountain Flaunt]]>><</link>><<exhibitionist5>>
+		<br>
+	<</if>>
+<</if>>
+
+:: Park Fountain Hide
+<<effects>>
+
+저들은 아직 당신을 보지 못했지만, 가까이 다가온다면 기둥으로는 당신의 몸을 다 가릴 수 없을 것이다. 당신은 숨을 크게 들이마시고, 물속으로 들어가 물결치는 수면 아래에 엎드린 채로 몸을 숙인다.
+<br><br>
+
+웅얼거리는 목소리가 점점 커지는 것이 들리더니, 두 명이 분수 옆에 도착해 가장자리에 앉는다.
+<br><br>
+
+그들은 당신의 존재를 모르는 채, 당신에게서 불과 몇 미터 떨어지지 않은 곳에서 대화를 나눈다.
+<<if $swimmingSuccess>>
+	당신은 계속해서 숨을 참고, 그들이 일어서서 떠날 때까지 <span class="green">가만히 있는 데 성공한다</span>.
+	<br><br>
+
+	<<if $rng gte 51 and $phase is 1>>
+		그들은 잠시 멈칫하더니, 무언가를 논의한다. 그러더니 <<person1>>한 남자가 몸을 숙여 <span class="pink">당신의 옷가지를 그의 팔에 든 채로 일어난다.</span> 그들은 그 상태로 걸어가려고 한다!
+		<br><br>
+
+		<<link [[일어선다|Park Fountain Rise]]>><</link>>
+		<br>
+		<<link [[기다린다|Park Fountain Wait]]>><</link>>
+		<br>
+	<<else>>
+		당신은 몇 분간 더 기다리고, 공기를 들이마시기 위해 머리를 내민다. 당신은 두 명이 등을 돌린 채로 어느 정도 떨어져 있는 것을 확인한다.
+		<br><br>
+		당신은 조금 더 숨어있는다. 그러다 당신이 다시 머리를 내밀었을 때는, 두 명은 사라져 있었다. 당신은 분수에서 걸어나와, <<if $phase is 1>>옷을 입기 전 몇 분동안 <</if>>산들바람이 당신의 몸을 말리도록 둔다.
+		<br><br>
+
+		<<clotheson>>
+		<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><</link>>
+		<br>
+	<</if>>
+<<else>>
+	당신은 계속해서 숨을 참지만, 그들은 시간을 더 보낸다. <span class="red">당신은 더 이상 한 순간도 참을 수 없다.</span>
+	<br><br>
+	<<link [[다음|Park Fountain Rise]]>><</link>>
+	<br>
+<</if>>
+
+:: Park Fountain Rise
+<<effects>>
+
+당신은 숨어있던 곳에서 뛰쳐나와 공기를 들이마신다. 두 명은 당신에게로 고개를 돌리고, 놀라움은 곧 정욕으로 변한다. <<covered>>
+<br><br>
+
+<<if $phase is 1>>
+	"옷에 대해 해명해봐,"
+<<else>>
+	"참 놀라운 일이로군,"
+<</if>>
+<<person1>>남자가 물을 건너 당신의 어깨를 붙잡으면서 말한다. "이런 일이 일어나기를 바라지 않았던 척 하지 마."
+<br><br>
+
+<<link [[다음|Park Fountain Rape]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Park Fountain Wait
+<<effects>>
+
+당신은 몇 분간 더 기다리고, 공기를 들이마시기 위해 머리를 내민다. 당신은 두 명이 등을 돌린 채로 어느 정도 떨어져 있는 것을 확인한다. 당신의 옷은 여전히 남자의 손에 들려 있다.
+<br><br>
+당신은 조금 더 숨어있는다. 그러다 당신이 다시 머리를 내밀었을 때는, 두 명은 사라져 있었다. 물론 당신의 옷도 함께.
+<br><br>
+
+<<steal>>
+<br>
+<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Park Fountain Flaunt
+<<effects>>
+
+당신은 마치 당신의 처지에 무지하고 세상의 관심따윈 신경쓰지 않는다는 듯이, 눈을 감은 채 미소를 지으며 기둥 뒤에서 걸어나온다. 목소리와 발걸음 소리가 일순간에 잦아든다.
+<br><br>
+
+당신은 당신의 손으로 당신의 몸을 훑어내리며 몸을 돌려, 관중들로 하여금 다른 각도에서 감상할 수 있게끔 한다. 당신은 눈을 뜨고, 두 명의 남자가 당신을 쳐다보고 있는 것을 발견한다. 연극처럼 과장된 비명을 지르며, 당신은 기둥 뒤편에 당신의 몸을 숨긴다.
+<<exhibitionism5>>
+
+<<if $rng gte 51>>
+	당신은 기둥 주위를 돌며 당신의 모습을 또 보려는 그들을 피한다. 곧 욕정이 그들을 압도하고, <span class="pink">그들은 당신을 덮친다.</span>
+	<br><br>
+
+	<<link [[다음|Park Fountain Rape]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<<else>>
+	당신은 기둥 주위를 돌며 당신의 모습을 또 보려는 그들을 피한다.곧 그들은 떠나기로 마음먹는다. 그들은 한동안 이 일에 대해 생각할 것이다.
+	<br><br>
+
+	당신은 분수에서 걸어나와, <<if $phase is 1>>옷을 입기 전 몇 분동안 <</if>>산들바람이 당신의 몸을 말리도록 둔다.
+	<br><br>
+
+	<<clotheson>>
+
+	<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+
+:: Park Fountain Rape
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Park Fountain Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Park Fountain Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Park Fountain Rape Finish
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	<<if $phase is 1>>
+		남자가 당신의 옷을 분수에 던져넣어, <span class="purple">옷을 흠뻑 적신다.</span> 둘은 웃음을 터뜨리고는, 당신이 축축해진 옷가지를 줍게 내버려두고 떠난다.
+		<br><br>
+
+		<<tearful>> 당신은 당신의 옷을 모아 분수에서 기어나온다.
+		<br><br>
+
+		<<clotheson>>
+		<<wet_all>>
+	<<else>>
+		둘은 웃음을 터뜨리고는 걸어간다. <<tearful>> 당신은 분수에서 기어나온다.
+		<br><br>
+		<<clotheson>>
+	<</if>>
+	<<endcombat>>
+<<else>>
+	<<person1>>남자는 발을 헛디딘다. 당신은 그의 어깨를 붙잡아, 그를 물속으로 밀어 빠트리며 <<person2>>그의 일행이 온통 물을 뒤집어쓰게 한다.
+	<<if $phase is 1>>
+		당신은 그들이 혼란에 빠져 있는 동안 분수에서 기어나와, 당신의 옷을 붙잡고 밤의 어둠 속으로 달려나간다.
+	<<else>>
+		당신은 그들이 혼란에 빠져 있는 동안 분수에서 기어나와, 밤의 어둠 속으로 달려나간다.
+	<</if>>
+	<br><br>
+	<<tearful>> 당신은 울타리 뒤에 숨는다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+<</if>>
+
+<<link [[다음|Park]]>><<set $eventskip to 1>><</link>>
+<br>

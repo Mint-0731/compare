@@ -1,0 +1,3788 @@
+:: Widgets Whitney Street [widget]
+<<widget "eventsWhitneyStreet">>
+	<<npc Whitney>><<person1>>
+	<<outfitChecks>>
+	<<rng>>
+	<<if $whitneyReunionScene>><<unset $whitneyReunionScene>>
+		당신이 모퉁이를 돌자 휘트니가 당신의 앞을 지나간다. 그의 패거리들이 측면에서 몰려와 당신이 도망치는 것을 막는다. "여기 있었구나, 걸레야." 휘트니가 화가 난 표정으로 말한다. "뭐? 넌 내가 제일 좋아하는 걸레가 사라졌는데도 그걸 내가 눈치 못 챌 줄 알았어?" 그가 그의 입술로 당신의 입을 막고 키스해 버렸기 때문에 당신은 어떤 대답도 할 수 없다.<<takeKissVirginity "Whitney" "loveInterest">>
+		<br><br>
+
+		휘트니의 팔이 당신의 허리를 감싸고 당신의 머리 뒤쪽을 단단히 고정한다. 그는 앞으로 몸을 기울여 당신이 뒤로 꺾어지게 한다. 기대에 찬 눈빛으로 바라보는 그의 패거리들이 환호성을 지른다.
+		<br><br>
+
+		"그녀를 따먹어버려!"
+		<br>
+		"그녀를 쥐어 패버려!"
+		<br>
+		"그녀의 옷을 벗겨버려!"
+		<br><br>
+
+		휘트니는 당신을 노려본다. 당신을 잡고있는 그의 손은 당신이 땅으로 넘어지지 않게 해주는 유일한 힘이다. 당신은 그의 눈가에 희미한 눈물의 흔적이 어려있는 것을 보았다고 맹세할 수 있다. 더이상 나아가지 않고 그는 당신을 바닥으로 떨군다.
+		<br><br>
+
+		휘트니의 숨결이 거칠어진다. 그가 말한다. "나만이... 나만이 너를 납치할 수 있어. 알아들었어?" 그의 무리가 떠나고 휘트니는 당신을 돌아본다.<<npcincr Whitney dom 3>><<stress 6>><<gstress>><<ggdom>>
+		<br><br>
+
+		<<endevent>>
+		<<destinationeventend>>
+	<<elseif $bullyeventstreet is undefined>><<set $bullyeventstreet to 1>>
+		<<if $whitneyromance is 1>>
+			당신은 뒤에서 멱살을 잡혀 벽으로 밀쳐지면서, 휘트니와 마주하게 된다. 휘트니가 그의 입술을 부딪혀왔기 때문에 당신은 어떤 말도 할 수 없다.<<stress 6>><<arousal 600 "mouth">><<gstress>><<garousal>>
+			<br><br>
+
+			"조심 좀 해," 그는 키스하던 도중에 숨을 내쉰다. "이 주변엔 추잡한 사람들이 많아." 그가 가볍게 입을 맞추며 마무리한다.
+			<br><br>
+
+			그는 당신을 벽에서 잡아당기고 엉덩이를 가볍게 쳐서, 당신이 비틀거리며 앞으로 나아가게 만든다. 그가 돌아서서 사라지자, 그의 친구들의 웃음소리가 골목에 메아리쳐 울린다.<<npcincr Whitney lust 5>><<glust>>
+		<<else>>
+			당신의 뒤에서 발소리가 들린다. 돌아보기도 전에 당신은 쓰레기 더미 위로 밀쳐진다. 주위에 웃음소리가 울려퍼진다. 고개를 들자 휘트니가 그의 친구들 주위에 둘러싸여 웃고 있는 것이 보인다. "네가 딱 있어야 할 자리에 있네."<<trauma 6>><<stress 6>><<pain 4>><<gtrauma>><<gstress>><<gpain>>
+			<br><br>
+
+			그들은 당신을 조롱하는데서 만족하며 더 나아가지 않는다. "널 여기서 다시 볼 일은 없어야겠어." 휘트니가 위협한다. 그가 당신에게 담배를 튕긴다. "이 골목은 우리 구역이야. 알아들었어?"
+			<br><br>
+
+			그는 대답을 기다리지 않고 몸을 돌려 그의 무리를 이끌며 골목을 떠나버린다. 그들의 웃음소리가 서서히 사라진다.<<npcincr Whitney lust 5>><<glust>>
+		<</if>>
+		<br><br>
+
+		<<endevent>>
+		<<destinationeventend>>
+	<<elseif C.npc.Whitney.love gte 20 and $whitneyromance isnot 1>>
+		<<set $whitneyromance to 1>>
+		휘트니가 당신에게 가까이 다가온다. 그는 평소보다 화가 나 있다. 당신은 조심스럽게 한 걸음 뒤로 물러나려 하다가 쓰레기 더미에 걸려 넘어질 뻔한다. 그는 순식간에 당신의 <<if $worn.upper.name is "naked" and $worn.over_upper.name is "naked">>팔을<<else>>옷깃을<</if>> 움켜잡는다.
+		<br><br>
+
+		"멍청한 걸레 같으니," 그가 말한다. 그는 양팔로 당신을 고정시킨다. "이걸 원하고 있었잖아. 거부할 생각 마." 그는 놀라우리만치 다정하게 키스한다. <<takeKissVirginity "Whitney" "loveInterest">>
+		<br><br>
+		"넌 이제부터 내 여자친구야. 기뻐하라고." 그는 다시 키스하며, 이번에는 당신의 입술을 문다. 그는 당신을 밀어낸 뒤 돌아보지 않고 떠나간다.
+		<br><br>
+
+		<<tearful>> 당신은 몸을 추스른다.
+		<<gstress>><<garousal>><<stress 6>><<arousal 600 "mouth">>
+		<br><br>
+
+		<<loveInterestAdd "Whitney">>
+		<br><br>
+
+		<<endevent>>
+		<<destinationeventend>>
+	<<elseif $trauma gte (($traumamax / 5) * 3) and $rng gte 61>>
+		당신은 비틀거리며 앞으로 나아간다. 모퉁이에 다다랐을 때, 누군가 당신에게 달려오는 소리를 듣는다. 당신은 피하지 못한다. 누군가가 당신에게 부딪히며 함께 땅으로 넘어진다. <<gpain>><<pain 6>>
+		<br><br>
+		머리에 둔한 통증이 있지만 당신은 그저 멍하니 앉아 있는다. 시야가 서서히 맑아지고, 당신의 눈앞에 분노에 찬 얼굴이 보인다. <<if C.npc.Whitney.love gte 12>><span class="green">휘트니다</span>.<<else>><span class="red">휘트니다</span>.<</if>> "빌어먹을, 이 멍청이가-" 당신은 골목에 그의 목소리가 울려퍼지는 것을 간신히 듣는다.
+		<br><br>
+
+		<<if $whitneyromance is 1 and C.npc.Whitney.love gte 12>>
+			당신이 짊어진 모든 것이 무겁게만 느껴진다. 당신은 그에게 달려들어 그가 말하려던 것을 끊어버린다. 당신은 그에게 팔을 감싸고 그의 가슴에 얼굴을 묻는다. 당신은 무언가를 말하려고 하지만, 희미하게 흐느끼는 소리만이 나올 뿐이다.
+			<br><br>
+			<<link [[다음|Whitney Alleyway Breakdown]]>><</link>>
+		<<else>>
+			당신이 짊어진 모든 것이 무겁게만 느껴지고, 눈물이 당신의 눈에서 새어나온다. 당신은 무언가를 말하려고 하지만, 희미하게 흐느끼는 소리만이 나올 뿐이다.
+			<br><br>
+
+			휘트니는 당신의 어깨를 잡고 지렛대 삼아 자리에서 일어난다. 그는 당신을 내려다본다. "너 씨발 대체 뭐가 문제야?" 그가 당신의 행동에 심히 불편한 기색을 보이며 말한다. "질질짜기나 하는 암캐 같으니라고." 그는 고개를 저으며 떠나버린다.
+			<br><br>
+
+			<<tearful>> 당신은 몸을 추스른다.
+			<br><br>
+
+			<<endevent>>
+			<<destinationeventend>>
+		<</if>>
+	<<else>>
+		<<switch $bullyeventstreet>>
+			<<case 1>><<set $bullyeventstreet += 1>>
+				무언가가 당신의 머리에 부딪힌다.
+				<<if $whitneyromance is 1>>
+					큰 힘은 아니었지만 당신의 주의를 끌기에는 충분했다. 당신은 뒤를 돌아 쓰레기통 위에 있는 휘트니를 발견한다. 그가 윙크한다.<<npcincr Whitney lust 5>><<glust>>
+					<br><br>
+
+					<<link [[추파를 던진다|Street Bully Flirt]]>><<set $phase to 1>><<npcincr Whitney love 1>><<npcincr Whitney lust 5>><</link>><<promiscuous1>><<glove>><<glust>>
+					<br>
+					<<link [[계속 걷는다|Street Bully Flirt]]>><<set $phase to 0>><</link>>
+					<br>
+				<<else>>
+					당신이 그 물체가 날아온 방향으로 몸을 돌리자, 깡통에 얼굴을 맞는다.<<pain 4>><<gpain>>
+					<br><br>
+
+					휘트니와 그의 친구들이 쓰레기통 주위를 서성이고 있다. 그가 그의 손에 든 벽돌을 가볍게 한번 던졌다 받고는 조준한다. 당신은 일이 더 진행되기 전에 그들의 웃음소리를 들으며 황급히 자리를 뜬다.<<trauma 6>><<stress 6>><<npcincr Whitney lust 5>><<gtrauma>><<gstress>><<glust>>
+					<br><br>
+
+					<<endevent>>
+					<<destinationeventend>>
+				<</if>>
+			<<case 2>><<set $bullyeventstreet += 1>>
+				팔이 당신의 어깨너머로 들어와 헤드락을 건다. "어디 가려고?" 휘트니다. 그의 친구들은 그가 그의 손가락 마디를 당신의 두피에 파묻어 당신의 머리를 헤집어놓자 당신을 조롱한다.<<pain 2>><<gpain>>
+				<<ruffleHair>>
+				<br><br>
+
+				<<if $settings.asphyxiaLevel gte 2>>
+					<<if $worn.neck.name is "familiar collar" and $worn.neck.cursed is 1>>
+						<<if $whitney_familiar_seen gte 2>>
+							당신은 입을 벌려 무어라 말하려 하지만 목이 막혀 쌕쌕거리는 소리만 난다. 그에 답하듯, <span class="blue">당신은 목걸이에서 전기가 방출되는 것을 느낀다.</span> 휘트니는 간신히 뒤로 물러선다.
+							<br><br>
+
+							"그 목걸이 마음에 드는데," 휘트니가 말한다. "말썽을 부리면 네게도 충격이 가해지나?" <<He_ nun>> 당신의 답을 기다리지 않고, 친구들을 데리고 떠나간다.
+							<br><br>
+						<<else>>
+							당신은 입을 벌려 무어라 말하려 하지만 목이 막혀 쌕쌕거리는 소리만 난다. 당신의 대답 대신, <span class="blue">당신의 목걸이가 휘트니에게 충격을 주며 그가 당신을 놓아주도록 한다</span>.
+							<br><br>
+
+							"그 목걸이에 또 어떤 기발한 기능이 있을지 궁금하네," <<he_ ga>> 말한다. <<He_ nun>> 팔을 문지르며 당신을 밀어낸다. "리모컨도 딸려 있나?" <<He_ nun>> 당신의 답을 기다리지 않고, 친구들을 데리고 떠나간다.
+							<br><br>
+						<</if>>
+
+						당신은 계속 걸어간다. <<stress 6>><<gstress>>
+						<br><br>
+
+						<<endevent>>
+						<<destinationeventend>>
+					<<else>>
+						당신은 입을 벌려 무어라 말하려 하지만 목이 막혀 쌕쌕거리는 소리만 난다. "방금 뭐였냐?" 휘트니는 당신의 목을 더 세개 감싸며 웃는다. "말해 봐!"<<npcincr Whitney lust 5>><<glust>>
+						<br><br>
+
+					<<if $choketrait gte 1 or $submissive gte 1500>>
+							<<link [[신음한다|Street Bully Choke]]>><<set $phase to 2>><<npcincr Whitney dom 1>><<npcincr Whitney lust 10>><</link>><<if $choketrait gte 1>><<chokeTrait>><<else>><<submissivetext>><</if>><<gdom>><<gglust>>
+							<br>
+						<</if>>
+						<<link [[견딘다 (0:05)|Street Bully Choke]]>><<set $phase to 1>><<pass 5>><<npcincr Whitney dom 1>><</link>><<gdom>>
+						<br>
+						<<link [[몸부림친다|Street Bully Choke]]>><<set $phase to 0>><<npcincr Whitney dom -1>><</link>><<physiquedifficulty 1 16000>><<ldom>>
+						<br>
+					<</if>>
+				<<else>>
+					<<pass 5>>
+					그는 당신을 그렇게까지 세게, 혹은 오래 잡고있지는 않았고 곧 당신을 밀치며 놓아준다. 당신은 그들의 웃음소리를 무시하며 나아가기로 한다.<<trauma 6>><<stress 12>><<npcincr Whitney lust 5>><<gtrauma>><<ggstress>><<glust>>
+					<br><br>
+
+					<<endevent>>
+					<<destinationeventend>>
+				<</if>>
+			<<case 3>><<set $bullyeventstreet += 1>>
+				<<if $whitneyromance is 1>>
+					한 무리의 소년들이 그림자 속에서 튀어나와 당신을 교대로 밀쳐낸다. 그들은 마지막으로 당신을 휘트니에게 던지고, 그는 당신의 엉덩이를 잡으며 당신을 받는다.<<npcincr Whitney lust 5>><<glust>>
+					<br><br>
+
+					"<<if $player.gender_appearance is "m">>너같이 섹시한 남자애가<<else>>너같이 예쁜 애가<</if>> 이런 곳을 혼자 다니면 위험해." 그가 당신을 더듬으며 속삭인다. "너한테 어떤 놈이 달려들 줄 알고."<<stress 4>><<arousal 500 "bottom">><<gstress>><<garousal>>
+					<br><br>
+
+					<<if hasSexStat("promiscuity", 2)>>
+						<<link [[그의 몸에 자신의 몸을 문지른다|Street Bully Fondle]]>><<set $phase to 2>><<npcincr Whitney love 1>><<npcincr Whitney dom 1>><</link>><<promiscuous2>><<glove>><<gdom>>
+						<br>
+					<</if>>
+					<<link [[마음대로 하게 둔다|Street Bully Fondle]]>><<set $phase to 1>><<sub 1>><<trauma 6>><<arousal 1000 "bottom">><<npcincr Whitney dom 1>><</link>><<gtrauma>><<garousal>><<gdom>>
+					<br>
+					<<link [[그를 떨쳐낸다|Street Bully Fondle]]>><<set $phase to 0>><<def 1>><<trauma -6>><<npcincr Whitney love -1>><<npcincr Whitney dom -1>><</link>><<ltrauma>><<llove>><<ldom>>
+					<br>
+				<<else>>
+					휘트니와 그의 친구들이 당신의 앞에 선다. "으, 쓰레기통안에서 뭔가가 기어 나왔군." 그가 말한다. "깨끗하게 청소해줘야 겠는데. 시민의 의무, 그렇지?" 그들은 당신의 팔을 잡고 근처 쓰레기통으로 끌고간다.
+					<br><br>
+
+					<<link [[내버려둔다|Street Bully Bin]]>><<sub 1>><<trauma 6>><<stress 6>><<npcincr Whitney dom 1>><</link>><<gtrauma>><<gstress>><<gdom>>
+					<br>
+					<<link [[싸운다|Street Bully Fight]]>><<def 1>><<set $fightstart to 1>><<set $phase to 0>><<npcincr Whitney dom -1>><</link>><<ldom>>
+					<br>
+				<</if>>
+			<<case 4>><<set $bullyeventstreet += 1>>
+				당신은 뒤에서 누군가의 존재감을 느낀다. 당신이 돌아보기도 전에,
+				<<if $whitneyromance is 1>>
+					당신은 빙글 돌며 벽으로 밀쳐진다.
+					<br><br>
+
+					"안녕, 걸레야?" 휘트니다. 그는 당신의 대답을 듣지 않고 키스한다.<<stress 2>><<arousal 500 "mouth">><<gstress>><<garousal>>
+					<br><br>
+
+					<<if $submissive lte 500>>
+						<<link [[주도한다|Street Bully Makeout]]>><<set $phase to 2>><<def 3>><<npcincr Whitney dom -1>><</link>><<promiscuous1>><<ldom>>
+						<br>
+					<</if>>
+					<<link [[마음대로 하게 둔다|Street Bully Makeout]]>><<set $phase to 1>><<sub 1>><<stress 4>><<arousal 1000 "mouth">><<npcincr Whitney dom 1>><</link>><<gstress>><<garousal>><<gdom>>
+					<br>
+					<<link [[몸부림친다|Street Bully Makeout]]>><<set $phase to 0>><<def 1>><<npcincr Whitney love -1>><<npcincr Whitney dom -1>><</link>><<llove>><<ldom>>
+					<br>
+				<<else>>
+					한 쌍의 손이 <<= `당신의 옷 안으로` || "당신의 질 밑으로">> 기어들어온다.
+					<br><br>
+					<<if !$worn.under_lower.type.includes("naked") and !$worn.under_lower.type.includes("covered")>>
+						"또 내 구역에 들어왔네." 휘트니다. 그의 친구들이 당신을 에워싼다. "이번엔 제대로 교훈을 얻도록 만들어 줘야겠어."
+						<br><br>
+
+						그의 손이 당신의 속옷을 찾아 더 깊이 미끄러져 들어온다.
+						<br><br>
+
+						<<link [[내버려둔다|Street Bully Undies]]>><<set $phase to 1>><<sub 1>><<trauma 6>><<stress 6>><<pain 6>><<npcincr Whitney dom 1>><</link>><<gtrauma>><<gstress>><<gpain>><<gdom>>
+						<br>
+						<<link [[싸운다|Street Bully Fight]]>><<def 1>><<set $fightstart to 1>><<npcincr Whitney dom -1>><</link>><<ldom>>
+						<br>
+					<<else>>
+						"내 구역에 또 들어오다니 용감하네." 휘트니다. 그의 손이 당신의 <<= _outfit ? "치마 밑을" : _bottom ? "속옷 안을" : "사타구니 위를">> 자유롭게 헤집으며, <span class="lewd">손가락이 당신의 질을 쓸어내린다.</span>
+						<<if $whitneypantiescheck is 1>>
+							"팬티 안 입고 있어? 여긴 학교도 아닌데." 그가 몸을 가까이 기울인다. "아니면 이렇게 입고 다니는 걸 즐기는 건가?"
+						<<elseif $whitneypantiescheck is 2>>
+							"속옷 안 입고 있어? 여긴 학교도 아닌데." 그가 몸을 가까이 기울인다. "아니면 이런 걸 즐기는 건가?"
+						<<else>>
+							"속옷을 입지 않았다니 훨씬 더 용감하군."
+						<</if>>
+						그의 친구들은 웃는다.
+						<<trauma 6>><<stress 6>><<arousal 800 "genitals">><<gtrauma>><<gstress>><<garousal>>
+						<br><br>
+
+						오랜 시간동안
+						<<if $player.penisExist and (!$player.vaginaExist or $rng gte 51)>>
+							당신을 쓰다듬고, 주무르고, 가끔은 꼬집은 후에
+						<<else>>
+							당신을 놀리고 당신의 질을 침범하려 시도한 후에
+						<</if>>
+						그는 당신을 밀치며 보내준다. "나중에 보자, 걸레야. 무료 체험 고마워." <<tearful>> 당신은 마음을 가다듬는다.<<npcincr Whitney lust 5>><<glust>>
+						<br><br>
+
+						<<endevent>>
+						<<destinationeventend>>
+					<</if>>
+				<</if>>
+			<<case 5>><<set $bullyeventstreet += 1>>
+				<<if Time.season is "winter">>
+					당신은 벽에 기대어 있는 휘트니의 옆을 지나간다. 그는 당신이 지나가도록 비켜주지 않는다. "너 추워 보이네," 그가 말한다.
+					<br><br>
+
+					그가 들고 있던 보온병의 뚜껑을 연다. 보온병의 위쪽에서는 김이 피어오르고, 달콤한 초콜릿의 향기가 뒤따른다. "한 입 마실래?"
+					<br><br>
+
+					<<link [[받아들인다|Street Bully Chocolate]]>><<set $phase to 1>><<npcincr Whitney dom 1>><</link>><<gdom>>
+					<br>
+					<<link [[계속 걷는다|Street Bully Chocolate]]>><<set $phase to 0>><<npcincr Whitney dom -1>><</link>><<ldom>>
+					<br>
+				<<elseif Weather.isOvercast>>
+					당신은 뒤쪽에서 첨벙이는 발소리를 듣는다. 당신이 뒤를 돌자 휘트니가 당신쪽으로 뛰어오고 있는 것이 보인다.<<stress 10>><<ggstress>>
+					<br><br>
+
+					당신은 아래를 내려다보고 당신이 물 웅덩이 위에 서 있다는 것을 알아차린다. <span class="lewd">곧 흠뻑 젖을 것이다!</span>
+					<br><br>
+
+					<<link [[비켜선다|Street Bully Puddle]]>><<set $phase to 1>><</link>><<dancedifficulty 1 1000>>
+					<br>
+					<<link [[가만히 있는다|Street Bully Puddle]]>><<set $phase to 0>><<npcincr Whitney dom 1>><</link>><<gdom>>
+					<br>
+				<<else>>
+					당신은 휘트니가 으스대며 당신쪽으로 다가오고 있는 것을 발견한다. 그는 물병의 물을 한 모금 마신다. "확실히 날씨가 덥네." 그는 <<generatey2>><<person2>>소년에게 고개를 끄덕인다. <<person2>>그는 뒤에서 살금살금 다가와 당신의 팔을 잡는다.
+					<br><br>
+
+					"걱정하지 마," 휘트니가 말한다. "네가 시원해질 수 있게 우리가 도와줄게." <<person1>><span class="lewd">그는 당신의 가슴쪽으로 물병을 조준한다.</span>
+					<br><br>
+
+					<<if $player.gender_appearance is "f" and hasSexStat("exhibitionism", 4)>>
+						<<link [[과시한다|Street Bully Bottle]]>><<set $phase to 2>><<npcincr Whitney love 1>><<npcincr Whitney dom 1>><</link>><<exhibitionist4>><<glove>><<gdom>>
+						<br>
+					<<elseif $player.gender_appearance is "m">>
+						<<link [[과시한다|Street Bully Bottle]]>><<set $phase to 2>><<npcincr Whitney love 1>><<npcincr Whitney dom 1>><</link>><<exhibitionist1>><<glove>><<gdom>>
+						<br>
+					<</if>>
+					<<link [[가만히 있는다|Street Bully Bottle]]>><<set $phase to 0>><<npcincr Whitney dom 1>><</link>><<gdom>>
+					<br>
+					<<link [[빠져나온다|Street Bully Bottle]]>><<set $phase to 1>><<npcincr Whitney dom -1>><</link>><<physiquedifficulty 1 $physiquemax>><<ldom>>
+					<br>
+				<</if>>
+			<<case 6>><<set $bullyeventstreet += 1>>
+				<<set $NPCList[0].skills to {athletics: random(1, 1000), security: random(1, 1000)}>>
+				당신은 뒤에서 소년의 웃음소리를 듣는다. 당신이 돌아서자 여러 사람들이 골목 사이로 빠르게 움직이고 있는 것이 보인다.
+				<br><br>
+
+				<span class="purple">당신은 쫒기고 있다.</span>
+				<br><br>
+
+				<<link [[다음|Street Bully Stalk]]>><<set $molestationstart to 1>><</link>>
+				<br>
+			<<case 7>><<set $bullyeventstreet += 1>>
+				당신은 덜컹거리는 소리와 쉭쉭거리는 소리를 듣는다. 앞쪽에서 휘트니와 그의 친구들이 건물 벽에 그래피티를 그리고 있다.
+				<br><br>
+
+				<<if $whitneyromance is 1 or $delinquency gte 400>>
+					당신이 다가오는 것을 느끼자, 그가 돌아본다. 그는 당신에게 스프레이 한 캔을 던져준다. "해 봐," 그가 웃는다. "뭔가 예쁜 걸로 그려줘."
+					<br><br>
+
+					<<link [[응한다|Street Bully Paint]]>><<set $phase to 1>><</link>><<glove>><<crime "destruction">>
+					<br>
+					<<link [[거절한다|Street Bully Paint]]>><<set $phase to 0>><<npcincr Whitney dom -1>><</link>>
+					<br>
+				<<else>>
+					당신이 지나갈 때 그가 갑자기 돌아서서 당신의 얼굴에 스프레이를 뿌리고 당신이 메스꺼워 하자 그것을 보며 웃는다. 당신은 <<= pcAreArmsBound("both") ? "고개를 흔들어서" : "얼굴을 닦아내서">> 그것을 치워내지만, 스프레이 연기로 인해 어지러움이 남는다.<<hallucinogen 50>><<trauma 6>><<stress 6>><<npcincr Whitney lust 5>><<gtrauma>><<gstress>><<glust>>
+					<br><br>
+
+					<<endevent>>
+					<<destinationeventend>>
+				<</if>>
+			<<case 8>><<set $bullyeventstreet += 1>>
+				한 무리의 소년들이 앞에 서서 당신의 길을 막는다. 그들이 갈라선다. 휘트니가 팔짱을 끼고 걸어나온다.
+				<br><br>
+
+				"못 들었나? 여긴 새로 통행료가 생겼어." 그의 시선이 당신의 몸을 따라 내려간다. "지나가고 싶으면 우리에게 옷 안쪽을 보여줘야해."
+				<br><br>
+
+				그가 그의 친구들에게 고개를 끄덕이고 그들은 당신의 뒤에 벽을 형성한다. 그들은 거리 쪽이 보이지 않게 당신의 시야를 가린다. "걱정 마." 그가 미소를 지으며 말한다. "다른 사람은 아무도 보지 못할거야."
+				<br><br>
+
+				<<if hasSexStat("exhibitionism", 3)>>
+					<<link [[과시하듯 벗는다|Street Bully Strip]]>><<set $phase to 1>><<npcincr Whitney love 1>><<npcincr Whitney dom 1>><<npcincr Whitney lust 5>><</link>><<exhibitionist3>><<glove>><<gdom>><<glust>>
+					<br>
+				<</if>>
+				<<link [[마지못해 벗는다|Street Bully Strip]]>><<set $phase to 0>><<trauma 6>><<stress 6>><<npcincr Whitney dom 1>><</link>><<gtrauma>><<gstress>><<gdom>>
+				<br>
+				<<link [[거절한다|Street Bully Strip Forced]]>><<def 1>><<set $molestationstart to 1>><<npcincr Whitney dom -1>><</link>><<ldom>>
+				<br>
+			<<case 9>><<set $bullyeventstreet += 1>>
+				당신은 누군가가 당신에게 달려오는 소리를 듣는다. 몸이 당신에게 부딪혀 두 사람을 바닥에 넘어뜨린다.<<pain 2>><<gpain>>
+				<br><br>
+
+				당신은 머리를 문지른다. 시야가 서서히 맑아지며 화난 얼굴이 보인다. 휘트니다. "앞 좀 똑바로 보고 다..." 고함소리가 골목에 울려퍼지며 그의 말을 끊어버린다. 그가 당신을 밀어내고 그의 친구들과 함께 도망친다.
+				<br><br>
+
+				<<link [[다음|Street Bully Chased]]>><<endevent>><</link>>
+				<br>
+			<<case 10>><<set $bullyeventstreet += 1>>
+				<<if $player.gender_appearance is "f">><<set $phase to random(1, 3)>><<else>><<set $phase to random(1, 2)>><</if>>
+
+				당신은 앞에 있는 휘트니를 발견한다. 그가 당신을 보자 그의 눈에는 장난기가 번뜩인다. 그는 <<if $whitneyromance is 1>>당신의 등을 손으로 밀며<<else>>당신의 머리채를 손으로 잡고<</if>>, 거리 쪽으로 걸어간다.
+				<br><br>
+
+				"앞으로 일어날 일을 설명해 줄게." 그가 말한다. "이 거리는 늘 바빠. <<if Time.dayState is "night">>심지어 이런 시간에도 말이지<<else>>특히 이 시간에는 말이야<</if>>. 다음에 차를 타고 지나가는 사람에게 뛰어들어서 네
+				<<switch $phase>>
+					<<case 3>>가슴을 보여줘."
+					<<case 2>>성기를 보여줘."
+					<<case 1>>엉덩이를 보여줘."
+				<</switch>>
+				그의 친구들이 그의 뒤에서 낄낄댄다.
+				<br><br>
+
+				<<if $speech_attitude is "meek">>
+					당신은 얼굴을 붉힌다. "그-근데 왜 그런-"
+				<<elseif $speech_attitude is "bratty">>
+					당신은 비웃는다. "대체 내가 왜 그딴-"
+				<<else>>
+					당신은 얼굴을 찡그린다. "왜 그런-"
+				<</if>>
+				<br><br>
+
+				"왜냐면 <<print either("내가 심심하니까","넌 걸레니까","내가 그렇게 말했으니까")>>, 그게 이유야." 그가 <<if $whitneyromance is 1>>웃는다<<else>>쏘아붙인다<</if>>.
+				<<switch $phase>>
+					<<case 3>>그가 당신의 <<breasts>>을 <<if $player.breastsize gt 0>>주무른다<<else>>꼬집는다<</if>>.
+					<<case 2>>그가 당신의 질을 더듬는다.
+					<<case 1>>그가 당신의 엉덩이를 한 대 친다.
+				<</switch>>
+				"이제 변태의 날을 만들어 보자고."<<npcincr Whitney lust 5>><<glust>>
+				<br><br>
+
+				<<if pcAreArmsBound("both")>>
+					한 소년이 휘트니의 귓가에 무언가를 속삭인다. 그가 눈썹을 찡그린다. 그가 당신의 어깨를 잡고 돌려서 묶인 팔을 음흉하게 쳐다본다. "내가 혼자서 다 해야겠네." <span class="purple">그가 당신을 거리 안쪽으로 끌고가기 시작한다.</span>
+					<br><br>
+
+					<<link [[내버려둔다|Street Bully Flash Forced]]>><<sub 1>><<npcincr Whitney dom 1>><<trauma 6>><<stress 6>><</link>><<gtrauma>><<gstress>><<gdom>>
+					<br>
+				<<else>>
+					<<if ($phase is 3 and hasSexStat("exhibitionism", 4)) or ($phase is 2 and hasSexStat("exhibitionism", 5)) or ($phase is 1 and hasSexStat("exhibitionism", 3))>>
+						<<if $whitneyromance is 1>>
+							<<link [[그를 자극한다|Street Bully Flash]]>><<set $phase2 to 2>><<npcincr Whitney dom -1>><<npcincr Whitney lust 10>><</link>>
+							<<switch $phase>>
+								<<case 3>><<exhibitionist4>>
+								<<case 2>><<exhibitionist5>>
+								<<case 1>><<exhibitionist3>>
+							<</switch>>
+							<<ldom>><<gglust>>
+							<br>
+						<</if>>
+						<<link [[과시한다|Street Bully Flash]]>><<set $phase2 to 1>><<npcincr Whitney love 1>><<npcincr Whitney dom 1>><</link>>
+						<<switch $phase>>
+							<<case 3>><<exhibitionist4>>
+							<<case 2>><<exhibitionist5>>
+							<<case 1>><<exhibitionist3>>
+						<</switch>>
+						<<glove>><<gdom>>
+						<br>
+					<</if>>
+					<<link [[응한다|Street Bully Flash]]>><<set $phase2 to 0>><<sub 1>><<npcincr Whitney dom 1>><<trauma 6>><<stress 6>><</link>><<gtrauma>><<gstress>><<gdom>>
+					<br>
+				<</if>>
+				<<link [[싸운다|Street Bully Fight]]>><<def 1>><<set $fightstart to 1>><<npcincr Whitney dom -1>><</link>><<ldom>>
+				<br>
+			<<case 11>><<set $bullyeventstreet += 1>>
+				<<generateyv2>><<person2>>
+				당신은 전방에 소년을 둘러 싸고 있는 불량 학생들을 본다. 당신은 그가 고아원에 산다는 걸 알아차린다. 휘트니가 그들의 선두에 서 있다.
+				<br><br>
+
+				<<person1>>
+				<<switch random(1, 4)>>
+					<<case 4>>
+						"네가 퍼트린 소문은 정말 악질이었어." 그가 그의 손가락을 꺾는다. "괜찮아. 네 그 뚱뚱한 주둥이를 닥치게 할 방법은 알고 있으니까."
+					<<case 3>>
+						"넌 그 프로젝트에서 좋은 점수를 받았어야 했어." 그가 그의 손가락을 꺾는다. "내가 네 뇌를 좀 두드려줘야 겠네."
+					<<case 2>>
+						"내가 좀 지루했는데 말이야." 그가 그의 손가락을 꺾는다. "어떤 고아 새끼 하나가 내 구역에 뛰어들어왔네."
+					<<default>>
+						"고작 20 파운드를 긁어 모으는 걸 못 했다는 거지?" 그가 그의 손가락을 꺾는다. "뭐 괜찮아. 다른 방법으로 지불하면 되니까."
+				<</switch>>
+				<<person2>>
+				<<switch random(1, 4)>>
+					<<case 4>>
+						소년은 흐느끼며 알아들을 수 없는 사과를 하고, 그를 괴롭히던 사람들은 기뻐한다.
+					<<case 3>>
+						<<set _whitSpray to true>>
+						소년은 휘트니의 손아귀 안에서 약하게 몸부림쳐 보지만, 그가 어디로도 도망칠 수 없는 것은 분명해 보인다.
+					<<case 2>>
+						<<set _whitSpray to true>>
+						소년은 팔을 교차하며 반항해 보지만, 그의 눈동자는 그의 두려움을 숨기지 못한다.
+					<<default>>
+						소년은 체념한 듯 그의 발을 내려다 본다.
+				<</switch>>
+				<br><br>
+
+				<<if $whitneyromance is 1>>
+					<<link [[당신 스스로를 대신 바친다|Street Bully Orphan]]>><<set $phase to 3>><<npcincr Whitney love 1>><<npcincr Whitney dom 1>><</link>><<promiscuous1>><<glove>><<gdom>>
+					<br>
+				<<elseif hasSexStat("promiscuity", 3)>>
+					<<link [[당신 스스로를 대신 바친다|Street Bully Orphan]]>><<set $phase to 2>><<stress 6>><<npcincr Whitney love 1>><<npcincr Whitney dom 1>><</link>><<promiscuous3>><<gstress>><<glove>><<gdom>>
+					<br>
+				<</if>>
+				<<if $loft_kylar and _whitSpray>>
+					<<link [[싸운다|Street Bully Orphan Spray]]>><<def 1>><<reb 3>><<npcincr Whitney dom -3>><</link>><<ldom>><<greb>>
+					<br>
+				<<else>>
+					<<link [[싸운다|Street Bully Orphan]]>><<set $phase to 1>><<def 1>><<reb 1>><<npcincr Whitney dom -1>><</link>><<ldom>><<greb>>
+					<br>
+				<</if>>
+				<<link [[계속 걸어간다|Street Bully Orphan]]>><<set $phase to 0>><<sub 1>><<trauma 10>><<stress 6>><<hope -3>><</link>><<ggtrauma>><<gstress>><<llhope>>
+				<br>
+			<<case 12>><<set $bullyeventstreet += 1>>
+				"이봐, 걸레야." 뒤에서 목소리가 들린다. 당신이 돌아보자 휘트니가 당신에게 달려들어,
+				<<if $whitneyromance is 1>>
+					당신과 함께 바닥에 넘어진다. 그가 당신의 위에 착지한다.<<pain 2>><<npcincr Whitney lust 5>><<gpain>><<glust>>
+					<br><br>
+
+					"내 구역에 또 들어왔네," 그가 말한다. 그가 말할 때마다 담배와 알코올의 향기가 섞여 느껴진다. "이러면 안되지. 이제부터 너에게 교훈을 남겨줘야겠어."
+					<br><br>
+
+					그가 당신의 목에 그의 얼굴을 묻은 채로 어설프게 당신을 더듬는다. 그의 친구들은 옆에서 웃고 있다.
+					<br><br>
+
+					<<link [[꾸짖는다|Street Bully Drunk]]>><<set $phase to 2>><<trauma -6>><<npcincr Whitney dom -1>><</link>><<ltrauma>><<ldom>><<difficulty 50>>
+					<br>
+					<<link [[그대로 누워 있는다|Street Bully Sex]]>><<set $phase to 2>><<set $sexstart to 1>><<npcincr Whitney dom 1>><</link>><<promiscuous1>><<gdom>>
+					<br>
+				<<else>>
+					<<wearProp "bottle bag">>
+					당신을 거의 쓰러트릴 뻔 한다.
+					<br><br>
+
+					"너같은 걸레가 이 밤에 대체 어딜 가는거야?" 그가 말한다. <<if Time.dayState isnot "night">>지금은 밤이 아니지만 당신은 그의 말을 굳이 정정해주지는 않는다.<</if>> "그러면 안 되지. 이거 없이는 말이야." 그가 그의 옆에 있는 종이봉투를 더듬거리며 찾아서 당신의 팔에 밀어넣는다. 그가 당신의 뺨을 두드리고는 별다른 말 없이 비틀거리며 사라진다.
+					<br><br>
+
+					당신은 봉투를 찢어 내용물을 살핀다. 반쯤 채워진 병이 있다.
+					<<if random(1, 5) is 5>>
+						<<set $phase2 to 1>>
+						다채로운 색상의 액체가 소용돌이친다.
+					<<else>>
+						<<set $phase2 to 0>>
+						당신은 내용물이 뭔지 추측해볼 수 있다.
+					<</if>>
+					<br><br>
+
+					<<if playerIsPregnant() and playerAwareTheyArePregnant()>>
+						<span class="blue">당신의 배 속에 아기가 있다는 걸 알면서도 술을 마실 수는 없다.</span>
+					<<else>>
+						<<link [[마신다|Street Bully Drunk]]>><<set $phase to 1>><<wearProp "beer bottle">><<trauma -6>><<stress -12>><<alcohol 240>><<if $phase2 is 1>><<arousal 2000>><<drugs 120>><</if>><</link>><<ltrauma>><<lstress>><<if $phase2 is 1>><<note "+ + + Alcohol?" "purple">><<else>><<gggalcohol>><</if>>
+					<</if>>
+					<br>
+					<<link [[놔둔다|Street Bully Drunk]]>><<set $phase to 0>><</link>>
+					<br>
+				<</if>>
+			<<case 13>><<set $bullyeventstreet += 1>>
+				뒤에서 다가오는 발소리가 들린다. 누군가가 당신의 어깨에 팔을 두르고, 그쪽으로 당신을 가까이 끌어당긴다. 휘트니다.
+				<br><br>
+
+				"우리 걸레 여기 있었네," 그가 당신의 옷 속을 더듬으며, 말한다. "날 그리워했구나." 그는 당신을 골목으로 안내한다. 3층 건물의 꼭대기로 연결된 사다리가, 앞에 있다. "네가 먼저야. 위는 로맨틱할거야."
+				<br><br>
+
+				<<if $whitneyromance is 1>>
+					<<link [[따라간다|Street Bully Roof]]>><</link>>
+					<br>
+					<<link [[몸부림쳐 푼다|Street Bully Roof Struggle]]>><</link>>
+					<br>
+				<<else>>
+					<<link [[내버려둔다|Street Bully Roof]]>><<sub 1>><<trauma 6>><<stress 6>><<npcincr Whitney dom 1>><</link>><<gtrauma>><<gstress>><<gdom>>
+					<br>
+					<<link [[싸운다|Street Bully Fight]]>><<def 1>><<set $fightstart to 1>><<set $phase to 0>><<npcincr Whitney dom -1>><</link>><<ldom>>
+					<br>
+				<</if>>
+			<!--Failsafe/temporary bugfix, as case 15 is not currently accessible except for the bugtester(s) who triggered the bug. Replace with case 14 and code in the 15th bullyeventstreet as normal, whenever that's added.-->
+			<<case 14 15>><<set $bullyeventstreet to 1>>
+				당신은 휘트니가 바로 앞 모퉁이를 돌고 있는 것을 발견한다. 그역시 당신을 알아챈다.
+				<<if $whitneyromance is 1>>
+					"내가 찾던 바로 그 걸레잖아," 그가 말한다, "이리 와. 네 집으로 놀러 갈 거야. 고아원 말이야." 그는 새 담배를 배수로로 튕겨넣고, 그의 팔로 당신의 팔을 잡는다.
+					<br><br>
+
+					<<link [[휘트니에게 다른 고아들을 잘 대해주겠다고 약속하게 한다 (0:25)|Street Bully Orphanage Promise]]>><<pass 25>><</link>>
+					<br>
+					<<link [[고아원으로 간다 (0:25)|Street Bully Orphanage Go]]>><<npcincr Whitney love 1>><<pass 25>><</link>><<glove>>
+					<br>
+					<<link [[거절한다|Street Bully Orphanage Refuse]]>><<npcincr Whitney love -3>><</link>><<lllove>>
+					<br>
+				<<else>>
+					"내가 찾던 바로 그 걸레잖아," 그는 당신의 옷 밑을 더듬으며, 말한다. "그냥 널 확인하고 싶었어, 그게 다야," 그가 말한다. 그는 과장해서 "쪼옥" 하는 소리를 내며 당신의 관자놀이에 키스를 한 다음, 당신을 한쪽으로 밀친다.<<gtrauma>><<gstress>><<trauma 6>><<stress 6>>
+					<br><br>
+
+					"나중에 보자, 걸레야," 그는 그의 친구들을 끌고, 으스대며 말한다.
+					<br><br>
+
+					<<endevent>>
+					<<destinationeventend>>
+				<</if>>
+			<<default>>
+				"이봐, 걸레야," 한 소년이 당신을 부른다. 휘트니다. 그는 화가 난 것 같다.
+				<br><br>
+
+				"네가 뭘 했는지는 몰라도, <span class="red">버그가 생겼고 아마 네가 잘못한 거야.</span> 하지만 이건 네 문제야. 가서 원작자한테 울면서 말해보던가." 그는 다른 말 없이 가버린다.
+				<br><br>
+
+				<<endevent>>
+				<<destinationeventend>>
+		<</switch>>
+	<</if>>
+<</widget>>
+
+:: Street Bully Fight
+
+<<if $fightstart is 1>>
+	<<set $fightstart to 0>>
+	<<neutral 1>>
+	<<maninit>>
+		<<if $stalk_end is "ambush">>
+		당신은 휘트니에게 밀쳐지기 전, 몇 번의 공격 기회를 얻는다. 그는 단념하지 않는다. 그의 친구들은 그를 응원한다.
+		<<set $enemyhealth -= 150>>
+	<<else>>
+		당신은 휘트니를 밀어내지만, 그는 단념하지 않는다. 그의 친구들은 그를 응원한다.
+	<</if>>
+	<br><br>
+	<<npcidlegenitals>>
+	<<set $enemytrust -= 100>>
+	<<set $enemyanger += 200>>
+	<<set $audienceforceteen to 1>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<audience>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0)>>
+	<span id="next"><<link [[다음|Street Bully Fight Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Street Bully Fight]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Street Bully Fight Finish
+<<set $outside to 1>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation "short">>
+
+	그가 헐떡이며 뒤로 물러난다.<<npcincr Whitney lust -20>><<llust>>
+	<br><br>
+
+	<<tearful>> 당신은 그가 망연자실한 틈을 타 도망친다. 그의 친구들은 당황한 나머지 당신을 쫓아오지 못한다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<destinationeventend>>
+<<elseif $enemyhealth lte 0>>
+	당신은 휘트니를 그의 친구들이 있는 방향으로 밀쳐낸다. 그들은 탈출하는 당신을 향해 모욕을 퍼붓지만, 따라오지는 않는다.<<npcincr Whitney dom -1>>
+	<br><br>
+
+	<<tearful>> 당신은 마음을 가다듬는다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<destinationeventend>>
+<<else>>
+	더이상 계속할 수 없을 정도로 다쳐서, 당신은 땅에 쓰러진다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat "phaseless">>
+	<<npc Whitney>><<person1>>
+
+	<<switch $bullyeventstreet>>
+		<<case 11>>
+			<<link [[다음|Street Bully Flash Forced]]>><<trauma 6>><<stress 6>><</link>>
+			<br>
+		<<case 7>>
+			<<link [[다음|Street Bully Sex]]>><<set $phase to 0>><<set $molestationstart to 1>><</link>>
+			<br>
+		<<case 5>>
+			<<link [[다음|Street Bully Undies]]>><<set $phase to 0>><<trauma 6>><<stress 6>><<pain 6>><</link>>
+			<br>
+		<<case 14>>
+			<<link [[다음|Street Bully Roof]]>><</link>>
+			<br>
+		<<default>>
+			<<link [[다음|Street Bully Bin]]>><<trauma 6>><<stress 6>><</link>>
+			<br>
+	<</switch>>
+<</if>>
+
+:: Street Bully Sex
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+
+	<<maninit>>
+	<<if $phase is 0>>
+		<<if C.npc.Whitney.dom gte 15>>
+			<<set $position to "missionary">>
+			그는 당신을 발로 차고 바지를 끌어내려 속옷을 드러낸다. 그가 웃는다.
+			<<if $NPCList[0].penis isnot "none">>
+				"네가 있어야 할 자리는 거기야."
+				<br><br>
+
+				그가 당신의 위에 무릎을 꿇고 앉아 어깨를 고정시킨다. 그는 당신의 머리를 잡고 그의 가랑이 사이로 끌어당긴다.
+				<<npcoral>>
+			<<elseif $settings.facesitEnabled>>
+				"숨을 참는 게 좋을거야."
+				<br><br>
+
+				그가 당신 위에 자리를 잡고 무게를 실어 당신의 얼굴 위에 편안하게 앉는다. 그는 당신의 입에 그의 질을 비빈다.
+				<<set $NPCList[0].vagina to "facesit">><<set $NPCList[0].location.genitals = "head">>
+				<<set $mouthuse to "facesit">><<set $mouthstate to "vagina">><<set $mouthtarget to 0>>
+				<br><br>
+			<<else>>
+				"네가 있어야 할 자리는 거기야."
+				<br><br>
+				그가 당신의 위에 무릎을 꿇고 앉아 어깨를 고정시킨다. 그는 당신의 머리를 잡고 그의 가랑이 사이로 끌어당긴다.
+				<<set $NPCList[0].vagina to "mouth">><<set $NPCList[0].location.genitals to "head">>
+				<<set $mouthuse to "othervagina">><<set $mouthstate to "othervagina">><<set $mouthtarget to 0>>
+			<</if>>
+			<<violence 4>>
+		<<else>>
+			그는 당신의 무릎을 꿇리고 바지를 끌어내려 속옷을 드러낸다.
+			"넓게 벌려," 그가 말한다. 그의 친구들은 그를 응원한다.
+			<<npcoral>>
+		<</if>>
+		<<set $NPCList[0].lefthand to "hair">>
+	<</if>>
+	<<set $enemyanger to 70>>
+	<<set $audienceforceteen to 1>>
+<<elseif $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+
+	<<maninit>>
+	<<if $phase is 2>>
+		<<promiscuity1>>
+	<<elseif $phase is 0>>
+		<<if C.npc.Whitney.dom gte 15>>
+			<<set $position to "missionary">>
+			그는 당신을 발로 차고 바지를 끌어내려 속옷을 드러낸다. 그가 웃는다.
+			<<if $NPCList[0].penis isnot "none">>
+				"네가 있어야 할 자리는 거기야."
+				<br><br>
+
+				그가 당신의 위에 무릎을 꿇고 앉아 어깨를 고정시킨다. 그는 당신의 머리를 잡고 그의 가랑이 사이로 끌어당긴다.
+				<<npcoral>>
+			<<elseif $settings.facesitEnabled>>
+				"숨을 참는 게 좋을거야."
+				<br><br>
+
+				그가 당신 위에 자리를 잡고 무게를 실어 당신의 얼굴 위에 편안하게 앉는다. 그는 당신의 입에 그의 질을 비빈다.
+				<<set $NPCList[0].vagina to "facesit">><<set $NPCList[0].location.genitals = "head">>
+				<<set $mouthuse to "facesit">><<set $mouthstate to "vagina">><<set $mouthtarget to 0>>
+			<<else>>
+				"네가 있어야 할 자리는 거기야."
+				<br><br>
+				그가 당신의 위에 무릎을 꿇고 앉아 어깨를 고정시킨다. 그는 당신의 머리를 잡고 그의 가랑이 사이로 끌어당긴다.
+				<<set $NPCList[0].vagina to "mouth">><<set $NPCList[0].location.genitals to "head">>
+				<<set $mouthuse to "othervagina">><<set $mouthstate to "othervagina">><<set $mouthtarget to 0>>
+			<</if>>
+			<<violence 4>>
+		<<else>>
+			그는 당신의 무릎을 꿇리고 바지를 끌어내려 속옷을 드러낸다.
+			"넓게 벌려," 그가 말한다. 그의 친구들은 그를 응원한다.
+			<<npcoral>>
+		<</if>>
+		<<promiscuity4>>
+		<<set $NPCList[0].lefthand to "hair">><<set $enemyanger to 70>>
+		<<set $audienceforceteen to 1>>
+	<</if>>
+<</if>>
+
+<<effects>>
+
+<<effectsman>><<man>>
+
+<<if Time.dayState isnot "night">>
+	<<switch random(1, 10)>>
+		<<case 10>>
+			<<if random(1, 100) lte maleChance()>><<set _whitAudience to "m">><<else>><<set _whitAudience to "f">><</if>>
+			지나가던 <<if _whitAudience is "m">>남자가<<else>>여자가<</if>> 보던 것을 멈추고 한 걸음 다가온다. 휘트니의 친구들은 <<if _whitAudience is "m">>그를<<else>>그녀를<</if>> 쫓아간다.
+			<<stress 4>><<gstress>>
+			<<fameexhibitionism 1>><<famesex 1>>
+			<br><br>
+		<<case 9>>
+			한 무리의 소년들이 지나간다. 그들은 숨을 헐떡이며 사진을 찍고 서둘러 길을 떠난다.
+			<<stress 2>><<gstress>>
+			<<if $whitneyromance is 1>>
+				<<status 1>><<gcool>>
+			<</if>>
+			<<fameexhibitionism 3 "pic">><<famesex 3 "pic">>
+			<br><br>
+		<<case 8>>
+			자동차가 지나가며 경적을 울린다.
+			<<stress 6>><<gstress>>
+			<<fameexhibitionism 1>><<famesex 1>>
+			<br><br>
+		<<case 7>>
+			<<if random(1, 100) lte maleChance()>><<set _whitAudience to "m">><<else>><<set _whitAudience to "f">><</if>>
+			한 <<if _whitAudience is "m">>남자가<<else>>여자가<</if>> 쓰레기 봉투를 <<if _whitAudience is "m">>그의<<else>>그녀의<</if>> 어깨에 걸치고 옆문에서 나오고 있다. <<if _whitAudience is "m">>그는<<else>>그녀는 <</if>> 잠시 멈춰서 멍하니 바라보다가 서둘러 들어간다.
+			<<fameexhibitionism 1>><<famesex 1>>
+			<br><br>
+		<<case 6>>
+			<<if random(1, 100) lte maleChance()>><<set _whitAudience to "m">><<else>><<set _whitAudience to "f">><</if>>
+			경찰관이 시야에 들어온다. <<if _whitAudience is "m">>그의<<else>>그녀의<</if>> 등은 골목을 향하고 있다. <<if _whitAudience is "m">>그는<<else>>그녀는<</if>> <<if _whitAudience is "m">>그의<<else>>그녀의<</if>> 무전기로 연락을 받고 아무것도 눈치 채지 못한 채 계속 지나간다.
+			<<if $consensual is 1>>
+				<<stress 12>><<ggstress>>
+			<<else>>
+				<<trauma 6>><<gtrauma>>
+			<</if>>
+			<br><br>
+		<<default>>
+			/* Do nothing */
+	<</switch>>
+<</if>>
+
+<<audience>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Street Bully Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Street Bully Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+
+:: Street Bully Sex Finish
+<<set $outside to 1>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+
+	<<if $whitneyromance is 1>>
+		그가 당신의 위로 쓰러지고 그의 숨소리가 귓가에 맴돈다.<<npcincr Whitney lust -20>><<llust>>
+		<br><br>
+
+		"다음 번에는," 그가 속삭인다. "온 마을 사람들이 보는 앞에서 길거리로 끌고 나간 다음 생으로 떡칠 거야. 네가 얼마나 걸레인지 모두가 알 수 있게."
+		<br><br>
+
+		그가 당신의 귀를 살짝 물고 밀쳐낸 후, 웃으며 떠난다.
+	<<else>>
+		그는 벽에 기대고 <<print playerBellyVisible() ? "담배를 꺼내지만 당신의 배를 흘끗 본 후 불을 붙이지 않기로 한다" : "담배에 불을 붙인다">>. 그의 호흡이 천천히 안정된다.<<npcincr Whitney lust -20>><<llust>>
+		<br><br>
+
+		"공짜 섹스 고마워 걸레야." 그가 그의 친구들을 이끌고 골목 밖으로 나가며 웃는다. 당신은 길바닥에 누운 채로 홀로 남겨진다.
+	<</if>>
+<<elseif $enemyhealth lte 0>>
+	당신은 휘트니를 밀쳐낸다. 그의 친구들이 도망치는 당신을 조롱하지만 아무도 쫓아오지는 않는다.<<npcincr Whitney dom -1>><<ldom>>
+<<else>>
+	휘트니는 당신을 밀쳐낸다. "그러든지." 그가 투덜댄다. 그는 담배를 <<print playerBellyVisible() ? "꺼낸 후" : "꺼내 불을 붙이고">> 발걸음을 옮긴다. 그의 친구들은 당신을 조롱하지만, 더 나아가지는 않는다.
+<</if>>
+<br><br>
+
+<<tearful>> 당신은 먼지를 털어낸다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<destinationeventend>>
+
+:: Street Bully Fondle
+<<set $outside to 1>><<effects>>
+
+<<if $phase gte 1>>
+	<<if $phase is 2>>
+		당신은 몸을 굽히고 당신의 엉덩이를 휘트니의 가랑이 사이에 비빈다.
+		<<if $NPCList[0].penis isnot "none">>
+			당신은 그의 페니스가 그에 반응해 단단해지는 것을 느낀다.
+		<<else>>
+			그가 당신의 엉덩이를 잡고 천천히 끌어당겨 천천히 원을 그리며 문지른다.
+		<</if>>
+		<<promiscuity2>>
+	<<else>>
+		당신은 휘트니가 즐기도록 놔둔다. 당신이 순응하고 있음에도 불구하고 그는 더 나아가지 않고 그의 손을 당신의 뒤에 둔다.
+		<br><br>
+	<</if>>
+
+	그가 점점 더 당신을 열정적으로 더듬으면서 당신의 몸을 그에게 가까이 끌어당긴다. 그가 몸을 숙이고 당신의 목 아래로 숨을 들이마쉬며 핥고, 깨물고, 때로는 입을 맞춘다. 그것은 오래가지 않고, 그는 이내 숨을 내쉬며 당신을 밀어낸다.
+	<br><br>
+
+	"고맙다, 암캐야. 이게 필요했어." 그가 당신의 엉덩이를 때려서 당신이 관중들 속으로 비틀거리며 돌아가게 한다. 당신은 방해되는 손길을 피하며 가던 길을 마저 간다.<<npcincr Whitney lust 5>><<glust>>
+<<else>>
+	<<if $speech_attitude is "meek">>
+		당신은 어깨너머로 휘트니에게 애원하는 표정을 짓는다. 그가 노려보지만 이내 당신을 밀치며 놓아준다. 당신은 서둘러 앞으로 나아간다.
+	<<elseif $speech_attitude is "bratty">>
+		<<if npcBellySize("Whitney") gte 8>>
+			당신은 휘트니를 밀쳐낸다. 그가 당신을 반사적으로 놓아준다.
+		<<else>>
+			당신은 팔꿈치로 휘트니의 배를 찌른다. 그가 헐떡이며 당신을 놓아준다.
+		<</if>>
+		그는 시큰둥한 표정을 지으며 그의 친구들과 함께 떠난다.
+	<<else>>
+		당신은 휘트니의 손아귀에서 벗어난다. 그가 당신을 잡으려 하지만 당신은 그의 팔 아래로 몸을 피하고 서둘러 나아간다. 그는 따라오지 않는다.
+	<</if>>
+<</if>>
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Street Bully Flirt
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 1>>
+	<<if $speech_attitude is "meek">>
+		당신은 아래를 내려다보며 캔을 발로 살짝 민다. "혼자 걸어가니까 너무 쓸쓸해." 당신은 휘트니를 올려다본다. "나랑 같이 있어주지 않을래...?"
+	<<elseif $speech_attitude is "bratty">>
+		당신은 캔을 휘트니에게 다시 걷어찬다.
+		<<if random(1, 5) gte 2>>
+			그가 간신히 피한다.
+		<<else>>
+			그것은 그의 머리를 강타한다.
+		<</if>>
+		"그만 일어나서 그 엉덩이 이쪽으로 가져오지 그래?"
+	<<else>>
+		"너 좀 외로워 보이는데," 당신은 아양을 떨며 휘트니에게로 걸어간다. "같이 있을 사람 필요해?"
+	<</if>>
+	<<promiscuity1>>
+
+	<<if C.npc.Whitney.lust gte random(1, 100)>>
+		그가 잠시 생각에 잠긴 듯한 표정을 짓더니 쓰레기통을 걷어차고 당신에게로 다가온다. 그의 친구들이 뒤따른다.
+		<br><br>
+
+		"마침 심심했는데," 그가 말한다. "좋아, 놀아줄게."
+		<br><br>
+
+		<<link [[다음|Street Bully Sex]]>><<set $phase to 1>><<set $sexstart to 1>><</link>>
+		<br>
+	<<else>>
+		"넌 정말 만족할 줄을 모르는구나," 그가 웃는다. 그는 당신에게 다른 캔을 던져서 이번에는 <<if $player.breastsize is 0>>가슴에<<else>><<breasts>>에<</if>> 맞도록 한다. "근데 지금은 그럴 기분 아냐. 가서 너랑 떡칠 다른 걸레를 찾아."
+		<br><br>
+
+		그는 뒤로 기대어 눈을 감고, 마치 당신이 없는 것처럼 행동한다. 당신은 시간을 더 낭비하지 않고 가던 길을 마저 가기로 한다.
+		<br><br>
+
+		<<endevent>>
+		<<destinationeventend>>
+	<</if>>
+<<else>>
+	<<if $speech_attitude is "meek">>
+		당신은 휘트니를 지나칠 때 미소를 지으며 손을 흔든다. 그가 당신을 흘겨보지만 쫓아오지는 않는다.
+	<<elseif $speech_attitude is "bratty">>
+		당신은 어깨너머로 휘트니에게 손가락 욕을 날린다. 당신은 그가 웃는 소리를 들었지만 그는 쫓아오지 않는다.
+	<<else>>
+		당신은 휘트니를 무시하고 서둘러 나아간다. 그는 당신을 비웃지만 쫓아오지는 않는다.
+	<</if>>
+	<br><br>
+
+	<<endevent>>
+	<<destinationeventend>>
+<</if>>
+
+:: Street Bully Choke
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 2>>
+	<<if $speech_attitude is "meek">>
+		"너-너무 세," 당신은 신음한다.
+	<<elseif $speech_attitude is "bratty">>
+		"씨-씨발," 당신은 앓는 소리를 낸다. "기분 존나 좋아."
+	<<else>>
+		"더-더 세게!" 당신은 외친다.
+	<</if>>
+	그의 친구들이 웃음을 터뜨린다.
+	<br><br>
+
+	<<if $whitneyromance is 1>>
+		휘트니의 호흡이 빨라지고 그는 당신을 꽉 잡는다. 당신의 얼굴은 그의 <<if $NPCList[0].breastsize is 0>>가슴과<<else>>가슴과<</if>> 이두근 사이에 강하게 눌린다.<<arousal 500>><<garousal>>
+		<br><br>
+
+		그가 당신의 머리를 들어올리고, 그의 입술을 당신의 귓가에 가져간다. "너 이거 좋아하지, 안 그래? 네가 기절할 때까지 해줘야겠어." 그가 그의 팔로 당신의 목을 꽉 조른다. 그는 한동안 이렇게 있을 계획인 것 같다. 당신의 눈앞에 별이 보이기 시작할 즈음에 그는 당신을 놓아준다. 당신은 숨을 헐떡이며 무릎을 꿇는다.
+		<br><br>
+
+		"내가 내 여자에게 그녀가 원하는 것을 해주지 않는다고 누가 그래?" 그의 친구들은 웃는다. 그들은 호흡을 가다듬는 당신을 두고 떠난다.
+	<<else>>
+		휘트니도 함께 웃는다. "넌 정말 걸레라니까, 이걸 즐기고 있다니." 그가 당신을 밀치며 놓아준다. 당신은 무릎을 꿇는다. "저런, 너무 거칠었나? 널 흥분하게 만들어 버렸다면 사과하지."
+		<br><br>
+
+		그들은 떠나며 당신을 조롱한다. <<tearful>> 당신은 먼지를 털어낸다.
+	<</if>>
+<<elseif $phase is 1>>
+	당신은 운명에 체념한 채로 가만히 앉아 굴욕이 끝나기를 기다린다. 휘트니의 친구들은 당신의 패배한 표정을 보고 웃는다.
+	<br><br>
+
+	<<if $whitneyromance is 1>>
+		그는 여전히 당신을 꽉 잡고 있지만 서서히 고통스러운 긁어내기가 부드러운 쓰다듬기로 바뀐다. 그는 손가락으로 머리카락을 얽고, 엄지로 당신의 뒤통수를 문지른다. 당신은 충동적으로 그의 손길에 기댄다.
+		<<stress -4>><<arousal 1000>><<lstress>><<garousal>>
+	<<else>>
+		그가 주먹으로 당신의 머리를 갈아대는 것에 질리는 데는 그리 오랜 시간이 걸리지 않는다. 그는 조금 더 시간이 지난 후에 당신을 놓아준다. 그는 당신이 경계를 풀 때마다 목을 조르는 것을 즐긴다.
+		<<trauma 6>><<stress 6>><<pain 4>><<gtrauma>><<gstress>><<gpain>>
+	<</if>>
+	<br><br>
+
+	잠시 후 그는 당신을 풀어주고 아무 말 없이 떠난다. <<tearful>> 당신은 계속해서 나아간다.
+<<else>>
+	<<if $physiqueSuccess>>
+		<<if $speech_attitude is "meek">>
+			당신은 휘트니의 손아귀에서 몸부림치며 벗어나려고 애쓴다. 당신은 그의 팔 아래에서 꿈틀거리며 <span class="green">도망치는데 성공한다.</span> 그는 당신을 보며 웃지만 굳이 쫓아오지는 않는다.
+		<<elseif $speech_attitude is "bratty">>
+			<<if pcAreArmsBound("both") or $transformationParts.traits.fangs isnot "disabled">>
+				당신은 입을 그의 팔뚝에 누르고 깨문다.
+			<<else>>
+				당신은 양손으로 그의 팔뚝을 잡고 최대한 세게 쥐어 비튼다.
+			<</if>>
+			<span class="green">그가 고통에 차서 저주한다.</span> 그는 당신을 내버려 둔 채 부상을 치료하러 황급히 가버린다.
+		<<else>>
+			<span class="green">당신은 그의 팔을 당신의 목에서 떼어내고 그를 벽으로 밀친다.</span> 그는 걸어가는 당신을 조롱하지만 가까이 다가오지는 않는다.
+		<</if>>
+		<<npcincr Whitney dom -1>><<ldom>>
+	<<else>>
+		<<pass 10>>
+		당신은 그의 팔 아래에서 당신의 머리를 꿈틀거려 보지만 <span class="red">그가 당신을 더 꽉 쥐고 주먹을 더 세게 문지른다.</span> 당신은 제대로 숨을 쉴 수 없다.<<pain 8>><<ggpain>>
+		<br><br>
+
+		영원처럼 느껴지던 시간이 흐른 후 휘트니가 당신을 놓아준다. 당신은 엉덩방아를 찧는다. 허겁지겁 도망치는 당신의 등 뒤로 웃음소리가 뒤따른다.<<trauma 6>><<stress 12>><<gtrauma>><<ggstress>>
+	<</if>>
+<</if>>
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Street Bully Bin
+<<set $outside to 1>><<effects>><<rngWraith 1>>
+
+당신은 발목이 붙잡혀 쓰레기통 가장자리에 강제로 넘어진다. 쓰레기 더미가 쿠션이 되어 넘어진 당신을 받쳐준다. "이제부터 착한 쓰레기가 되어서 도망치지 말도록 해, 알아들었어?" 그가 쓰레기통의 뚜껑을 닫아 당신을 어둠 속에 가두고, 그들은 웃음을 터뜨린다.<<npcincr Whitney lust 5>><<glust>>
+<<ruffleHair>>
+<br><br>
+
+<<if _wraithEvent>>
+	밑에서 바스락거리는 소리가 들린다. 갑자기 아래에서 창백한 손이 튀어나와 당신을 잡는다. 한 쌍이 아닌 여러 쌍이다.
+	<<if $wraith.state is "haunt">>
+		손톱이 살을 깊숙이 파고들어 피부를 끈다. 그것은 고통스러운 상처를 남긴다.
+		<br><br>
+
+		"<span class="wraith">집에서, 쥐들 사이에서.</span>"<<trauma 12>><<stress 12>><<pain 6>><<ggtrauma>><<ggstress>><<gpain>>
+	<<else>>
+		그것들이 당신의 몸을 감싸고, 당신은 잔해속으로 더 깊이 가라앉는다.
+		<br><br>
+
+		"<span class="wraith">돼지 목에 걸린 진주 목걸이. 안타깝기도 하지.</span>"<<trauma 6>><<stress 6>><<gtrauma>><<gstress>>
+	<</if>>
+	<br><br>
+
+	당황한 당신은 뚜껑을 열고 허둥지둥 밖으로 나간다.
+	<<if $wraith.state is "haunt">>
+		낄낄대는 웃음소리가 울려 퍼진다.
+	<</if>>
+	당신은 힘겹게 숨을 쉬며 인도로 쓰러진다. 휘트니와 그의 친구들은 어디에도 없다.
+<<else>>
+	<<if C.npc.Whitney.dom gte 15>>
+		당신은 잠시 기다렸다가 뚜겅을 밀어올린다. 움직이지 않는다. 휘트니와 그의 친구들의 웃음소리가 들린다. 그가 당신의 위에 앉아서 당신을 가둬놓고 있다. 달리 할 수 있는 게 없기에 당신은 <<if $speech_attitude is "meek">>공처럼 몸을 말고<<elseif $speech_attitude is "bratty">>좌절의 한숨을 쉬며<<else>>뒤로 누워서<</if>> 그들이 떠날 때까지 기다린다.
+		<<pass 10>><<trauma 6>><<stress 6>><<gtrauma>><<gstress>>
+		<br><br>
+
+		잠시 후 밖이 조용해진다. 당신은 뚜껑을 열어본다. 삐걱거리며 열린다.
+		<br><br>
+	<<else>>
+		다행히도 그들은 오래 머물지는 않는다.
+	<</if>>
+	<<tearful>> 당신은 부스스한 머리카락에서 종잇조각과 낡은 포장지를 떼어내며 기어나온다.
+<</if>>
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Street Bully Makeout
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 2>>
+	당신은 키스를 멈추지 않고, 벽을 밀치며 휘트니를 바닥으로 넘어트린다.
+	<<promiscuity1>>
+
+	그가 흐름을 놓치지 않고,
+	<<if C.npc.Whitney.dom gte 10>>
+		당신의 어깨를 잡아 당신을 뒤로 내던진다. 당신과 휘트니는 통제권을 잡기 위해 서로 몸싸움을 벌이다가,
+		<<if C.npc.Whitney.dom gte 15 and !playerBellyVisible(true)>>
+			그가 당신의 배 위에 앉아 당신을 고정시킨다.<<arousal 1000>><<garousal>>
+			<br><br>
+
+			"그게 최선이야?" 그가 웃는다. 그가 당신의 머리카락을 잡고 끌어당겨 당신의 입술에 자신의 입술을 맞춘다.
+			<br><br>
+
+			기나긴 키스 후, 그는 당신의 입술을 마지막으로 한 번 깨물며 당신을 놓아준다. 그는 당신을 밀치고 별다른 말 없이 걸어간다. <<tearful>> 당신은 먼지를 털어낸다.
+		<<else>>
+			당신은 그의 위에 올라탄다. 그의 얼굴이 붉어진다.<<arousal 1000>><<garousal>>
+			<br><br>
+
+			"내가 요즘 널 너무 봐 줬나봐," 그가 헐떡인다. 그는 당신의 옷깃을 잡고 끌어내려 당신의 입술에 자신의 입술을 맞춘다.
+			<br><br>
+
+			그의 입술은 당신이 마침내 밀어낼 때까지 당신을 따라붙지만 그는 곧 정신을 차리고 당신을 밀친다. 그는 별다른 말 없이 떠나간다. <<tearful>> 당신은 먼지를 털어낸다.
+		<</if>>
+	<<else>>
+		미소를 지으며그의 손을 그의 머리 뒤로 접는다. 그는 당신이 그의 입술 사이로 혀를 밀어 넣을 때 저항하려는 기색을 보이지 않고, 당신의 엉덩이를 때리기 위해서만 움직인다.<<arousal 800 "mouth">><<arousal 200 "bottom">><<garousal>>
+		<br><br>
+
+		"가끔은 내 걸레에게 주도권을 주는 것도 나쁘지 않네." 그는 몸의 무게를 옮겨서 당신을 뒤로 뒤집는다. "나중에 봐." 그는 자리에서 일어나 돌아보지 않고 떠나간다. <<tearful>> 당신은 먼지를 털어낸다.
+	<</if>>
+	<<npcincr Whitney lust 10>><<gglust>>
+<<elseif $phase is 1>>
+	당시은 가만히 누워서 휘트니의 입술이 당신의 입술 위를 유영하도록 내버려둔다. 당신은 그와 벽 사이에 몸이 눌려서, 할 수 있는 일이 아무것도 없다.
+	<br><br>
+
+	그가 마침내 멀어지자 당신은 숨을 헐떡이지만 그는 즉시 거리를 다시 좁혀와 그의 혀를 당신의 열린 입 안으로 밀어넣는다. 한참의 키스 후에, 그는 당신을 밀치고 말없이 떠나간다. 당신은 당황한 채 남겨진다.<<npcincr Whitney lust 5>><<glust>>
+<<else>>
+	당신은 얼굴을 돌린다. 그는 당신의 머리카락을 잡고 당신이 움직이지 못하게 만드려고 하지만, 당신은 완강하게 버틴다. 그가 결국 당신의 의사를 알아차린다.
+	<br><br>
+
+	"그러든지 씨발." 그가 한숨을 쉬며 벽에 기대어 몸을 구부린다. 그는 <<print playerBellyVisible() ? "당신에게 욕을 날리고는" : "담배에 불을 붙이고는">> 돌아서서 가버린다. 당신은 그것을 떠나도 된다는 허락으로 받아들인다.
+<</if>>
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Street Bully Undies
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 1>>
+	당신은 이 다음에 어떤 일이 일어날 지 알고 있지만,
+	<<if $speech_attitude is "meek">>
+		공포가 당신을 꼼짝도 못하게 한다.
+	<<elseif $speech_attitude is "bratty">>
+		우선 자신을 보호하는 것이 당신에게는 더 중요하다.
+	<<else>>
+		싸움을 택하는 것보다는 낫다고 생각한다.
+	<</if>>
+<<else>>
+	당신은 휘트니의 손이 당신의 속옷을 벗기는 것을 막지 못한다.
+<</if>>
+그는 손가락을 구부리더니, 빠르게 위로 올린다.
+<br><br>
+
+갑작스럽게, 속옷 천이 당신의 <<if $player.ballsExist>>고환을<<else>>음순을<</if>> 팽팽하게 당기자 당신의 질에서 날카로운 고통이 느껴진다.
+<<if $speech_attitude is "meek">>
+	당신은 비명을 지른다. 그의 친구들이 웃음을 터뜨린다.
+<<elseif $speech_attitude is "bratty">>
+	당신은 그들이 만족할만한 반응을 주지 않기 위해 이를 꽉 깨문다.
+<<else>>
+	당신은 숨을 헐떡인다. 그의 친구들이 당신을 놀린다.
+<</if>>
+<br><br>
+
+<<set _whitStreetUndies to $worn.under_lower.name>>
+<<set $worn.under_lower.integrity -= 30>>
+<<integritycheck>>
+<<exposure>>
+
+<<if !$worn.under_lower.type.includes("naked")>>
+	당신의 고통에 만족한 휘트니가 당신을 풀어준다. 당신은 바닥에 쓰러진다. 그는 웃으며 당신을 밟고 지나간다. 당신은 일어나려 노력한다.
+	<<if $whitneypantiescheck is 2 and $worn.under_lower.gender is "f">>
+		"팬티를 입고있는 거야? 여긴 학교도 아닌데." 그가 몸을 가까이 기울인다. "아니면 이런 식으로 입는 걸 즐기는 건가?"
+	<</if>>
+<<else>>
+	"기념품 고마워," 휘트니가 웃으며 너덜너덜해진 속옷을 당신의 얼굴에 대고 흔든다.
+	<<if $whitneypantiescheck is 2 and $worn.under_lower.gender is "f">>
+		"팬티를 입고있는 거야? 여긴 학교도 아닌데" 그가 몸을 가까이 기울인다. "아니면 이런 식으로 입는 걸 즐기는 건가?"
+	<</if>>
+	그가 당신을 땅바닥에 떨어트리고 당신이 속옷을 낚아채기도 전에 달려가 버린다.
+	<<trauma 4>><<stress 4>><<gtrauma>><<gstress>>
+<</if>>
+<<npcincr Whitney lust 5>><<glust>>
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Street Bully Chocolate
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 1>>
+	당신이 그것을 잡으려는 순간 휘트니가 텀블러를 확 잡아당기고는 <<if $whitneyromance is 1>>윙크하며<<else>>능글맞게 웃으며<</if>> 한 모금 마신다. 그는 당신을 놀리고 있다.
+	<<if $speech_attitude is "meek">>
+		당신은 고개를 숙이고 터벅터벅 걸어간다.
+	<<elseif $speech_attitude is "bratty">>
+		당신은 한번 흘겨보고는 마저 걷는다.
+	<<else>>
+		당신은 한숨을 쉬고는 마저 걷는다.
+	<</if>>
+
+	<<if $whitneyromance is 1>>
+		<br><br>
+
+		어깨에 올려진 손이 당신을 뒤로 끌어당긴다. 당신은 놀란 나머지 휘트니가 당신에게 입을 맞추는 것을 막지 못했다. <span class="lewd">달콤하고 부드러운 맛이 입안을 가득 채우며</span> 따스한 온기를 퍼트린다. 그는 당신의 입술 사이로 그의 혀를 밀어넣어 당신이 그것을 강제로 삼키게 한다. 당신은 거의 질식할 지경에 이른다.
+		<br><br>
+
+		그가 그의 소매로 입을 닦는다. "자," 그는 숨을 헐떡이며 당신의 손에 보온병을 강제로 쥐여준다. 그의 얼굴이 붉다. "난 목이 안 말라."<<npcincr Whitney lust 10>><<gglust>><<wearProp "thermos hot">>
+		<br><br>
+
+		그가 뛰쳐나간다. 당신은 여러가지 의미로 열감을 느낀다.<<stress -12>><<arousal 1000>><<lstress>><<garousal>>
+	<<else>>
+		<<stress 6>><<npcincr Whitney lust 5>><<gstress>><<glust>>
+	<</if>>
+<<else>>
+	당신은 그를 무시하고 갈 길을 간다. 그는 떠나가는 당신을 바라보지만 따라오지는 않는다.
+<</if>>
+<br><br>
+
+<<destinationeventend>>
+
+:: Street Bully Puddle
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 1>>
+	<<if $danceSuccess>>
+		<span class="green">당신은 휘트니가 바닥에 착지할 때 우아하게 옆으로 비켜선다.</span> 물방울이 몇 개 떨어지긴 했지만 거의 젖지 않았다.<<stress -6>><<lstress>>
+		<br><br>
+
+		휘트니는 그다지 운이 좋지 않았다. 그는 허리까지 흠뻑 젖는다. 그는 실망한 표정을 지으며 물 웅덩이를 발로 차고 지나간다.<<npcincr Whitney dom -1>><<ldom>>
+	<<else>>
+		당신은 휘트니가 착지하는 순간 <span class="red">뒤로 자빠져 엉덩이를 바닥에 찧는다.</span> 물결이 <span class="red">머리부터 발끝까지 당신의 온 몸을 적신다.</span>
+		<<water>><<trauma 6>><<stress 12>><<gtrauma>><<ggstress>>
+		<br><br>
+
+		휘트니는 당신을 보자마자 폭소한다. "꼴 좋다, 패배자." 그는 떠나면서 그의 눈가에 맺힌 눈물을 닦는다.<<npcincr Whitney lust 10>><<gglust>>
+	<</if>>
+<<else>>
+	당신은 눈을 감고 다가올 충격에 대비한다. 당신은 첨벙이는 소리를 듣는다. 옷이 차고 무겁게 느껴진다. 심장이 빠르게 뛴다. <span class="lewd">당신의 치마는 완전히 젖었다.</span>
+	<<water waist>><<if $uncomfortable.nude is true>><<trauma 6>><<stress 6>><<gtrauma>><<gstress>><<else>><<arousal 500>><<garousal>><</if>>
+	<br><br>
+
+	휘트니는 그도 흠뻑 젖었다는 사실에는 아랑곳하지 않고 미소를 지으며 걸어간다. "안으로 서둘러 들어가는게 좋을걸." 그가 뒤에서 당신을 향해 말한다. "그렇게 입고 다니면 감기 걸려."<<npcincr Whitney lust 5>><<glust>>
+<</if>>
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Street Bully Bottle
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 2>>
+	당신은 <<if $player.breastsize is 0>>가슴을<<else>><<breasts>>을<</if>> 내밀어 휘트니가 쉽게 조준할 수 있도록 한다. <<person1>>그는 물병을 쥐어짜며 웃는다. 세찬 물줄기가 뿜어져 나와, <span class="lewd">당신을 허리까지 적신다.</span>
+	<<if $player.gender_appearance is "f">>
+		<<exhibitionism4>>
+	<<else>>
+		<<exhibitionism1>>
+	<</if>>
+	<<wet_upper>>
+
+	<<person2>>소년은 당신을 휘트니의 품으로 밀친다. <<person1>>그가 당신을 가까이 끌어당긴다.
+	<br><br>
+
+	"넌 내 장난감이야. 잊지 마." 그는 그의 혀로 당신의 젖은 <<if $player.breastsize is 0>>가슴을<<else>><<breasts>>을<</if>> 핥고 당신을 옆으로 밀친다. 그들은 웃으며 골목 밖으로 사라진다.<<npcincr Whitney lust 10>><<gglust>>
+<<elseif $phase is 1>>
+	당신은 팔을 비틀고 몸부림치면서 <<person2>>소년의 손아귀에서 빠져나오기 위해 노력한다.
+	<<if $physiqueSuccess>>
+		<span class="green">당신은 타이밍 좋게 벗어나는 데 성공하고,</span> 그가 당신 대신 물에 맞는다.
+		<br><br>
+
+		<<if ($pronoun is "m" and random(1, 4) isnot 1) or ($pronoun is "f" and random(1, 4) is 1)>>
+			그는 좌절감에 괴성을 지르며, 그의 셔츠를 찢고 휘트니에게 달려든다. 당신은 혼란을 틈타 도망친다.
+		<<else>>
+			그가 비명을 지르며 그의 가슴을 가리고 숨어버린다. 휘트니는 충분히 재밌다고 생각해 당신이 떠나도록 내버려둔다.
+		<</if>>
+	<<else>>
+		그러나 <span class="red">그가 당신을 너무 강하게 잡고 있었고,</span> <span class="lewd">당신은 허리까지 젖어버린다.</span>
+		<<wet_upper>>
+		<<trauma 6>><<stress 12>><<gtrauma>><<ggstress>>
+		<br><br>
+
+		소년이 당신을 바닥으로 밀친다. 휘트니가 빈 병을 당신의 머리에 튕긴다. "이젠 그렇게 덥지 않겠지." 그들은 웃으며 골목 밖으로 사라진다.<<npcincr Whitney lust 5>><<glust>>
+	<</if>>
+<<else>>
+	당신은 가만히 누워서 눈을 감는다. 당신은 플라스틱이 구겨지는 소리를 듣는다. 당신의 가슴에 시원한 감각이 느껴진다. <span class="lewd">당신은 허리까지 젖었다.</span>
+	<<wet_upper>>
+	<<trauma 6>><<stress 6>><<gtrauma>><<gstress>>
+	<br><br>
+
+	<<person2>>소년이 당신을 휘트니에게 밀친다. "감사 인사는 됐어." <<person1>>그가 당신의 젖은 <<breasts>>을 찰싹 친다. "이 좋은 경치만으로도 충분하거든." 그들은 웃으며 골목을 빠져나간다.<<npcincr Whitney lust 5>><<glust>>
+<</if>>
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Street Bully Stalk
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<violence 1>>
+	<<neutral 1>>
+
+	<<maninit>>
+	<<stalk_init>>
+	<<set $combatgoal to "confront">>
+	<<set $NPCList[0].bold to (($allure / 10) + (C.npc.Whitney.lust * 2) + (C.npc.Whitney.dom * 20) + (C.npc.Whitney.love * 10))>>
+<</if>>
+
+<<effects>>
+
+<<effectsman>><<man>>
+
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if $stalk_end>>
+	<span id="next"><<link [[다음|Street Bully Stalk Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Street Bully Stalk]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Street Bully Stalk Finish
+<<set $outside to 1>><<effects>>
+
+<<if $stalk_end is "confront">>
+	<<if $feetaction is "confront">>
+		휘트니가 팔짱을 끼고 당신을 바라본다.
+	<<else>>
+		<<if !$stalk_assess>>한 쌍의 손이<<else>>휘트니의 손이<</if>> 당신을 뒤에서 잡는다.
+	<</if>>
+	<<if $whitneyromance is 1>>
+		"뭔가 문제를 일으키고 싶어서 여기로 찾아오는 거지, 안 그래?" <<if !$stalk_assess>>휘트니다.<</if>> 그의 친구들이 휘트니의 어깨 너머로 당신을 들여다본다. 그가 웃는다. "뭐, 너 운이 좋네."
+	<<else>>
+		"무단침입 하면 벌금을 내야지, 걸레야." <<if !$stalk_assess>>휘트니다.<</if>> 그의 친구들이 당신을 둘러싼다. "너 운이 좋네, 별로 비싸지 않거든."
+	<</if>>
+	<br><br>
+
+	<<silently>><<endcombat>><</silently>>
+	<<npc Whitney>><<person1>>
+
+	<<if C.npc.Whitney.dom gte 15>>
+		그가 손가락을 튕기며 아래를 가리킨다.
+	<<else>>
+		그가 당신의 머리를 잡고 아래로 누른다.
+	<</if>>
+	<<if Time.dayState isnot "night">>
+		<span class="lewd">당신은 인접한 도로가 잘 보이는 곳에 있다.</span>
+	<</if>>
+	<br><br>
+
+	<<if hasSexStat("promiscuity", 4)>>
+		<<link [[빨아준다|Street Bully Sex]]>><<set $phase to 0>><<set $sexstart to 1>><<npcincr Whitney love 1>><<npcincr Whitney dom 1>><</link>><<promiscuous4>><<glove>><<gdom>>
+		<br>
+	<</if>>
+	<<if $whitneyromance is 1>>
+		<<link [[다른 은밀한 곳으로 가자고 한다|Street Bully Private]]>><<npcincr Whitney dom -1>><</link>><<promiscuous1>><<ldom>>
+		<br>
+	<</if>>
+	<<link [[내버려둔다|Street Bully Sex]]>><<set $phase to 0>><<set $molestationstart to 1>><<trauma 6>><<stress 6>><<npcincr Whitney dom 1>><</link>><<gtrauma>><<gstress>><<gdom>>
+	<br>
+	<<link [[싸운다|Street Bully Fight]]>><<npcincr Whitney dom -1>><<set $fightstart to 1>><</link>><<ldom>>
+	<br>
+<<elseif $stalk_end is "hide">>
+	당신은 숨어있던 곳에서 나온다. <<if $stalk_assess>>휘트니는<<else>>당신을 쫓아오던 사람은<</if>> 어디에도 보이지 않는다. <<tearful>> 당신은 가던 길을 계속 간다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<destinationeventend>>
+<<elseif $stalk_end is "ambush">>
+	당신은 휘트니와 함께 뒹군다. 그가 바닥에 등을 댄 채 완전히 엎어지자, 당신은 그 위로 올라탄다. 그는 당신이 그의 가슴 위에 앉은 것을 보자 놀란 표정으로 당신을 바라본다.
+	<br><br>
+
+	<<silently>><<endcombat>><</silently>>
+	<<npc Whitney>><<person1>>
+
+	<<link [[싸운다|Street Bully Fight]]>><<npcincr Whitney dom -1>><<set $fightstart to 1>><</link>><<ldom>>
+	<br>
+	<<link [[달린다|Street Bully Ambush]]>><<set $phase to 0>><</link>>
+	<br>
+	<<if $whitneyromance is 1>>
+		<<link [[휘트니에게 키스하고 도망친다|Street Bully Ambush]]>><<set $phase to 1>><<npcincr Whitney love 1>><<npcincr Whitney dom -1>><</link>><<glove>><<ldom>><<kissvirginitywarning>>
+		<br>
+	<</if>>
+<<else>>
+	당신은 천천히 걷는다. <<tearful>> 당신은 가던 길을 계속 간다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<destinationeventend>>
+<</if>>
+
+:: Street Bully Ambush
+<<effects>>
+<<if $phase is 1>>
+	당신은 휘트니가 정신을 차리기 전에, 그의 입술에 키스를 퍼붓는다. <<takeKissVirginity "Whitney" "romantic">>
+<</if>>
+<br><br>
+
+당신은 휘트니로부터 몸을 떼고 재빨리 도망친다. 그의 친구들은 당신이 <<if Time.dayState is "night">>어둠<<else>>군중<</if>> 속으로 사라지는 것을 보며 야유한다. 마침내 그 목소리들은 멀리 사라진다. <<tearful>> 당신은 걸음을 늦추며, 계속 걸어간다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<destinationeventend>>
+
+:: Street Bully Private
+<<set $outside to 1>><<effects>>
+
+<<if $speech_attitude is "meek">>
+	당신은 휘트니에게로 다가가 그의 어깨에 팔을 감싸고 당신의 가슴을 그에게 꾹 누른다. "나-나도 너를 기분 좋게 만들어 주고 싶어," 당신은 속삭인다. "근데 좀 부끄러워..."
+<<elseif $speech_attitude is "bratty">>
+	당신은 휘트니를 그의 친구들로부터 떼어내고, 그의 등에 당신의 손을 미끄러트린다. "구경꾼들을 치워줘," 당신은 말한다. "그러면 우리 둘이 정말 재미있게 즐길 수 있을 거야."
+<<else>>
+	당신은 휘트니에게로 다가가며 당신의 몸을 따라 손을 움직인다. "이 모든 것들을 너 혼자 독점하고 싶지 않아?"
+<</if>>
+<<promiscuity1>>
+
+<<if C.npc.Whitney.dom gte 15>>
+	그가 미소짓는다. <span class="red">"시도는 좋았어, 걸레야."</span> 그가 당신을 밑으로 찍어누른다.
+	<br><br>
+
+	<<link [[다음|Street Bully Sex]]>><<set $phase to 0>><<set $molestationstart to 1>><</link>>
+	<br>
+<<else>>
+	그가 불안한 듯이 주위를 둘러본다. <span class="green">"좋아,"</span> 그가 중얼거린다. "그렇게 하면 거머리같은 놈들이 덜 들러붙겠지."
+	<br><br>
+
+	그가 당신을 외딴 구석으로 끌고 들어간다. 그의 친구들이 따라오지만 휘트니가 그들을 눈빛으로 제지한다. "니들도 마찬가지야." 그들이 실망에 차서 중얼거린다.
+	<br><br>
+
+	둘만 남게 되자 휘트니가 당신을 바닥으로 밀친다. 그가 순식간에 당신을 덮친다.
+	<br><br>
+
+	<<link [[다음|Street Bully Private Sex]]>><<set $sexstart to 1>><</link>>
+	<br>
+<</if>>
+
+:: Street Bully Private Sex
+
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Street Bully Private Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Street Bully Private Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Street Bully Private Sex Finish
+<<set $outside to 1>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+
+	그가 한숨을 쉬며 등을 대고 눕는다.<<npcincr Whitney lust -20>><<llust>>
+	<br><br>
+
+	"너무 익숙해지진 마, 걸레야," 그가 말한다. "다음번에는 길바닥에서 생으로 떡칠 거니까."
+	<br><br>
+
+	그는 먼지를 털어내고 그의 무리로 돌아간다. 당신은 그가 한 말이 농담인지 진담인지 알 수 없다.<<stress 2>><<gstress>>
+<<elseif $enemyhealth lte 0>>
+	당신은 휘트니를 걷어차 버린다. 그가 거리로 떨어져 나간다.<<npcincr Whitney love -1>><<npcincr Whitney dom -1>><<llove>><<ldom>>
+	<br><br>
+
+	"대체 씨발 뭐가 문젠데?" 그가 침을 뱉는다. "내가 네 말을 다시는 들어주나 봐라. 암캐 같으니라고." 그가 먼지를 털어내고 비틀거리며 사라진다.
+<<else>>
+	그가 한숨을 쉬며 당신에게서 내려온다. "그러든지. 너무 지루해서 잠들려던 참이었다." 그가 뒤도 돌아보지 않고 그의 무리로 돌아간다.
+<</if>>
+<br><br>
+
+<<tearful>> 당신은 밖으로 나간다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<destinationeventend>>
+
+:: Street Bully Paint
+<<set $outside to 1>><<effects>><<wearProp "spray paint">>
+
+<<if $phase is 1>>
+	<<if $speech_attitude is "meek">>
+		당신은 침을 삼킨다. "아-알았어. 나한테 별 문제가 생기는 게 아니라면."
+	<<elseif $speech_attitude is "bratty">>
+		당신은 그를 밀치고 지나간다. "내가 어떻게 하는 건지 딱 보여준다."
+	<<else>>
+		당신은 벽에 올라간다. "이 일로 문제가 생기지는 않았으면 좋겠는데."
+	<</if>>
+	휘트니와 그의 친구들은 완성된 결과물을 보고싶어하며 주위를 맴돈다.
+	<br><br>
+
+	무엇을 그릴까?
+	<br><br>
+
+	<<link [[음란한 것을 그린다|Street Bully Paint 2]]>><<crimeUp 100 "destruction">><<npcincr Whitney love 1>><<set $phase to 2>><</link>><<promiscuous1>>
+	<br>
+	<<link [[모욕적인 것을 그린다|Street Bully Paint 2]]>><<crimeUp 100 "destruction">><<npcincr Whitney love 1>><<trauma -6>><<stress -12>><<set $phase to 1>><</link>><<ltrauma>><<lstress>>
+	<br>
+	<<if $whitneyromance is 1>>
+		<<link [[로맨틱한 것을 그린다|Street Bully Paint 2]]>><<crimeUp 200 "destruction">><<npcincr Whitney love 3>><<set $phase to 0>><</link>><<gglove>>
+		<br>
+	<</if>>
+<<else>>
+	<<if $speech_attitude is "meek">>
+		"공공 기물을 훼손하면 안돼." 당신은 스프레이캔을 내밀며 말한다. 그의 친구들이 당신을 보며 웃는다.
+	<<elseif $speech_attitude is "bratty">>
+		당신은 휘트니에게 스프레이캔을 던지고 휘트니는 그것을 잡으려다 놓친다. "난 굳이 위험을 감수하고 싶지 않거든."
+	<<else>>
+		당신은 스프레이캔을 휘트니에게 다시 건네준다. "문제에 휘말리면서까지 할 만한 가치가 있는 일은 아냐." 당신은 말한다.
+	<</if>>
+	<br><br>
+
+	그는 얼굴을 찡그리지만 강요햐지는 않는다. 그는 다시 그의 조잡한 그림을 그리러 돌아간다. 당신은 계속 걸어간다.
+	<br><br>
+
+	<<endevent>>
+	<<destinationeventend>>
+<</if>>
+
+:: Street Bully Paint 2
+<<set $outside to 1>><<effects>>
+
+당신은 스프레이캔을 흔들고
+<<if $phase is 2>>
+	당신이 상상할 수 있는 가장 타락하고 육감적인 그림으로 벽을 칠한다.
+	<<promiscuity1>>
+
+	<<if $awarelevel gte 2>>
+		작업이 끝나자 휘트니가 다가와 당신의 작품을 감상한다. 그가 웃는다. "이건...?"
+		<br><br>
+
+		당신은 <<if $speech_attitude is "meek">>수줍게<<elseif $speech_attitude is "bratty">>자신감있게<<else>>열정적으로<</if>> 끄덕인다. 휘트니가 고개를 저으며 킥킥거린다. "너도 알겠지만, 실물이 보고싶으면 언제든지 부탁하라고." 그의 친구들이 웃는다.<<npcincr Whitney lust 5>><<glust>>
+	<<else>>
+		작업이 끝나자 휘트니가 다가와 당신의 작품을 감상한다. 그가 그의 머리를 긁적인다. "이게 씨발 대체 뭐냐?"
+		<br><br>
+
+		당신은 최선을 다해 당신의 작품을 설명한다. "이게 그거라고?" 그가 눈썹을 찌푸린다. "뭐 니가 그렇다면야." 그의 친구들은 웃는다.<<stress 6>><<gstress>>
+	<</if>>
+<<elseif $phase is 1>>
+	생각할 수 있는 모든 모욕적인 단어들로 벽을 칠한다.
+	<<if $awarelevel gte 1>>
+		묘하게 카타르시스가 느껴진다.
+	<<else>>
+		많지는 않지만 그럼에도 카타르시스가 느껴진다.
+	<</if>>
+	<br><br>
+
+	작업이 끝나자 휘트니가 다가와 당신의 작품을 감상한다. 그가 낮게 휘파람을 분다.
+	<br><br>
+
+	<<if C.npc.Whitney.love gte 25>>
+		"표현이 좀 센데, 너..." 그는 말을 멈추고 고개를 젓는다. "내 말은, 나쁘지 않다는 거야."<<trauma -4>><<ltrauma>>
+	<<else>>
+		"표현이 좀 센데. 너 그 입으로 아빠한테 키스하냐?" 그가 후회하는 척 하며 그의 입을 가린다. "아아- 맞다. 넌 그럴 수가 없지."<<lcontrol>><<control -10>>
+	<</if>>
+<<else>>
+	하트 모양으로 테두리를 그린다. 그 안쪽에는 당신의 이름을 적고 <<if $speech_attitude is "meek">>그 위에<<elseif $speech_attitude is "bratty">>그 밑에<<else>>옆에는<</if>> 휘트니의 이름을 적는다.
+	<br><br>
+
+	작업이 끝나자 휘트니가 다가와 당신의 작품을 감상한다. 그의 친구들은 <<if $cool gte 40>>당신을 놀린다<<else>>구역질하는 척 한다<</if>>. 그는 그의 눈을 굴린다.
+	<br><br>
+
+	"그래," 그가 말한다. "경찰이 추적하기 참 쉽게 만들어 주네." 그의 어조와는 다르게, 그는 미소를 짓고 있다.
+<</if>>
+<br><br>
+
+휘트니는 비평이 끝났다는 생각이 들자 당신을 밀친다.
+<<if C.npc.Whitney.dom gte 15>>
+	"우리끼리 놀게 넌 이제 가." 그가 말한다. "네가 감옥에 가버리면 더이상 너랑 즐길 수가 없잖아."
+<<else>>
+	"나중에 봐, <<if $whitneyromance is 1>>소녀야<<else>>걸레야<</if>>," 그가 뒤에서 당신을 부른다. "나 없이 너무 즐기지는 말고."
+<</if>>
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Street Bully Strip
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 1>>
+	<<flaunting>> 당신은 휘트니와 그의 패거리 앞에서 나체가 될 때까지 옷을 하나씩 벗는다.
+	<<exhibitionism3>>
+<<else>>
+	당신은 주저하며 휘트니와 그의 친구들 앞에서 옷을 벗는다. 누군가가 환호한다. 당신은 휘트니의 시선이 불편하다고 느끼지만 다른 방법보다는 이게 낫다.
+	<br><br>
+<</if>>
+<<undressclothes "whitneyStreet">>
+
+<<if $phase is 1>>
+	당신은 너무나도 열중한 나머지
+<<else>>
+	당신은 그들의 시선을 피하는데 집중하느라
+<</if>>
+뒤에서 그의 친구들이 다가오는 것을 눈치채지 못한다. 그들은 당신의 옷을 낚아챈다.
+<<if Time.dayState is "night">>
+	"우린 이제 산책을 갈거야." 휘트니가 말한다. "너도 같이 가자."
+	<br><br>
+
+	그들은 <span class="red">당신의 옷을 가지고</span> 골목을 빠져나가기 시작한다.
+	<br><br>
+
+	<<link [[따라간다|Street Bully Strip Walk]]>><<set $phase2 to 1>><<npcincr Whitney dom 1>><</link>><<gdom>>
+	<br>
+	<<link [[가만히 있는다|Street Bully Strip Walk]]>><<set $phase2 to 0>><<npcincr Whitney dom -1>><</link>><<ldom>>
+	<br>
+<<else>>
+	"공연 고맙네," 휘트니가 말한다. "다음에 보자고."
+	<br><br>
+
+	그의 친구들은 <span class="red">당신의 옷을 가지고</span> 웃으며 거리를 뛰쳐나간다.
+	<br><br>
+
+	<<link [[다음|Street Bully Strip Streak]]>><</link>>
+	<br>
+<</if>>
+
+:: Street Bully Strip Forced
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+	당신의 뒤에 있던 소년 중 한 명이 휘트니가 있는 쪽으로 당신을 밀친다. "틀렸어." 그가 호통친다.
+	<<controlloss>>
+	<<npcstrip>>
+	<<set $audienceforceteen to 1>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<audience>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+<<outfitChecks>>
+<<if _combatend or (_fullyNaked)>>
+	<span id="next"><<link [[다음|Street Bully Strip Forced Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Street Bully Strip Forced]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Street Bully Strip Forced Finish
+<<set $outside to 1>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation "short">>
+
+	그가 헐떡이며 바닥에 쓰러진다.<<npcincr Whitney lust -20>><<llust>>
+	<br><br>
+
+	그의 혼란스러운 상태는 당신에게 벗어날 기회를 준다. <<tearful>> 당신은 슬쩍 빠져나간다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<destinationeventend>>
+<<elseif $enemyhealth lte 0>>
+	당신은 휘트니를 <<generatey2>><<person2>>소년이 있는 방향으로 밀친다. 그 둘은 함께 바닥으로 넘어진다. 나머지는 당신이 지나갈 통로를 만들어 준다.<<npcincr Whitney dom -1>><<ldom>>
+	<br><br>
+
+	<<tearful>> 당신은 골목에서 도망친다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<destinationeventend>>
+<<else>>
+	휘트니의 친구들은 그가 당신의 옷을 높이 들어올리자 환호한다. 그는 당신의 옷들을 각기 다른 소년에게 던지며 그것들을 돌려받을 수 있을 거라는 당신의 희망을 산산이 부숴놓는다.<<trauma 6>><<stress 12>><<gtrauma>><<ggstress>>
+	<br><br>
+
+	<<if $enemyanger gte ($enemyangermax / 5) * 1>>
+		"웃긴 게 뭔지 아냐?" 그가 말한다. "이번에는 네 옷 그냥 가져가게 놔두려고 했거든. 난 그냥 엿보기만 하려 했는데, 네가 걸레처럼 굴었잖아."
+		<br><br>
+
+		그가 당신을 바닥으로 밀친다. 그들은 <span class="red">당신의 옷을 가지고</span> 도망친다. 당신은 그들의 웃음소리를 따라 쫓아가지만, 곧 미로같은 골목 속에서 길을 잃어버린다.
+		<br><br>
+
+		<<tearful>> 당신은 쓰레기통 뒤로 몸을 숨긴다.
+		<br><br>
+
+		<<set $stealtextskip to 1>>
+		<<stealclothes>>
+		<<clotheson>>
+		<<endcombat>>
+
+		<<destinationeventend>>
+	<<else>>
+		<<silently>><<clotheson>><</silently>>
+		<<undressclothes "whitneyStreet">>
+		<<endcombat>>
+		<<npc Whitney>><<person1>>
+
+		"이제 다 됐어," 휘트니가 웃으며 말한다.
+		<<if Time.dayState is "night">>
+			"우리 산책 가자."
+			<br><br>
+
+			그들은 <span class="red">당신의 옷을 들고</span> 골목을 빠져나가기 시작한다.
+			<br><br>
+
+			<<link [[따라간다|Street Bully Strip Walk]]>><<set $phase to 0>><<set $phase2 to 1>><</link>>
+			<br>
+			<<link [[가만히 있는다|Street Bully Strip Walk]]>><<set $phase2 to 0>><</link>>
+			<br>
+		<<else>>
+			"우린 갈거야. 나중에 보자."
+			<br><br>
+
+			그의 친구들이 <span class="red">당신의 옷을 들고</span> 웃으며 길거리로 뛰쳐나간다.
+			<br><br>
+
+			<<link [[다음|Street Bully Strip Streak]]>><</link>>
+			<br>
+		<</if>>
+	<</if>>
+<</if>>
+
+:: Street Bully Strip Walk
+<<set $outside to 1>><<effects>>
+
+<<if $phase2 is 1>>
+	<<if $phase is 1>>
+		<<if $whitneyromance is 1>>
+			당신은 휘트니의 곁으로 걸어간다. 그가 당신의 허리에 팔을 감싸 당신을 더 가까이 끌어당긴다.
+		<<else>>
+			당신은 자연스럽게 무리의 리더에게로 다가간다. 당신은 그들의 시선이 당신의 엉덩이로 향하는 것을 느낀다.
+		<</if>>
+		당신은 그의 친구들의 저속한 말들은 신경쓰지 않고 그들을 이끌고 골목을 빠져나와 거리로 향한다.
+		<br><br>
+
+		시원한 밤바람이 피부를 스치고 당신은 자신감에 들뜬 기분으로 발걸음을 옮긴다. 당신은 주변에 휘트니와 그의 친구들 밖에 없다는 사실에 조금 실망한다.
+	<<else>>
+		<<if $whitneyromance is 1>>
+			당신은 긴장한 상태로 휘트니의 뒤를 따라간다. 그는 당신의 팔을 잡고 당신을 그의 옆으로 끌어당긴다.
+		<<else>>
+			당신은 무리의 뒤쪽으로 물러나지만 휘트니가 당신을 앞으로 끌어당기고 엉덩이를 발로 차서 강제로 따라오게 한다.
+		<</if>>
+		그의 친구들의 웃음소리가 귓가에 울려 퍼지는 가운데 당신은 골목에서 나와 거리로 향한다.<<trauma 6>><<stress 6>><<gtrauma>><<gstress>>
+		<br><br>
+
+		뼛속까지 오싹하게 만드는 밤의 차가운 공기가 당신의 피부에 달라붙고 당신은 몸을 떤다. 당신의 취약한 상태는 당신의 불편함 때문인 것 같다. 당신은 휘트니와 그의 친구들을 제외하고는 거리에 아무도 없어서 다행이라고 생각한다.
+	<</if>>
+	<br><br>
+
+	<span class="lewd"><<generate2>><<person2>>한 남자가 나타나기 전까지는 말이다.</span> 그는 아직 당신을 눈치채지 못한 것 같다. 휘트니의 친구들은 기대감에 차서 낄낄댄다.
+	<br><br>
+
+	<<if $whitneyromance is 1>>
+		<<link [[휘트니의 뒤에 숨는다|Street Bully Strip Walk 2]]>><<set $phase to 3>><<npcincr Whitney dom 1>><<npcincr Whitney lust 5>><</link>><<gdom>><<glust>>
+		<br>
+	<</if>>
+	<<if hasSexStat("exhibitionism", 4)>>
+		<<link [[과시하며 걷는다|Street Bully Strip Walk 2]]>><<set $phase to 2>><<npcincr Whitney love 1>><<npcincr Whitney lust 5>><</link>><<exhibitionist4>><<glove>><<glust>>
+		<br>
+	<</if>>
+	<<link [[계속 걷는다|Street Bully Strip Walk 2]]>><<set $phase to 1>><<trauma 6>><<stress 6>><<npcincr Whitney dom 1>><</link>><<gtrauma>><<gstress>><<gdom>>
+	<br>
+	<<link [[도망간다|Street Bully Strip Walk 2]]>><<set $phase to 0>><<npcincr Whitney dom -1>><</link>><<ldom>>
+	<br>
+<<else>>
+	당신은 자리에 그대로 서 있는다. 웃음소리가 점차 사라진다.
+	<br><br>
+
+	<<storeon "whitneyStreet" "delete">>
+	<<clotheson>>
+
+	<<endevent>>
+	<<destinationeventend>>
+<</if>>
+
+:: Street Bully Strip Walk 2
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 3>>
+	<<person1>>
+	<<if $speech_attitude is "meek">>
+		당신은 휘트니의 손아귀에서 벗어나 그의 뒤로 간 뒤 그의 등에 당신의 얼굴을 누른다.
+	<<elseif $speech_attitude is "bratty">>
+		당신은 휘트니의 어깨를 잡고 그를 앞쪽에 위치시켜 시야를 가린다.
+	<<else>>
+		당신은 휘트니의 뒤에 숨는다.
+	<</if>>
+	<br><br>
+
+	<<if C.npc.Whitney.dom gte 18>>
+		그가 손을 뻗어 당신을 잡는다. "부끄러워하지 마." 그가 웃는다. "<<person2>>그에게 네 예쁜 얼굴을 보여줘." <span class="red">당신은 팔이 잡아당겨져 다시 개방된 곳으로 이동한다.</span> 팔이 등 뒤로 잡혀있어서 가릴 수도 없다.<<trauma 6>><<stress 6>><<gtrauma>><<gstress>>
+		<br><br>
+
+		휘트니가 남자에게 성큼성큼 다가가서, 당신을 그의 얼굴에 거의 밀어붙인다. 당신의 얼굴이 수치심으로 붉어지지만 그의 눈을 피할 수 있는 방법은 없다.
+		<br><br>
+
+		휘트니는 남자를 희롱하며 그가 더 나아가도록 부추기지만 그는 용기를 내지 못한다. 그가 비틀거리며 멀어진다. 휘트니는 신경쓰지 않는다. <<person1>>그는 당신을 놓아주고 가던 길을 계속 간다.
+		<<fameexhibitionism 1>>
+	<<else>>
+		그의 친구들은 웃는다. 누군가가 당신을 친다. 휘트니가 그의 어깨 너머로 얼굴을 찡그린다. <<person2>>남자는 당신의 존재를 알아채지 못한 채 지나간다.
+		<br><br>
+
+		그가 사라지자, 휘트니가 돌아서서 당신을 밀친다. "저 빡대가리 한 명 밖에 없어서 천만다행인 줄 알아. 몇 명만 더 있었어도 난 널 드러내놓고 자랑했을 거야."<<stress 2>><<gstress>>
+	<</if>>
+	<br><br>
+
+	<<link [[다음|Street Bully Strip Walk 3]]>><<person1>><</link>>
+	<br>
+<<elseif $phase is 2>>
+	<<if $whitneyromance is 1>>
+		당신은 휘트니의 앞으로 움직인다. 당신의 맨 엉덩이가 <<person1>>그의 가랑이를 쓸고 지나간다.
+	<<else>>
+		당신은 무리를 향해 손을 흔든다. 그들은 뒤로 물러서서 당신이 주도권을 잡을 수 있도록 한다.
+	<</if>>
+	당신은 음란한 모습을 숨기려는 노력을 전혀 하지 않는다.
+	<<exhibitionism4>>
+
+	누군가의 발소리에 깜짝 놀란<<person2>>남자는 곧이어 불량배들의 무리<<if $whitneyromance is 1>>에 둘러싸인<<else>> 옆에 서있는<</if>> 나체의 소녀를 보고는 얼어붙는다.
+	<br><br>
+
+	<<if $whitneyromance is 1>>
+		당신은 휘트니의 가슴에 몸을 기댄다. "야밤에 산책," 당신은 한숨을 내쉰다. "너무 낭만적이야." <<person1>>그는 <<person2>>남자를 밀치고 지나가며 능글맞은 미소를 짓는다.
+	<<else>>
+		당신은 남자에게 손을 흔든다. "너무 늦게까지 돌아다니지 마세요, 선생님." 당신은 천진난만하게 재잘거린다. "그러다간 감기에 걸리실 걸요!"
+	<</if>>
+	<br><br>
+
+	<<switch random(1, 4)>>
+		<<case 4>>
+			눈이 휘둥그레진 그가 당신을 만지기 위해 손을 뻗는다. 휘트니가 그의 손을 쳐낸다. 그가 혼자 무언가를 중얼거리며 자리를 뜬다.
+		<<case 3>>
+			그가 고개를 삐딱하게 기울이고는 옆으로 지나간다. 그는 가로등에 정통으로 부딪친다.
+		<<case 2>>
+			그는 혼란스러워 보인다. 그렇지만 도움이 필요해 보이는 정도는 아니다. 그가 서둘러 걸음을 옮긴다.
+		<<case 1>>
+			그는 당신이 모퉁이를 돌고 시야 밖으로 사라지자 눈을 비비며 껌뻑인다.
+	<</switch>>
+	<<fameexhibitionism 2>>
+	<br><br>
+
+	당신이 혼자 남게 되자 휘트니의 친구들이 웃음을 터뜨린다.
+	<br><br>
+
+	<<link [[다음|Street Bully Strip Walk 3]]>><<person1>><</link>>
+	<br>
+<<elseif $phase is 1>>
+	당신은 휘트니가 남자를 향해 당신을 밀칠 때 당신의 나체를 손으로 가려보려고 한다. 그러나 그것은 당신의 노출을 아주 조금밖에 가려주지 못한다.
+	<br><br>
+
+	<<switch random(1, 5)>>
+		<<case 5>>
+			그는 무심한 듯 미소를 지으며 손을 흔들다가 그의 발걸음을 멈춘다. 당신은 그가 당신을 다시 보기 전에 모퉁이를 돈다.
+		<<case 4>>
+			눈이 휘둥그레진 그가 당신을 만지기 위해 손을 뻗는다. 휘트니가 그의 손을 쳐낸다. 그가 혼자 무언가를 중얼거리며 자리를 뜬다.
+		<<case 3>>
+			그가 고개를 삐딱하게 기울이고는 옆으로 지나간다. 그는 가로등에 정통으로 부딪친다.
+		<<case 2>>
+			그는 혼란스러워 보인다. 그렇지만 도움이 필요해 보이는 정도는 아니다. 그가 서둘러 걸음을 옮긴다.
+		<<case 1>>
+			그는 당신이 모퉁이를 돌고 시야 밖으로 사라지자 눈을 비비며 껌뻑인다.
+	<</switch>>
+	<<fameexhibitionism 1>>
+	<br><br>
+
+	휘트니의 친구들은 웃음을 터트리며 길을 계속 걸어간다.
+	<br><br>
+
+	<<link [[다음|Street Bully Strip Walk 3]]>><<person1>><</link>>
+	<br>
+<<else>>
+	당신은 무리에서 떨어져 나와 왔던 길로 되돌아간다. 그들의 조롱 섞인 웃음소리가 서서히 사라진다.
+	<br><br>
+
+	<<storeon "whitneyStreet" "delete">>
+	<<clotheson>>
+
+	<<endevent>>
+	<<destinationeventend>>
+<</if>>
+
+:: Street Bully Strip Walk 3
+<<set $outside to 1>><<effects>>
+
+휘트니는 당신을 데리고 거리를 한 바퀴 더 돈 후에
+<<if $whitneyromance is 1>>
+	골목으로 당신을 끌고간다.
+	<br><br>
+
+	"고마웠다," 그가 당신을 쓰다듬으며 말한다. "네 덕분에 오늘 밤이 즐거웠어."
+	<<ruffleHair>>
+	<br><br>
+
+	그의 친구들이 당신의 옷을 한데 뭉쳐 건네준다. <<tearful>> 당신은 옷을 입기 위해 쓰레기통 뒤로 몸을 숨긴다. 당신이 다시 나왔을 때, 휘트니와 다른 사람들은 가버렸다.
+<<else>>
+	당신을 바닥으로 밀친다.
+	<br><br>
+
+	"산책 재밌었냐, 암캐야?" 그가 웃는다. "물론 그랬겠지."
+	<br><br>
+
+	그의 친구들이 당신의 옷을 바닥에 던진다. 휘트니는 그것들을 짓밟으며 거리를 떠난다. <<tearful>> 당신은 옷을 입기 위해 쓰레기통 뒤로 몸을 숨긴다.
+<</if>>
+<br><br>
+
+<<storeon "whitneyStreet">>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Street Bully Strip Streak
+<<set $outside to 1>><<effects>>
+
+당신은 음란한 모습을 감추기 위해 쓰레기통 뒤에 살짝 숨어 들여다본다. 휘트니와 그의 친구들이 길 건너편에 서 있다. 그는 당신의 옷이 깃발이라도 된 것 마냥 흔들고 있다.
+<br><br>
+
+당신이 그가 있는 곳 까지 도달하려면 차들을 지나쳐야 한다.
+<<if Time.dayState is "day">>
+	도로에 차가 많다. 당신은 서둘러야 한다.
+	<<if hasSexStat("exhibitionism", 5)>>
+		<span class="lewd">혹은 대담해지거나.</span>
+	<</if>>
+	<<set _whitStreetDifficulty to 30>>
+	<<set _whitAthleticsDifficulty to 1200>>
+<<else>>
+	도로에 차가 그렇게 많지는 않지만, 당신은 서두를 필요가 있다.
+	<<if hasSexStat("exhibitionism", 5)>>
+		<span class="lewd">혹은 대담해지거나.</span>
+	<</if>>
+	<<set _whitStreetDifficulty to 50>>
+	<<set _whitAthleticsDifficulty to 800>>
+<</if>>
+<br><br>
+
+<<if hasSexStat("exhibitionism", 5)>>
+	<<link [[과시하며 걷는다|Street Bully Strip Streak 2]]>><<set $phase to 3>><<npcincr Whitney love 1>><</link>><<exhibitionist5>><<glove>>
+	<br>
+<</if>>
+<<link [[전력질주 한다|Street Bully Strip Streak 2]]>><<set $phase to 2>><</link>><<athleticsdifficulty 1 _whitAthleticsDifficulty>>
+<br>
+<<link [[조심스럽게 움직인다|Street Bully Strip Streak 2]]>><<set $phase to 1>><</link>><<difficulty _whitStreetDifficulty>>
+<br>
+<<link [[포기한다|Street Bully Strip Streak 2]]>><<set $phase to 0>><<npcincr Whitney dom -1>><</link>><<ldom>>
+<br>
+
+:: Street Bully Strip Streak 2
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 3>>
+	당신은 조심스럽게 숨어있던 곳에서 나와 거리를 활보하기 시작한다.
+	<<exhibitionism5>>
+
+	당신은 엉덩이를 흔들며 고개를 치켜들고 천천히 걷는다. 조깅하던 사람들이 발걸음을 멈춘다. 차들은 끼익 소리를 내며 멈춰선다. 도로에 자동차 경적소리가 울려퍼진다. 당신은 그들이 교통 체증 때문에 화가 났는지, 아니면 좋은 구경할 자리를 확보하지 못해서 화가 났는지 알 수 없다.
+	<<fameexhibitionism 30>>
+	<br><br>
+
+	구경꾼들 중 일부가 당신을 따라오기 시작한다.
+	<<if $innocencestate is 1>>
+		당신은 그들이 어디로 향하고 있는지 궁금해한다.
+	<<else>>
+		당신은 속도를 높인다.
+	<</if>>
+	<<if $whitneyromance is 1>>
+		휘트니가 가까이 다가와 당신을 골목 안쪽으로 끌어당긴다.
+	<<else>>
+		당신은 휘트니가 기다리고 있는 골목 안쪽으로 들어간다.
+	<</if>>
+	<br><br>
+
+	<<link [[다음|Street Bully Strip Streak 3]]>><<set $phase to 2>><</link>>
+	<br>
+<<elseif $phase is 2>>
+	당신은 몸을 낮추고 지나갈 길이 열리길 기다린 후, 골목에서 튀어나와 거리를 질주한다. 바람이 맨살을 스치고 당신의 심장이 빠르게 뛰지만 감히 속도를 늦출 수는 없다.
+	<br><br>
+
+	<<if $athleticsSuccess>>
+		<span class="green">당신은 숨을 헐떡이며 장애물에 방해를 받지 않고 빠르게 건너는데 성공한다.</span> 구경꾼들은 놀라지만 당신이 너무 빨라서 잠깐 스쳐지나가는 모습 밖에 보지 못한다.
+		<br><br>
+
+		당신은 곧 시야에서 벗어나 골목길로 들어선다.
+		<<if $whitneyromance is 1>>
+			당신이 미끄러지듯 멈춰서자 휘트니가그의 팔로 당신을 안는다.
+		<<else>>
+			당신이 미끄러지듯 멈춰서자 휘트니의 친구들이 환호한다.
+		<</if>>
+		
+		<br><br>
+
+		<<link [[다음|Street Bully Strip Streak 3]]>><<set $phase to 0>><</link>>
+		<br>
+	<<else>>
+		당신은 절반쯤 왔을 때 <span class="red">발을 헛디뎌서</span> 당신의 엉덩이를 훤히 드러낸 채 넘어져버린다. 당신이 일어나기도 전에 <span class="red">차 한 대가 다가온다.</span> 운전자가 핸들을 꺾어 당신을 가까스로 피한다.<<trauma 18>><<stress 24>><<pain 6>><<gggtrauma>><<gggstress>><<gpain>>
+		<br><br>
+
+		맥박이 안정되자, 당신은 자신이 거리 한복판에 완전히 벌거벗은 채로 누워 있는 것을 깨닫는다. 당신의 주변에 사람들이 몰려든다. 몇몇은 겁에 질린 표정을 짓는다. 대부분은 그렇지 않다. <<embarrassment>>
+		<<fameexhibitionism 10>>
+		<br><br>
+
+		<<if C.npc.Whitney.dom gte 15 and $whitneyromance is 1>>
+			휘트니가 구경꾼들 사이를 헤집고 들어온다. 그가 당신을 붙잡고 골목으로 끌고 들어간다. 당신은 고개를 숙이고 그를 따라 비틀거리며 걸어간다.
+			<br><br>
+
+			<<link [[다음|Street Bully Strip Streak 3]]>><<set $phase to 1>><</link>>
+			<br>
+		<<else>>
+			당신은 그들이 어떤 생각들을 떠올리기 전에 서둘러 도망친다. 휘트니의 친구들은 지나치게 흥분해서 당신을 눈치채지 못한다.
+			<br><br>
+
+			<<link [[다음|Street Bully Strip Streak 3]]>><<set $phase to 0>><</link>>
+			<br>
+		<</if>>
+	<</if>>
+<<elseif $phase is 1>>
+	당신은 몸을 낮추고 지나갈 길이 열리길 기다린 후, 거리로 살금살금 걸어나온다. 당신은 주차된 차나 쓰레기통 등 무엇이든 찾을 수 있는 것 사이로 몸을 숨기며, 아무도 알아차리지 않기를 바란다.
+	<br><br>
+
+	<<if (Time.dayState is "day" and random(1, 10) lte 3) or (Time.dayState isnot "day" and random(1))>>
+		차들 사이의 틈을 이용해 당신은 <span class="green">별 탈 없이 길을 건너는 데 성공한다.</span> 얼마 지나지 않아 통근하는 사람들은 그들이 간발의 차로 나체 소녀를 보지 못했다는 것은 꿈에도 모른 채 도로로 쏟아져 나온다.
+		<br><br>
+
+		당신은 불안한 숨을 내쉬며 휘트니와 그의 친구들이 있는 골목으로 향한다.
+		<br><br>
+
+		<<link [[다음|Street Bully Strip Streak 3]]>><<set $phase to 0>><</link>>
+		<br>
+	<<else>>
+		당신이 절반쯤 왔을 때 갑자기 차 한대가 끼익 소리를 내며 멈춰선다. 운전자가 경적을 울려서 당신을 깜짝 놀라게 한다. <span class="red">당신은 얼어붙는다.</span><<trauma 12>><<stress 18>><<ggtrauma>><<gggstress>>
+		<br><br>
+
+		맥박이 안정되자, 당신은 자신이 거리 한복판에 완전히 벌거벗은 채로 누워 있는 것을 깨닫는다. 당신의 주변에 사람들이 몰려든다. 몇몇은 겁에 질린 표정을 짓는다. 대부분은 그렇지 않다. <<embarrassment>>
+		<<fameexhibitionism 10>>
+		<br><br>
+
+		<<if C.npc.Whitney.dom gte 15 and $whitneyromance is 1>>
+			휘트니가 구경꾼들 사이를 헤집고 들어온다. 그가 당신을 붙잡고 골목으로 끌고 들어간다. 당신은 고개를 숙이고 그를 따라 비틀거리며 걸어간다.
+			<br><br>
+
+			<<link [[다음|Street Bully Strip Streak 3]]>><<set $phase to 1>><</link>>
+			<br>
+		<<else>>
+			당신은 그들이 어떤 생각들을 떠올리기 전에 서둘러 도망친다. 휘트니의 친구들은 지나치게 흥분해서 당신을 눈치채지 못한다.
+			<br><br>
+
+			<<link [[다음|Street Bully Strip Streak 3]]>><<set $phase to 0>><</link>>
+			<br>
+		<</if>>
+	<</if>>
+<<else>>
+	당신은 휘트니의 장단에 맞춰주는 것을 거부하고 골목으로 슬그머니 들어간다. 뒤돌아보자, 그는 가고 없다. 당신의 옷도 사라졌다.
+	<br><br>
+
+	<<storeon "whitneyStreet" "delete">>
+	<<clotheson>>
+
+	<<endevent>>
+	<<destinationeventend>>
+<</if>>
+
+:: Street Bully Strip Streak 3
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 2>>
+	당신이 골목에 들어서자 환호성이 터져나온다. 휘트니의 친구들이 몰려와 당신의 등을 두드려주기도 한다.
+	<br><br>
+
+	"넌 진짜 걸레야," 휘트니가 당신의 옷을 건네주며 말한다. 그가 당신의 어깨너머로 고개를 끄덕이며 웃는다. "저기 네 팬들도 있네."
+	<br><br>
+
+	사람들이 욕망에 가득찬 눈으로 거리에 줄지어 서있다. <<tearful>> 당신은 서둘러 옷을 입으러 간다.
+<<elseif $phase is 1>>
+	휘트니는 길에서 멀리 떨어진 골목으로 당신을 끌고 간다. 그의 친구들은 당황하며 따라간다. 당신이 혼자 남게 되자, 그가 당신을 벽으로 고정한다. 그가 당신의 턱을 감싸고 고개를 들어 그와 시선을 마주하게 한다. 그가 당신의 뺨을 때린다.<<pain 2>><<gpain>>
+	<br><br>
+
+	"넌 씨발 대체 뭐가 문제야?" 그가 약간 떨리는 목소리로 묻는다. "멍청한 년아, 병신같이 저런 데서 혼자 죽지 말라고."
+	<br><br>
+
+	그가 당신의 팔에 옷을 밀어넣고 분노한 채로 그의 친구들을 데리고 나가 당신이 편히 옷을 갈아입을 수 있도록 한다. <<tearful>> 당신은 그렇게 한다. 당신이 돌아봤을 때, 휘트니는 사라져 있다.
+<<else>>
+	"운동을 열심히 한 거야, 걸레야?" 휘트니가 말한다. "아니면 네가 입은 그 날씬해보이는 새 옷 때문일지도 모르지."
+	<br><br>
+
+	당신은 옷을 향해 다가간다.
+	<<if C.npc.Whitney.dom gte 10>>
+		휘트니가 웃으며 그것을 머리 위로 들어올린다. 그의 친구들은 
+		<<if $bodysize lte 1>>
+			까치발로 서서 힘겹게 손을 뻗는 당신을 보며 웃는다. 그는 당신을 고문하는 것에 질려서 옷들을 당신의 위로 던진다.<<stress 2>><<npcincr Whitney lust 5>><<gstress>><<glust>>
+		<<elseif $bodysize lte 2>>
+			당신이 <<if $speech_attitude is "meek">>필사적으로<<elseif $speech_attitude is "bratty">>화를 내며<<else>>성급하게<</if>> 그것을 잡으려 뛰는 것을 보고 웃는다.
+		<<else>>
+			<<if $speech_attitude is "meek">>필사적으로<<elseif $speech_attitude is "bratty">>화를 내며<<else>>성급하게<</if>> 그것을 그의 손아귀에서 낚아채 가는 것을 보며 웃는다.
+		<</if>>
+	<<else>>
+		휘트니가 그것을 당신의 팔 안에 밀어넣는다.
+	<</if>>
+	<br><br>
+
+	<<tearful>> 당신은 옷을 입기 위해 안전한 장소를 찾아간다.
+<</if>>
+<br><br>
+
+<<storeon "whitneyStreet">>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Street Bully Chased
+<<set $outside to 1>><<effects>>
+
+오래 지나지 않아 <<generate1>><<person1>>한 남자가 골목으로 달려 들어온다. 그는 화가 난 것 같다. 그는 당신에게까지 달려들 뻔 했지만 그 대신 당신을 잡아 벽으로 밀어붙인다.
+<br><br>
+
+"그 소년은 어디 있지?" 그가 독촉한다. "네가 그와 같이 다니는 거 알아, 애송아. 어서 바른대로 말해." 그가 가까이 다가온다. "안 그러기만 해봐."
+<br><br>
+
+당신은 그의 어깨너머로 주차된 차 밑에 숨어있는 휘트니를 발견한다. 그가 입술에 손가락을 가져다 댄다.
+<br><br>
+
+<<link [[싸운다|Street Bully Chased Fight]]>><<def 1>><<set $fightstart to 1>><<npcincr Whitney love 1>><<crimeUp 300 "assault">><</link>><<glove>><<crime "assault">>
+<br>
+<<set $skulduggerydifficulty to 400>>
+<<link [[거짓말한다|Street Bully Chased 2]]>><<set $phase to 1>><<npcincr Whitney love 1>><<npcincr Whitney dom 1>><</link>><<skulduggerydifficulty>><<glove>>
+<br>
+<<link [[휘트니의 위치를 알려준다|Street Bully Chased 2]]>><<set $phase to 0>><<trauma -10>><<npcincr Whitney love -1>><<npcincr Whitney dom -1>><</link>><<ltrauma>><<llove>><<ldom "Whitney">>
+<br>
+
+:: Street Bully Chased Fight
+
+<<if $fightstart is 1>>
+	<<set $fightstart to 0>>
+	<<neutral 1>>
+	<<maninit>>
+	당신은 남자의 어깨너머를 가리킨다. "보세요!" 당신이 외친다. "저기에 그가 있어요!" 그가 돌아보자마자 당신은 그에게 주먹을 날린다.
+	<br><br>
+
+	남자가 비틀거리며 물러나는 것을 본 휘트니와 그의 친구들은 숨어있던 곳에서 나와 당신을 둘러싸고 부추긴다.
+	<br><br>
+
+	<<npcidlegenitals>>
+
+	<<set $enemytrust -= 100>>
+	<<set $enemyanger += 200>>
+	<<set $audienceforceteen to 1>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<audience>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0)>>
+	<span id="next"><<link [[다음|Street Bully Chased Fight Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Street Bully Chased Fight]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Street Bully Chased Fight Finish
+<<set $outside to 1>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+
+	웃음소리가 남자의 현실감을 일깨운다. 당황한 그는 목표물을 포기한 채 골목에서 도망친다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+	<<npc Whitney>><<person1>>
+
+	휘트니가 다가와 당신의 엉덩이에 손을 얹는다. "내 명예를 지켜주려고 그런거야, 아니면 네가 그냥 그런 걸레인 거야?" 그가 그것을 주무른다. "어느 쪽이든 상관 없어."<<arousal 100 "bottom">><<npcincr Whitney lust 5>><<garousal>><<glust>>
+	<br><br>
+
+	<<if $whitneyromance is 1>>
+		<<link [[보상을 요구한다|Street Bully Chased Reward]]>><<npcincr Whitney dom -1>><<set $phase to 1>><</link>><<promiscuous1>><<ldom>>
+		<br>
+		<<link [[아무 말도 하지 않는다|Street Bully Chased Reward]]>><<set $phase to 0>><</link>>
+		<br>
+	<<else>>
+		그들은 당신의 "승리"에 금방 무관심해져 다시 장난을 치러 돌아간다. <<tearful>> 당신은 가던 길을 계속 간다.
+		<br><br>
+
+		<<endevent>>
+		<<destinationeventend>>
+	<</if>>
+<<elseif $enemyhealth lte 0>>
+	남자가 비틀거리며 뒤로 물러난다. 그가 골목을 빠져나가자 휘트니와 그의 친구들이 그에게 조롱을 퍼붓는다. 
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+	<<npc Whitney>><<person1>>
+
+	휘트니가 다가와 당신의 어깨에 팔을 걸친다.
+	<<if C.npc.Whitney.dom gte 10>>
+		"넌 정말 끈질긴 녀석이야," 그가 웃으며 인정한다. "하지만 우리 사이에는 아무것도 변하지 않아."
+	<<else>>
+		"네가 나한테만 골칫거리인게 아니라는 걸 알게 돼서 다행이네." 그가 말한다. "넌 많은 의미로 암캐구나."
+	<</if>>
+	<<status 1>><<npcincr Whitney love 1>><<glove>><<gcool>>
+	<br><br>
+
+	<<if $whitneyromance is 1>>
+		<<link [[보상을 요구한다|Street Bully Chased Reward]]>><<npcincr Whitney dom -1>><<set $phase to 1>><</link>><<promiscuous1>><<ldom>>
+		<br>
+		<<link [[아무 말도 하지 않는다|Street Bully Chased Reward]]>><<set $phase to 0>><</link>>
+		<br>
+	<<else>>
+		그들은 당신의 승리에 금방 무관심해져 다시 장난을 치러 돌아간다. <<tearful>> 당신은 가던 길을 계속 간다.
+		<br><br>
+
+		<<endevent>>
+		<<destinationeventend>>
+	<</if>>
+<<else>>
+	당신은 아파서 더 싸울 수 없는 상태가 되어 바닥에 쓰러진다.
+	<<if C.npc.Whitney.dom gte 10 and $whitneyromance is 1>>
+		"이 좆같은 애새끼가," 남자가 으르렁거린다. "이게 나한테 대든 대가-"
+		<br><br>
+
+		그는 휘트니의 분노에 찬 펀치에 맞아 바닥으로 쓰러진다. 다른 사람들도 차례로 남자를 두들기며 합류한다. 그가 재빠르게 밖으로 도망간다.
+		<br><br>
+
+		그가 사라지자 휘트니가 당신을 돌아본다.
+		<<endevent>><<npc Whitney>><<person1>>
+		그는 전과 마찬가지로 분노한 표정이다. 어쩌면 더 화가 났을지도. "이 바보야." 그가 당신에게 강제로 키스한다. "내가 허락하지 않는 한 아무도 너를 건드릴 수 없어."<<npcincr Whitney dom 1>><<npcincr Whitney lust 5>><<gdom>><<glust>>
+		<br><br>
+
+		그는 당신을 보내기 전에 당신이 너무 심하게 다치지는 않았는지 확인한다. <<tearful>> 비틀거리며 떠난다.<<pain -6>><<trauma -6>><<stress 6>><<ltrauma>><<lpain>><<gstress>>
+	<<else>>
+		"이 좆같은 애새끼가" 남자가 으르렁거린다. 그는 쓰러진 당신을 걷어찬다.<<trauma 6>><<stress 6>><<gtrauma>><<gstress>>
+		<br><br>
+
+		<<tearful>> 당신은 일어선다. 남자와 휘트니는 어디에도 보이지 않는다.
+	<</if>>
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<destinationeventend>>
+<</if>>
+
+:: Street Bully Chased Reward
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 1>>
+	당신은 휘트니를 돌아보며
+	<<if $speech_attitude is "meek">>
+		부끄럽다는 듯 미소짓는다. "조-조금 무서웠어. 혹시 날 위로해 주고 시-"
+		<br><br>
+
+		그는 당신이 말을 마치기도 전에 키스로 입을 막아버린다. 당신은 헐떡인다. 그의 친구들이 웃는다.
+	<<elseif $speech_attitude is "bratty">>
+		당신의 손을 엉덩이에 얹는다 "너 나한테 빚진게 있-"
+		<br><br>
+
+		그는 당신이 말을 마치기도 전에 키스로 입을 막아버린다. 당신은 키스를 돌려주며 그의 혀와 당신의 혀를 중간에서 맞닿게 한다. 그의 친구들이 환호한다.
+	<<else>>
+		눈썹을 치켜올린다. "이제 다 끝났는데-"
+		<br><br>
+
+		그는 당신이 말을 마치기도 전에 키스로 입을 막아버린다. 당신은 저항하지 않고, 그의 혀가 당신의 입을 침범하도록 둔다.
+	<</if>>
+	<<promiscuity1>>
+
+	<<if C.npc.Whitney.dom gte 15>>
+		그의 손이 당신의 몸에서 떨어지지만 당신을 밀어내지는 않는다. 그는 손을 당신의 엉덩이로 미끄러트린다.
+		<br><br>
+
+		<<link [[다음|Street Bully Sex]]>><<set $sexstart to 1>><<set $phase to 1>><<npckiss>><</link>>
+		<br>
+	<<else>>
+		결국 그가 당신을 밀어서 키스를 끝낸다. "이제 만족했냐, 걸레야?" 그가 말한다. "안됐네. 네가 얻을 수 있는 건 그게 다거든."
+		<br><br>
+
+		그가 웃으며 그의 친구들을 이끌고 다시 장난을 치러 돌아간다. <<tearful>> 당신은 가던 길을 계속 간다.
+		<br><br>
+
+		<<endevent>>
+		<<destinationeventend>>
+	<</if>>
+<<else>>
+	휘트니와 그의 친구들은 당신의 승리에 금방 무관심해져 다시 장난을 치러 돌아간다. <<tearful>> 당신은 가던 길을 계속 간다.
+	<br><br>
+
+	<<endevent>>
+	<<destinationeventend>>
+<</if>>
+
+:: Street Bully Chased 2
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 1>>
+	<<if $speech_attitude is "meek">>
+		"전 아무도 보지 못했어요, 선생님." 당신은 말한다. "진짜예요."
+	<<elseif $speech_attitude is "bratty">>
+		당신은 어깨를 으쓱한다. "글쎼요. 당신 움직임을 고려해 볼 때, 그는 지금쯤 마을을 빠져나가고도 남았을 걸요."
+	<<else>>
+		"그는 저 방향으로 갔어요," 당신이 거리를 가리키며 말한다.
+	<</if>>
+	<br><br>
+
+	<<skulduggerycheck>>
+	<<if $skulduggerysuccess is 1>>
+		<<if currentSkillValue('skulduggery') gte 400>>
+			남자는 <span class="green">완전히 속아서</span> 고개를 끄덕이고는 당신을 지나쳐 달려간다.
+		<<else>>
+			남자는 당신에게 의심스러운 눈초리를 보내지만 <span class="green">당신을 옆으로 밀어내고 골목을 계속 나아간다.</span>
+		<</if>>
+		<<endevent>><<npc Whitney>><<person1>>
+		휘트니가 차 밑에서 기어나온다.
+		<br><br>
+
+		<<if currentSkillValue('skulduggery') gte 400>>
+			"저 빡통이 그걸 진짜로 믿다니." 그가 말한다. "혓바닥에 기름 발라 놓은 줄 알았네." 그가 웃는다. "그 혀로 또 뭘 할 수 있는지 궁금한데."<<npcincr Whitney lust 5>><<glust>>
+		<<else>>
+			"너 거짓말 존나 못한다." 그가 말한다. "난 네 말 절대로 안 믿었을 거야. 저 새끼가 너보다 훨씬 빡대가리라 다행이었지."
+		<</if>>
+		<br><br>
+
+		그가 웃으며 걸어나간다. 당신은 계속해서 나아간다.
+		<br><br>
+
+		<<skulduggeryuse>>
+
+		<<endevent>>
+		<<destinationeventend>>
+	<<else>>
+		남자는 눈을 가늘게 뜨며 이를 간다. 그는 믿지 않는 것 같다.
+		<br><br>
+
+		<<skulduggeryuse>>
+
+		"그 새끼를 혼내주는 걸 정말 고대하고 있었는데 말이야," 그가 으르렁거린다. "널 대신 혼내야겠어."
+		<br><br>
+
+		<<link [[다음|Street Bully Chased Spank]]>><<set $molestationstart to 1>><</link>>
+		<br>
+	<</if>>
+<<else>>
+	당신은 주차된 차량을 가리킨다. 휘트니에게는 그가 있던 곳에서 끌려나오기 전까지 당신을 잠깐 노려볼 시간 밖에 주어지지 않았다.
+	<br><br>
+
+	숨어있던 휘트니의 친구들이 나타나 남자에게 내려선다. 싸움이 시작된다. 당신은 굳이 누가 이기는 지 보고 있지 않기로 한다.
+	<br><br>
+
+	<<endevent>>
+	<<destinationeventend>>
+<</if>>
+
+:: Street Bully Chased Spank
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+	그가 당신을 벽에서 끌어당겨 그의 무릎 위에 엎드리게 한다.
+	<<controlloss>>
+	<br><br>
+	<<npcspank>>
+	<<set $enemyanger += 200>>
+	<<if C.npc.Whitney.dom gte 10 and $whitneyromance is 1>>
+		<<enable_rescue>>
+	<</if>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend or $enemyanger lte 0>>
+	<span id="next"><<link [[다음|Street Bully Chased Spank Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Street Bully Chased Spank]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Street Bully Chased Spank Finish
+<<set $outside to 1>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+
+	그가 느리게 일어선다. "뭐, 이제 내가 그를 잡을 필요가 없는 건 분명하네." 그가 당신을 바닥에 밀치고 비틀거리며 걸어간다.
+	<br><br>
+
+	<<tearful>> 당신은 주위를 둘러본다. 휘트니는 가버렸다. 그는 아마 혼란을 틈타 도망쳤을 것이다.
+<<elseif $enemyhealth lte 0>>
+	당신은 남자를 주차된 차량에 밀친다. 차량의 경보음이 울린다. "젠장." 그가 중얼거리며 왔던 길로 허겁지겁 되돌아간다.
+	<br><br>
+
+	<<tearful>> 당신은 주위를 둘러본다. 휘트니는 가버렸다. 그는 혼란을 틈타 도망쳤을 것이다.
+<<elseif $alarm is 1 and $rescue is 1>>
+	남자는 다시 당신의 뺨을 때리기 위해 손을 들었지만 누군가가 뒤에서 그의 손목을 낚아챈다. "그녀는 나만 울릴 수 있어." <span class="green">휘트니다.</span>
+	<br><br>
+
+	그는 남자를 벽에서 끌어내어 그의 친구들이 있는 방향으로 데려간다. 그들은 폭력을 휘두르며 그에게 달려간다.
+	<br><br>
+
+	<<tearful>> 당신은 기회를 틈타 도망친다.
+<<else>>
+	"교훈을 얻었기를 바란다," 남자가 말한다. "이제 그 새끼를 찾으러 가 봐야겠어." 그는 당신을 바닥에 내버려둔 채로 발걸음을 옮긴다.
+	<br><br>
+
+	<<tearful>> 당신은 주위를 둘러본다. 휘트니는 가버렸다. 그는 혼란을 틈타 도망쳤을 것이다.
+<</if>>
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<destinationeventend>>
+
+:: Street Bully Flash
+<<set $outside to 1>><<effects>>
+
+<<if $phase2 is 2>>
+	<<if $speech_attitude is "meek">>
+		당신은 고개를 가로젓는다. "나-난 너무 무서워." 당신은 그에게 기대에 찬 미소를 짓는다. "그치만 네가 같이 가 준다면..."
+	<<elseif $speech_attitude is "bratty">>
+		"네가 직접 하는 건 무섭나 봐?" 당신은 그의 <<if $phase is 3>>젖꼭지를<<elseif $phase is 2>>허벅지를<<else>>엉덩이를<</if>> 꼬집는다. "아니야? 그럼 증명해 보시든지."
+	<<else>>
+		"전부 나 혼자서 하라고? 그건 싫어." 당신은 <<if $phase is 3>>그의 가슴을<<elseif $phase is 2>>그의 허벅지를<<else>>그의 등을<</if>> 쓰다듬는다. "훔쳐보는 건 그만하고 직접 나와."
+	<</if>>
+	<<switch $phase>>
+		<<case 3>><<exhibitionism4>>
+		<<case 2>><<exhibitionism5>>
+		<<case 1>><<exhibitionism3>>
+	<</switch>>
+
+	그가 그의 친구들을 돌아보며 웃는다. "봤냐? 이 불쌍한 년은 모든 사람이 다 자기같은 변태라고 생각하고 있어." 그가 당신을 다시 한 번 쳐다본다. 당신의 표정은 당신이 진지하다는 것을 말해주고 있다. 그가 웃음을 터뜨리며 돌아선다.
+	<<if C.npc.Whitney.dom gte 15>>
+		그는 얼굴을 붉히고 있다.
+	<<else>>
+		그가 고개를 기울인다.
+	<</if>>
+	<br><br>
+
+	"좋아," 그가 말한다. "거래 성립." 그의 친구들이 웅성거린다. "그렇지만 네가 먼저 가는거야. 난 걸레에게 뒤통수 맞기 싫거든." 그가 당신을 보도로 밀치며 주의깊게 지켜본다.
+<<elseif $phase2 is 1>>
+	<<if $speech_attitude is "meek">>
+		당신은 휘트니의 손아귀에서 빠져나오며 킥킥 웃는다. "네 맘대로."
+	<<elseif $speech_attitude is "bratty">>
+		당신은 씩 웃으며 휘트니의 손을 떼어낸다. "보고 배우라고."
+	<<else>>
+		당신은 휘트니의 손을 떼어낸다. "네가 생각하는 방식이 참 좋아."
+	<</if>>
+	<<switch $phase>>
+		<<case 3>><<exhibitionism4>>
+		<<case 2>><<exhibitionism5>>
+		<<case 1>><<exhibitionism3>>
+	<</switch>>
+
+	그의 친구들은 당신이 보도로 걸어가자 환호한다. 휘트니는 웃으며 지켜본다.
+<<else>>
+	당신은 원하지 않았지만, 어쨌든 골목을 빠져나간다. 그의 친구들이 환호한다. 누군가가 당신의 엉덩이를 친다.
+<</if>>
+<br><br>
+
+<<link [[다음|Street Bully Flash 2]]>><</link>>
+<br>
+
+:: Street Bully Flash 2
+<<set $outside to 1>><<effects>>
+<<outfitChecks>>
+
+휘트니의 말대로 얼마 지나지 않아
+<<if Time.dayState is "night">>
+	코너를 돌며 반짝이는 헤드라이트의 불빛이
+<<else>>
+	자갈 위를 달리는 타이어 소리가
+<</if>>
+차량이 다가오고 있음을 알린다. 당신은 자세를 잡은 후
+<<if $phase is 3>>
+	등을 굽히고 윗옷의 끝부분을 잡는다.
+<<elseif $phase is 2>>
+	<<if _bottomIsSkirt>>
+		<<if _bottomUnder and !_bottomUnderIsSkirt>>
+			당신의 <<if _bottomUnder is $worn.lower and !$worn.under_lower.type.includes("naked")>>속옷을<<else>>속옷을<</if>> 발목까지 내린 후
+		<</if>>
+		당신 치마의 끝부분을 잡는다.
+	<<else>>
+		당신의 속옷의 허리춤에 엄지손가락을 끼워넣는다.
+	<</if>>
+<<else>>
+	빙글 돌아 몸을 굽혀서, 당신의 속옷의 <<if _bottomIsSkirt>>끝자락에<<else>>허리춤에<</if>> 당신의 손가락을 밀어넣는다.
+<</if>>
+<br><br>
+
+<<if $phase2 is 2 and C.npc.Whitney.dom gte 18>>
+	당신이 일을 실행하기 전에 <<if $phase isnot 1>>뒤에서<</if>> 발소리가 들린다. 휘트니가 당신을 향해 다가온다.
+	<<if C.npc.Whitney.lust gte 50>>
+		<<set $whitStreetNude to true>>
+		<span class="lewd">그는 벌거벗었다.</span> 그의 친구들이 그를 뒤에서 훔쳐보지만 그는 그들을 무시한다.
+		<<arousal 200>><<garousal>>
+	<<else>>
+		그는 화가 난 것 같다. 그의 친구들은 혼란스러워하며 웅성거린다.
+	<</if>>
+	<br><br>
+
+	"저리 비켜," 그가 짖듯이 말한다. "넌 내가 안 벗을거라 생각했겠지."
+	<br><br>
+
+	그가 당신 곁으로 다가와 엉덩이로 당신을 쳐서, 차량이 가까이 다가오는 때에 맞춰서
+	<<switch $phase>>
+		<<case 3>>당신이 뒤로 넘어져 등을 부딪히게 한다.
+		<<case 2>>당신이 뒤로 넘어져 엉덩이를 부딪히게 한다.
+		<<case 1>>당신을 무릎꿇게 한다.
+	<</switch>>
+	휘트니가 휘파람을 불어서 운전석에 있는 <<generate2>><<person2>>남자의 주의를 끈다.
+	<br><br>
+
+	<<link [[다음|Street Bully Flash 3]]>><<set $phase2 to 3>><</link>>
+	<br>
+<<else>>
+	차량이 시야에 들어온다. 당신은 조심스럽게
+	<<if $phase is 3>>
+		당신의 윗옷을 들어올려
+	<<else>>
+		<<= _bottomIsSkirt ? "당신의 치마를 들어올려" : "당신의 치마를 내려">>
+	<</if>>
+	휘트니의 친구들의 환호를 받는다.
+	<br><br>
+
+	<<generate2>><<person2>>남자는 당신이 
+	<<switch $phase>>
+		<<case 3>><<breasts>>을
+		<<case 2>>질을
+		<<case 1>>엉덩이를
+	<</switch>>
+	 <<if $phase2 gte 1>>부끄러움도 없이<<else>>부끄러워 하며<</if>> 드러내는 것을 보고는 차도를 거의 벗어날 뻔 한다. 휘트니의 친구들은 <<print either("충돌하는 소리가 ", "자동차 경적소리가", "환호하는 소리가")>> 거리에 울려퍼리자 웃음을 터뜨린다.
+	<br><br>
+
+	<<tearful>> 당신은 서둘러 골목 안으로 숨는다.
+	<<fameexhibitionism 1>>
+	<br><br>
+
+	<<link [[다음|Street Bully Flash 3]]>><<person1>><</link>>
+	<br>
+<</if>>
+
+:: Street Bully Flash 3
+<<set $outside to 1>><<effects>>
+
+<<if $phase2 is 3>>
+	당신은 
+	<<switch $phase>>
+		<<case 3>>
+			팔을 뒤로 둔 채로 바닥에 누워 있다. <span class="lewd">당신의 <<breasts>>이 남자에게 훤히 드러난다.</span>
+			<<person1>>
+			<<if $whitStreetNude>>
+				휘트니가 하품하는 시늉을 하며 그의 팔을 쭉 뻗어 그의 가슴을 훤히 드러낸다.
+			<<else>>
+				휘트니도 똑같이 웃통을 드러낸다.
+			<</if>>
+		<<case 2>>
+			바닥에 누워 <span class="lewd">남자에게 당신의 질이 잘 보이도록 다리를 활짝 벌린다.</span>
+			<<person1>>
+			<<if $whitStreetNude>>
+				휘트니는 당신의 어깨에 그의 발을 올려
+				<<if $NPCList[0].penis isnot "none">>
+					그의 발기된 페니스를 당신의 얼굴 앞에 흔든다.
+				<<else>>
+					그의 질이 젖어 <<if Time.dayState is "night">>가로등 불빛 아래에서<<else>>햇빛 아래에서<</if>> 반짝이는 것이 잘 보이도록 한다.
+				<</if>>
+			<<else>>
+				휘트니도 똑같이 하반신을 드러낸다.
+			<</if>>
+		<<case 1>>
+			바닥에 누워 <span class="lewd">당신의 엉덩이를 하늘로 향하게 한 채 남자를 향해 흔든다.</span>
+			<<person1>>
+			<<if $whitStreetNude>>
+				휘트니도 몸을 돌리고 허리를 숙여서 그의 무릎에 손을 얹는다.
+			<<else>>
+				휘트니도 똑같이 하반신을 드러낸다.
+			<</if>>
+	<</switch>>
+	<br><br>
+
+	<<person2>>남자는 입을 벌리고 멍하니 <<person1>><<if $player.gender_appearance is $pronoun>>두 명의 소녀가<<else>>소년과 소녀가<</if>> <<if Time.dayState is "night">>가로등 불빛 아래서<<else>>대낮에<</if>> 노출한 채 서있는 것을 본다. <<person2>>그는 훔쳐보는 데 정신이 팔려 달려오는 다른 차와의 충돌을 막지 못한다. <<generate3>><<person3>>남자는 다치지는 않았지만 분노한 상태로 그의 차에서 비틀거리며 내린다.
+	<br><br>
+
+	<<person2>>남자의 비난의 손가락이 당신이 있던 방향을 향하지만, 이미 휘트니가 웃으며 당신을 데리고 골목 안으로 들어와 버렸다. <<person1>>그의 친구들이 당신의 흔적을 감춰준다.
+	<<fameexhibitionism 5>>
+	<br><br>
+
+	<<link [[다음|Street Bully Flash 4]]>><<set $phase to 1>><</link>>
+	<br>
+<<elseif $phase2 is 2>>
+	당신이 옷을 정리하고 있는데, 누군가가 뒤에서 당신의 어깨를 툭 친다. 휘트니다.
+	<<if C.npc.Whitney.lust gte 50>>
+		<<set $whitStreetNude to true>>
+		<span class="lewd">그는 벌거벗었다.</span>
+		<<switch random(1, 3)>>
+			<<case 3>>
+				"뭐?" 그가 말한다. "여긴 덥잖아."
+			<<case 2>>
+				"내가 안 벗을 줄 알았지, 그치?"
+			<<default>>
+				"표정이 왜 그래?" 그가 웃는다.
+				<<if $player.gender_appearance is $pronoun>>
+					"거울에 비친 네 모습 본 적 없어?"
+				<<else>>
+					"넌 분명 전에도 남자가 벗고 있는 거 본 적 있잖아, 걸레야."
+				<</if>>
+		<</switch>>
+		그의 친구들이 뒤에서 그를 훔쳐보지만, 그는 그들을 무시한다.
+	<<else>>
+		그가 활짝 웃는다. 그의 친구들은 그의 뒤에서 기대에 차 중얼거린다.
+	<</if>>
+	<br><br>
+
+	"간다," 그가 말한다. 그는 당신 옆으로 지나가며 씩 웃는다.
+	<<if $whitStreetNude>>
+		좁은 골목은 당신과 휘트니를 가까이 밀착시키고, 그의 나체는 더욱 어색한 상황을 만들어 낸다. 당신은 그의
+		<<if $NPCList[0].penis isnot "none">>
+			페니스가 당신의 가랑이 사이를 찌르자 움찔한다.
+		<<elseif $NPCList[0].breastsize gt 0>>
+			가슴이 당신을 짓누르자 움찔한다.
+		<<else>>
+			맨살이 당신을 스치자 움찔한다.
+		<</if>>
+	<<else>>
+		골목이 좁아서 당신은 몸을 움츠린다.
+	<</if>>
+	"너무 즐기진 마."
+	<<arousal 500>><<garousal>>
+	<br><br>
+
+	<<if $whitStreetNude>>
+		그는 벽에 기대어 앉아, 차를 탄 <<generate3>><<person3>>남자가 지나갈 때 모든 것을 드러낸다. 휘트니가 웃으며 손을 흔들고, 시선을 돌려 당신에게 윙크를 한다.
+	<<else>>
+		<<switch $phase>>
+			<<case 3>>휘트니는 그의 어깨 너머로 윙크를 하며 그의 윗옷을 들어올리고, 그의 가슴을 차를 타고 지나가던 <<generate3>><<person3>>남자에게 보여준다.
+			<<case 2>>휘트니는 그의 어깨 너머로 윙크를 하며 그의 바지를 내리고, 그의 <<if $NPCList[0].penis isnot "none">>페니스를<<else>>질을<</if>> 차를 타고 지나가던 <<generate3>><<person3>>남자에게 보여준다.
+			<<case 1>>휘트니는 당신에게 웃어보이며 그의 바지를 내리고, 차를 타고 지나가던 <<generate3>><<person3>>남자에게 그의 엉덩이를 내민다.
+		<</switch>>
+	<</if>>
+	<<print either("타이어가 끼익 하는 소리가", "분노에 찬 고함소리가", "환호성이", "충돌하는 소리가")>> 들리자 휘트니는 활짝 웃으며 골목으로 다시 들어간다.
+	<br><br>
+
+	<<link [[다음|Street Bully Flash 4]]>><<person1>><<set $phase to 0>><</link>>
+	<br>
+<<else>>
+	<<if $phase2 gte 1>>
+		"넌 진짜 타고난 걸레야."
+	<<else>>
+		"그렇게 나쁘진 않았어, 그치?"
+	<</if>>
+	휘트니는 옷을 고쳐입고 있는 당신을 조롱한다. 그는 벽을 차고 당신에게 거들먹거리며 다가온다. 그가 당신의 머리채를 잡고 그의 숨결이 당신의 입술에 느껴질 정도로 가까이 끌어당긴다.
+	<br><br>
+
+	"이번엔 쉽게 빠져나갔지만," 그가 속삭인다. "다음번에는, 전부 드러내게 만들 거야. 단순히 운 좋은 <<person2>><<if $pronoun is "m">>개자식<<else>>썅년<</if>> 한 명 뿐만이 아니라, 마을의 모두가 널 볼 수 있게."
+	<<if $phase2 gte 1>>
+		<<arousal 200>><<garousal>>
+	<<else>>
+		<<stress 2>><<gstress>>
+	<</if>>
+	<<npcincr Whitney lust 5>><<glust>>
+	<br><br>
+
+	<<person1>>그가 당신의 뺨을 핥고 당신을 옆으로 밀친다. <<tearful>> 당신은 서둘러 골목을 빠져나간다.
+	<br><br>
+
+	<<endevent>>
+	<<destinationeventend>>
+<</if>>
+
+:: Street Bully Flash 4
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 1>>
+	당신은 골목길에 멈춰 선다. 당신의 심장은 여전히 두근거리고 있다. 그답지 않게 침묵하고 있는 것으로 보아 휘트니도 마찬가지인 것 같다. 그는 벽에 기대어 앞머리를 늘어트린 채 고개를 숙인다. 그럼에도 그의 미소는 숨겨지지 않는다.
+	<br><br>
+
+	<<if $whitStreetNude>>
+		그는 옷을 대강 걸친다. 당신은 시선을 피하고 당신의 옷을 고쳐입는다.
+	<<else>>
+		당신은 옷을 고쳐입는다. 휘트니도 똑같이 한다.
+	<</if>>
+	옷을 똑바로 입었다고 생각한 당신이 밖으로 나가려고 하는데, 휘트니가 당신을 붙잡는다. 그가 당신을 끌어당기고 그의 팔로 감싸 제자리에서 움직이지 못하게 한다.
+	<br><br>
+
+	"이번 일이 너무 힘들지 않았기를 바랄게." 그가 몸을 기울여 그의 입을 당신에게 가까이하며 말한다. "왜냐면 이건 시작에 불과하거든." 당신은 이것이 약속인지 협박인지 확신이 서지 않는다.<<npcincr Whitney lust 5>><<glust>>
+	<br><br>
+
+	그가 당신의 입술을 그의 혀로 한 번 치고 당신을 옆으로 밀친 뒤 그의 친구들이 있는 곳으로 돌아간다.
+<<else>>
+	휘트니는 고개를 높이 들고 골목으로 돌아간다.
+	<<if $whitStreetNude>>
+		그의 친구들은 평소처럼 농담을 할 수 없을 정도로 놀라있다.
+	<<else>>
+		그의 친구들은 그가 돌아오자 환호한다.
+	<</if>>
+	그가 곧장 다가와 당신을 벽에 밀어붙인다.
+	<br><br>
+
+	"메모는 해뒀냐, 걸레야?" 그가 말한다. "잘 배워뒀다 나중에 따라하라고. 다음 기회가 분명 있을 테니까."<<npcincr Whitney lust 5>><<glust>>
+	<br><br>
+
+	<<if $whitStreetNude>>
+		그는 골목을 떠나기 전에 옷을 걸친다. 그의 친구들이 뒤에서 웅성거린다.
+	<<else>>
+		그는 웃으며 골목을 떠난다. 그의 친구들이 뒤따른다.
+	<</if>>
+<</if>>
+<<tearful>> 당신은 가던 길을 계속 간다.
+<br><br>
+
+<<unset $whitStreetNude>>
+<<endevent>>
+<<destinationeventend>>
+
+:: Street Bully Flash Forced
+<<set $outside to 1>><<effects>>
+<<set _whitney to C.npc.Whitney>>
+<<outfitChecks>>
+당신은 휘트니에 의해 강제적으로 골목 밖으로 끌려나간다.
+<<switch $phase>>
+	<<case 3>>
+		그가 한 손으로 당신의 팔을 등 뒤로 비틀고 다른 손으로 당신의 윗옷을 잡는다.
+		<br><br>
+
+		"왜 그렇게 부끄러워해?" 그가 당신의 <<breasts>>을 주무르며 말한다.
+		<<if $player.breastsize is 0>>
+			"이 안에 볼만한 게 아무 것도 없네."
+			<<insecurity "breasts_small" 10>><<ginsecurity "breasts_small">>
+		<<elseif $player.breastsize lte 5>>
+			"누가 네 한심한 젖통에 관심을 가져준다는 사실에 감사하라고."
+			<<insecurity "breasts_small" 5>><<ginsecurity "breasts_small">>
+		<<elseif $player.breastsize lte 7>>
+			"네 젖탱이도 자유를 원하는 것 같은데."
+		<<else>>
+			"어차피 네 옷은 이런 걸 담고 오래 버티지도 못할 걸."
+			<<insecurity "breasts_big" 5>><<ginsecurity "breasts_big">>
+		<</if>>
+	<<case 2>>
+		그가 한 손으로 당신의 팔을 등 뒤로 비틀고 다른 손을 당신 치마의 안쪽으로 밀어넣는다.
+		<br><br>
+		<<if playerChastity()>>
+			<<if $worn.genitals.origin is "Whitney">>
+				"내 걸레는 적어도 말을 잘 듣기는 해." 그는 낄낄거리며 당신의 정조대를 살짝 잡아당긴다. "곧 더 많은 사람들이 그걸 보게 되겠지."
+			<<else>>
+				그는 당신의 정조대에 손이 닿자 코웃음을 친다. "너 자신을 가둔 거냐? 뭐, 그렇다고 네가 걸레처럼 안 보이는 건 아니니까."
+			<</if>>
+		<<elseif isHermOrCrossdresser() and !$genderknown.includes("Whitney")>>
+			<<set $genderknown.pushUnique("Whitney")>>
+			그가 당신의 가랑이를 움켜쥐더니 갑자기 멈춘다. 그리고는 좀 더 신중하게
+			<<if $player.penisExist and $player.vaginaExist>>
+				당신의 페니스의 윤곽선을 따라 손가락을 움직인 다음, 그것을 당신의 질에 쑤셔 넣는다.
+				<br><br>
+
+				<<if _whitney.penis isnot "none" and _whitney.vagina isnot "none">> /* whitney is also a herm */
+					"이런, 이런." 그의 목소리는 기분 좋게 놀란 듯이 들리지만, 혼란스러워 보이지는 않는다. "이 다음에 나타나는 변태는 정말 좋은 구경거리를 보겠군."
+				<<else>>
+					"이 아래에서 무슨 일이 일어나고 있든 간에," 그가 낄낄거린다. "어떤 변태는 쇼를 보게 되겠군."
+				<</if>>
+			<<elseif $player.penisExist>>
+				당신의 바지 속으로 당신의 육봉을 주무르며, 낄낄거린다.
+				<br><br>
+
+				<<if $player.penissize gte 4>>
+					"내가 이런 걸 못 봤다고?" 그가 웃는다. "뭐 어때. 다음 번에 오는 변태는 안 그러겠지."
+					<<insecurity "penis_big" 1>><<ginsecurity "penis_big">>
+				<<elseif $player.penissize gte 1>>
+					"이런 건 비밀로 해야하나?" 그가 비웃는다. "오래 가진 않겠지만."
+				<<else>>
+					"내가 잘못 짚었나 보네," 그가 비웃는다. "이거 뭐 아무것도 볼 게 없네."
+					<<insecurity "penis_small" 2>><<ginsecurity "penis_small">>
+				<</if>>
+			<<else>>
+				당신의 치마 안으로 들어가 당신의 입구를 찌르며 낄낄거린다.
+				<br><br>
+
+				"이런 건 비밀로 해야하나?" 그가 비웃는다. "오래 가진 않겠지만."
+			<</if>>
+		<<else>>
+			"무섭냐?" 그가 당신의 가랑이 사이를 거칠게 쓰다듬으며 말한다. "어떤 변태는 네 
+			<<set _hermText to (_whitney.gender is "h" ? "작은 비밀을" : "괴상한 물건을")>>
+			<<print ($player.penisExist ? (!$player.vaginaExist ? "자지를" : _hermText) : "보지를")>> 보게 될 거고 거기에 네가 할 수 있는 일은 아무 것도 없어."
+		<</if>>
+	<<case 1>>
+		그가 당신의 허리를 잡고 구부려 당신의 엉덩이가 거리에 훤히 드러나게 한다. 그가 당신의 치마의 <<if _bottomIsSkirt>>밑단에<<else>>허리춤에<</if>> 손가락을 말아넣는다.
+		<br><br>
+
+		"부끄러워하지 마," 그가 웃는다. "이 엉덩이는 보여지기 위해서 만들어진 거니까." 그가 엉덩이를 찰싹 친다.
+<</switch>>
+<br><br>
+
+당신은 휘트니가 
+<<if $phase is 3>>
+	당신의 속옷을 끌어올리고,
+<<else>>
+	<<if _bottomIsSkirt>>
+		치마의 밑단을 뒤집은 후 <<if !$worn.under_lower.type.includes("naked")>>당신의 속옷을 끌어내려서<</if>>,
+	<<else>>
+		당신의 속옷을 끌어내려서,
+	<</if>>
+<</if>>
+<<switch $phase>>
+	<<case 3>>
+		<span class="lewd">당신의 <<breasts>>을 드러내는</span> 것을 보며 눈을 질끈 감는다.
+	<<case 2>>
+		<span class="lewd">당신의 질을 드러내는</span> 것을 보며 눈을 질끈 감는다.
+	<<case 1>>
+		<span class="lewd">당신의 엉덩이를 드러내는</span> 것을 보며 눈을 질끈 감는다.
+<</switch>>
+<<generate2>><<person2>>남자가 지나가면서 경적을 울린다. 당신의 굴욕은 자비롭게도 짧았고, 휘트니는 오래 지나지 않아 당신을 땅에 <<if $phase is 1>>떨어트린다.<<else>>밀친다.<</if>>
+<<fameexhibitionism 2>>
+<br><br>
+
+<<link [[다음|Street Bully Flash 3]]>><<set $phase2 to 0>><<person1>><</link>>
+<br>
+
+:: Street Bully Orphan
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 3>>
+	<<person1>>
+	<<if $speech_attitude is "meek">>
+		당신은 휘트니의 소매를 잡아당긴다. 그가 고개를 돌려 노려본다. 당신인 것을 확인하자 그의 표정이 부드러워진다.
+		<br><br>
+
+		"반칙이야," 당신은 중얼거린다. "나만 괴롭혀 줬으면 좋겠어."
+	<<elseif $speech_attitude is "bratty">>
+		당신은 휘트니의 어깨를 잡고 그를 빙글 돌린다. 처음에는 놀라서 그의 눈이 휘등그레진다. 그는 당신인 것을 보고는 미소짓는다.
+		<br><br>
+
+		"왜 저 찐따같은 놈이랑 놀고 있어?" 당신이 말한다. "네 여자친구가 여기 있잖아."
+	<<else>>
+		당신은 휘트니의 어깨를 톡톡 친다. 그가 고개를 돌려 노려본다. 당신을 보자 그의 눈썹이 치켜올라간다.
+		<br><br>
+
+		"내 친구들이랑 그렇게 계속 장난치면," 당신은 말한다. "나 질투할지도 몰라."
+	<</if>>
+	<<promiscuity1>>
+
+	휘트니가 웃는다. "이제 넌 가도 되겠어," 그가 <<person2>>소년에게 말한다. "내 여자친구 나중에 감사인사나 하도록 해. 그녀는 이제 해야 할 일이 있으니까." <<person1>>그는 <<person2>>그를 밀쳐내 그가 여전히 겁에 질려있긴 하지만 안전하게 골목을 빠져나가도록 놔둔다.<<hope 3>><<gghope>>
+	<br><br>
+
+	당신은 아까 소년이 있던 벽 쪽으로 밀쳐진다. 휘트니가 <<person1>>그의 입술을 핥는다. "해야할 일이 많네."
+	<br><br>
+
+	<<endevent>>
+	<<npc Whitney>><<person1>>
+
+	<<link [[다음|Street Bully Orphan Sex]]>><<set $sexstart to 1>><</link>>
+	<br>
+<<elseif $phase is 2>>
+	<<if $speech_attitude is "meek">>
+		당신은 손을 뒤로 한 채 휘트니를 향해 걸어간다. "재미있어 보이네," 당신은 킥킥 웃는다. "다음 차례는 내가 껴도 될까?"
+	<<elseif $speech_attitude is "bratty">>
+		당신은 목을 가다듬는다. "음, 거기 안녕?"
+		<<if pcAreArmsBound("both")>>
+			당신은 엉덩이를 쭉 내민다.
+		<<else>>
+			당신은 손을 엉덩이 위에 얹고 그것을 쭉 내민다.
+		<</if>>
+		"나 여기 있는데."
+	<<else>>
+		당신은 휘트니의 어깨를 톡톡 친다. "그러지 말고," 당신은 벽에 기대어 속삭인다. "네가 진짜로 원하는게 누구인지 알고 있잖아."
+	<</if>>
+	<<promiscuity3>>
+
+	<<set $seductiondifficulty to 4000 - (C.npc.Whitney.lust * 50)>>
+	<<seductioncheck>>
+	<<seductionskilluptext>>
+	<<seductionskilluse>>
+
+	<<if $seductionrating gte $seductionrequired>>
+		<span class="green"><<person1>>그는 <<person2>>소년에 대한 모든 흥미를 잃고,</span> 그를 옆을 밀친 뒤 당신을 향해 걸어온다. 소년은 겁에 질려 도망쳤지만, 이제 안전하다.<<hope 3>><<gghope>>
+		<br><br>
+
+		당신은 소년이 있던 벽 쪽으로 대신 밀쳐진다. "내가 멍청했네," 휘트니가 말한다. "최고급 걸레가 여기 있는데 저런 질 떨어지는 놈이나 찾고 있었다니."
+		<br><br>
+
+		<<endevent>>
+		<<npc Whitney>><<person1>>
+
+		<<link [[다음|Street Bully Orphan Sex]]>><<set $sexstart to 1>><</link>>
+		<br>
+	<<else>>
+		"걱정 마," <<person1>>그가 웃는다. "네 차례도 곧 올거니까." <span class="red">그는 다시 <<person2>>소년에게 돌아간다.</span>
+		<br><br>
+
+		<<link [[싸운다|Street Bully Orphan Fight]]>><<set $phase to 1>><<set $fightstart to 1>><<npcincr Whitney dom -1>><</link>><<ldom>>
+		<br>
+		<<link [[물러난다|Street Bully Orphan]]>><<set $phase to 0>><<sub 1>><<trauma 10>><<stress 6>><<hope -3>><<npcincr Whitney dom 1>><</link>><<ggtrauma>><<gstress>><<llhope>><<gdom>>
+		<br>
+	<</if>>
+<<elseif $phase is 1>>
+	<<if $speech_attitude is "meek">>
+		당신은 다리를 떨며 휘트니에게로 걸어간다. "제-제발 그를 괴롭히지 말아줘," 당신은 더듬거리며 말한다. "그는 내 친구야."
+	<<elseif $speech_attitude is "bratty">>
+		당신은 팔짱을 낀 채 휘트니에게로 다가간다. "그를 놔줘," 당신은 요구한다. "네가 지금 누구를 건드리고 있는지 모르고 있나 봐."
+	<<else>>
+		당신은 휘트니에게로 걸어간다. "내 친구를 놔 줘," 당신은 말한다.
+	<</if>>
+	<br><br>
+
+	휘트니가 비웃으며 당신에게로 향한다. "잠깐 기다려," <<person1>>그가 <<person2>>소년을 잡고 있는 <<generatey3>><<person3>>친구에게 말한다. 휘트니가 다가서자 남은 관중들은 당신에게로 모여든다.
+	<br><br>
+
+	<<saveNPC 1 whit_bully_victim>>
+	<<endevent>>
+	<<npc Whitney>><<person1>>
+
+	<<link [[다음|Street Bully Orphan Fight]]>><<set $phase to 0>><<set $fightstart to 1>><</link>>
+	<br>
+<<else>>
+	당신이 <<person2>>소년을 위해 해줄 수 있는 것은 아무 것도 없다. 당신은 왔던 길로 다시 떠난다. 날카로운 비명소리가 뒤에서 울려퍼진다. 당신은 발걸음을 재촉한다.
+	<br><br>
+
+	<<endevent>>
+	<<destinationeventend>>
+<</if>>
+
+:: Street Bully Orphan Sex
+
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $audienceforceteen to 1>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<audience>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Street Bully Orphan Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Street Bully Orphan Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Street Bully Orphan Sex Finish
+<<set $outside to 1>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+
+	그가 벽에 기대어 헐떡인다.<<npcincr Whitney lust -20>><<llust>>
+	<br><br>
+
+	"와, 존나 좋았다." 그가 숨을 내쉰다. "네 친구들을 더 자주 괴롭혀 줘야겠어." 그의 친구들은 웃는다. 당신은 그가 농담을 한 것이기를 바라지만, 당신이 캐묻기도 전에 그는 사라져 버린다.
+<<elseif $enemyhealth lte 0>>
+	휘트니가 비틀거리며 물러난다.<<npcincr Whitney dom -1>><<ldom>>
+	<br><br>
+
+	"어찌 됐든 네 그 좆같은 친구들은 필요 없어." 그가 침을 뱉는다. "너같은 엄청난 걸레 하나로 충분하니까." 그의 친구들은 웃으며 골목을 떠난다.
+<<else>>
+	휘트니는 망설이다가 당신을 밀어낸다. "상관 없어," 그가 투덜거린다. "아까 그 새끼 아직 어딘가에 돌아다니고 있겠지."
+	<br><br>
+
+	그들은 당신이 뭐라 말 하기도 전에 사라진다. 당신은 그가 농담을 한 것이기를 바란다.<<stress 4>><<gstress>>
+<</if>>
+<br><br>
+
+<<tearful>> 당신은 가던 길을 계속 간다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<destinationeventend>>
+
+:: Street Bully Orphan Fight
+<<if $fightstart is 1>>
+	<<set $fightstart to 0>>
+	<<neutral 1>>
+
+	<<if $phase is 1>>
+		당신은 달려들어 휘트니에게 태클을 건다. 당신과 휘트니는 바닥에 넘어진다. <<person2>>소년은 도망치려 하지만 휘트니의 친구들이 그를 붙잡는다.
+		<br><br>
+		<<saveNPC 1 whit_bully_victim>>
+		<<endevent>>
+		<<npc Whitney>><<person1>>
+	<</if>>
+
+	<<maninit>>
+	<<npcidlegenitals>>
+	<<set $enemytrust -= 100>>
+	<<set $enemyanger += 200>>
+	<<set $audienceforceteen to 1>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<audience>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0)>>
+	<span id="next"><<link [[다음|Street Bully Orphan Fight Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Street Bully Orphan Fight]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Street Bully Orphan Fight Finish
+<<set $outside to 1>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation "short">>
+	<<loadNPC 1 whit_bully_victim>>
+
+	휘트니가 헐떡이며 벽에 기댄다.<<npcincr Whitney lust -20>><<reb 1>><<llust>><<greb>>
+	<br><br>
+
+	그는 금방 정신을 차리지만 당신이 <<person2>>소년을 잡고 달릴 시간은 벌 수 있었다. <<tearful>> 당신은 도망친다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<loadNPC 0 whit_bully_victim>><<person1>>
+	<<clearNPC whit_bully_victim>>
+
+	<<link [[다음|Street Bully Orphan Escape]]>><</link>>
+	<br>
+<<elseif $enemyhealth lte 0>>
+	<<loadNPC 1 whit_bully_victim>>
+
+	당신은 휘트니를 밀어내어, 그를 친구들에게 부딪히게 한다. 그들은 무더기로 바닥에 넘어진다.<<npcincr Whitney dom -1>><<reb 3>><<ldom>><<ggreb>>
+	<br><br>
+
+	그들이 엎어져 있는 동안 당신은 <<person2>>소년을 잡고 달린다. <<tearful>> 당신은 도망친다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<loadNPC 0 whit_bully_victim>><<person1>>
+	<<clearNPC whit_bully_victim>>
+
+	<<link [[다음|Street Bully Orphan Escape]]>><</link>>
+	<br>
+<<else>>
+	<<loadNPC 1 whit_bully_victim>>
+	<<clearNPC whit_bully_victim>>
+
+	당신은 바닥으로 무너진다. 계속 싸우기에는 너무 많이 다쳤다.
+	<br><br>
+
+	"걱정 마," 휘트니가 비웃는다. "<<person2>>그도 너랑 똑같은 꼴로 만들어 줄테니까." <<person2>>소년은 끌려가는 동안 발로 차고 비명을 지르며 헛되이 몸부림친다.<<trauma 12>><<stress 12>><<hope -5>><<ggtrauma>><<ggstress>><<lllhope>>
+	<br><br>
+
+	<<tearful>> 당신은 일어선다. 휘트니와 다른 사람들은 가버렸다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<destinationeventend>>
+<</if>>
+
+:: Street Bully Orphan Spray
+<<set $outside to 1>><<effects>>
+
+<<if $speech_attitude is "meek">>
+	당신은 다리를 떨며 휘트니에게로 걸어간다. "제-제발 그를 괴롭히지 말아줘," 당신은 더듬거리며 말한다. "그는 내 친구야."
+<<elseif $speech_attitude is "bratty">>
+	당신은 팔짱을 낀 채 휘트니에게로 다가간다. "그를 놔줘," 당신은 요구한다. "네가 지금 누구를 건드리고 있는지 모르고 있나 봐."
+<<else>>
+	당신은 휘트니에게로 걸어간다. "내 친구를 놔줘," 당신은 말한다.
+<</if>>
+<br><br>
+
+휘트니는 비웃으며 당신을 바라본다. "잠깐 잡고 있어 봐," <<person1>>그가 그의 친구들에게 말하며 <<person2>>소년을 놓아준다. 아주 잠깐이지만, 그가 주머니에서 무언가를 꺼내기에는 충분하다. <span class="green">후추 스프레이 한 통이다.</span> 그는 그것을 휘트니에게 겨누고 분사한다.<<ggreb>>
+<br><br>
+
+휘트니가 <<person1>>그의 얼굴을 감싸고 고통스럽게 울부짖는다. 그는 <<person2>>소년에게 돌진하려 하지만 앞이 보이지 않아 <<person1>>그의 친구들과 부딪힌다. 그들은 바닥에 넘어진다. 당신은 팔이 붙잡혀 그들이 회복하기 전에 골목을 빠져나간다.
+<br><br>
+
+<<link [[다음|Street Bully Orphan Escape]]>><<person2>><</link>>
+<br>
+
+:: Street Bully Orphan Escape
+<<set $outside to 1>><<effects>>
+
+당신은 휘트니와 그의 친구들이 따라오지 않는다는 확신이 들 때까지 달린다.
+<<switch random(1, 4)>>
+	<<case 4>>
+		소년은 당신의 팔에 달라붙는다. "지-진짜 그는 없는거지?" 그가 묻는다. "진짜지?"
+	<<case 3>>
+		소년은 고개를 돌린다. "내 몸은 내가 지킬 수 있어." 그가 말한다. 그가 훌쩍인다. "그래도, 고마워."
+	<<case 2>>
+		소년의 호흡이 진정되기까지 시간이 좀 걸린다. 그는 아무 말도 하지 않지만 안도한 것처럼 보인다.
+	<<default>>
+		둘만 남게 되자 소년은 당신의 품에 뛰어든다. "무서웠어," 그가 흐느껴 운다. "고-고마워."
+<</switch>>
+<br><br>
+
+그는 헤어지기 전에 당신을 안아주고, 뺨에 입을 맞춘다.<<trauma -12>><<stress -12>><<hope 3>><<lltrauma>><<llstress>><<gghope>>
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Street Bully Drunk
+<<set $outside to 1>><<effects>>
+
+<<if $phase is 2>>
+	당신은 휘트니를 밀어낸다.
+
+	<<if random(1)>>
+		그는 당신을 더듬거리다가 결국 바닥에 쓰러진다. 한 <<generatey2>><<person2>>소년이 그가 일어서도록 도와준다.
+		<br><br>
+
+		<<if $speech_attitude is "meek">>
+			"너 휘트니 친구구나," 당신은 말한다. "그가 다치지 않게 해줘."
+		<<elseif $speech_attitude is "bratty">>
+			"나였다면 내 친구가 공공장소에서 이런 꼴로 돌아다니게 하지 않을거야." 당신은 말한다. "그를 집에 데려다 줘."
+		<<else>>
+			"그를 잘 보살펴줘," 당신은 말한다. "그렇지 않으면 넌 형편없는 친구인 거야."
+		<</if>>
+		<br><br>
+
+		<span class="green"><<person2>>소년은 당신의 말에 수긍하는 것 같다.</span> 그는 휘트니를 안정적으로 붙들고 골목 밖으로 빠져나간다. 그들의 소란스러운 목소리는 곧 사라진다.
+		<br><br>
+
+		<<destinationeventend>>
+	<<else>>
+		그의 눈에서 환희가 사라지고 곧 분노로 바뀐다.
+		<br><br>
+
+		<span class="red">"멍청한 걸레 주제에,"</span> 그가 비웃는다. "정신 차려."
+		<br><br>
+
+		그가 병을 옆으로 던지고 당신을 향해 달려든다!
+		<br><br>
+
+		<<link [[다음|Street Bully Sex]]>><<set $phase to 1>><<set $molestationstart to 1>><</link>>
+		<br>
+	<</if>>
+<<elseif $phase is 1>>
+	<<wearProp "beer bottle">>
+	당신은 병 뚜껑을 따고 한 모금 마신다.
+	<<if $phase2 is 1>>
+		달콤하다. 지나치게. 당신은 견뎌내기 위해 노력한다. 마지막 한 방울까지 삼키자 뱃속에 이상한 따뜻함이 자리잡는다.
+	<<else>>
+		쓰다. 당신은 구역질이 나지만 마지막 한 방울까지 삼킨다. 행복하고 따스한 기분이 느껴진다.
+	<</if>>
+	<br><br>
+
+	<<tearful>> 당신은 비틀거리며 걸어간다.
+	<br><br>
+
+	<<destinationeventend>>
+<<else>>
+	당신은 마시지 않기로 결심한다. 당신이 이미 잘 알다시피, 휘트니라면 이 안에 뭔 짓을 했을 수도 있다. 당신은 그것을 <<if $speech_attitude is "meek">>쓰레기통 안에 두고<<elseif $speech_attitude is "bratty">>벽에 던져버리고<<else>>바닥에 두고<</if>> 계속해서 나아간다.
+	<br><br>
+
+	<<destinationeventend>>
+<</if>>
+
+:: Street Bully Roof
+<<effects>>
+<<outfitChecks>>
+
+"네가 보여줬으면 하는 게 있어," 휘트니가 사다리를 가리키며, 말한다. "꼭대기로. 올라가."
+<br><br>
+
+<<if _bottomIsSkirt and _skirtExposed and !_bottomUnder?.type.includes("covered")>>
+	<<if $worn.under_lower.exposed gte 1>>
+		당신은 휘트니가 당신의 <<= _outfit ? "치마를" : "치마를">>올려다 보려 한다는 것을 곧 알아차렸고, <span class="pink">당신은 밑에 아무것도 입고 있지 않다.</span> 그의 친구들도 몰려든다. 그들도 다 보게 될 것이다.
+		<br><br>
+
+		<<if hasSexStat("exhibitionism", 5)>>
+			<<link [[평범하게 올라간다|Street Bully Roof Nude]]>><</link>><<exhibitionist5>>
+			<br>
+		<</if>>
+	<<else>>
+		당신은 휘트니가 당신의 <<= _outfit ? "치마를" : "치마를">> 올려다 보려 한다는 것을 곧 알아차렸다. 그의 친구들도 몰려든다. 그들도 모두 당신의 속옷을 보게 될 것이다.
+		<br><br>
+
+		<<link [[평범하게 올라간다|Street Bully Roof Undies]]>><</link>><<exhibitionist1>>
+		<br>
+	<</if>>
+	<<link [[올라가면서 천을 다리 사이에 끼운다|Street Bully Roof Hold]]>><</link>>
+	<br>
+<<else>>
+	<<link [[다음|Street Bully Roof Climb]]>><</link>>
+	<br>
+<</if>>
+
+:: Street Bully Roof Climb
+<<effects>>
+
+당신은 사다리를 올라간다. 휘트니가 맨 아랫단을 밟자 그것이 흔들린다. "너희들은 여기서 기다려," 그가 말한다. "오래 걸리지는 않을 거야."
+<br><br>
+
+<<link [[다음|Street Bully Roof Top]]>><</link>>
+<br>
+
+:: Street Bully Roof Hold
+<<effects>>
+<<outfitChecks>>
+
+당신은 한 손으로 당신의 다리 사이에 두고, 당신의 <<= _outfit ? 치마를 : 치마를>> 당신의 속옷에 누른다. 이렇게 하면 올라가기에는 조금 어색하지만 아무도 엿볼 수는 없을 것이다.
+<br><br>
+
+그것은 당신의 허벅지가 구경꾼의 눈높이에 오기 전까지는 말이다. <span class="pink">휘트니가 엉덩이 쪽을 들춰서,</span> 당신의 엉덩이를 모두가 볼 수 있도록 한다.<<gstress>>
+<br><br>
+
+"멋진데."
+<br>
+"그녀의 엉덩이를 때려!"
+<br>
+"나한테도 그녀와 해볼 차례가 오면 좋곘어."
+<br><br>
+
+휘트니는 노출된 피부보다 당신의 표정에 더 관심을 보이며 당신을 향해 미소를 짓는다.
+<br><br>
+
+
+<<link [[화를 내며 소리친다|Street Bully Roof Angry]]>><<trauma -6>><</link>><<ltrauma>>
+<br>
+<<link [[발로 찬다|Street Bully Roof Kick]]>><<stress -12>><</link>><<llstress>>
+<br>
+<<link [[무시한다|Street Bully Roof Ignore]]>><<trauma 6>><</link>><<gtrauma>>
+<br>
+
+
+:: Street Bully Roof Angry
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"내- 내 치마 내려줘!" 당신은 소리친다.
+<<elseif $speech_attitude is "bratty">>
+	"씨발 내 스커트 내려라," 당신은 소리친다. "안 그러기만 해봐."
+<<else>>
+	"당장 그거 내려!" 당신은 소리친다.
+<</if>>
+<br><br>
+
+휘트니는 그것을 내리며, 그의 친구들에게 꾸벅 인사한다. 그들은 당신이 계속해서 올라갈 때 박수를 보낸다. 휘트니가 맨 아랫단을 밟자 사다리가 흔들린다. "너희들은 여기서 기다려," 그가 말한다. "오래 걸리지는 않을 거야."
+<br><br>
+
+<<link [[다음|Street Bully Roof Top]]>><</link>>
+<br>
+
+
+:: Street Bully Roof Kick
+<<effects>>
+<<outfitChecks>>
+
+당신은 휘트니를 걷어찬다. 그는 당신의 공격을 예측하고 물러나지만, 적어도 당신의 <<= _outfit ? 치마를 : 치마를>> 놓도록 만든다. 그의 친구들은 웃음을 터뜨리고, 당신이 계속해서 올라갈때 휘트니는 그들에게 꾸벅 인사한다.
+<br><br>
+
+휘트니가 맨 아랫단을 밟자 사다리가 흔들린다. "너희들은 여기서 기다려," 그가 말한다. "오래 걸리지는 않을 거야."
+<br><br>
+
+<<link [[다음|Street Bully Roof Top]]>><</link>>
+<br>
+
+:: Street Bully Roof Ignore
+<<effects>>
+
+당신은 휘트니의 장난과 그의 음흉한 친구들은 무시하고 계속해서 올라간다. 어차피 곧 손이 닿지 않을 것이다. 휘트니는 당신이 팔이 닿지 않는 거리까지 가기 전에 한 대 치는데 성공한다.
+<br><br>
+
+그가 맨 아랫단을 밟자 사다리가 흔들린다. "너희들은 여기서 기다려," 그가 말한다. "오래 걸리지는 않을 거야."
+<br><br>
+
+<<link [[다음|Street Bully Roof Top]]>><</link>>
+<br>
+
+
+:: Street Bully Roof Undies
+<<effects>>
+
+당신은 평범하게 올라간다. 휘트니가 맨 아랫단을 밟자 사다리가 흔들린다. 당신은 아래를 내려다본다. 그는 당신이 예상한 대로, 당신의 치마 속을 똑바로 들여다보고 있다.
+<br><br>
+
+"속옷 근사하네," 휘트니가 웃는다. 그의 친구들이 구경하려고 몰려든다. 당신은 한번의 날렵한 동작으로 당신의 엉덩이를 내밀어, 당신의 치마를 펄럭여 그들이 더 잘 볼 수 있도록 돕는다. 그들은 환호한다.
+<<exhibitionism1>>
+
+"너희들은 여기서 기다려," 그는 올라오면서 그렇게 말한다. "오래 걸리지는 않을 거야."
+<br><br>
+
+<<link [[다음|Street Bully Roof Top]]>><</link>>
+<br>
+
+:: Street Bully Roof Nude
+<<effects>>
+
+당신은 평범하게 올라간다. 휘트니가 맨 아랫단을 밟자 사다리가 흔들린다. 당신은 아래를 내려다본다. 그는 당신이 예상한 대로, 당신의 치마 속을 똑바로 들여다보고 있다.
+<br><br>
+
+"네 <<print ($player.penisExist and $player.vaginaExist) ? "자지와 보지" : $player.penisExist ? "자지" : "보지">> 멋지네," 휘트니가 웃는다.
+<<if $whitneypantiescheck gte 1>>
+	"우리는 학교에 있지도 않은데 말이지. 내 생각에 너는 그냥 그런 걸레인 것 같아."
+<</if>>
+그의 친구들이 구경하려고 몰려든다. 당신은 한번의 날렵한 동작으로 당신의 엉덩이를 내밀어, 당신의 치마를 펄럭여 그들이 더 잘 볼 수 있도록 돕는다. 그들은 환호한다.
+<<exhibitionism5>>
+
+"너희들은 여기서 기다려," 그는 올라오면서 그렇게 말한다. "오래 걸리지는 않을 거야."
+<br><br>
+
+<<link [[다음|Street Bully Roof Top]]>><</link>>
+<br>
+
+
+
+:: Street Bully Roof Top
+<<effects>>
+
+휘트니는 바로 당신을 따라 올라가, 당신의 허리를 팔로 감싼다. 그는 옥상 너머로 밖을 내다본다. 거리의 이 부분은 나머지 부분보다 높아서, 도시의 많은 부분을 볼 수 있다.
+<br><br>
+
+<<switch $bus>>
+	<<case "domus">>
+		"네 집이 이 근처였지, 맞지?" 휘트니가 묻는다. "내게 가리켜 줘." 당신은 이미 길 바로 아래에서, 다른 두 건물들 사이로 보이는, 고아원을 발견했다.
+		<br><br>
+
+		<<link [[고아원을 가리킨다|Street Bully Roof Point]]>><<npcincr Whitney love 3>><</link>><<gglove>>
+		<br>
+	<<case "barb" "danube" "residential">>
+		"여기서 네 집이 보여?" 휘트니가 묻는다. "내게 가리켜 줘." 당신은 다른 집들을 둘러본다. 당신은 도무스 거리를 충분히 쉽게 알아볼 수 있지만, 거리의 굴곡과 시야를 가리는 나뭇잎이 고아원을 가린다.
+		<br><br>
+		<<link [[고아원이 있는 쪽을 가리킨다|Street Bully Roof Point]]>><<npcincr Whitney love 3>><</link>><<gglove>>
+		<br>
+	<<case "nightingale" "wolf" "high" "starfish" "cliff" "connudatus" "park" "commercial">>
+		"여기서 네 집이 보여?" 휘트니가 묻는다. "내게 가리켜 줘." 당신은 마을 건너편의, 도무스 가 쪽을 바라본다. 당신은 대략적인 위치를 가리킬 수는 있겠지만, 더 자세히 알려주기엔 너무 멀리 있다.
+		<br><br>
+
+		<<link [[도무스 가 쪽을 가리킨다|Street Bully Roof Point]]>><<npcincr Whitney love 3>><</link>><<gglove>>
+		<br>
+	<<default>>
+		"여기서 네 집이 보여?" 휘트니가 묻는다. "내게 가리켜 줘." 당신은 마을의 반대편을 바라본다. 도무스 거리의 대부분은 언덕과 높은 건물들로 가려져 있다. 만약 그것이 보일지라도, 당신이 고아원을 발견하려면 쌍안경이 필요할 것이다.
+		<br><br>
+
+		<<link [[애매한 방향을 가리킨다|Street Bully Roof Point]]>><<npcincr Whitney love 3>><</link>><<gglove>>
+		<br>
+<</switch>>
+<<link [[거절한다|Street Bully Roof Point Refuse]]>><</link>>
+<br>
+
+
+:: Street Bully Roof Point
+<<effects>>
+
+"좋아," 휘트니가 말한다. 그는 뭔가 다른 말을 하고 싶은 것처럼 보이지만, 하지 않기로 정한 것 같다. 그는 당신의 이마에 키스를 한 다음, 벽을 넘어 사다리로 몸을 끌어올린다. "나중에 보자, 걸레야." 그는 미끄러져 내려간다.
+<br><br>
+
+휘트니와 그의 친구들이 모퉁이를 돌아 보이지 않게 될 쯔음, 당신은 스스로 내려와서, 바닥에 착지한다.
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Street Bully Roof Point Refuse
+<<effects>>
+
+"대체 뭐가 문젠데?" 휘트니가 묻는다. "난 네가 어디 사는지 이미 알아. 내가 갑자기 나타나서 네 친구들을 때리는 것도 아니잖아." 그는 그의 주머니에서 담배를 꺼내서
+<<if $whitneyromance is 1>>
+	당신의 엉덩이를 장난스럽게 한 번 치고 걸어간다.<<garousal>><<arousal 600 "bottom">>
+<<else>>
+	당신의 엉덩이를 세게 한 번 치고 걸어간다.<<gpain>><<gstress>><<pain 4>><<stress 6>>
+<</if>>
+<br><br>
+
+그는 벽을 넘고 사다리에 올라타 미끄러져 내려온다. 휘트니와 그의 친구들이 모퉁이를 돌아 보이지 않게 될 쯔음, 당신은 스스로 내려와서, 바닥에 착지한다.
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+
+:: Street Bully Roof Struggle
+<<effects>>
+
+당신은 휘트니를 밀쳐낸다. 그는 당신을 막지 않는다. "가야하는 곳이라도 있나? 이해해주지," 그가 말한다. "나중에 나한테 보상해주는 걸로 알고 있을게." 그는 그의 손과 입으로 음탕한 제스처를 한다. 그의 친구들은 웃는다.
+<br><br>
+
+"나중에 보자, 걸레야."
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+
+:: Street Bully Orphanage Promise
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"아-알겠어," 당신은 말한다. "제발 다른 고아들을 괴롭히지만 말아줘."
+<<elseif $speech_attitude is "bratty">>
+	"다른 고아들을 괴롭히지 않겠다고 약속해." 당신은 말한다. "싫으면 그냥 가든지."
+<<else>>
+	"다른 고아들을 괴롭히지 않겠다고 약속해줘." 당신은 말한다. "그럼 가도 돼."
+<</if>>
+<br><br>
+
+"내가 너 말고는 거기 있는 다른 놈들 신경이나 쓸 것 같아?" 그가 말한다. "나도 기준이란 게 있어." 그가 당신을 끌어당겨 걷는다. 방금 그건 약속처럼 들리지 않는다. 그의 친구들이 그 뒤를 따른다.
+<br><br>
+
+<<link [[다음|Street Bully Orphanage Go]]>><</link>>
+<br>
+
+:: Street Bully Orphanage Go
+<<set $outside to 0>><<set $location to "home">><<effects>><<seenPassage>>
+<<generate2>>
+그의 친구들이 뒤따르는 가운데, 당신은 휘트니와 팔짱을 끼고 구불구불한 길을 걷는다. 그들은 몇몇 행인들을 괴롭히며, 겁에 질린 <<person2>>소년의 배낭을 잡아 내용물을 흩뿌린다.
+<br><br>
+
+<<endevent>>
+<<npc Whitney>><<person1>>
+
+<<if Time.dayState is "night">>
+	당신은 고요한 고아원의 바깥에 도착한다. "존나 똥통이네." 휘트니가 앞문을 차며 외친다. 중앙 복도는 텅 비어있다. 휘트니가 안으로 들어가고, 그의 친구들이 따른다.
+	<br><br>
+	"그래서 우리는 어디로 가면 되냐?"
+	<br><br>
+<<else>>
+	<<generateyv2>>
+	당신은 고아원의 바깥에 도착한다. "존나 똥통이네." 휘트니가 앞문을 차며 외친다. 휘트니는 그를 보고 겁에 질린 <<person2>>소녀와 마주친다. 그녀는 허둥지둥 건물 안쪽으로 더 깊숙이 들어가 버린다. 휘트니는 그걸 보고 웃는다.
+	<br><br>
+	"그래서 우리는 어디로 가면 되냐?"
+	<br><br>
+	<<endevent>>
+	<<npc Whitney>><<person1>>
+<</if>>
+
+<<link [[당신의 침실|Street Bully Orphanage Bedroom]]>><</link>>
+<br>
+<<link [[거실|Street Bully Orphanage Living]]>><</link>>
+<br>
+<<link [[베일리의 사무실|Street Bully Orphanage Office]]>><</link>>
+<br>
+
+
+:: Street Bully Orphanage Refuse
+<<effects>>
+
+당신은 휘트니로부터 팔을 뺀다.
+<<if $speech_attitude is "meek">>
+	"나-난 네가 고아원에 있는 걸 원치 않아!" 당신은 말한다. "넌 사람들을 놀라게 할 거야."
+<<elseif $speech_attitude is "bratty">>
+	"나는 고아원에 온 너를 신뢰할 수 없어," 당신은 말한다. "그곳 사람들은 이미 걱정거리가 충분해."
+<<else>>
+	"난 네가 고아원을 방문하는 걸 원하지 않아," 당신은 말한다.
+<</if>>
+<br><br>
+
+휘트니는 잠시 인상을 찡그린다. "상관 없어," 그는 그의 주머니에서 다른 담배를 꺼내며, 말한다. "내가 언젠가 널 벌해줄 거란 걸 기억해. 나중에 보자, 걸레야." 그는 그의 친구들을 이끌고, 걸어간다.
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+
+:: Street Bully Orphanage Bedroom
+<<effects>>
+
+당신은 당신의 방 밖에 도착한다. 휘트니는 내부를 들여다본다. "이렇게 사는 거야?" 그는 웃는다. "씨발. 난 내 방이 좆같다고 생각했어. 난 저기 안 들어갈거야. 어차피 우리 둘 다 들어갈 수 있을 것 같지도 않고."
+<br><br>
+
+<<link [[거실|Street Bully Orphanage Living]]>><</link>>
+<br>
+<<link [[베일리의 사무실|Street Bully Orphanage Office]]>><</link>>
+<br>
+
+
+
+:: Street Bully Orphanage Office
+<<effects>>
+
+<<if Time.dayState is "night">>
+	당신은 베일리의 사무실로 들어간다. 베일리가 여기 있을 가능성은 거의 없지만, 그렇다고 긴장이 풀리지는 않는다.
+	<br><br>
+
+	"괜찮은 곳이네," 휘트니가 장식을 감상하며 말한다. "네 방일 리는 없겠지만." 그는 그의 친구들이 걸어 들어오자 책상 뒤에 있는 의자에 기대어 앉는다.
+	<<if $kylar_camera is 3>>
+		<span class="purple">당신이 고아에게 준, 카일라의 올빼미가, 구석에 있는 캐비닛 위에서 지켜보고 있다.</span> 베일리가 압수한 게 틀림없다.
+	<</if>>
+	<br><br>
+
+	"그래서?" 휘트니가 말한다. "뭘 기다리는 거야?" 그는 당신에게 가까이 오라고 손짓한다.
+	<br><br>
+
+	<<link [[가까이 다가간다|Street Bully Orphanage Close]]>><<set $phase to 0>><</link>>
+	<br>
+	<<link [[키스한다|Street Bully Orphanage Kiss]]>><<set $phase to 1>><</link>>
+	<br>
+	<<if hasSexStat("promiscuity", 4)>>
+		<<link [[빨아준다|Street Bully Orphanage Oral]]>><<set $phase to 2>><</link>><<promiscuous4>>
+		<br>
+	<</if>>
+<<elseif $whitney_bailey_met gte 1>>
+	<<npc Bailey 2>><<generatey3>>
+	당신은 베일리의 사무실로 들어가서, <<person2>><span class="red">그의 책상에 앉아 있는 그를 발견한다.</span> 그는 짜증스러운 표정으로 고개를 든다. 당신은 물러서려고 하지만, 휘트니가 당신을 밀치고, <<person1>>그의 친구들이 뒤따른다.
+	<br><br>
+	<<person2>>
+	베일리는 젊은 패거리들이 그의 사무실에 들이닥치는 것에 대해 걱정하지 않는 것 같다. "네가 여기 와 줘서 기쁘군." 그가 말한다. "나머지, 나가 있어."
+	<br><br>
+
+
+	<<link [[다음|Street Bully Orphanage Office 2]]>><</link>>
+	<br>
+<<else>>
+	<<npc Bailey 2>><<generatey3>>
+	당신은 베일리의 사무실로 들어가서, <<person2>><span class="red">그의 책상에 앉아 있는 그를 발견한다.</span> 그는 짜증스러운 표정으로 고개를 든다. 당신은 물러서려고 하지만, 휘트니가 당신을 밀치고, <<person1>>그의 친구들이 뒤따른다.
+	<br><br>
+	<<person2>>
+	베일리는 젊은 패거리들이 그의 사무실에 들이닥치는 것에 대해 걱정하지 않는 것 같다. "용건이 뭐지?" 그가 말한다. "빨리 해."
+	<br><br>
+
+	휘트니는 여기서 아무도 찾을 거라고 기대하지 않았지만, 침착하게 행동한다. "당신이 <<if $pronoun is "m">>'아빠'<<else>>'엄마'<</if>>시군요. 난 당신 소녀랑 같이 왔어요," <<person1>>그는 당신에게 손짓을 하더니, 베일리의 책상 위로 몸을 기울인다. "이것 참 만나서 반갑습니다, <<person2>>선생님." 빈정거림이 말끝마다 새어 나온다.
+	<br><br>
+
+	베일리는 눈 하나 깜짝하지 않고, 휘트니를 노려본다. 그는 아무 말도 하지 않는다.
+	<br><br>
+
+	<<link [[다음|Street Bully Orphanage Office 2]]>><</link>>
+	<br>
+
+<</if>>
+
+
+:: Street Bully Orphanage Office 2
+<<effects>>
+
+<<person3>>
+<<if $whitney_bailey_met gte 1>>
+
+<<else>>
+	"씨발 저거 총이야?!" 휘트니의 친구 중 한 명이 말한다. 휘트니는 그를 노려보았고, 그는 시선을 돌린다.
+	<br><br>
+
+	"그래," 베일리가, 여전히 휘트니를 쳐다보며 말한다. "나머지, 나가 있어."
+	<br><br>
+<</if>>
+
+휘트니의 친구들은 움직이지 않는다. "너희들도 <<person2>>그가 말하는 거 들었지," 휘트니가 말한다. "끝날 때까지 꺼져. 너도 말야, 걸레야."
+<br><br>
+
+<<link [[떠난다|Street Bully Orphanage Leave]]>><</link>>
+<br>
+<<link [[머무른다|Street Bully Orphanage Stay]]>><</link>>
+<br>
+
+:: Street Bully Orphanage Leave
+<<effects>>
+
+당신은 휘트니의 친구들과 함께 떠난다. "그리고 내 걸레에게 손 대지 마," 당신 뒤에서 문이 닫힐 때 휘트니가 덧붙인다.
+<br><br>
+
+십대들은 메인 홀 주변을 서성거리면서, 자신들을 우연히 발견한 고아들을 겁먹게 한다. 베일리의 문 뒤에서 중얼거리는 소리가 들린다.
+<br><br>
+
+<<set $skulduggerydifficulty to 800>>
+<<link [[엿듣는다 (0:05)|Street Bully Orphanage Eavesdrop]]>><</link>><<skulduggerydifficulty>>
+<br>
+<<link [[기다린다 (0:05)|Street Bully Orphanage Wait]]>><</link>>
+<br>
+
+:: Street Bully Orphanage Stay
+<<effects>>
+
+당신은 휘트니의 친구들이 나갈 때까지 기다린다. "그리고 내 걸레에게 손 대지 마." 휘트니는 마지막 사람이 나갈 때 덧붙인다.
+<br><br><<person2>>
+"나가." 베일리가 말한다. 그는 당신에게 말하고 있다. 당신은 방을 나가서, 휘트니의 친구들과 밖에서 합류한다.
+<br><br>
+십대들은 메인 홀 주변을 서성거리면서, 자신들을 우연히 발견한 고아들을 겁먹게 한다. 베일리의 문 뒤에서 중얼거리는 소리가 들린다.
+<br><br>
+
+<<set $skulduggerydifficulty to 800>>
+<<link [[엿듣는다 (0:05)|Street Bully Orphanage Eavesdrop]]>><</link>><<skulduggerydifficulty>>
+<br>
+<<link [[기다린다 (0:05)|Street Bully Orphanage Wait]]>><</link>>
+<br>
+
+
+:: Street Bully Orphanage Wait
+<<effects>>
+
+당신은 기다린다. 휘트니의 친구들은 당신을 비웃고 얼굴을 찌푸리지만, 아무도 만지려고 하지 않는다.
+<br><br>
+<<person1>>
+베일리의 사무실 문이 열리고, 휘트니가 밖으로 나온다. "우리는 계약을 맺었어," 그는 당신의 팔을 잡으며, 말한다. "이리 와, 걸레야." 그는 당신을 고아원 더 깊은 곳으로 끌어 당긴다.
+<br><br>
+
+<<link [[다음|Street Bully Orphanage Living]]>><<set $whitney_bailey_met to 1>><<endevent>><<npc Whitney>><<person1>><</link>>
+<br>
+
+:: Street Bully Orphanage Eavesdrop
+<<effects>>
+
+당신은 문에 귀를 가져다 댄다. 휘트니의 친구들은 웃지만, 방해하지 않는다.
+<br><br>
+
+<<skulduggerycheck>>
+<<if $skulduggerysuccess is 1>>
+	<<if $whitney_bailey_met is 1>>
+		<<person2>>
+		"...그걸 가지고 왔나?" 베일리가 말한다. <span class="green">당신은 그의 목소리를 크고 또렷하게 듣는다.</span>
+		<br>
+		"여기 있지," 휘트니가 대답한다. 부드럽게 쿵 하는 소리가 들리더니, 잠시 정적이 감돈다.
+		<br>
+		"그렇게 하면 돼. 널 위해 다른 걸 준비했어"
+		<br>
+		"네가 직접 하면 안 돼?"
+		<br>
+		"그래. 내 소녀가 계속 네 소유인 척 하고 싶지?"
+		<br>
+		"네 허락은 필요 없어." 다시 정적이 감돈다. "어쨌거나. 내가 하지. 사람들을 엿 먹이는 것은 재미있으니까."
+		<br>
+		"좋아."
+		<br><br>
+		당신은 알아듣기는 힘들지만, 라이터 소리가 들린다고 생각한다. 나머지 대화는 휘트니의 시끄러운 친구들 때문에 들리지 않는다.
+		<br><br>
+	<<else>>
+		<<person2>>
+		"...내 소유물이야," 베일리가 말한다. <span class="green">당신은 그의 목소리를 크고 또렷하게 듣는다.</span> "네게 그녀를 살 여유는 없을 것 같은데."
+		<br>
+
+		"난 무일푼이야," 휘트니가 동의한다. "하지만 당신은 날 막을 수 없어."
+		<br>
+
+		잠시 정적이 감돈다. "네가 나를 위해 해줄 수 있는 일이 있어. 내가 지불하지. 당분간은."
+		<br>
+
+		"'무슨 일'인지에 따라 다르겠지만."
+		<br><br>
+		당신은 알아듣기는 힘들지만, 라이터 소리가 들린다고 생각한다. 나머지 대화는 휘트니의 시끄러운 친구들 때문에 들리지 않는다.
+		<br><br>
+	<</if>>
+	<<set $whitney_bailey_met to 1>>
+	<<skulduggeryuse>>
+
+	<<link [[다음|Street Bully Orphanage Wait]]>><</link>>
+	<br>
+
+<<else>>
+
+	"...내-" 베일리가 말한다. 잠시 침묵이 흐른 뒤, <span class="red">문이 활짝 열린다.</span> 베일리다. 그는 그의 손등으로 당신의 얼굴을 때린다. 당신은 그가 다가오는 소리를 듣지 못했다.<<gpain>><<pain 4>>
+	<br><br>
+	그는 문을 쾅 닫는다. 잠시 후 안에서 음악이 들리기 시작한다. 당신은 아무 것도 들을 수 없다.
+	<br><br>
+
+	<<skulduggeryuse>>
+
+	<<link [[다음|Street Bully Orphanage Wait]]>><</link>>
+	<br>
+
+<</if>>
+
+:: Street Bully Orphanage Living
+<<effects>>
+
+<<if Time.dayState is "night">>
+	당신은 황량한 거실로 들어간다.
+<<else>>
+	당신은 거실로 들어간다. 한 무리의 겁에 질린 고아들이 휘트니와 그의 친구들을 보고 자리를 비운다.
+<</if>>
+
+<<if $kylar_camera is 3>>
+	<<if Time.dayState is "night">>
+		구슬 같은 한 쌍의 눈이 달빛에 반짝인다. <span class="purple">카일라의 올빼미 인형은 텔레비전 옆에 버려져 있다.</span>
+	<<else>>
+		<span class="purple">한 사람은 도망치려고 서두르다 텔레비전 옆에 부드러운 올빼미 인형을 남겨놓고 가버린다.</span>
+	<</if>>
+<<elseif Time.dayState isnot "night">>
+	한 사람은 급하게 도망치려다 텔레비전을 넘어뜨릴 뻔 한다.
+<</if>>
+<br><br>
+
+"이 정도면 되겠지," 휘트니는 소파 전체를 혼자 차지하며, 말한다. 그의 친구들은 다른 자리를 차지한다. 한 사람은 창가에 앉는다.
+<br><br>
+
+"그래서?" 휘트니가 말한다. "뭘 기다리는 거야?" 그는 당신에게 가까이 오라고 손짓한다.
+<br><br>
+
+<<link [[가까이 다가간다|Street Bully Orphanage Close]]>><<set $phase to 0>><</link>>
+<br>
+<<link [[키스한다|Street Bully Orphanage Kiss]]>><<set $phase to 1>><</link>>
+<br>
+<<if hasSexStat("promiscuity", 4)>>
+	<<link [[빨아준다|Street Bully Orphanage Oral]]>><<set $phase to 2>><</link>><<promiscuous4>>
+	<br>
+<</if>>
+
+:: Street Bully Orphanage Close
+<<effects>>
+
+당신은 휘트니에게 다가간다. 그는 당신을 잡아올려, 당신을 그 위로 끌어 당긴다.
+<br><br>
+
+<<link [[다음|Street Bully Orphanage Sex]]>><<set $sexstart to 1>><</link>>
+<br>
+
+
+:: Street Bully Orphanage Kiss
+<<effects>>
+
+당신은 휘트니 위에 올라타서, 키스하기 위해 몸을 숙인다. 그는 당신과 맞닿기 위해 몸을 앞으로 내밀고, 당신의 혀를 핥는다. 그는 살며시 숨을 헐떡이며 몸을 떤다.<<takeKissVirginity "Whitney" `($whitneyromance is 1?"loveInterest":"romantic")`>>
+<br><br>
+
+<<link [[다음|Street Bully Orphanage Sex]]>><<set $sexstart to 1>><</link>>
+<br>
+
+
+:: Street Bully Orphanage Oral
+<<effects>>
+
+당신은 소파 옆에 무릎을 꿇고, 휘트니의 바지를 내려 그의
+<<if $NPCList[0].penis isnot "none">>
+	페니스를 드러낸다.
+<<else>>
+	질을 드러낸다.
+<</if>>
+"넌 내 마음을 사로잡는 방법을 아는구나," 그가 당신의 머리를 쓰다듬으며, 말한다. "걸레야."
+<<promiscuity4>>
+
+<<link [[다음|Street Bully Orphanage Sex]]>><<set $sexstart to 1>><</link>>
+<br>
+
+
+:: Street Bully Orphanage Sex
+
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+	<<if $phase is 2>>
+		<<npcoral>>
+	<<elseif $phase is 1>>
+		<<npckiss>>
+	<</if>>
+	<<set $enemytrust += 100>>
+	<<set $audienceforceteen to 1>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<audience>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Street Bully Orphanage Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Street Bully Orphanage Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Street Bully Orphanage Sex Finish
+
+<<set $outside to 0>><<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	휘트니는 느긋하게 앉아있다. "난 그게 필요했어."<<npcincr Whitney lust -20>><<llust>><<glove>><<npcincr Whitney love 1>>
+	<br>
+	"한 번 해봐도 될까?" 그의 친구 중 한 명이 묻는다.
+	<br>
+	"아니. 그리고 그만 물어봐. 때가 되면 말할게." 그는 스스로 일어난다.
+<<elseif $enemyhealth lte 0>>
+	휘트니는 그의 두 손을 그의 머리 뒤로 올린다. "상관없지, 걸레야," 그가 말한다. "난 네가 좀 더 감사해할 거라 생각했어."<<llove>><<npcincr Whitney love -1>><<ldom>><<npcincr Whitney dom -1>>
+<<else>>
+	휘트니는 그의 두 손을 그의 머리 뒤로 올린다. "상관없지, 걸레야," 그가 말한다. "난 네가 좀 더 감사해할 거라 생각했어."
+<</if>>
+<br><br>
+<<clotheson>>
+<<tearful>> 당신은 휘트니와 그의 친구들을 밖으로 안내한다. "나중에 보자, 걸레야."
+<br><br>
+<<endcombat>>
+
+<<if $kylar_camera is 3>>
+	<<if !$syndromekylar and C.npc.Kylar.state is "active">>
+		무서운 전율이 당신을 스치고 지나간다. <span class="blue">무언가가 당신을 지켜보고 있다.</span><<set $kylar_mad to 1>>
+	<<elseif C.npc.Kylar.state is "active">>
+		부엉이 인형이 당신을 감정하는 것처럼, 횃대에서 지켜보고 있다.<<gggksuspicion>><<npcincr Kylar rage 10>>
+	<</if>>
+	<br><br>
+<</if>>
+
+<<link [[다음|Orphanage]]>><</link>>
+
+:: Whitney Alleyway Breakdown
+
+<<set $outside to 0>><<effects>>
+마침내 휘트니가 반응한다. 그가 당신의 손목을 잡아당긴다. 당신은 그의 감정을 읽어낼 수 없다. 그의 시선이 당신의 눈물로 얼룩진 얼굴에 닿는다.
+<br><br>
+
+"뭐가 그렇게 슬퍼, 걸레야." 그는 당신이 이해할 수 없는 어조로 말한다. 그는 뭔가 다른 말을 하려는 것처럼 보였지만, 결국 당신의 뺨을 꼬집고 키스를 한다.
+<br><br>
+
+지금까지 그와 했던 키스와는 조금 다른, 부드럽지는 않지만 강한 키스다. 그는 더이상 그의 혀를 열정적으로 사용하지 않고, 그저 한번씩 당신의 입술을 빤다. 그의 앞머리가 코 위를 스쳐 지나가며 당신을 간지럽힌다.
+<br><br>
+
+<<link [[다음|Whitney Alleyway Break3]]>><</link>>
+
+:: Whitney Alleyway Break3
+<<set $outside to 0>><<effects>>
+
+당신은 휘트니의 품에 안겨 당신의 팔로 그의 허리를 감싸고 머리를 그의 가슴에 기댄다. 그의 꾸준하고 강한 심장박동 소리가 들리자 당신은 묘한 안정감을 느낀다. <<llltrauma>><<trauma -24>>
+<br><br>
+
+당신과 휘트니는 오랫동안 서로의 품에 안겨 있는다. 당신의 흐느낌이 서서히 멈추고 호흡이 진정된다.
+<br><br>
+
+휘트니는 당신을 밀쳐낸다. "너 지금 꼴이 엉망이야. 가서 얼굴에 묻은 콧물이나 닦아." 그가 일어선다. "난 다른 할 일이 있어. 넌 이미 내 시간을 충분히 낭비했어."
+<br><br>
+
+당신은 그가 골목길로 들어서서 뒤도 돌아보지 않고 떠나는 것을 지켜본다.
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>

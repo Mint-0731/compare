@@ -1,0 +1,2015 @@
+:: Home Max
+
+<<effects>>
+
+당신은 손을 뻗어 마스티프의 머리를 쓰다듬는다. 귀가 살짝 씰룩이지만, 다른 고아들과 마찬가지로 당신의 손길을 받아들인다.
+<br><br>
+
+소년이 돌아온다. "주인하고 얘기 해봤어." 그가 말한다. "지금 오고 있어."
+<br><br>
+
+더 많은 고아들이 보러 와서는 한 번씩 쓰다듬어보길 원한다. <<person2>>한 소녀가 물 한 접시를 가져온다. 맥스는 열심히 물을 들이킨다. "목말라 할줄 알았어." 그녀가 말한다.
+<br><br>
+
+한동안 그렇게 시간이 흐르다가, <<person1>>소년이 창문 밖을 본다. "주인이 왔어." 그가 말한다. 바깥에서 여러 목소리들이 들려온다. 맥스는 그중 최소 한 사람의 목소리를 알아들었는지, 꼬리를 흔들며 일어난다.
+<br><br>
+
+소년이 맥스를 주인에게 데려다주는 동안 다들 창문 앞에 몰려들어 밖을 본다.<<endevent>><<generateyv1>><<person1>> 어린 고아 한 명이 당신의 소매를 당긴다. "베일리가 개를 키우게 해줄까?" 그가 묻는다. 다른 고아들도 귀를 기울인다.
+<br><br>
+
+<<link [[의심을 표한다|Home Max Doubt]]>><<hope -1>><<reb 1>><</link>><<lhope>><<greb>>
+<br>
+<<link [[희망을 표한다|Home Max Hope]]>><<hope 1>><<reb -1>><</link>><<lreb>><<ghope>>
+<br>
+
+:: Home Max Doubt
+
+<<effects>>
+
+당신은 고개를 내젓는다.
+
+<<if $speech_attitude is "meek">>
+	"그러기엔 베일리는 너무 불평이 많아." 당신이 말한다.
+	<br><br>
+
+	그는 제 발을 내려다보며 고개를 끄덕인다.
+	<br><br>
+<<elseif $speech_attitude is "bratty">>
+	"아니." 당신이 말한다. "베일리는 개자식이거든."
+	<br><br>
+
+	한 소녀가 깜짝 놀라 손으로 제 입을 가리고, <<generatey2>><<person2>>당신 또래로 보이는 소년은 어린 고아의 귀를 제 손으로 막는다. "고운 말 좀 써!" 그가 당신을 노려보며 말한다.
+	<br><br>
+<<else>>
+	"고아원을 떠나면 개를 기를 수 있을 거야." 당신이 말한다.
+	<br><br>
+
+	그는 제 발을 내려다보며 고개를 끄덕인다.
+	<br><br>
+<</if>>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Max Hope
+<<effects>>
+
+당신은 끄덕인다.
+
+<<if $speech_attitude is "meek">>
+	"착하게 굴면 그럴지도 모르지." 당신이 말한다.
+<<elseif $speech_attitude is "bratty">>
+	"우리가 원하면 베일리도 어쩔 수 없어." 당신이 말한다.
+<<else>>
+	"베일리도 그렇게 나쁜 사람은 아냐." 당신이 말한다.
+<</if>>
+<br><br>
+그는 다시 창문 밖을 바라보며 활짝 웃는다.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Intervene
+<<effects>>
+
+당신은 앞으로 나선다.
+
+<<if $speech_attitude is "meek">>
+	"자-잠깐!" 당신은 말을 더듬는다. "걜 그냥 냅둬요!"
+<<elseif $speech_attitude is "bratty">>
+	"이 나쁜 놈." 당신이 말한다. "너 같은 건 혼이 좀 나봐야 해."
+<<else>>
+	"멈춰요." 당신이 말한다. "이런 건 잘못 되었어요."
+<</if>>
+<br><br>
+
+<<person2>>그는 입을 벌린 채 당신을 본다. 베일리는 웃는다.<<person1>> "그럼 네가 대신 <span class="gold">£200</span>를 낼테냐?" 그가 묻는다. "누가 내든 상관은 없어."
+<br><br>
+
+<<if $money gte 20000>>
+	<<link [[낸다|Home Intervene Pay]]>><<hope 1>><<money -20000>><</link>><<ghope>><<ltrauma>><<trauma -6>>
+	<br>
+<</if>>
+<<link [[싸운다|Home Intervene Fight]]>><<set $fightstart to 1>><</link>>
+<br>
+<<link [[물러선다|Home Intervene Step]]>><</link>>
+
+:: Home Watch
+<<effects>>
+
+당신은 <<person2>>소년의 머리에 복면이 씌워지고 팔이 구속구로 묶이는 장면을 지켜본다. 베일리는 그를 밀며 복도를 따라 걷는다. 당신은 그 뒤를 따른다.
+<br><br>
+
+그들은 곧 복도 끝의 철문 앞에서 멈추고, 베일리는 은색 열쇠를 꺼내 문을 연다. <<person1>>그는 그 안으로 들어간 뒤 문을 쾅 하고 닫는다. 그 바람에 일어난 먼지의 냄새만이 누군가 문을 통과했음을 알린다.
+<br><br>
+<<set $orphan_rent to "taken">>
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Intervene Pay
+<<effects>>
+
+베일리가 당신의 손에 든 돈을 낚아채서 갯수를 센다. "좋아." 그는 만족스럽다는 듯이 말한다. 베일리는 <<person2>>소년을 향해 고개를 돌린다. "다음 주에는 £300를 가져와." <<person2>>그가 고개를 끄덕인다.
+<br><br>
+
+"고마워." 베일리가 소리가 들리지 않을 만큼 멀어지자 그가 말한다. "일자리를 찾기가 쉽지 않았거든. 어딜 가나 소름끼치는 인간들 밖에 없어서 말이야." 그가 웃음을 터트린다. "베일리가 날 가지고 어떻게 하려고 했는지 알고 싶지 않아. 그냥 그렇게까지 나쁜 일은 아니길 바랄 뿐이었지."
+<br><br>
+
+"언젠가 이 은혜는 갚을게." 그가 말을 이어나간다. "약속이야."
+<br><br>
+<<set $orphan_rent to "paid">>
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Intervene Step
+<<effects>>
+
+당신은 뒤로 물러선다. 베일리는 <<person2>>그의 머리에 검은 복면을 씌우고, 팔을 묶은 뒤, 그를 복도를 따라 이끈다.
+<br><br>
+<<set $orphan_rent to "taken">>
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Intervene Fight
+<<if $fightstart is 1>>
+	<<set $fightstart to 0>>
+	<<neutral 1>>
+	<<set $enemyno to 1>><<set $enemynomax to 1>><<maninit>>
+	<<set $enemyhealthmax += 200>>
+	<<set $enemyanger += 200>>
+	<<npcidlegenitals>>
+	당신은 베일리의 정강이를 걷어차나, 그는 옆으로 물러서며 당신을 넘어뜨린다. 하지만 베일리가 당신의 취약한 상태를 어떻게 이용해보기 전에, <<person2>>그가 베일리의 등에 올라타서는 <<person1>>그의 머리카락을 잡아당긴다. 베일리는 <<person2>>그를 벽에 내팽개치고, 그는 웅크린채로 떨어진다.<<person1>>
+	<br><br><br><br>
+	<<set $phase to 1>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+
+<<if $phase is 1>><<set $phase to 2>>
+	고아들이 소리에 이끌려, 싸움을 보러 모인다.
+	<br><br>
+<</if>>
+
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0)>>
+	<span id="next"><<link [[다음|Home Intervene Fight Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Home Intervene Fight]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Home Intervene Fight Finish
+<<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation "short">>
+	<<set $orphan_rent to "paid">><<earnFeat "Bailey's Trouble Maker">>
+	<<person1>>구경하던 고아 중 한 명이 낄낄댄다. 베일리는 범인을 찾으려 몸을 돌리지만, 뒤에서 또 다른 웃음소리가 들려온다. 곧 방 전체가 웃음소리로 가득 찬다. 그는 당신을 돌아본다. "언젠간 대가를 치르게 될 거다." 베일리는 그렇게 말하고는 방에서 뛰쳐나간다.
+	<br><br>
+
+	고아들은 당신이 폭군을 물리친 것에 환호를 보낸다.
+	<<greb>><<ghope>><<reb 1>><<hope 1>><<ltrauma>><<lstress>><<trauma -6>><<stress -12>>
+	<br><br>
+
+	<<person2>>소년이 자리에서 일어선다. "네가 날 구했어."그가 웃음을 터트린다. "고마워. 일자리를 찾기가 쉽지 않았거든. 어딜 가나 소름끼치는 인간들 밖에 없어서 말이야." 그가 눈길을 돌린다. "베일리가 날 가지고 어떻게 하려고 했는지 알고 싶지 않아. 그냥 그렇게까지 나쁜 일은 아니길 바랄 뿐이었지.
+	<br><br>
+
+	"언젠가 이 은혜는 갚을게." 그가 말을 이어나간다. "약속이야."
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Orphanage]]>><</link>>
+<<elseif $enemyhealth lte 0>>
+	<<set $orphan_rent to "paid">>
+	<<person1>>그는 당신의 공격에 놀라 멍이 든 부분을 쓸어내리며 잠시 뒤로 물러선다. 곧 현관 주변에 고아들이 모인 것을 눈치챈다. "언젠간 대가를 치르게 될 거다. 명심해둬." 베일리는 뛰쳐나간다.
+	<br><br>
+
+	고아들은 당신이 폭군을 물리친 것에 환호를 보낸다.
+	<<greb>><<ghope>><<reb 1>><<hope 1>><<ltrauma>><<lstress>><<trauma -6>><<stress -12>>
+	<br><br>
+
+	<<person2>>소년이 자리에서 일어선다. "네가 날 구했어."그가 웃음을 터트린다. "고마워. 일자리를 찾기가 쉽지 않았거든. 어딜 가나 소름끼치는 인간들 밖에 없어서 말이야." 그가 눈길을 돌린다. "베일리가 날 가지고 어떻게 하려고 했는지 알고 싶지 않아. 그냥 그렇게까지 나쁜 일은 아니길 바랄 뿐이었지.
+	<br><br>
+
+	"언젠가 이 은혜는 갚을게." 그가 말을 이어나간다. "약속이야."
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Orphanage]]>><</link>>
+<<else>>
+	<<set $baileydefeatedchain to 0>>
+
+	당신은 몸을 움직이기엔 너무 크게 다친 채로 바닥에 쓰러진다.
+	<<lreb>><<reb -1>>
+	<br><br>
+	베일리가 <<person2>>소년을 끌고 가는 동안 모였던 인파가 흩어진다.
+	<br><br>
+	<<set $orphan_rent to "taken">>
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Orphanage]]>><</link>>
+<</if>>
+
+:: Home Money Take
+<<effects>>
+
+당신은 돈을 받는다. 소년이 미소 짓는다. "괜찮은 일자리를 찾았어." 그가 말한다. "내가 이런 일을 할 거라고 생각해본 적은 없던 일이지만, 그렇게 나쁘진 않아. 그저 베일리가 계속 요구량을 올리지 않길 빌 뿐이지."
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Money Refuse
+<<effects>>
+
+당신은 돈을 거절한다.
+
+<<if $speech_attitude is "meek">>
+	"나보다는 다른 애들이 더 필요할 거야." 당신이 말한다. "걔들을 대신 도와줘."
+<<elseif $speech_attitude is "bratty">>
+	"내 앞가림은 내가 할 수 있어." 당신이 말한다. "힘들어 하는 다른 애들한테 줘."
+<<else>>
+	"다른 애들을 돕는데 써줘." 당신이 말한다.
+<</if>>
+<br><br>
+
+그가 고개를 끄덕인다. "네가 그렇게 말한다면야. 몸 조심해."
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Beg Give
+<<effects>>
+
+<<if $phase is 0>>
+	당신은 그녀에게 £5를 준다. "고마워." 그녀가 말한다. 하지만 여전히 불안한 눈치다.
+	<br><br>
+<<elseif $phase is 1>>
+	당신은 그녀에게 £25를 준다. "고마워." 그녀가 웃으며 말한다.
+	<br><br>
+<<else>>
+	당신은 그녀에게 £100를 준다. 그녀가 헉 하는 소리를 낸다. "정말 고마워!" 그녀는 당신을 껴안으며 그렇게 말한다.
+	<br><br>
+<</if>>
+
+<<endevent>>
+<<link [[다음|Orphanage]]>><</link>>
+<br>
+
+:: Home Beg Prostitution
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"네 돈은 네가 직접 벌어야 해." 당신이 말한다. "사람들은 네 몸에 많은 돈을 낼 거야."
+	<br><br>
+	그녀는 당신의 직설적인 말에 깜짝 놀란듯 하다. "그런 일은 못해!" 그녀가 말한다.
+	<br><br>
+	"그렇지만 그 편이 더 안전할 거야." 당신이 말한다.
+	<br><br>
+<<elseif $speech_attitude is "bratty">>
+	"알아서 자립하는 법을 배워야 해." 당신이 말한다. "매춘해 볼 생각 해봤어?"
+	<br><br>
+	그녀는 당신의 직설적인 말에 깜짝 놀란듯 하다. "그런 일은 못해!" 그녀가 말한다.
+	<br><br>
+	"그래서 그냥 도움만 요청할 거라고?" 당신이 묻는다. "여기서 너만 곤란한 상황인게 아냐."
+	<br><br>
+<<else>>
+	"네 돈은 네가 직접 벌어야 해." 사람들이 말한다. "사람들은 매춘부한테 많은 돈을 주지."
+	<br><br>
+	그녀는 당신의 직설적인 말에 깜짝 놀란듯 하다. "그런 일은 못해!" 그녀가 말한다.
+	<br><br>
+	"믿을만한 자금원이 필요하잖아." 당신이 말한다.
+	<br><br>
+<</if>>
+<<if playerBellyVisible()>>
+	그녀는 당신의 배를 보곤, 고개를 떨어뜨린다. 그녀는 체념한 얼굴이다. <<lhope>><<hope -1>>
+<<else>>
+	그녀는 그닥 기분이 좋아보이지는 않지만, 당신의 말을 이해한다.
+<</if>>
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Beg Skulduggery
+
+<<effects>>
+<<if $speech_attitude is "meek">>
+	"나쁜 사람들한테서 돈을 가져와." 당신이 말한다. "훔쳐."
+	<br><br>
+	그녀는 당신의 직설적인 말에 깜짝 놀란듯 하다. "하지만 훔치는 건 나쁜 짓인걸!" 그녀가 말한다.
+	<br><br>
+	"무섭다는 건 나도 알아." 당신이 말한다. "하지만 자기 앞가림은 할 줄 알아야지."
+<<elseif $speech_attitude is "bratty">>
+	"친구들한테서 구걸하는 짓은 이제 그만 해야 해." 당신이 말한다. "다들 이미 충분히 힘들잖아. 훔쳐서 벌어."
+	<br><br>
+	그녀는 당신의 직설적인 말에 깜짝 놀란듯 하다. "하지만 훔치는 건 나쁜 짓인걸!" 그녀가 말한다.
+	<br><br>
+	"나쁜 놈들한테서 훔치는 건 나쁜 짓이 아냐." 당신이 말한다.
+	<br><br>
+<<else>>
+	"그렇게 해서는 충분히 벌지 못할 거야." 당신이 말한다. "그냥 훔쳐서 벌어."
+	<br><br>
+	그녀는 당신의 직설적인 말에 깜짝 놀란듯 하다. "하지만 훔치는 건 나쁜 짓인걸!" 그녀가 말한다.
+	<br><br>
+	"여기서 훔치라는 게 아냐." 당신이 말한다. "널 아프게 하려는 사람들한테서 훔치라고."
+	<br><br>
+<</if>>
+그녀는 생각에 잠긴듯 시선을 돌린다.
+<br><br>
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Beg Refuse
+
+<<effects>>
+<<if $speech_attitude is "meek">>
+	"미안." 당신이 말한다. "나도 필요해서 말이야."
+<<elseif $speech_attitude is "bratty">>
+	"네 돈은 네가 벌어." 당신이 말한다.
+<<else>>
+	"미안." 당신이 말한다. "하지만 나도 줄 돈이 없어."
+<</if>>
+<br><br>
+그녀는 고개를 끄덕이고는 멀어져간다.
+<br><br>
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Orphanage Loft Intro
+
+<<effects>>
+<<if $phase is 0>>
+	당신은 의자 위에 올라선다. 가까이서 보자, 그들이 말하던 끈이 보인다. 천장에 테이프로 붙어있다. <<= $bodysize gte 1 ? "당신은 끈을 잡아당긴다." : "당신은 점프해서, 겨우 끈을 잡아당긴다.">>
+<<elseif $phase is 1>>
+	당신은 고아들에게 먼저 당신의
+	<<if pcAreArmsBound("both")>>
+		팔을 풀어달라고 한다.
+	<<elseif pcAreArmsBound("left")>>
+		왼팔을 풀어달라고 한다.
+	<<elseif pcAreArmsBound("right")>>
+		오른팔을 풀어달라고 한다.
+	<<else>>
+		팔? 아무런 속박도 찾을 수 없었다. <span class="red">이것은 에러이니, Vrelnir에게 보고하자.</span>
+	<</if>>
+	"오! 묶여있는 줄 몰랐어," <<personPost "가">> 말한다. <<He_ nun>> 당신 뒤로 걸어가 속박을 푸는 것을 돕는다. 구속구가 바닥에 떨어지며, 당신은 자유로워진다.<<unbind>>
+	<br><br>
+
+	당신은 의자 위에 올라선다. 가까이서 보자, 그들이 말하던 끈이 보인다. 천장에 테이프로 붙어있다. <<= $bodysize gte 1 ? "당신은 끈을 잡아당긴다." : "당신은 점프해서, 겨우 끈을 잡아당긴다.">>
+<<else>>
+	당신은 고개를 내젓는다. <<person3>>소년이 뿌루퉁하게 의자 위에 올라선다. 당신은 그가 잡으려는 것을 본다. 천장에 끈이 하나 붙어있다.
+	<br><br>
+	그는 그 자리에서 뛰어서 끈을 잡아챈 뒤, 잡아당긴다.
+<</if>>
+천장에 두 갈래로 금이 생긴다. 곧 먼지와 끊어진 거미줄이 한움큼 떨어지며, 커다란 해치가 삐걱거리며 열리면서 사다리가 쿵 하고 바닥에 떨어진다.
+<br><br>
+한 소년이 머리카락에 먼지와 거미줄 파편이 잔뜩 묻자 비명을 지른다. 그의 친구가 그가 털어내는 것을 도와준다.
+<br><br>
+<<if $phase is 0>>
+	당신은 사다리를 올라
+<<else>>
+	마찬가지로 호기심이 생긴 당신은, 사다리를 올라
+<</if>>
+얇은 덮개를 살짝 밀어내, 해치 안쪽을 들여다본다. 일단 어둠에 눈이 적응이 되자 넓은 공간이 보인다. 안쪽은 낡은 상자로 가득하며, 옆으로는 복도들이 늘어서 있다. 더러운 창문을 통해 약간의 빛이 새어나온다. 위쪽에는 공간이 아주 많다.
+<br><br>
+<<link [[다음|Orphanage Loft Intro 2]]>><</link>>
+<br>
+
+:: Orphanage Loft Intro 2
+<<effects>>
+
+<<person1>>"내려와." 뒤에서 목소리가 들려온다. 베일리다. 두 소년은 이미 사라지고 없다.
+<br><br>
+
+당신은 사다리에서 내려온다. 베일리는 첫째 단에 올라가서는 덮개 쪽으로 손을 뻗는다. 곧 저 위에서 끼익거리는 소리가 들려오자 <<person1>>그의 움직임이 멎는다. 그는 그 소리에 사다리에서 펄쩍 뛰어내려오며, 거의 땅바닥에 뒹굴다시피 한다.
+<br><br>
+
+베일리는 다시 덮개를 되돌리려 시도조차 하지 않는다. 대신 사다리를 다시 올려놓고는 해치를 닫는다. "다락에는 얼씬도 하지 마라." 그가 어깨에서 먼지를 털며 말한다.
+<br><br>
+
+당신은 이 고아원에 다락이 있는 줄은 몰랐다. 베일리는 저 위에 올라가는 걸 두려워하는 것 같다. 은밀한 활동을 하기엔 안성맞춤인 곳 같다. <span class="gold">고아원 다락을 발견했다.</span>
+<br><br>
+
+<<specialClothesUnlock "item" "dark pendant">>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home School Bag
+<<effects>>
+
+당신이 곳곳을 샅샅이 뒤지는 동안 그녀의 짜증은 커져만 간다. 마침내, 당신은
+
+<<if $rng gte 71>>
+	<<famegood 1>>
+	가방이 복도 조명에 걸려있는 것을 발견한다.
+	<br><br>
+
+	당신은 가방을 그녀에게 돌려준다. 어디서 찾았는지 말해주자 깜짝 놀란 것 같다. "어떻게 거기까지 올라갔지?" 잠시 당혹스러워하며 그녀가 그렇게 묻는다. "아. 아까 얼마나 높게 뛸 수 있는지 보고 있었는데. 그때 벗겨졌나보네." 그녀는 웃음을 터트린다. "나도 참 바보같네. 고마워." 그녀는 떠나기 전에 몸을 앞으로 기울여서 당신의 뺨에 키스한다.
+	<<lstress>><<stress -6>>
+	<br><br>
+<<elseif $rng gte 41>>
+	<<famegood 1>>
+	부엌 찬장에서 가방을 발견한다.
+	<br><br>
+
+	"고마워." 당신이 돌아오자 소녀가 말한다. 당신은 어디서 가방을 찾았는지 말해준다. "이제 기억이 나네." 그녀가 말한다. "너무 배가 고파서 뭐 남은 음식이 없나 찾아보고 있었거든. 고마워." 그녀는 떠나기 전에 몸을 앞으로 기울여서 당신의 뺨에 키스한다.
+	<<lstress>><<stress -6>>
+	<br><br>
+<<else>>
+	<<famegood 2>>
+	<<generatey2>><<person2>>당신은 한 소녀가 가방을 들고 다니는 걸 발견한다.
+	<br><br>
+
+	"이 가방?" 당신이 가방에 대해 묻자 그녀가 대답한다. "내 친구가 방에 두고 갔더라고. 그래서 걜 찾고 있었지."
+	<br><br>
+
+	당신은 <<person1>>그녀에게 가방을 돌려주며 그녀에게 어디서 찾았는지 말해준다. 그녀는 화가 나서 한 손을 얼굴에 가져다 댄다. "나 진짜 바보 같네," 그녀가 말한다. "고마워." 그녀는 떠나기 전에 몸을 앞으로 기울여서 당신의 뺨에 키스한다.
+	<<lstress>><<stress -6>>
+	<br><br>
+<</if>>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home School Bag Refuse
+<<effects>>
+
+"괜찮아." 그녀가 말한다. "내 문제니까. 내가 찾을게."
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Scream
+<<effects>>
+
+목소리가 들려오는 쪽으로 달려가니, 한쪽 문 안에서 다투는 소리가 들려온다. 당신은 그 안으로 뛰어 들어간다.
+<br><br>
+
+<<person2>>한 남자가 <<person3>>그녀의 위에 누워서 옷을 벗기려 하고 있고, 그녀는 공격자를 밀어내려 하고 있었다.
+<br><br>
+
+<<link [[개입한다|Home Scream Intervene]]>><<crimeUp 100 "assault">><<famegood 1>><</link>><<crime "assault">>
+<br>
+<<link [[베일리를 찾아온다|Home Scream Bailey]]>><<reb -1>><</link>><<lreb>>
+<br>
+
+:: Home Scream Ignore
+<<effects>>
+
+당신은 비명소리를 무시한다. 걱정할 문제가 달리 많다.
+<br><br>
+
+<<endevent>>
+
+<<link [[다음|Orphanage]]>><</link>>
+<br>
+
+:: Home Scream Intervene
+<<effects>>
+
+당신은 <<person2>>그의 목덜미를 잡아 끌고, <<person3>>그녀는 <<person2>>그의 가슴팍을 걷어찬다. 둘은 힘을 합쳐 그를 침대에서 끌어내 복도 밖으로 내던진다.
+<br><br>
+
+<<if $rng gte 71>>
+	"개같은 걸레년들이." 남자가 으르렁거린다. "내가 누군지 알아? 감히 내게 이렇게 무례하게 굴다니." <<person3>>그녀는 당신의 뒤에 몸을 숨긴다.
+	<br><br>
+
+	<<link [[공격을 강행한다|Home Scream Press]]>><<reb 1>><<crimeUp 100 "assault">><</link>><<crime "assault">><<greb>>
+	<br>
+	<<link [[보호한다|Home Scream Protect]]>><<hope 1>><</link>>
+	<br>
+<<elseif $rng gte 41>>
+	"나한텐 힘센 친구들이 많아." <<person2>>남자가 침을 뱉는다. "후회하게 될 거다." 그녀는 비틀거리며 복도를 걸어내려간다.
+	<br><br>
+
+	"고마워." <<person3>>소녀가 옷을 매만지며 말한다. "눈을 떴더니 저 사람이 내 위에 있지 뭐야. 너무 무서웠어." 그녀가 당신을 껴안는다.
+	<br><br>
+
+	<<endevent>>
+
+	<<link [[다음|Orphanage]]>><</link>>
+	<br>
+<<else>>
+	<<person2>>남자가 자리에서 일어서서는 당신을 노려본다. 그러고는 주변을 둘러본다. 다른 고아들이 무슨 일이 일어났는지 보러 와서는, 문가와 복도 끝에 모여서 쳐다보고 있다. 그 광경에 불안함을 느꼈는지, 그는 아무 말도 없이 떠난다.
+	<br><br>
+
+	"고마워." <<person3>>소녀가 옷을 매만지며 말한다. "눈을 떴더니 저 사람이 내 위에 있지 뭐야. 너무 무서웠어." 그녀가 당신을 껴안는다.
+	<br><br>
+
+	<<endevent>>
+
+	<<link [[다음|Orphanage]]>><</link>>
+	<br>
+<</if>>
+
+:: Home Scream Press
+<<effects>>
+
+당신은 앞으로 뛰쳐나가 <<person2>>남자를 밀친다. 그는 더욱 뒤로 밀려난다. "개같은 걸레년들이." 그는 뒤로 돌아 도망가며 중얼거린다.
+<br><br>
+
+"고마워." <<person3>>소녀가 옷을 매만지며 말한다. "눈을 떴더니 저 사람이 내 위에 있지 뭐야. 너무 무서웠어." 그녀가 당신을 껴안는다.
+<br><br>
+
+<<endevent>>
+
+<<link [[다음|Orphanage]]>><</link>>
+<br>
+
+:: Home Scream Protect
+<<effects>>
+
+<<person2>>그는 다시 <<person3>>소녀를 잡아채려고 하지만, 당신이 그 사이에 끼어든다. <<person2>>그는 마침내 포기하고는 욕설을 더 내뱉으며 떠난다.
+<br><br>
+
+"고마워." <<person3>>소녀가 옷을 매만지며 말한다. "눈을 떴더니 저 사람이 내 위에 있지 뭐야. 너무 무서웠어." 그녀가 당신을 껴안는다.
+<br><br>
+
+<<endevent>>
+
+<<link [[다음|Orphanage]]>><</link>>
+<br>
+
+:: Home Scream Bailey
+<<effects>>
+
+<<person1>>당신은 베일리의 이름을 외치며 그의 사무실로 달려간다.
+
+<<if $rng gte 51>>
+	중앙 복도에 도착하자 마침 그가 정문으로 들어오고 있다.
+	<br><br>
+<<else>>
+	당신이 중앙 복도에 도착하자 마침 그가 사무실에서 나오고 있다.
+	<br><br>
+<</if>>
+
+"지금은 바빠." 당신이 뭐라 말을 하기도 전에 그가 말한다.
+<br><br>
+
+<<if $speech_attitude is "meek">>
+	"죄송해요." 당신이 말한다. "하지만 당신을 필요로 하는 사람이 있어요."
+<<elseif $speech_attitude is "bratty">>
+	"당신은 침입자를 그냥 내버려 두는 거예요." 당신이 말한다. "이미 들어와서는 여기 사는 애를 공격하고 있어요."
+<<else>>
+	"그렇지만 누군가 몰래 들어왔는 걸요." 당신이 말한다. "그리고 지금 누군가를 공격하고 있어요."
+<</if>>
+다시 한 번 비명소리가 들려온다.
+<br><br>
+
+"알았다, 알았어." 그가 말한다.
+<br><br>
+
+그는 당신을 따라 <<person3>>그녀의 방으로 간다. <<person1>>그는 일말의 지체도 없이 <<person2>>남자의 목덜미와 허리를 붙잡고는 희생양에게서 끌어낸다.
+<br><br>
+
+<<person2>>그는 복도로 굴러간다. "너 내가 누군지-" 그가 말을 꺼내지만, 베일리가 그 옆에 쪼그려 앉아서는 그의 목을 부여잡는다.
+<br><br>
+
+베일리의 입술이 달싹이지만, 뭐라 말하는지 들리진 않는다. 남자의 안색이 창백해진다. 베일리가 손을 놓자 그는 휘청거리며 일어나서는 달아난다.
+<br><br>
+<<endevent>>
+
+<<link [[다음|Orphanage]]>><</link>>
+<br>
+
+:: Home Peek
+<<effects>>
+
+당신은 문틈을 들여다본다.
+
+<<if $rng gte 51>>
+	한 고아가 수건으로 몸을 닦고 있다.
+
+	<<if $NPCList[0].penis isnot "none">>
+		<<if $pronoun is "f">>
+			그는 당신이 있는줄 모르는 채로, <span class="lewd">노출된 가슴과 페니스를</span> 수건으로 문지르고 있다.
+			<<else>>
+			그는 당신이 있는줄 모르는 채로, <span class="lewd">노출된 페니스를</span> 수건으로 문지르고 있다.
+		<</if>>
+	<<else>>
+		<<if $pronoun is "f">>
+			그녀는 당신이 있는줄 모르는 채로, <span class="lewd">노출된 가슴을</span> 수건으로 문지르고 있다.
+			<<else>>
+			그녀는 당신이 있는줄 모르는 채로, <span class="lewd">노출된 질</span>을 수건으로 문지르고 있다.
+		<</if>>
+	<</if>>
+
+	당신은 들키기 전에 떠난다.
+	<br><br>
+<<else>>
+	한 고아가 알몸으로 욕조 안에 앉아서, 머리 위에 물을 붓고 있다. <<if $pronoun is "f">>당신은 그녀의 <span class="lewd">가슴으로</span> 시선을 돌리지만, 들키기 전에 떠난다.<<else>>당신은 들키기 전에 떠난다.<</if>>
+	<br><br>
+<</if>>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Close
+<<effects>>
+
+당신은 안쪽에 있을 누군가의 사생활을 보장해주기 위해 문을 닫는다.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br><br>
+
+:: Home Pair
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"지-지금 날 보고 웃는 거야?" 당신이 묻는다.
+<<elseif $speech_attitude is "bratty">>
+	"날 보고 웃은 게 아니어야 할 거야." 당신이 말한다.
+<<else>>
+	"뭣 때문에 웃는 거야?" 당신이 묻는다.
+<</if>>
+<br><br>
+<<person2>>그는 그의 친구에게서 시선을 돌려, 당신을 본다.
+
+<<if $rng gte 51>>
+	"얘가 너한테 반했대." 그가 말한다. <<person1>>소년은 배신감과 수치심을 담은 눈빛으로 자신의 친구를 쳐다본다.
+	<br><br>
+
+	<<link [[다독인다|Home Pair Comfort]]>><</link>>
+	<br>
+	<<link [[추파를 던진다|Home Pair Flirt]]>><</link>><<promiscuous1>>
+	<br>
+	<<link [[퇴짜 놓는다|Home Pair Spurn]]>><</link>>
+	<br>
+	<<link [[무시한다|Orphanage]]>><<endevent>><</link>>
+	<br>
+<<else>>
+	아무 예고도 없이, 그는 친구의 팔을 붙잡고는 함께 복도를 뛰어내려간다.
+	<br><br>
+
+	<<link [[다음|Orphanage]]>><<endevent>><</link>>
+	<br>
+<</if>>
+
+:: Home Pair Comfort
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"고-고마워." 당신이 말한다. "누가 날 좋아해주다니 기분이 좋네."
+<<elseif $speech_attitude is "bratty">>
+	"걱정하지 마." 당신이 말한다. "다들 그래."
+<<else>>
+	"다정하기도 하지." 당신이 말한다. "칭찬으로 받아들일게."
+<</if>>
+<br><br>
+<<person2>>그는 다시 웃음을 터트린다. <<person1>>소년은 얼굴이 달아올랐지만, 미소를 짓고 있다.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Pair Flirt
+<<effects>>
+<<person1>>
+<<if $speech_attitude is "meek">>
+	"내-내가 매력적이라고?" 당신이 묻는다. "너도 <<if $pronoun is "m">>잘생겼어<<else>>예뻐<</if>>."
+<<elseif $speech_attitude is "bratty">>
+	"걱정하지 마." 당신이 말한다. "나도 너한테 반했으니까."
+<<else>>
+	"나도 널 좋아해." 당신은 그에게 윙크를 날리며 말한다.
+<</if>>
+<<promiscuity1>>
+
+소년의 얼굴이 더욱 붉어진다. 친구는 그를 당신 쪽으로 살짝 밀어주나, 그는 몸을 돌려서 달아난다. 그의 친구도 계속 웃으며 그 뒤를 따른다.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Pair Spurn
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"미-미안." 당신이 말한다. "나한테 넌 매력적이지 않아."
+<<elseif $speech_attitude is "bratty">>
+	"으웩." 당신이 말한다.
+<<else>>
+	"미안." 당신이 말한다. "넌 내 타입이 아니야."
+<</if>>
+<br><br>
+<<person1>>소년은 제 얼굴을 감싸쥐고는 달아난다. 그의 친구도 그 뒤를 따른다.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Comfort
+<<effects>>
+
+"왜 그래?" 당신이 묻는다. 소년이 당신을 쳐다본다.
+<br><br>
+
+"집에 가고 싶어." 그가 말한다.
+<br><br>
+
+당신은 소년이 제 두려움에 대해 말하는 걸 듣고, 적절히 다독거리는 말을 해주는 데에 한 시간 정도를 쓴다. 그는 부모님이 그립고, 베일리가 무서우며, 밖에 나가기도 무섭고, 여기서 지급되는 음식을 싫어한다. 그런 고충에도 불구하고, 그는 말을 하는 동안 기운을 되찾는다.
+<br><br>
+
+"고마워." 그가 말한다. "훨씬 기분이 나아졌어. 나도 너처럼 용감해지도록 노력해볼게." 그의 볼가에는 아직 눈물이 묻어있지만, 그는 미소를 짓고 있다.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Darts
+<<effects>>
+
+당신은 규칙을 간략하게 들은 뒤 동참한다. 눈을 맞추면 가장 많은 점수를 받는다.
+<br><br>
+<<if currentSkillValue("handskill") gte 1000>>
+	당신의 결과는 거의 흠이 없을 정도로, 베일리의 눈을 족족 맞춘다. 당신은 모든 판에서 승리한다.
+<<elseif currentSkillValue("handskill") gte 400>>
+	당신은 괜찮게 했고, 몇 판을 이긴다.
+<<elseif currentSkillValue("handskill") gte 100>>
+	당신은 계속해서 사진을 다트로 맞추나, 가장 점수가 높은 부분을 맞추지는 못한다.
+<<else>>
+	당신은 썩 잘하지는 못한다. 사진은 딱 한 번 맞출 뻔했다.
+<</if>>
+<br><br>
+
+<<link [[다음|Orphanage]]>><</link>>
+<br>
+
+:: Home Spill Help
+<<effects>><<effects>><<wearProp "mop">>
+
+당신은 소년을 일으켜 세워준다.
+
+<<if $speech_attitude is "meek">>
+	"내가 도와줄게." 당신이 말한다. "네가 다른 대걸레를 가져오는 동안 내가 걸레질을 하고 있을게."
+<<elseif $speech_attitude is "bratty">>
+	"가서 다른 대걸레 가져와." 당신이 말한다. "우리 둘이서 하는 거야."
+<<else>>
+	"내가 이 대걸레를 말릴게." 당신이 말한다. "넌 가서 새 대걸레를 가져와."
+<</if>>
+<br><br>
+
+당신은 엎어진 것들을 대걸레로 닦아내기 시작한다. 곧 소년이 돌아오고, 둘이서 베일리가 나타나기 전에 바닥을 말린다.
+<br><br>
+
+"이제 좀 살겠네." 소년이 말한다. "고마워. 다음 번엔 조심할게." 그는 양동이와 대걸레를 가져간다.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Encourage
+<<effects>>
+
+당신은 <<person1>>그의 옆에 앉는다.
+
+<<if $speech_attitude is "meek">>
+	"내 생각엔 쟤가 널 좋아하는 것 같아." 당신이 말한다. "가서 인사해봐."
+<<elseif $speech_attitude is "bratty">>
+	"겁쟁이처럼 굴지 마." 당신이 말한다. "쟤한테 가서 말해봐."
+<<else>>
+	"가서 뭔가 말을 해봐." 당신이 말한다.
+<</if>>
+<br><br>
+<<person1>>그는 입을 떡 벌리고 당신을 쳐다본다. "그런 짓은 못해." 그가 말한다.
+<br><br>
+
+<<if $speech_attitude is "meek">>
+	"하지만 <<person2>>그녀는 네가 자신을 좋아하지 않는다고 생각할지도 몰라." 당신이 첨언한다.
+	<br><br>
+
+	<<person1>>그는 잠시 머뭇거린다. 곧 주먹을 꽉 쥐고는, 자리에서 일어나 걸어나간다. <<person2>>그녀와 그녀의 친구는 말을 멈추고는 <<person1>>그를 바라본다. 뭐라 말을 하는지는 들리지 않지만, <<person2>>소녀의 얼굴이 붉어지더니, <<person1>>소년의 팔을 붙잡고는 함께 방에서 달려나간다.
+<<elseif $speech_attitude is "bratty">>
+	"그러던가." 당신이 대답한다. 당신은 일어나서 <<person2>>그녀에게로 걸어간다.
+	<br><br>
+	"잠깐!" <<person1>>소년이 당신의 뒤에서 속삭인다. 당신은 그의 말을 무시한다.
+	<br><br>
+	<<person2>>그녀와 그녀의 친구는 하던 대화를 멈추고 당신을 쳐다본다. "저기 내 친구가 널 좋아한대." 당신이 말한다. <<person1>>소년의 얼굴은 책으로 거의 가려져있지만, 그의 얼굴이 붉어져있다는 건 알 수 있다.
+	<br><br>
+
+	<<person2>>그녀도 얼굴을 붉히나, 그녀는 일어나서 <<person1>>그에게로 걸어가 그 옆에 앉는다.
+	<br><br>
+
+	둘이 무슨 대화를 나누고 있는지는 알 수 없으나, <<person2>>소년은 <<person1>>소녀의 팔을 붙잡고는 함께 방에서 달려나간다.
+<<else>>
+	"왜 못해?" 당신이 묻는다. "쟤도 널 좋아하는 걸."
+	<br><br>
+
+	<<person1>>그는 잠시 머뭇거린다. 곧 주먹을 꽉 쥐고는, 자리에서 일어나 걸어나간다. 그녀와 그녀의 친구는 말을 멈추고는 <<person1>>그를 바라본다. 뭐라 말을 하는지는 들리지 않지만, <<person2>>소녀의 얼굴이 붉어지더니, <<person1>>소년의 팔을 붙잡고는 함께 방에서 달려나간다.
+<</if>>
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Flirt
+<<effects>>
+
+당신은 <<person1>>그의 옆에 앉는다. "걘 잊어버려." 당신은 그의 다리 위에 손을 얹으며 속삭인다. "내가 여기 있잖아."
+<<promiscuity1>>
+
+그는 얼굴을 거의 책에 파묻다시피 한다.
+<br><br>
+
+<<person2>>소녀가 계속 이쪽을 쳐다본다.
+<br><br>
+
+<<link [[애태운다|Home Tease]]>><</link>><<promiscuous2>>
+<br>
+<<link [[떠난다|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Tease
+<<effects>>
+
+"뭐 읽고 있어?" 당신이 몸을 가까이 기울이며 묻는다. 아주 가까이. 당신은 <<person1>>그의 허리를 팔로 감싸 안는다. 그가 살짝 몸을 떤다.
+<br><br>
+
+<<person2>>"야!" 소녀가 자리를 박차고 다가오며 말한다. "걘 내가 먼저 봤어."
+<br><br>
+
+<<link [[싸운다|Home Tease Fight]]>><<def 1>><</link>>
+<br>
+<<link [[임무 완수|Home Tease Mission]]>><<famegood 1>><</link>>
+<br>
+
+:: Home Tease Fight
+<<effects>>
+
+당신은 자리에서 일어나 <<person2>>소녀를 밀친다. 그녀도 당신을 되민다. 되돌려주려 할 때, <<person1>>소년이 사이에 끼어든다. "그-그만해." 그가 말한다. "싸우지 마. 날 두고 말이야. 아." 그는 얼굴을 양손으로 감싸고 방에서 뛰쳐나간다.
+<br><br>
+
+"기다려!" <<person2>>소녀가 외친다. 그녀는 그 뒤를 따라 쫓아간다.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Tease Mission
+
+<<effects>>
+
+당신은 서로에 대한 감정이 드러난 채, 어색하게 얼굴을 붉히고 있는 둘을 내버려두고 걸어나온다.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Solicitation
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	당신은 서둘러 정문으로 나간다. "걜 내버려둬." 당신이 말한다. "그런 식으로 이용해먹는 건 공평치 않아."
+<<elseif $speech_attitude is "bratty">>
+	당신은 정문으로 뛰쳐나간다. "썩 꺼져." 당신은 <<person1>>그에게 말한다. "좆까고 꺼져."
+<<else>>
+	당신은 정문으로 달려간다. "저리 가." 당신이 말한다. "약한 애들을 괴롭히지 말라고."
+<</if>>
+<br><br>
+
+"망할 애새끼가." <<person1>>남자가 돈을 집어넣으며 말한다. "그래. 그냥 굶어 뒈져버리라고."
+<br><br>
+
+<<person2>>소년이 당신의 등을 약하게 때린다. "멍청아!" 그가 말한다. 거의 울기 일보직전이다. "난 저 돈이 필요했단 말이야."
+<br><br>
+
+<<if $money gte 5000>>
+	<<link [[£50를 준다|Home Solicitation Money]]>><<set $phase to 0>><<money -5000>><<hope 2>><</link>><<gghope>>
+	<br>
+<</if>>
+<<if $money gte 2000>>
+	<<link [[£20를 준다|Home Solicitation Money]]>><<set $phase to 1>><<money -2000>><<hope 1>><</link>><<ghope>>
+	<br>
+<</if>>
+<<link [[사과한다|Home Solicitation Apologise]]>><</link>>
+<br>
+
+:: Home Solicitation Apologise
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"미안해." 당신이 말한다. "하지만 네가 스스로를 위험에 빠트리는 꼴을 보고만 있을 순 없었어."
+<<elseif $speech_attitude is "bratty">>
+	"자존심이 있지." 당신이 말한다. "그보다 더 나은 일을 할 수도 있잖아."
+<<else>>
+	"미안해." 당신이 말한다. "하지만 내가 옳다 생각하는 일을 해야 했어."
+<</if>>
+<br><br>
+
+그는 주먹을 움켜쥐지만, 다시 당신을 때리진 않는다. 그는 안으로 뛰어들어간다.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Solicitation Money
+<<effects>>
+
+<<if $phase is 0>>
+	당신은 £50를 꺼내든다. 그는 그걸 쳐다만 본다. "놀리지 마." 그가 말한다.
+	<br><br>
+
+	"그런게 아니야." 당신이 대답한다. "맹세할 수 있어."
+	<br><br>
+
+	그는 돈을 받는다. "고마워." 그는 코를 훌쩍인다. 그러곤 뭔가를 말하려 입을 열었다가, 곧바로 안으로 뛰어들어간다.
+	<br><br>
+<<elseif $phase is 1>>
+	당신은 £20를 꺼내든다. "어째서?" 소년이 묻는다.
+	<br><br>
+
+	"돕고 싶으니까." 당신이 대답한다. "받아."
+	<br><br>
+
+	그는 돈을 받는다. "고마워." 그는 코를 훌쩍인다. 그러곤 뭔가를 말하려 입을 열었다가, 곧바로 안으로 뛰어들어간다.
+	<br><br>
+<</if>>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Rumor Eavesdrop Robin
+<<effects>><<rng>>
+당신은 오가는 대화에 귀를 기울인다.
+<<if $robinmissing isnot 0>>
+	아이들은 조를 짜서 로빈을 찾으려고 생각하고 있다. 당신은 <<person2>>그 중 하나가 실종자 전단지로 보이는 것을 들고 있음을 알아차린다. <<hope -3>><<llhope>>
+<<elseif $robin_injured gte 1>>
+	<<person1>>그들은 로빈을 병원에 데려가고 싶어 한다. 그러나 베일리가 허락하지 않을 거라고 생각한다. <<hope -1>><<lhope>>
+<<elseif C.npc.Robin.trauma gte 40>>
+	<<person1>>그 중 하나가 말한다. "로빈조차도 안전하지 못해. 넌 그에게 무슨 일이 일어났다고 생각해?" <<hope -1>><<lhope>>
+<<elseif $rng gte 71>>
+	아이들은 로빈이 주말에 여는 레모네이드 가판에 대해 이야기하고 있다.
+	<<if $orphan_hope lte 0 and $settings.watersportsEnabled>>
+		아이들은 그가 레모네이드 대신 다른 무언가를 팔고 있을지도 모른다는 농담을 한다. 그들이 웃는다.
+	<<else>>
+		아이들은 레모네이드가 맛있다고 생각하고, 그의 노력에 감명을 받은 것 같다. <<hope 1>><<ghope>>
+	<</if>>
+
+<<elseif $rng gte 36>>
+	<<if C.npc.Robin.dom lte 50>>
+		아이들은 로빈이 절대로 폭력에 의지하지 않는 것 같다고 말하고 있다. <<hope 1>><<reb -1>><<ghope>><<lreb>>
+	<<else>>
+		아이들은 위험이 코앞에 들이닥친 상황이어도 원만하게 지내는 로빈의 능력에 감명을 받은 것 같다. <<reb 1>><<greb>>
+	<</if>>
+
+<<else>>
+	<<if $orphan_hope gte 10>>
+		<<person1>>그 중 하나는 로빈이 다른 고아들의 의지를 잘 끌어올린다고 언급한다. <<hope 1>><<ghope>>
+	<<else>>
+		아이들은 로빈이 항상 그의 방으로 숨으며, 자기들도 그렇게 하고 싶다고 말한다. <<hope -1>><<lhope>>
+	<</if>>
+<</if>>
+<br><br>
+
+<<link [[떠난다|Orphanage]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+
+:: Home Rumor Eavesdrop
+<<effects>><<rng>>
+<<if $rng gte 81>>
+	당신은 오가는 대화에 귀를 기울인다. 아이들은 베일리와의 일에 대해 말하고 있다. <<hope -1>><<lhope>>
+<<elseif $rng gte 61>>
+	당신은 오가는 대화에 귀를 기울인다. 아이들은 다른 고아를 놀리고 있다.
+<<elseif $rng gte 41 and $loft_kylar>>
+	당신은 오가는 대화에 귀를 기울인다. 아이들은 후추 스프레이를 거래하고 있다. <<reb 1>><<greb>>
+<<elseif $rng gte 21>>
+	당신은 오가는 대화에 귀를 기울인다. 아이들은 오늘 애완동물 가게에서 본 귀여운 동물들에 대해 떠들고 있다. <<hope 1>><<ghope>>
+<<else>>
+	당신은 오가는 대화에 귀를 기울인다. 그중 한 명이 다른 고아를 짝사랑하고 있는 것 같다.
+<</if>>
+<br><br>
+
+<<link [[떠난다|Orphanage]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Home Bandage
+<<effects>>
+
+베일리는 의료 도구들을 메인 홀에 있는 찬장에 둔다. 그는 고아들이 그것들을 낭비한다면 화내겠지만, 이것은 적절하게 사용하는 것이다.
+<br><br>
+
+<<if getRobinLocation() is "orphanage" and C.npc.Robin.trauma lte 20 and $rng gte 61>>
+	<<npc Robin 2>>
+	Robin enters the kitchen and spots you helping out the <<person1>><<person>>.
+	<<if C.npc.Robin.dom gte 40>>
+		"Do you need some help with that?"
+	<<else>>
+		"Is there any way I can help?"
+	<</if>>
+	<<he>> asks. You give <<person2>><<him>> a grateful nod, and <<he>> smiles back.
+	<br><br>
+
+	<<if currentSkillValue('english') gte 500>>
+		You walk Robin through the motions, explaining the best way to redress the bandages. <<He>> nods, helping you along the way.
+	<<else>>
+		You fumble through your explanation on tending wounds, but Robin seems to catch on either way.
+	<</if>>
+	<<npcincr Robin love 1>><<glove>><<set $robinSeen.pushUnique("homeBandage")>>
+	<br><br>
+
+	As you and Robin redress the injury, the <<person1>><<person>> looks away, embarrassed.
+	<br><br>
+
+	<<He>> mumbles thanks as you both finish, then heads to <<his>> room.
+
+<<else>>
+	당신은 그에게 당신이 그의 붕대를 갈아줄 때 까지 앉아 있으라고 한다. 당신이 대화를 시작하자 그의 얼굴에는 방어적인 표정이 떠올랐지만, 그는 앉았고, 당신이 새 붕대를 가져올 때 까지 기다린다. 그는 당신이 상처에 붕대를 다시 감는 동안, 부끄러운 듯이 시선을 피한다.
+	<br><br>
+
+	그는 당신이 일을 마치자 감사의 말을 중얼거리고는, 그의 방으로 들어간다.
+
+<</if>>
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Orphan Poster
+<<effects>>
+
+<<if $phase is 1>>
+	<<wearProp "papers">>
+	당신은 그의 일을 거들어 함께 종이를 줍는다. 그가 당신에게 감사를 표하고, 몇 분 지나지 않아 당신들은 종이를 깔끔한 한 더미로 쌓는다.
+	<br><br>
+
+	<<if $rng gte 1>>
+		"도와줘서 고마워." 그가 말한다. 당신이 떠나려 하자, 그가 당신을 붙잡는다. "잠깐, 네게 줄 게 있어." 그가 종이를 한 장 집어들어 무언가 끄적인 뒤 당신에게 건넨다.
+		<br><br>
+
+		종이에는 이렇게 쓰여 있다. '오르가즘 1회 무료 쿠폰. 만료기한: 2분'. 그는 그의 허벅지를 비비적거리며, 당신의 답을 기다린다.
+		<br><br>
+
+		<<if hasSexStat("promiscuity", 2)>>
+			<<link [[받아들인다|Home Orphan Poster Sex Choice]]>><<set $phase to 1>><</link>><<promiscuous2>>
+		<<else>>
+			<span class="blue">당신은 그런 제안을 수락할 만큼 음란하지 않다.</span>
+		<</if>>
+		<br>
+
+		<<link [[거절한다|Home Orphan Poster Sex Choice]]>><<handheldon>><<set $phase to 2>><</link>>
+
+	<<else>>
+		"도와줘서 고마워." 그가 말한다.
+		<br><br>
+
+		<<if $speech_attitude is "meek">>
+			"아-아니야, 내가 좀 더 조심했어야 했어. 그-그 종이는 다 어디에 쓰려고? 무-물어봐도 괜찮은 거라면 말이야!"
+
+		<<elseif $speech_attitude is "bratty">>
+			"그래, 그래. 그냥 종이잖아. 그나저나 왜 그렇게 많이 들고 있는 거야?"
+
+		<<else>>
+			"괜찮아, 그냥 사고인 걸. 조금 궁금해서 그런데, 그렇게 종이가 많이 필요한 데가 있어?"
+
+		<</if>>
+		<br><br>
+
+		그가 종이 더미를 바라본다. "나도 잘 몰라. 베일리가 잔뜩 갖고 오라고 그랬거든. 그나저나, 이제 그만 가보는 게 좋겠어. 그를 화나게 하고 싶진 않아." 그는 종이 더미를 주워 들고 베일리의 사무실 방향으로 향한다.<<lreb>><<reb -1>>
+		<br><br>
+
+		당신은 가던 길을 간다.
+		<br><br>
+
+		<<link [[다음|Orphanage]]>><<endevent>><</link>>
+
+	<</if>>
+
+<<else>>
+	<<if $speech_attitude is "meek">>
+		당신도 그에게 그와 부딪힌 것, 바로 가봐야 하는 것에 대해 사과한다. 당신은 떠난다.
+	<<elseif $speech_attitude is "bratty">>
+		당신은 그에게 좀 더 주변을 살피라 말하고는 걸어간다.
+	<<else>>
+		당신은 그에게 이게 단지 불운한 사고였을 뿐이라 확언한다. 당신은 양해를 구하고 떠난다.
+	<</if>>
+	<br><br>
+
+	<<link [[다음|Orphanage]]>><<endevent>><</link>>
+
+<</if>>
+
+:: Home Orphan Poster Sex Choice
+<<effects>>
+
+<<if $phase is 1>>
+	그는 열정적으로 끄덕이고는 말한다. "여기서 머지 않은 곳에 내 방이 있어." 그는 당신을 복도에서 침실까지 안내하고는 당신을 침대에 쓰러트린다.
+	<br><br>
+
+	<<link [[다음|Home Orphan Poster Sex]]>><<set $sexstart to 1>><</link>>
+
+<<else>>
+	그가 어색하게 웃는다. "그-그래, 어, 음..." 그가 꼼지락거리다, 종이 더미를 천천히 들어올린다. "베일리한테 이것들을 갖다 주러 가보는 게 좋겠다. 어... 잘 가?" 그는 빠르게 베일리의 사무실 쪽으로 걸어간다.
+	<br><br>
+
+	당신은 가던 길을 간다.
+	<br><br>
+
+	<<link [[다음|Orphanage]]>><<endevent>><</link>>
+
+<</if>>
+
+:: Home Orphan Poster Sex
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemytrust += 100>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Home Orphan Poster Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Home Orphan Poster Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Home Orphan Poster Sex Finish
+<<effects>>
+
+<<if $enemyhealth lte 0>>
+	"아야, 왜 그래?! 너 이 씨-" 당신은 그가 고통에 주춤거리는 동안 도망친다.
+
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	그가 숨을 헐떡이며 침대에 털썩 주저앉는다. "와우, 너... 진짜 잘한다." 그의 눈이 천천히 휘둥그레진다. "잠깐. 제기랄, 베일리의 종이를 밖에 두고 왔어." 그가 한숨을 쉰다. "됐어, 종이는 그가 알아서 구하겠지 뭐."
+
+	당신은 일어서서 그가 여운을 즐기도록 두고 떠난다.<<greb>><<reb 1>>
+
+<<elseif $finish is 1>>
+	그가 당황해하며 멈춘다. "그- 그렇게 별로야?" 그의 눈이 천천히 휘둥그레진다. "잠깐. 제기랄, 베일리의 종이를 밖에 두고 왔어." 그는 당신과 얼굴을 마주하지 못한 채, 허겁지겁 그의 옷을 입고 도망친다.
+	<br><br>
+
+	당신은 그가 돌아오기 전에 떠난다.
+
+<</if>>
+<br><br>
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Orphanage]]>><</link>>
+
+:: Home Balloon
+<<effects>>
+
+<<if $phase is 1>>
+	"저기," 당신이 말한다. "기분이 안 좋아 보여. 이게 도움이 될 지는 모르겠지만, 네가 좋아할 것 같아서." 당신은 그에게 당신의 풍선을 내민다.<<handheldruined>>
+	<br><br>
+
+	그의 눈이 반짝인다. "정말... 정말로?" 그가 풍선을 받아들며 말한다.
+	<br><br>
+
+	<<if $speech_attitude is "meek">>
+		"그럼." 당신은 그에게 미소지으며 말한다. "네게 지금 당장 필요한 게 그거지? 네 하루를 화사하게 바꿀 무언가 말이야."
+	<<elseif $speech_attitude is "bratty">>
+		"당연하지." 당신은 그의 머리카락을 헝클며 경쾌하게 말한다. "완전히 네 거야."
+	<<else>>
+		"당연하지." 당신이 말한다. "넌 그럴 만한 자격이 있어!"
+	<</if>>
+	<br><br>
+	그가 킬킬댄다. 당신은 확실히 괜찮아진 모양새로 풍선을 가벼이 두드려 보는 그를 두고 떠난다. <<ghope>><<hope 2>>
+	<br><br>
+
+	<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<<else>>
+	"왜 그래?" 당신이 묻는다. 소년이 당신을 쳐다본다.
+	<br><br>
+
+	"나는 여기가 싫어." 그가 말한다.
+	<br><br>
+
+	당신은 소년이 제 두려움에 대해 말하는 걸 듣고, 적절히 다독이는 말을 해주는 데에 한 시간 정도를 쓴다. 그는 부모님이 그립고, 베일리가 무서우며, 밖에 나가기도 무섭고, 여기서 지급되는 음식을 싫어한다. 그런 고충에도 불구하고, 그는 말을 하는 동안 기운을 되찾는다.
+	<br><br>
+
+	"말하는 걸 들어줘서 고마워," 그가 말한다. "이제 한결 괜찮아졌어." 그는 당신을 가볍게 껴안고, 확실히 괜찮아진 모양새로 떠난다. <<ghope>><<hope 1>>
+	<br><br>
+
+	<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<</if>>
+
+:: Home Orphan Music Calm Choice
+<<effects>>
+
+<<if $phase is 1>>
+	<<generatey1>><<person1>>
+
+	당신은 문틈을 엿본다. 한 소년이 눈을 감은 채로 어두운 방에 앉아 있다.
+	<br><br>
+
+	<<switch random(1,3)>>
+		<<case 1>>
+			<<set $instrument to "violin">>
+			그는 평온한 표정으로 잘 손질된 바이올린과 튼튼한 활을 연주한다. 그 감정은 그의 음악을 통해 드러난다. 잠깐이지만 당신은 베일리의 다가오는 빚 협박을 잊어버린다. 어쩌면 언젠가는 그 빚에서 완전히 자유로워질 수 있으리라.<<lstress>><<ltrauma>><<stress -6>><<trauma -5>>
+
+		<<case 2>>
+			<<set $instrument to "guitar">>
+			그는 슬픈 표정으로 튼튼해 보이는 기타를 연주한다. 그럼에도, 그가 연주하는 곡은 희망을 준다. 그 가락은 당신의 얼굴에 눈물과 미소를 함께 불러일으킨다. 어쩌면 언젠가는, 매일매일이 이 곡과 같아질 수 있으리라.<<lltrauma>><<trauma -10>>
+
+		<<case 3>>
+			<<set $instrument to "harp">>
+			그는 평온한 표정으로 광이 나는 하프를 연주한다. 그 감정은 그의 음악을 통해 드러난다. 하프의 현이 튕길 때마다, 당신은 스트레스가 날아가는 것을 느낀다. 희망컨대, 언젠가는 당신도 평화로운 삶을 살 수 있으리라.<<llstress>><<stress -12>>
+
+	<</switch>>
+	<br><br>
+
+	그의 연주가 이어지자 호기심 많은 고아들이 들어온다. 두 번째 곡이 시작될 즈음, 방에는 사람이 빽빽히 들어찬다. 당신 모두는 함께 앉아 음악을 즐긴다. 그 뒤로 여섯 곡이 더 이어지고, 길게 늘어진 음계로 독주회는 끝이 난다.
+	<br><br>
+
+	<<link [[다음|Home Orphan Music Calm]]>><</link>>
+
+<<else>>
+	당신은 문을 무시하고 가던 길을 간다. 음악은 고요히 잦아든다.
+	<br><br>
+
+	<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<</if>>
+
+:: Home Orphan Music Calm
+<<effects>>
+
+"지금 대체 뭘 하고 있는 거냐?" 목소리가 정적을 깨고 들어온다. 베일리다. "아니, 됐다." 그는 다른 모두를 무시한 채, 소년에게서 눈을 떼지 않는다. "빚 갚을 시간이다."
+<br><br>
+
+<<if $rng gte 76>>
+	그는 <span class="green">끄덕인다.</span> 아무 말 없이, 그는 그의 $instrument를 내려놓고 선반에서 신발 상자를 집는다. 그는 상자에서 지폐 여러 장을 꺼내 베일리에게 건넨다.
+	<br><br>
+
+	베일리가 지폐를 센다. "좋아, 다음 주에는 두 배를 기대하지." 그는 돈을 주머니에 찔러넣고는 문을 쾅 닫고 나간다.
+	<br><br>
+
+	방에 적막이 내려앉는다. 그가 적막을 깨고 말한다. "뭐, 그래도 대단한 일이었어. 모두 여기서 떠나 줘. 너희가 여기 있었다는 이유로 혼나는 걸 보고 싶지 않거든."
+	<br><br>
+
+	당신과 다른 고아들은 떠난다. 방 바깥에서, 그들은 악기 연주하는 법을 배워 보겠다고 신나게 떠든다.<<ghope>><<lstress>><<hope 1>><<stress -6>>
+	<br><br>
+
+<<else>>
+	그는 <span class="red">몸을 떤다.</span> 그의 두 눈은 참고 있는 눈물로 촉촉해져 있다. 그의 입술이 떨리고, "오- 오늘은 아직-"
+	<br><br>
+
+	베일리가 당신이 반응할 수 있는 것보다 빠르게 거리를 좁힌다. 그는 소년을 쥐고 난폭하게 문가로 끌어당긴다. 그는 베일리의 손아귀에 붙잡혀 몸부림치며 비명을 지른다.
+	<br><br>
+
+	나머지 고아들은 방을 빠져나가려 아우성친다. 그러다 누군가 달려나와 당신을 밀쳐낸다. 당신의 머리가 무언가 딱딱한 것에 부딪히고, 당신은 어질어질해진다. 당신은 거기 기대어 시야를 바로잡으려 노력한다.<<gpain>><<gstress>><<gtrauma>><<violence 6>><<stress 6>><<trauma 4>>
+	<br><br>
+
+	마침내 어지러움이 가신다. 방은 고요한 난장판이 되어 있다. 악기는 산산조각나 바닥에 흩어져 있다. 당신은 고개를 흔들고, 일어나 떠난다.
+	<br><br>
+
+	방 바깥에서, 당신에게 소리 죽인 대화가 들린다. 그들은 돈을 얻는 다른 방법들을 논하고 있다.<<llhope>><<hope -2>>
+	<br><br>
+
+<</if>>
+
+<<link [[다음|Orphanage]]>><<endevent>><<unset $instrument>><</link>>
+
+:: Home Orphan Music Stormy Choice
+<<effects>>
+
+<<if $phase is 1>>
+	<<person1>>소년이 당신의 시선을 눈치채고 알아봤다는 듯 작게 고개를 끄덕이고는, 다시 그의 악기로 관심을 돌린다.
+	<br><br>
+
+	그가 첫 음을 연주하자, 방은 죽은 듯이 고요해진다. 곡은 느리게 시작하지만, 몇 초만에 점점 고조되어간다. 음악은 무질서하면서도 아름답고, 곧 당신도 박자에 맞춰 몸을 흔들게 된다.
+	<br><br>
+
+	그가 노래하기 시작한다. 가사는 베일리에 대한 장황한 비난과 지금껏 당신들이 겪어온 잔혹함에 대한 것이다. 처음에 다른 고아들은 조용했지만, 곧 노래의 박자에 맞춰 큰 소리로 '타도 베일리'를 연호한다.
+	<br><br>
+
+	누군가 당신을 쿡 찌르며, 함께하기를 권한다.
+	<br><br>
+
+	<<if $speech_attitude isnot "meek">>
+		<<link [[함께 연호한다|Home Orphan Music Stormy]]>><<set $phase to 1>><</link>>
+
+	<<else>>
+		<span class="blue">당신은 그런 행동을 하기엔 너무 반항적이지 못하다.</span>
+	<</if>>
+	<br>
+
+	<<link [[침묵한다|Home Orphan Music Stormy]]>><<set $phase to 2>><</link>>
+<<else>>
+	당신은 뒤따르는 시끌벅적한 소음에 대비하며 자리를 뜬다.
+	<br><br>
+
+	<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<</if>>
+
+:: Home Orphan Music Stormy
+<<effects>>
+
+<<if $phase is 1>>
+	후렴구가 돌아온다. 당신은 손을 둥글게 모아 당신의 입에 댄 채로 "타도 베일리!"를 외쳐댄다. 스트레스가 풀린다.<<lstress>><<ltrauma>><<ghope>><<stress -6>><<trauma -3>><<hope 1>>
+	<br><br>
+
+	소년이 기타 반주를 연주하지만, 앰프가 꺼진다. 베일리가 손에 연장 코드를 들고 있다. 분노가 그의 얼굴에 드리운다.
+	<br><br>
+
+	"흩어져!" 그가 소리친다. 모두가 그 말을 듣고, 복도는 혼돈에 휩싸인다. 그는 무대에서 폴짝 뛰어내려 도망치기 시작한다.
+	<br><br>
+
+	"이리 돌아와, 이 새끼야!" 베일리가 소리지른다. 그는 당신을 지나쳐 쏜살같이 달려나가다 당신을 벽에 처박는다. 당신의 어질어질한 시선 너머로, 눈에 생생한 공포를 담은 채 멈춰서 당신을 쳐다보고 있는 다른 사람들이 보인다.<<lreb>><<gpain>><<ggtrauma>><<reb -1>><<violence 6>><<trauma 5>>
+	<br><br>
+
+	당신은 고개를 흔들어 정신을 차리고, 당신의 방으로 돌아간다.
+
+<<else>>
+	당신은 그럴까 하다가 그만둔다. 당신이 그들에게 고개를 가로저어 보이자, 그들은 어깨를 으쓱한다.
+	<br><br>
+
+	후렴구가 돌아오고, 고아 무리는 다시 한 번 "타도 베일리!"를 외쳐댄다. 소년이 기타 반주를 연주하지만, 앰프가 꺼진다. 베일리가 손에 연장 코드를 들고 있다. 분노가 그의 얼굴에 드리운다.
+	<br><br>
+	
+	"흩어져!" 그가 소리친다. 모두가 그 말을 듣고, 복도는 혼돈에 휩싸인다. 그는 무대에서 폴짝 뛰어내려 도망치기 시작한다.
+	<br><br>
+
+	"이리 돌아와, 이 새끼야!" 베일리가 소리지른다. 그는 소년을 쫒아가다가, 그 과정에서 운 나쁜 고아 한 명을 벽에 처박는다. 듣기 좋은 소리는 아니다.<<llhope>><<hope -2>>
+	<br><br>
+
+	다른 이들은 그 고아를 도와주려 멈춘다. 당신은 계속 움직여, 당신의 방으로 돌아간다.
+
+<</if>>
+<br><br>
+
+<<link [[다음|Bedroom]]>><<endevent>><</link>>
+
+:: Home Combat Agree
+<<effects>>
+
+당신은 고개를 끄덕이고, 당신이 치뤘던 싸움들을 자세히 이야기해 주되 자잘한 세부 사항은 생략한다.
+<br><br>
+그들은 말 한 마디 한 마디를 흘려듣지 않고, 떠나기 전 좋은 질문 몇 가지를 던진다. 당신의 가슴이 자랑스러움으로 살짝 부풀어 오른다.<<stress -5>><<lstress>>
+<br><br>
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+
+:: Home Combat Exaggerate
+<<effects>>
+
+<<if $englishSuccess>>
+	당신은 상대의 강함과 수를 크게 부풀리며, 당신이 과거에 겪었던 싸움들을 심하게 과장해 들려준다.
+	<br><br>
+	<span class="gold">그들은 당신의 말을 믿고</span>, 당신이 이야기를 하나씩 풀어놓을 때마다 더욱 흥분하기만 한다. 이야기가 끝나자, 몇 명은 당신에게 박수를 치기까지 한다.<<stress -5>><<trauma -10>><<lstress>><<ltrauma>>
+	<br><br>
+	"어떻게 싸우는 지 보여줄 수 있어?" 한 명이 그렇게 묻자, 다른 이들은 빠르게 그 요청을 되뇌인다.
+	<br><br>
+	<<link [[싸우는 모습을 보여준다 (0:20)|Home Combat Exaggerate Demonstration]]>><<pass 20>><</link>>
+	<br>
+	<<link [[거절한다|Home Combat Exaggerate Refuse]]>><</link>>
+<<else>>
+	당신은 상대의 강함과 수를 크게 부풀리며, 당신이 과거에 겪었던 싸움들을 심하게 과장해 들려준다.
+	<br><br>
+	<span class="red">그들은 당신의 말을 조금도 믿지 않고</span>, 당신이 말을 마치자 그들은 어색한 변명을 대며 자리를 떠난다.<<stress 5>><<gstress>>
+	<br><br>
+	<<link [[다음|Orphanage]]>><<endevent>><</link>>
+
+<</if>>
+
+:: Home Combat Exaggerate Demonstration
+<<effects>>
+
+당신은 주먹질과 발차기 자세를 보여 준다. 대부분은 그저 즉흥적으로 지어낸 것이지만, 그들은 알아차리지 못하는 것 같다. 어느 때부터 그들 중 몇몇은 당신의 자세를 따라하기 시작하고, 머지않아 모두가 당신을 흉내내려 한다. 그렇게 계속 흘러가고, 당신은 당신의 근육이 땡기기 시작할 때쯤 그만둔다.<<physique 1>>
+<br><br>
+당신의 시연이 끝나자 그들은 감사를 표하고, 당신에 대해 서로 신나게 떠들며 자리를 떠난다.<<stress -8>><<lstress>>
+<br><br>
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+
+:: Home Combat Exaggerate Refuse
+<<effects>>
+
+당신은 지금 해야 할 다른 일이 있다고 답한다. 그래도 그들은 만족한 듯 당신을 혼자 두고 떠난다.
+<br><br>
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+
+:: Home Combat Refuse
+<<effects>>
+
+당신은 그들에게 지금은 바쁘다고 답한다. 명백히 실망스러운 표정으로, 그들은 당신을 혼자 두고 떠난다.
+<br><br>
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+
+:: Home Orphan Rebellious Prank
+<<effects>>
+
+<<if $phase is 0>> /* Follow them */
+	You follow the orphans into Bailey's office. They speak in hushed whispers, and they both gasp when they see you.
+	<br><br>
+	<<if $baileydefeated gte 1 or $baileydefeatedlewd gte 1>>
+		"Oh! It's you!" says the <<person1>><<person>>. "Aren't you the <<girl>> who <<= $baileydefeated gte 1 ? "kicked Bailey's ass" : "embarrassed Bailey">> in front of everyone? Do you want to join us? We're going to get one over on <<nnpc_him "Bailey">>, too!"
+	<<else>>
+		"Oh! You're not Bailey." The <<person1>><<person>> laughs<<if $orphan_hope gte 10>>. "Hey, do you want to join us?"<<else>> nervously, glancing at the bucket of murky water <<hes>> holding. "You're...not going to tell on us, are you?"<</if>>
+	<</if>>
+	<br><br>
+	"We're going to prank <<nnpc_him "Bailey">>," the <<person2>><<person>> explains. "It's the least <<nnpc_he "Bailey">> deserves after all <<nnpc_hes "Bailey">> done to us!" <<person2>><<He>> starts setting up the step ladder.
+	<br><br>
+
+	<<link [[Offer to help them set up|Home Orphan Rebellious Prank 2]]>><<set $phase to 1>><<reb 1>><</link>><<greb>>
+	<br>
+	<<link [[Offer to cover for them|Home Orphan Rebellious Prank 2]]>><<set $phase to 2>><<hope 1>><</link>><<ghope>>
+	<br>
+	<<link [[Tell them this is much too risky|Home Orphan Rebellious Prank 2]]>><<set $phase to 0>><</link>><<englishdifficulty 200 1000>>
+	<br>
+<<else>> /* Ignore them */
+	You decide to ignore them, and go on with your day.
+	<br><br>
+
+	<<link [[다음|Orphanage]]>><<endevent>><</link>>
+	<br>
+<</if>>
+
+:: Home Orphan Rebellious Prank 2
+<<effects>>
+
+<<if $phase is 0>> /* Tell them this is much too risky */
+	<<if $englishSuccess>>
+		<<if $speech_attitude is "meek">>
+			You frown. "I... I'm sorry, but... I just really don't think this is a good idea. Wh-what if <<nnpc_he "Bailey">> finds out? I don't want anything bad to happen to any of you..." <span class="green">You recommend looking for hobbies that might enrich their lives, such as gardening or cooking.</span>
+		<<elseif $speech_attitude is "bratty">>
+			"And what happens if <<nnpc_he "Bailey">> finds out about all this, huh?" You put your hands on your hips. "Even if <<nnpc_he "Bailey">> doesn't find out we're involved, what's stopping <<nnpc_him "Bailey">> from just punishing everybody instead? Don't be so naive." <span class="green">You recommend they start exercising instead so that they can blow off some steam and gain the strength to defend themselves.</span>
+		<<else>>
+			You shake your head. "Sorry to rain on your parade, but this is too risky. You two would be better off spending your time on yourselves, not on Bailey." <span class="green">You recommend extracurricular activities such as reading or dancing that might help reduce the orphans' stress.</span>
+		<</if>>
+		<br><br>
+		The orphans listen closely to your advice. They thank you, and immediately rush off to follow it, inspired. <<hope 1>><<ghope>>
+		<br><br>
+		You return the bucket and step ladder to their rightful places, and go on with your day.
+	<<else>>
+		<<if $speech_attitude is "meek">>
+			You frown. "I... I'm sorry, but...I just really don't think this is a good idea. What if <<nnpc_he "Bailey">> finds out? I-I don't want anything bad to happen to you two."
+		<<elseif $speech_attitude is "bratty">>
+			"And what happens if <<nnpc_he "Bailey">> finds out about all this, huh?" You put your hands on your hips. "Even if <<nnpc_he "Bailey">> doesn't find out we're involved, what's stopping <<nnpc_him "Bailey">> from punishing everybody else? Don't be naive."
+		<<else>>
+			You shake your head. "Sorry to rain on your parade, but this is too risky. You two would be better off spending your time on yourselves, not on Bailey."
+		<</if>>
+		<br><br>
+		The orphans both deflate.
+		<br><br>
+		"Sorry," the <<person1>><<person>> mutters. "We didn't really think about the consequences..."
+		<br><br>
+		The <<person2>><<person>> folds the step ladder back up in disappointed silence. They hang their heads as they shuffle out of the office. <<hope -1>><<reb -1>><<lhope>><<lreb>>
+	<</if>>
+	<br><br>
+
+	<<link [[다음|Orphanage]]>><<endevent>><</link>>
+	<br>
+<<else>>
+	<<if $speech_attitude is "meek">>
+		"O-oh..." You giggle bashfully. "Well, if you really think I'll be any help... Alright!"
+	<<elseif $speech_attitude is "bratty">>
+		"A prank on Bailey?" You smirk and put your hands on your hips. "Count me in!"
+	<<else>>
+		You smile. "Why not? It's all in good fun."
+	<</if>>
+	<br><br>
+	The orphans both grin conspiratorially at you.
+
+	<<if $phase is 2>> /* Offer to cover for them */
+		<br><br>
+		<<if $speech_attitude is "meek">>
+			"But you two seem to have it all in hand here, so..." You glance at the door. "Maybe I should wait outside...? It'd be safer if we had someone looking out in case Bailey comes, after all. I-is that okay?"
+		<<elseif $speech_attitude is "bratty">>
+			"You two get it all set up." You thumb at the door. "I'll go watch out and distract Bailey if <<nnpc_he "Bailey">> starts coming this way so you don't get caught. Got it?"
+		<<else>>
+			"No need to have so many cooks in the kitchen, though. I'll be on the lookout." You gesture to the door. "It'd be bad if Bailey came to <<nnpc_his "Bailey">> office and caught us unaware. Sound good?"
+		<</if>>
+		<br><br>
+		The orphans nod excitedly. The <<person2>><<person>> gives you a thumbs up, and the <<person1>><<person>> leaves the door slightly ajar behind you after you leave. You hear them start to set up the bucket over the door.
+	<</if>>
+	<br><br>
+
+	<<link [[다음|Home Orphan Rebellious Prank 3]]>><</link>>
+	<br>
+<</if>>
+
+:: Home Orphan Rebellious Prank 3
+<<effects>>
+<<npc Bailey 3>><<person3>>
+
+<<if $phase is 1>> /* Offer to help them set up */
+	You help the orphans set up the classic "bucket over the door" prank. When finished, you hide behind the nearest door, leaving a gap wide enough for the three of you to peer out. <<= playerBellyVisible() ? "Your belly is awkward, but you" : "You">> squeeze together so you're all able to see.
+	<br><br>
+	When Bailey starts approaching <<his>> office,
+	<<if $orphan_hope gte 40>>
+		you know the orphans are excited, but they do their best to hold it in.
+	<<elseif $orphan_hope gte 10>>
+		the orphans are noticeably excited, and you see them eyeing each other conspicuously. You attempt to get their attention and calm them down. <<gstress>><<stress 6>>
+	<<else>>
+		the orphans are obviously restless. You hope they don't draw attention. <<ggstress>><<stress 12>>
+	<</if>>
+<<else>> /* Offer to cover for them */
+	You wait nearby Bailey's office as you keep an eye out, trying to look casual. Before the other orphans can finish, you spot Bailey rounding a corner and swiftly intercept <<him>>.
+	<br><br>
+	<<if $speech_attitude is "meek">>
+		"P-pardon me..." You timidly get Bailey's attention. "I had a question—i-if you have the time...?"
+		<br><br>
+		Bailey gives you an irritated look, but <<he>> stops, and turns away from the direction of <<his>> office.
+		<br><br>
+		"What is it?" <<He>> crosses <<his>> arms.
+		<br><br>
+		You shrink a little under <<his>> scrutiny. "It's just... I've been paying you for some time now, and I wanted to know how much left I have to pay off...?"
+	<<elseif $speech_attitude is "bratty">>
+		"Hey!" You brashly stride over to Bailey. "I'd like to lodge a complaint."
+		<br><br>
+		Bailey gives you an irritated look, but <<he>> stops, and turns away from the direction of <<his>> office.
+		<br><br>
+		"I'm sure you would," <<he>> grumbles. <<He>> crosses <<his>> arms. "What is it, then?"
+		<br><br>
+		"You've been making me pay you off for my 'care' for a while now." You mirror <<his>> stance, undaunted. "Where's all that money going exactly? Because it sure doesn't feel like it's going back into the orphanage."
+	<<else>>
+		"Excuse me." You wave at Bailey to get <<his>> attention as you approach. "I just wanted to double check with you how much you're expecting me to pay you this week."
+		<br><br>
+		Bailey gives you an irritated look, but <<he>> stops, and turns away from the direction of <<his>> office.
+		<br><br>
+		Bailey scoffs and crosses <<his>> arms. "You owe me <<printmoney $rentmoney>>."
+		<<if $baileydefeatedchain gte 2>>
+			<<He>> glares at you. "I'm not going easy on you this time if you continue to be uncooperative."
+		<<elseif $baileydefeatedchain is 1>>
+			<<He>> squints at you. "You'd better actually pay up this time."
+		<<else>>
+			<<He>> raises an eyebrow. "You'd better have it by <<rentday>>."
+		<</if>>
+		<br><br>
+		<<if $money gte $rentmoney>>
+			"I should be able to,"
+		<<else>>
+			"I'll do my best,"
+		<</if>>
+		you reply noncommittally. "Will I ever learn how much more I owe you?"
+	<</if>>
+	<br><br>
+	Bailey fails to notice <span class="green">the orphans sneaking out of <<his>> office behind <<him>>.</span> <<He>> sneers condescendingly. "Wouldn't you like to know?" Without answering your question, <<he>> turns and heads for <<his>> office. You find the two orphans, stifling giggles.
+<</if>>
+<br><br>
+
+<<link [[다음|Home Orphan Rebellious Prank End]]>><</link>>
+<br>
+
+:: Home Orphan Rebellious Prank End
+<<effects>>
+
+All three of you watch as Bailey enters <<his>> office. The bucket upends over <<him>> and <<he>> makes an undignified noise.
+<br><br>
+Soaking wet, <<he>> spins on <<his>> heels and barrels through the main hall in search of the culprits. <<He>> snarls at several orphans, who maintain innocence, before <<he>> comes across you and your partners in crime.
+<br><br>
+<<if $phase is 2>>
+	Bailey eyes you suspiciously, given your intervention.
+	<br><br>
+<</if>>
+
+<<if ($orphan_hope + $orphan_reb) / 2 gte random(10,50)>>
+	Fortunately, you and the two orphans manage to keep your composure, and Bailey scowls before giving up entirely and storming out of the hall to clean <<himself>> up.
+	<br><br>
+	<span class="green">You managed to get off scot free!</span> <<stress -6>><<hope 1>><<reb 1>><<lstress>><<ghope>><<greb>>
+	<br><br>
+	The orphans thank you for indulging them, and part ways with you, chattering excitedly.
+<<else>>
+	"It was you brats, wasn't it?" <span class="red">Bailey grabs the two orphans by the arms.</span> Hands full, <<he>> glares at you. "You'll get yours, too—sooner or later," <<he>> threatens, before dragging the orphans off. <<gstress>><<stress 6>>
+	<br><br>
+	They have to run to keep up with <<him>> if they don't want to lose their footing entirely. They shoot you fearful looks before they all disappear around a corner. <<trauma 6>><<hope -1>><<reb -1>><<gtrauma>><<lhope>><<lreb>>
+<</if>>
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Robin Mansion Fabulous
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"It's a wonderful place," you say. "The fanciest mansion in town."
+<<elseif $speech_attitude is "bratty">>
+	"It's a lot nicer than this dump," you say. "Better than most dumps, actually."
+<<else>>
+	"It's a fantastic place," you say. "Avery is quite rich."
+<</if>>
+<br><br>
+
+Robin's smile widens. "That's wonderful. The orphans and I want to put together a surprise for you, if that's okay. I'll visit sometime."
+<br><br>
+
+A <<person2>><<person>> emerges from the lounge, and looks at Robin. Robin remembers the fallen board games, and rushes over.
+<br><br>
+
+"Sorry," <<person1>><<he>> says to the <<person2>><<person>>. "I got distracted." <<person1>><<He>> turns back to you. "It was nice seeing you here again." Board games in hand, <<he>> enters the lounge.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Robin Mansion Nothing
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"It's a normal place," you say. "I don't want to bore you with the details."
+<<elseif $speech_attitude is "bratty">>
+	"It's nothing special," you say. "Kinda boring in fact."
+<<else>>
+	"Nothing to say really," you say. "It's a normal place."
+<</if>>
+<br><br>
+
+"I'm sure it's lovely," Robin says. "The orphans and I want to put together a surprise for you, if that's okay. I'll visit sometime."
+<br><br>
+A <<person2>><<person>> emerges from the lounge, and looks at Robin. Robin remembers the fallen board games, and rushes over.
+<br><br>
+
+"Sorry," <<person1>><<he>> says to the <<person2>><<person>>. "I got distracted." <<person1>><<He>> turns back to you. "It was nice seeing you here again. I might visit sometime." Board games in hand, <<he>> enters the lounge.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+
+:: Home Robin Mansion Refuse
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"I'm sorry," you say. "But I don't want to talk about it."
+<<elseif $speech_attitude is "bratty">>
+	"I'd rather keep that to myself," you say.
+<<else>>
+	"I don't want to talk about it," you say.
+<</if>>
+<br><br>
+
+Robin frowns. "Alright. I hope it's nicer than here. The orphans and I want to put together a surprise for you, if that's okay. I'll visit sometime."
+<br><br>
+
+A <<person2>><<person>> emerges from the lounge, and looks at Robin. Robin remembers the fallen board games, and rushes over.
+<br><br>
+
+"Sorry," <<person1>><<he>> says to the <<person2>><<person>>. "I got distracted." <<person1>><<He>> turns back to you. "It was nice seeing you here again. I might visit sometime." Board games in hand, <<he>> enters the lounge.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+
+:: Home Robin Mansion Address
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"I'd love for you to visit," you say. "You know the fancy boulevard on Danube Street? Avery's is the mansion right on the top."
+<<elseif $speech_attitude is "bratty">>
+	"My new home is the mansion at the top of Danube boulevard," you say. "A real fancy place."
+<<else>>
+	"From here," you say. "Go to Danube Street, then follow the signs to Danube boulevard. It's the mansion at the very top of the hill."
+<</if>>
+<br><br>
+
+Robin isn't sure if you're joking. "But that's," <<he>> says. "Wow. They said it was fancy, but not like this." <<He>> smiles. "I'll visit once the orphans have finished preparing. I might be too intimidated to go inside though."
+<br><br>
+
+<<He>> gives you a hug, then walks away.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Robin Mansion Nice
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"I like surprises," you say. "I just hope it's not too much trouble."
+<<elseif $speech_attitude is "bratty">>
+	"It's good to know I'm missed," you say.
+<<else>>
+	"That would be nice," you say.
+<</if>>
+<br><br>
+
+"It was the orphans' idea," <<he>> says. "I don't know who in particular. They fight over who came up with it. I'll visit when they've finished preparing."
+<br><br>
+
+<<He>> gives you a hug, then walks away.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Robin Mansion Warn
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"I'm sorry," you say. "But Avery won't like you to visit. We can always meet here."
+<<elseif $speech_attitude is "bratty">>
+	"I wouldn't visit if I were you," you say. "It's a long climb, and the people there aren't the nicest. We can always meet here."
+<<else>>
+	"I don't think that's wise," you say. "Avery wouldn't like it. We can always meet here."
+<</if>>
+<br><br>
+
+Robin nods. "You know what's best." <<He>> doesn't sound convinced. "I'm very glad to see you again." <<He>> gives you a hug, then walks away.
+<br><br>
+
+<<link [[Next|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Valentines Approach
+<<effects>>
+
+You approach the <<person>>.
+<<if $speech_attitude is "meek">>
+	"D-Do you need help, or is something wrong?" you ask.
+<<elseif $speech_attitude is "bratty">>
+	"Hey, what's going on?" you ask. "You've been pacing for ages."
+<<else>>
+	"Are you alright?" you ask. "You look nervous."
+<</if>>
+<br><br>
+
+<<He>> jumps, then looks at you. "Oh, it's you," <<he>> says, sounding relieved. "This is really stupid. It's Valentine's Day, and I want to confess to my crush. I can't find the courage to do it, though. Could you... could you help me?" <<he>> asks. You notice <<his>> hands are trembling slightly.
+<br><br>
+
+<<link [[Help <<him>> (0:10)|Home Valentines Help]]>><<pass 10>><</link>>
+<br>
+<<link [[Decline|Home Valentines No]]>><</link>>
+<br>
+
+:: Home Valentines No
+<<effects>>
+
+You shake your head.
+
+<<if $speech_attitude is "meek">>
+	"I-I don't think I'm the right person for this... sorry..."
+<<elseif $speech_attitude is "bratty">>
+	"Nah, I've got better things to do than play messenger."
+<<else>>
+	"Sorry, but I can't help right now."
+<</if>>
+<br><br>
+
+<<He>> looks discouraged. "Ah, alright... don't worry, I'll find someone else, or gather up the courage myself. Thanks anyway." <<He>> walks away.
+<br><br>
+
+<<link [[Next|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Valentines Help
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"Yes, I'd be happy to help," you reply. "Or I'll try, at least."
+<<elseif $speech_attitude is "bratty">>
+	"Of course. I'll be your wingman," you reply with a grin.
+<<else>>
+	"Sure, I can help," you reply. "What do you need from me?"
+<</if>>
+<br><br>
+<<He>> breathes a sigh of relief. "Thank you, thank you!" <<His>> eyes shine hopefully. "Um... well, the person I'm looking for is..." <<He>> starts to ramble about <<his>> crush.
+
+<<if getRobinLocation() is "orphanage" and random(1,2) is 2>>
+	You immediately recognise the description. <span class="blue"><<Hes>> talking about Robin.</span>  <<if $robinromance gte 1>>You feel a twinge of jealousy.<<else>>You wonder if Robin feels the same.<</if>>
+	<br><br>
+
+	"Thanks again. I'll be waiting in the garden," <<he>> says, blushing slightly. "Oh, and you'll need this. It's part of the confession." <<He>> hands you the chocolate bar and note.
+	<br><br>
+
+	<<if $robinromance gte 1>>
+		<<link [[Deliver the confession|Home Valentines Robin Romance]]>><</link>>
+		<br>
+		<<link [[Get angry|Home Valentines Get Angry]]>><</link>>
+	<<else>>
+		<<link [[Deliver the confession|Home Valentines Robin No Romance]]>><</link>>
+	<</if>>
+<<else>>
+	<<generatey2>>
+	It doesn't take you long to recognise the description. <<Hes>> talking about a <<person2>><<person>> you've seen a few times, enough to remember where <<his>> room is.
+	<br><br>
+
+	"Thanks again. I'll be waiting in the garden," <<person1>><<he>> says, blushing slightly. "Oh, and you'll need this. It's part of the confession." <<He>> hands you the chocolate bar and note.
+	<br><br>
+
+	<<link [[Deliver the confession|Home Valentines Search]]>><</link>><<englishdifficulty 1 400>>
+<</if>>
+<br>
+:: Home Valentines Robin Romance
+<<effects>>
+<<npc Robin 2>><<person2>>
+
+You find Robin's room and knock on <<his>> door.
+	<<if $robin.timer.hurt gte 1>>
+		Robin throws it open, pausing when <<he>> sees you. It's clear <<hes>> still <<npcHurt "Robin">>, but <<his>> eyes drift down to the chocolate in your hand. "Happy Valentine's Day," <<he>> says stiffly.
+	<<else>>
+		Robin throws it open and hugs you. "Happy Valentine's Day!"
+	<</if>>
+<br><br>
+<<person1>>
+<<if $speech_attitude is "meek">>
+	"Um, happy Valentine's Day... someone asked me to give you this. I didn't want to break <<his>> heart by telling them we're together..." You hand over the note and chocolate. "<<He>> wants you to meet <<him>> in the garden."
+<<elseif $speech_attitude is "bratty">>
+	"Happy Valentine's. Look, I'll be straight with you. A <<personsimple>> asked me to give you this, and something about that idiot's expression made me feel too bad to say no." You push the note and chocolate into Robin's hands. "<<Hes>> in the garden."
+<<else>>
+	"Happy Valentine's Day. Someone fancies you," you say, handing over the note and chocolate. "<<He>> asked me to help. <<He>> wants to see you in the garden."
+<</if>>
+<br><br>
+
+Robin gives you a confused look, but glances at the note. <<person2>>
+<<if $robin.timer.hurt gte 1>>
+	<<His>> shoulders relax, and <<he>> giggles.
+<<else>>
+	<<He>> giggles.
+<</if>>
+"I get it," <<he>> says. "It's complicated, telling someone you're dating their crush. It's sweet that you helped <<person1>><<him>>. Tell <<him>> I'm sorry, and that I'm already taken, but I know <<he>>'ll find someone as wonderful as <<he>> is." <<person2>><<He>> takes your hand, squeezing it gently. "Someone as wonderful as you are to me."
+<<if $robin.timer.hurt gte 1>>
+	<br><br>
+	<<He>> gives you a wry smile. "Well, usually." <<He>> exhales and wraps <<his>> arms around you.
+	<<if $robin.timer.hurt lte 5>>
+		"Let's just... wipe the slate clean, okay? I don't want to be upset with you. Not on Valentine's Day. I love you." <<He>> buries <<his>> face into your shoulder for a moment, then pulls away.
+		<<set $robin.timer.hurt to 0>>
+	<<else>>
+		"I'm still hurt, you know," <<he>> says softly, burying <<his>> face into your shoulder. "I need some more time to process everything, okay? But... I love you."
+		<<set $robin.timer.hurt to 5>>
+	<</if>>
+<</if>>
+<<He>> kisses your cheek. You smile at <<him>>.
+<br><br>
+
+Before you go, Robin presses the chocolate bar and note back into your hand. <<He>> closes the door, a smile still on <<his>> face.
+<br><br>
+
+<<link [[Report back|Home Valentines Report Back Robin]]>><</link>>
+<br>
+
+:: Home Valentines Robin No Romance
+<<effects>>
+<<npc Robin 2>><<person2>>
+
+You find Robin's room and knock on <<his>> door. <<He>> opens it and smiles at you.
+<br><br>
+<<if $speech_attitude is "meek">>
+	"S-Someone sent you this," you say. You hand over the note and chocolate. "A <<person1>><<person>>. <<Hes>> waiting in the garden, if you want to meet <<him>>."
+<<elseif $speech_attitude is "bratty">>
+	"Guess what? You've got an admirer," you say with a smirk, pushing the note and chocolate into <<his>> hands. "A <<person1>><<person>> is waiting for you in the garden. Make the most of it."
+<<else>>
+	"Someone fancies you," you say, handing over the note and chocolate. "<<person1>><<He>> wants to see you in the garden, if you want to meet <<him>>."
+<</if>>
+<br><br>
+
+<<person2>>
+Robin looks baffled. <<He>> looks down at the note and doesn't answer for a moment. "This is... unexpected," <<he>> finally responds. "Tell <<person1>><<him>> thanks, and I appreciate it, but I'm not interested. And tell <<him>> that I really hope <<he>> finds someone who returns <<his>> feelings someday." <<person2>><<He>> smiles slightly and returns the gifts to you. <<He>> goes back into <<his>> room and closes the door.
+<br><br>
+
+<<link [[Report back|Home Valentines Report Back Robin]]>><</link>>
+<br>
+
+:: Home Valentines Get Angry
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"Sorry but... R-Robin already has a <<girlfriend>>. It's me." Your voice trembles with restrained emotion, and you avoid making eye contact.
+<<elseif $speech_attitude is "bratty">>
+	"Have you lost your mind?" you say with a scowl. <<He>> flinches at your harsh tone. "I'm not helping you send a love note to my <<= C.npc.Robin.pronoun is "m" ? "boyfriend" : "girlfriend">>."
+<<else>>
+	"Robin's already dating someone," you say, keeping your voice firm as you look <<him>> in the eye. "Me."
+<</if>>
+<br><br>
+
+The <<person1>><<person>>'s cheeks turn bright red, and <<he>> snatches back the gifts. "Oh. Oh, I didn't, um, I didn't know." <<He>> looks visibly uncomfortable. "I, um, didn't mean to be a homewrecker. I-I'm really, really sorry!" <<He>> flees the scene, apologising one last time.
+<br><br>
+
+<<link [[Next|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Valentines Search
+<<effects>>
+
+You search for the <<person2>><<personsimple>> the orphan told you about. It doesn't take long to find <<his>> room. You knock on <<his>> door, and a <<person>> soon answers.
+<br><br>
+<<if $englishSuccess>>
+	<<if $speech_attitude is "meek">>
+		"Hello, sorry to bother you, but there's someone waiting for you in the garden. <<person1>><<He>> said to give you this." You hand over the note and chocolate.
+		<br><br>
+
+		The <<person2>><<person>> seems taken aback, but smiles at you. "Oh! Thanks for letting me know," <<he>> replies. <<He>> opens the note. Upon reading it, <<his>> smile widens, and <<he>> runs out of <<his>> room.
+		<br><br>
+
+		You feel relieved things went well. You find yourself hoping for the best for them. <<lstress>><<stress -6>>
+	<<elseif $speech_attitude is "bratty">>
+		"Look, I'm not a messenger service, but someone asked me to tell you they're waiting in the garden. Here." You hand over the note and chocolate. "Don't keep them waiting."
+		<br><br>
+
+		<<He>> blinks at you, but opens the note anyway. Upon reading it, <<he>> breaks into a wide smile. "Alright, alright, I'm going!" <<he>> says. <<He>> races out of <<his>> room, almost bumping into you.
+		<br><br>
+
+		You smirk. That was easy enough. You have a feeling everything will go well. <<lstress>><<stress -6>>
+	<<else>>
+		"Hello. Someone's waiting for you in the garden. <<person1>><<He>> asked me to give you this." You hand over the gifts the <<person>> gave you.
+		<br><br>
+
+		The <<person2>><<person>> opens the note and scans it. <<His>> eyes grow wide, and <<he>> breaks out into a smile. "Oh! Really? I'm going right now!" <<He>> races out of <<his>> room excitedly, almost bumping into you.
+		<br><br>
+
+		You watch <<him>> go. You hope everything goes well. <<lstress>><<stress -6>>
+	<</if>>
+	<br><br>
+
+	<<link [[Next|Orphanage]]>><<endevent>><</link>>
+<<else>>
+	<<if $speech_attitude is "meek">>
+		"H-hello..." you say. "Um, garden? There's someone... ah, wait, I—"
+	<<elseif $speech_attitude is "bratty">>
+		"Hey," you say. "So, you should go to the garden because I, I mean, someone... shit, there are feelings involved and—"
+	<<else>>
+		"Hello," you say. "You... garden. Person for you. Someone's waiting, and has big feelings for you."
+	<</if>>
+	You fumble over your words, gesturing between yourselves, before giving up and holding out the note and chocolate bar.
+	<br><br>
+
+	<<He>> looks at you, confused, then <<his>> expression turns to pity. "Oh... are you asking me out? I hate to say it, but you're not my type. Actually, I already fancy someone. Sorry." There's a painfully awkward silence before <<he>> finally closes the door. <<gstress>><<stress 6>>
+	<br><br>
+
+	<<link [[Report back|Home Valentines Report Back]]>><</link>>
+<</if>>
+<br>
+
+:: Home Valentines Report Back
+<<effects>>
+
+You head to the garden and find the other orphan waiting. <<He>> looks even more nervous than before. "Did you find <<person2>><<him>>?" <<person1>><<he>> aks. "Is <<person2>><<he>> coming?"
+<br><br>
+
+<<if $speech_attitude is "meek">>
+	"I-I'm really sorry, but... it didn't work out. I tried to convince <<him>> to come, but..." You look away, embarrassed. You return the gifts.
+	<br><br>
+
+	The <<person1>><<persons>> face crumbles. "It's alright, it's not your fault." <<He>> tries to smile, but it doesn't reach <<his>> eyes. "Thanks for trying, at least. Really." <<He>> walks away slowly.
+	<br><br>
+
+	You wish you could have done more. <<gtrauma>><<trauma 6>>
+<<elseif $speech_attitude is "bratty">>
+	"Look, I asked <<him>> to come, and <<he>> said no. <<Hes>> not interested." You keep your tone brusque, trying to hide your embarrassment. You return the gifts.
+	<br><br>
+
+	The <<person1>><<person>> flinches as if you'd struck <<him>>. "Oh." <<His>> voice is low and dejected. <<He>> blinks several times, looking away. "Well, alright, thanks for... yeah." <<He>> walks away without looking at you.
+	<br><br>
+
+	You probably could have been gentler. <<gtrauma>><<trauma 6>>
+<<else>>
+	"Sorry, but I don't think <<hes>> interested. I did my best, at least." You return the gifts.
+	<br><br>
+
+	The <<person1>><<person>>  stays quiet for a few moments, before looking down at the note you just returned. "Oh, I see..." <<he>> says, disappointed. "Well, thanks for trying anyway." <<He>> walks away, shoulders slumped.
+	<br><br>
+
+	You feel a pang of guilt. <<gtrauma>><<trauma 6>>
+<</if>>
+<br><br>
+
+<<link [[Next|Orphanage]]>><<endevent>><</link>>
+<br>
+
+:: Home Valentines Report Back Robin
+<<effects>>
+
+You head to the garden and find the orphan waiting. <<person1>><<He>> looks even more nervous than before. "How did it go? Is Robin coming?"
+<br><br>
+
+<<person2>>
+<<if $robinromance gte 1>>
+	<<if $speech_attitude is "meek">>
+		"Um... Robin said <<hes>> flattered, but <<hes>> already with someone. Me, actually. Sorry, I should have been more honest from the start." You return the note and chocolate bar. "B-But <<he>> hopes you find someone as wonderful as you are."
+	<<elseif $speech_attitude is "bratty">>
+		"Yeah, about that. Robin's already got a <<girlfriend>>, and that's me." You shrug. "Sorry, I should've told you that from the start. Better luck next time." You return the note and chocolate bar. "But <<he>> says <<he>> hopes you find someone as wonderful as you are."
+	<<else>>
+		"I told <<him>> what you wanted, but <<he>> said to tell you <<hes>> already dating someone. Me, to be honest. I'm sorry I wasn't upfront with you." You return the note and chocolate bar. "But still, <<he>> hopes you find someone as wonderful as you are."
+	<</if>>
+	<br><br>
+
+	<<person1>><<His>> expression crumbles. "No, it's alright, don't worry... you were too kind." <<He>> tries to smile. "I didn't know you were dating. I'm really happy for you both, truly." <<He>> walks away before you can answer.
+<<else>>
+	<<if $speech_attitude is "meek">>
+		"I'm really sorry... Robin said <<hes>> not interested." You return the gifts. "But <<he>> hopes you find someone who returns your feelings. I-I'm sure you will..."
+	<<elseif $speech_attitude is "bratty">>
+		"Sorry. Robin said thanks, but <<hes>> not interested." You return the gifts. "But <<he>> hopes you find someone who returns your feelings."
+	<<else>>
+		"I gave <<him>> your gifts. <<He>> said <<hes>> not interested, but <<he>> hopes you find someone who returns your feelings someday." You return the gifts.
+	<</if>>
+	<br><br>
+
+	<<person1>><<He>> goes very still. "Oh." <<He>> stares down at the note for a few moments. "I see. Thanks for trying, anyway..." <<He>> walks away, shoulders slumped.
+<</if>>
+<br><br>
+
+You can't help but feel bad for <<him>>.
+<br><br>
+
+<<link [[다음|Orphanage]]>><<endevent>><</link>>
+<br>

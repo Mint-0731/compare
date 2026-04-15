@@ -1,0 +1,3381 @@
+:: Hallways
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+<<if !["early", "late", "earlynoschool", "latenoschool", "daynoschool"].includes($schoolstate)>>
+	당신은 학교 복도에 있다.
+	<<if $schoolstate is "morning">>
+		학생들과 교직원들이 이미 복도를 지나다니고 있지만,
+		<<if $cool lt 40 and $exposed is 0>>
+		당신 가까이로는 다가오지 않는다.
+		<</if>>
+		공식적으로 수업이 시작한 것은 아니다.
+	<<elseif $schoolstate is "afternoon">>
+		학교 건물이 아직 몇 시간 동안은 열려있을 것이기에, 수업이 모두 끝났지만 몇몇 학생들과 교직원들이 남아있다.
+	<<elseif $schoolstate is "lunch">>
+		점심시간을 맞이하여 나온 학생들로 가득하다.
+	<<else>>
+		여러 교실에서 말소리가 들려온다.
+	<</if>>
+	<br><br>
+	<<if $exposed gte 1>>
+		당신은 창고에서 창고로 빠르게 움직여, 음란한 모습을 가리기 위해 계단 밑에 숨거나 사람들이 많은 장소를 피한다.
+		<br><br>
+	<</if>>
+<<else>>
+	학교 복도는 비어있다.
+	<<if ["intro", "discover", "admission", "notPaid"].includes($weekly.schoolNightPoolParty) and Time.dayState is "night">>
+		<span class="blue">당신은 수영장에서 흘러나오는 소리를 듣는다.</span>
+	<</if>>
+	<br><br>
+<</if>>
+<<if $arousal gte $arousalmax>>
+	<<orgasmLocation "schoolHallway">>
+<</if>>
+<<schoolperiodtext>>
+
+<<if !$settings.forcedCrossdressingEnabled>><<unset $whitneyskirtmaths>><</if>>
+<<if $whitneypantiesmaths or $whitneyskirtmaths>>
+	<<if $whitneypantiesmaths is "seen" and ($worn.under_lower.type.includes("naked") or ($whitneypantiescheck is 2 and $worn.under_lower.gender is "f"))>>
+		<<unset $whitneypantiesmaths>>
+		<!-- Adding this as a failsafe; If the player triggered this scene but somehow invalidated its conditions, skip the branches where Whitney is blatantly incorrect.
+		Admittedly, this approach isn't perfect either, but it's better than being obviously wrong. Either way, this should only matter in very strange, non-recurring cases. -->
+	<</if>>
+	<<if $whitneypantiesmaths is "seen">>
+		복도에 한 걸음 내딛자마자 <<npc Whitney>><<person1>>휘트니와 그의 친구들이 당신을 둘러싼다. "넌 참 나쁜 소녀야," 그가 씩 웃는다. 친구들은 흥분한 것처럼 보인다.
+		<<if $whitneypantiescheck is 1>>
+			"내가 <<if $player.gender_appearance is "f">>팬티를<<else>>속옷을<</if>> 입지 말라 했을 때, 진심이었어. 그러니 이제 전부 벗겨 가져가야겠어."
+		<<elseif $whitneypantiescheck is 2>>
+			"내가 팬티를 입으라 했을 때, 진심이었어. 그러니 이제 전부 벗겨 가져가야겠어."
+		<</if>>
+		<<set _maleClothes to Object.keys($worn).filter((slot) => {
+			return $worn[slot].gender is "m" and !["genitals", "under_upper"].includes(slot);
+		})>>
+		<<if !$settings.forcedCrossdressingEnabled or !$whitneyskirtcheck>>
+		<<elseif $whitneyCrossdressSchool and _maleClothes.length>>
+			그가 조롱한다. "너는 확실하게 남자 옷만 입어야만<<if clothingData('lower', $worn.lower, "skirt") isnot 1>> 하고 치마 따위는 신경쓰지 말아야만<</if>> 해."
+		<<elseif clothingData('lower', $worn.lower, "skirt") isnot 1>>
+			그가 조롱한다. "너는 치마마저도 입을 수 없어."
+		<<elseif $worn.lower.reveal lte 200>>
+			그가 조롱한다. "그 치마는 충분히 짧지가 않아."
+		<</if>>
+
+		<<whitneyRulePunishment>>
+	<<elseif $whitneyskirtmaths>>
+		<<set _wearingSkirt to (clothingData('lower', $worn.lower, "skirt") is 1)>>
+		<<set _maleClothes to Object.keys($worn).filter((slot) => {
+			return $worn[slot].gender is "m" and !["genitals", "under_upper", "under_lower"].includes(slot);
+		})>>
+		<<set _whitneyMadAtSkirt to $whitneyskirtcheck gte 1 and (!_wearingSkirt or $worn.lower.reveal lte 200)>>
+		<<set _whitneyMadAtClothes to $whitneyCrossdressSchool gte 1 and _maleClothes.length>>
+		복도에 한 걸음 내디디자 마자 <<npc Whitney>><<person1>>휘트니와 그의 친구들이 당신을 둘러싼다. "넌 참 나쁜 소녀야," 그가 씩 웃는다. 친구들은 흥분한 것처럼 보인다.
+		<br><br>
+		<<if _whitneyMadAtClothes and _whitneyMadAtSkirt>>
+			"걸레들은 그렇게 입고 다니지 않아. 내가 남자 옷을 입지 말라고 했을 때, 진심이었어. 내가 짧은 치마를 입으라고 했을 때, 그것도 진심이었어."
+		<<elseif _whitneyMadAtClothes>>
+			"걸레들은 그렇게 입고 다니지 않아. 내가 남자 옷을 입지 말라고 했을 때, 진심이었어."
+		<<elseif _whitneyMadAtSkirt>>
+			"걸레들은 그렇게 입고 다니지 않아. 내가 짧은 치마를 입으라고 했을 때, 진심이었어."
+		<<else>>
+			"걸레들은 그렇게 입고 다니지 않아."
+		<</if>>
+
+		휘트니가 당신을 꾸짖는다.
+
+		<<whitneyRulePunishment>>
+	<<else>>
+		복도에 한 걸음 내디디자 마자 <<npc Whitney>><<person1>>휘트니와 그의 친구들이 당신을 둘러싼다. "뭔가 숨기는게 있는 것 같단 말이지." 그는 그렇게 말하고는 당신의 치마 밑으로 손을 뻗으며 웃는다.
+		<br><br>
+
+		<<if $worn.under_lower.type.includes("naked") or ($whitneypantiescheck is 2 and $worn.under_lower.gender is "f")>>
+			"흐음." 그가 말을 계속한다. "착하게 굴었구나. 다음 번에도 이렇게 협조하는게 좋을 거야."
+			<br><br>
+
+			그와 친구들은 한가로이 떠나간다.
+			<br><br>
+
+			<<endevent>>
+			<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+			<br>
+		<<else>>
+			<<whitneyRulePunishment true>>
+		<</if>>
+	<</if>>
+	<<unset $whitneypantiesmaths>>
+	<<unset $whitneyskirtmaths>>
+<<elseif $stress gte $stressmax>>
+	<<if isPregnancyEnding()>>
+		<<pregnancyPassout "schoolHallways">>
+	<<else>>
+		<<link [[모든 것이 암흑 속으로 사라져간다...|School Passout]]>><</link>>
+	<</if>>
+
+<<elseif !["early", "late", "earlynoschool", "latenoschool", "daynoschool"].includes($schoolstate) and dangerEvent() and $eventskip is 0>>
+	<<if $exposed gte 1>>
+		<<eventsschoolhallwaysexposed>>
+	<<else>>
+		<<eventsschoolhallways>>
+	<</if>>
+<<else>>
+	<<schoolperiod>>
+
+	<<if !["early", "late", "earlynoschool", "latenoschool", "daynoschool"].includes($schoolstate) and $exposed gte 1>>
+		<<schoolicon "courtyard">><<link [[학교 뒷마당에 숨어든다 (0:05)|School Rear Courtyard]]>><<pass 5>><</link>>
+		<br>
+		<<swimmingicon>><<link [[수영장에 숨어든다 (0:03)|School Pool Entrance]]>><<pass 3>><</link>>
+		<br>
+		<<schoolicon "library">><<link [[도서관에 숨어든다 (0:05)|School Library]]>><<pass 5>><</link>>
+		<br>
+		<<bathroomicon "toilet">><<link [[화장실에 숨어든다 (0:05)|School Toilets]]>><<pass 5>><</link>>
+		<br>
+	<<else>>
+		<<if $schoolstate is "afternoon" and $detention gte 1 and $daily.school.detentionAttended isnot 1 and $pillory.tenant.special.name isnot "Leighton">>
+		<<schoolicon "headdesk">><<link [[징계 받으러 간다|School Detention]]>><</link>>
+		<br>
+			<<if $headdrive gte 1 and $headnodetention isnot 1 and $headmoney isnot 1 and $headphotoshoot isnot 1>>
+			<<schoolicon "headdesk">><<link [[레이턴을 협박한다|Head's Office Blackmail]]>><<npc Leighton>><<person1>><<set $phase to 1>><</link>><<crime "coercion">>
+			<br>
+			<</if>>
+		<br>
+		<</if>>
+
+		복도
+		<br>
+		<<lockericon>><<link [[사물함|School Lockers]]>><</link>>
+		<br><br>
+		바깥
+		<br>
+		<<exiticon>><<link [[학교 앞마당 (0:02)|School Front Courtyard]]>><<pass 2>><</link>>
+		<br>
+		<<schoolicon "courtyard">><<link [[학교 뒷마당 (0:02)|School Rear Courtyard]]>><<pass 2>><</link>>
+		<br>
+		<<stairsicon "up">><<link [[옥상 (0:02)|School Roof]]>><<pass 2>><</link>>
+		<br><br>
+		시설
+		<br>
+		<<foodicon "eat">><<link [[식당 (0:01)|Canteen]]>><<pass 1>><</link>>
+		<br>
+		<<if ["intro", "discover", "admission", "notPaid"].includes($weekly.schoolNightPoolParty) and Time.dayState is "night">>
+			<<swimmingicon>><<link [[수영장 (0:01)|School Night Pool Party Changing Room]]>><<pass 1>><</link>>
+		<<else>>
+			<<swimmingicon>><<link [[수영장 (0:01)|School Pool Entrance]]>><<pass 1>><</link>>
+		<</if>>
+		<br>
+		<<schoolicon "library">><<link [[도서관 (0:02)|School Library]]>><<pass 2>><</link>>
+		<br>
+		<<if $schoolstate is "afternoon" and $detention gte 1 and $daily.school.detentionAttended isnot 1>>
+		<<else>>
+			<<schoolicon "headdesk">><<link [[교장실 (0:02)|Head's Office]]>><<pass 2>><</link>>
+			<br>
+		<</if>>
+		<<schoolicon "infirmary">><<link [[양호실 (0:02)|School Infirmary]]>><<pass 2>><<set $phase to 0>><</link>>
+		<br>
+		<<bathroomicon "toilet">><<link [[화장실 (0:02)|School Toilets]]>><<pass 2>><</link>>
+		<br><br>
+		교실
+		<br>
+		<<scienceicon>><<link [[과학 교실 (0:01)|Science Classroom]]>><<set $justEntered to true>><<pass 1>><</link>>
+		<br>
+		<<mathicon>><<link [[수학 교실 (0:01)|Maths Classroom]]>><<set $justEntered to true>><<pass 1>><</link>>
+		<br>
+		<<englishicon>><<link [[영어 교실 (0:01)|English Classroom]]>><<set $justEntered to true>><<pass 1>><</link>>
+		<br>
+		<<historyicon>><<link [[역사 교실 (0:01)|History Classroom]]>><<set $justEntered to true>><<pass 1>><</link>>
+		<br>
+		<<icon "housekeeping.png">><<link [[가정 교실 (0:01)|Housekeeping Classroom]]>><<set $justEntered to true>><<pass 1>><</link>>
+		<br>
+	<</if>>
+<</if>>
+
+<<set $eventskip to 0>>
+
+:: Hallways Low Status
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+<<if $rng gte 81>>
+	<<generatey1>><<generatey2>><<generatey3>>
+	<<if $schoolrep.herm gte 5>>
+		<<person1>>한 소년이 가장 먼저 당신을 보고는, 친구들에게 귓속말을 한다. 당신이 지나가려 하자, 그 세 명이 당신을 붙잡고는 사물함 쪽으로 밀어붙인다. 다른 학생들은 그들을 자극하며 그 "괴물"을 벌주라고 부추긴다.
+		<br><br>
+	<<elseif $schoolrep.crossdress gte 5>>
+		<<person1>>한 소년이 가장 먼저 당신을 보고는, 친구들에게 귓속말을 한다. "크로스드레서"니 "변태"니 하는 말이 들려온다. 당신이 지나가려 하자, 그 세 명이 당신을 붙잡고는 사물함 쪽으로 밀어붙인다.
+		<br><br>
+	<<else>>
+		<<person1>>한 소년이 가장 먼저 당신을 보고는, 친구들에게 귓속말을 한다. 당신이 지나가려 하자, 그 세 명이 당신을 붙잡고는 사물함 쪽으로 밀어붙인다.
+	<</if>>
+	<br><br>
+
+	<<link [[다음|Hallways Low Status Molestation]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<<else>>
+	<<generatey1>><<person1>>한 소년이 가장 먼저 당신을 보고는, 친구들에게 귓속말을 한다. 그들은 당신이 다가오자, 무슨 병이라도 퍼트리는 것처럼 당신에게서 멀어진다.<<trauma 6>><<stress 6>>
+	<br><br>
+
+	<<endevent>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Low Status Molestation
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+
+	<<maninit>><<npcstrip>><<npcidlegenitals>>
+	<<set $timer to 15>>
+	<<enableSchoolRescue "Whitney" "delinquency">>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate "<span class='red'>당신의 불량학생으로서의 명성 때문에, 누구도 당신을 도우러 오지 않는다.</span>">>
+<<man>>
+<<audience>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if $alarm is 1 and $rescue gte 2>>
+	<span id="next"><<link [[다음|Whitney Rescue]]>><<set $whitneyRescueExit to "hallways">><</link>></span><<nexttext>>
+<<elseif _combatend or $timer lte 1 or
+	($worn.upper.type.includes("naked") and $worn.lower.type.includes("naked") and $worn.under_lower.type.includes("naked")) or
+	($worn.upper.type.includes("naked") and $worn.lower.type.includes("naked") and playerChastity())
+>>
+	<span id="next"><<link [[다음|Hallways Low Status Molestation Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Hallways Low Status Molestation]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Hallways Low Status Molestation Finish
+<<if $enemyhealth lte 0>>
+	당신의 공격성에 충격을 받은듯 그들은 잠시 뒤로 물러선다. <<tearful>> 당신은 안전한 곳으로 도망간다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+
+	"잊지마. 네 쓸모는 이런 일 뿐이라는 걸 말이야. 자, 누가 우리가 얘랑 어울려 다녔다고 생각하기 전에 가자." <<tearful>> 당신은 자리에서 일어난다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<<elseif $alarm is 1 and $rescue is 1>>
+	당신의 비명 소리가 어느 정도 효과가 있는 것 같다. "가자, 얘한테서 뭔가 옮을 수도 있잖아." <<person1>>소년은 당신을 밀쳐내고, 바닥에 나동그라진 당신을 두고 그들은 떠난다. <<tearful>> 당신은 자리에서 일어난다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<<elseif $timer lte 0>>
+	어른의 목소리가 다가오고, <<person1>>소년은 두 선생님이 다가오기 전에 당신을 밀쳐낸다. <<tearful>> 당신은 바닥에서 일어난다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<<else>>
+	소년들은 당신의 옷을 손에 든 채로, 뒤로 물러선다. 완전히 둘러쌓인 상태에서, 당신은 쪼그려 앉은 상태에서 어떻게든 음란한 모습을 가려보려 한다.
+	<br><br>
+
+	"맙소사, 완전히 벗겨버렸잖아!"
+	<br><br>
+
+	"완전히 당황했나본데, 쟤 꼼지락대는 걸 좀 봐!"
+	<br><br>
+
+	<<if $speech_attitude is "meek">>
+		"제-제발 옷 좀 돌려줘. 너무 추워." 당신은 무릎을 꿇고는 바닥에 얼굴을 댄 채로 엎드린 상태에서 말한다.
+		<br><br>
+
+		"이건 그냥 한심한데." <<person1>>소년이 말한다. "왜 그렇게 스스로를 비참하게 만드는 거야?" 그는 당신의 위에 옷을 떨군다. "가자. 이 찐따 때문에 기분만 나빠졌어." <<tearful>> 당신은 옷을 부여잡고는 옷을 입을 조용한 장소를 찾는다.
+		<br><br>
+
+		<br><br>
+		<<clotheson>>
+		<<endcombat>>
+
+		<<link [[다음|Hallways]]>><</link>>
+	<<elseif $speech_attitude is "bratty">>
+		당신은 학생들을 노려본다. "내 옷 돌려줘. 당장." 당신은 지금 처해있는 곤경을 생각해 봤을 때 놀랄만한 자신감을 갖고 말한다.
+		<br><br>
+
+		<<person1>>소년이 웃음을 터트린다. "아, 안돼! 그녀의 말을 듣는게 좋겠는걸!" 그는 당신의 옷을 천장 전등 쪽으로 던지고, 옷은 그대로 거기에 걸린다. "자, 가져가!"
+		<br><br>
+
+		학생들은 당신이 필사적으로 몸을 가린 채로, 머리 위에 매달린 옷을 잡으려 뛰는 걸 보면서 즐긴다. 당신은 어떻게든 전등을 건드리는 데에 성공하고, 전등이 기울어지면서 옷이 당신의 위로 떨어진다. <<tearful>> 당신은 옷을 부여잡고는 옷을 입을 조용한 장소를 찾는다.
+
+		<br><br>
+		<<clotheson>>
+		<<endcombat>>
+
+		<<link [[다음|Hallways]]>><</link>>
+	<<else>>
+		"가자." <<person1>>소년이 말한다. "이 정도 했으면 주제를 알겠지." 그들은 당신의 옷을 가지고 떠난다. <<tearful>> 당신은 주변을 둘러본다. 혼자다.
+		<br><br>
+		<<set $stealtextskip to 1>>
+		<<stealclothes>>
+
+		<<clotheson>>
+		<<endcombat>>
+
+		<<link [[다음|Hallways]]>><</link>>
+	<</if>>
+<</if>>
+
+:: Hallways High Delinquency
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+<<if $rng gte 81>>
+	텅 빈 복도를 걸어내려가는 와중에 한 소년이 숨쉬는 소리가 뒤에서 들려오나, 그는 아무 짓도 하지 않는다.
+	<br><br>
+
+	<<endevent>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	텅 빈 복도를 걸어내려가는 와중에 한 소년이 숨쉬는 소리가 뒤에서 들려온다. 복도를 반쯤 지나자 그가 발걸음을 빠르게 하던 뒤에서 당신을 붙잡는다.
+	<br><br>
+	"도움을 요청하려면 해봐." 그가 말한다. "아무도 오지 않을 테니까."
+	<br><br>
+
+	<<link [[다음|Hallways High Delinquency Molestation]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<</if>>
+
+:: Hallways High Delinquency Molestation
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+
+	<<maninit>>
+	<<enableSchoolRescue "Whitney">>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate "<span class='red'>당신의 불량학생으로서의 명성 때문에, 누구도 당신을 도우러 오지 않는다.</span>">>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if $enemyarousal gte $enemyarousalmax or $enemyhealth lte 0>>
+	<span id="next"><<link [[다음|Hallways High Delinquency Molestation Finish]]>><</link>></span><<nexttext>>
+<<elseif $alarm is 1 and $rescue gte 1>>
+	<span id="next"><<link [[다음|Whitney Rescue]]>><<set $whitneyRescueExit to "hallways">><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Hallways High Delinquency Molestation]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Hallways High Delinquency Molestation Finish
+<<if $enemyhealth lte 0>>
+	당신은 그들을 사물함 쪽으로 밀치고, 그 덕에 도망칠 틈이 생긴다. <<tearful>> 당신은 안전한 곳으로 도망친다.
+	<br><br>
+
+	<<clotheson>><<endcombat>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	"만약 다른 사람한테 말한다면, 난 네가 날 공격했다고 할 거야. 그럼 누구 말을 믿을까?"
+	<br><br>
+	<<tearful>> 당신은 간신히 자리에서 일어난다.
+	<br><br>
+
+	<<clotheson>><<endcombat>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+	<br><br>
+<</if>>
+
+:: Hallways Flirt Squeeze
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+<<switch random(1,10)>>
+	<<case 1>>미소 지으며, 당신은 어깨 너머를 본다. "고마워!" 당신은 아양 떨듯이 말한다.
+	<<case 2>>당신은 당신의 엉덩이를 내밀어, 약간 흔들고는, 어깨 너머를 본다.
+	<<case 3>>당신은 그를 향해 몸을 돌리고 킥킥거린다, "그거 좋았어!"
+	<<case 4>>당신은 그를 향해 몸을 돌리고 킥킥거린다, "마음에 들었어?"
+	<<case 5>>당신은 그를 향해 윙크한다.
+	<<case 6>>"나쁜 손이네, 안 그래?" 당신은 미소 지으며, 어깨 너머를 바라본다.
+	<<case 7>>"오, 기분 좋은데!" 당신은 미소 짓고, 어깨 너머의 그를 바라보며 아양 떨듯이 말한다.
+	<<case 8>>당신은 어깨 너머로 V사인을 하며 그에게 미소 짓는다 "내 엉덩이 끝내주지, 응?"
+	<<case 9>>당신은 잠시 멈춰서, 어깨 너머로 수줍게 엉덩이를 흔들며 그를 바라본다. "마음에 들어?"
+	<<case 10>>당신은 엉덩이를 내밀고 매혹적인 포즈를 취하며, 어깨 너머로 손 키스를 날린다.
+<</switch>>
+<<promiscuity1>>
+
+/* Two add nothing, two add arousal, two add butt arousal, two add stress */
+<<switch random(1,8)>>
+	<<case 1>>그는 눈을 마주치는 것을 피하고 서둘러 움직인다.
+	<<case 2>>그는 창백해지더니, 더듬거리며 사과하고는 황급히 자리를 뜬다.
+	<<case 3>>그는 당신에게 잠깐 눈을 고정시키고는, 씨익 웃는다. 당신은 얼굴을 붉히면서 서둘러 움직인다. <<arousal 500>><<garousal>>
+	<<case 4>> 그는 씩 웃으며, 당신을 위아래로 훑어본다. "너 정말 귀엽다. 너도 알지?" 당신은 얼굴을 붉힐 수밖에 없다. <<arousal 500>><<garousal>>
+	<<case 5>>"천만에, 예쁜아." 그가 대답하고, 걸어가면서 당신의 엉덩이를 손바닥으로 탁 때린다. <<pain 5>><<gpain>><<arousal 500 "bottom">><<garousal>>
+	<<case 6>>"미친, 너 진짜 섹시하네," 그가 말하며, 떠나기 전에 당신의 엉덩이를 한 번 꽉 움켜쥔다. <<pain 5>><<gpain>><<arousal 500 "bottom">><<garousal>>
+	<<case 7>>그는 당신을 화난 표정으로 쏘아보고는 중얼거리며 멀어진다, "멍청한 걸레새끼. <<gstress>><<stress 6>>
+	<<case 8>>"역겨워," 그가 말하며, 당신을 피해간다. 그는 어깨 너머로 당신에게 혐오스러운 시선을 보낸다. <<gstress>><<stress 6>>
+<</switch>>
+<br><br>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Slap
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+당신은 소년이 도망치기 전에 후려쳐, 얼굴에서 능글맞은 웃음을 지워낸다.
+<br><br>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Encounter
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+<<cleareventpool>>
+
+/* Okay, so the math here is a bit complex, so let me summarize the intended outcomes of the event weightings:
+	 fame.sex from 0-399 (unknown through known), 	NPC has a 1 in 6 chance (16%) of asking for sex
+	 fame.sex from 400-599 (all of recognised), 	NPC has a 2 in 7 chance (28%) of asking for sex
+	 fame.sex from 600-800 (lower half of famous), 	NPC has a 3 in 8 chance (37%) of asking for sex
+	 fame.sex from 800-999 (upper half of famous),	NPC has a 4 in 9 chance (44%) of asking for sex
+	 fame.sex from 1000 or more (all of notorious), 	NPC has a 5 in 10 chance (50%%) of asking for sex
+   In conclusion, the more of a known slut the PC is, the more NPCs will attempt to proposition them */
+<<set _propositionWeight to $fame.sex gte 200 ? Math.floor($fame.sex / 200) lte 5 ? Math.floor($fame.sex / 200) : 5 : 1>>
+<<addinlineevent "encounter_proposition" _propositionWeight>>
+	당신은 잡담한다. 그는 좋은 사람처럼 보이나, 당신이 떠나려고 몸을 돌리자 당신의 팔을 붙잡는다. "아무도 방해하지 못할 장소를 알고 있어."
+	<<if $schoolrep.herm gte 5>>
+		그는 당신의 몸을 눈으로 훑다가 가랑이 쪽으로 시선을 보낸다. "네가 특별하다는 걸 들었어."
+	<<elseif $schoolrep.crossdress gte 5 and isCrossdressing()>>
+		그는 당신의 몸을 눈으로 훑다가 가랑이 쪽으로 시선을 보낸다. "네게 비밀이 있다고도 들었어."
+	<<else>>
+		그는 당신의 몸을 눈으로 훑는다.
+	<</if>>
+	<br><br>
+
+	<<if hasSexStat("promiscuity", 2)>>
+		<<link [[받아들인다|Hallways Encounter Sex]]>><<set $sexstart to 1>><</link>><<promiscuous2>>
+		<br>
+	<<else>>
+		당신은 그의 제안을 수락할 만큼 음란하지 않다.
+		<br>
+	<</if>>
+	<<link [[거절한다|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</addinlineevent>>
+
+<<addinlineevent "encounter_chat" 5>>
+	당신은 잡담한다. 그는 좋은 사람처럼 보인다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</addinlineevent>>
+
+/* TODO: Rape/blackmail event (low frequency, >20%)*/
+
+/* TODO: Wholesome interaction event*/
+
+<<runeventpool>>
+
+:: Hallways Encounter Sex
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemytrust += 100>>
+	당신과 소년은 둘만 있기 위해 창고로 향한다.
+	<<promiscuity2>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Hallways Encounter Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Hallways Encounter Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Hallways Encounter Sex Finish
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+
+	"엄청났어." 그가 숨을 헐떡이며 말한다. "다음에 또 보자." <<tearful>> 당신은 몸을 추스른다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+<<elseif $enemyhealth lte 0>>
+	소년은 혼란스럽고 실의에 빠진 모습으로 비틀거리며 창고에서 나간다. <<tearful>> 당신은 몸을 추스른다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+<<elseif $finish is 1>>
+
+	소년은 실의에 빠진 모습으로 옷을 고쳐입고는 창고에서 나간다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+<</if>>
+<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+
+:: Hallways Exposed Classroom
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+<<if $rng gte 81>>
+	당신은 웅크리고 앉아서 교실 창문을 통해 밖을 내다본다. 텅 비었다. 일단 안에 들어온 상태에서 당신이 문 옆에 서서는 지나다니는 사람들의 말소리를 엿듣고 있자니, 몇 명의 학생의 목소리가 근방에서 멈춘다. "이 방을 쓰면 될 것 같아." 이 방에 들어올 생각인 것 같다.
+	<br><br>
+
+	당신은 어디 숨을 곳이 없나 둘러보나, 찾을 수 없었다.
+	<br><br>
+
+	<<link [[창문을 통해 나간다|Hallways Exposed Window]]>><</link>>
+	<br>
+	<<link [[숨지 않는다|Hallways Exposed Classroom Molestation]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<<else>>
+	당신은 웅크리고 앉아서 교실 창문을 통해 밖을 내다본다. 텅 비었다. 일단 안에 들어온 상태에서 당신이 문 옆에 서서는 지나다니는 사람들의 말소리를 엿듣는다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Exposed Lockers
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+당신은 사물함들을 확인하다가, 그 중 하나가 잠겨있지 않는 걸 확인한다. 당신은 그 안에 숨는다.
+<br><br>
+
+<<if $rng gte 81>>
+
+	당신은 사물함 틈을 통해 밖을 내다보고, 두 집단의 학생들이 앞을 지나쳐간다. <<generatey1>><<person1>>"잊을 뻔했네." 소년이 말한다. "사물함에서 뭐 좀 꺼내야 해." 그는 당신이 숨어있는 곳으로 오더니, 문을 열기 위해 손을 뻗는다.
+	<br><br>
+
+	그는 친구들을 바라본 채로 사물함 문을 열어, 바로 앞에서 몸이 노출된 상태로 서있는 당신을 보지 못한다. "그냥 과제야." 당신은 몸을 수그리고, 그의 손이 위쪽 허공을 뒤진다. 그는 아직도 이쪽을 보고 있지 않다. 그는 폴더 하나를 잡고는 빼낸 뒤, 사물함 문을 닫는다. 당신은 자신도 모르는 새에 숨을 참고 있었다.
+	<<gstress>><<garousal>><<stress 6>><<arousal 600>>
+	<br><br>
+
+	일단 목소리가 잦아들자, 당신은 가볍게 문을 민다. 열리지 않는다. 더 세게 밀어보나, 여전히 열리지 않는다. 그가 이번에는 문을 잠근 모양이다. 움직임이 제한되긴 했으나, 무언가 상황에 도움이 될만한 건 없는지 어둠 속을 살펴본다. 발치에서 무언가 서늘한 바람이 느껴진다. 그쪽을 더 살펴보자, 사물함 뒤쪽이 없다는 것을 알아채고, 학교 벽의 벽돌이 만져진다. 밑쪽은 벽돌이 빠지려고 한다.
+	<br><br>
+	<<endevent>>
+
+	<<if $settings.tentaclesEnabled and $hallucinations gte 2>>
+		<<link [[걷어찬다|Hallways Exposed Tentacles]]>><<set $molestationstart to 1>><</link>>
+		<br>
+	<<else>>
+		벽을 부숴가자 바람이 더 세진다. 느슨한 벽돌을 전부 빼버리니 딱 당신이 지나갈 수 있을만한 구멍이 생긴다. 당신은 한쪽 다리를 집어넣은 뒤, 다른 쪽 다리도 집어넣고는 천천히 몸을 꼼지락거리며 빠져나간다.
+		<br><br>
+
+		<<link [[다음|Industrial Drain]]>><<set $eventskip to 1>><</link>>
+		<br>
+	<</if>>
+<<else>>
+	당신은 사물함 틈을 통해 밖을 내다보고, 두 집단의 학생들이 앞을 지나쳐간다. 당신은 그들의 목소리가 더는 들리지 않게 될 때까지 기다린다.
+	<br><br>
+
+	<<link [[나온다|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Exposed Window
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+당신은 창문 쪽으로 달려가 창문을 연다. 확인할 시간은 없지만, 어쨌든 안전해 보인다. 당신은 창문을 넘어 그 아래의 보도로 뛰어내린다.
+<br><br>
+
+<<link [[다음|Industrial Alleyways]]>><<endevent>><</link>>
+<br>
+
+:: Hallways Exposed Classroom Molestation
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+
+	<<generatey1>><<generatey2>><<generatey3>><<generatey4>><<maninit>>
+	<<enableSchoolRescue "Whitney" "delinquency">>
+
+	학생 네 명이 교실에 들어온다. 그들은 잠시 당신을 쳐다보다가, 지켜보기만 하지 않고 행동으로 옮긴다.
+	<br><br>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate "<span class='red'>당신의 불량학생으로서의 명성 때문에, 누구도 당신을 도우러 오지 않는다.</span>">>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+
+<<if $alarm is 1 and $rescue gte 2>>
+	<span id="next"><<link [[다음|Whitney Rescue]]>><<set $whitneyRescueExit to "classroom">><</link>></span><<nexttext>>
+<<elseif _combatend>>
+	<span id="next"><<link [[다음|Hallways Exposed Classroom Molestation Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Hallways Exposed Classroom Molestation]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Hallways Exposed Classroom Molestation Finish
+<<if $enemyhealth lte 0>>
+	그들은 당신의 공격에 놀라, 잠시 뒤로 물러난다. <<tearful>> 당신은 안전한 곳으로 도망친다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+
+	"도대체 뭘 기대한 거야? 그런 꼴로 돌아다니고 말이야." <<tearful>> 당신은 자리에서 일어나 그들이 떠나는 걸 지켜본다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<<elseif $alarm is 1 and $rescue is 1>>
+	<<person1>>소년의 기가 죽는다. "가자, 이런 걸 보이고 싶진 않잖아." 그는 당신을 밀쳐내며 말한다. <<tearful>> 당신은 자리에서 일어나 그들이 떠나는 걸 지켜본다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<</if>>
+
+:: Hallways Exposed Tentacles
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<set $combat to 1>>
+	<<set $enemytype to "tentacles">>
+	<<molested>>
+	<<controlloss>>
+
+	<<tentaclestart 4 15>>
+
+	벽을 부숴가자 바람이 더 세진다. 느슨한 벽돌을 전부 빼버리니 딱 당신이 지나갈 수 있을만한 구멍이 생긴다. 당신은 한쪽 다리를 집어넣은 뒤, 다른 쪽 다리도 집어넣고는 천천히 몸을 꼼지락거리며 빠져나간다. 학교에 지하실이 있는 것일까 생각을 하던 와중에 무언가 당신의 엉덩이를 쓰다듬는다.
+	<br><br>
+<</if>>
+
+<<statetentacles>>
+
+
+<<effects>>
+<<effectstentacles>>
+<<tentacles>>
+<<actionstentacles>>
+
+<<if $tentacles.active lte ($tentacles.max / 2)>>
+	<span id="next"><<link [[다음|Hallways Exposed Tentacles Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Hallways Exposed Tentacles]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Hallways Exposed Tentacles Finish
+<<effects>>
+
+촉수는 당신을 그 상태로 내버려둔 채로 물러난다. 촉수의 지지가 없자, 남은 벽도 무너지면서 당신도 바닥에 나동그라진다. <<tearful>> 당신은 어떻게든 일어나서 주변을 둘러본다.
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Industrial Drain]]>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Slime Breasts Submit willingly
+<<effects>>
+
+<<if !$worn.upper.type.includes("naked")>>
+	당신은 그에게로 돌아서서, 단숨에 입고 있던 윗옷을 올린다. 그는 당신을 보고는 입을 떡 벌린다. "만져봐." 당신이 말한다.
+<<else>>
+	당신은 그에게로 돌아서서, 가슴을 불쑥 내민다. "만져봐." 당신이 말한다.
+<</if>>
+<br>
+<<promiscuity4>>
+"나를 범해줘," 당신이 말한다.
+<br>
+
+소년은 눈을 의심하듯 얼빠진 표정으로 쳐다본다. 그는 주변을 살피다가, 손을 뻗어서 양손으로 당신의 <<breasts>>을 모아 쥔다. <<if !$worn.under_upper.type.includes("naked")>>그는 당신의 속옷 천 너머로 더듬는다.<<else>>그는 당신의 맨살을 더듬는다.<</if>>
+<br><br>
+
+그는 더욱 공격적으로 변한다.
+<br><br>
+
+<<link [[다음|Hallways Slime Rape]]>><<set $sexstart to 1>><</link>>
+<br>
+
+:: Hallways Slime Breasts Obey
+<<effects>>
+
+<<if !$worn.upper.type.includes("naked")>>
+	당신은 그에게로 돌아서서, <span class="lewd">단숨에 입고 있던 윗옷을 내리고 <<breasts>>을 드러낸다.</span> 그는 당신을 보고는 입을 떡 벌린다. "마=만져." 당신이 말한다. "만져봐."
+<<else>>
+	당신은 그에게로 돌아서서, 가슴을 불쑥 내민다. "마-만져." 당신이 말한다. "만져봐."
+<</if>>
+<br><br>
+
+소년은 눈을 의심하듯 얼빠진 표정으로 쳐다본다. 그는 주변을 살피다가, 손을 뻗어서 양손으로 당신의 <<breasts>>을 모아 쥔다. <<if !$worn.under_upper.type.includes("naked")>>그는 속옷 천 너머로 더듬는다.<<else>>그는 당신의 맨살을 더듬는다.<</if>>
+<br><br>
+
+그는 더욱 강압적으로 변한다.
+<br><br>
+
+<<link [[다음|Hallways Slime Rape]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Hallways Slime Breasts Defy
+<<effects>>
+
+<<if $earSlime.defyCooldown>>
+	<<if $earSlime.growth gte 100>>
+		<<set $earSlime.defyCooldown += 2>>
+		당신은 <<person_ ro>>부터 등을 돌린다. 반항에 대한 벌로 슬라임이 당신을 공격하자, 날카로운 고통이 느껴진다. <span class="red">그것은 다른 방법으로 당신을 벌할 수 있음을 알기에 당신을 제지하지 않는다.</span>
+	<<else>>
+		당신은 <<person_ ro>>부터 등을 돌린다. 반항에 대한 벌로 슬라임이 당신을 공격하자, 날카로운 고통이 느껴진다. 하지만, <span class="teal">슬라임은 이전에 당신을 제압했던 여파로 아직 지친 상태다.</span> 당신은 그것이 자신을 <<personPost>> 쪽으로 돌리려 애쓰다가 <span class="green">실패한 것을 느낀다</span>.
+	<</if>>
+	<br><br>
+	<<endevent>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<elseif $earSlime.corruption gte (currentSkillValue('willpower') / 10)>>
+	<<if hasSexStat("exhibitionism", 4) and $earSlime.growth lt 100>>
+		<<set $earSlime.defyCooldown += 4>>
+	<<else>>
+		<<set $earSlime.defyCooldown += 8>>
+	<</if>>
+	슬라임이 통제권을 행사한다. <span class="red">그것은 당신의 의지를 꺾고</span> 명령에 복종하도록 만든다.
+	<<ggwillpower>><<willpower 3>>
+	<br><br>
+
+	<<link [[다음|Hallways Slime Rape]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<<else>>
+	슬라임이 통제권을 가져가려 하나, 당신은 거기에 맞서 싸워, 어떻게든 그에게서 떨어진다.
+	<br><br>
+	<<endevent>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Slime Strip Submit willingly
+<<effects>>
+<<clothesstrip>>
+당신은 그에게로 돌아서서 옷을 벗기 시작한다. 그는 당신이 한 벌 한 벌 벗어나가는 걸 멍하니 쳐다보고, 곧 당신은 알몸으로 복도 한가운데에 서있는다. 그는 마치 자기가 보고 있는 것이 진짜인지 누군가 확인해주길 바라는듯 주변을 둘러본다.
+<br>
+<<promiscuity5>>
+
+"나를 범해줘," 당신이 말한다.
+
+그는 가까이 다가와서는, 몸을 더듬으려 손을 뻗는다. 슬라임이 신음소리를 내뱉고 싶은 충동을 들게 만든다.
+<br><br>
+소년은 더욱 공격적으로 변한다.
+<br><br>
+<<link [[다음|Hallways Slime Rape]]>><<set $sexstart to 1>><</link>>
+<br>
+
+:: Hallways Slime Strip Obey
+<<effects>>
+<<clothesstrip>>
+당신은 그에게로 돌아서서 옷을 벗기 시작한다. 그는 당신이 한 벌 한 벌 벗어나가는 걸 멍하니 쳐다보고, 곧 당신은 알몸으로 복도 한가운데에 서있는다. 그는 마치 자기가 보고 있는 것이 진짜인지 누군가 확인해주길 바라는듯 주변을 둘러본다.
+<br><br>
+그는 가까이 다가와서는, 몸을 더듬으려 손을 뻗는다. 슬라임이 가만히 서있게 만든다.
+<br><br>
+소년은 더욱 강압적으로 변한다.
+<br><br>
+<<link [[다음|Hallways Slime Rape]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Hallways Slime Strip Defy
+<<effects>>
+
+<<if $earSlime.defyCooldown>>
+	<<if $earSlime.growth gte 100>>
+		<<set $earSlime.defyCooldown += 2>>
+		당신은 <<person_ ro>>부터 등을 돌린다. 반항에 대한 벌로 슬라임이 당신을 공격하자, 날카로운 고통이 느껴진다. <span class="red">그것은 다른 방법으로 당신을 벌할 수 있음을 알기에 당신을 제지하지 않는다.</span>
+	<<else>>
+		당신은 <<person_ ro>>부터 등을 돌린다. 반항에 대한 벌로 슬라임이 당신을 공격하자, 날카로운 고통이 느껴진다. 하지만, <span class="teal">슬라임은 이전에 당신을 제압했던 여파로 아직 지친 상태다.</span> 당신은 그것이 당신이 옷을 벗도록 만들려 애쓰다가 <span class="green">실패한 것을 느낀다.</span>
+	<</if>>
+	<br><br>
+	<<endevent>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<elseif $earSlime.corruption gte (currentSkillValue('willpower') / 10)>>
+	<<if hasSexStat("exhibitionism", 4) and $earSlime.growth lt 100>>
+		<<set $earSlime.defyCooldown += 4>>
+	<<else>>
+		<<set $earSlime.defyCooldown += 8>>
+	<</if>>
+	슬라임이 통제권을 가져가려 한다. <span class="red">녀석은 당신의 의지를 압도하여,</span> 당신을 강제로 그 쪽으로 몸을 돌려 옷을 벗게 만든다.
+	<<ggwillpower>><<willpower 3>>
+	<br><br>
+
+	<<link [[다음|Hallways Slime Strip Obey]]>><</link>>
+	<br>
+<<else>>
+	슬라임이 통제권을 가져가려 하나, <span class="green">당신은 거기에 맞서 싸워,</span> 어떻게든 그에게서 떨어진다.
+	<<gwillpower>><<willpower 1>>
+	<br><br>
+	<<endevent>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Slime Rape
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+
+	<<maninit>>
+	<<enableSchoolRescue "Whitney" "delinquency">>
+<<elseif $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+
+	<<maninit>>
+	<<enableSchoolRescue "Whitney" "delinquency">>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if $alarm is 1 and $rescue gte 2>>
+	<span id="next"><<link [[다음|Whitney Rescue]]>><<set $whitneyRescueSlime to true>><<set $whitneyRescueExit to "hallways">><</link>></span><<nexttext>>
+<<elseif _combatend>>
+	<span id="next"><<link [[다음|Hallways Slime Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Hallways Slime Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Hallways Slime Rape Finish
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	그는 옷을 다시 입으며 어색하게 시선을 돌린다. "너 괜찮아?" 그가 묻는다. 당신은 대답하지 않는다. 그는 어깨를 으쓱이고는, 몸을 돌려 걸어간다.
+	<br><br>
+	슬라임의 영향력이 사라져가자 다리가 휘청인다. <<tearful>> 당신은 겨우 몸을 가눈다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<elseif $enemyhealth lte 0>>
+	당신은 소년을 사물함 쪽으로 밀쳐낸다. <<tearful>> 당신은 몸을 돌려 달아난다. 슬라임이 반항에 대한 처벌을 내리자 당신은 넘어질 뻔한다.
+	<<corruption -1>><<pain 8>><<stress 6>><<trauma 6>><<def 1>><<lcorruption>><<ggpain>><<ggtrauma>><<ggstress>>
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<<else>>
+	<<set $rescued += 1>>
+	복도 끝에 군중이 모여서 지켜보고 있다. 그도 그것을 눈치채고는, 당신에게서 떨어진다. "얘-얘가 해달라고 했어." 그가 말을 더듬는다. "진짜로." 그는 몸을 돌려서 달아난다.
+	<br><br>
+	슬라임이 반항에 대한 처벌을 내려 느닷없는 고통이 몸을 때린다.
+	<<corruption -1>><<pain 8>><<stress 6>><<trauma 6>><<def 1>><<lcorruption>><<ggpain>><<ggtrauma>><<ggstress>>
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<</if>>
+
+:: Hallways Catcall Defy
+<<effects>>
+
+당신은 고개를 돌려 <<person_ rul>> 노려본다. <<anticatcall>>
+<br><br>
+<<switch random(1,5)>>
+	<<case 1>>"아니, 야! 호의로 말한 거라고. 칭찬을 받아들이는 법 좀 배우지 그래," <<he_ ga>> 항복한다는 듯 두 손을 들며 말한다. <<He_ nun>> 서둘러 떠난다.
+	<<case 2>>"그냥 농담이었어, 참치같은 <<bitch_ ya>>," <<he_ nun>> 당신과 시선을 마주치지 않고 중얼거린다. <<He_ nun>> 황급히 자리를 뜬다.
+	<<case 3>>"하! 그-그냥 농담이었다고." <<He_ nun>> 웃어넘기려 하지만, 실패한다. <<He_ nun>> 재빨리 떠난다.
+	<<case 4>>안색이 창백해진 <<persons_ nun>> 고개를 숙인 채 황급히 자리를 뜬다.
+	<<case 5>>"이 <<bitchPost>> 같으니", <<he_ ga>> 야유한다. "칭찬의 대가로 돌아오는 게 그딴 반응이냐?" <<He_ nun>> 당신을 노려보며 떠나간다.
+<</switch>>
+<br><br>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Breast Tease
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"어때, 좋아?" 당신이 <<breasts>>을 강조하기 위해 가슴팍을 앞으로 내밀며 말한다.
+<<elseif $speech_attitude is "bratty">>
+	"한 번 만지게 해달라고 애원해볼래?" 당신이 양손으로 <<breasts>>을 감싸며 말한다.
+<<else>>
+	"질투나?" 당신이 <<breasts>>을 살짝 흔들면서 말한다.
+<</if>>
+<<exhibitionism1>>
+
+<<catcallteaseresponse>>
+
+
+:: Hallways Catcall Flirt
+<<effects>>
+
+<<outfitChecks>>
+<<if _skirtExposed>>
+	당신은 치맛단을 들어올려, 속옷이 보일락말락 하게 만든다.
+<<else>>
+	당신은 사물함에 기대어 선다.
+<</if>>
+
+<<if $speech_attitude is "meek">>
+	"나 귀여워?" 당신이 묻는다.
+<<elseif $speech_attitude is "bratty">>
+	"말 뿐이구나." 당신이 말한다. "한 번 아니라는 걸 증명해볼래?"
+<<else>>
+	"너도 멋져." 당신이 말한다.
+<</if>>
+<<promiscuity1>>
+
+<<catcallteaseresponse>>
+
+:: Hallways Flash
+<<effects>>
+
+당신은 하의를 살짝 들어올려, 속옷이 보일락말락 하게 만든다.
+<<if $speech_attitude is "meek">>
+	"아이쿠!" 당신이 말한다. "실수했네."
+<<elseif $speech_attitude is "bratty">>
+	"맘에 들어?" 당신이 말한다. "분명 그랬을 거야."
+<<else>>
+	"맘에 들어?" 당신이 말한다.
+<</if>>
+<<exhibitionism2>>
+
+<<catcallteaseresponse>>
+
+:: Hallways Lewd Flash
+<<effects>>
+
+당신은 하의를 살짝 들어올려, 질이 보일락말락 하게 만든다.
+<<if $speech_attitude is "meek">>
+	"아이쿠!" 당신이 말한다. "실수했네."
+<<elseif $speech_attitude is "bratty">>
+	"맘에 들어?" 당신이 말한다. "분명 그랬을 거야."
+<<else>>
+	"맘에 들어?" 당신이 말한다.
+<</if>>
+<<exhibitionism4>>
+
+<<catcallteaseresponse>>
+
+:: Hallways Cupboard Refuse
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"미안." 당신이 말한다. "별 흥미가 없네."
+<<elseif $speech_attitude is "bratty">>
+	"시도는 좋았어." 당신이 말한다. "꺼져."
+<<else>>
+	"네가 그럴 정도는 아니라서 말이야." 당신이 말한다.
+<</if>>
+<br><br>
+
+<<rng>>
+<<if $rng gte 51>>
+	소년은 뭔가를 고민하다가, 곧 몸을 돌린다. 그는 "놀리기나 한다"라며 투덜거린다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<<else>>
+	"어림도 없지." 그가 비웃는다. "날 갖고 놀려고 했다면 큰 오산이야." 그는 당신의 팔을 거칠게 잡아당긴다.
+	<<gpain>><<pain 1>><<gstress>><<stress 6>>
+	<br><br>
+
+	<<link [[마지못해 수락한다|Hallways Cupboard Sex]]>><<set $sexstart to 1>><<set $phase to 1>><</link>><<promiscuous1>>
+	<br>
+	<<link [[다시 거부한다|Hallways Cupboard Refuse 2]]>><<detention 1>><</link>><<gdelinquency>>
+	<br>
+<</if>>
+
+:: Hallways Cupboard Refuse 2
+<<effects>>
+
+당신은 소년을 밀쳐낸다. "미친 새끼." 그가 말한다. "네가 날 밀쳤다고 교장한테 말할 거야."
+<br><br>
+
+<<endevent>>
+<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+
+:: Hallways Cupboard Sex
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+
+	<<maninit>>
+	<<enable_rescue>>
+
+	<<if $phase is 0>>
+		그는 당신을 벽장 쪽으로 잡아당긴다. 다른 학생들이 키득거리며 지나간다. 그는 먼저 당신을 밀어넣고는 따라 들어오며 문을 닫는다.
+		<<promiscuity2>>
+	<<else>>
+		그는 당신의 팔을 단단히 붙잡고는 벽장 쪽으로 잡아당긴다. 다른 학생들이 키득거리며 지나간다. 그는 먼저 당신을 밀어넣고는 따라 들어오며 문을 닫는다. 그는 마치 당신이 도망가는 걸 걱정하듯, 출입구 쪽에서 당신을 떨어트린다.
+		<<promiscuity1>>
+	<</if>>
+<<elseif $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+
+	<<maninit>>
+	<<if $delinquency lt 400>><<enable_rescue>><</if>>
+	<<set $NPCList[0].lefthand to "mouth">><<set $mouthuse to "lefthand">>
+
+	소년은 자신의 발로 문을 밀어 닫고, 당신에게 다가온다.
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Hallways Cupboard Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Hallways Cupboard Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Hallways Cupboard Sex Finish
+<<set $outside to 0>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	"고마워." 그가 옷을 매만지며 말한다. 그는 벽장에서 나간다.
+	<br><br>
+	<<tearful>> 당신도 그 뒤를 따른다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<<elseif $enemyhealth lte 0>>
+	당신은 그를 옆으로 밀쳐, 탈출할 기회를 만들어낸다.
+	<br><br>
+	<<tearful>> 당신은 벽장에서 탈출한다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<<elseif $finish is 1>>
+	"시발, 놀리기나 하고 말이야." 그는 옷을 매만지며 말한다. 그는 벽장에서 나간다.
+	<br><br>
+	<<tearful>> 당신은 그 뒤를 따른다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<<else>>
+	<<set $rescued += 1>>
+	누군가 문을 두드린다. "그 안에서 뭘 하는 거냐?" 누군가 큰 목소리로 말한다. 도렌이다.
+	<br><br>
+	소년은 옷을 제대로 하고는 문을 연다. "아무 짓도 안 했어요." 그가 말한다. 도렌은 속지 않는다. 소년은 도렌에게 팔을 붙잡혀서 끌려나간다.
+	<br><br>
+	<<tearful>> 당신은 벽장에서 나온다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<</if>>
+
+
+:: Bully Parasite
+<<effects>>
+
+<<if $phase is 0>>
+	<<WhitneyParasite>>
+<<else>>
+	<<if $physiqueSuccess>>
+		폭발적인 힘으로, 당신은 소년들을 던져버리고는 싸울 준비를 한다.
+		<br><br>
+		<<link [[싸운다|Bully Parasite Fight]]>><<set $molestationstart to 1>><</link>>
+	<<else>>
+		<<physiquedifficulty 1 10000 true>>
+		<<if $physiqueSuccess>>
+			겁에 질린 동시에 격분하여, 당신은 자유롭게 되기 위해 안간힘을 쓴다. 당신은 휘트니의 친구 중 한 명을 떨쳐내고, 당신의 체력을 본 다른 이들은 충격을 받는다. 하지만 다른 이가 그 자리를 대체하고, 그런 상황이 반복되다가 결국 당신은 완전히 붙잡힌 상태에서 휘트니가 당신의 배에 주먹을 강하게 꽂는다. 그 바람에 당신의 온몸에서 힘이 빠진다.
+			<<pain 10>><<gpain>>
+		<<else>>
+			겁에 질려, 당신은 소년들에게서 어떻게든 빠져나가 안전한 장소로 도망칠 수 있지 않을까 하는 희망을 품고는, 그들의 손아귀에서 벗어나려 안간힘을 쓴다. 안타깝게도, 이렇게 힘센 손이 많은 상태에서는 탈출할 수 있을 정도로 당신이 힘이 세지 않다. 당신의 애처로운 시도는 휘트니의
+			<<if playerBellySize(true) gte 8>>
+				발길질이 정강이에 꽂히는
+			<<else>>
+				주먹이 배에 꽂히는
+			<</if>>
+			결과 밖에는 가져오지 않았고, 감히 저항하려 했다는 이유로 따귀를 얻어맞는다.
+			<<pain 15>><<ggpain>>
+		<</if>>
+		<br><br>
+		<<WhitneyParasite>>
+	<</if>>
+<</if>>
+
+:: Bully Parasite Fight
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<set $outside to 0>><<schooleffects>><<effects>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>><<npcidlegenitals>>
+	<<set $enemytrust -= 100>>
+	<<set $enemyanger += 200>>
+	"옷 벗을 시간이다, 걸레야." 소년이 말한다. "네 의사 따윈 상관없어."
+	<br><br>
+<</if>>
+<<effects>>
+<<effectsman>><<man>>
+<<audience>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0) or ($worn.upper.type.includes("naked") and $worn.lower.type.includes("naked") and $worn.under_lower.type.includes("naked") and $worn.under_upper.type.includes("naked"))>>
+	<span id="next"><<link [[다음|Bully Parasite Fight Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Bully Parasite Fight]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Bully Parasite Fight Finish
+<<effects>>
+
+<<if $enemyhealth lte 0>>
+	적들이 복도 바닥에서 고통에 훌쩍이는 동안 당신은 승리의 짜릿함을 만끽한다. 또한 훌륭한 싸움 솜씨를 관중들에게 보여주었으니 당신의 자존심이나 명성에도 흠이 간 것은 없다.
+	<<status 15>><<ggcool>>
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation "short">>
+	<<tearful>> 당신은 바닥에서 헐떡이는 휘트니와 <<person1>>그의 친구들을 내버려두고 떠난다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+
+<<else>>
+	<<if $worn.upper.type.includes("naked") and $worn.lower.type.includes("naked") and $worn.under_lower.type.includes("naked") and $worn.under_upper.type.includes("naked")>>
+		당신의 옷을 벗기고 나자 휘트니 패거리의 기세가 좀 누그러지나, 아직 끝나기에는 한참 남았다.
+	<<else>>
+		당신이 순종적이게 될 때까지 두들겨 패고 나자 휘트니 패거리의 기세가 좀 누그러지나, 아직 끝나기에는 한참 남았다.
+	<</if>>
+	<br><br>
+
+	<<endcombat>>
+
+	<<npc Whitney>><<person1>>
+	<<WhitneyParasite>>
+<</if>>
+
+:: Hallways Exposed Hypnosis
+<<effects>>
+
+<<generatey1>><<generatey2>><<generatey3>><<generatey4>><<person1>>
+침착하고 우아하게, 당신은 탁 트인 곳으로 걸어나간다. 학생들은 당신을 보자 멈춰서고, 당신이 지나가자 그들의 입이 떡 벌어진다.<<fameexhibitionism 6>>
+<br><br>
+
+<<if random(1, 2) is 2>>
+	모서리를 돈 후 당신은 힘차게 걷지만, 침착함이 오싹오싹한 두려움에게 자리를 내준다. 당신은 청소도구함으로 기어들어가, 당신 뒤의 문을 닫고, 등을 문에 기댄 채 바닥에 주저앉는다. 이상한 기분이었다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	<span class="red">그들은 당신을 쫓아와</span> 둘러싸고, 당신을 벽 쪽으로 밀어붙인다. <<covered>>
+	<br><br>
+
+	<<if hasSexStat("promiscuity", 5)>>
+		<<link [[자극한다|Hallways Exposed Goad]]>><</link>><<promiscuous5>>
+		<br>
+	<</if>>
+	<<link [[보내달라고 한다|Hallways Exposed Tell]]>><<def 1>><</link>>
+	<br>
+	<<link [[가만히 있는다|Hallways Exposed Silent]]>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Exposed Hypnosis Resist
+<<effects>>
+
+<<if $willpowerSuccess>>
+	<span class="green">당신은 그 생각들을 밀어내고,</span> 학생들이 지나갈 때까지 구석에 웅크려 있는다.
+	<br><br>
+<<else>>
+	<span class="red">당신은 공포에 질려 펄쩍 물러나,</span> 바닥에 엎드린 채 구석으로 다급히 기어간다. 학생들은 당신의 존재를 눈치채지 못한 채 지나갔지만, 당신의 심장은 두근거리고 있다.<<gpain>><<gtrauma>><<gstress>><<pain 4>><<trauma 6>><<stress 6>>
+	<br><br>
+<</if>>
+
+<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Exposed Tell
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"제- 제발 보내줘." 당신이 말한다.
+<<elseif $speech_attitude is "bratty">>
+	"저리 비켜." 당신이 말한다. "아니면 다른 방법이 있지."
+<<else>>
+	"제발 보내줘." 당신이 말한다.
+<</if>>
+<br><br>
+
+<<if random(1, 2) is 2>>
+	그들은 주저한다. <span class="green">그러고는 한 소년이 한 걸음 옆으로 물러서더니,</span> 당신이 지나가게 해 준다.
+	<br><br>
+	모서리를 돈 후 당신은 힘차게 걷지만, 침착함이 오싹오싹한 두려움에게 자리를 내준다. 당신은 청소도구함으로 기어들어가, 당신 뒤의 문을 닫고, 등을 문에 기댄 채 바닥에 주저앉는다. 이상한 기분이었다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	<span class="red">"그럴 수는 없지."</span> 한 소년이 말한다. 그와 <<person2>>다른 소년은 당신의 팔을 붙잡아, 강하게 잡아당겨 벽에서 떼어낸다. 누군가 다리를 뻗어, 당신을 걸어 넘어뜨린다. 당신은 바닥에 넘어져 무릎을 찧는다.<<gpain>><<gtrauma>><<gstress>><<pain 4>><<trauma 6>><<stress 6>>
+	<br><br>
+
+	당신은 그들이 그보다 더한 일을 하고 싶어한다는 걸 안다. 하지만 아무도 그 다음 행동을 하려 하지 않는다.
+	<br><br>
+
+	<<link [[가만히 있는다|Hallways Exposed Still]]>><</link>><<difficulty 50>>
+	<br>
+	<<link [[발로 찬다|Hallways Exposed Kick]]>><</link>><<physiquedifficulty 1 8000>>
+	<br>
+<</if>>
+
+
+:: Hallways Exposed Silent
+<<effects>>
+
+<<if random(1, 2) is 2>>
+	그들은 주저한다. <span class="green">그러고는 한 소년이 한 걸음 옆으로 물러서더니,</span> 당신이 지나가게 해 준다.
+	<br><br>
+	모서리를 돈 후 당신은 힘차게 걷지만, 침착함이 오싹오싹한 두려움에게 자리를 내준다. 당신은 청소도구함으로 기어들어가, 당신 뒤의 문을 닫고, 등을 문에 기댄 채 바닥에 주저앉는다. 이상한 기분이었다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	소년들이 <span class="red">당신의 팔을 붙잡아,</span> 당신을 벽에서 강하게 잡아당긴다. 누군가 다리를 뻗어, 당신을 걸어 넘어뜨린다. 당신은 바닥에 넘어져 무릎을 찧는다.<<gpain>><<gtrauma>><<gstress>><<pain 4>><<trauma 6>><<stress 6>>
+	<br><br>
+
+	당신은 그들이 그보다 더한 일을 하고 싶어한다는 걸 안다. 하지만 아무도 그 다음 행동을 하려 하지 않는다.
+	<br><br>
+
+	<<link [[가만히 있는다|Hallways Exposed Still]]>><</link>><<difficulty 50>>
+	<br>
+	<<link [[발로 찬다|Hallways Exposed Kick]]>><</link>><<physiquedifficulty 1 8000>>
+	<br>
+<</if>>
+
+
+:: Hallways Exposed Doren
+<<effects>>
+
+<<if $phase is 1>>
+	"저 녀석." 도렌이 고개를 흔들며 중얼거린다.
+<<else>>
+	"옷은 어떻게 된 거니, 아가씨?" 도렌이 묻는다.
+<</if>>
+"자, 여기." 그는 셔츠를 벗어, 그의
+<<if $pronoun is "m">>
+	탄탄한 가슴을 노출한다.
+<<else>>
+	스포츠 브라를 노출한다.
+<</if>>
+그는 시선을 두지 않고 그걸 당신에게 건넨다. 그는 스스로의 노출에 대해선 신경쓰지 않는 것으로 보인다. "교무실에 도착할 때까지는 입고 있으렴. 거기에서 여분의 교복을 구할 수 있으니까."
+<br><br>
+
+복도를 지나다니는 학생들은 당신들 두 명을 기묘한 시선으로 바라본다. 교무실은 작고, 방 가운데에 있는 테이블을 중심으로 의자 몇 개가 빙 둘러서 있다. 도렌은 벽장을 뒤적이더니, 고이 개어진 교복을 테이블 위에 올려놓는다.
+<br><br>
+
+"셔츠는 아무데나 벗어 놓으렴." 그가 말한다. "내겐 예비용 옷이 있으니까." 그는 당신이 옷을 갈아입도록 두고 떠난다.
+<br><br>
+
+
+<<link [[다음|Hallways]]>>
+	<<set $eventskip to 1>>
+	<<endevent>>
+	<<if $worn.upper.exposed gte 1>>
+		<<upperwear "school shirt">>
+	<</if>>
+	<<if $worn.lower.exposed gte 1>>
+		<<if $player.gender_appearance is "f">>
+			<<lowerwear "school skirt">>
+		<<else>>
+			<<lowerwear "school shorts">>
+		<</if>>
+	<</if>>
+<</link>>
+
+:: Hallways Exposed Still
+<<effects>>
+
+<<if random(1, 2) is 2>>
+	당신은 학생 무리가 서로에게 당신을 공격하라고 선동하는 동안 가만히 있는다.
+	<br><br>
+
+	"거기 무슨 일이지?" 굵고 낮은 목소리가 말한다. 도렌이다.
+	<<endevent>><<npc Doren>><<person1>>
+	학생들은 계획하고 있던 것을 모두 포기하고, 날쌔게 움직인다. 그들은 흩어져 떠난다.
+	<br><br>
+
+	도렌은 당신을 보자 멈추고는, 그의 눈을 다른 곳으로 돌린다.
+	<br><br>
+
+	<<link [[다음|Hallways Exposed Doren]]>><<set $phase to 0>><</link>>
+<<else>>
+	당신은 학생 무리가 서로에게 당신을 공격하라고 선동하는 동안 가만히 있는다. <<person1>>한 소년이 먼저 행동한다. 그는 당신 옆으로 기어들어와, 팔을 당신의 허리에 감고, <span class="red">당신의 엉덩이를 날카롭게 찰싹 때린다.</span>
+	<br><br>
+
+	<<link [[다음|Hallways Exposed Gang]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<</if>>
+
+
+:: Hallways Exposed Kick
+<<effects>>
+
+<<if $physiqueSuccess>>
+	한 소년이 먼저 행동하여, 당신 뒤로 기어들어오려 한다. <span class="green">당신은 날렵하게 사타구니에 발차기를 날려, 그의 계획을 엎어버린다.</span> 그는 고통에 울부짖으며, 그의 쪽으로 넘어진다.
+	<br><br>
+
+	관중들은 웃음을 터트리며 관심의 대상을 당신에게서 그에게로 돌린다. 당신은 허둥지둥 일어나, 황급히 모서리를 돌아 청소도구함으로 기어들어간다. 당신 뒤의 문을 닫고 등을 문에 기댄 채 바닥에 주저앉는다. 이상한 기분이었다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	한 소년이 먼저 행동하여, 당신 뒤로 기어들어오려 한다. 당신은 그를 발로 차려고 해 보지만, <span class="red">그는 당신의 다리를 옆으로 쳐내어,</span> 그에게 당신의 엉덩이를 무방비하게 드러낸다. 그는 당신을 날카롭게 찰싹 때린다.
+	<br><br>
+
+	<<link [[다음|Hallways Exposed Gang]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<</if>>
+
+
+
+:: Hallways Exposed Goad
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"날 잡았구나." 당신이 말한다. "나는 지독한 변태야. 벌을 받아야 마땅하지. 너도 그렇게 생각하지?"
+<<elseif $speech_attitude is "bratty">>
+	"너희 변태들 중 누가 먼저 행동할래," 당신이 말한다. "아니면 설마 내가 전부 다 해줘야 하나?"
+<<else>>
+	"날 잡았구나." 당신이 말한다. "이제 어떻게 할 거야?"
+<</if>>
+<<promiscuity4>>
+
+한 소년이 먼저 행동하여, 가까이 다가온다. 당신은 그의 팔을 붙잡고 그를 잡아당겨 밀착시킨다.
+<br><br>
+
+<<link [[다음|Hallways Exposed Gang]]>><<set $sexstart to 1>><</link>>
+<br>
+
+
+:: Hallways Exposed Gang
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+
+	<<maninit>>
+
+	/* Calling both rescue widgets is intentional. */
+	<<enable_rescue>><<enableSchoolRescue "Whitney">>
+<<elseif $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+
+	<<maninit>>
+
+	<<enable_rescue>><<enableSchoolRescue "Whitney">>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<audience>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Hallways Exposed Gang Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Hallways Exposed Gang]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Hallways Exposed Gang Finish
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	<<endcombat>>
+	"이게 무슨 소란이지?" 굵고 낮은 목소리가 말한다. 도렌이다.
+	<<npc Doren>><<person1>>
+	학생들은 계획하고 있던 것을 모두 포기하고, 날쌔게 움직인다. 그들은 떠난다.
+	<br><br>
+
+	<<clotheson>>
+	도렌은 당신을 보자 멈추고는, 그의 눈을 다른 곳으로 돌린다.
+	<br><br>
+
+	<<link [[다음|Hallways Exposed Doren]]>><<set $phase to 0>><</link>>
+	<br><br>
+<<elseif $enemyhealth lte 0>>
+	학생들은 뒤로 물러나며, 당신이 필요로 하던 기회를 만든다. <<tearful>> 당신은 모서리를 돌아 달려나간다. 당신은 청소도구함에 숨어들어가, 문을 닫고, 등을 문에 기댄 채 바닥에 주저앉는다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<elseif $finish is 1>>
+	학생들은 당신에게 길을 터 준다. 몇몇은 다른 학생들보다 더욱 주저하며 길을 터 준다.
+	<br><br>
+	<<tearful>> 당신은 걸어나간다. 모서리를 돌자 당신이 느끼던 침착함은 오싹오싹한 두려움으로 대체된다. 당신은 청소도구함으로 기어들어가, 당신 뒤의 문을 닫고, 등을 문에 기댄 채 바닥에 주저앉는다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	<<set $rescued += 1>>
+	<<if $rescue gte 2>>
+		복도 저편에서 고함 소리가 들려오자 학생들은 황급히 달려나간다. 당신이 똑같이 할 수 있게 되기 전에 당신은 뒤편에서 누군가에게 붙들리고는, 당신은 휘트니와 얼굴을 마주보고 있다는 걸 깨닫는다. 그는 머리 끝까지 화난 것으로 보인다.<<status 1>><<gcool>>
+		<br>
+		"씨발 뭔 일이 벌어진거야?" 그가 묻는다. "너-"
+		<br><br>
+
+		굵고 낮은 목소리가 그의 말을 끊는다. "이게 무슨 소란이지?" 도렌이다.
+		<<npc Doren>><<person1>>
+		그의 눈이 당신을 향하더니, 이윽고 휘트니를 향한다. 그가 얼굴을 찌푸린다. "그녀를 놓아주렴, 얘야."
+		<br><br>
+
+		휘트니가 입을 딱 벌리고 도렌을 보다가, 조소한다. "뭐 그러죠, <<if $pronoun is "m">>늑대인간<<else>>털복숭이 고물 대걸레<</if>> 양반. 그녀는 알아서 하세요." 그가 당신을 도렌 쪽으로 밀치자, 도렌은 반사적으로 뒤로 물러난다. 그는 뒤돌아보지 않고 떠난다.
+		<<clotheson>>
+		<<endcombat>>
+		<<npc Doren>><<person1>>
+
+		<<link [[다음|Hallways Exposed Doren]]>><<set $phase to 1>><</link>>
+		<br>
+	<<else>>
+		"이게 무슨 소란이지?" 굵고 낮은 목소리가 말한다. 도렌이다.
+		<<npc Doren>><<person1>>
+		학생들은 계획하고 있던 것을 모두 포기하고, 날쌔게 움직인다. 그들은 떠난다.
+		<br><br>
+
+		<<clotheson>>
+		<<endcombat>>
+		<<npc Doren>><<person1>>
+		도렌은 당신을 보자 멈추고는, 그의 눈을 다른 곳으로 돌린다.
+		<br><br>
+
+		<<link [[다음|Hallways Exposed Doren]]>><<set $phase to 0>><</link>>
+		<br>
+	<</if>>
+<</if>>
+
+:: Hallways Hypnosis Spank
+<<effects>>
+
+그는 너무도 유혹적인 표적이었다. 당신은 잠시 멈춰서 그의 엉덩이를 조준한 뒤, 단호하고 요란하게 때린다. 그는 놀라 비명을 지르며 펄쩍 뛴다.
+<br><br>
+그는 돌아서서, 분노에 찬 눈으로 당신을 노려본다. 근처에 있던 몇몇 학생들이 웃음을 참자, 그의 얼굴이 붉게 달아오른다.
+<br><br>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Hypnosis Spank Resist
+<<effects>>
+
+<<if $willpowerSuccess>>
+	<span class="green">당신은 그 생각들을 밀어내고,</span> 소년이 손 닿지 않는 곳으로 멀어질 때까지 당신의 손을 곁에 딱 붙이고 있도록 안간힘을 쓴다.
+	<br><br>
+<<else>>
+	당신은 그 생각들을 밀어내려 시도하지만, <span class="red">당신의 손은 마치 별개의 생명체라도 되는 양 튀어나간다.</span>
+	<br><br>
+	가까스로 당신은 반대쪽 손으로 그걸 붙잡아, 재앙이 일어나는 걸 막지만, 당신은 우스워하는 시선을 끌었다.<<gtrauma>><<gstress>><<trauma 6>><<stress 6>>
+	<br><br>
+	당신은 또다시 자신의 몸에게 배신당하기 전에 서둘러 자리를 뜬다.
+	<br><br>
+<</if>>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+
+:: Hallways Rape Struggle
+<<effects>>
+
+<<if $physiqueSuccess>>
+	당신은 <<person1>>소년의 팔을 붙잡아 끌어당기며 그의 정강이를 걷어찬다. <span class="green">그는 힘에 밀려 거의 넘어질 뻔하며, 욕지거리를 내뱉으며 물러난다.</span> 그의 친구인 <<person2>>다른 소년은 주먹을 내지르지만, 당신에게 닿지 못한다.
+	<br><br>
+	두 명이 당신을 두고 잠시 생각하더니, <<person1>>한 소년이 몸을 돌려 쿵쿵거리며 멀어진다. <<person2>>다른 소년이 그 뒤를 따른다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	당신은 <<person1>>소년의 팔을 붙잡아 끌어당기며 그의 정강이를 걷어찬다. <span class="red">당신의 발차기는 충분한 충격을 주지 못한다.</span>
+	<br><br>
+	<<if !(playerBellySize(true) gte 8)>>
+		그는 당신의 배에 묵직한 주먹을 꽂아넣어, 당신은 숨을 쉬지 못한다.
+	<<else>>
+		그는 당신의 얼굴을 세게 때려서, 당신을 꼼짝 못하게 만든다.
+	<</if>>
+	그는 당신을 교실로 떠밀고, 당신이 몸을 추스리기 전에 당신을 교탁에 엎드리게끔 한다.
+	<br><br>
+	"말을 들었어야지, 썅년아," <<person2>>다른 소년이 낄낄거리며 뒤에서 문을 닫는다.
+	<br><br>
+
+	<<link [[다음|Hallways Rape]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Rape Let
+<<effects>>
+
+당신은 <<person1>>한 소년이 당신을 교실로 떠밀어 교탁에 엎드리게 하게끔 내버려 둔다. <<person2>>다른 소년이 뒤에서 문을 닫는다.
+<br><br>
+
+<<link [[다음|Hallways Rape]]>><<set $molestationstart to 1>><</link>>
+<br>
+
+:: Hallways Rape
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+	<<set $NPCList[0].lefthand to "mouth">><<set $mouthuse to "lefthand">>
+	<<enable_rescue>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Hallways Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Hallways Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Hallways Rape Finish
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	그들은 교탁에 누워 있는 당신을 두고 떠난다.
+	<br><br>
+	<<tearful>> 당신은 다시 일어선다. 당신은 몸을 정리한다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+
+
+<<elseif $enemyhealth lte 0>>
+	당신은 <<person1>>소년을 걷어차 당신에게서 떨어트린다. 그의 친구는 당신에게 혼자 달려들고 싶지는 않아 보인다.
+	<br><br>
+	<<tearful>> 당신은 방에서 도망친다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+
+<<else>>
+	<<set $rescued += 1>>
+	<<npc Leighton 3>>
+	문을 똑똑 두드리는 소리가 난다.
+	<br><br>
+	"씨발," 소년이 말한다. "빨리, 도-" 그나 그의 친구가 뭔가 하기도 전에 문이 열리고, 레이턴 교장 선생님이 나타난다.
+	<br><br>
+	"설-설명할 수 있어요," <<person1>>소년이 그의 옷을 더듬어 찾으며 말한다. "우리는-"
+	<br><br>
+	레이턴은 그를 무시한다. "나가," <<person3>>그가 당신을 보며 말한다. <<tearful>> 당신은 발을 질질 끌며 그를 지나간다. <<person2>>다른 소년이 뒤따르려 하나, 레이턴이 뻗은 팔에 가로막힌다. "너희 둘은 남아라." 당신의 뒤편에서 문이 쾅 닫힌다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+
+<</if>>
+
+<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Exposed Storeroom Window
+<<effects>>
+
+당신은 비어 있는 플라스틱 상자를 거꾸로 뒤집어, 그 위로 올라가, 창문을 열어젖힌다.
+
+<<if random(1, 2) is 2>>
+	당신은 그리로 지나가려 애써보지만, <span class="red">당신의 엉덩이가 끼어버린다.</span> 당신의 뒤편에서 문이 열리고, 여러 목소리가 들어오는 게 들린다.<<gstress>><<stress 6>>
+	<br><br>
+	"씨발 뭐야," 한 소년이 말한다. "이 머저리가 진짜 창문에 끼어버린 거야?"
+	<br><br>
+	"적어도 좋은 엉덩이를 갖고 있네," 다른 이가 말한다.
+
+	<<if random(1, 2) is 2>>
+		한 손이 당신의 엉덩이를 움켜잡으며 만지더니, 당신 뒤의 박스에 누군가 올라서는 소리가 들린다.
+		<br><br>
+
+		<<link [[다음|Hallways Exposed Storeroom Window Rape]]>><<set $molestationstart to 1>><</link>>
+		<br>
+	<<else>>
+		누군가가 엉덩이를 세게 때리고, 당신은 앞으로 조금 밀려난다.<<gpain>><<pain 4>>
+		<br><br>
+		"좋은 생각이야," 처음 목소리가 웃음을 터트린다. "그를 도와주자!" 엉덩이가 한 대 더 후려쳐지고, 다시 후려쳐지며, 당신이 결국 강제로 반대편으로 넘어가게 되었을 때까지 계속된다.<<gpain>><<pain 4>><<gtrauma>><<trauma 6>><<gstress>><<stress 6>>
+		<br><br>
+
+		<<link [[다음|School Rear Courtyard]]>><<endevent>><<set $eventskip to 1>><</link>>
+		<br>
+	<</if>>
+<<else>>
+	당신은 몸을 끌어올려 넘어가, 뒤의 문이 열리기 전에 바깥의 잔디밭에 착지한다. 당신은 비행청소년들이 이따금씩 사용하는 장소에 있지만, 지금은 아무도 없다.
+	<br><br>
+
+	<<link [[다음|School Rear Courtyard]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+
+:: Hallways Exposed Storeroom Window Rape
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>><<set $position to "wall">><<set $leftarm to "bound">><<set $rightarm to "bound">><<set $head to "bound">>
+	<<set $timer to 10>>
+	<<enable_rescue>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend or $timer lte 0>>
+	<span id="next"><<link [[다음|Hallways Exposed Storeroom Window Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Hallways Exposed Storeroom Window Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Hallways Exposed Storeroom Window Rape Finish
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	소년이 당신의 엉덩이를 마지막으로 한 대 때려, 당신을 강제로 창문 너머로 밀어낸다. 당신은 풀이 무성한 잔디밭에 착지한다.
+	<br><br>
+	<<tearful>> 당신은 일어선다. 당신은 비행청소년들이 이따금씩 사용하는 구석진 공간에 있다. 지금은 주변에 아무도 없다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+<<elseif $enemyhealth lte 0>>
+	당신이 날린 발차기의 힘이 당신을 창문 너머로 밀어낸다. 당신은 풀이 무성한 잔디밭에 착지한다.
+	<br><br>
+	<<tearful>> 당신은 일어선다. 당신은 비행청소년들이 이따금씩 사용하는 구석진 공간에 있다. 지금은 주변에 아무도 없다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+<<elseif $alarm is 1 and $rescue is 1>>
+	<<npc Doren 3>>
+	<br><br>
+	"내가 가마!" 앞쪽에서 소리가 들린다. 도렌은 모퉁이를 돌더니, 당신을 보고 얼굴을 찌푸린다.
+	<<if $player.gender_appearance is "f" and $worn.upper.exposed gte 1>>
+		그가 당신의 상반신이 노출되었다는 걸 깨닫자 그는 시선을 돌린다. 
+		<br><br>
+		"어쩌다 그렇게 되었니, 아가씨?" 그는 다가오면서 그렇게 묻는다. "자," 그는 당신의 양팔을 붙잡아, 약간 당겨서, 당신의 나머지 몸뚱아리를 창문을 통해 끌어낸다.
+		<br><br>
+
+		"네게 뭔가, 아, 가릴 만한 걸 가져다 줄게." 당신은 잔디밭에서 그를 기다린다. 창고에 있던 두 명은 도망쳤고, 주변에는 아무도 없다.
+		<br><br>
+
+		도렌은 수건 몇 장을 갖고 돌아온다. 그는 당신에게 수건을 건네면서도 그의 시선을 돌린 채로 있는다. 그의 얼굴이 살짝 붉어진 것 같다.
+		<br><br>
+	<<else>>
+		<br><br>
+		"어쩌다 그렇게 되었니, 아가씨?" 그는 다가오면서 그렇게 묻는다. "자," 그는 당신의 양팔을 붙잡아, 약간 당겨서, 당신의 나머지 몸뚱아리를 창문을 통해 끌어낸다.
+		<br><br>
+
+		그는 지금에서야 당신의 옷 상태를 알아차린다. 그는 그의 시선을 돌린다. "네게 뭔가, 아, 가릴 만한 걸 가져다 줄게." 당신은 잔디밭에서 그를 기다린다. 창고에 있던 두 명은 도망쳤고, 주변에는 아무도 없다.
+		<br><br>
+
+		도렌은 수건 몇 장을 갖고 돌아온다. 그는 당신에게 수건을 건네면서도 그의 시선을 돌린 채로 있는다. 그의 얼굴이 살짝 붉어진 것 같다.
+		<br><br>
+	<</if>>
+	그는 당신이 스스로를 가릴 수 있게 두고 떠난다. <<tearful>> 당신은 그렇게 한다.
+	<br><br>
+	<<clothesontowel>>
+	<<endcombat>>
+<<else>>
+	당신은 간신히 자신의 나머지 몸뚱아리를 창문을 통해 밀어낸다. 당신은 풀이 무성한 잔디밭에 착지한다.
+	<br><br>
+	<<tearful>> 당신은 일어선다. 당신은 비행청소년들이 이따금씩 사용하는 구석진 공간에 있다. 지금은 주변에 아무도 없다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+<</if>>
+<<link [[다음|School Rear Courtyard]]>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Exposed Storeroom
+<<effects>>
+
+<<covered>> 당신이 문을 열자, 놀란 소년이 보인다. 그의 놀라움은 그가 당신의 옷 상태를 알아차리자 경악으로 변한다. <<person2>>다른 소년이 <<person1>>그의 어깨 너머로 슬쩍 보고, 비슷한 정도로 놀란다.
+<br><br>
+
+<<if random(1, 2) is 2>>
+	당신은 그냥 지나가려 하지만, 옆을 지나칠 때 <<person2>>한 소년이 당신의 엉덩이를 때린다.<<gstress>><<stress 6>><<garousal>><<arousal 600 "bottom">>
+	<br><br>
+
+	"네 옷은 어디로 갔어?" 그가 뒤를 따라오다가, 빠르게 달려나가 당신의 길을 막으며 묻는다. 그는 걸음을 내딛어, 당신이 뒤로 물러설 수밖에 없도록 한다. "어쩌면 우리가 도와줄 수 있을 것 같은데."
+	<br><br>
+
+	<<link [[도움을 받아들인다|Hallways Exposed Storeroom Help]]>><</link>>
+	<br>
+	<<link [[뺨을 때린다|Hallways Exposed Storeroom Slap]]>><<detention 18>><</link>><<ggdelinquency>>
+	<br>
+<<else>>
+	당신은 두 명의 옆을 그냥 지나간다. 그들은 너무 충격받은 나머지 반응하지 못한다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+
+:: Hallways Exposed Storeroom Help
+<<effects>>
+
+두 명이 당신을 창고로 도로 밀어넣는다.
+
+<<if random(1, 2) is 2>>
+	<<person2>>한 소년이 당신을 안쪽으로 밀어넣는 동안 <<person1>>다른 소년은 문을 닫는다. 그들은 위협적인 의도를 내비치며 다가온다.<<person1>>
+	<br><br>
+
+	<<link [[다음|Hallways Exposed Storeroom Rape]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<<else>>
+	<<person1>>소년은 선반들을 둘러보더니, 크리켓 방망이 두 개를 가져간다. "이게 우리가 찾던 거야," 그가 말한다. "너-너를 위한 건..." 그는 이번에는 몸을 굽히고 골판지 상자를 뒤집어 보면서 수색을 이어간다. <<person2>>다른 소년이 대놓고 당신을 음흉하게 쳐다본다.
+	<br><br>
+
+	"아하," <<person1>>소년이 말한다. 그는 당신에게 수건 한 세트를 건넨다.<<towelup>>
+	<br><br>
+
+	"다음 번에는 조심하라구," <<person2>>소년은 친구와 걸어가면서 웃는다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Exposed Storeroom Rape
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate "문이 닫힌 상태로는 아무도 당신의 외침을 들을 수 없다.">>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Hallways Exposed Storeroom Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Hallways Exposed Storeroom Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Hallways Exposed Storeroom Rape Finish
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	그들은 창고 바닥에 누워 있는 당신을 두고 떠난다.
+	<br><br>
+	<<tearful>> 당신은 일어나려 몸부림친다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+<<else>>
+	당신은 소년을 선반들로 밀친다. 그와 선반들은 <<person2>>소년이 멍하게 지켜보는 가운데, 바닥으로 넘어지며 부서진다.
+	<br><br>
+	<<tearful>> 당신은 기회를 잡는다. 당신은 그들이 몸을 추스르기 전에 복도를 따라 도망친다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+<</if>>
+<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Exposed Storeroom Slap
+<<effects>>
+
+당신은 <<person2>>소년의 얼굴을 후려쳐 웃음을 가시게 하고, 밀친다. "교장한테 네가 날 쳤다고 이를 거야!" 그가 당신에게 소리친다. 그의 친구가 웃음을 터트리지만, 당신은 누구에게 대고 웃는지는 확신하지 못한다.
+<br><br>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+
+:: Hallways Locker Struggle Free Attempt
+<<effects>>
+<<if $worn.lower.type.includes("naked") or $phase gte 1>>
+	<<set $worn.under_lower.integrity -= 20>>
+	<<set _wornname to $worn.under_lower.name>>
+	<<set _wornintegrity to $worn.under_lower.integrity>>
+<<elseif !$worn.over_lower.type.includes("naked")>>
+	<<set $worn.over_lower.integrity -= 15>>
+	<<set _wornname to $worn.over_lower.name>>
+	<<set _wornintegrity to $worn.over_lower.integrity>>
+<<else>>
+	<<set $worn.lower.integrity -= 15>>
+	<<set _wornname to $worn.lower.name>>
+	<<set _wornintegrity to $worn.lower.integrity>>
+<</if>>
+
+<<if $phase gte 1>>
+	당신은 온 힘을 다해, 당신의 옷을 <<print $phase is 1 ? "당신의 엉덩이 사이로" : "당신의 질 위로">> 불편할 정도로 늘어나도록 사물함에서 잡아당긴다.
+<</if>>
+<<if $physiqueSuccess>>
+	<<if _wornintegrity gt 0>>
+		<<if $phase gte 1>>
+			비록 입기에는 살짝 나빠졌지만, 마침내 그게 사물함에서 빠져나온다.
+		<<else>>
+			당신은 당신의 옷을 잡아당겨, 비록 입기에는 살짝 나빠졌지만 마침내 사물함에서 빼내는 데 성공한다.
+		<</if>>
+		<<stress -5>><<lstress>>
+		<br>
+	<<else>>
+		<<if $phase is 2>>
+			잠시 후, 그게 찢어지며 몸에서 떨어져나가, 이 광경을 지켜보던 학생들에게 기쁨을 선사한다. 당신은 그들이 삿대질하며 웃는 와중 재빨리 몸을 가리려 애쓴다.
+		<<elseif $phase is 1>>
+			잠시 후, 그게 찢어지며 몸에서 떨어져나간다! 당신은 다른 학생들이 삿대질하며 웃는 와중 재빨리 몸을 가리려 애쓴다.
+		<<else>>
+			당신은 계속해 당신의 옷을 잡아당겼고, 그건 찢어져 당신의 몸에서 떨어져나간다!
+		<</if>>
+		<<stress 5>><<gstress>>
+		<br><br>
+		<<integritycheck>><<exposure>>
+		<br>
+	<</if>>
+	<<lockereventnext>>
+<<else>>
+	<<if _wornintegrity gt 0>>
+		<<if $phase gte 1>>
+			크게 부욱 찢어지는 소리가 들린다. 하지만 그게 여전히 사물함에 끼어 있다!
+		<<else>>
+			당신은 당신의 옷을 잡아당기고, 크게 부욱 찢어지는 소리가 들린다. 하지만 그게 여전히 사물함에 끼어 있다!
+		<</if>>
+		<<stress 2>><<gstress>>
+		<br><br>
+		<<if hasSexStat("exhibitionism", 3) and $exposed gt 0>>
+			<<covered>>
+			<br>
+		<</if>>
+		<<lockereventpassages>>
+	<<else>>
+		당신은 당신의 옷을 잡아당긴다.
+		<br><br>
+		<<integritycheck>><<exposure>>
+		<<if !$worn.under_lower.type.includes("naked")>>
+			<span class="red">당신의 하의는 여전히 사물함에 끼어 있다!</span><<stress 5>><<gstress>>
+			<br><br>
+			<<set $phase to 0>>
+			<<if hasSexStat("exhibitionism", 3)>>
+				<<covered>>
+				<br>
+			<</if>>
+			<<lockereventpassages>>
+		<<else>>
+			<br>
+			<<lockereventnext>>
+		<</if>>
+	<</if>>
+<</if>>
+
+:: Hallways Pick Locker Attempt
+<<effects>>
+<<if $skulduggerysuccess>>
+	당신은 성공적으로 자물쇠를 따고 <<if !$worn.under_lower.type.includes("naked") or !$worn.lower.type.includes("naked")>>옷을 고쳐 입는다.<</if>>
+	<<stress -5>><<lstress>>
+	<br><br>
+	<<skulduggeryuse $skulduggerydifficulty "locks" 5>>
+	<<lockereventnext>>
+	<br>
+<<else>>
+	당신은 초조하게 사물함을 열려고 노력하지만 사물함은 여전히 단단히 잠겨 있다.<<stress 2>><<gstress>>
+	<br><br>
+	<<set $lockattempt++>>
+	<<set $lock to $lock + 50>>
+	<<lockereventpassages>>
+<</if>>
+
+:: Hallways Strip Locker Clothing
+<<effects>>
+<<outfitChecks>>
+
+당신은 <<if $phase isnot 0>>초조하게<</if>> 사물함에 끼인 당신의
+<<switch $phase>>
+	<<case 0>>
+		하의를 벗어, 사물함에 매달린 채로 둔다.
+		<br><br>
+		몇몇 학생들이 호기심에 찬 눈길을 보낸다. 하지만, 당신이 자유를 되찾는 동안 누구도 당신에게 큰 관심을 기울이지 않는다.
+		<<overlowerruined>>
+	<<case 1>>
+		<<underbottoms_ ro>><<if _skirtExposed>>부터 다리를 빼며 발을 높이 내딛는다.<<else>>부터 빠져나오기 위해 잠시 <<bottoms_ rul>> 벗는다.<</if>>
+		<br><br>
+		몇몇 학생들은 사물함에 끼어 있는 당신의 속옷에 시선을 고정한 채, 휘파람을 분다.
+		<<exhibitionism2>><<fameexhibitionism 10>>
+		<<underlowerruined>>
+	<<case 2>>
+		<<bottoms_ rul>> 벗는다. 당신은 <span class="lewd"><<underbottomsPost>> 하나만 걸친 차림이 된다.</span>
+		<<garousal>><<arousal 200>>
+		<br><br>
+		몇몇 학생들이 당신을 손가락질하며 소곤거리고, 당신을 빤히 쳐다보는 작은 무리가 생겨나기 시작한다.
+		<<exhibitionism3>><<fameexhibitionism 20>>
+		<<lowerruined>>
+	<<case 3>>
+		<<bottoms_ rul>> 벗는다. 당신의 <span class="lewd"><<underbottoms_ ga>> 드러난다.</span>
+		<<garousal>><<arousal 200>>
+		<br><br>
+		몇몇 학생들이 당신을 빤히 쳐다본다. 그들은 수군거리며 당신의 드러난 속옷을 가리킨다.
+		<<exhibitionism3>><<fameexhibitionism 20>>
+		<<overlowerruined>>
+	<<case 4>>
+		<<bottoms_ rul>> 벗는다. 당신의 <span class="lewd"><<genitals_ rul>> 지켜줄 것은 무엇 하나 남지 않았다!</span>
+		<<garousal>><<arousal 400>>
+		<br><br>
+		당신을 구경하던 몇몇 학생들이 웃으며 환호한다. 심지어 한 <<person2>><<person_ nun>> 당신의 모습에 감탄하며 휘파람을 불기도 한다. 학생들이 모여들기 시작한다.
+		<<exhibitionism5>><<fameexhibitionism 30>>
+		<<underlowerruined>>
+	<<case 5>>
+		<<bottoms_ rul>> 벗는다. 당신이 <span class="lewd">속옷을 입지 않았다는 사실을 드러낸다!</span>
+		<<garousal>><<arousal 600>>
+		<br><br>
+		누군가의 비명에 학생들이 웃음을 터뜨리며 환호성을 지르고, 당신의 드러난 <<genitalsPost 2 "를">> 힐끗힐끗 쳐다본다. <<person2>><<person_ ga>> 감탄하며 휘파람을 분다.
+		<<exhibitionism5>><<fameexhibitionism 40>>
+		<<lowerruined>>
+	<<case 6>>
+		<<bottoms_ rul>> 벗는다. 그 아래에 가려져 있던 당신의 <span class="lewd">알몸이 드러난다!</span>
+		<<garousal>><<arousal 800>>
+		<br><br>
+		누군가의 비명으로 모여든 작은 학생 무리가 당신의 드러난 <<genitalsPost 2 "를">> 손가락질하며 음흉하게 쳐다본다. "변태가 따로 없네!" <<person2>><<person_ ga>> 말한다.
+		<<exhibitionism5>><<fameexhibitionism 50>>
+		<<overlowerruined>>
+<</switch>>
+
+<<lockereventnext>>
+
+:: Hallways Pregnant Touch
+<<effects>>
+<<set $danger to random(1, 10000)>>
+당신은 끄덕인다. <<person2>><<person_ nun>> 몸을 웅크린 채 천천히 손을 내려 당신의 배 위로 살며시 얹는다.
+
+<<if dangerEvent() and random(1,2) is 1>>
+	하지만, 세 번째로 당신에게 다가온 <<person3>><<person_ ga>> 당신의 팔을 붙들고 억누른다. "멍청한 걸레 같으니!" <<person1>><<person_ ga>> 말한다. "이런 식으로 임신했던 거지?"
+	<br><br>
+	그들이 웃으며 당신을 향해 손을 뻗는다.
+	<br><br>
+
+	<<link [[다음|Hallways Pregnant Touch Rape]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<<else>>
+	<<famepregnancy 3>>
+	세 번째로 당신에게 다가온 <<person3>><<personPost>>도 똑같이 한다.
+	<br><br>
+	그들은 당신의 배를 계속 어루만지며, 생각나는 모든 질문을 쏟아낸다. 당신은 몇몇 질문에 답한다. 당신이 자세한 이야기를 꺼림에도, 그들은 꽤 만족한 듯 보인다.
+	<br><br>
+	"고마워," <<person1>><<person_ nun>> 자신의 친구들과 함께 만족스레 물러난다. "아이 잘 돌봐!" 그들은 떠나면서도 계속 아이를 주제로 이야기를 나눈다. <<stress -12>><<trauma -6>><<llstress>><<ltrauma>>
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Pregnant Leave
+<<effects>>
+
+당신은 최대한 정중한 태도로 거절하며, 혼자 있고 싶다고 말한다.
+<br><br>
+그들은 실망한 듯 잠시 망설인다. <<person3>><<person_ nun>> 특히 갈등하는 표정을 짓지만, 당신이 돌아서서 떠나가는 동안 누구도 불평하지는 않는다.
+<br><br>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Pregnant Touch Rape
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+	<<enableSchoolRescue "Whitney" "delinquency">>
+	<<set $leftarm to "grappled">><<set $rightarm to "grappled">><<set $NPCList[0].lefthand to "arms">><<set $NPCList[0].righthand to "arms">>
+	"걱정 마, 네 배는 조심히 다룰 테니까," <<person2>><<person_ ga>> 말한다.
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Hallways Pregnant Touch Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Hallways Pregnant Touch Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Hallways Pregnant Touch Rape Finish
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+
+	"암캐 따먹는 건 더럽게 쉽다니까," <<person3>><<person_ ga>> 말한다. "임신한 게 당연해!" 당신은 떠나가는 그들의 웃음소리를 듣는다. <<tearful>> 당신은 몸을 추스르고 일어선다.
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<elseif $enemyhealth lte 0>>
+	학생들은 뒤로 물러나며, 당신이 필요로 하던 기회를 만든다. <<tearful>> 당신은 모서리를 돌아 달려나간다. 당신은 청소도구함에 숨어들어가, 문을 닫고, 등을 문에 기댄 채 바닥에 주저앉는다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	<<set $rescued += 1>>
+	<<if $rescue gte 2>>
+		복도 저편에서 고함 소리가 들려오자 학생들은 황급히 달려나간다. 당신이 똑같이 할 수 있게 되기 전에 당신은 뒤편에서 누군가에게 붙들리고는, 당신은 휘트니와 얼굴을 마주보고 있다는 걸 깨닫는다. 그는 머리 끝까지 화난 것으로 보인다.<<status 1>><<gcool>>
+		<br>
+		"씨발 뭔 일이 벌어진거야?" 그가 묻는다. "너-"
+		<br><br>
+
+		굵고 낮은 목소리가 그의 말을 끊는다. "이게 무슨 소란이지?" 도렌이다.
+		<<npc Doren>><<person1>>
+		그의 눈이 당신을 향하더니, 이윽고 휘트니를 향한다. 그가 얼굴을 찌푸린다. "그녀를 놓아주렴, 얘야."
+		<br><br>
+
+		휘트니가 입을 딱 벌리고 도렌을 보다가, 조소한다. "뭐 그러죠, <<if $pronoun is "m">>늑대인간<<else>>털복숭이 고물 대걸레<</if>> 양반. 그녀는 알아서 하세요." 그가 당신을 도렌 쪽으로 밀치자, 도렌은 반사적으로 뒤로 물러난다. 그는 뒤돌아보지 않고 떠난다.
+		<<clotheson>>
+		<<endcombat>>
+		<<npc Doren>><<person1>>
+
+		<<link [[다음|Hallways Exposed Doren]]>><<set $phase to 1>><</link>>
+		<br>
+	<<else>>
+		"이게 무슨 소란이지?" 굵고 낮은 목소리가 말한다. 도렌이다.
+		<<npc Doren>><<person1>>
+		학생들은 갑자기 움직임을 멈추고, 모든 계획을 포기한 채 느릿느릿 자리를 뜬다.
+		<br><br>
+
+		<<clotheson>>
+		<<endcombat>>
+		<<npc Doren>><<person1>>
+		도렌은 당신을 보자 멈추고는, 그의 눈을 다른 곳으로 돌린다.
+		<br><br>
+
+		<<link [[다음|Hallways Exposed Doren]]>><<set $phase to 0>><</link>>
+		<br>
+	<</if>>
+<</if>>
+
+:: Hallways Pregnant Student Confrontation
+ToDo: Pregnancy: Unreachable passage. Needs proper conditions to access, and the first part will likely be moved to event generation.
+Also, unique punishment from Leighton? Something to make this event more impactful
+Event should be a framework; different students should have different reactions to being knocked up.
+
+<<effects>><<generates1>><<person1>>
+주위를 둘러보던 당신은 <<person_ ga>> 분노가 역력한 얼굴로 다가오는 것을 알아차린다. "야, 너!" <<he_ ga>> 소리친다. "너 말이야, 이 개자식아. 이리 와!"
+<br><br>
+
+<<person_ nun>> 당신의 옷깃을 붙잡는다. "아파서 부모님과 함께 병원에 갔더니 무슨 말을 들었는지 알아? 내가 임신했다고! 네가 나를 임신시켰다고, 이 개새끼야!" <<he_ ga>> 울부짖는다. 몇몇 학생들이 고개를 돌려 상황을 구경한다. 그들은 당신의 곤경을 웃기다는 듯 조용히 쳐다본다.
+<br><br>
+<<fameimpreg 1>>
+
+"이제 난 네놈의 빌어먹을 애새끼를 키워야 한다고. 당장 양육비를 내 놔. 아니면 교장한테 꼰지를 거니까!"
+
+<<link [[돈을 준다 (£2000)|Hallways Pregnant Student Pay]]>><<money -200000 "pregnantStudent">><</link>>
+<br>
+<<link [[거절한다|Hallways Pregnant Student Refuse]]>><<detention 50>><</link>><<gggdelinquency>>
+<br>
+<<if $submissive gte 1500>>
+	<<link [[애원한다|Hallways Pregnant Student Plead]]>><<sub 1>><</link>><<submissivetext>>
+	<br>
+<</if>>
+
+:: Hallways Pregnant Student Pay
+<<effects>>
+<<He_ nun>> 당신의 손에서 돈을 낚아챈다. "넌 씨발 존나게 무책임한 새끼야! 채-책임감을 가지란 말이야..." <<his_ yi>> 얼굴에 눈물이 흘러내리기 시작한다. <<He_ nun>> 돌아서서 급히 떠난다.
+<br><br>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Pregnant Student Refuse
+<<effects>>
+<<if $speech_attitude is "meek">>
+	"하-하지만... 그건 네 애잖아!" 당신은 주장한다. "그걸 돌봐야하는 건 너라고!"
+<<elseif $speech_attitude is "bratty">>
+	"좆까," 당신은 <<himPost>>에게 말한다. "이제 엄마가 되는 법을 배워야겠네. 행운을 빈다!"
+<<else>>
+	"있잖아, 정말로 미안해," 당신은 설명한다. 그건 내 실수가 맞지만, 당장 너를 도와줄 수는 없어."
+<</if>>
+<br><br>
+
+<<person1>><<person_ nun>> 믿을 수 없다는 듯 당신을 쳐다본다. "지금 씨발 장난해!?" <<His_ yi>> 얼굴이 분노로 새빨개진다. "좋아! 교장에게 일러바치겠어. 그땐 네가 이 일에 신경쓰는 꼴을 볼 수 있겠지!" <<He_ nun>> 앞길을 막는 학생들을 밀치며 레이턴의 사무실로 성큼성큼 걸어간다.
+<br><br>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Pregnant Student Plead
+<<effects>>
+
+"제발, 그럴 순 없어!" 당신은 애원한다. "난...난 고아란 말이야. 내 보호자는 늘 엄청난 돈을 요구해. <<nnpc_He_ nun "Bailey">> 아주 무서운 사람이야. 하루를 버티려면 한 푼도 쓸 여유가 없어. 제발 이해해 줘!" 당신의 목소리가 떨리고, 두려움에 가득 차기 시작한다.
+<br><br>
+
+<<person1>><<person_ nun>> 걱정스러운 시선으로 당신을 바라본다. <<his_ yi>> 분노가 슬픔으로 변하기 시작한다. "가... 가, 그냥." <<he_ ga>> 중얼거린다. "넌 정말 최악이야..." <<he_ nun>> 눈물이 고인 얼굴로 말한다. <<He_ nun>> 당신을 밀쳐내고 말없이 떠난다.
+<br><br>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Locker Victim
+<<effects>>
+<<if $phase is 0>> /* Help */
+	당신은 사물함에 가까이 다가가서 자물쇠를 살펴보기 시작한다.
+	<<if $skulduggerysuccess>>
+		<<generateyv1>><<person1>>
+		잠시 살펴보니, 자물쇠는 당신의 상대가 되지 않는다. 그것은 <span class="green">딸깍 소리와 함께 열린다.</span>
+		<br><br>
+
+		<<skulduggeryuse 100 "locks" 5>>
+
+		마침내 문이 열리자, <<person_ ga>> 고마움을 표하며 밖으로 나온다. "정말 고마워.
+		<<print either(
+			"너무 어두웠어!",
+			"너무 좁았어!",
+			"오줌 마려워서 죽는 줄 알았어!",
+			"꽤 무섭더라고!",
+			"불량 학생들은 정말 최악이야.")>>"
+		<<person_ nun>> 활짝 웃고는 달려간다. <<lstress>><<stress -2>>
+		<br><br>
+		<<link [[다음|Hallways]]>><<famegood 3>><<endevent>><<set $eventskip to 1>><</link>>
+		<br>
+	<<else>>
+		<<pass 8>>
+		몇 분간 이리저리 만져봐도 소용이 없다. 결국, 당신은 포기한다. <span class="red">당신은 이 자물쇠를 열 수 없다.</span>
+		<br><br>
+		<<skulduggeryuse 100 "locks" 2>>
+
+		<<link [[도와줄 교직원을 찾는다 (0:03)|Hallways Locker Victim]]>><<pass 3>><<set $phase to 1>><</link>>
+		<br>
+		<<link [[무시한다|Hallways Locker Victim]]>><<set $phase to 3>><</link>>
+	<</if>>
+<<elseif $phase is 1>> /* Teacher */
+	당신은 교무실로 가서 선생님을 찾는다.
+	<<if $delinquency gte 400>>
+		교직원은 평판 때문에 당신을 의심스러워하지만, 당신은
+	<<else>>
+		당신은
+	<</if>> 상황을 재빨리 설명하고 정확한 사물함 번호를 알린다.
+	<br><br>
+	"알려줘서 고맙구나," 교직원이
+	<<print either(
+		"부드럽게 말한다.",
+		"진심 어린 미소를 지으며 말한다.",
+		"익숙한 듯 고개를 끄덕이며 말한다.",
+		"한숨을 내쉰다.",
+		"비꼬는 듯한 말투로 대답한다.",
+		"찡그리며 말한다.",
+		"입술을 핥으며 말한다.",
+		"당신을 경계하는 눈빛으로 바라보며 말한다.")>>
+	"내가 바로 가 볼게."
+	<br><br>
+	<<link [[다음|Hallways]]>><<endevent>><<famegood 1>><<delinquency -1>><<set $eventskip to 1>><</link>>
+	<br>
+<<elseif $phase is 2>> /* Extort money */
+	<<generateyv1>><<person1>>
+	<<set _extort to either(500,500,500,500,1000,1000,1000,2000,2000,5000)>>
+	당신은 사물함에 다가가, 격자 틈새로 속삭인다. "나오고 싶어? 얼마나?"
+	<br><br>
+	"제발, 정말로 나가고 싶어! 나는-" <<personsimple_ yi>> 말이 시작되지만, 당신은 <<him_ yi>> 말을 끊는다.<br>
+	"그래," 당신이 말한다. "내가 말한 건, 얼마로. 나오고. 싶냐고?"<br>
+	"얼마? 난 정말- 아! 아, 그래. 그렇구나."
+	<br><br>
+	<<printmoney _extort>> 지폐가 격자 틈새로 쏙 나온다.<br> "여기."
+	<br><br>
+	자물쇠를 따는 것에 시간이 좀 걸렸지만, 당신은 결국 <<he_ rul>> 꺼낼 수 있었다. "꺼내줘서 고마워... 음, 아마도."
+	<br><br>
+
+	<<skulduggeryuse 100 "locks" 5>>
+
+	<<link [[다음|Hallways]]>><<money _extort>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>> /* Ignore */
+	당신은 자리를 뜬다.
+	<<if $delinquency gte 800 or $submissive lte 850>>
+		사물함에 갇힐 정도로 멍청한 이들은 구제불능이다.
+	<<elseif $delinquency gte 600>>
+		이유가 있어서 갇힌 것이리라.
+	<<elseif $stress gte (($stressmax / 5) * 2)>>
+		당신은 남을 신경 쓸 처지가 아니다.
+	<<elseif $speech_attitude is "meek">>
+		학생을 가둔 장본인이 아직 근처에 있을 것이다.
+	<<elseif $cool gte 140>>
+		작금의 괴짜들은 구제불능이 따로 없다. 자기 앞가림 정도는 스스로 해야지.
+	<</if>>
+	<br><br>
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Stalker Intervention
+<<effects>>
+<<if $phase is 0>> /* Intervene */
+	<<cleareventpool>>
+
+	당신은 <<person1>><<personPost>>에게 다가간다.
+	<<if $speech_attitude is "meek">>
+		<<if $physique gte (($physiquesize / 7) * 5)>>
+			<<addinlineevent "meek_intimidate">>
+				"그- <<person2>><<him_ rul>> 내버려 둬," 당신이 말한다. "나쁜 짓이야."
+				<br><br>
+				당신을 노려보던 <<person1>><<person_ nun>> 당신의 체격과 탄탄한 근육을 훑어본다. "어, 그래," <<he_ nun>> 당신의 체격에 위압감을 느끼면서도, 당신의 조심스러운 태도에 당황하는 것 같다. "그... 미안하다?"
+				<br><br>
+				<<He_ nun>> 변함없이 당황한 표정으로 돌아서서 떠난다.<<gcool>><<status 1>>
+			<</addinlineevent>>
+		<</if>>
+
+		<<if currentSkillValue('skulduggery') gte random(400,700)>>
+			<<addinlineevent "meek_theft">>
+				<<set _mine to either("핸드폰","책","태블릿")>>
+				<<set _oops to either(500,500,500,500,1000,1000,1000,2000,2000)>>
+				<<he_ ga>> 지나가는 순간 당신은 <<print _mine>>을 훔친다. 당신은 근처에 있던 학생들 사이로 이동하며 <<him_ gwa>> 어느 정도 거리를 두고, 목소리를 높인다.
+				<br><br>
+				"저-저기," 당신은 소리친다. "저기! 너 이거 떨어뜨린 것 같은데." 당신은 <<personPost>>에게 <<print _mine>>를 보여준다. 자신의 주머니를 재빨리 확인한 뒤, <<he_ nun>> 얼굴을 찌푸리며 돌아선다. 당신은 자리에서 움직이지 않고, <<him_ ga>> 당신에게 가까이 오도록 한다.
+				<br><br>
+				"떨어지는 걸 봤거든," 당신은 거짓말하며, <<print _mine>>의 이곳저곳을 훑어보면서도 돌려주지는 않는다. "좀 더 조심해야지. 하지만 봐! 아무렇지 않은 것 같아. 운이 좋았네."
+				<br><br>
+				"고마워," <<he_ ga>> 손을 내밀며 말한다. "이제 돌려줄래?"
+				<br><br>
+				"망가졌을 거라고 생각했는데, 다행이야," 당신은 말한다. 저편에서, 모퉁이를 돌아 자리를 뜨는 <<person2>><<person_ yi>> 모습이 보인다. 당신은 <<print _mine>>을 내민다. "아-앞으로는 조심해, 알겠지?"
+				<br><br>
+				"그래, 그럴게. 고맙다." 당신에게서 물건을 건네받고 돌아선 <<person1>><<person_ nun>> <<person2>><<person_ ga>> 도망쳤다는 것을 알아차린다. <<person1>><<He_ nun>> 잠시 어리둥절한 표정을 지었다가, 결국 얼굴을 찌푸리며 왔던 길을 돌아간다.
+				<br><br>
+				어쩌다 보니, 당신은 <<his_ yi>> 주머니에서 <<printmoney _oops>>를 얻게 된다. 이 얼마나 관대한 일인지. <<money _oops>><<lstress>><<stress -2>>
+			<</addinlineevent>>
+		<</if>>
+
+		<<if currentSkillValue('athletics') gte 500>>
+			<<addinlineevent "meek_snatch">>
+				<<he_ rul>> 지나치며, 당신은 <<his_ yi>> 가방을 낚아채 <<person2>><<person_ yi>> 반대 방향으로 달린다.
+				<br><br>
+				"야!" <<person1>><<person_ ga>> 소리치며 당신을 쫓기 시작한다.
+				<br><br>
+				당신은 멈추는 일 없이 교무실을 지나치며 <<his_ yi>> 가방을 던져 넣은 뒤 뒷마당을 향해 계속 달린다. <<He_ nun>> 가방을 향해 방향을 틀며 당신에게 욕설을 퍼붓는다. 모퉁이를 돌자, 화가 난 교직원이 <<him_ rul>> 가로막고 무슨 일이냐고 다그치기 시작한다.
+				<br><br>
+				<<he_ nun>> 이제 당신이나 <<person2>><<person_ rul>> 따라잡을 수 없을 것이다.
+			<</addinlineevent>>
+		<</if>>
+
+		<<if currentSkillValue('skulduggery') gte random(100,300)>>
+			<<addinlineevent "meek_trip">>
+				<<he_ rul>> 지나치며, 당신은 몰래 <<him_ yi>> 발을 걸어 넘어뜨리고는 한 번에 <<he_ ga>> 메고 있던 가방의 지퍼를 확 잡아당겨버린다. <<he_ nun>> 허우적거리며 바닥에 넘어지자 소지품들이 사방으로 흩어진다. 주변의 학생들이 웃음을 터뜨린다.
+				<br><br>
+				"오, 맙소사. 저-정말 미안해!" 당신은 더욱 많은 사람들의 시선을 끌며 큰 소리로 말한다. "내-내가 도와줄게. 가장이 왜 이렇게 활짝 열려 있었던 거야? 네 물건들이 다 흩어졌네!"
+				<br><br>
+				<<He_ nun>> 당신을 의심하면서도 확신하지는 못한 채, 점점 늘어나는 사람들 앞에서 당황한 기색을 역력히 드러낸다. <<He_ nun>> 당신이 물건들을 줍기 시작하자 아무런 이의도 제기하지 않는다.
+				<br><br>
+				"자-잠시만," 당신은 무언가를 들어 올리며, 모두가 들을 수 있도록 큰 소리로 말한다. <<if $NPCList[0].penis isnot "none">>"이거 혹시 오나홀이야?!"<<else>>"이거 임신 테스트기야?!"<</if>>
+				<br><br>
+				"뭐?! 아니야!" <<he_ nun>> 새빨개진 얼굴로 말한다. "<<if $NPCList[0].penis isnot "none">>그건 손전등이야! 그냥 손전등이라고!<<else>>계산기야! 그냥 계산기라고!<</if>>"
+				<br><br>
+				저편에서, 모퉁이를 돌아 자리를 뜨는 <<person2>><<person_ yi>> 모습이 보인다. 당신은 사과하며, <<person1>><<person_ ga>> 짐을 챙기는 것을 마저 돕는다. <<he_ nun>> 원래의 목표물을 까맣게 잊은 채, 붉어진 얼굴로 서둘러 떠난다.<<lstress>><<stress -2>>
+			<</addinlineevent>>
+		<</if>>
+
+		<<if $cool gte 240>>
+			<<addinlineevent "meek_popular">>
+				<<generates3>>
+				"제-제발 <<person2>><<him_ rul>> 그냥 내버려 둬," 당신은 말한다. "나쁜 짓이야."
+				<br><br>
+				<<person1>><<person_ nun>> 당신을 노려보며 멱살을 움켜쥔다. "아, 그래? 좆 까고 네 일이나—"
+				<br><br>
+				"야!" 당신의 친구들이, <<person3>><<person_ rul>> 필두로 달려온다. <<person1>><<person_ nun>> 물러서려 하지만 <<person3>><<person_ ga>> <<person1>><<him_ yi>> 머리채를 쥐어뜯는다. "지금 누구를 건드리려는 거야, 응?"
+				<br><br>
+				당신의 친구들은 <<person2>><<person_ ga>> 멀리 벗어난 뒤에도 한참 동안 <<person1>><<person_ rul>> 꾸짖는다.
+			<</addinlineevent>>
+		<</if>>
+
+		<<if $delinquency lt 400>>
+			<<addinlineevent "meek_scream">>
+				"제-제발 <<person2>><<him_ rul>> 그냥 내버려 둬," 당신은 말한다. "나쁜 짓이야."
+				<br><br>
+				<<person1>><<person_ nun>> 당신을 노려보며 멱살을 움켜쥔다. "아, 그래? 좆 까고 네 일이나—"
+				<br><br>
+				당신은 비명을 질러 도움을 요청한다. <<person_ nun>> 충격을 받은 듯 당신을 쳐다보다가 놓아준다. 머지않아 교직원 몇 명이 상황을 확인하려 나타난다. 많은 목격자들에 의해 당신이 과민 반응했음이 명백해지고, 이는 당신의 평판에 악영향을 준다. 한 선생님이 당신을 질책한다.<<lstress>><<stress -2>><<lcool>><<status -5>>
+				<br><br>
+				상황이 정리되었을 무렵, 당신은 <<person2>><<person_ ga>> 도망쳤음을 확신한다.
+			<</addinlineevent>>
+		<</if>>
+
+		<<if _eventpool.length lte 0>>
+			<<addinlineevent "meek_default">>
+				"제-제발 멈춰, 옳지 않은 일이야," 당신은 <<him_ gwa>> 피해 학생 사이에 끼어들며 말한다.
+				<br><br>
+				<<He_ nun>> 당신을 위아래로 훑어보고는, 달려든다.
+				<<if $physique gte (($physiquesize / 7) * 3)>>
+					당신은 <<himPost>>보다 힘이 세서, 결국 당신은 자신을 제압하지 못한 <<hePost>>로부터 벗어난다.
+				<<else>>
+					<<Hes_ nun>> 당신보다 힘이 세고 난폭하다. 당신을 제압한 <<he_ ga>> 당신을 더듬으려 한다.
+				<</if>>
+				교직원이 나타나 상황을 정리하기 시작했을 무렵, <<person2>><<person_ nun>> 이미 멀리 도망친 뒤다. <<gpain>><<pain 3>>
+				<br><br>
+				<<person1>><<person_ nun>> 찌푸린 채 돌아서서 떠나간다. 적어도 <<person2>><<person_ rul>> 구해냈다.
+			<</addinlineevent>>
+		<</if>>
+	<<elseif $speech_attitude is "bratty">>
+		"<<person2>><<him_ rul>> 내버려 둬, 새끼야," 당신이 말한다. "꺼져."
+		<br><br>
+		<<if $physique gte (($physiquesize / 7) * 5)>>
+			<<addinlineevent "brat_intimidate">>
+				<<person1>><<person_ nun>> 당신을 위아래로 훑어본다. "미-미안. 얘를 괴롭히려던 건 아니야." <<His_ nun>> 시선을 피한다. "미안." 당신의 태도와 체격에 위축된 듯, <<He_ nun>> 서둘러 다른 방향으로 걸어간다. <<gcool>><<status 1>>
+			<</addinlineevent>>
+		<</if>>
+
+		<<if $delinquency gte 600>>
+			<<addinlineevent "brat_delinqient">>
+				"씨발!" <<person1>><<person_ nun>> 두 손을 든다. "미안. <<person2>><<he_ ga>> 네 친구인 줄 몰랐어." <<person1>><<person_ nun>> 당신의 교내 평판에 겁먹은 듯 재빨리 뒷걸음질 친다.<<gcool>><<status 1>>
+			<</addinlineevent>>
+		<</if>>
+
+		<<if $cool gte 240>>
+			<<addinlineevent "brat_popular">>
+				<<generates3>><<generates4>>
+				<<person1>><<person_ nun>> 당신을 노려보더니 미소로 얼굴을 일그러뜨린다. "그래, 좋아," <<he_ nun>> 당신의 멱살을 잡아 가까이 끌어당긴다. "네가 대신하라고."
+				<br><br>
+				<<he_ ga>> 무언가를 해 보기도 전에, 주위에서 뻗어온 손이 <<his_ yi>> 목을 틀어쥐고 뒤로 휙 잡아당긴다. <<person3>><<person_ ga>> <<person1>><<him_ rul>> 벽에 거칠게 밀어붙인다. "씨발, <<phim_ rul>> 놔 둬, 병신아," <<person3>><<he_ ga>> 말한다. 당신은 당신을 보호하듯 둘러싼 친구들을 알아차린다.
+				<br><br>
+				"엿 같은 변태새끼," 당신과 종종 점심을 같이 먹는 <<person4>><<personsimple_ ga>> 말한다. "더 해 볼 거냐?" 당신을 공격하려던 학생은 창백해진 얼굴로 더듬거리며 사과한다. <<person3>><<person_ nun>> <<person1>><<him_ rul>> 밀치듯 놓아준다.
+				<br><br>
+				친구들이 주변에 모여 당신이 괜찮은지 확인하는 동안, <<person_ nun>> 돌아서서 도망친다. <<llstress>><<stress -8>>
+			<</addinlineevent>>
+		<</if>>
+
+		<<if (currentSkillValue('athletics') gte 500 or currentSkillValue('danceskill') gte 500)>>
+			<<addinlineevent "brat_dodge">>
+				<<person1>><<person_ nun>> 당신을 위아래로 훑어보더니, 붙잡으려 한다. 당신은 옆으로 한 발짝 비켜서며 <<his_ yi>> 손아귀에서 쉽게 빠져나온다. <<He_ nun>> 다시 시도하지만, 그 어설프고 뻔한 동작을 당신은 두 번째에도 손쉽게 피한다.
+				<br><br>
+				"씨발, 멈추지 못해! 가만 있어!" <<He_ ga>> 당신에게 달려든다. 당신은 <<he_ rul>> 손쉽게 피하고 몸을 비틀며 밀쳐냄으로써, <<he_ yi>> 추진력을 역이용해 <<he_ ga>> 벽에 부딪치도록 만든다.
+				<br><br>
+				"하루 종일 이렇게 놀아줄 수 있어, 바보야." 당신은 고통에 신음하는 <<him_ rul>> 향해 미소 짓는다. <<lstress>><<stress -4>>
+				<br><br>
+				<<person_ nun>> 벽에서 몸을 떨쳐내고는, 왔던 길로 찌푸리며 돌아간다.
+			<</addinlineevent>>
+		<</if>>
+
+		<<if $physique gte (($physiquesize / 7) * 3)>>
+			<<addinlineevent "brat_scuffle">>
+				<<person1>><<person_ nun>> 당신을 위아래로 훑어보더니, 세게 밀쳐 당신을 한 발짝 뒤로 물러서게 한다. 당신은 코웃음치며 다시 앞으로 나아간다. 당신은 <<him_ rul>> 두 배로 세게 밀쳐 바닥에 넘어뜨린다.
+				<br><br>
+				"덤비려고, 망나니 새끼야?" 당신이 묻는다. <<He_ nun>> 당신을 노려보지만, 싸움을 벌이려던 결심을 재고하는 것 같다. <<person_ nun>> 찡그리며 일어나고는, 왔던 복도로 돌아간다.<<gcool>><<status 1>>
+			<</addinlineevent>>
+		<<else>>
+			<<addinlineevent "brat_default">>
+				<<person1>><<person_ nun>> 당신을 위아래로 훑어보더니 붙잡는다. 힘은 막상막하지만, <<he_ nun>> 부족한 여력을 오기로 메운다. 당신은 쉽게 저항하며 곧 벗어난다.
+				<br><br>
+				상황이 정리되어갈 무렵, <<person2>><<person_ nun>> 이미 멀리 떠나버린 뒤다. 그 사실을 알아차린 <<person1>><<person_ nun>> 찌푸린 채 돌아서서 떠나간다. 당신은 <<he_ yi>> 뒤통수에 대고 손가락으로 욕을 하며 저도 모르게 미소 짓는다. <<lstress>><<gpain>><<stress -4>><<pain 2>>
+			<</addinlineevent>>
+		<</if>>
+	<<else>>
+		"멈춰," 당신이 말한다. "<<person2>><<him_ rul>> 내버려 둬."
+		<br><br>
+		<<if $physique gte (($physiquesize / 7) * 5)>>
+			<<addinlineevent "default_intimidate">>
+				<<person1>><<person_ nun>> 당신을 위아래로 훑어본다. "미안, 괴롭히려던 건 아니었어." <<person_ nun>> 고개를 숙인다. "우린 아무 문제 없다고." <<He_ nun>> 당신에게 위축된 듯 뒷걸음질 친다. <<gcool>><<status 1>>
+			<</addinlineevent>>
+		<</if>>
+
+		<<if $delinquency gte 600>>
+			<<addinlineevent "default_delinquent">>
+				"아-알았어." <<person1>><<person_ nun>> 두 손을 든다. "<<person2>><<he_ga>> 네 친구인 줄 몰랐어." <<person1>><<person_ nun>> 재빨리 뒷걸음질 친다. 당신의 교내 평판에 겁먹은 것이 분명하다. <<gcool>><<status 1>>
+			<</addinlineevent>>
+		<</if>>
+
+		<<if $cool gte 240>>
+			<<addinlineevent "default_popular">>
+				<<generates3>><<generates4>>
+				<<person1>><<person_ nun>> 혼란스러워 보인다. "왜 우리의 사랑을 방해하는 거야?" <<He_ nun>> 당신의 멱살을 붙잡아 당신을 끌어당긴다. "날 네 것으로 만들고 싶어서 그러는 거지?"
+				<br><br>
+				당신은 놀라 소리치며 벗어나기 위해 발버둥친다. "해 봐, 싸워," <<he_ ga>> 말한다. "그게 더 재밌을 거야!"
+				<br><br>
+				<<his_ yi>> 목 주변에 손이 들이밀어진다. <<Hes_ nun>> <<person3>><<personPost>>에게 휙 잡아당겨지며 벽으로 내던져진다. "씨발 <<phim_ rul>> 좀 내버려 둬, 병신아," <<he_ ga>> 조롱한다. 당신을 보호하기 위해 친구들이 모여들었다.
+				<br><br>
+				"좆같은 개새끼." 당신과 같은 수업을 듣는 <<person4>><<person_ ga>> 당신 곁에 선 채 <<person1>><<person_ rul>> 노려본다. "더 해 볼 거냐?" <<person_ nun>> 당신의 친구들을 노려보며 주저하다가, 몸을 돌려 도망친다.
+				<br><br>
+				주변에 모인 친구들은 당신이 괜찮은지 확인한다. <<llstress>><<stress -8>>
+			<</addinlineevent>>
+		<</if>>
+
+		<<if (currentSkillValue('athletics') gte 500 or currentSkillValue('danceskill') gte 500)>>
+			<<addinlineevent "default_dodge">>
+				<<person1>><<person_ nun>> 당신을 위아래로 훑어보더니, 붙잡으려 한다. 당신은 옆으로 한 발짝 비켜서며 <<his_ yi>> 손아귀에서 쉽게 빠져나온다. <<He_ nun>> 다시 시도하지만, 그 어설프고 뻔한 동작을 당신은 두 번째에도 손쉽게 피한다.
+				<br><br>
+				"같이 춤출래?" 당신은 <<him_ ga>> 당신에게 닿지도 못한 채 안간힘을 쓰는 모습을 지켜보며 미소 짓는다.
+				<br><br>
+				"씨발, 멈추지 못해! 가만 있어!" <<He_ ga>> 다시 당신에게 달려든다. 당신이 <<he_ rul>> 미끄러지듯 피하자, <<he_ nun>> 균형을 잃고 벽에 부딪친다.
+				<br><br>
+				"너 정말 소질이 없구나," 당신이 놀리듯 말하자, 구경하던 몇몇 학생들이 웃음을 터뜨린다. <<person_ ga>> 으르렁거리며 낮은 자세로 태클을 시도하고, 이번에는 사물함에 부딪친다. 많은 학생들이 웃기 시작한다. <<gcool>><<status 2>>
+				<br><br>
+				수치심에 울음을 터뜨리며 일어선 <<person_ nun>> 복도를 지나 도망친다. 당신은 <<he_ rul>> 안쓰럽게 여기면서도 웃음을 터뜨리지 않을 수 없었다. <<llstress>><<stress -8>>
+			<</addinlineevent>>
+		<</if>>
+
+		<<if $physique gte (($physiquesize / 7) * 3)>>
+			<<addinlineevent "default_scuffle">>
+				<<person1>><<person_ nun>> 당신을 위아래로 훑어보더니, 붙잡으려 한다. 하지만 당신은 <<he_ rul>> 붙잡는다. 잠깐의 몸싸움이 벌어지고, 더 강했던 당신이 <<him_ rul>> 제압한다.<<gpain>><<pain 2>>
+				<br><br>
+				<<person_ nun>> 좌절감에 찬 고함을 지르며 몸을 비튼다. 속박에서 벗어난 <<he_ nun>> 당신을 노려보고는 쿵쿵거리며 떠나간다.<<gcool>><<status 1>>
+			<</addinlineevent>>
+		<<else>>
+			<<addinlineevent "default_default">>
+				<<person1>><<person_ nun>> 당신을 위아래로 훑어보더니, 당신에게 달려든다. 막상막하인 힘 차이에 한동안 몸싸움이 벌어지지만, 당신은 결국 간신히 벗어난다.<<gpain>><<pain 3>>
+				<br><br>
+				그 무렵, <<person2>><<person_ nun>> 이미 멀리 떠나버리고 그 자리를 대신한 군중이 싸움을 구경하고 있다. 소란에 이끌려 교직원 한 명이 나타난 것을 기점으로, <<person1>><<person_ nun>> 당신을 노려보며 자리를 뜬다.
+				<br><br>
+				적어도, 당신은 <<person2>><<person_ rul>> 구해냈다.
+			<</addinlineevent>>
+		<</if>>
+	<</if>>
+
+	<<set _dangerRate to _eventpool.length / 4>> /* Static 20% chance of going badly */
+	<<addinlineevent "intervene_rape" _dangerRate>>
+		/* Other speech results are called in the above if-statements. Meek is the only one that doesn't
+		always print a verbal confrontation, since meek PCs have the option(?) to use more elaborate methods*/
+		<<if $speech_attitude is "meek">>
+			"제-제발 <<person2>><<him_ rul>> 그냥 내버려 둬," 당신은 말한다. "나쁜 짓이야."
+			<br><br>
+		<</if>>
+		<<person1>><<person_ nun>> 당신을 위아래로 훑어보더니 미소로 얼굴을 일그러뜨린다. "그래, 좋아," <<he_ nun>> 당신의 멱살을 잡아 가까이 끌어당긴다. "네가 대신하라고."
+		<br><br>
+		놀란 당신이 비명을 지르며 저항하려 하지만, <<person1>><<he_ nun>> 당신의 팔을 자신의 옆구리에 낀 채 근처에 있는 찬장으로 끌고간다. 찬장까지의 거리가 너무도 짧아서, 당신은 <<he_ ga>> 처음부터 <<person2>><<personPost>>에게 이렇게 할 생각이었는지를 의심한다.
+		<br><br>
+		당신은 소리지르기 위해 입을 열지만, <span class="red"><<person1>><<persons_ yi>> 손이 당신의 입을 틀어막는다.</span> "야, 지금 그러는 건 좀 아니지," <<he_ ga>> 조롱한다. "내가 그 <<person2>><<personsimple_ rul>> 가만히 두기를 바라잖아, 응? 그러니까 나랑 좀 놀아달라고. 착한 <<girlPost>>처럼 말이야."
+		<<famegood 1>>
+		<<clearsinglenpc 1>>
+		<br><br>
+		<<link [[다음|Hallways Cupboard Sex]]>><<set $molestationstart to 1>><</link>>
+		<br>
+		<<exit>>
+	<</addinlineevent>>
+
+	<<runeventpool>>
+	<<famegood 2>>
+	<br><br>
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<<elseif $phase is 1>> /* Teacher */
+	당신은 상황을 알리기 위해 교무실로 달려간다.
+	<br><br>
+	<<if $delinquency gte 800>>
+		"네게 놀아날 생각 없다," 교직원이 딱딱거린다. "관심 없으니 나가거라." 당신은 반박하려 하지만, 소용이 없다. 교직원들은 당신의 말을 신용하지 않는다.
+		<br><br>
+		당신이 그 자리로 돌아갔을 때, <<person1>><<person_ gwa>> <<person2>><<person_ nun>> 이미 모습을 감춘 뒤다. <<gstress>><<stress 2>>
+	<<elseif $delinquency gte 400>>
+		교직원은 당신의 평판 탓에 의심스럽다는 표정을 짓지만, 학생을 돕기 위해 밖으로 나선다. 당신이 돌아갔을 때, 교직원은 <<person1>><<person_ rul>> 붙잡고 복도를 걸어가고 있다. <<lstress>><<stress -2>><<famegood 1>><<delinquency -1>>
+	<<else>>
+		교직원은 걱정스러운 표정으로 당신의 말을 듣다가, 학생을 돕기 위해 급히 달려간다. 당신이 돌아갔을 때, 교직원은 <<person1>><<person_ rul>> 붙잡고 복도를 걸어가고 있다. <<lstress>><<stress -2>>
+		<br><br>
+		당신이 다가오자, 교직원은 당신에게 엄지를 치켜세운다. 근처 학생들이 키득거린다. 그 중 한 명이 당신을 '선생들의 개'라고 부르는 것이 들려온다. <<lcool>><<status -5>><<famegood 2>><<delinquency -1>>
+	<</if>>
+	<br><br>
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<<else>> /* Ignore */
+	당신은 그들을 무시한다.
+	<<if $delinquency gte 800 or $submissive lte 850>>
+		인간은 자기 앞가림을 할 줄 알아야 한다.
+	<<elseif $stress gte (($stressmax / 5) * 3)>>
+		당신은 오늘 이 이상의 스트레스를 감당할 수 없다.
+	<<elseif $speech_attitude is "meek">>
+		당신이 개입하려고 하면, <<person1>><<he_ ga>> 당신을 쫓아올지도 모른다.
+	<<elseif $physique lt ($physiquesize / 7) * 3>>
+		당신은 상황을 제지할 만큼 강하지 않다.
+	<<elseif $cool gte 140>>
+		<<person2>>이런 학교에서라면, <<person_ yi>> 친구들이 <<he_ rul>> 도와줄 것이다.
+	<</if>>
+	<br><br>
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Pantsed Grab
+<<effects>><<generatey1>><<person1>>
+<<set _plural to $worn.lower.plural>>
+<<if $athleticsSuccess>>
+	당신은 누군가가 <<worn_lower_name_ rul>> 움켜쥐는 순간 천을 아래로 잡아당겨서, <span class="green">제자리에 고정시킨다.</span>
+	<br><br>
+	당신은 재빨리 몸을 돌려 범인을 현장에서 붙잡는다. <<person1>><<person_ nun>> 자신의 손아귀에서 <<worn_lower_name_ rul>> 빼내고 쏘아보는 당신의 모습을 놀라서 쳐다본다. <<his_ yi>> 실패에 짜증이 난 듯, 그 학생은 군중 속으로 사라진다.
+	<br><br>
+	당신은 옷을 고쳐입는다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	<<outfitChecks>>
+	당신은 <<worn_lower_name_ rul>> 움켜쥐지만, 당신 뒤쪽에 있던 <<person1>><<person_ ga>> 더 빨랐다. 당신은 <<worn_lower_name_ ga>> 벗겨지기 전에 잡아당기는 것에 실패했고,
+	<<if _underwear>>
+		그것은 당신의 <<underbottoms_ gwa>> 함께 내려간다.
+	<</if>>
+	만인 앞에서 <span class="lewd">당신의 <<genitals_ ga>> 드러나버린다!</span>
+	<br><br>
+	당신은 <<himPost>>에게 맞서기 위해 돌아서려다가 옷에 걸려 넘어진다. 당신이 넘어지는 틈을 타, <<person_ nun>> <span class="red">당신의 옷을 완전히 벗겨버린다!</span>
+	<br><br>
+	<<He_ nun>> 씩 웃고는, 당신이 뭔가를 해 볼 겨를도 없이 뒤로 물러나 군중 속으로 사라져버린다. 아무도 눈치채지 못할 것이라고 생각하던 순간, 누군가의 비명과 함께 학생들이 당신의 알몸을 쳐다보며 손가락질하기 시작한다.
+	<br><br>
+	당신은 상황이 더 악화되기 전에 그 자리를 벗어나 도망친다.
+	<<stress 6>><<trauma 5>><<gstress>><<gtrauma>>
+	<<schoolrep_naked>><<underlowerruined>><<lowerruined>>
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Pantsed
+<<effects>>
+<<set $pantsed to {}>>
+<<set $pantsed.lower to $worn.lower.name>>
+<<set $pantsed.underlower to $worn.under_lower.name>>
+<<set $pantsed.lowerintegrity to $worn.lower.integrity>>
+<<set $pantsed.underlowerintegrity to $worn.under_lower.integrity>>
+<<set $pantsed.lowerintegrity -= 20>>
+<<set $pantsed.underlowerintegrity -= 20>>
+<<exposure>>
+<<generatey1>>
+
+저항은 상황을 악화시킬 것이다. 당신은 손을 가만히 둔 채 제자리에 몸을 단단히 고정한다. 당신 뒤쪽에 있던 <<person1>><<person_ ga>> 당신의 하의를 벗겨내려는 듯 아래로 잡아당기지만, <span class="purple">무언가에 걸려버린다.</span>
+<br><br>
+<<He_ nun>> 더 거칠게 잡아당긴다. 천이 찢어지는 소리에 당신의 속이 울렁거린다.
+<br><br>
+
+<<link [[다음|Hallways Pantsed Reveal]]>><</link>>
+<br>
+
+:: Hallways Pantsed Reveal
+<<effects>>
+
+<<if $pantsed.lowerintegrity lte 0 and $pantsed.underlowerintegrity lte 0>>
+	/* both bottoms and underwear (if any) get destroyed */
+	<<if playerChastity()>>
+		천을 당기는 <<person_ yi>> 마지막 시도에, <span class="red">당신의 하의가 찢어지며<<if $pantsed.underlower isnot "naked">> 속옷과 함께<</if>> 완전히 벗겨져버린다.</span> 당신의 <<genitals_ ga>> 드러나버린다!
+		<br><br>
+		"다들, 봐..." 당신의 가해자는 찢어진 옷을 손에 든 채 입을 열지만, 당신의 <<genitals_ rul>> 보자마자 멈춘다. 다른 학생들 모두가 호기심 어린 시선으로 당신을 바라보고, 몇몇은 불안한 웃음을 터뜨린다.
+		<<schoolrep_naked>>
+		<br><br>
+		당신은 붉어진 얼굴로 복도를 달려나가고, 다른 학생들은 어리둥절하게 당신을 바라본다.
+		<br><br>
+
+		<<link [[다음|Hallways]]>><<endevent>><<underlowerruined>><<lowerruined>><<unset $pantsed>><<set $eventskip to 1>><</link>>
+		<br>
+	<<else>>
+		천을 당기는 <<person_ yi>> 마지막 시도에, <span class="red">당신의 하의가 찢어지며<<if $pantsed.underlower isnot "naked">> 속옷과 함께<</if>> 완전히 벗겨져버린다.</span> 당신은 허리 아래로 완전히 알몸이 되었다!
+		<br><br>
+		"다들, 이것 좀 봐!" 당신의 가해자가 소리친다. 당신이 뭔가를 해 보기도 전에 복도 전체가 환호성과 비명, 웃음소리로 가득 찬다. 당신은 학생들에게 둘러싸인 채 그들에게 당신의 맨엉덩이와 <<genitalsPost 2 "를">> 드러내고 있다.
+		<<schoolrep_naked>>
+		<br><br>
+		그 학생은 당신의 찢어진 옷을 들고 있다. "힘조절에 실패했네," <<he_ ga>> 웃으며 말한다.
+		<br><br>
+
+		<<if hasSexStat("exhibitionism", 5)>>
+			<<link [[과시한다|Hallways Pantsed Flaunt]]>><<set $phase to 4>><</link>><<exhibitionist5>>
+			<br>
+		<</if>>
+		<<link [[도망친다|Hallways Pantsed Run]]>><<trauma 2>><<stress 6>><<set $phase to 4>><</link>><<gstress>><<gtrauma>>
+		<br>
+	<</if>>
+
+<<elseif $pantsed.underlowerintegrity lte 0 and $pantsed.underlower isnot "naked">>
+	/* only underwear got destroyed */
+	<<if playerChastity()>>
+		천을 당기는 <<person_ yi>> 마지막 시도에, 당신의 바지가 발목까지 내려간다. <span class="red">당신의 속옷이 갈기갈기 찢어지며</span> 당신의 <<genitals_ rul>> 드러낸다!
+		<br><br>
+		"다들, 봐..." 당신의 가해자는 찢어진 옷을 손에 든 채 입을 열지만, 당신의 <<genitals_ rul>> 보자마자 멈춘다. 다른 학생들 모두가 호기심 어린 시선으로 당신을 바라보고, 몇몇은 불안한 웃음을 터뜨린다.
+		<<schoolrep_naked>>
+		<br><br>
+		당신은 재빨리 바지를 끌어올려 다른 학생들로부터 정조대 벨트를 숨긴다. 당신은 붉어진 얼굴로 복도를 달려나가고, 다른 학생들은 어리둥절하게 당신을 바라본다.
+		<br><br>
+
+		<<link [[다음|Hallways]]>><<endevent>><<clotheson>><<underlowerruined>><<unset $pantsed>><<set $eventskip to 1>><</link>>
+		<br>
+	<<else>>
+		천을 당기는 <<person_ yi>> 마지막 시도에, 당신의 바지가 발목까지 내려간다. <span class="red">당신의 속옷이 갈기갈기 찢어진다.</span>
+		<br><br>
+		"다들, 이것 좀 봐!" 당신의 가해자가 소리친다. 당신이 뭔가를 해 보기도 전에 복도 전체가 환호성과 비명, 웃음소리로 가득 찬다. 당신은 학생들에게 둘러싸인 채 그들에게 당신의 맨엉덩이와 <<genitalsPost 2 "를">> 드러내고 있다.
+		<<schoolrep_naked>>
+		<br><br>
+		그 학생은 당신의 찢어진 속옷을 들고 있다. "힘조절에 실패했네," <<he_ ga>> 웃으며 말한다.
+		<br><br>
+
+		<<if hasSexStat("exhibitionism", 5)>>
+			<<link [[과시한다|Hallways Pantsed Flaunt]]>><<set $phase to 2>><</link>><<exhibitionist5>>
+			<br>
+		<</if>>
+		<<link [[도망친다|Hallways Pantsed Run]]>><<trauma 2>><<stress 6>><<set $phase to 2>><</link>><<gstress>><<gtrauma>>
+		<br>
+	<</if>>
+<<elseif $pantsed.lowerintegrity lte 0>>
+	/* only bottoms get destroyed and player is wearing underwear */
+	<<if playerChastity()>>
+		천을 당기는 <<person_ yi>> 마지막 시도에 <span class="red">당신의 바지가 갈기갈기 찢어진다.</span> <<person_ nun>> 멈추지 않고, 당신의 속옷을 아래로 확 잡아당겨 <<genitals_ rul>> 드러낸다!
+		<br><br>
+		"다들, 봐..." 당신의 가해자는 찢어진 옷을 손에 든 채 입을 열지만, 당신의 <<genitals_ rul>> 보자마자 멈춘다. 다른 학생들 모두가 호기심 어린 시선으로 당신을 바라보고, 몇몇은 불안한 웃음을 터뜨린다.
+		<<schoolrep_naked>>
+		<br><br>
+		당신은 재빨리 바지를 끌어올려 다른 학생들로부터 정조대 벨트를 숨긴다. 당신은 붉어진 얼굴로 복도를 달려나가고, 다른 학생들은 어리둥절하게 당신을 바라본다.
+		<br><br>
+
+		<<link [[다음|Hallways]]>><<endevent>><<clotheson>><<lowerruined>><<unset $pantsed>><<set $eventskip to 1>><</link>>
+		<br>
+	<<else>>
+		천을 당기는 <<person_ yi>> 마지막 시도에 <span class="red">당신의 바지가 갈기갈기 찢어진다.</span> <<person_ nun>> 멈추지 않고, 속옷을 아래로 확 잡아당겨 당신의 하반신을 알몸으로 만들어버린다.
+		<br><br>
+		"다들, 이것 좀 봐!" 당신의 가해자가 소리친다. 당신이 뭔가를 해 보기도 전에 복도 전체가 환호성과 비명, 웃음소리로 가득 찬다. 당신은 학생들에게 둘러싸인 채 그들에게 당신의 맨엉덩이와 <<genitalsPost 2 "를">> 드러내고 있다.
+		<<schoolrep_naked>>
+		<br><br>
+		그 학생은 당신의 찢어진 속옷을 들고 있다. "힘조절에 실패했네," <<he_ ga>> 웃으며 말한다.
+		<br><br>
+		속옷이 찢어진 당신에게는 몸을 가릴 수단이 없다. 군중 속의 몇몇 학생들이 핸드폰을 꺼내 당신의 곤경을 사진과 영상으로 촬영한다.
+		<br><br>
+
+		<<if hasSexStat("exhibitionism", 4)>>
+			<<link [[과시한다|Hallways Pantsed Flaunt]]>><<set $phase to 1>><</link>><<exhibitionist4>>
+			<br>
+		<</if>>
+		<<link [[도망친다|Hallways Pantsed Run]]>><<trauma 2>><<stress 6>><<set $phase to 1>><</link>><<gstress>><<gtrauma>>
+		<br>
+	<</if>>
+<<else>>
+	/* Nothing gets destroyed */
+	<<if playerChastity()>>
+		천을 당기는 <<person_ yi>> 마지막 시도에 당신의 바지가 발목까지 내려간다.<<if $pantsed.underlower isnot "naked">> 속옷도 마찬가지다.<</if>> <span class="lewd">당신의 <<genitals_ ga>> 드러나버린다!</span>
+		<br><br>
+		"다들, 봐..." 당신의 가해자는 찢어진 옷을 손에 든 채 입을 열지만, 당신의 <<genitals_ rul>> 보자마자 멈춘다. 다른 학생들 모두가 호기심 어린 시선으로 당신을 바라보고, 몇몇은 불안한 웃음을 터뜨린다.
+		<<schoolrep_naked>>
+		<br><br>
+		당신은 재빨리 옷을 도로 끌어올려 다른 학생들로부터 <<genitals_ rul>> 가린다. 당신은 붉어진 얼굴로 복도를 달려나가고, 다른 학생들은 어리둥절하게 당신을 바라본다.
+		<br><br>
+
+		<<link [[다음|Hallways]]>><<endevent>><<unset $pantsed>><<clotheson>><<set $eventskip to 1>><</link>>
+		<br>
+	<<elseif $pantsed.underlower is "naked">>
+		천을 당기는 <<person_ yi>> 마지막 시도에 <span class="lewd">당신의 하의가 발목까지 내려간다.</span>
+		<br><br>
+		"다들, 이것 좀 봐!" 당신의 가해자가 소리친다. "<<pShes_ ga>> 속옷을 안 입고 있어!"
+		<br><br>
+		당신이 뭔가를 해 보기도 전에 복도 전체가 환호성과 비명, 웃음소리로 가득 찬다. 당신은 학생들에게 둘러싸인 채 그들에게 당신의 맨엉덩이와 <<genitalsPost 2 "를">> 드러내고 있다.
+		<<schoolrep_naked>>
+		<br><br>
+
+		<<if hasSexStat("exhibitionism", 5)>>
+			<<link [[과시한다|Hallways Pantsed Flaunt]]>><<set $phase to 3>><</link>><<exhibitionist5>>
+			<br>
+		<</if>>
+		<<link [[도망친다|Hallways Pantsed Run]]>><<trauma 2>><<stress 6>><<set $phase to 3>><</link>><<gstress>><<gtrauma>>
+		<br>
+	<<else>>
+		천을 당기는 <<person_ yi>> 마지막 시도에 <span class="lewd">당신의 하의와 속옷이 발목까지 내려간다.</span>
+		<br><br>
+		"다들, 이것 좀 봐!" 당신의 가해자가 소리친다. 당신이 뭔가를 해 보기도 전에 복도 전체가 환호성과 비명, 웃음소리로 가득 찬다. 당신은 학생들에게 둘러싸인 채 그들에게 당신의 맨엉덩이와 <<genitalsPost 2 "를">> 드러내고 있다.
+		<<schoolrep_naked>>
+		<br><br>
+
+		<<if hasSexStat("exhibitionism", 4)>>
+			<<link [[과시한다|Hallways Pantsed Flaunt]]>><<set $phase to 3>><</link>><<exhibitionist4>>
+			<br>
+		<</if>>
+		<<link [[도망친다|Hallways Pantsed Run]]>><<trauma 2>><<stress 6>><<set $phase to 3>><</link>><<gstress>><<gtrauma>>
+		<br>
+	<</if>>
+<</if>>
+
+:: Hallways Pantsed Flaunt
+<<effects>>
+
+<<if $phase lt 4>>
+	당신은 최대한 아무렇지 않다는 표정을 짓는다.
+	<br><br>
+
+	"왜? 다들 뭘 그렇게 보고 있어?" 당신은 담담하게 말한다. "내 얼굴에 뭐 묻었어?"
+	<br><br>
+
+	당신이 시치미를 떼자 다른 학생들이 웃고 환호한다. 당신은 뒤로 돌아서서, 벌거벗은 엉덩이와 드러난 <<genitals_ rul>> 모두에게 보여준다.
+	<<exhibitionism4>>
+
+	몇몇 학생들이 핸드폰으로 당신의 모습을 녹화 중이다. 당신은 머잖아 전교생이 그것을 보게 되리라는 것을 깨닫는다. 당신은 옷을 벗은 채로, 당신을 바라보는 학생들에게 둘러싸여 있다.
+	<<fameexhibitionism 5>>
+	<br><br>
+
+	"거기 무슨 일이지?" 군중 너머로 교직원 한 명이 소리치는 소리가 들려온다. 학생들은 순식간에 흩어지기 시작한다.
+	<<if $phase is 1>>
+		당신은 허리를 굽혀 옷을 재빨리 끌어올리고 반대쪽으로 달려간다.
+		<br><br>
+		<<link [[다음|Hallways]]>><<endevent>><<unset $pantsed>><<set $eventskip to 1>><<clotheson>><<lowerruined>><</link>>
+	<<else>>
+		당신은 허리를 굽혀 옷을 재빨리 끌어올리고, 매무새를 정돈한 뒤 반대쪽으로 걸어간다.
+		<br><br>
+		<<if $phase is 2>>
+			<<link [[다음|Hallways]]>><<endevent>><<unset $pantsed>><<set $eventskip to 1>><<clotheson>><<underlowerruined>><</link>>
+		<<else>>
+			<<link [[다음|Hallways]]>><<endevent>><<unset $pantsed>><<set $eventskip to 1>><<clotheson>><</link>>
+		<</if>>
+	<</if>>
+<<else>>
+
+	당신은 아무렇지 않다는 표정을 짓는다. "왜? 내 얼굴에 뭐 묻었어?" 당신의 말에 군중이 웃음을 터뜨린다.
+	<br><br>
+
+	당신은 당황한 척 빙글빙글 돌며, 모두에게 완전히 드러난 맨엉덩이와 <<genitals_ rul>> 보여준다.
+	<<exhibitionism4>>
+
+	당신은 아래를 내려다보며, 마치 자신의 알몸을 그제야 알아차린 척한다. "어! 나 좀 봐, 또 옷 입는 걸 깜빡했나?"
+	<br><br>
+
+	다른 학생들의 환호성과 웃음소리가 들려온다. 그들 대부분은 핸드폰을 꺼내 당신의 알몸 퍼포먼스를 고스란히 촬영하고 있다.
+	<<fameexhibitionism 5>>
+	<br><br>
+
+	"거기 무슨 일이지?" 군중 너머로 교직원 한 명이 소리치는 소리가 들려온다. 학생들은 순식간에 흩어지기 시작한다. 당신은 몸을 가리지도 못한 채 반대쪽으로 달려간다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<unset $pantsed>><<set $eventskip to 1>><<lowerruined>><<underlowerruined>><</link>>
+
+<</if>>
+
+:: Hallways Pantsed Run
+<<effects>>
+<<fameexhibitionism 1>>
+
+<<if $phase is 1>>
+
+	당신은 속옷을 끌어올리지만, 여전히 학생들 앞에서 하의를 입지 않은 상태다. 복도를 달려가는 당신을 웃음소리와 환호성이 뒤따른다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<clotheson>><<unset $pantsed>><<lowerruined>><<set $eventskip to 1>><</link>>
+
+<<elseif $phase is 2>>
+
+	당신은 속옷을 가해 학생의 수중에 내버려둔 채 하의를 끌어올린다. 복도를 달려가는 당신을 웃음소리와 환호성이 뒤따른다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<clotheson>><<unset $pantsed>><<underlowerruined>><<set $eventskip to 1>><</link>>
+
+<<elseif $phase is 3>>
+
+	당신은<<if $pantsed.underlower isnot "naked">> 속옷과 <</if>> 하의를 끌어올린다. 복도를 달려가는 당신을 웃음소리와 환호성이 뒤따른다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<clotheson>><<unset $pantsed>><<set $eventskip to 1>><</link>>
+
+<<else>>
+
+	당신은 어쩔 수 없이 알몸으로 복도를 달려간다. 웃음소리와 환호성이 뒤따르고, 다른 학생들은 당신이 모퉁이를 돌아 시야에서 사라질 때까지 당신의 벌거벗은 엉덩이를 쳐다본다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<unset $pantsed>><<lowerruined>><<underlowerruined>><<set $eventskip to 1>><</link>>
+
+<</if>>
+
+:: Hallways Delinquent Lockers
+<<effects>>
+
+<<if $phase is 0>> /* Intervene */
+	<<if $speech_attitude is "meek">>
+		당신은 심호흡을 하고 조심스럽게 그들 뒤로 다가간다. "음, 미안하지만... 그건 너희 사물함이 아니지 않아...?"
+	<<elseif $speech_attitude is "bratty">>
+		"야!" 당신은 그들 뒤로 쿵쿵거리며 다가간다. "너희 둘 무슨 개짓거리를 하는 거야? 그건 너희 사물함이 아니잖아."
+	<<else>>
+		"너희, 뭐 해?" 당신은 그들 뒤로 다가가며 묻는다. "그건 너희 사물함이 아니잖아."
+	<</if>>
+	<br><br>
+	사물함을 뒤지던 두 불량 학생들은 잠시 망설이다가, 일제히 당신을 돌아본다. 그들은 서로를 흘끗 쳐다보며 시선으로 무언가를 말없이 주고받는다.
+	<br><br>
+
+	<<link [[다음|Hallways Delinquent Lockers 2]]>><</link>>
+	<br>
+<<else>> /* Ignore them */
+	당신은 그들과 최대한 거리를 벌린 채 계속 이동한다. 당신에게는 남의 일에 신경 쓸 겨를이 없다.
+	<br><br>
+
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><<clearNPC locker_key_owner>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Delinquent Lockers 2
+<<effects>>
+
+<<if $whitneyromance is 1 and C.npc.Whitney.love gte 25>>
+	<<if $cool gte 240>>
+		<<person1>><<person_ gwa>> <<person2>><<person_ ga>> 달래는 듯, 불안한 듯 미소 지으며 당신을 돌아본다.
+		<br><br>
+		"어, 와, 정말로 그렇네! 우리가 헷갈렸나 봐, 그렇지? 이런," <<person1>><<person_ nun>> 조금도 진심을 가장하지 않은 채 말한다.
+		<br><br>
+		그럼에도, <<person2>><<person_ nun>> 저질 잡지를 사물함에 도로 집어넣는다. 사물함을 닫고 문을 잠근 <<person1>><<person_ ga>> 당신에게 열쇠를 던진다. 그들은 즉시 자리를 뜬다.
+		<br><br>
+		당신은 손에 들린 열쇠와 사물함을 번갈아 쳐다본다.
+		<br><br>
+
+		<<endevent>>
+		<<lockerkeyoptions>>
+	<<else>>
+		그들은 짜증스러운 시선으로 당신을 쳐다본다. <<person2>><<person_ ga>> 코웃음 친다. "애완동물 주제에 너무 기어오르지 마." 그럼에도, <<he_ nun>> 저질 잡지를 사물함에 돌려놓는다.
+		<br><br>
+		"씨발, 기분 잡치네." <<person1>><<person_ nun>> 눈을 굴리며 사물함을 쾅 닫는다. <<He_ nun>> 잠그는 것도 귀찮다는 듯 열쇠를 그냥 주머니에 쑤셔 넣는다. 그들은 당신을 노려보다가 슬그머니 자리를 뜬다.
+		<br><br>
+		적어도 싸움이 붙지는 않았다.
+		<br><br>
+
+		<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><<clearNPC locker_key_owner>><</link>>
+		<br>
+	<</if>>
+<<else>>
+	그들은 웃기 시작한다. "'그건 너희 사물함이 아니잖아'!" <<person1>><<person_ ga>> 조소한다. "열쇠는 내가 들고 있는데, 이 사물함이 내 게 아니라는 걸 네가 어떻게 알지, 응?"
+	<br><br>
+	"영웅 행세를 하고 싶어하는 <<girl_ ga>> 있는 모양인데." <<person2>><<person_ ga>> 당신을 붙잡아 맞은편의 사물함 구역으로 밀어붙인다. "이 범생이에게 자신보다 나은 사람을 어떻게 대해야 하는지를 <span class="red">교육해주는 건 어때</span>?"
+	<br><br>
+	<<person1>><<person_ ga>> 씩 웃는다. 그들이 다가온다.
+	<br><br>
+
+	<<saveNPC 0 key_bully_0>><<saveNPC 1 key_bully_1>>
+	<<endevent>>
+	<<loadNPC 0 key_bully_0>><<loadNPC 1 key_bully_1>>
+	<<clearNPC key_bully_0>><<clearNPC key_bully_1>>
+
+	<<link [[다음|Hallways Delinquent Lockers Rape]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Delinquent Lockers Rape
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+	<<if $delinquency lt 400>><<enable_rescue>><</if>>
+	불량 학생들이 당신과 거리를 좁힌다.
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate "<span class='red'>당신의 불량학생으로서의 명성 때문에, 누구도 당신을 도우러 오지 않는다.</span>">>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Hallways Delinquent Lockers Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Hallways Delinquent Lockers Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Hallways Delinquent Lockers Rape Finish
+<<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	그들은 옷을 정리하며 웃고 떠들다가, 당신을 잊은 듯 몸을 돌려 복도로 떠나간다.
+	<br><br>
+	<<tearful>> 당신은 말없이 그들의 뒷모습을 지켜본다. 바닥에 떨어진 사물함 열쇠가 눈에 들어온다. 방금 전에 떨어진 것이리라.
+	<br><br>
+
+	<<clotheson>><<endcombat>>
+	<<lockerkeyoptions>>
+<<elseif $enemyhealth lte 0>>
+	"씨발!" 불량 학생들은 예상보다 격렬한 당신의 저항에 놀라 비틀거리며 멀어진다. "씨발, 골 빈 걸레 주제에...!"
+	<br><br>
+	<<person1>><<person_ gwa>> <<person2>><<person_ nun>> 좌절한 듯 서로 눈빛을 주고받더니, 복도를 달려간다.
+	<br><br>
+	<<tearful>> 당신은 바닥에서 그들이 두고 간 사물함 열쇠를 발견한다.
+	<br><br>
+
+	<<clotheson>><<endcombat>>
+	<<lockerkeyoptions>>
+<<else>>
+	비명을 들은 교직원이 모퉁이를 돌아 급히 달려온다. "거기, 무슨 일이니?" 불량배들이 욕설을 퍼붓는다. 그들 중 하나가 당신을 발로 차고는 몸을 돌려 도망친다.<<pain 4>><<gpain>>
+	<br><br>
+	교직원은 당신이 괜찮은지를 확인한 뒤 보내준다. <<tearful>> 당신은 몸을 추스른다.
+	<br><br>
+
+	<<clotheson>><<endcombat>>
+	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><<clearNPC locker_key_owner>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Delinquent Lockers End
+<<effects>>
+
+<<if $phase is 0>> /* Raid the locker yourself */
+	당신은 사물함을 열어 안을 살펴본다.
+	<br><br>
+	포르노 잡지 외에는 교과서 몇 권과 잡동사니가 들었을 뿐이다. 당신은 잔돈 <<rng 1 5>><<moneyGain $rng true true>>를 발견한다.
+<<elseif $phase is 1>> /* Find the locker's owner and return their key */
+	당신은 근처에서 발견한 <<personPost>>에게 열쇠를 돌려준다.
+	<br><br>
+	<<Hes_ nun>> 무척 고마워하며, 자신의 물건을 확인하기 위해 서둘러 떠나기 전에 여러 번 감사를 표한다. <<status 1>><<famegood 1>><<gcool>>
+<<elseif $phase is 2>> /* Leave it there */
+	당신은 열쇠를 사물함 문에 걸어 둔다. 다른 누군가가 훔쳐가지 않는 한, <<person_ nun>> 열쇠를 쉽게 찾을 수 있으리라.
+<</if>>
+<br><br>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><<clearNPC locker_key_owner>><</link>>
+<br>
+
+:: Hallways Group Unpopular
+<<effects>>
+당신은 그들을 무시하고 복도를 계속 걸어간다.
+
+<<if dangerEvent()>>
+	<span class="red">하지만 소용이 없었다.</span> 잠시 후, 그들은 당신을 에워싼다.
+	<br><br>
+	<<if $phase is 0>>
+		"이것 좀 봐라! 누가 쓰레기를 아무데나 버려놨잖아," <<person1>><<person_ ga>> 당신에게 한 발짝 다가오며 말한다.
+		<br><br>
+		"저런, 이건 아니지," <<person2>><<person_ ga>> 당신 뒤로 다가온다. "쓰레기는 쓰레기통에 있어야지!" 그들이 폭소를 터뜨린다.
+		<br><br>
+		뻗쳐온 손들에 저항할 틈도 없이, 당신은 그들에게 붙잡혀 근처 쓰레기통으로 끌려간다. 그들은 당신의 발목을 잡아 높이 들어올리고는 <span class="pink">쓰레기통 안으로 머리부터 밀어넣는다.</span> 지독한 쓰레기 냄새에 당신은 구역질한다. <<ggstress>><<stress 6>>
+		<br><br>
+		당신이 쓰레기통 안에서 몸부림치는 내내 그들의 웃음소리와 조롱이 들려온다. 그들 중 몇몇은 쓰레기통을 몇 번이나 발로 걷어찬다. 그 소리가 좁은 공간에 메아리쳐 고통스러울 정도로 크게 들려온다.
+		<br><br>
+		<<outfitChecks>>
+		<<if setup.clothes.lower[clothesIndex('lower', $worn.lower)].skirt is 1>>
+			설상가상으로, 허벅지를 타고 올라간 <<bottoms_ ga>> 학생들에게 당신의 <span class="lewd"><<undies_ rul>> 훤히 보여준다.</span> 웃음소리가 더욱 커진다. <<gstress>><<stress 3>>
+			<<if !_underwear>> <<schoolrep_naked>> <</if>>
+			<br><br>
+		<</if>>
+		<<link [[다음|Hallways Group End]]>><</link>>
+		<br>
+	<<elseif $phase is 1>>
+		<<outfitChecks>>
+		앞쪽에 서 있던 <<person1>><<person_ ga>> 당신이 반응하기도 전에 나서서 <<bottoms_ rul>> <<pullsdown>>, 그들 전체에게 <<undies_ rul>> 내보인다. 당신은 환호 속에서 얼굴을 붉힌 채 몸을 가리려 애쓴다. <<gstress>><<stress 3>>
+		<br><br>
+		당신은 손을 뻗어 <<person_ uro>>부터 <<bottoms_ rul>> 떼어내려 하지만, 뒤에 있던 몇몇 학생들이 나서서 <<undies_ yi>> 뒷부분을 잡고 위로 세게 잡아당긴다. <span class="pink">그들의 힘에 당신은 들어올려진다!</span>
+		<br><br>
+		당신은 비명을 지르고 몸부림치지만, <<person_ nun>> 당신을 붙든 채 놓아주지 않는다. 당신의 <<undies_ ga>> <<genitals_ gwa>> <<bottomPost>> 사이에 꽉 끼어 고통스럽다. <<gpain>><<pain 2>>
+		<br><br>
+		뒤쪽의 학생들은 당신의 <<undies_ rul>> 꽉 움켜쥔 채 놓았다 잡기를 몇 번씩 거듭한다. 당신은 극심한 고통을 느끼고, <<undies_ ga>> 망가진다. <<ggpain>><<pain 6>>
+		<br><br>
+		<<link [[다음|Hallways Group End]]>><<set $phase to 6>><</link>>
+		<br>
+	<</if>>
+<<else>>
+	그들은 당신을 조금 더 따라오다가, 돌아서서 함께 교실로 들어선다. <span class="green">당신의 불길한 예감이 빗나간 것 같다.</span>
+	<br><br>
+	<<link [[다음|Hallways]]>><<pass 1>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+:: Hallways Group Popular
+<<effects>>
+<<if $phase is 1>>
+	당신은 어리숙한 <<person3>><<personsimplePost>> 뒤로 몰래 다가가는 학생들에게 합류한다. <<He_ ga>> 놀라서 돌아보는 순간, <<person1>><<person_ ga>> 외친다. "쓰레기는 쓰레기통에 있어야지!"
+	<br><br>
+	당신과 <<person2>><<person_ nun>> 손을 뻗어 <<person3>><<person_ rul>> 붙잡은 채, 환호성을 받으며 근처의 쓰레기통으로 끌고 간다. 노력한 끝에 당신은 <<him_ rul>> 머리부터 쓰레기통에 처박는 것에 성공한다.
+	<br><br>
+	<<personsimple_ nun>> 미친 듯이 발버둥치고 발차기한다.
+	<<if $NPCList[$index].clothes.lower.name.includes("skirt")>>
+		<<his_ yi>> 옷이 위로 젖혀지면서 <span class="lewd"><<his_ yi>> <<if $pronoun is "m">>속옷이<<else>>팬티가<</if>> 모두에게 드러난다.</span>
+	<<else>>
+		하지만, 아무런 소용이 없다.
+	<</if>>
+	꽤 우스운 꼴이다.
+	<br><br>
+	<<person2>><<person_ ga>> 사진을 찍는 동안, 다른 학생들은 쓰레기통을 발로 걷어차며 즐긴다.
+	<br><br>
+<<elseif $phase is 2>>
+	당신은 물러선 채, 다른 학생들이 어리숙한 <<person3>><<personsimple_ yi>> 뒤쪽으로 몰래 다가가는 것을 지켜본다. <<Hes_ nun>> 놀라서 뒤를 돌아보지만, <<person2>><<person_ ga>> <<person3>><<him_ rul>> 뒤에서 붙잡고 <<person1>><<person_ ga>> "쓰레기는 쓰레기통에 있어야지!"라고 소리친 탓에 완전히 허를 찔린다.
+	<br><br>
+	당신은 그들이 겁에 질린 <<person3>><<personsimple_ rul>> 근처 쓰레기통으로 옮긴 뒤, <<his_ yi>> 다리를 공중으로 들어올려 머리부터 쓰레기통에 처박는 것을 지켜본다.
+	<br><br>
+	<<person_ nun>> 미친 듯이 발버둥치고 발차기한다.
+	<<if $NPCList[$index].clothes.lower.name.includes("skirt")>>
+		<<his_ yi>> 옷이 위로 젖혀지면서 <span class="lewd"><<his_ yi>> <<if $pronoun is "m">>속옷이<<else>>팬티가<</if>> 모두에게 드러난다.</span>
+	<<else>>
+		하지만, 아무런 소용이 없다.
+	<</if>>
+	당신은 <<him_ rul>> 동정한다.
+	<br><br>
+	<<person2>><<person_ ga>> 사진을 찍는 동안, 다른 학생들은 쓰레기통을 발로 걷어차며 <<person3>><<persons_ yi>> 불행을 즐긴다.
+	<br><br>
+<<elseif $phase is 3>>
+	당신은 다른 학생들이 갑자기 경계심을 드러낸 <<person3>><<personsimple_ rul>> 포위하는 것에 합류한다. 당신은 앞장서서 나아가, <<person3>><<his_ yi>> 하의를 재빨리 아래로 내려 <span class="lewd"><<if $pronoun is "m">>속옷을<<else>>팬티를<</if>> 모두가 볼 수 있도록 드러낸다.</span>
+	<br><br>
+	얼굴이 빨개진 <<personsimple_ nun>> 몸을 가리려고 애쓴다. <<he_ ga>> 허리를 숙여 하의를 집어 들려는 순간, 당신과 다른 두 명의 학생은 <<his_ yi>> <<if $pronoun is "m">>속옷<<else>>팬티<</if>> 뒷부분을 붙잡는다.
+	<br><br>
+	당신과 그들이 힘을 합쳐 <<person_ yi>> <<if $pronoun is "m">>속옷을<<else>>팬티를<</if>> 붙잡고 <<he_ rul>> 공중에 들어 올리자, <<him_ nun>> 비명을 지른다. 자신의 속옷에 매달린 <<He_ nun>> 우스꽝스러워 보인다.
+	<br><br>
+	당신과 두 학생은 <<him_ rul>> 놓았다가 도로 붙잡기를 몇 번 반복한다. <<he_ ga>> 몸부림칠수록, 찢어진 천이 <<his_ yi>> 가랑이로 점점 더 깊게 파고든다.
+	<br><br>
+<<elseif $phase is 4>>
+	당신은 물러선 채, 다른 학생들이 갑자기 경계심을 드러낸 <<person3>><<personsimple_ rul>> 포위하는 것을 바라본다. <<person1>><<person_ ga>> <<person3>><<him_ rul>> 붙잡고 있는 사이, <<person2>><<person_ nun>> <<person3>><<his_ yi>> 하의를 아래로 잡아당겨 <span class="lewd"><<if $pronoun is "m">>속옷을<<else>>팬티를<</if>> 모두가 볼 수 있도록 드러낸다.</span>
+	<br><br>
+	얼굴이 빨개진 <<personsimple_ nun>> 몸을 가리려 필사적으로 애쓴다. <<he_ ga>> 허리를 숙여 하의를 집어 들려는 순간, 여러 학생들이 <<his_ yi>> <<if $pronoun is "m">>속옷<<else>>팬티<</if>> 뒷부분을 붙잡는다.
+	<br><br>
+	학생들이 <<person_ yi>> <<if $pronoun is "m">>속옷을<<else>>팬티를<</if>> 붙잡고 <<he_ rul>> 공중에 들어 올리자, <<him_ nun>> 공포에 휩싸여 비명을 지른다. 매달린 <<He_ nun>> 비참해 보이고, 당신은 죄책감을 느끼지 않을 수 없다.
+	<br><br>
+	학생들은 <<him_ rul>> 놓았다가 도로 붙잡기를 몇 번 반복한다. <<he_ ga>> 몸부림칠수록, 찢어진 천이 <<his_ yi>> 가랑이로 점점 더 깊게 파고든다. <<he_ ga>> 고통에 찬 비명을 지른다.
+	<br><br>
+<<elseif $phase is 5>>
+	이런 일을 두고볼 수는 없다. 당신은 무슨 일이 벌어지기 전에, 그 고아 <<person3>><<personsimple_ gwa>> 그들 사이에 끼어들어 막아선다.
+	<<if $speech_attitude is "meek">>
+		"안 돼, 이-이러지 마! 우린 <<him_ rul>> 그냥 내버려둘 수 있을 거야," 당신이 말한다.
+	<<elseif $speech_attitude is "bratty">>
+		"네놈들은 도대체 뭐가 문제냐?" 당신은 허리에 손을 얹은 채 말한다. "<<him_ rul>> 그냥 내버려 둬."
+	<<else>>
+		"안 돼, 멈춰! <<He_ nun>> 이미 충분히 했잖아," 당신이 말한다.
+	<</if>>
+	<br><br>
+	그들은 잠시 멈칫한다. 그들의 리더가 항의하지만 당신은 단호히 맞선다. 결국 그들은 장난을 그만두는 것에 동의한다. 그들이 떠나가는 동안, 당신은 당신이 따분하다는 <<person2>><<person_ yi>> 볼멘소리를 듣는다.
+	<br><br>
+<</if>>
+
+<<link [[다음|Hallways Group End]]>><</link>>
+<br>
+
+:: Hallways Group End
+<<effects>>
+<<if $phase is 0>>
+	몇 분이 지나자, 그들은 놀이에 싫증을 낸다. 그들이 놓아주자 당신은 쓰레기통 째로 넘어진다. <<person3>><<personsimple_ ga>> 쓰레기통을 걷어찬 것을 끝으로, 그들은 흩어진다. <<gpain>><<pain 2>>
+	<br><br>
+	당신은 귀가 먹먹한 채로 쓰레기통에서 조심스레 기어 나온다. 당신은 쓰레기를 최대한 치우고 옷을 정리한다. <<lcool>><<gstress>><<gtrauma>><<status -6>><<stress 6>><<trauma 6>>
+	<br><br>
+<<elseif $phase is 1 or $phase is 2>>
+	지루해지자, <<if $phase is 1>>당신은<<else>>그들은<</if>> <<person3>><<persons_ yi>> 다리를 놓아 쓰레기통 째로 넘어뜨린다.
+	<br><br>
+	<<He_ nun>> 쓰레기통에서 기어 나와 옷을 고쳐 입고는, 야유하는 무리로부터 서둘러 도망친다.
+	<br><br>
+<<elseif $phase is 3>>
+	잡았다 놓기의 반복이 끝나자, <<persons_ yi>> <<if $pronoun is "m">>속옷은<<else>>팬티는<</if>>
+	<<if random(1,2) is 1>>
+		결국 당신의 손 안에서 찢어져 버린다. <<personsimple_ nun>> <span class="lewd">허리 아래의 맨살을 전부 드러낸 채로</span> 바닥에 넘어진다.
+		<br><br>
+		당신 주위의 학생들이 <<person_ rul>> 야유하고 휘파람을 불자, <<he_ nun>> 겁에 질린 눈으로 당신을 올려다본다.
+		<br><br>
+	<<else>>
+		상당히 늘어나버렸다. <<personsimplePost>>에게 더욱 망신을 줄 기회라고 판단한 <<person1>><<person_ nun>> 당신의 손에서 그것을 넘겨받은 뒤 잡아당겨 벗긴다. 그것은 <<person3>><<he_ yi>> 머리에 씌워진다.
+		<br><br>
+		고무줄이 <<personsimple_ yi>> 눈썹에 딱 소리를 내며 안착한다. 학생들이 웃으며 사진을 찍는 동안 꼼짝도 못 하던 <<He_ nun>> 간신히 그것을 벗어 던진다.
+		<br><br>
+	<</if>>
+	자유로워진 <<person_ nun>> 빠르게 자신의 하의를 집어 들고 복도를 전력 질주해 모습을 감춘다. <<person2>><<person_ ga>> 당신의 기술을 칭찬한다.
+	<br><br>
+<<elseif $phase is 4>>
+	학생들의 고문이 반복되자, <<persons_ yi>> <<if $pronoun is "m">>속옷은<<else>>팬티는<</if>>
+	<<if random(1,2) is 1>>
+		마침내 한계에 달해 찢어져 버린다. <<personsimple_ nun>> <span class="lewd">허리 아래의 맨살을 전부 드러낸 채로</span> 바닥에 넘어진다.
+		<br><br>
+		학생들은 <<him_ rul>> 둘러싼 채 야유하고 욕설을 퍼붓는다. <<personsimple_ nun>> 눈물이 가득 고인 눈으로 위를 쳐다본다.
+		<br><br>
+	<<else>>
+		상당히 늘어나버렸다. <<personsimplePost>>에게 더욱 망신을 줄 기회라고 판단한 <<person1>><<person_ nun>> 그것을 <<person3>><<he_ yi>> 머리에 씌운다.
+		<br><br>
+		고무줄이 <<personsimple_ yi>> 눈썹에 딱 소리를 내며 안착한다. 학생들이 웃으며 사진을 찍는 동안 꼼짝도 못 하던 <<He_ nun>> 간신히 그것을 벗어 던진다.
+		<br><br>
+	<</if>>
+	자유로워진 <<person_ nun>> 빠르게 자신의 하의를 집어 들고 당신과 학생들을 피해 복도를 전력 질주하며 모습을 감춘다.
+	<br><br>
+<<elseif $phase is 5>>
+	당신은 그들이 떠나는 것을 지켜보다가 <<person3>><<person_ rul>> 향해 돌아선다. 당신은 저렇게 뭉쳐 다니는 학생들을 조심하라고, 당신이 <<him_ rul>> 항상 보호해 줄 수는 없을 거라고 말한다.
+	<br><br>
+	<<He_ nun>> 당신의 친절에 감사하며, 다음 수업을 위해 서둘러 떠난다.
+	<br><br>
+<<elseif $phase is 6>>
+	<<outfitChecks>>
+	<<if _bottomUnder.integrity lte 40>>
+		잔혹한 학대가 이어지자 <span class="red">당신의 <<undies_ nun>> 갈기갈기 찢어지고 만다.</span> 당신은 갑자기 바닥으로 쓰러지며, <span class="lewd">허리 아래의 맨살을 전부 드러낸다.</span> <<gpain>><<gstress>><<pain 3>><<stress 2>>
+		<<schoolrep_naked>>
+		<br><br>
+		잠깐의 경악과 함께, 그들은 당신 위에서 <<undies_ rul>> 들고 야유를 퍼붓기 시작한다. <<lcool>><<status -6>>
+		<br><br>
+	<<else>>
+		굴욕적인 잡았다 놓기가 끝난 뒤, 그들은 돌아가며 무력하게 몸부림치는 당신의 사진을 찍고 비웃는다. <<lcool>><<gstress>><<status -6>><<stress 4>>
+		<br><br>
+		당신을 괴롭히는 것에 마침내 질린 그들은 불시에 속옷을 놓아버린다. 놀란 당신은 비틀거리다가 얼굴을 땅에 박고 넘어지며, <span class="lewd"><<bottom_ rul>> 허공에 드러낸다.</span> 웃음소리가 더욱 커진다. <<ggpain>><<pain 6>>
+		<br><br>
+	<</if>>
+	<<person_ ga>> 한눈을 판 사이, 당신은 급히 <<bottoms_ rul>> 벗고 복도를 전력 질주한다. 그들의 시야를 벗어나자마자 멈춰 선 당신은 최대한 옷매무새를 정리한다. <<gstress>><<gtrauma>><<stress 6>><<trauma 6>>
+	<br><br>
+	/* Set at the end so we can still reference the PC's underwear in the passage */
+	<<set _bottomUnder.integrity -= 40>>
+<</if>>
+
+<<link [[다음|Hallways]]>><<pass 2>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Group Escape
+<<effects>>
+당신은 옆쪽 복도로 방향을 틀어 그들의 시야에서 벗어나자마자 빠르게 달리기 시작한다. 당신은 교내를 이리저리 휘젓고 다니며 당신을 쫓는 <<if $phase is 1>><<person1>><<person_ rul>><<else>>학생들을<</if>> 피한다.
+<br><br>
+처음의 장소로 되돌아왔을 때, 당신은 <<if $phase is 1>><<him_ rul>><<else>>그들을<</if>> 따돌렸다고 확신한다.
+<br><br>
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Hallways Tailpull React
+<<effects>>
+
+<<switch $phase>>
+	<<case 1>>
+		"다시 당겨 봐," 당신은 몸을 돌려 꼬리를 내민다.
+		<br><br>
+		
+		<<personsimple_ nun>> 당신을 이상하게 쳐다보다가, 다시 꼬리를 잡아당긴다. 당신은 신음한다. 그들이 다시 웃고, 당신도 함께 웃는다. <<if random(1, 4) lte $masochism_level>>여분의 고통이 당신을 흥분시킨다.<<arousal 900>><<garousal>><<else>>여전히 아프지만 말이다.<<pain 8>><<gpain>><</if>><<stress -6>><<lstress>>
+		<br><br>
+	<<case 2>>
+		당신은 <<personsimple_ yi>> 손을 물어뜯으며 으르렁거리고 짖는다.
+	<<case 3>>
+		당신은 <<personsimplePost>>에게 이를 드러내고 쉿 소리를 낸다. 당신의 <<if $transformationParts.wolf.ears isnot "hidden">>귀가 뒤로 젖혀지고 <</if>>꼬리가 펑 터진다.
+	<<case 4>>
+		당신은 끔찍한 울부짖음과 함께 <<personsimple_ yi>> 손을 물어뜯는다.
+	<<case 5>>
+		당신은 날카로운 비명을 지르며 <<personsimple_ yi>> 손을<<if $transformationParts.bird.wings isnot "hidden">> 날개로<</if>> 쳐낸다.
+	<<case 6>>
+		당신은 콧김을 내뿜으며<<if $transformationParts.cow.horns isnot "hidden">> 뿔로<</if>> <<personsimple_ rul>> 들이받을 준비를 한다.
+	<<default>>
+		당신은 얼굴을 붉히며, 고개를 숙이고 꼬리를 다리 사이에 안전하게 숨긴 채 계속 걸어간다. 뒤따르는 웃음소리는 당신이 복도의 모퉁이를 돌 때까지 메아리친다.<<stress 8>><<gstress>>
+		<br><br>
+<</switch>>
+<<if $phase gte 2>>
+	<br><br>
+
+	<<He_ nun>> 재빨리 뒷걸음질 치며 당신을 이상한 눈빛으로 바라본다. "미친 새끼," 당신은 <<him_ ga>> 친구들에게 돌아가면서 하는 말을 듣는다.<<stress -8>><<status -10>><<lstress>><<lcool>>
+	<br><br>
+<</if>>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+
+:: Hallways Transformation Petting Agree
+<<effects>>
+
+당신은 고개를 끄덕이고는 더 가까이 다가가서 몸을 내민다.
+<<if $speech_attitude is "meek">>
+	"상냥하게 해 줘."
+<<elseif $speech_attitude is "bratty">>
+	"그냥 잡아당기지만 말라고."
+<<else>>
+	"조심해 줘."
+<</if>>
+<br><br>
+
+<<He_ nun>> 끄덕이며 당신을 만지기 위해 손을 뻗는다.
+<<if $selectedtfpart is "tail">>
+	<<if $demon gte 6 or $cat gte 6 or $cow gte 6>>
+		<<His_ yi>> 손이 당신의 꼬리를 부드럽게 쓸어내린다. 꼬리는 <<his_ yi>> 손목을 살며시 감싼다.
+	<<elseif $wolfgirl gte 6 or $fox gte 6>>
+		<<He_ nun>> 당신의 복슬복슬한 꼬리를 쓸어내린다. 당신은 꼬리가 <<his_ yi>> 손을 벗어나지 않도록 애쓰지만, 그것은 여전히 조금씩 살랑거린다.
+	<<else>>
+		<<He_ nun>> 당신의 꼬리를 손가락으로 훑어내린다. <<he_ ga>> 손을 떼자마자, 당신은 꼬리를 휙 움직여 깃털을 펴려고 한다.
+	<</if>>
+<<elseif $selectedtfpart is "wings">>
+	당신은 접촉에 몸을 살짝 떨며 날개를 펼친다.
+	<<if $transformationParts.demon.wings isnot "hidden" and $transformationParts.demon.wings isnot "disabled" and $chimera.demonharpy.wings is false>>
+		<<He_ nun>> 가죽 같은 질감의 표면을 손으로 쓸어내리고,
+	<<else>>
+		<<He_ nun>> 손가락으로 깃털 사이사이를 훑고,
+	<</if>>
+	관절 부분을 부드럽게 잡은 채 더욱 펼친다.
+<<else>>
+	<<He_ nun>> 당신의 귀 하나를 손에 쥔 채 부드럽게 문지르다가, 뿌리 부분을 살살 긁어준다. 당신의 귀가 반사적으로 씰룩거린다.
+<</if>>
+"<<if $selectedtfpart is "tail">>이거<<else>>이것들<</if>> 완전 진짜 같다," <<he_ ga>> 말한다. "어떻게 이런 식으로 움직일 수 있는 거야?"
+<br><br>
+
+당신은 살짝 얼굴을 붉히며, <<himPost>>에게 <<if $selectedtfpart is "tail">>그것이<<else>>그것들이<</if>> 당신 몸의 일부임을 어떻게 말해야 할지 머뭇거린다. <<personsimple_ nun>> 당신을 계속 부드럽게 쓰다듬는다. 당신은 그 손길에 편안함을 느낀다.<<stress -3>><<lstress>>
+<br><br>
+
+<<if hasSexStat("promiscuity", 2)>>
+	<<link [[더 자세히 보라고 한다|Hallways Transformation Petting Offer]]>><</link>><<promiscuous2>>
+<<else>>
+	<<insufficientStat "당신은 <<him_ gwa>> 이 이상 나아갈 만큼 음란하지 않다">>
+<</if>>
+<br>
+<<link [[작별한다|Hallways Transformation Petting End]]>><<set $phase to 1>><</link>>
+
+:: Hallways Transformation Petting Offer
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"음, 좀 더 자세히 보고 싶어?" 당신은 주위를 둘러보며 속삭이듯 덧붙인다. "사적으로?"
+<<elseif $speech_attitude is "bratty">>
+	당신은 씩 웃는다. "좀 더 조용한 곳으로 가면, <<if $selectedtfpart is "tail">>이게<<else>>이것들이<</if>> 얼마나 사실적인지 제대로 볼 수 있지 않겠어?"
+<<else>>
+	"원한다면, 둘이서만 있을 수 있는 조용한 곳으로 가자. 더 자세히 볼 수 있게." 당신은 윙크한다.
+<</if>>
+<br><br>
+
+<<promiscuity2>>
+
+<<personsimple_ nun>> 뺨을 붉히면서도 기대감에 차 승낙한다. 당신은 빈 복도에서 큰 벽장을 발견한다. 문이 닫히자마자 <<he_ nun>> 당신의 몸 전체를 더듬기 시작한다.
+<br><br>
+
+<<link [[다음|Hallways Transformation Petting Sex]]>><<set $sexstart to 1>><</link>>
+
+
+:: Hallways Transformation Petting Sex
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemytrust += 100>>
+	<<if $delinquency lt 400>><<enable_rescue>><</if>>
+	<<person_ nun>> 이제 당신의 '코스튬'을 완전히 잊어버린 것처럼, 당신 몸의 다른 부분을 만지는 데 더 관심을 쏟는 것 같다.
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate "<span class='red'>당신의 불량학생으로서의 명성 때문에, 누구도 당신을 도우러 오지 않는다.</span>">>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Hallways Transformation Petting Sex Finish]]>><</link>></span>
+<<else>>
+	<span id="next"><<link [[다음|Hallways Transformation Petting Sex]]>><</link>></span>
+<</if>>
+
+:: Hallways Transformation Petting Sex Finish
+<<if $enemyhealth lte 0>>
+	<<personsimple_ nun>> 비틀거리며 뒤로 물러나다가 벽과 충돌하고, 그 바람에 대걸레들이 엎어지며 요란한 소리를 낸다. "뭔데 씨발? 그럼 나를 왜 초대한 거야, 이 미친 <<bitch_ ya>>." <<He_ nun>> 벽장에서 뛰쳐나가버리고, 당신은 홀로 대걸레를 줍게 된다.<<status -4>><<lcool>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+
+	잠시 여운에 젖어 있던 <<He_ nun>> 무언가 생각난 듯 눈을 깜박인다. "음, 즐거웠어. 하지만 아직 할 일이 남아서," <<he_ nun>> 머쓱하게 말한다. <<He_ nun>> 당신이 일어설 수 있도록 손을 내밀고, 함께 벽장을 나서려다가 미소 지으며 작별 인사를 건넨다.<<status 8>><<gcool>>
+<<elseif $finish is 1>>
+	"하지만 네가 나를 초대했잖아? 뭐, 좋아. 아마도..." <<personsimple_ nun>> 약간 실망한 눈치로 물러선다. <<He_ nun>> 수업에 대해 중얼거리며 먼저 벽장을 나선다. 당신이 바깥을 내다봤을 때 <<Hes_ nun>> 이미 사라지고 없다.
+<<else>>
+	<<set $rescued += 1>>
+	누군가가 문을 쾅 두드린다. "거기 무슨 일이야?" 엄한 목소리가 들려온다. 선생님이다.
+	<br><br>
+	문이 활짝 열리자, <<person_ nun>> 빠르게 옷을 정리한다. "그냥 보려고 했어요! <<pShe_ ga>> 원했다고요, 저는-" <<he_ nun>> 말을 더듬고, 선생님을 속이지 못한다. <<personsimple_ nun>> 팔을 붙잡힌 채 끌려간다.
+	<br><br>
+	<<tearful>> 당신은 벽장을 떠난다.
+<</if>>
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+<<if $enemyhealth lte 0>>
+	<<wearProp "mop">><<canvas-model-override "mouth" "neutral">>
+<</if>>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><<unset $selectedtfpart>><</link>>
+
+:: Hallways Transformation Petting End
+<<effects>>
+
+<<if $phase is 0>>
+	당신은 가야할 곳이 있다며 거절한다. <<personsimple_ nun>> 실망한 표정을 짓지만 당신을 붙잡지 않고, 마지막으로 칭찬을 건넨다.<<stress -4>><<lstress>>
+<<elseif $phase is 1>>
+	당신은 <<personsimple_ yi>> 손에서 조심스레 벗어난다. <<He_ nun>> 붙잡아서 미안하다며 다시 한번 사과한다. 당신은 작별 인사를 건넨 뒤 복도를 계속 걸어간다.
+<</if>>
+<br><br>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><<unset $selectedtfpart>><</link>>

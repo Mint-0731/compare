@@ -1,0 +1,1139 @@
+:: Passout alley
+
+당신은 너무 무리했다.
+<br><br>
+<<passout>>
+<<if dangerEvent()>>
+	<<switch random(1, 3)>>
+		<<case 3>>
+			<<link [[일어난다|Abduction]]>><<set $molestationstart to 1>><</link>>
+		<<case 2>>
+			<<link [[일어난다|Street Wake]]>><</link>>
+		<<case 1>>
+			<<link [[일어난다|Molestation alley]]>><<set $molestationstart to 1>><</link>>
+	<</switch>>
+<<else>>
+		<<ambulance>>
+<</if>>
+
+
+<<pass 1 hour>>
+<<trauma 6>><<set $stress -= 2000>>
+
+:: Molestation Industrial
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+
+	<<strangeman2init>>
+<</if>>
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if $alarm is 1>>
+	<<set $alarm to 0>>
+	<br><br>
+	<<if $enemyarousal gte $enemyarousalmax>>
+		<span id="next"><<link [[다음|Industrial Ejaculation]]>><</link>></span><<nexttext>>
+	<<elseif $enemyhealth lte 0>>
+		<span id="next"><<link [[다음|Industrial Escape]]>><</link>></span><<nexttext>>
+	<<else>>
+		<span id="next"><<link [[다음|Molestation Industrial]]>><</link>></span><<nexttext>>
+	<</if>>
+
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<span id="next"><<link [[다음|Industrial Ejaculation]]>><</link>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+	<span id="next"><<link [[다음|Industrial Escape]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Molestation Industrial]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Industrial Ejaculation
+
+<<effects>>
+<<ejaculation>>
+<<if $enemyanger gte ($enemyangermax / 5) * 3>>
+	그는 마지막으로 당신의 얼굴을 한 대 때리고는, 당신을 땅에 내버려 두고 떠났다.
+	<<violence 3>>
+	<br><br>
+	<<elseif $enemyanger gte 1>>
+	아무 말 없이 그는 일어섰고, 당신을 땅에 내버려 두고 떠났다.
+	<br><br>
+<<else>>
+	그는 웃으면서 당신의 뺨에 키스한다. "이건 네 거야." 그는 일어섰고 당신을 땅에 내버려 두고 떠났다.
+	<br>
+	당신은 <<moneyGain 5>>를 얻었다.
+	<br><br>
+<</if>>
+<<stealclothes>>
+<br><br>
+<<tearful>> 당신은 일어난다.
+<br><br>
+<<clotheson>>
+<<endcombat>>
+<<industrialeventend>>
+
+:: Industrial Escape
+
+<<effects>>
+그는 고통으로 움찔하며, 당신이 도망칠 기회를 준다. <<tearful>> 당신은 다리에 힘이 풀려 쓰러져 움직이지 못할 때까지 달렸다.
+<br><br>
+<<clotheson>>
+<<endcombat>>
+<<industrialeventend>>
+
+:: Molestation alley
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<generate1>><<strangeman2init>><<set $enemyanger += 60>>
+	당신은 깨어나 낯선 <<person1>>남자에 의해 쓰레기통 뒤로 끌려가는 자신을 발견했다.
+<</if>>
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+<<if $alarm is 1>>
+	<<set $alarm to 0>>
+	<br><br>
+	<<if $enemyarousal gte $enemyarousalmax>>
+		<span id="next"><<link [[다음|Alley Ejaculation]]>><</link>></span><<nexttext>>
+	<<elseif $enemyhealth lte 0>>
+		<span id="next"><<link [[다음|Alley Escape]]>><</link>></span><<nexttext>>
+	<<else>>
+		<span id="next"><<link [[다음|Molestation alley]]>><</link>></span><<nexttext>>
+	<</if>>
+
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<span id="next"><<link [[다음|Alley Ejaculation]]>><</link>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+	<span id="next"><<link [[다음|Alley Escape]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Molestation alley]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Molestation Commercial
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<strangewoman1init>><<set $enemyanger += 60>><<set $NPCList[0].lefthand to "hair">>
+<</if>>
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+<<if $alarm is 1>>
+	<<set $alarm to 0>>
+	<br><br>
+	<<if $enemyarousal gte $enemyarousalmax>>
+		<span id="next"><<link [[다음|Commercial Ejaculation]]>><</link>></span><<nexttext>>
+	<<elseif $enemyhealth lte 0>>
+		<span id="next"><<link [[다음|Commercial Escape]]>><</link>></span><<nexttext>>
+	<<else>>
+		<span id="next"><<link [[다음|Molestation Commercial]]>><</link>></span><<nexttext>>
+	<</if>>
+
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<span id="next"><<link [[다음|Commercial Ejaculation]]>><</link>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+	<span id="next"><<link [[다음|Commercial Escape]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Molestation Commercial]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Commercial Ejaculation
+
+<<effects>>
+그는 긴장하며 신음소리를 죽이기 위해 그의 입술을 당신의 목에 파묻는다.
+<br><br>
+<<ejaculation>>
+<<if $enemyanger gte ($enemyangermax / 5) * 3>>
+	그는 당신을 세게 깨물고는 말없이 떠났다.<<violence 3>>
+	<br><br>
+	<<elseif $enemyanger gte 1>>
+	아무 말 없이 그는 일어섰고 당신을 풀 위에 내버려 두고 떠났다.
+	<br><br>
+<<else>>
+	그는 웃으면서 당신의 뺨에 키스한다. "이건 네 거야." 그는 일어섰고 당신을 풀 위에 내버려 두고 떠났다.
+	<br>
+	당신은 <<moneyGain 5>>를 얻었다.
+	<br><br>
+<</if>>
+<<tearful>> 당신은 일어난다.
+<br><br>
+<<clotheson>>
+<<endcombat>>
+<<commercialeventend>>
+
+:: Commercial Escape
+
+<<effects>>
+그는 고통으로 움찔하며, 당신이 도망칠 기회를 준다. <<tearful>> 당신은 코너 몇 개를 지나간 후, 과일상자 뒤에 숨었다. 아무도 따라오지 않는다.
+<br><br><br><br>
+<<clotheson>>
+<<endcombat>>
+<<commercialeventend>>
+
+:: Molestation Residential
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<strangeman2init>>
+<</if>>
+<<if $phase is 1>><<enable_rescue>><</if>>
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+<<if $alarm is 1>>
+	<<if $rescue is 1>>
+		<span id="next"><<link [[다음|Residential Alarm]]>><</link>></span><<nexttext>>
+	<<else>>
+		<<set $alarm to 0>>
+		<br><br>
+		<<if $enemyarousal gte $enemyarousalmax>>
+			<span id="next"><<link [[다음|Residential Ejaculation]]>><</link>></span><<nexttext>>
+		<<elseif $enemyhealth lte 0>>
+			<span id="next"><<link [[다음|Residential Escape]]>><</link>></span><<nexttext>>
+		<<else>>
+			<span id="next"><<link [[다음|Molestation Residential]]>><</link>></span><<nexttext>>
+		<</if>>
+	<</if>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<span id="next"><<link [[다음|Residential Ejaculation]]>><</link>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+	<span id="next"><<link [[다음|Residential Escape]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Molestation Residential]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Residential Alarm
+
+<<effects>><<set $rescued += 1>>
+쓰레기통이 완전히 열리고, 누군가 당신의 울음소리를 듣는다. <<generate2>><<generate3>> <<person2>>마른 남자와 그의 일행이 당신의 어깨를 잡고 밖으로 끌어낸 후, 당신의 뒤에 있는 쓰레기통을 쾅 닫는다.
+<br><br>
+<<clothesontowel>>
+그는 걱정스러워 보인다. "우리가 소리를 들어서 다행이야. 괜찮니?" <<tearful>> 당신은 고개를 끄덕이고 헤어지기 전에 구조해준 사람들에게 감사를 표한다.
+<br><br>
+<<endcombat>>
+<<residentialeventend>>
+
+:: Residential Ejaculation
+
+<<ejaculation>>
+<<if $enemyanger gte ($enemyangermax / 5) * 3>>
+	그는 당신의 머리를 쓰레기통 옆에 후려치고, 당신을 밖으로 떨어뜨린다.
+	<<violence 3>>
+	<br><br>
+<<elseif $enemyanger gte 1>>
+	아무 말 없이, 그는 당신을 쓰레기통 밖으로 밀어낸다.
+	<br><br>
+<<else>>
+	그는 당신의 뺨에 키스하고, 쓰레기통에서 당신을 들어 올렸다.
+	<br><br>
+<</if>>
+<<tearful>> 당신은 정신을 차린다.
+<br><br>
+<<stealclothes>>
+<br><br>
+<<clotheson>>
+<<endcombat>>
+<<residentialeventend>>
+
+:: Residential Escape
+
+<<effects>>
+<<if $phase is 0>>
+	그는 고통으로 움찔하며, 당신이 도망칠 기회를 준다. 당신이 뚜껑을 힘껏 밀자 틈이 생긴다. 하지만 그는 당신이 탈출하기 전에 회복했고, 당신을 다시 아래로 끌어당긴다.
+	<br><br>
+	<<link [[다음|Molestation Residential]]>><<set $phase to 1>><</link>>
+	<<set $enemyhealth to $enemyhealthmax>>
+<<else>>
+	그는 고통으로 다시 움찔한다. 쓰레기통이 이미 열린 상태에서, 당신은 밖으로 기어 나와 탈출할 수 있다. <<tearful>> 당신은 코너를 돌아 도망친다.
+	<br><br><br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<residentialeventend>>
+<</if>>
+
+:: Home Fence
+
+<<set $outside to 1>><<effects>>
+<<if $stress gte $stressmax>>
+	<<passoutalley>>
+<<else>>
+	<<if $exposed gte 1>>
+		당신은 울타리 너머를 엿보며 고아원 뒤뜰에 아무도 없는지 확인한다. 주변이 안전한지 확인한 후, 당신은 자신의 음란한 모습을 의식하며 몸을 낮추고 눈에 띄지 않게 울타리 위로 기어오른다.
+	<<elseif $cat gte 6>>
+		당신은 비할 데 없는 우아함으로 울타리를 뛰어넘어, 고아원 뒤뜰에 네 발로 착지한다.
+	<<else>>
+		당신은 울타리를 넘어 고아원 뒤뜰로 들어간다.
+	<</if>>
+	<br><br>
+	<<link [[다음|Garden]]>><</link>>
+	<br>
+<</if>>
+
+:: Industrial rooftops
+
+<<set $outside to 1>><<set $location to "town">><<effects>>
+당신은 공업용 건물 옥상에 있다. 연기 기둥이 당신 주위로 피어오르고 있다. 건물들이 빽빽하게 들어차 있기 때문에, 그 사이를 건너 다니는 것은 문제없을 것이다.
+<br><br>
+<<if $stress gte $stressmax>>
+	<<passoutalley>>
+<<else>>
+	<<if $exposed gte 1>>
+		<<exhibitionismroof>>
+		공원으로 진입하는 공업용 활송 장치가 있어 도로를 피할 수 있다.
+		<br><br>
+		<<link [[사다리를 내려간다 (0:02)|Industrial Alleyways]]>><<pass 2>><</link>>
+		<br>
+		<<link [[활송 장치에 올라탄다 (0:02)|Chute]]>><<pass 2>><</link>>
+		<br><br>
+	<<else>>
+		공원으로 진입하는 공업용 활송 장치가 있다.
+		<br><br>
+		<<link [[사다리를 내려간다 (0:02)|Industrial Alleyways]]>><<pass 2>><</link>>
+		<br>
+		<<link [[활송 장치에 올라탄다 (0:02)|Chute]]>><<pass 2>><</link>>
+		<br><br>
+	<</if>>
+<</if>>
+
+:: Chute
+
+<<set $outside to 0>><<effects>>
+당신은 활송 장치를 타고 공원으로 내려갔다.
+<br>
+<<if $worn.over_upper.name isnot "naked">>
+	<<set $worn.over_upper.integrity -= 20>>
+	<<set _damage to true>>
+<<elseif $worn.upper.name isnot "naked">>
+	<<set $worn.upper.integrity -= 20>>
+	<<set _damage to true>>
+<</if>>
+<<if $worn.over_lower.name isnot "naked">>
+	<<if $worn.lower.name isnot "naked">>
+		<<set $worn.lower.integrity -= 20>>
+	<</if>>
+	<<set $worn.over_lower.integrity -= 20>>
+	<<set _damage to true>>
+<<elseif $worn.lower.name isnot "naked">>
+	<<if $worn.under_lower.name isnot "naked">>
+		<<set $worn.under_lower.integrity -= 20>>
+	<</if>>
+	<<set $worn.lower.integrity -= 20>>
+	<<set _damage to true>>
+<</if>>
+<<if _damage>>
+	당신의 옷은 틈에 걸려 찢어졌다.
+	<br><br>
+<</if>>
+
+<<if dangerEvent(3)>>
+	As the chute exit comes into view you see someone has left a cement mixer in front of it!
+	<br><br>
+	<<link [[무슨 수를 써서라도 피한다!|Molestation Chute]]>><<set $molestationstart to 1>><</link>>
+	<br>
+	<<link [[충격에 대비한다|Cement Mixer]]>><</link>>
+	<br><br>
+<<else>>
+	<<parkquick>>
+<</if>>
+
+:: Molestation Chute
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<generate1>><<spankmaninit>>
+	<<person1>>믹서기에 착륙하는 것은 피했지만, 끝에 걸려서 넘어뜨린다. 그것은 땅에 부딪쳐 산산조각이 났다.
+	<br><br>
+	당신이 어떻게든 원래대로 되돌리려 하고 있자, 한 남자가 호통치며 다가온다. "네 물건이 아닌 걸 깨뜨리면 어떻게 되는지 보여주지!" 그는 당신의 팔을 잡고 의자로 억지로 끌고 가 그의 무릎에 숙이도록 했다.
+	<br><br>
+<</if>>
+<<effects>>
+<<effectsman>><<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+<<if $enemyanger lte 0>>
+	<span id="next"><<link [[다음|Chute Done]]>><</link>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<span id="next"><<link [[다음|Chute Ejaculation]]>><</link>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+	<span id="next"><<link [[다음|Chute Escape]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Molestation Chute]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Cement Mixer
+
+<<set $outside to 1>><<effects>>
+당신은 몸을 웅크리고 믹서에 쾅하고 부딪힌다. 다행인 점은, 시멘트가 충격을 완화해줬다는 것이고, 불행인 점은 그게 시멘트라는 점이다. 당신은 비틀거리
+<<outfitChecks>>
+<<if _bottomless>>
+	면서, 주의를 끌지 않고 간신히 자유로워질 수 있었다.
+	<br><br>
+<<else>>
+	는 과정에서, 옷을 잃었다.
+	<br><br>
+	<<underruined>>
+	<<lowerruined>>
+	<<upperruined>>
+<</if>>
+<<parkquick>>
+
+:: Chute Done
+
+<<effects>>
+"이 정도면 충분한 것 같군." 그는 당신을 놓아주었고 당신은 땅에 풀썩 쓰러졌다.
+<br><br>
+그는 당신이 흐느껴 울도록 놔두고 떠났다.
+<br><br>
+<<clotheson>>
+<<endcombat>>
+<<parkquick>>
+
+:: Chute Ejaculation
+
+<<ejaculation>>
+<<if $enemyanger gte ($enemyangermax / 5) * 3>>
+	그는 마지막으로 당신의 엉덩이를 한 번 때린 후, 당신을 땅에 내버려 두고 떠났다.
+	<<violence 3>>
+	<br><br>
+<<elseif $enemyanger gte 20>>
+	아무 말 없이, 그는 일어섰고 당신을 땅에 내버려 두고 떠났다.
+	<br><br>
+<<else>>
+	"교훈을 얻었을 것 같군." 그는 일어섰고 당신을 땅에 내버려 두고 떠났다.
+	<br><br>
+<</if>>
+<<tearful>> 당신은 일어난다.
+<br><br>
+<<clotheson>>
+<<endcombat>>
+<<parkquick>>
+
+:: Chute Escape
+
+<<effects>>
+그가 고통으로 움찔한다. 당신은 잽싸게 달아날 기회를 얻었다. <<tearful>> 당신은 잎이 무성한 지역으로 뛰어든다.
+<br><br><br><br>
+<<clotheson>>
+<<endcombat>>
+<<parkquick>>
+
+:: Commercial rooftops
+
+<<set $outside to 1>><<effects>>
+당신은 상업용 건물의 옥상에 있다. 당신은 여기서 쇼핑 센터로 갈 수 있다. 건물들이 빽빽하게 들어차 있기 때문에, 그 사이를 건너 다니는 것은 문제없을 것이다.
+<br><br>
+<<if $stress gte $stressmax>>
+	<<passoutalley>>
+<<else>>
+	<<if $exposed gte 1>>
+		<<exhibitionismroof>>
+		<<laddericon>><<link [[사다리를 내려간다 (0:02)|Commercial Alleyways]]>><<pass 2>><</link>>
+		<br>
+		<<if $harpy gte 6 or $angel gte 6 or $demon gte 6 or $fallenangel gte 2>>
+			<<glideicon>><<link [[활공해서 내려간다|Commercial Alleyways]]>><<set $eventskip to 1>><</link>><<flight_text>><<lharass>>
+			<br>
+		<</if>>
+		<<shopicon>><<link [[쇼핑 센터 (0:02)|Shopping Centre Top]]>><<pass 2>><</link>>
+		<br><br>
+	<<else>>
+		<<laddericon>><<link [[사다리를 내려간다 (0:02)|Commercial Alleyways]]>><<pass 2>><</link>>
+		<br>
+		<<if $harpy gte 6 or $angel gte 6 or $demon gte 6 or $fallenangel gte 2>>
+			<<glideicon>><<link [[활공해서 내려간다|Commercial Alleyways]]>><<set $eventskip to 1>><</link>><<flight_text>><<lharass>>
+			<br>
+		<</if>>
+		<<shopicon>><<link [[쇼핑 센터 (0:02)|Shopping Centre Top]]>><<pass 2>><</link>>
+		<br><br>
+	<</if>>
+<</if>>
+
+:: Alley Ejaculation
+
+<<effects>>
+<<ejaculation>>
+<<if $enemyanger gte ($enemyangermax / 5) * 3>>
+	그는 마지막으로 당신의 얼굴을 한 대 때리고는, 당신을 딱딱한 콘크리트에 내버려 두고 떠났다.
+	<<violence 3>>
+	<br><br>
+<<elseif $enemyanger gte 1>>
+	아무 말 없이 그는 일어섰고 당신을 딱딱한 콘크리트에 내버려 두고 떠났다.
+	<br><br>
+<<else>>
+	그는 웃으면서 당신의 뺨에 키스한다. "이건 네 거야." 그는 일어섰고 당신을 딱딱한 콘크리트에 내버려 두고 떠났다.
+	<br>
+	당신은 <<printmoney 500>><<money 500 "prostitution">>를 얻었다.
+	<br><br>
+<</if>>
+<<underlowersteal>>
+<<tearful>> 당신은 일어난다.
+<br><br>
+<<clotheson>>
+<<endcombat>>
+<<set $stress -= 1000>><<set $eventskip to 1>>
+<<destination>>
+
+:: Alley Escape
+
+<<effects>>
+그가 바닥에 쓰러지며, 당신이 탈출할 기회를 준다. <<tearful>> 당신은 몇 개의 코너를 뛰어 돌아 그늘진 알코브에 숨었다.
+<br><br>
+<<clotheson>>
+<<endcombat>>
+<<set $stress -= 1000>><<set $eventskip to 1>>
+<<destination>>
+
+:: Residential Dog
+
+<<effects>>
+<<if $noise is 2 and $combat is 0>>
+	<span class="red">청소년들은 개가 왜 이렇게 불안해하는지 매우 궁금해하고 있다. 뭐라도 하지 않으면 그들이 곧 당신을 발견할 것이다!</span>
+	<br><br>
+<</if>>
+<<if $timer is 1 and $combat is 0>>
+	당신은 청소년들이 골목에서 멀어지는 소리를 들었다.
+	<<if $combat is 0>>
+		당신은 그들이 정말 사라졌는지 살짝 엿본다. 당신이 떠나자 개는 풀이 죽어 보인다.
+		<br><br>
+		<<endevent>>
+		<<residentialeventend>>
+	<<else>>
+		당신은 살짝 엿보려 하지만 개가 당신을 땅바닥에 쓰러뜨린다.
+		<br><br>
+		<<set $rescue to 0>>
+		<<link [[다음|Residential Dog]]>><</link>><<nexttext>>
+	<</if>>
+	<br><br>
+<<elseif $noise gte 3>>
+	시끄러운 소음에 질린 두 사람은 자리를 떴다.
+	<br><br>
+	<<link [[다음|Residential Dog Alarm]]>><</link>><<nexttext>>
+<<else>>
+	<<switch $phase>>
+		<<case 1>>
+			개는 계속 짖는다. 당신은 이 상황이 계속된다면 청소년들이 찾아볼까 봐 두려워 한다.
+			<br><br>
+			<<link [[닥치라고 조용히 말한다|Residential Dog]]>><<set $noise += 1>><</link>>
+			<br>
+
+			<<link [[개의 머리를 쓰다듬는다|Residential Dog]]>><<set $phase to 2>><</link>>
+			<br><br>
+		<<case 2>>
+			그는 당신의 손길에 조용해지고, 빙글빙글 돌다가 당신에게 곧바로 다가온다. 당신은 그의 생식기가 발기한 상태로 기다리고 있다는 것을 알아챈다. 그는 당신을 기대하며 바라보고 있다. 
+			<br><br>
+			<<link [[그냥 머리를 계속 쓰다듬는다|Residential Dog]]>><<set $noise += 1>><<set $phase to 3>><</link>>
+			<br>
+			<span class="sub"><<link [[생식기를 손으로 만진다|Residential Dog]]>><<handskilluse>><<handstat>><<set $phase to 4>><</link>></span>
+			<br><br>
+		<<case 3>>
+			당신은 그의 머리를 계속 쓰다듬어 보지만, 그는 만족하지 못한 듯 다시 짖기 시작한다.
+			<br><br>
+			<<link [[그냥 머리를 계속 쓰다듬는다|Residential Dog]]>><<set $noise += 1>><<set $phase to 3>><</link>>
+			<br>
+			<<link [[생식기를 손으로 만진다|Residential Dog]]>><<set $phase to 4>><<handskilluse>><<handstat>><</link>>
+			<br><br>
+		<<case 4>>
+			<<set $molestationstart to 1>><<set $phase to 6>>
+			당신은 생식기를 손으로 만진다. 그가 당신의 손가락에 박기 시작한다.
+			<br><br>
+			<<link [[다음|Residential Dog]]>><</link>><<nexttext>>
+			<br><br>
+		<<case 5>>
+			<<set $phase to 6>>
+			그는 여전히 흥분한 채로, 당신의 몸 위로 펄쩍 뛰어든다.
+			당신의 구속구 때문에 당신은 똑바로 서지 못한다. 당신은 얼굴을 대고 엎어진다. <<gpain>>
+			<br><br>
+			당신이 자세를 바로잡자, 당신은 그가 당신 뒤에 올라타려고 준비하는 것을 알아차린다.
+			<br><br>
+			<<if hasSexStat("deviancy", 3)>>
+				<<link [[그를 자극한다|Residential Dog]]>><<set $sexstart to 1>><<deviancy3>><</link>><<deviant3>>
+				<br>
+			<</if>>
+			<<link [[견딘다|Residential Dog]]>><<set $molestationstart to 1>><<set $noHand to 1>><</link>>
+		<<case 6>>
+			<<if $sexstart is 1>>
+				<<set $sexstart to 0>>
+				<<consensual>>
+				<<set $consensual to 1>>
+				<<neutral 1>>
+				<<deviancy3>>
+				<<beastCombatInit>>
+				<<npc_attempt_sex>>
+			<<elseif $molestationstart is 1>>
+				<<set $molestationstart to 0>>
+				<<controlloss>>
+				<<violence 1>>
+				<<neutral 1>>
+				<<molested>>
+				<<beastCombatInit>>
+				<<if $noHand is 1>><<unset $noHand>><<else>><<npchand>><</if>>
+			<</if>>
+			<<if $timer gte 1>><<enable_rescue>><</if>>
+			<<effectsman>>
+			<<alarmstate>>
+			<br>
+			<<beast $enemyno>>
+			<br>
+			<<stateman>>
+			<br><br>
+			<<actionsman>>
+
+			<<if $alarm is 1>>
+				<<if $rescue is 1>>
+					<span id="next"><<link [[다음|Residential Dog Alarm]]>><</link>></span><<nexttext>>
+				<<else>>
+					<<set $alarm to 0>>
+					<<if $enemyarousal gte $enemyarousalmax>>
+						<span id="next"><<link [[다음|Residential Dog Ejaculation]]>><</link>></span><<nexttext>>
+					<<elseif $enemyhealth lte 0>>
+						<span id="next"><<link [[다음|Residential Dog Escape]]>><</link>></span><<nexttext>>
+					<<else>>
+						<span id="next"><<link [[다음|Residential Dog]]>><</link>></span><<nexttext>>
+					<</if>>
+				<</if>>
+			<<elseif $enemyarousal gte $enemyarousalmax>>
+				<span id="next"><<link [[다음|Residential Dog Ejaculation]]>><</link>></span><<nexttext>>
+			<<elseif $enemyhealth lte 0>>
+				<span id="next"><<link [[다음|Residential Dog Escape]]>><</link>></span><<nexttext>>
+			<<else>>
+				<span id="next"><<link [[다음|Residential Dog]]>><</link>></span><<nexttext>>
+			<</if>>
+	<</switch>>
+<</if>>
+
+:: Residential Dog Alarm
+
+<<effects>>
+<<if $alarm is 1>>
+	당신의 비명이 두 사람의 주의를 환기시킨다.
+	<br><br>
+<</if>>
+그들이 다가오는 소리에, 개는 모험을 멈추고 도망친다.
+<br><br>
+<<endcombat>>
+<<generatey1>><<generatey2>>당신이 회복하기 전에, 당신은 그들에게 발각되었다.
+<br><br>
+<<if dangerEvent(3)>>
+	그들은 당신의 약점을 이용한다.
+	<br><br>
+
+	<<link [[다음|Residential Pair]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<<else>>
+	곤경에 처한 당신을 보고, 그들은 당신이 일어설 수 있도록 도와준다.
+	<br><br>
+	<<set $rescued += 1>>
+	<<clothesontowel>>
+	<<person1>>그는 걱정스러워 보인다. "괜찮아?" <<tearful>> 당신은 고개를 끄덕이고, 헤어지기 전에 구조해준 사람들에게 감사를 표한다.
+	<br><br>
+	<<residentialeventend>>
+<</if>>
+
+:: Residential Dog Ejaculation
+
+<<beastejaculation>>
+<<if $enemyanger gte ($enemyangermax / 5) * 3>>
+	그는 당신의 허벅지를 깨물고는, 당신을 땅에 내버려 두고 떠났다.
+	<<violence 3>>
+	<br><br>
+<<elseif $enemyanger gte 1>>
+	그는 한번 짖고 당신을 땅에 내버려 두고 떠났다.
+	<br><br>
+<<else>>
+	그는 당신의 질을 핥고는 잽싸게 도망갔다.
+	<<neutral 5>>
+	<br><br>
+<</if>>
+<<if $timer gte 1>>
+	청소년들은 얼마 지나지 않아 떠났다.
+	<br><br>
+<</if>>
+<<tearful>> 당신은 일어난다.
+<br><br>
+<<clotheson>>
+<<endcombat>>
+<<residentialeventend>>
+
+:: Residential Dog Escape
+
+<<effects>>
+마침내 떠날 기색이 보이더니, 그는 낑낑거리며 골목길을 달아났다.
+<<if $timer gte 1>>얼마 지나지 않아 청소년들도 떠난다.<</if>> <<tearful>> 당신은 일어난다.
+<br><br>
+<<clotheson>>
+<<endcombat>>
+<<residentialeventend>>
+
+:: Residential Pair
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+<</if>>
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+<<if $alarm is 1>>
+	<<if $rescue is 0>>
+		<<set $alarm to 0>>
+		<br><br>
+		<<if $enemyarousal gte $enemyarousalmax>>
+			<span id="next"><<link [[다음|Residential Pair Ejaculation]]>><</link>></span><<nexttext>>
+		<<elseif $enemyhealth lte 0>>
+			<span id="next"><<link [[다음|Residential Pair Escape]]>><</link>></span><<nexttext>>
+		<<else>>
+			<span id="next"><<link [[다음|Residential Pair]]>><</link>></span><<nexttext>>
+		<</if>>
+	<</if>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<span id="next"><<link [[다음|Residential Pair Ejaculation]]>><</link>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+	<span id="next"><<link [[다음|Residential Pair Escape]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Residential Pair]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Residential Pair Ejaculation
+
+<<effects>>
+<<ejaculation>>
+<<if $enemyanger gte ($enemyangermax / 5) * 3>>
+	그들은 당신을 인도에 때려눕히고는, 떠났다.
+	<<violence 3>>
+	<br><br>
+<<elseif $enemyanger gte 1>>
+	그들은 아무 말 없이 한가로이 걸어간다.
+	<br><br>
+<<else>>
+	<<person2>>그는 당신의 뺨에 키스를 하고, 한가로이 떠났다.
+	<br><br>
+<</if>>
+<<underlowersteal>>
+<<tearful>> 당신은 일어난다.
+<br><br>
+<<clotheson>>
+<<endcombat>>
+<<destinationeventend>>
+
+:: Residential Pair Escape
+
+<<effects>>
+<<person1>>그가 고통으로 움찔하며, 당신이 도망칠 기회를 준다. <<tearful>> 당신은 다리에 힘이 풀려 벽에 부딪힐 때까지 달렸다.
+<<clotheson>>
+<<endcombat>>
+<<destinationeventend>>
+
+:: Residential Kick
+<<effects>>
+
+<<if $athleticsSuccess>>
+	당신은 공을 찼고 <span class="green"> 그것은 호를 그리며 울타리를 넘어갔다.</span> 아무도 고맙다는 말을 하진 않지만, 이 쪽을 엿보지도 않는다. <<tearful>> 당신은 계속 간다.
+	<br><br>
+	<<endevent>>
+	<<destinationeventend>>
+<<else>>
+	<<if random(1, 2) gte 2>>
+		당신은 공을 찼지만, <span class="red"> 그것은 울타리에 튕겨 돌아온다.</span>
+	<<else>>
+		당신은 공을 차려했지만, <span class="red">실패한다.</span> 당신은 중심을 잃고 땅에 넘어진다.
+		<<gpain>><<pain 6>>
+	<</if>>
+	<br><br>
+	<<person2>>당신이 다시 시도하기 전에 한 소년의 머리가 이 쪽을 들여다본다. <<covered>> 그는 깜짝 놀라 당신을 빤히 쳐다본다.
+	<<gtrauma>><<gstress>><<trauma 6>><<stress 6>><<fameexhibitionism 1>>
+	<br><br>
+
+	<<link [[도움을 요청한다|Residential Kick Help]]>><</link>>
+	<br>
+	<<link [[도망간다|Residential Kick Run]]>><</link>>
+	<br>
+<</if>>
+
+:: Residential Kick Help
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"제-제발 도와줘." 당신은 고개를 숙이며 말한다.
+<<elseif $speech_attitude is "bratty">>
+	"그냥 서 있지 말고," 당신은 말한다. "뭔가 입을 것 좀 줘."
+<<else>>
+	"나 좀 도와주실 수 있어?" 당신은 말한다.
+<</if>>
+<br><br>
+
+<<if random(1, 2) is 2>>
+	그가 울타리 아래로 다시 떨어진다. 조금의 시간이 지나고, <span class="green"> 수건이 날아온다.</span>
+	<<lstress>><<towelup>>
+	<br><br>
+<<else>>
+	그가 울타리 아래로 다시 떨어진다. 조금의 시간이 지나고, 그가 다시 나타난다. <span class="red"><<person1>>몇몇 사람들이 그의 옆에서 함께 나타난다.</span>
+	<<fameexhibitionism 9>>
+	<br><br>
+	당신이 몸을 돌려 뛰자 그들은 흥분하기 시작한다.
+	<<gstress>><<stress 6>>
+	<br><br>
+	"내가 저기에 벌거벗은 소녀가 있다고 했지."
+	<br>
+	<<if random(1, 2) is 2>>
+		"쩌네."
+	<<else>>
+		"다 보이는데."
+	<</if>>
+	<br>
+	<<if random(1, 2) is 2>>
+		"쟤 변태야?"
+	<<else>>
+		"쟤 뭔 생각으로 저러는 거야?"
+	<</if>>
+	<br>
+	<<if random(1, 2) is 2>>
+		"다른 사람한테도 말할 거야."
+	<<else>>
+		"다른 사람들이 들을 때까지 기다려."
+	<</if>>
+	<br>
+	<<if $worn.face.type.includes("mask")>>
+		"쟤가 누군지 궁금해지는 걸."
+	<<else>>
+		"나 쟤 학교에서 본 거 같은데."
+	<</if>>
+	<br><br>
+
+	그들의 목소리가 당신의 뒤로 희미해져 간다.
+	<br><br>
+<</if>>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Residential Kick Run
+<<effects>>
+
+<<fameexhibitionism 4>>
+<<tearful>> 당신은 몸을 돌려 뛴다. "여기에 벌거벗은 소녀가 있어!" 당신은 그가 뒤에서 소리치는 걸 듣는다. 당신이 모퉁이를 돌아 벽에 기대고 헐떡이고 있자, 몇몇 사람들이 울타리 위로 머리를 내민다.
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Residential Fence
+<<effects>>
+
+당신은 반대편 울타리를 기어오른다. 맞은편에 뭐가 있는지 확인할 시간이 없다. 당신은 정원에 안착했고 잠시 후, 골목에 누군가가 온 소리를 듣는다.
+<br><br>
+
+<<if random(1, 5) is 5>><<fameexhibitionism 1>>
+	<<generate3>><<person3>>당신은 주위를 둘러보고는 심장이 멎는다. 그가 카메라를 든 채로 꽃밭 근처에 서있다. 그는 놀란 얼굴로 당신을 쳐다보고 있다. 그는 빠르게 회복해, 카메라를 당신 쪽으로 향한다.
+	<<gstress>><<stress 6>>
+	<br><br>
+
+	<<link [[도움을 요청한다|Residential Fence Garden Ask]]>><</link>>
+	<br>
+	<<link [[탈출한다|Residential Fence Garden Escape]]>><</link>>
+	<br>
+	<<if $submissive gte 1500>>
+		<<link [[애원한다|Residential Fence Garden Beg]]>><<sub 1>><</link>><<submissivetext>>
+		<br>
+	<</if>>
+<<else>>
+	당신은 주위를 둘러본다. 정원은 전형적이고 비어 보인다. 가까스로 탈출한 당신은 사람들이 그들의 정원으로 돌아가는 소리가 들리는지 귀를 기울이고, 다시 울타리를 넘어 되돌아 간다.
+	<<lstress>><<stress -6>>
+	<br><br>
+
+	<<endevent>>
+	<<destinationeventend>>
+<</if>>
+
+:: Residential Fence Garden Ask
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"제-제발 아무 사진도 찍지 마세요," 당신은 말한다. "전 도움이 필요해요."
+<<elseif $speech_attitude is "bratty">>
+	"하지 마세요." 당신은 경고한다. "덮을 것 좀 주세요."
+<<else>>
+	"부탁드려요," 당신은 말한다. "전 도움이 필요해요."
+<</if>>
+<br><br>
+
+<<if random(1, 2) is 2>>
+	"네게 줄 수건이 있긴 한데," 그가 그의 카메라 셔터를 누르며 말한다. "기념품이 좀 갖고 싶어서. 귀여운 소녀가 매일 내 무릎에 떨어지는 건 아니잖아."
+	<<fameexhibitionism 7>>
+	<br><br>
+
+	그는 수건을 당신에게 던져주기 전에 사진 몇 장을 더 찍고는, 당신을 대문까지 안내해준다.
+
+<<else>>
+	그는 잠시 멈추었다가 카메라를 낮춘다.
+	<<lstress>><<stress -6>>
+	<br><br>
+
+	그는 대문까지 안내해주기 전에 당신에게 수건을 건네준다.
+
+<</if>>
+<br><br>
+<<towelup>>
+<<endevent>>
+<<destinationeventend>>
+
+:: Residential Fence Garden Escape
+<<effects>>
+
+<<fameexhibitionism 4>>
+당신은 뒤에서 카메라 찍히는 소리를 들으면서 울타리를 다시 기어오른다. <<person2>>그가 골목에 서 있다. 그는 당신을 보자 축구공을 놓친다.
+<br><br>
+<<tearful>> 당신은 안전을 위해 달린다. 당신은 마침 <<person3>>그가 울타리에 다다를 때 코너를 돈다. <<person2>>그는 여전히 놀란 채 서있다.
+<br><br>
+
+<<endevent>>
+<<destinationeventend>>
+
+:: Residential Fence Garden Beg
+<<effects>>
+
+당신은 무릎에 꿇고 풀밭에 엎드린다. "제-제발 도와주세요," 당신은 상황을 설명하기도 전에 흐느끼기 시작한다.
+<br><br>
+
+그는 주저하다가 카메라를 낮춘다. "울지 마렴 얘야," 그가 말한다. "농담 한 번 해 본거야."
+<br><br>
+
+그는 당신에게 덮을 수건을 주고는 대문까지 안내해준다.
+<<lstress>><<stress -6>>
+<br><br>
+<<towelup>>
+<<endevent>>
+<<destinationeventend>>
+
+:: Industrial Ladder
+<<effects>>
+
+당신은 브라이어의 창문 아래에 세워둘 만한 것을 찾아 골목길을 수색한다.
+<<if $rng gte 71>>
+	<<generate1>><<generate2>>
+	<span class="green">당신은 옆으로 놓인 사다리를 발견한다.</span> 소년들이 그 위에 앉아 이야기를 나누고 있다. 그들은 당신을 돌아본다. "무슨 일이야, 소녀?"
+	<br><br>
+
+	<<if $speech_attitude is "meek">>
+		"사다리 좀 써도 될까?" 당신이 묻는다. "너희가 바쁘지 않다면."
+	<<elseif $speech_attitude is "bratty">>
+		"비켜." 당신이 팔을 휘두르며 말한다. "그게 필요해."
+	<<else>>
+		"그 사다리를 쓰고 싶어서," 당신은 말한다. "다른 곳으로 이동해주지 않을래?"
+	<</if>>
+	<br><br>
+
+	"사다리," 한 소년이 반사적으로 답한다. "우리한테 무슨 이득이 있는데?"
+	<br><br>
+
+	<<if $money gte 10000>>
+		<<link [[돈을 지불한다 (£100)|Industrial Ladder Pay]]>><<money -10000 "bribe">><</link>>
+	<<else>>
+		<span class="blue">당신은 그들을 만족시킬 정도로 충분한 돈을 가지고 있지 않다.</span>
+	<</if>>
+	<br>
+	<<if hasSexStat("promiscuity", 3)>>
+		<<link [[유혹한다|Industrial Ladder Seduce]]>><</link>><<promiscuous2>>
+	<<else>>
+		<span class="blue">당신은 그들을 유혹할 수 있을 정도로 음란하지 않다.</span>
+	<</if>>
+	<br>
+	<<if $submissive gte 1500>>
+		<<link [[애원한다|Industrial Ladder Beg]]>><</link>>
+		<br>
+	<</if>>
+	<<link [[떠난다|Industrial Alleyways]]>><<endevent>><</link>>
+<<else>>
+	<span class="red">당신은 그 사다리 외에 쓸만한 것을 찾지 못했다.</span>
+	<br><br>
+
+	<<rng>>
+	<<if (dangerEvent() or $eventforced) and $eventskip is 0>>
+		<<eventsstreet>>
+	<<else>>
+		<<link [[계속 바라본다|Industrial Ladder]]>><</link>>
+		<br>
+		<<link [[포기한다|Industrial Alleyways]]>><</link>>
+	<</if>>
+<</if>>
+
+:: Industrial Ladder Pay
+<<effects>><<set $pubfame.briar.escape to 2>>
+당신이 그들에게 돈 뭉치를 건네자, 그들은 눈을 깜빡인다. 한 소년이 재빨리 돈을 주머니에 넣고 일어서서, 다른 소년의 항의를 무시하며 그를 발로 끌어당긴다.
+<br><br>
+
+사다리는 조금 다루기 힘들지만, 당신은 브라이어의 사무실 창문 아래에 그것을 큰 소리 없이 설치한다. 브라이어가 직접 아래를 내려다보지 않는 한 창문에서는 보이지 않을 것이다. 당신은 그가 그러지 않기를 바란다. 지나가는 몇몇 사람들이 당신을 이상하게 쳐다보지만, 그들은 아무 말도 하지 않는다. <span class="green">당신은 탈출로를 확보했다.</span>
+<br><br>
+
+<<endcombat>>
+<<destinationeventend>>
+
+:: Industrial Ladder Seduce
+<<effects>>
+
+<<set $seductiondifficulty to 6000>>
+<<seductioncheck>>
+<<if $seductionskill lt 1000>><span class="gold">당신은 유혹하는 데 좀 더 자신감이 붙었다.</span><</if>><<seductionskilluse>>
+<br><br>
+
+당신은 두 사람을 번갈아 쳐다보며 입술을 핥는다. "사다리를 주면... 나를 너희에게 줄게."
+<<promiscuity2>>
+
+<<if $seductionrating gte $seductionrequired>>
+	그들은 서로를 바라보며, 끄덕인다. 그들은 함께 일어서서 당신에게 다가온다.
+	<br><br>
+
+	<<link [[다음|Industrial Ladder Sex]]>><<set $sexstart to 1>><</link>>
+	<br>
+
+<<else>>
+	그들은 서로를 바라본다. 한 소년이 고개를 젓는다. "줄사다리랑 발판사다리도 구분 못하는 소녀와는 자고 싶지 않아."
+	<br><br>
+
+	다른 소년은 두 손으로 그의 얼굴을 때리고는, 어깨를 으쓱하며 당신을 멍하니 바라본다.
+	<br><br>
+
+	<<if $money gte 10000>>
+		<<link [[돈을 준다 (£100)|Industrial Ladder Pay]]>><<money -10000 "bribe">><</link>>
+	<<else>>
+		<span class="blue">당신은 그들을 만족시킬 정도로 충분한 돈을 가지고 있지 않다.</span>
+	<</if>>
+	<br>
+	<<if $submissive gte 1500>>
+		<<link [[애원한다|Industrial Ladder Beg]]>><</link>>
+		<br>
+	<</if>>
+	<<link [[떠난다|Industrial Alleyways]]>><<endevent>><</link>>
+<</if>>
+
+:: Industrial Ladder Sex
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemytrust += 50>>
+<</if>>
+
+<<effects>>
+<<effectsman>><<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Industrial Ladder Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Industrial Ladder Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Industrial Ladder Sex Finish
+<<effects>>
+
+<<if $enemyhealth lte 0>>
+	<<set $pubfame.briar.escape to 2>>
+	소년이 비틀거리며 뒤로 물러나고, 사다리에서 멀어진다. "엿이나 먹으라지," 그가 투덜거린다. 그는 다른 소년의 팔을 잡고 골목 밖으로 끌고 나간다.
+	<br><br>
+
+	사다리는 조금 다루기 힘들지만, 당신은 브라이어의 사무실 창문 아래에 그것을 큰 소리 없이 설치한다. 브라이어가 직접 아래를 내려다보지 않는 한 창문에서는 보이지 않을 것이다. 당신은 그가 그러지 않기를 바란다. 지나가는 몇몇 사람들이 당신을 이상하게 쳐다보지만, 그들은 아무 말도 하지 않는다. <span class="green">당신은 탈출로를 확보했다.</span>
+	<br><br>
+
+	<<endcombat>><<clotheson>>
+	<<destinationeventend>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<<set $pubfame.briar.escape to 2>>
+	<<ejaculation>>
+
+	"공짜 섹스 고마워." 한 소년이 낄낄거린다. "그 사디리는 우리 것도 아닌데."
+	<br><br>
+
+	"발판사다리," 한 소년이 딱딱거리며 일행을 골목 밖으로 끌고 나간다.
+	<br><br>
+
+	사다리는 조금 다루기 힘들지만, 당신은 브라이어의 사무실 창문 아래에 그것을 큰 소리 없이 설치한다. 브라이어가 직접 아래를 내려다보지 않는 한 창문에서는 보이지 않을 것이다. 당신은 그가 그러지 않기를 바란다. 지나가는 몇몇 사람들이 당신을 이상하게 쳐다보지만, 그들은 아무 말도 하지 않는다. <span class="green">당신은 탈출로를 확보했다.</span>
+	<br><br>
+
+	<<endcombat>><<clotheson>>
+	<<destinationeventend>>
+<<else>>
+	소년은 뒤로 물러나며, 화를 내며 다시 사다리에 앉는다. "그럼 너도 엿이나 먹으라지. 우린 안 움직일 거야."
+	<br><br>
+
+	"우리 안 움직일 거야?" 다른 소년이 묻는다. 일행의 엄한 눈빛에 그도 사다리에 앉는다.
+	<br><br>
+
+	<<clotheson>>
+	<<if $money gte 10000>>
+		<<link [[돈을 지불한다 (£100)|Industrial Ladder Pay]]>><<money -10000 "bribe">><</link>>
+	<<else>>
+		<span class="blue">당신은 그들을 만족시킬 정도로 충분한 돈을 가지고 있지 않다.</span>
+	<</if>>
+	<br>
+	<<if $submissive gte 1500>>
+		<<link [[애원한다|Industrial Ladder Beg]]>><</link>>
+		<br>
+	<</if>>
+	<<link [[떠난다|Industrial Alleyways]]>><<endevent>><</link>>
+<</if>>
+
+:: Industrial Ladder Beg
+<<effects>><<set $pubfame.briar.escape to 2>>
+"제발," 당신은 두 손을 꽉 쥐며 말한다. "제발, 정말 필요해. 저 사다리 좀 빌려주면 안 될까?"
+<br><br>
+
+소년은 거의 일어날 뻔했지만, 당신을 회의적인 눈빛으로 쳐다본다. 당신은 희망에 찬 미소를 짓는다. "발판사다리?" 당신은 시도해 본다. 그 말에 그는 만족했고, 일행을 골목길 밖으로 끌고 나간다.
+<br><br>
+
+사다리는 조금 다루기 힘들지만, 당신은 브라이어의 사무실 창문 아래에 그것을 큰 소리 없이 설치한다. 브라이어가 직접 아래를 내려다보지 않는 한 창문에서는 보이지 않을 것이다. 당신은 그가 그러지 않기를 바란다. 지나가는 몇몇 사람들이 당신을 이상하게 쳐다보지만, 그들은 아무 말도 하지 않는다. <span class="green">당신은 탈출로를 확보했다.</span>
+<br><br>
+
+<<silently>><<endcombat>><</silently>>
+<<destinationeventend>>

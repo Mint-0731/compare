@@ -1,0 +1,34 @@
+:: Widgets Hospital [widget]
+<<widget "harper_intro">>
+	<<if $hospitalintro isnot 1>>
+		<<npc Harper>><<person1>>
+		당신은 오래 기다릴 필요가 없었다. 하얀색 의사 가운을 입고 손에 클립보드를 든 남자가 맞은편 방에서 나와 당신을 부른다.
+		<br><br>
+
+		<<if $hospitalintro is "livestock">>
+			농장에서 만났던 의사다. 당신에게 실험을 진행했던 그 의사. 당신은 주저하지만, 그의 진료실에 들어가 자리에 앉는다. 적어도 당신은 지금 북적이는 병원에 있다. 고립된 농장이 아니라. 그가 당신에게 미소를 짓는다. "안녕, 난 하퍼란다," 그가 말한다. 그의 표정에는 당신을 알아봤다는 기색이 전혀 없다.
+		<<elseif $hospitalintro is "party">>
+			에이버리의 저택에서 열린 파티에 있던 의사다. "안녕, 난 하퍼란다." 그의 얼굴이 당신을 알아보며 밝아진다. "아하. 에이버리의 파트너구나. 그가 잘 지내기를 바란단다."
+		<<else>>
+			그가 당신에게 미소를 짓는다. "안녕, 난 하퍼란다," 그가 말한다. 그는 젊어 보인다. 많아 봐야 25살 정도밖에 먹지 않은 것 같다. 그는 눈가에서 금빛 앞머리를 걷는다.
+		<</if>>
+
+		당신은 진료실에 들어가 자리에 앉는다.
+
+		<<set $hospitalintro to 1>>
+	<<else>>
+		<<npc Harper>><<person1>>당신은 오래 기다릴 필요가 없었다. 하퍼 선생님이 진료실에서 나와 당신을 부른다. 당신은 그를 따라가 자리에 앉는다.
+	<</if>>
+	<br><br>
+<</widget>>
+
+:: Pharmacy Condoms Price [widget]
+<<widget condomsPrice>>
+	<<if _args[0] lte 50>>
+		<<set _price to _args[0] * 6000>>
+	<<elseif _args lte 100>>
+		<<set _price to 50 * 6000 + (_args[0] - 50) * 6000 * .98>>
+	<<else>>
+		<<set _price to 50 * 6000 + 50 * 6000 * .98 + (_args[0] - 100) * 6000 * .95>>
+	<</if>>
+<</widget>>

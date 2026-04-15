@@ -1,0 +1,123 @@
+:: Widgets Underground [widget]
+
+<<widget "dungeonescape">>
+	<<if $baileySold>>
+		<<set $baileyReunionScene to "dungeon">>
+	<</if>>
+
+	<<if $whitneyromance is 1>>
+		<<set $whitneyReunionScene to "dungeon">>
+	<</if>>
+
+	<<if C.npc.Kylar.love gte 50>>
+		<<set $kylarReunionScene to "dungeon">>
+	<</if>>
+
+	<<if C.npc.Robin.init is 1>>
+		<<if $home_gone gte 4 and !$undergroundbrothel.robin>>
+			<<set $robinReunionScene to "dungeon">>
+		<<elseif $undergroundbrothel.robinGone>>
+			<<set $robinReunionScene to "dungeonRobin">>
+		<</if>>
+	<</if>>
+
+	<<if $undergroundbrothel.robin>>
+		<<set $robinmissing to 0>>
+	<</if>>
+
+	<<unset $baileySold>>
+	<<unset $wraithUnderground>>
+	<<set $undergroundbrothelescaped to true>>
+	<<set $undergroundbrothel to {"escape": $undergroundbrothel.escape}>>
+	<<unset $underground_shirt>>
+<</widget>>
+
+<<widget "undergroundCellOptions">>
+	<<bedicon "zzz">><<link [[휴식한다 (1:00)|Underground Cell Rest]]>><<pass 1 hour>><<set $tiredness -= 1000>><</link>><<ltiredness>>
+	<br>
+	<<if $undergroundbrothel.robin and !$undergroundbrothel.robinSpoke>>
+		<<ind>><<link [[로빈과 대화한다 (0:10)|Underground Cell Robin Talk]]>><<pass 10>><<stress -4>><<trauma -4>><<npcincr Robin trauma -2>><</link>><<lstress>><<ltrauma>><<lrtrauma>>
+		<br>
+	<</if>>
+	<<if $undergroundbrothel.escape is 0>>
+		<<investigateicon>><<link [[탈출로를 찾는다|Underground Cell Look]]>><</link>>
+	<<elseif $undergroundbrothel.escape gte 19>>
+		<<getouticon "hole">><<link [[탈출한다|Underground Escape]]>><</link>>
+	<<elseif $undergroundbrothel.escape gte 18 and $physiquesize lte 12000>>
+		<<getouticon "hole">><<link [[탈출한다|Underground Escape]]>><</link>><<small_text>>
+	<<elseif $undergroundbrothel.escape gte 17 and $physiquesize lte 10000>>
+		<<getouticon "hole">><<link [[탈출한다|Underground Escape]]>><</link>><<small_text>>
+	<<elseif $undergroundbrothel.escape gte 16 and $physiquesize lte 6000>>
+		<<getouticon "hole">><<link [[탈출한다|Underground Escape]]>><</link>><<small_text>>
+	<<else>>
+		<<getouticon "dig">><<link [[구멍을 판다 (1:00)|Underground Cell Dig]]>><<pass 1 hour>><</link>>
+	<</if>>
+	<br>
+	<<investigateicon>><<link [[문을 조사한다|Underground Cell Lock]]>><</link>>
+<</widget>>
+
+<<widget "undergroundEscapeForestStart">>
+	<<clotheson>>
+	<<endcombat>>
+
+	오한이 척추를 타고 올라오며, 원초적인 본능이 경고한다. <span class="red">당신은 쫓기고 있다.</span>
+	<<set $foresthunt to 1>><<set $forestHunter to "Eden">><<badEndTrackingEnd "Underground Dungeon" { reason: "uDungeonDefeated" }>><<dungeonescape>>
+	<br><br>
+	<<specialClothesUnlock "set" "underground_brothel">>
+
+	<<link [[다음|Forest]]>><<set $forest to 40>><</link>>
+<</widget>>
+
+<<widget "undergroundReturnToCell">>
+	<<clearNPC handler>>
+
+	<<tearful>> 당신은 매트리스에 앉는다.
+	<<if _args[0] is "Robin">>
+		적어도 로빈은 탈출했다.
+	<</if>>
+	<br><br>
+
+	<<clotheson>>
+	<<endcombat>>
+
+	<<if _args[0] is "skip">>
+		<<set $eventskip to 1>>
+	<</if>>
+
+	<<if _args[0] is undefined or _args[0]>>
+		<<link [[다음|Underground Cell]]>><</link>>
+		<br>
+	<</if>>
+<</widget>>
+
+<<widget "undergroundPlantFakeChoice">>
+	"어디 머리라도 맞았냐?" 남자가 으르렁거린다. "그녀의 의사는 상관 없어. 그녀는 내 거야."
+	<br><br>
+
+	"아, 그랬지! 여기가 그런 식으로 돌아가는 걸 잊고 있었어!" 그의 일행이 손뼉을 치며, 당신에게 달려든다.
+	<br><br>
+
+	<<link [[다음|Underground Plant Molestation]]>><<set $molestationstart to 1>><</link>>
+<</widget>>
+
+<<widget "averyUndergroundReunionReaction">>
+	그는 당신의 목걸이를 <<if C.npc.Avery.rage gte 60>>휙 잡아당기며<<else>>움켜쥐며<</if>>, 당신을 끌어당긴다. 그가 몸을 기울여 당신의 귓가에 속삭인다.
+	<<if C.npc.Avery.state is "dismissed">>
+		"창녀 같으니. 날 버린 것이 실수였군."
+	<<elseif C.npc.Avery.rage gte 60>>
+		<<if C.npc.Avery.love gte 60>>
+			"너처럼 헤픈 걸레가 착한 소녀가 되는 법을 배우지 못해서 안타깝구나."
+		<<else>>
+			"이게 네 업보로군, 반항적인 창녀 같으니. 이걸로 착한 소녀가 되는 법을 배우게 되겠지."
+		<</if>>
+	<<elseif C.npc.Avery.love gte 60>>
+		<<if isLoveInterest("Avery")>>
+			"정말 안됐군, <<pcpetname "Avery">>. 이번 주말에 너와 데이트하고 싶었는데."
+		<<else>>
+			"이렇게 아쉬울 수가. 넌 정말 훌륭한 잠재력을 가지고 있었는데 말이야."
+		<</if>>
+	<<else>>
+		"네가 결국 이런 곳에서 끝나게 된 게 안타깝군. 넌 늘 창녀처럼 보였지."
+	<</if>>
+	<br><br>
+<</widget>>

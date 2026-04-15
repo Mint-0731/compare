@@ -1,0 +1,535 @@
+:: Wren Heist Intro
+<<effects>>
+
+<<He_ nun>> 주머니에서 구겨진 종이 한 장을 꺼낸다. 당신은 몸을 숙여 그것을 살핀다. <<= currentSkillValue("history") gte 600 ? "어떤 집의 설계도면이다" : "선과 숫자가 뒤죽박죽 섞여 있다">>.
+<br><br>
+"오늘 밤 파티가 있어요," 렌이 말한다. <<He_ nun>> 종이 가운데를 톡톡 두드린다. "주최자는 부자라서, 이런 걸 누구에게나 막 뿌리고 다니죠. 온갖 값비싼 보석과 귀중품들이 훤히 보이는 곳에 전시되어 있고. 우린 거기 가서 들고 올 수 있는 것 전부를 가져올 생각이에요." <<He_ ga>> 당신에게 미소 짓는다. "<<if $prison?.wren_names is 2>>당신 같은 전과자라면 도둑질에 익숙하겠죠<<elseif crimeSumCurrent() gte 5000>>당신은 뒷세계에서 꽤 유명하던데요<<elseif $fame.social gte 600>>당신이 상류층과 어울리는 걸 좋아한다고 들었어요<</if>>. 이 일에는 당신이 제격이에요. 간단할 거예요. 그냥 들어갔다가, 나오는 거."
+<br><br>
+당신은 제안을 고려한다. 렌은 몸을 앞으로 기울이며 목소리를 낮춘다. "당신을 위해서라면 더 좋은 조건을 제시해 드리죠. 이익은 <<= C.npc.Wren.love gte 40 ? "5대 5로" : C.npc.Wren.love gte 20 ? "6대 4로" : "7대 3으로">> 나누자고요. 괜찮죠?"
+<br><br>
+
+<<link [[승낙한다|Wren Heist Intro End]]>><<set $phase to 1>><<npcincr Wren love 1>><</link>><<glove "Wren">>
+<br>
+<<link [[거절한다|Wren Heist Intro End]]>><<set $phase to 0>><<npcincr Wren love -1>><</link>><<llove "Wren">>
+<br>
+
+:: Wren Heist Intro End
+<<effects>>
+
+<<if $phase is 0>>
+	당신은 렌의 제안을 거절한다.
+	<br><br>
+	"좋을 대로 하시죠," <<he_ ga>> 말한다.
+<<elseif $phase is 1>>
+	<<outfitChecks>>
+	<<set $wrenHeist to true>>
+	<<set $wrenHeistDance to {}>>
+	<<if C.npc.Wren.love gte 40>>
+		<<set $wrenHeistDance.profits to "50/50">>
+	<<elseif C.npc.Wren.love gte 20>>
+		<<set $wrenHeistDance.profits to "60/40">>
+	<<else>>
+		<<set $wrenHeistDance.profits to "70/30">>
+	<</if>>
+
+	당신은 렌의 조건과 제안을 받아들인다.
+	<br><br>
+	<<He_ nun>> 종이 아래쪽에 무언가를 적고는 테이블 너머 당신에게 밀어준다. "<span class="green">오늘 저녁 7시, 다뉴브 거리</span>에 있는 그 주소로 와요," <<he_ ga>> 말한다. "늦지 말고요." <<He_ nun>> 주저하며, 당신을 위아래로 훑어본다. "옷은 <<= _top?.reveal gte 500 or _bottom?.reveal gte 500 ? "딱 이렇게만" : "좀 야한 걸로" >> 입고 와요," <<he_ ga>> 윙크한다.
+<</if>>
+<br><br>
+렌은 아무 말 없이 슬그머니 자리를 떠난다.
+<br><br>
+잠시 후, 랜드리가 당신 맞은편 자리에 앉는다. <<nnpc_He_ nun "Landry">> 훨씬 차분해 보인다. "자리를 비워 미안하군," <<he_ ga>> 말한다. "뭘 원하지?"
+<br><br>
+
+<<endevent>>
+<<npc Landry>><<person1>>
+
+<<landryoptions>>
+<<getouticon>><<link [[떠난다|Pub]]>><<endevent>><</link>>
+
+:: Wren Heist Arrival
+<<effects>><<outfitChecks>>
+
+당신은 렌이 알려준 주소지에 도착한다. 웅장한 저택 앞에는 차 몇 대가 주차되어 있다. 값비싼 옷과 보석으로 치장한 파티 참석자들이 바깥에서 어울리고 있다.
+<br><br>
+<<if !_top or _top.type.includes("costume") or _bottom.type.includes("costume")>>
+	그들 중 몇몇은 <<= !_top ? "음흉한 시선으로 당신을 쳐다본다" : "당신 쪽을 쳐다본다">>. 그들은 손으로 입을 가린 채 서로 수군거린다. 당신은 쩌렁쩌렁한 웃음소리를 듣는다.<<stress 6>><<gstress>><<trauma 6>><<gtrauma>>
+<<elseif _top.reveal gte 500 or _bottom.reveal gte 500>>
+	그들 대부분이 당신을 빤히 쳐다본다. 한 <<generate1>><<person1>><<person_ nun>> 얼굴을 붉힌 채로, 자신의 <<= $pronoun is "m" ? "넥타이" : "라발리에">>를 느슨하게 한다.<<endevent>>
+<<elseif !(_top.type.includes("formal") or _bottom.type.includes("formal"))>>
+	당신은 좀 더 멋지게 차려입지 않은 것을 후회한다.<<stress 6>><<gstress>>
+<<else>>
+	그들 중 누구도 당신에게 눈길을 주지 않는다.
+<</if>>
+<br><br>
+당신은 렌을 찾아보지만, <<nnpc_him_ nun "Wren">> 어디에도 보이지 않는다. 안으로 들어가기도 전에 누군가가 당신의 손을 잡아당긴다. 덩치 큰 경비원 두 명이 당신의 양옆을 에워싼다.
+<br><br>
+<<generate1>><<saveNPC 0 "wren_heist_guard_1">><<generate2>><<saveNPC 1 "wren_heist_guard_2">>
+"여기 있었군," 그들 중 하나가 말한다. <<person1>>"예쁠 거라는 말은 들었는데, <<= $beauty gte ($beautymax / 7) * 6 ? "아름다울 정도잖아!" : $beauty gte ($beautymax / 7) * 3 ? "<<nnpc_he_ nun 'Wren'>> 어느 정도로 예쁠지는 말해주지 않았어." : "아무래도 거짓말이었던 모양이야.">>" <<He_ nun>> 당신을 집 뒤쪽으로 끌고 가기 시작한다.
+<br><br>
+
+<<link [[놓아달라고 한다|Wren Heist Dance Intro]]>><<set $phase to 0>><</link>>
+<br>
+<<link [[조용히 따라간다|Wren Heist Dance Intro]]>><<set $phase to 1>><</link>>
+<br>
+
+:: Wren Heist Dance Intro
+<<set $outside to 0>><<effects>>
+
+<<if $phase is 0>>
+	<<if $speech_attitude is "meek">>
+		"무슨 말씀인지 모르겠는데요," 당신이 말한다. "저희 어디로 가고 있는 건가요? 저는 마-만나야 할 사람이 있어요... 제발 보내주세요."
+	<<elseif $speech_attitude is "bratty">>
+		"무슨 소리를 하는지 모르겠네. 날 놔 줘," 당신은 요구한다. "친구를 만나야 한다고."
+	<<else>>
+		"무슨 말씀을 하는지 모르겠지만, 제겐 만날 사람이 있어요," 당신이 말한다. "보내주실 수 있나요?"
+	<</if>>
+	<br><br>
+	경비원들은 당신 머리 위로 눈길을 주고받는다. "빼지 말라고, <<girlPost>>," <<person2>><<person_ ga>> 말한다. "네 얘기는 다 들었어. 넌 여기 접대하러 온 거잖아!"
+<<else>>
+	당신은 말없이 그들을 따라간다.
+<</if>>
+<br><br>
+경비원들은 당신을 쳐다보지도 않고 파티장으로 안내한다. 방 중앙에는 작은 원형 무대가 설치되어 있다. 파티 참석자들이 모두 그 주위에 모여 있고, 몇몇은 당신을 힐끗 쳐다본다. 몇몇은 예의를 차리지 않고 오랫동안 당신을 응시한다.
+<br><br>
+"오, 정말 다행이군," 한 <<generate3>><<person3>><<person_ ga>> 당신에게 달려오며 말한다. <<He_ nun>> 초조해 보인다. "댄서가 없이 시작해야 하는 줄 알았어. 가, 서둘러! 모두가 기다린다고!"
+<br><br>
+마치 신호라도 받은 듯 조명이 어두워지고, 스포트라이트가 당신을 비춘다. 당신은 모든 사람들이 지켜보는 가운데 무대로 향한다.
+<br><br>
+
+<<link [[춤춘다|Wren Heist Dance]]>><<endevent>><<set $dancestart to 1>><<set $wrenHeistDance.phase to 0>><<set $wrenHeistDance.blackMoney to 0>><</link>>
+<br>
+
+:: Wren Heist Dance
+<<effects>>
+
+<<if $dancestart is 1>>
+	<<unset $dancestart>>
+	<<danceinit>>
+	<<set $dancing to 1>>
+	<<set $venuemod to 0>>
+	<<set $dancelocation to "wren_heist">>
+	<<set $timer to 3>>
+	<<set $wrenHeistDance.phase += 1>>
+	<<generate1>><<person1>><<set $audience to 1>>
+<</if>>
+
+<<switch $timer>>
+	<<case 3>>
+		당신은 군중들의 틈새에서 손을 흔드는 렌을 알아차린다. <<nnpc_He_ nun "Wren">> <<= C.npc.Wren.pronoun is "m" ? "웨이터" : "웨이터">> 복장을 하고 있다.
+	<<case 2>>
+		파티 참석자 중 하나가 <<nnpc_him_ rul "Wren">> 불러세운다. <<He_ nun>>
+		<<if $wrenHeistDance.phase is 1>>
+			샴페인 플루트를
+		<<elseif $wrenHeistDance.phase is 2>>
+			음식 접시를
+		<<elseif $wrenHeistDance.phase is 3>>
+			디저트를
+		<<else>>
+			셰리주 잔을
+		<</if>>
+		렌의 트레이에 올려놓는다.
+	<<case 1>>
+		<<if $wrenHeistDance.help is false and $wrenHeistDance.phase is 3>>
+			<<set _special_pronoun to $per_npc.wren_heist_fighting.pronoun>>
+			누군가가 <<nnpc_him_ rul "Wren">> 불러세운다. <span class="red">그건 <<= $per_npc.wren_heist_fighting.fullDescription>>다. <<if _special_pronoun is "m">>그는<<else>>그녀는<</if>> 썩 기쁜 눈치가 아니다.</span> <<if _special_pronoun is "m">>남자<<else>>여자<</if>>에게 무언가를 말하는 렌도 마찬가지다. 그들은 방을 떠난다. <<stress 6>><<gstress>>
+		<<else>>
+			<<set $wrenHeistDance.blackMoney += 500>>
+			<<if currentSkillValue('skulduggery') gte 800 or $transformationParts.traits.sharpEyes isnot "disabled">>
+				<<person1>><<he_ ga>> 한눈을 파는 동안, 렌은
+				<<if $wrenHeistDance.phase is 1>>
+					<<his_ yi>> <<= $pronoun is "m" ? "주머니에 손을 넣어 지갑을 꺼낸다." : "핸드백에 손을 넣어 클러치를 꺼낸다.">>
+				<<elseif $wrenHeistDance.phase is 2>>
+					<<his_ yi>> 손목에 손을 뻗어 시계를 챙긴다.
+				<<elseif $wrenHeistDance.phase is 3>>
+					<<= $pronoun is "m" ? "<<his_ yi>> 정장 윗주머니에 손을 넣어 회중시계를 꺼낸다" : "<<his_ yi>> 목덜미로 손을 뻗어 목걸이를 챙긴다">>.
+				<<else>>
+					손을 뻗어 <<his_ yi>> 손에서 핸드폰을 챙긴다.
+				<</if>>
+			<</if>>
+		<</if>>
+	<<case 0>>
+		<<if $wrenHeistDance.help is false and $wrenHeistDance.phase is 3>>
+			다음 무대까지 시간이 남았다. 당신은 렌이 그 <<person_ ro>>부터 무사히 도망쳤는지 확신하지 못한다. 당신은 <<nnpc_him_ rul "Wren">> 찾을 때까지 헤맨다.
+		<<else>>
+			렌은 당신이 자신을 보고 있다는 것을 알아차리고는,
+			<<if $wrenHeistDance.phase is 1>>
+				와인 저장고를
+			<<elseif $wrenHeistDance.phase is 2>>
+				주방을
+			<<elseif $wrenHeistDance.phase is 3>>
+				계단을
+			<<else>>
+				출구를
+			<</if>>
+			향해 고갯짓한다. <<nnpc_He_ nun "Wren">> 그곳으로 향한다.
+		<</if>>
+<</switch>>
+<<set $forceddance to 1>>
+<br><br>
+<<danceeffects>>
+<<danceaudience>>
+<<if $timer is 0>>
+	<<set $danceevent to "finish">>
+<<else>>
+	<<danceactions>>
+<</if>>
+
+<<if $danceevent is "finish">>
+	<<runicon>><<link [[그만둔다|Wren Heist Break]]>><<set $wrenHeistDance.blackMoney += $audienceexcitement * 10>><<pass 20>><<clotheson>><<endevent>><</link>>
+<</if>>
+
+:: Wren Heist Break
+<<effects>>
+<<npc Wren>><<person1>>
+
+<<switch $wrenHeistDance.phase>>
+	<<case 1>> /* wine cellar */
+		조명이 어두워진다. 당신은 박수갈채를 받으며 무대에서 내려온다. 나머지 파티 참석자들이 이야기를 나누기 시작하자, 당신은 몰래 와인 저장고로 향한다.
+		<br><br>
+		렌이 그곳에서 기다리고 있다. <<He_ nun>> 당신을 보자 미소 짓는다. "잘 하던데요," <<he_ ga>> 말한다. "일에 대해 미리 말해주지 못해 미안해요. 하지만, 정말 잘해줬어요. 당신이 작은 관심을 끌어 준 덕분에 저들은 한동안 대화에 열중하겠죠. 자, 이제 와인 싣는 걸 좀 도와 줄래요?"
+		<br><br>
+
+		<<link [[다음|Wren Heist Break Wine Cellar]]>><</link>>
+		<br>
+	<<case 2>> /* kitchen */
+		당신은 렌을 따라 주방으로 향한다. <<He_ nun>> 식기 서랍을 뒤지고 있다. <<if currentSkillValue('skulduggery') gte 600 or $transformationParts.traits.sharpEyes isnot "disabled">>당신은 <<him_ ga>> 그가 주머니에 식기 몇 개를 넣는 것을 알아차린다.<</if>> <<He_ nun>> 당신에게 손짓한다.
+		<br><br>
+		"즐기고 있나요?" <<he_ ga>> 묻는다.
+		<br><br>
+
+		<<link [[유혹한다|Wren Heist Break Kitchen]]>><<set $phase to 0>><</link>><<promiscuous1>>
+		<br>
+		<<link [[정중하게 행동한다|Wren Heist Break Kitchen]]>><<set $phase to 1>><</link>>
+		<br>
+	<<case 3>> /* stairs */
+		<<if $wrenHeistDance.help is false>>
+			"그 작은 일 하나 처리를 못 했나요?" <<he_ ga>> 말한다. <<His_ yi>> 목소리는 가볍지만, 그 미소는 눈까지 닿지 않는다. "괜찮아요, 제가 처리할 수 있었으니. 다만 시간을 허비한 게 아쉬울 뿐이죠. 아주 멋진 회중시계를 훔치던 참이었는데."<<npcincr Wren love -1>><<llove>>
+			<br><br>
+			"문제 없어요. 가장 좋은 건 마지막에 챙기려고 아껴두었으니," <<he_ ga>> 말한다. 이번의 미소는 훨씬 더 진심인 것처럼 보인다.
+		<<else>>
+			"가장 좋은 건 마지막에 챙기려고 아껴두었죠," <<he_ ga>> 말한다.
+		<</if>>
+		"위층에 있어요." <<He_ nun>> 당신에게 앞장서라고 손짓한다. "먼저 가죠."
+		<br><br>
+
+		<<link [[먼저 위층으로 간다|Wren Heist Break Upstairs]]>><<set $phase to 1>><</link>>
+		<br>
+		<<link [[렌이 먼저 올라가도록 한다|Wren Heist Break Upstairs]]>><<set $phase to 0>><</link>>
+		<br>
+	<<case 4>> /* exit */
+		조명이 다시 켜진다. 모두가 <<= currentSkillValue("danceskill") gte 600 ? "열광적인" : "점잖은">> 박수를 보낸다. 당신은 무대에서 내려와 출구로 향한다.
+		<br><br>
+		당신이 다가오자 렌은 자세를 바로한다. "가죠," <<he_ ga>> 말한다.
+		<br><br>
+
+		<<link [[다음|Wren Heist Exit]]>><<run delete $wrenHeistDance.phase>><</link>>
+		<br>
+<</switch>>
+
+:: Wren Heist Break Wine Cellar
+<<effects>>
+<<wearProp "wine bottle">>
+
+당신은 와인을 살핀다. 랜드리 덕분에, 당신은 어떤 와인이 가장 값비싼 것인지를 기억해낸다. 당신과 렌은 그중 몇 병을 챙긴다.
+<br><br>
+<<he_ ga>> 와인을 안전한 장소에 두려던 순간, 조명이 당신을 비춘다. 관중들이 기대에 찬 눈으로 당신을 바라본다. 당신은 다시 무대 위로 올라간다.
+<br><br>
+
+<<link [[춤춘다|Wren Heist Dance]]>><<endevent>><<set $dancestart to 1>><</link>>
+<br>
+
+:: Wren Heist Break Kitchen
+<<effects>>
+
+<<if $phase is 0>> /* Flirt */
+	<<if $speech_attitude is "meek">>
+		"조금은요," 당신은 말한다. "하지만 다-당신과 함께 있으면 더 즐거울 것 같아요."
+	<<elseif $speech_attitude is "bratty">>
+		당신은 그에게로 몸을 가까이 기울인다. "당신과 함께하는 시간보다는 얻는 것이 덜하지만."
+	<<else>>
+		"꽤 재미있다는 걸 인정해야겠어요," 당신은 말한다. "하지만 우리가 더 많은 시간을 함께 보냈으면 좋겠네요."
+	<</if>>
+	<<promiscuity1>>
+	<<He_ nun>> 당신을 향해 씩 웃는다. "조심하세요. 제가 당신에 대해 잘 몰랐다면, 일과 사생활을 섞으려는 거라고 생각했을 테니."
+<<else>> /* Remain professional */
+	<<if $speech_attitude is "meek">>
+		"이게 즈-즐거운 것 같지는 않은데요," 당신이 말한다.
+	<<elseif $speech_attitude is "bratty">>
+		"난 여기 일하러 왔는데요, 즐기려는 게 아니라," 당신이 말한다.
+	<<else>>
+		"즐거움보다는 일이 우선이잖아요, 렌," 당신은 <<him_ rul>> 상기시킨다.
+	<</if>>
+	<br><br>
+	<<He_ nun>> 활짝 웃는다. "일이 즐거울 수도 있잖아요?"
+<</if>>
+<br><br>
+<<He_ nun>> 은식기를 더 집어 들고는 고개를 휙 돌린다. "정말로 비싼 도자기는 식당 찬장에 보관된다고 들었어요. 같이 갈래요?"
+<br><br>
+<span class="gold">당신의 도움이 있다면, 렌은 더 많은 몫을 챙길 수 있을 것이다!</span>
+<br><br>
+
+<<link [[렌을 돕는다|Wren Heist Break Kitchen 2]]>><<set $phase to 1>><<set $wrenHeistDance.help to true>><<set $wrenHeistDance.blackMoney += 500>><</link>><<set $skulduggerydifficulty to 600>><<skulduggerydifficulty>>
+<br>
+<<link [[파티 회장으로 돌아간다|Wren Heist Break Kitchen 2]]>><<set $phase to 0>><</link>>
+<br>
+
+:: Wren Heist Break Kitchen 2
+<<effects>>
+
+<<if $phase is 0>> /* Go back to the party */
+	당신은 렌이 도자기 찬장을 홀로 털도록 내버려둔 채 파티 회장으로 돌아간다. 곧 조명이 어두워지고, 당신은 무대 위로 다시 불려간다.
+	<br><br>
+
+	<<link [[춤춘다|Wren Heist Dance]]>><<endevent>><<set $dancestart to 1>><</link>>
+	<br>
+<<else>> /* Help */
+	당신은 끄덕인다. 렌은 당신을 식당으로 안내한다. 웨이터들이 당신 곁을 끊임없이 지나쳐 간다. <<He_ nun>> 그들 사이를 헤치며 나아간다. 당신은 <<= currentSkillValue("danceskill") gte 600 ? "<<his_ yi>> 경로를 따라간다" : "그들 사이를 벗어나면서 몇 번 비틀거린다">>.
+	<br><br>
+	당신은 뒷벽에 자리 잡은 도자기 찬장을 발견한다. 렌이 몸을 굽혀 자물쇠를 만지작거리자, 머지않아 문이 열린다. 당신은 지체 없이, 들고 갈 수 있는 도자기를 최대한 많이 챙기기 시작한다.
+	<br><br>
+	<<skulduggerycheck "silent">>
+	<<if $skulduggerysuccess is 1>>
+		렌은 당신을 <<his_ yi>> 차로 안내한다. 아무런 특징도 없는 차량이다. 누군가가 물었을 때, 당신은 그것을 구분해낼 수 있을 것 같지 않다.<<set $wrenHeistDance.car to true>>
+		<br><br>
+		"자," <<he_ ga>> 뒷문을 열며 말한다. "이제 조심하세요. 전부 깨지기 쉬운 것들이니."
+		<br><br>
+		당신은 모든 물건을 차에 싣고, <<him_ rul>> 따라 파티장으로 돌아온다. 당신은 곧 무대 위로 다시 불려간다.
+		<br><br>
+
+		<<link [[춤춘다|Wren Heist Dance]]>><<endevent>><<set $dancestart to 1>><</link>>
+		<br>
+	<<else>>
+		<<endevent>>
+		"이봐," 누군가의 목소리가 들려온다. "너희 둘, 이곳에 있으면 안 될텐데."
+		<br><br>
+		당신은 돌아선다. 팔짱을 낀 한 <<generate1>><<person1>><<person_ ga>> 당신 앞에 서 있다. <<He_ nun>> 이어 모니터를 끼고, 허리에는 진압봉을 차고 있다.
+		<br><br>
+		"이런," 렌이 쾌활하게 말한다. "당신 차례네요, <<girlPost>>."
+		<br><br>
+		당신이 뭐라고 말하기도 전에, <<nnpc_he_ nun "Wren">> 당신을 <<personsimplePost_ yi>> 품으로 밀어 넣는다.
+		<br><br>
+
+		<<link [[다음|Wren Heist Break Kitchen Fight]]>><<set $fightstart to 1>><</link>>
+		<br>
+	<</if>>
+<</if>>
+
+:: Wren Heist Break Kitchen Fight
+<<if $fightstart is 1>>
+	<<set $fightstart to 0>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemytrust -= 100>>
+	<<set $enemyanger += 200>>
+	<<npcidlegenitals>>
+	<<enable_rescue>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0)>>
+	<span id="next"><<link [[다음|Wren Heist Break Kitchen Fight Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Wren Heist Break Kitchen Fight]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Wren Heist Break Kitchen Fight Finish
+<<effects>>
+<<person1>>
+
+<<if $enemyhealth lte 0>>
+	"씨발!" <<he_ nun>> 비명을 지르며 도자기 선반에 부딪친다.
+	<br><br>
+	섬세한 찻잔과 커다란 접시들이 <<him_ yi>> 주변에서 와장창 깨진다. <<He_ nun>> 공포에 질린 채 그 광경을 바라본다. 당신은 <<he_ ga>> 정신을 차리기 전에 재빨리 자리를 뜬다.
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<<He_ nun>> 신음하며 절정에 달한다. "젠장," <<he_ ga>> 말한다. "끝내주게 잘 하는군. 이번에는 그냥 보내주지. 하지만, 다시는 몰래 들쑤시고 다니다가 들키지 말라고. 알겠어?"
+	<br><br>
+	당신은 고개를 끄덕이고 재빨리 자리를 뜬다.
+<<elseif $alarm is 1 and $rescue is 1>>
+	<<loadNPC 1 "wren_heist_guard_1">><<loadNPC 2 "wren_heist_guard_2">>
+	발소리가 빠르게 가까워진다. 곧 두 쌍의 손이 <<person1>><<person_ rul>> 당신에게서 떼어낸다. 당신은 파티장에 들어올 때 만났던 두 명의 덩치 큰 경비원을 알아본다.
+	<br><br>
+	"도대체 뭐 하고 있는 거야?" <<person2>><<person_ ga>> 묻는다. "<<phim_ rul>> 놓아 줘—<<pshe_ nun>> 당장 무대에 올라가야 해. 관객들이 소란을 피우고 있다고!"
+	<br><br>
+	"하지만—" <<person1>><<person_ nun>> 무언가를 말하려 한다.
+	<br><br>
+	<<person3>><<person_ ga>> <<person1>><<him_ yi>> 말을 끊는다. "네 변명 들어줄 시간 없어," <<person3>><<he_ ga>> 말한다. "자, <<girlPost_ ya>>. 가자."
+<<else>>
+	<<set $wrenHeistDance.help to false>><<saveNPC 0 "wren_heist_fighting">>
+	<<person_ nun>> 당신을 일으켜 세워 복도로 끌고 간다. 지나가던 파티 참석자가 멍투성이인 당신의 모습을 보고 경악하여 경비원을 부른다. <<person_ ga>> 상황을 설명하려 애쓰는 동안, 당신은 혼란을 틈타 슬그머니 자리를 떠난다.
+<</if>>
+<br><br>
+<<clotheson>>
+<<endcombat>>
+
+조명이 어두워지는 순간, 당신은 서둘러 메인 홀로 뛰어든다. 스포트라이트가 군중 속에서 당신을 비춘다. 당신은 다시 춤을 출 준비를 하며 무대로 향한다.
+<br><br>
+
+<<link [[춤춘다|Wren Heist Dance]]>><<endevent>><<set $dancestart to 1>><</link>>
+<br>
+
+:: Wren Heist Break Upstairs
+<<effects>>
+
+<<if $phase is 0>> /* Go upstairs second */
+	"음, 아뇨," 당신이 말한다. "당신이 먼저 가요." <<He_ nun>> 어깨를 으쓱하더니 당신을 앞서 계단을 뛰어 올라간다.
+	<br><br>
+<</if>>
+당신은 위층으로 올라간다. 발밑에서 파티장의 소리가 희미하게 들려온다. 당신은 렌과 함께 방들을 샅샅이 뒤진다.
+<br><br>
+<<He_ nun>> 당신을 어두컴컴한 방으로 끌어당긴다. 복잡해 보이는 자물쇠가 달린 금고가 있다. 당신은 <<= currentSkillValue('skulduggery') gte 800 ? "약간의 수고를 들이면 이것을 열 수 있으리라고 생각한다" : "이것을 절대로 열 수 없다는 것을 안다">>.
+<<He_ nun>> 금고 앞에 쪼그리고 앉아 키패드를 만지작거린다. 금고가 활짝 열리자 <<he_ nun>> 만족스러운 듯 콧노래를 흥얼거린다. "좋은 도둑은 절대로 자신의 수법을 밝히지 않죠. 혹시 당신이 궁금해할까 봐," <<he_ ga>> 말한다.
+<br><br>
+당신은 <<him_ ga>> 금고 안의 내용물을 뒤지는 것을 돕는다. 대부분은 법률 서류로 보인다. 당신은 몇몇을 읽어보려 하지만, 몇 줄만에 눈이 흐릿해진다. 렌은 마지막으로 한 번 더 금고 안에 손을 넣는다. <<His_ yi>> 눈이 커진다.
+<br><br>
+
+<<if $museumAntiques.paintings.paintingward is "notFound">>
+	<span class="gold"><<He_ ga>> 둘둘 말린 그림 한 장을 꺼낸다.</span> 세월의 흔적으로 누렇게 변색되어 있다. <<He_ nun>> 그림을 땅에 펼치며 당신에게 보라는 듯 손짓한다.
+	가장 먼저 눈에 띄는 것은 달이다.
+	<<if $hallucinations gte 1>>
+		<span class="red">달의 아래쪽을 따라 그려진 은적색 띠는 마치 호흡하듯 밝아졌다 어두워지기를 거듭한다.</span>
+	<<else>>
+		달의 아랫부분에는 낫 형태의 붉은색 띠가 그려져 있다. 그 아래로 물방울들이 눈물처럼 쏟아진다.
+	<</if>>
+	당신의 시선은 그림 중앙에 있는 나체의 인물에게로 향한다. 갈색의 긴 머리카락이 그 인물의 맨 등에서 흘러내린다.
+	<<if $awarelevel gte 2>>
+		당신은 그 인물에게 짐승 같은 귀와 꼬리가 있다는 것을 알아차린다.
+		<<if $wolfgirl gte 6 or $cat gte 6 or $fox gte 6>>
+			당신은 그것의 정확한 형태를 알아볼 수 있다고 생각하지만, 스쳐 지나가는 인상 탓에 확신할 수는 없다.
+		<</if>>
+		적색과 갈색이 뒤섞여 있기에, 그것이 정말로 존재하는지조차 분간하기 어렵다.
+	<</if>>
+	<br><br>
+
+	렌은 그것을 다시 만다. "사이비 물건이군요," <<he_ ga>> 말한다. "엮이지 말라고 하고 싶지만,
+	<<if $wrenSeen?.includes("winter")>>
+		이걸 우리의 친구에게 좀 전해줄 수 있나요?"
+	<<elseif $wrenSeen?.includes("letter")>>
+		랜드리가 자신의 심부름꾼 <<girl_ rul>> 좀 빌렸다고 뭐라 할 것 같지는 않은데. 이 그림을 원래 주인에게 좀 돌려줄래요? 주말에, 박물관에서 <<nnpc_him_ rul "Winter">> 찾을 수 있을 거예요."
+	<<else>>
+		부탁이 있어요. 이 그림을 원래 주인에게 좀 돌려줄래요? 박물관에서 <<nnpc_him_ rul "Winter">> 찾을 수 있을 거예요."
+	<</if>>
+	당신은 고개를 끄덕이며 그림을 받는다.
+	<br><br>
+
+	<<museumPaintingGet "paintingward">>
+
+	당신은 <<HesPost>>에게 달리 찾은 것이 있냐고 묻지만, <<he_ nun>> 재빨리 부인한다. "아뇨, 그냥 서류만 잔뜩이에요," <<he_ ga>> 말한다. "적어도 완전히 헛수고는 아니었지만."
+	<br><br>
+	<<set $skulduggerydifficulty to 600>><<skulduggerycheck "silent">>
+	<<if $skulduggerysuccess is 1 or $transformationParts.traits.sharpEyes isnot "disabled">>
+		<<set $wrenHeistDance.sneak to true>>
+		당신은 렌이 주머니에 무언가를 넣는 것을 봤다.
+		<br><br>
+	<</if>>
+<<else>>
+	당신은 <<HesPost>>에게 달리 찾은 것이 있냐고 묻지만, <<he_ nun>> 재빨리 부인한다. "아뇨, 그냥 서류만 잔뜩이에요," <<he_ ga>> 말한다. "허탕친 것 같네요."
+	<br><br>
+	<<set $skulduggerydifficulty to 600>><<skulduggerycheck "silent">>
+	<<if $skulduggerysuccess is 1 or $transformationParts.traits.sharpEyes isnot "disabled">>
+		<<set $wrenHeistDance.sneak to true>>
+		당신은 렌이 주머니에 무언가를 넣는 것을 봤다.
+		<br><br>
+	<</if>>
+<</if>>
+
+"당신은 이제 돌아가야겠군요," <<he_ ga>> 말한다. "가장 중요한 사람이 사라지면 안 되니까. 정리는 제가 하고, 당신의 일이 끝나면 찾아가죠."
+<br><br>
+논쟁의 여지가 없어 보인다. 당신은 금고를 마지막으로 한 번 더 바라보며 아래층으로 내려간다. 파티는 거의 끝나가는 것 같다. 당신은 마지막 춤을 추기 위해 무대로 향한다.
+<br><br>
+
+<<link [[춤춘다|Wren Heist Dance]]>><<endevent>><<set $dancestart to 1>><</link>>
+<br>
+
+:: Wren Heist Exit
+<<effects>>
+
+당신은 <<him_ rul>> 따라 차로 향한다.<<if $wrenHeistDance.car isnot true>> 아무런 특징도 없는 차량이다. 누군가가 물었을 때, 당신은 그것을 구분해낼 수 있을 것 같지 않다.<</if>> <<He_ nun>> 트렁크를 열고 도난품들을 뒤지기 시작한다.
+<br><br>
+"우리가 <<= $wrenHeistDance.profits is "50/50" ? "5대 5" : $wrenHeistDance.profits is "60/40" ? "6대 4" : "7대 3으">>로 몫을 나누는 것에 동의했던 것 같은데, 그렇죠?"
+<<if (C.npc.Wren.love gte 40 and $wrenHeistDance.profits is "60/40") or (C.npc.Wren.love gte 20 and $wrenHeistDance.profits is "70/30")>>
+	<<He_ nun>> 잠시 멈춘다. "오늘 당신이 정말로 잘해 줬으니, 그냥 <<= C.npc.Wren.love gte 40 ? "5대 5" : "6대 4">>로 하죠."
+
+	<<if C.npc.Wren.love gte 40>>
+		<<set $wrenHeistDance.profits to "50/50">>
+	<<else>>
+		<<set $wrenHeistDance.profits to "60/40">>
+	<</if>>
+<</if>>
+<br><br>
+<<He_ nun>> 전리품을 나누기 시작한다.
+<br><br>
+
+<<if $wrenHeistDance.sneak is true>>
+	당신은 <<him_ ga>> 주머니에 무언가를 숨겼던 것을 기억해낸다. 어쩌면 당신의 몫으로 챙길 수 있을 것 같다.
+	<br><br>
+
+	<<link [[챙긴다|Wren Heist End]]>><<set $phase to 0>><</link>><<set $skulduggerydifficulty to 800>><<skulduggerydifficulty>>
+	<br>
+	<<link [[내버려 둔다|Wren Heist End]]>><<set $phase to 1>><</link>>
+	<br>
+<<else>>
+	<<link [[기다린다|Wren Heist End]]>><<set $phase to 1>><</link>>
+	<br>
+<</if>>
+
+:: Wren Heist End
+<<effects>>
+<<set _profitShare = $wrenHeistDance.profits is "50/50" ? 0.5 : $wrenHeistDance.profits is "60/40" ? 0.4 : 0.3>>
+<<set _playerBlackMoney to Math.round($wrenHeistDance.blackMoney * _profitShare)>>
+
+<<if $phase is 0>> /* Try to take it */
+	<<his_ ga>> 한눈을 판 사이, 당신은 <<His_ yi>> 주머니에 손을 뻗는다.
+	<br><br>
+	<<skulduggerycheck "silent">>
+	<<if $skulduggerysuccess is 1>>
+		<<set $blackmoney += _playerBlackMoney>>
+		<<if $wrenHeistCricketBall is undefined>>
+			<<wearProp "signed cricket ball">><<earnFeat "Player of the Match">><<set _getCricketBall to true>>
+			당신은 크리켓 공을 움켜쥔다.<<set $blackmoney += 1500>>
+		<<else>>
+			당신은 <<= either("목걸이", "팔찌")>>를 움켜쥔다.<<set $blackmoney += 500>>
+		<</if>>
+		당신은 그것을 몰래 주머니에 넣는다. 렌은 당신을 쳐다보지만, 아무 말도 하지 않는다. <<He_ nun>> 분류가 끝난 도난품 중 <<= $wrenHeistDance.profits is "50/50" ? "50" : $wrenHeistDance.profits is "60/40" ? "40" : "30">>%를 당신에게 밀어준다.
+		<br><br>
+		"거래 즐거웠어요. 다음에 기회가 있으면 또 찾아오죠," <<he_ ga>> 말한다.
+	<<else>>
+		렌은 당신의 손목이 주머니에 들어오는 순간 꽉 움켜쥔다. <<He_ nun>> 화가 났다기보다는 재미있어하는 표정이지만, 당신을 잡은 손아귀는 단단하다.
+		<br><br>
+		"그게 당신의 최선이라면, 갈 길이 멀겠어요," <<he_ nun>> 말한다. "일대일로 훈련시켜 줄 수도 있겠지만, 오늘 밤은 안 되고."
+		<br><br>
+		<<He_ ga>> 당신을 놓아준다. 당신은 아픈 손목을 문지른다.<<pain 4>><<gpain>>
+		<br><br>
+		"그렇게 돈이 궁하다면야," <<he_ ga>> 말한다. "제가 어디에 있는지는 알죠? 같이 놀자고요. 어쩌면 당신의 또 다른 쇼를 볼 수 있을지도."
+	<</if>>
+<<else>> /* Leave it be or wait */
+	<<set $blackmoney += _playerBlackMoney>>
+	<<He_ nun>> 도난품 분류를 마치고, <<= $wrenHeistDance.profits is "50/50" ? "50" : $wrenHeistDance.profits is "60/40" ? "40" : "30">>%를 당신에게 밀어준다. "거래 즐거웠어요. 다음에 기회가 있으면 또 찾아오죠," <<he_ ga>> 말한다.
+<</if>>
+<br><br>
+<<He_ nun>> 차에 오르며 당신에게 윙크한다. 머지않아, <<he_ nun>> 모퉁이를 돌아 당신을 다뉴브 거리에 홀로 남겨두고 떠난다.
+<br><br>
+<<if _getCricketBall is true>>
+	<<set $wrenHeistCricketBall to true>>
+	렌의 차가 모퉁이를 돌아 사라지자, 당신은 크리켓 공을 꺼내본다. 공은 가로등 불빛 아래에서 적금색으로 빛난다. 무언가가 당신의 시선을 끈다. 당신은 그것을 자세히 살핀다. 공은 사인 볼이다. 당신은 <<= currentSkillValue("history") gte 600 ? "이 이름을 윈터가 언급했던 것을 기억한다." : "이 이름이 누구의 것인지는 모르지만,">> 장물아비라면 값을 쳐줄 것 같다.
+	<br><br>
+<</if>>
+
+<<set $wrenSeen.pushUnique("heist")>>
+<<set $wrenSeenLast to "heist">>
+<<clearNPC "wren_heist_guard_1">><<clearNPC "wren_heist_guard_2">><<clearNPC "wren_heist_fighting">>
+
+<<link [[다음|Danube Street]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+
+
+

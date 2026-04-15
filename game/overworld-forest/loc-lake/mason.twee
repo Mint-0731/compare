@@ -1,0 +1,914 @@
+:: Lake Mason Intro
+<<set $daily.masonLake to true>>
+<<effects>>
+<<npc Mason>><<person1>>
+당신은 호수 한가운데로 헤엄쳐 들어간다. 수영 선생님 메이슨이 넓은 원을 그리며 수영을 하고 있다. 그는 당신이 다가온 것을 알아차리고, 그 자리에서 멈춰 당신을 바라본다.
+<br><br>
+
+"여기서 보니 반갑구나." 그가 말했다. "그럼 난 마저 한 바퀴 더 돌러 가볼게." 그는 당신이 가까이 가기도 전에 헤엄쳐 가버린다.
+<br><br>
+
+<<swimicon>><<link [[그를 잡으려고 시도한다 (0:05)|Lake Mason Swim]]>><<tiredness 1>><</link>><<swimmingdifficulty 1 300>><<gtiredness>>
+<br>
+<<getouticon>><<link [[떠난다|Lake Depths]]>><<endevent>><</link>>
+<br>
+
+:: Lake Mason Swim
+<<effects>>
+
+<<if $swimmingskill gte 1000>>
+	<<set $mason_count to 1>>
+	당신은 그를 따라 수영한다. <span class="green">가까스로 그와 거리를 좁혔다.</span> 그는 그의 어깨너머를 슬쩍 보더니 더 빨리 헤엄치기 시작했으나, 당신은 점점 그와 거리를 좁힌다. 그가 멈춰 뒤돌았을 때는 이미 당신이 충분히 그를 만질 수 있을만큼 가까이 있었다. 
+	<br><br>
+
+	"수, 수업 시간에 열심히 참여했나보구나." 그가 말했다. 그가 그의 팔을 물 밑에서 이상한 자세로 잡았다. 팔이 어색하게 그의 몸에 가까이 붙어있다. "다른 반 아이들이 너처럼 능력이 있다면, 우리 학교에도 수영팀이 있었을 거야."
+	<br><br>
+
+	당신이 빗줄기 사이로 물 밑을 들여다보면서 그의 행동이 어색했던 이유를 알아챈다. <span class="lewd">그는 아무것도 입고 있지 않았다.</span> 당신의 표정이 어떤 변화를 드러내자, 그의 얼굴이 빨갛게 익는다.
+	<br><br>
+
+	"나-나는..." 그가 목소리를 떨며 입을 연다. "나는 이렇게 수영하는게 더 좋아. ...그냥 더 재밌거든."
+	<br><br>
+
+	<<link [[모르는 척 한다|Lake Mason Pretend]]>><<npcincr Mason love 1>><</link>><<glove>>
+	<br>
+	<<link [[희롱한다|Lake Mason Tease]]>><<npcincr Mason love -1>><<npcincr Mason lust 1>><<npcincr Mason dom -1>><</link>><<llove>><<glust>><<ldom>><<promiscuous1>>
+	<br>
+	<<link [[태연하게 행동한다|Lake Mason Nonchalant]]>><</link>>
+	<br>
+
+<<elseif currentSkillValue('swimmingskill') gte random(1, 300)>>
+	<<set $mason_count to 1>>
+	당신은 그를 따라 수영한다. 그러나 그는 너무 빠르다. 그와 경기하는 건 고사하고 따라잡기라도 하려면 수영을 더 연습해야할 것이다.
+	<br><br>
+
+	당신은 그를 막아보지만, 그는 예상치 못한 방향으로 헤엄쳐 도망간다. 그는 당신을 피하는 것 같다.
+	<br><br>
+
+	<span class="green">당신은 좋은 생각이 떠올랐다.</span> 메이슨이 지나가는 길의 물 밑으로 잠수해서 숨을 참는다. 당신은 흐릿한 물 속에서 그가 다가오길 기다리며 물 밖으로 나가려 준비한다. 그가 당신과 부딪힐 뻔 한다.
+	<br><br>
+
+	"여, 여기서 학생을 보게 될 줄은 몰랐는데.." 그가 눈가에 묻은 물을 닦아내며 말한다. 그가 그의 팔을 물 밑에서 이상한 자세로 잡았다. 팔이 어색하게 그의 몸에 가까이 붙어있다. "네가 학교 밖에서 연습하는 걸 보니 기쁘긴 하네."
+	<br><br>
+
+	당신이 빗줄기 사이로 물 밑을 들여다보면서 그의 행동이 어색했던 이유를 알아챈다. <span class="lewd">그는 아무것도 입고 있지 않았다.</span> 당신의 표정이 어떤 변화를 드러내자, 그의 얼굴이 빨갛게 익는다.
+	<br><br>
+
+	"나-나는..." 그가 목소리를 떨며 입을 연다. "나는 이렇게 수영하는게 더 좋아. ...그냥 더 재밌거든."
+	<br><br>
+
+	<<link [[모르는 척 한다|Lake Mason Pretend]]>><<npcincr Mason love 1>><</link>><<glove>>
+	<br>
+	<<link [[희롱한다|Lake Mason Tease]]>><<npcincr Mason love -1>><<npcincr Mason lust 1>><<npcincr Mason dom -1>><</link>><<llove>><<glust>><<ldom>><<promiscuous1>>
+	<br>
+	<<link [[태연하게 행동한다|Lake Mason Nonchalant]]>><</link>>
+	<br>
+
+<<else>>
+
+	당신은 그를 따라 수영한다. <span class="red">그러나 그는 너무 빠르다.</span> 그와 경기하는 건 고사하고 따라잡기라도 하려면 수영을 더 연습해야할 것이다.
+	<br><br>
+
+	당신은 그를 막아보지만, 그는 예상치 못한 방향으로 헤엄쳐 도망간다. 그는 당신을 피하는 것 같다.
+	<br><br>
+
+	<<link [[다음|Lake Depths]]>><<endevent>><</link>>
+	<br>
+
+<</if>>
+
+:: Lake Mason Pretend
+<<effects>>
+
+당신은 그를 보고 웃으며, 혼란스러운 표정을 짓는다.
+
+<<if $speech_attitude is "meek">>
+	"비 맞으면서 수영하세요?" 당신이 말한다. "저도 좋아해요."
+<<elseif $speech_attitude is "bratty">>
+	"빗 속에서 수영하는 건 이상할게 없죠." 당신이 말한다. "저도 좋아해요. 상쾌하거든요."
+<<else>>
+	"걱정마세요." 당신이 말한다. "저도 빗 속에서 수영하는 건 좋아하거든요."
+<</if>>
+<br><br>
+
+그는 잠시 혼란스러워 한다. "이- 이해해줘 고맙구나." 여전히 물 밑에서 자신의 몸을 가리며, 그가 말한다. "내가 돌던 곳으로 돌아가야겠다. 계속 연습하렴, 너는 가능성이 충분하구나."
+<br><br>
+
+<<link [[다음|Lake Depths]]>><<endevent>><</link>>
+<br>
+
+:: Lake Mason Tease
+<<effects>>
+
+<<if $exposed gte 2>>
+	<<if $speech_attitude is "meek">>
+		"당황하지 마세요." 당신이 피식 웃었다. "저도 똑같아요."
+	<<elseif $speech_attitude is "bratty">>
+		"부끄러워 하시지 않아도 돼요." 당신이 말한다. "저도 아무것도 안 입었어요."
+	<<else>>
+		"부끄러워 마세요." 당신이 말한다. "선생님만 알몸으로 수영하는 건 아니니까요."
+	<</if>>
+	<<promiscuity1>>
+
+	당신은 그게 통할 거라 생각하지 않았으나, 그의 얼굴이 새빨개진다. 그가 시선을 돌리며 그의 입을 연다. 그가 말하려다 말곤 몸을 돌려 헤엄쳐 달아나는 동안, 당신은 수면 가까이에서 그의 탄탄한 엉덩이를 본다.
+<<else>>
+	<<if $speech_attitude is "meek">>
+		"당황하지 마세요." 당신이 말한다. "선생님이 수영은 제일 잘 하잖아요."
+	<<elseif $speech_attitude is "bratty">>
+		"부끄러워 하시지 않아도 돼요." 당신이 말한다.. "제가 그런 몸매라면 자랑할 걸요?"
+	<<else>>
+		"부끄러워 마세요." 당신이 말한다. "정말 멋져 보여요."
+	<</if>>
+	<<promiscuity1>>
+
+	당신은 그게 통할 거라 생각하지 않았으나, 그의 얼굴이 새빨개진다. "내-내가 돌던 곳으로 돌아가야겠구나." 그가 말한다. 그가 몸을 돌려 헤엄쳐 달아나는 동안, 당신은 수면 가까이에서 그의 탄탄한 엉덩이를 본다.
+<</if>>
+<br><br>
+
+<<link [[다음|Lake Depths]]>><<endevent>><</link>>
+<br>
+
+:: Lake Mason Nonchalant
+<<effects>>
+
+당신은 그가 부끄러워 하는 것을 무시한다.
+<<if $exposed gte 2>>
+	<<if $speech_attitude is "meek">>
+		"저도에요." 당신이 말한다. "지금 아무것도 안 입고 있어요."
+	<<elseif $speech_attitude is "bratty">>
+		"대충 이해해요." 당신이 말한다. "저도 그래서 알몸이잖아요?"
+	<<else>>
+		"무슨 말인지 알겠어요." 당신이 말한다. "저도 안 입었으니까요."
+	<</if>>
+	당신은 그게 통할 거라 생각하지 않았으나, 그의 얼굴이 새빨개진다. "내-내가 돌던 곳으로 돌아가야겠구나." 그가 말한다. 그가 몸을 돌려 헤엄쳐 달아나는 동안, 당신은 수면 가까이에서 그의 탄탄한 엉덩이를 본다.
+<<else>>
+	<<if $speech_attitude is "meek">>
+		"그, 그럴 수도 있죠. 당신이 말한다. "많은 사람들이 하니까요."
+	<<elseif $speech_attitude is "bratty">>
+		"괜찮아요." 당신이 말한다. "어차피 아무도 알아채지 못할 거예요. 저만 빼고요. 전 괜찮아요."
+	<<else>>
+		"걱정마세요." 당신이 말한다. "이상한건 아니니까요."
+	<</if>>
+	그는 당신의 말에 안도했지만, 그의 팔을 치우지는 않는다. "내-내가 돌던 곳으로 돌아가야겠구나." 그가 말한다. 그가 몸을 돌려 헤엄쳐 달아나는 동안, 당신은 수면 가까이에서 그의 탄탄한 엉덩이를 본다.
+<</if>>
+<br><br>
+
+<<link [[다음|Lake Depths]]>><<endevent>><</link>>
+<br>
+
+:: Lake Mason
+<<effects>>
+
+<<set $daily.masonLake to true>>
+<<npc Mason>><<person1>>
+
+당신은 메이슨을 향해 헤엄쳐 간다. 그는 도망치지 않고 당신이 다가오자 제자리에서 천천히 발을 움직인다. 그는 그의 탄탄한 몸을 물 밑에서 감춘다.
+<br><br>
+
+"무, 무슨 일이니?" 그는 그가 돌던 곳으로 돌아가고 싶어하며 묻는다.
+<br><br>
+
+<<link [[그냥 인사한다|Lake Mason Greet]]>><<stress -6>><</link>><<lstress>>
+<br>
+<<if $mason_count lte 1>>
+	<<link [[잡담을 나누자고 한다|Lake Mason Ask]]>><<npcincr Mason love 1>><</link>><<glove>>
+	<br>
+<</if>>
+<<if hasSexStat("promiscuity", 2)>>
+	<<link [[보여 달라고 한다|Lake Mason Flirt]]>><<npcincr Mason love -1>><<npcincr Mason lust 1>><<npcincr Mason dom -1>><</link>><<llove>><<glust>><<ldom>><<promiscuous2>>
+	<br>
+<</if>>
+
+:: Lake Mason Ask
+<<effects>>
+
+<<set $mason_count to 2>>
+당신은 그와 이야기하고 싶다고 말한다. 그는 물 밑을 바라본다. "지-지금은 말고.." 그가 말한다. "이 근처에 수영 끝나고 저녁에 휴식을 취하는 곳이 있어. 얘기하고 싶으면 거기서 날 찾으렴."
+<br><br>
+
+<span class="gold">그가 당신에게 폭포 근처에 있는 그의 비밀 장소를 알려준다. 그는 학교에 가지 않는 날, 저녁 시간에 그 곳에 있을 것이다.</span>
+<br><br>
+
+<<link [[다음|Lake Depths]]>><<endevent>><</link>>
+<br>
+
+:: Lake Mason Greet
+<<effects>>
+
+당신은 어색한 인삿말을 주고 받는다. 그는 그의 장소로 돌아가기 전까지 계속 얼굴을 붉히고 몸을 가린다. 그가 몸을 돌려 헤엄쳐 달아나는 동안, 당신은 수면 가까이에서 그의 탄탄한 엉덩이를 본다.
+<br><br>
+
+<<link [[다음|Lake Depths]]>><<endevent>><</link>>
+<br>
+
+:: Lake Mason Flirt
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"무, 무례하게 굴려는 건 아니지만.." 당신이 말한다. "제가 좀 볼 수 있을까요? 아무도 모를 거예요."
+<<elseif $speech_attitude is "bratty">>
+	"내숭떨지 마세요." 당신이 말한다. "사람들이 봤으면 하는 거 아니에요? 몸매가 좋으시네요. 자랑하고 싶은 건 당연하잖아요. 그러니까 보여주실래요?"
+<<else>>
+	"어디 봐요." 당신이 말한다. "잠깐 보면 아무도 모를 거예요."
+<</if>>
+<br><br>
+
+<<if C.npc.Mason.lust gte 10>>
+	<<earnFeat "Mason's Secret">>
+	그가 뺨을 붉힌다. "조-좋아." 당황한 만큼이나 분노로 떨리는 목소리로 그가 말한다. "그, 그러고 나면 더는 귀찮게 굴지 말아야 한다?"
+	<br><br>
+
+	그는 그가 말하고도 망설이더니 천천히 그의 팔을 치운다. 당신은 그의 매끈하고 탄탄한 몸매를 더 잘 보기 위해 물속으로 잠수한다.
+
+	<<if $pronoun is "f">>
+		<<if $NPCList[0].penis isnot "none">>
+			당신의 시선이 그의 <span class="lewd">가슴과 페니스로 이끌린다.</span> 당신은 몸의 윤곽을 드러내는 그의 딱 붙는 수영복에는 익숙했지만, 물 속에서 노출된 모습을 보는 것에는 또 다른 느낌을 받는다.
+		<<else>>
+			당신의 시선이 그의 <span class="lewd">가슴으로 이끌린다.</span> 당신은 몸의 윤곽을 드러내는 그의 딱 붙는 수영복에는 익숙했지만, 물 속에서 노출된 모습을 보는 것에는 또 다른 느낌을 받는다.
+		<</if>>
+	<<else>>
+		<<if $NPCList[0].penis isnot "none">>
+			당신의 시선이 그의 <span class="lewd">페니스에 닿았다.</span> 당신은 몸의 윤곽을 드러내는 그의 딱 붙는 수영복에는 익숙했지만, 물 속에서 노출된 모습을 보는 것에는 또 다른 느낌을 받는다.
+		<<else>>
+			당신의 시선이 그의 <span class="lewd">음부에 닿았다.</span> 당신은 몸의 윤곽을 드러내는 그의 딱 붙는 수영복에는 익숙했지만, 물 속에서 노출된 모습을 보는 것에는 또 다른 느낌을 받는다.
+		<</if>>
+	<</if>>
+	<br><br>
+
+	그는 당신이 바깥으로 나올 때마다 자신의 몸을 가린다. "네- 네가 만족했길 바라마." 그가 말한다. "이제 내가 편안하게 한 바퀴 돌게 내버려두렴." 그는 뒤돌아서 헤엄쳐 가버린다.
+	<br><br>
+
+	<<link [[다음|Lake Depths]]>><<endevent>><</link>>
+	<br>
+
+<<else>>
+	그가 뺨을 붉힌다. "선생님한테 할 부탁이 아니잖니!" 그가 말한다. "이제 날 내버려두렴." 그가 몸을 돌려 헤엄쳐 달아나는 동안, 당신은 수면 가까이에서 그의 탄탄한 엉덩이를 본다.
+	<br><br>
+
+	<<link [[다음|Lake Depths]]>><<endevent>><</link>>
+	<br>
+<</if>>
+
+:: Mason Pond
+<<set $location to "lake">><<set $outside to 1>><<effects>>
+
+호수에 흐르는 물줄기를 따라 올라가면 메이슨이 쉬기 좋아하는 연못으로 갈 수 있다. 그 밑에 있는 샘에서 거품이 일어난다.
+<br><br>
+<<if Time.dayState is "dusk" and ($daily.masonLake or !Time.schoolDay and Weather.precipitation is "rain")>>
+	<<set $daily.masonLake to true>>
+	<<npc Mason>><<person1>>메이슨이 수영복을 입고 그 안에 앉아있다. 그의 팔은 바위 둑에 얹혀 있고, 그의 눈은 감겨 있다.
+	<br><br>
+
+	<<if $exposed gte 2>>
+		<<if hasSexStat("exhibitionism", 5)>>
+			<<ind>><<link [[연못 안에 앉는다|Mason In Pond Naked]]>><</link>><<if $daily.ex.mason isnot 1>><<exhibitionist5>><</if>>
+			<br>
+			<<ind>><<link [[연못가에 앉는다|Mason Beside Pond Naked]]>><</link>><<if $daily.ex.mason isnot 1>><<exhibitionist5>><</if>>
+			<br>
+		<<else>>
+			<<covered>> 메이슨에게 이런 식으로 당신의 존재를 알려서는 안된다!
+			<br><br>
+		<</if>>
+	<<elseif $exposed gte 1>>
+		<<if hasSexStat("exhibitionism", 3)>>
+			<<ind>><<link [[연못 안에 앉는다|Mason In Pond Naked]]>><</link>><<if $daily.ex.mason isnot 1>><<exhibitionist3>><</if>>
+			<br>
+			<<ind>><<link [[연못가에 앉는다|Mason Beside Pond Naked]]>><</link>><<if $daily.ex.mason isnot 1>><<exhibitionist3>><</if>>
+			<br>
+		<<else>>
+			<<covered>> 메이슨에게 이런 식으로 당신의 존재를 알려서는 안된다!
+			<br><br>
+		<</if>>
+	<<else>>
+		<<ind>><<link [[연못 안에 앉는다|Mason In Pond]]>><</link>>
+		<br>
+		<<ind>><<link [[연못가에 앉는다|Mason Beside Pond]]>><</link>>
+		<br>
+	<</if>>
+	<br>
+	<<getouticon>><<link [[떠난다|Lake Waterfall]]>><<endevent>><</link>>
+	<br>
+<<else>>
+	연못은 비어 있다. 메이슨은 비가 오는 주말과 휴일 저녁에 호수에서 수영을 즐긴 후에 이 곳에 올 것이다. 
+	<br><br>
+
+	<<getouticon>><<link [[떠난다|Lake Waterfall]]>><</link>>
+	<br>
+<</if>>
+
+:: Mason Beside Pond
+<<effects>>
+
+<<if $mason_count gte 3>>
+
+	당신은 연못가에 앉는다. 그가 당신의 기척을 느끼자, 그의 눈을 떴다.
+	<br><br>
+
+	<<mason_greet>>
+	<br><br>
+
+	<<mason_actions>>
+
+<<else>><<set $mason_count to 3>>
+	<<swim_check>>
+	당신은 연못가에 앉는다. 당신의 기척을 느끼자, 그는 눈을 뜬다.
+	<br><br>
+
+	<<if _swim_check is 1>>
+		"여기까지 찾아와주다니 고맙구나." 그가 말한다. "원한다면 들어와도 좋아."
+	<<else>>
+		"여기까지 찾아와주다니 고맙구나." 그가 말한다. "원한다면 들어와도 좋아. 호수 기슭에 옷을 보관할 수 있는 작은 구멍이 있어."
+	<</if>>
+	<br><br>
+
+	<<mason_actions>>
+
+<</if>>
+
+:: Mason In Pond
+<<water>><<waterbr 2>><<effects>>
+
+<<if $mason_count gte 3>>
+	당신은 메이슨 맞은편 연못으로 들어간다. 물이 튀기는 소리에, 그는 눈을 뜬다.
+	<br><br>
+
+	<<mason_greet>>
+	<br><br>
+
+	<<mason_actions>>
+<<else>><<set $mason_count to 3>>
+	<<swim_check>>
+	당신은 메이슨 맞은편 연못으로 들어간다. 물이 튀기는 소리에, 그는 눈을 뜬다.
+	<br><br>
+	<<if _swim_check isnot 1>>
+		"여기까지 찾아와주다니 고맙구나." 그가 말한다. "여긴 적당히 한적하고 물이 엄청 좋지."
+	<<else>>
+		"여기까지 찾아와주다니 고맙구나." 그가 말한다. "여긴 적당히 한적하고 물이 엄청 좋지." 그가 당신의 옷을 본다. "옷이 다 젖었잖아! 호수 기슭에 옷을 보관할 수 있는 작은 구멍이 있어, 다음번에 필요하면 거길 이용하렴."
+	<</if>>
+	<br><br>
+
+	<<mason_actions>>
+<</if>>
+
+:: Mason Beside Pond Naked
+<<effects>>
+
+<<flaunting>> 당신은 연못가에 앉는다. 그가 당신의 기척을 느끼자, 그의 눈을 떴다. 그러나 당신의 음란한 모습 때문에, 그는 금세 눈을 감는다. 
+<<if !C.npc.Mason.chastityKeyCarried and playerChastity() and $worn.genitals.origin is "Winter" and (C.npc.Mason.love gte 5 or C.npc.Mason.lust gte 10)
+	and getVisibleClothesList().find(o => o === V.worn.genitals)>>
+	잠시 후, 그는 그의 눈을 다시 떠 당신의 질을 응시한다.
+	그가 너무 뚫어지게 응시해서 그가 자신을 추스리고 붉어진 얼굴로 시선을 돌릴 때까지의 잠시 동안, 당신은 불편함을 느낀다.
+	<<set C.npc.Mason.chastityKeyCarried to 1>><<set $daily.masonChastityRemovalDeclined to 1>>
+<</if>>
+<<if $exposed gte 2>>
+	<<if $daily.ex.mason isnot 1>>
+		<<exhibitionism5>>
+		<<set $daily.ex.mason to 1>>
+	<<else>>
+		<br><br>
+	<</if>>
+<<else>>
+	<<if $daily.ex.mason isnot 1>>
+		<<exhibitionism3>>
+		<<set $daily.ex.mason to 1>>
+	<<else>>
+		<br><br>
+	<</if>>
+<</if>>
+
+<<if $mason_count gte 3>>
+
+	<<mason_greet_lust>>
+	<br><br>
+
+	<<mason_actions>>
+
+<<else>><<set $mason_count to 3>>
+
+	"여, 여기까지 찾아와주다니 고맙구나." 그가 말한다. "하지만 옷 좀 입어 주겠니?"
+	<br><br>
+
+	<<mason_actions>>
+
+<</if>>
+
+:: Mason In Pond Naked
+<<water>><<waterbr 2>><<effects>>
+
+<<flaunting>> 당신은 메이슨 맞은편 연못으로 들어간다. 그가 물이 튀기는 소리에, 그의 눈을 떴다. 그러나 당신의 음란한 모습 때문에, 그는 금세 눈을 감는다. 
+<<if !C.npc.Mason.chastityKeyCarried and playerChastity() and $worn.genitals.origin is "Winter" and (C.npc.Mason.love gte 5 or C.npc.Mason.lust gte 10)
+	and getVisibleClothesList().find(o => o === V.worn.genitals)>>
+	잠시 후, 그는 눈을 다시 뜨며 당신의 질을 응시한다.
+	그가 너무 뚫어지게 응시해서, 그가 자신을 추스리고 붉어진 얼굴로 시선을 돌릴 때까지의 잠시 동안 당신은 불편함을 느낀다.
+	<<set C.npc.Mason.chastityKeyCarried to 1>><<set $daily.masonChastityRemovalDeclined to 1>>
+<</if>>
+<<if $exposed gte 2>>
+	<<if $daily.ex.mason isnot 1>>
+		<<exhibitionism5>>
+		<<set $daily.ex.mason to 1>>
+	<<else>>
+		<br><br>
+	<</if>>
+<<else>>
+	<<if $daily.ex.mason isnot 1>>
+		<<exhibitionism3>>
+		<<set $daily.ex.mason to 1>>
+	<<else>>
+		<br><br>
+	<</if>>
+<</if>>
+
+<<if $mason_count gte 3>>
+
+	<<mason_greet_lust>>
+	<br><br>
+
+	<<mason_actions>>
+
+<<else>><<set $mason_count to 3>>
+
+	"여, 여기까지 찾아와주다니 고맙구나." 그가 말한다. "하지만 옷 좀 입어 주겠니?"
+	<br><br>
+
+	<<mason_actions>>
+
+<</if>>
+
+:: Mason Pond Chat
+<<effects>>
+
+당신은 메이슨과 잡담을 나눴다.
+
+<<if $rng gte 81>>
+	그가 호수와 호수를 감싼 숲에 대해 이야기한다. 그가 이 동네로 온 가장 큰 이유같이 보인다.
+<<elseif $rng gte 61>>
+	그가 학교에 대해서 묻더니, 이내 당신과 다른 학생들이 그를 어떻게 생각하는지 조사한다.
+<<elseif $rng gte 41>>
+	그는 수영 대회에서의 그의 성공에 대해 열변한다.
+<<elseif $rng gte 21>>
+	그가 최근에 하고 있는 컴퓨터 게임에 대해 말한다. 그는 즐거워 보인다.
+<<else>>
+	그가 다른 선생님들에 대해 말한다. 그는 그들을 좋게 말하고자 노력한다.
+<</if>>
+<br><br>
+<<if $swimmingskill lte 999 and random(1, 3) is 3>>
+	그는 그의 수영 기술에 대해 설명한다. <<swimmingskilluse>>
+	<br><br>
+<</if>>
+
+<<mason_actions>>
+
+:: Mason Pond Flirt
+<<effects>>
+
+<<if $exposed gte 1>>
+	당신은 메이슨과 수다를 떨면서 노출된 신체에 주의를 집중한다. 그는 보지 않으려고 애쓰지만, 이따금씩 훑어본다. 그는 불편해 보인다.
+
+<<else>>
+	당신은 메이슨과 수다를 떨면서 그의 몸매가 얼마나 멋진지에 대해 중간중간 칭찬한다. 그는 불편해 보이고, 그의 수영복을 마치 벌거벗은 것처럼 그의 손으로 가린다.
+
+<</if>>
+<<promiscuity1>>
+
+<<mason_actions>>
+
+:: Mason Walk
+<<effects>>
+<<dry>><<towelup>><<set $foresthunt to 0>>
+메이슨은 당신에게 물기를 말릴 수건을 몇 장 건네주고 자신의 몸에 감싼다. 당신과 그는 같이 걸어서
+<<if $masonDressed is true>>
+	옷을 숨겨 놓은 곳으로 간다. 옷을 갈아입고서
+	<<unset $masonDressed>>
+<</if>>
+어둑해진 숲을 지나 도시로 향한다.
+<br><br>
+
+당신은 다뉴브 거리에 아무런 사고 없이 무사히 도착했다. 메이슨이 고아원 앞까지 바래다주고 손을 흔들며 떠난다.
+<br><br>
+
+<<link [[다음|Domus Street]]>><<set $eventskip to 1>><<endevent>><</link>>
+<br>
+
+:: Mason Walk Refuse
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"짐이 되고 싶진 않아요." 당신은 말한다. "저는 괜찮아요."
+<<elseif $speech_attitude is "bratty">>
+	"제가 어둠을 무서워 할 것 같아요?" 당신이 물었다. "저는 그런거 안무서워요. 괜찮아요."
+<<else>>
+	"음, 괜찮아요." 당신은 말한다. "제가 숲길을 잘 알거든요."
+<</if>>
+<br><br>
+
+메이슨을 내키지는 않아 보이지만 고개를 끄덕인다. "네가 그렇다면야, 조심히 들어가라." 그는 수건으로 자신의 몸을 말리며 숲으로 걸어간다.
+<br><br>
+
+<<link [[다음|Lake Waterfall]]>><<endevent>><</link>>
+<br>
+
+:: Widgets Mason [widget]
+<<widget "mason_actions">>
+	<<if $mason_pond is undefined and C.npc.Mason.love gte 30>>
+		<<set $mason_pond to 1>>
+		"이 주변은 지하에 물이 많이 흐른단다." 메이슨이 말한다. "도무스 거리 아래 쪽에 개울이 있는데, 난 항상 거기에 집을 갖고 싶었어. 나만의 샘을 만들 수 있을 것 같아서."
+		<br><br>
+		그가 물을 튀기며 앉고서, 당신을 쳐다본다. "너 도무스 거리에 살지 않니?" 그가 물었다. 그는 물 속에 몸을 담궜다. "비싸겠지. 그리고 넌 네 고아원장님께도 허락을 받아야 할거야. 그냥 상상해보는 것도 재밌네."
+		<br><br>
+	<</if>>
+	<<if Time.dayState is "night">>
+		어렴풋하던 태양빛의 끝자락이 잎사귀 사이에서 희미하게 사라진다. 메이슨이 일어났다. "여기 너무 오래 있으면 감기에 걸릴 거야." 그가 말한다. "어두워지면 숲은 위험할 수 있으니 내가 데려다주마."
+		<br><br>
+		<<set _storedClothes to clothingInStorage("lakeshore")>>
+
+		<<if $earSlime.forcedCommando isnot undefined and _storedClothes.find(item => item.slot is "under_lower" and !item.type.includes("naked"))>>
+			<span class="red">귓속의 슬라임이 속옷을 입은 채 나가는 것을 허락하지 않는다.</span>
+			<<set _earSlimeText to true>>
+		<<elseif _storedClothes.length>>
+			<<link [[옷을 갈아입고, 메이슨과 집으로 간다 (0:40)|Mason Walk]]>><<pass 40>><<storeload "lakeshore">><<set $masonDressed to true>><</link>>
+		<<else>>
+			<<link [[메이슨과 집으로 간다 (0:30)|Mason Walk]]>><<pass 30>><</link>>
+		<</if>>
+		<br>
+		<<link [[혼자 가겠다고 말한다|Mason Walk Refuse]]>><</link>>
+		<br>
+	<<elseif playerChastity() and $worn.genitals.origin is "Winter" and C.npc.Mason.chastityKeyCarried and !$daily.masonChastityRemovalDeclined
+		and getVisibleClothesList().find(o => o === V.worn.genitals) and (C.npc.Mason.love gte 10 or C.npc.Mason.lust gte 15)>>
+		<<include "Mason Chastity Prompt">>
+	<<else>>
+		<<socialiseicon>><<link [[잡담한다 (0:30)|Mason Pond Chat]]>><<npcincr Mason love 1>><<pass 30>><<stress -6>><</link>><<glove>><<lstress>>
+		<br>
+		<<brothelicon>><<link [[추파를 던진다 (0:30)|Mason Pond Flirt]]>><<pass 30>><<npcincr Mason love -1>><<npcincr Mason lust 1>><</link>><<promiscuous1>><<llove>><<glust>>
+		<br>
+		<<getouticon>><<link [[떠난다|Lake Waterfall]]>><<endevent>><</link>>
+		<br>
+	<</if>>
+<</widget>>
+
+<<widget "mason_greet">>
+	<<if C.npc.Mason.love gte 30>>
+		"널 보니 좋구나." 그가 웃으며 말한다. "난 손님을 좋아하는 편이지."
+	<<elseif C.npc.Mason.love gte 10>>
+		"널 만나길 바랐는데!" 그가 말한다.
+	<<elseif C.npc.Mason.love gte -10>>
+		"이봐." 그가 말한다.
+	<<elseif C.npc.Mason.love gte -30>>
+		"무슨 일이니?" 그가 묻는다.
+	<<else>>
+		"제발 날 방해하지 마렴." 그가 말한다.
+	<</if>>
+<</widget>>
+
+<<widget "mason_greet_lust">>
+	<<if C.npc.Mason.lust gte 30>>
+		"제, 제발 옷 좀 입으렴." 그가 말한다. 메이슨이 뭔가 감추듯 움직인다.
+	<<elseif C.npc.Mason.lust gte 10>>
+		"옷을 챙겨입는게 어떠니?" 그가 말한다. "우리가 잡히면 사람들이 오해할지도 몰라."
+	<<elseif C.npc.Mason.lust gte -10>>
+		"넌 옷을 잘 챙겨입어야겠구나." 그가 말한다.
+	<<elseif C.npc.Mason.lust gte -30>>
+		"선생님에게 널 소개할 올바른 방법이 아니지 않니," 그가 말한다.
+	<<else>>
+		그가 체념하곤 한숨을 쉰다.
+	<</if>>
+<</widget>>
+
+:: Lake Mason Reassure
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"걱, 걱정마세요." 당신은 말한다. "조심할게요."
+<<elseif $speech_attitude is "bratty">>
+	"제 앞가림은 할 줄 알아요." 당신은 말한다. "어쨌든 여기보다 아래가 더 따뜻하니까요."
+<<else>>
+	"제 걱정은 안하셔도 돼요." 당신은 말한다. "조심할게요."
+<</if>>
+<br><br>
+<<if $swimmingSuccess>>
+	<<set $mason_ice_lake to 2>>
+	메이슨이 잠시 당신을 응시한다. <span class="green">그러다 체념하곤 한숨을 쉰다.</span>
+
+	<<if $worn.upper.type.includes("diving") and $worn.lower.type.includes("diving")>>
+		"적어도 옷은 입었으니까.." 그가 말한다. "정말 조심해야한다, 알겠지?"
+	<<else>>
+		"옷이라도 제대로 입으렴." 그가 말한다. "시내에서 다이빙 장비도 파니까, 응?"
+	<</if>>
+	그는 그의 다리를 다시 빙판의 구멍으로 향하고 물 속으로 들어간다. <<glove>><<npcincr Mason love 1>>
+	<br><br>
+
+	<<link [[다음|Lake Depths Ice]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	메이슨이 잠시 당신을 응시한다. <span class="red">그러다 굳은 얼굴로 그의 고개를 저었다.</span>
+	<<if $worn.upper.type.includes("diving") and $worn.lower.type.includes("diving")>>
+		"적어도 옷은 입었으니까.." 그가 말한다. "하지만 얼음이 있는 호수는 위험하단다."
+	<<else>>
+		"다이빙 장비도 제대로 안 갖췄잖니." 그가 말한다. "몸이 얼거야."
+	<</if>>
+	그는 다리를 다시 빙판의 구멍으로 향하고 물 속으로 들어간다. <<llove>><<npcincr Mason love -1>>
+	<br><br>
+
+	<<link [[다음|Lake Depths Ice]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+
+:: Lake Mason Thank
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	당신은 메이슨의 눈을 피하며 감사를 표했다.
+<<elseif $speech_attitude is "bratty">>
+	당신은 메이슨에게 감사를 표했다.
+<<else>>
+	당신은 메이슨에게 감사를 표했다.
+<</if>>
+
+그가 미소지었다. "당연한 걸, 뭐." 그가 말한다. 그의 다리를 다시 빙판의 구멍으로 향하고 물 속으로 들어간다. "가서 몸 좀 녹여." 그는 깊은 물 속으로 사라졌다.
+<br><br>
+
+<<link [[다음|Lake Depths Ice]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Lake Mason Angry
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"저, 저는 다 알아서 내려간 건데.." 당신은 말한다.
+<<elseif $speech_attitude is "bratty">>
+	"제 일에 간섭하지 마세요." 당신은 말한다.
+<<else>>
+	"저도 알고서 내려간 거예요." 당신은 말한다.
+<</if>>
+<br><br>
+
+메이슨이 그의 고개를 내저었다. "이런 일을 유하게 넘어갈 생각은 없어." 그가 말한다. "네가 그걸 고마워하지 않아도 상관없고. 수업 중에 열심히 공부하면 언젠가 충분히 뛰어난 다이버가 될 거야." 그는 그의 다리를 다시 빙판의 구멍으로 향하고 물 속으로 들어간다. 그러고는 깊은 물 속으로 사라졌다.
+<br><br>
+
+<<link [[다음|Lake Depths Ice]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+
+:: Mason Chastity Prompt
+<!-- no effects, this is an alternative passage ending -->
+
+<<if $location is "pool">>
+	당신이 다가가자, 그는 당신의 정조대를 가리키며 얼굴을 붉힌다.
+<<else>>
+	그는 당신의 정조대를 가리키며 얼굴을 붉힌다.
+<</if>>
+<<if !C.npc.Mason.chastityRemovalDeclined>>
+	<<switch C.npc.Mason.chastityRemoved>>
+		<<case 0 undefined null>>
+			"있잖아, 내가 그걸 풀 수 있을만한 걸 가지고 있어."
+			그는 황급히 덧붙인다. "물론, 원한다면 말이지."
+		<<case 1>>
+			"또 어떻게 그 윈터 늙다리의 분노를 샀길래 이런 짓을 당했니? 그래도 내가 해제할 수 있을 거다."
+			그는 황급히 덧붙인다. "물론, 원한다면 말이지."
+		<<default>>
+			"이해가 안 가. 왜 자꾸 그걸 찰 만한 일을 하는 거니? 그 윈터 늙다리가 나한테 그런 짓을 했던 건 내가..."
+			<br><br>
+
+			메이슨의 얼굴이 더욱 붉어진다. 당신은 불가능하리라 생각했지만, 그는 용케 화제를 돌린다. "아, 신경쓰지 마! 중요한 건, 네가 원한다면 그걸 또 해제할 수 있다는 거야."
+	<</switch>>
+<<else>>
+	<<print [
+		'"있잖아, 내가 그걸 풀 수 있을만한 걸 가지고 있어. 그냥 말만 해,"',
+		'"내-내 제안은 여전히 ​​유효해. 혹시 도움이 필요하면, 내가 도와줄 수 있어,"',
+		'"그 일에 대해 마음이 바뀌면 언제든 말하렴,"',
+	].random()>> 메이슨은 당신의 정조대를 가리키며 말한다.
+<</if>>
+<br><br>
+
+
+<<link [[사양한다|Mason Chastity Decline]]>><<set C.npc.Mason.chastityRemovalDeclined to 1>><<set $daily.masonChastityRemovalDeclined to 1>><<set $weekly.masonChastityRemovalDeclined to 1>><</link>>
+<br>
+<<if C.npc.Mason.chastityKeyCarried is 1 or !hasSexStat("exhibitionism", 5)>>
+	<<link [[Ask|Mason Chastity Ask]]>><</link>>
+<<elseif hasSexStat("exhibitionism", 5)>>
+	<<link [[받아들인다|Mason Chastity Accept]]>>
+		<<arousal 600>><<exhibitionism5>><<set C.npc.Mason.chastityRemovalDeclined to 0>><<run delete $daily.masonChastityRemovalDeclined>><<run delete $weekly.masonChastityRemovalDeclined>>
+	<</link>><<garousal>><<exhibitionist5>>
+<<else>>
+	<span class="purple">당신은 메이슨이 당신을 벗기는 것을 허락할 만큼 음란하지 않다.</span>
+<</if>>
+<br>
+
+
+:: Mason Chastity Decline
+<<effects>>
+"괜찮아요," 당신은 정조대를 살짝 가리며 말한다.
+<br><br>
+
+"그래," 메이슨이 붉어진 얼굴로 말한다. "그냥 제안해 봤단다." 그는 당신의 정조대를 다시 한번 흘끗 바라보고는, 돌아선다. <<npcincr Mason lust 1>><<glust>>
+<br><br>
+<<if $location is "pool">> /* Exit to Pool */
+	<<link [[다시 수업에 참여한다|Swimming Lesson]]>><<endevent>><</link>>
+<<else>> /* Exit to Mason Pond */
+	<<mason_actions>>
+<</if>>
+<br>
+
+
+:: Mason Chastity Ask
+<<effects>><<set C.npc.Mason.chastityKeyCarried to 2>>
+"어떻게요?" 당신이 묻는다.
+<br><br>
+
+메이슨은 작은 열쇠를 꺼낸다. "너 저번에도 그 윈터 늙다리한테 혼났잖니. 맞을 거라고 생각해. 시-시도해 볼래?"
+<br><br>
+
+<<link [[사양한다|Mason Chastity Decline]]>><<set C.npc.Mason.chastityRemovalDeclined to 1>><<set $daily.masonChastityRemovalDeclined to 1>><<set $weekly.masonChastityRemovalDeclined to 1>><</link>>
+<br>
+<<if hasSexStat("exhibitionism", 5)>>
+	<<link [[받아들인다|Mason Chastity Accept]]>>
+		<<arousal 600>><<exhibitionism5>><<set C.npc.Mason.chastityRemovalDeclined to 0>><<run delete $daily.masonChastityRemovalDeclined>><<run delete $weekly.masonChastityRemovalDeclined>>
+	<</link>><<garousal>><<exhibitionist5>>
+<<else>>
+	<br><span class="purple">당신은 메이슨이 당신을 벗기는 것을 허락할 만큼 음란하지 않다.</span>
+<</if>>
+<br>
+
+
+:: Mason Chastity Accept
+<<effects>>
+<<if C.npc.Mason.chastityRemoved is undefined>><<set C.npc.Mason.chastityRemoved to 0>><</if>>
+
+/* Player */
+<<switch C.npc.Mason.chastityRemoved>>
+	<<case 0>>
+		<<if $speech_attitude is "meek">>
+			"마-맞는 열쇠라면, 좋아요," 당신은 얼굴을 붉히고 눈을 피하며 말한다.
+		<<elseif $speech_attitude is "bratty">>
+			"맞는 열쇠다에 걸죠," 당신은 미소를 짓고, 무언가를 암시하듯 고개를 기울이며 말한다.
+		<<else>>
+			"맞는 열쇠라고 생각하세요?" 당신은 열쇠를 보고, 메이슨에게 다시 시선을 돌리며 묻는다.
+		<</if>>
+	<<case 1>>
+		<<if $speech_attitude is "meek">>
+			"저-정말 다시 보고 싶지 않으세요?" 당신은 얼굴을 붉히고 눈을 피하며 묻는다.
+		<<elseif $speech_attitude is "bratty">>
+			"한 번 더 보고 싶어하신다에 걸고 싶은데요," 당신은 미소를 짓고, 무언가를 암시하듯 고개를 기울이며 말한다.
+		<<else>>
+			"다시 한 번 보셔도 괜찮아요," 당신은 열쇠를 보고, 메이슨에게 다시 시선을 돌리며 묻는다.
+		<</if>>
+	<<default>>
+		<<if $speech_attitude is "meek">>
+			"다-다시 보셔도 괜찮아요. 원하신다면, 만지셔도 괜찮고요," 당신은 얼굴을 붉히고 눈을 피하며 말한다.
+		<<elseif $speech_attitude is "bratty">>
+			"그냥 한 번 더 보려는 속셈이 아니라고 확언할 수 있어요? 만져도 되는데," 당신은 미소를 짓고, 무언가를 암시하듯 고개를 기울이며 말한다.
+		<<else>>
+			"좋아요, 한 번 더 보셔도 괜찮고요. 물론 만지시는 것도," 당신은 미소 지으며 말한다.
+		<</if>>
+<</switch>>
+<br><br>
+
+/* Action */
+그는 당신의 말을 무시하려 하지만 무의식적으로 그의 입술을 핥는다. 그는
+<<if $location is "pool">>
+	당신을 수영장 옆으로 데려가, 최소한의 프라이버시가 보장되는 장소로 데려가서
+<</if>>
+떨리는 손으로 당신의 정조대에 열쇠를 댄다.
+<<if $worn.over_lower.vagina_exposed gte 1 and $worn.lower.vagina_exposed gte 1 and $worn.under_lower.vagina_exposed gte 1>>
+	<<switch random(0,1)>>
+		<<case 0>>
+			당신은 엉덩이를 앞으로 내밀어 메이슨이 정조대에 완전히 접근할 수 있도록 한다.
+		<<default>>
+			당신은 다리를 벌려서 메이슨이 정조대에 가까이 접근할 수 있도록 한다.
+	<</switch>>
+<<else>>
+	<<set _worn to [$worn.over_lower, $worn.lower, $worn.under_lower].filter(w => w.name !== "naked").map(w => w.name).formatList({useOxfordComma: true})>>
+	당신은 메이슨이 정조대에 가까이 접근할 수 있도록, <<print $underlowerwetstage gte 3 or $overlowerwetstage gte 3 or $lowerwetstage gte 3 ? "젖은 " : "">>수영복을 벗는다.
+<</if>>
+열쇠는 완벽하게 맞는다. 딸깍 소리와 함께 정조대가 벗겨지고, 당신의 질이 드러난다.
+<<set $worn.genitals.type.push("broken")>><<genitalsruined>>
+<br><br>
+
+/* Reaction */
+<<switch C.npc.Mason.chastityRemoved>>
+	<<case 0>>
+		메이슨은 당신의 질을 자신이 의도한 것보다 더 오랫동안 바라보다가, 그것을 자각하자 눈을 감고 재빨리 돌아선다.
+		"음, 맞는 열쇠구나. 감사 인사는 괜찮아. 이런 일을 겪은 건 네가 처음이 아니라서."
+		<<npcincr Mason lust 5>><<gglust>><<npcincr Mason love 1>><<glove>>
+	<<case 1>>
+		메이슨은 당신의 질을 자신이 의도한 것보다 더 오랫동안 바라보다가, 당신을 만지려는 것처럼 손을 든다. 그것을 자각하자, 그는 손을 거두고 돌아서며 눈을 감는다.
+		"감사 인사는 괜찮아. 하지만 조심하렴. 윈터는... 특이한 취미를 가지고 있거든."
+		<<npcincr Mason lust 5>><<gglust>><<npcincr Mason love 1>><<glove>>
+	<<default>>
+		메이슨은 당신의 질을 자신이 의도한 것보다 더 오랫동안, 감탄하며 바라본다. 그는 거의 무의식적으로 손을 들어올린다.
+<</switch>>
+<<set C.npc.Mason.chastityRemoved += 1>>
+<br><br>
+
+/* Options */
+<<if C.npc.Mason.chastityRemoved gte 3>>
+	<<if !hasSexStat("promiscuity", 3)>>
+		<span class="blue">당신은 이 이상 나아갈 수 있을 정도로 음란하지 않다.</span>
+	<<else>>
+		<<link [[메이슨의 손을 잡는다|Mason Chastity Grab]]>><</link>><<handholdingvirginitywarning>><<NPCvirginitywarning "Mason" "handholding">>
+	<</if>>
+	<br>
+	<<link [[아무것도 하지 않는다|Mason Chastity Escape]]>><</link>>
+<<else>>
+	<<if $location is "pool">>
+		<<link [[수업에 다시 합류한다|Swimming Lesson]]>><<endevent>><</link>>
+	<<else>>
+		<<mason_actions>>
+	<</if>>
+<</if>>
+
+<br>
+
+
+:: Mason Chastity Escape
+<<effects>>
+<<npc Mason>><<person1>>
+메이슨은 자신이 무엇을 하려고 했는지를 깨닫자, 손을 뒤로 물리고 눈을 감은 채 빠르게 돌아선다.
+"감사 인사는 괜찮아. 하지만 조심하렴. 윈터는... 특이한 취미를 가지고 있거든."
+<<npcincr Mason lust 5>><<gglust>><<npcincr Mason love 1>><<glove>>
+<br><br>
+
+<<if $location is "pool">>
+	<<link [[수업에 다시 합류한다|Swimming Lesson]]>><<endevent>><</link>>
+<<else>>
+	<<mason_actions>>
+<</if>>
+
+:: Mason Chastity Grab
+<<effects>>
+
+메이슨이 용기를 잃기 전에, 당신은 그의 손을 잡아 자신의 질 쪽으로 당긴다. <<takeHandholdingVirginity "Mason" "consensual">>
+<br><br>
+
+<<if C.npc.Mason.love gte 20 or C.npc.Mason.lust gte 25>>
+	<<set _part to $player.penisExist and $player.vaginaExist ? ["penis","pussy"].random() : $player.penisExist ? "penis" : "pussy">>
+	그는 당황하며 손을 빼내려 하지만, 당신의 손아귀는 단단하다.
+	손가락이 당신의 질에 닿자 그는 저항을 멈추지만, 손을 떨기 시작한다.
+	당신은 그의 떨리는 손가락을 당신의 질로 부드럽게 안내한다. 메이슨은 눈을 휘둥그레 뜬 채,
+	<<if _part is "pussy">>당신의 질을 더듬는다.
+	<<else>>당신의 페니스를 쥔다.<</if>>
+	그는 소심한 손길로, 천천히 당신의
+	<<if _part is "pussy">>질을 문지른다.
+	<<else>>페니스를 어루만진다.<</if>>
+	<<npcincr Mason lust 5>><<gglust>><<npcincr Mason love -2>><<llove>><<npcincr Mason dom -1>><<arousal 1800 _part>><<ggarousal>>
+	<br><br>
+
+	<<if $arousal gte $arousalmax>>
+		<<orgasm>>
+		쾌락의 파도가 온몸을 휩쓸고, <<if !$femaleclimax and !_deniedOrgasm>>당신은 메이슨의 손에 사정한다<</if>>.
+		하지만 그는 곧장 물러나지 않고, 당신이 몇 분 더 쾌락을 느끼게 한 뒤에 손을 뗀다.
+		<br><br>
+
+		자신의 손을 살펴보던 메이슨의 시선이 당신과 마주친다. 그는 재빨리 돌아선다. "이래서는 안 됐는데."
+	<<else>>
+		메이슨은 계속해서
+		<<if _part is "pussy">>당신의 질을 문지른다.
+		<<else>>페니스를 어루만진다.<</if>>
+		잠시 후, 마침내 그가 손을 뗀다. 그는 당신의 시선을 알아차리자 황급히 돌아선다. "이래서는 안 됐는데."
+	<</if>>
+<<else>>
+	그는 당황하며, 당신의 손에서 자신의 손을 뺀다. 메이슨은 당신을 노려보며 항의하기 위해 입을 벌리지만, 침묵하는 것이 낫다고 판단한 듯 얼굴을 붉히며 돌아선다.<<npcincr Mason lust 1>><<glust>><<npcincr Mason love -1>><<llove>><<gdom>><<npcincr Mason dom 1>>
+<</if>>
+<br><br>
+
+<<if $location is "pool">>
+	<<link [[수업에 다시 합류한다|Swimming Lesson]]>><<endevent>><</link>>
+<<else>>
+	<<mason_actions>>
+<</if>>
+
+:: Mason CPR
+<<effects>>
+<<npc Mason>><<person1>>
+당신은 가슴에 느껴지는 강한 압박감에 잠에서 깨어난다. 당신은 눈을 뜨지만, 당신 옆에 무릎을 꿇고 있는 흐릿한 형체만이 보일 뿐이다.
+<br><br>
+당신은 그게 누군지 알아보려고 애쓴다.<span class="green"> 메이슨이다.</span>
+<br><br>
+
+<<if $location is "pool">>
+	여러 사람의 머리가 당신을 보기 위해 들이밀어지자, 호흡이 더 힘들어진다. <<stress 10>><<ggstress>>
+	<br>
+	메이슨은 그들을 쫓아내며 당신에게 공간을 만들어준다.
+	<br><br>
+<</if>>
+
+그는 입을 벌리고 무언가를 말하려 하지만, 당신은 아무것도 들을 수 없다. 고막을 울리는 시끄럽고 윙윙거리는 소리만 들린다. 물이 귀 안으로 들어간 게 분명하다.<<trauma 18>><<ggtrauma>>
+<br><br>
+당신은 그의 말 중 일부를 추측한다. 그가 당신의 이름을 부른다. 그의 탄력 있는 손이 당신의 가슴팍을 움켜쥐는 느낌이 든다. 그가 몸을 숙인다. 그의 얼굴이 가까워진다.<<if C.npc.Mason.lust gte 40>> 그의 붉어진 뺨과 <</if>> 벌어진 입술이 당신의 입술을 감싸는 것이 보인다.<<npcincr Mason lust 1>><<glust>>
+<br><br>
+
+<<if $player.virginity.kiss is true>>
+	<<takeKissVirginity "Mason">>
+	<br><br>
+<</if>>
+
+공기가 당신의 다친 폐 속으로 밀려드는 것이 느껴진다. 당신은 마침내 숨을 쉴 수 있게 되고, 물을 토해낸다. 메이슨은 당신의 기침 소리와 희미한 숨소리를 듣고 안도한 듯 당신에게서 떨어진다. 그가 다시 당신의 이름을 부르지만, 의식이 흐릿해진다.
+<br><br>
+<<link [[다음|Ambulance Mason]]>><</link>>
+
+:: Ambulance Mason
+<<effects>>
+
+당신은 들것에 실려 올라가는 느낌을 받는다. 실눈을 뜬 채, 당신은 당신을 끌고 가는 메이슨의 모습을 본다. 메이슨의 걱정스러운 표정이 마지막으로 눈에 들어오고, 당신은 정신을 잃는다.
+<br><br>
+<<link [[잔다|Hospital Bed]]>><<endevent>><</link>>

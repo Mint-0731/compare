@@ -1,0 +1,76 @@
+:: Orphanage Loft
+
+<<set $outside to 0>><<set $location to "home">><<effects>>
+당신은 고아원 다락에 있다. 중앙에는 넓은 현관에 위치해 있다. 그 옆으로는 다른 방으로 향하는 복도들이 연결되어 있다. 먼지투성이 상자들이 높게 쌓여있다.
+<br>
+<<if $loft_kylar>>
+	그 중 한 방에서 매캐한 냄새가 퍼져나온다.
+	<br>
+<</if>>
+<<if $loft_river is 1>>
+	그 중 한 방에서 따뜻한 수프와 갓 구운 빵의 냄새가 퍼져나온다.
+	<br>
+<</if>>
+<br>
+<<if $loft_spray isnot 1 and $spray lt $spraymax and $loft_kylar>>
+	<<peppersprayicon>><<link [[후추 스프레이를 재충전한다|Orphanage Loft Spray]]>><<spray 1>><<set $loft_spray to 1>><</link>><<gspray>>
+	<br>
+<</if>>
+<<if $loft_river gte 1>>
+	<<kitchenicon "range">><<link [[비밀 주방|Orphanage Loft Kitchen]]>><</link>>
+	<br>
+<</if>>
+<<main_hall_icon>><<link [[중앙 복도 (0:01)|Orphanage]]>><<pass 1>><</link>>
+<br>
+
+:: Orphanage Loft Spray
+
+<<set $outside to 0>><<set $location to "home">><<effects>><<wearProp "pepper spray">>
+당신은 화학 연구실에 들어간다. 비커 여러 개에서 거품이 끓어오른다. <<generateyv1>><<person1>>한 소년이 부산스럽게 움직인다. 그는 당신에게 방금 막 만든 후추 스프레이 충전제를 건네준다.
+<br><br>
+<<link [[다음|Orphanage Loft]]>><<endevent>><</link>>
+<br>
+
+:: Orphanage Loft Kitchen
+
+<<set $outside to 0>><<set $location to "home">><<set $bus to "loft_kitchen">><<effects>>
+
+당신은 베일리로부터 안전한 고아원 다락방의 부엌에 있다.
+<<if Time.dayState is "night">>
+	고아들이 밤새도록 천천히 끓인 스튜를 남겨 두었다.
+<<elseif Time.dayState is "dawn">>
+	아침 식사를 하러 온 고아들이 도착하고 있다.
+<<elseif Time.dayState is "dusk">>
+	고아들은 부엌을 정리하고, 냄비를 닦고, 쏟아진 밀가루를 닦아내고 있다.
+<<else>>
+	고아 한 명이 좋은 냄새가 풍기는 큰 냄비를 젓고, 다른 아이들은 반죽을 만들고 있다.
+<</if>>
+<br><br>
+
+<<robinorphanagekitchen>>
+
+<<if Object.keys($loftIngredients).length gte 1>>
+	<<for _i range Object.keys($loftIngredients)>>
+		<<if $loftIngredients[_i] lte 0>>
+			<<if $recipeMade and setup.plants[$recipeMade].ingredients.includes(_i)>>
+				<span class="red">당신은 마지막 재료를 사용했다: <<print setup.plants[_i].plural>>.</span>
+				<br>
+			<</if>>
+			<<run delete $loftIngredients[_i]>>
+		<<else>>
+			<span class="green">최근 몇몇 재료들이 새로 배달되었다: <<print setup.plants[_i].plural>>.</span> 다음 요리를 만들기에 충분할 것이다: <span class="gold"><<pluralise $loftIngredients[_i] "meal">> x<<print $loftIngredients[_i]>></span>.
+			<br>
+		<</if>>
+	<</for>>
+	<br>
+	<<ingredientsSupplied `Object.keys($loftIngredients)`>>
+<<else>>
+	당신은 이곳에서 원하는 요리를 자유롭게 만들 수 있지만, 재료는 스스로 조달해야 한다.
+	<br><br>
+<</if>>
+
+<<allowLewdIngredients>>
+<<kitchenDisplay>>
+
+<<getouticon>><<link [[떠난다|Orphanage Loft]]>><<kitchenExit>><</link>>
+<br>

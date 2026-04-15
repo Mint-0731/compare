@@ -1,0 +1,262 @@
+:: Starfish Street
+
+<<set $outside to 1>><<set $location to "town">><<effects>><<set $bus to "starfish">><<getTarget true>>
+당신은 스타피쉬 가에 있다. 바다에서 바람이 불어온다.
+<<if Weather.dayState is "day">>
+	<<if Weather.precipitation is "rain">>
+		몇몇 관광객들이 비를 맞으며, 산책로를 따라 걷는다.
+	<<elseif Weather.precipitation is "snow">>
+		소금이 눈이 쌓이는걸 막아주지만, 소수의 관광객만이 추위를 견딘다.
+	<<else>>
+		관광객들이 산책로를 채우고, 다양한 시설들을 드나드며 시간을 보낸다.
+	<</if>>
+<<elseif Weather.dayState is "dawn">>
+	<<if Weather.precipitation is "rain">>
+		아침 비도 함께 내린다.
+	<<elseif Weather.precipitation is "snow">>
+		산책로가 떨어진 눈으로 젖어있다.
+	<<else>>
+		관광객들이 산책로를 따라 일출을 구경한다.
+	<</if>>
+<<elseif Weather.dayState is "dusk">>
+	<<if Weather.precipitation is "rain">>
+		비 때문에 관광객들이 발을 돌린다.
+	<<elseif Weather.precipitation is "snow">>
+		산책로를 따라 보호 구역에 슬러리같은 것이 생긴다.
+	<<else>>
+		관광객들이 산책로를 따라 일몰을 구경한다.
+	<</if>>
+<<elseif Weather.dayState is "night">>
+	<<if Weather.precipitation is "rain">>
+		비도 함께 내린다.
+	<<elseif Weather.precipitation is "snow">>
+		슬러시같이 땅이 덮여있다.
+	<<else>>
+		수평선에 있는 작은 불빛이 보인다.
+	<</if>>
+<</if>>
+<<streeteffects>>
+<br><br>
+<<if $exposed gte 1>>
+	<<exhibitionism "street">>
+	<<if $exposed is 1>>
+		<span class="lewd">이런 의상은 근처 해변에서는 괜찮을지 모르지만, 여기서는 너무 야하다!</span>
+		<br><br>
+	<</if>>
+<</if>>
+<<if $arousal gte $arousalmax>>
+	<<orgasmstreet>>
+<</if>>
+
+<<if $stress gte $stressmax and !$possessed>>
+	<<passoutstreet>>
+<<elseif $bailey_pound is 2>>
+	<<set $bailey_pound to 3>>
+	구급차 두 대가 동물 보호소 바깥에 주차해 있다. <<generate1>><<person1>>한 남자가 덮개로 가려진 들것을 그 중 하나의 뒤로 밀고 가더니, 구급차들이 출발해 멀어진다.
+	<br><br>
+	<<link [[다음|Starfish Street]]>><<endevent>><</link>>
+	<br>
+<<else>>
+
+	<<if (dangerEvent() or $eventforced) and $eventskip is 0>>
+		<<eventsstreet>>
+	<<else>>
+		<<if $options.mapTop is true>>
+			<<map "starfish">>
+			<br>
+		<</if>>
+		주요 장소
+		<br>
+		<<beachicon>><<link [[해변 (0:05)|Beach]]>><<pass 5>><</link>>
+		<br>
+		<<if Time.dayState is "day" or Time.dayState is "dusk">>
+		<<arcadeicon>><<link [[오락실 (0:01)|Arcade]]>><<pass 1>><</link>>
+		<br>
+		<<else>>
+		<<arcadeicon>><<link [[오락실 (0:01)|Arcade Lock]]>><<pass 1>><</link>>
+		<br>
+		<</if>>
+		<<if $exhibitionismrun is "starfish" and $exposed is 0>>
+			<<skinicon "strip">><<link [[엉덩이를 내보인다 (0:15)|Starfish Challenge]]>><</link>>
+			<br>
+		<</if>>
+		<<if $chaletsintro gte 2 and $exposed lt 2>>
+			<<chaleticon>><<link [[별장 (0:05)|Chalets Work]]>><<chalets_start>><<pass 5>><</link>>
+			<br>
+		<<elseif $exposed lt 2>>
+			<<chaleticon>><<link [[별장 (0:02)|Chalets Intro]]>><<pass 2>><</link>>
+			<br>
+		<</if>>
+		<<if Time.openingHours(1)>>
+			<<poundicon>><<link [[개 보호소 (0:01)|Pound]]>><<pass 1>><</link>>
+			<br>
+		<<elseif Time.hour is $closinghour>>
+			<<poundicon>><span class="blue">사람들이 개 보호소에서 나오고 있다.</span> 아마 닫을 시간인 듯 하다.
+			<br>
+		<<else>>
+			<<poundicon>><<link [[개 보호소 (0:01)|Pound Lock]]>><<pass 1>><</link>>
+			<br>
+		<</if>>
+		<br>
+		<<if $exposed gte 1 and Time.dayState isnot "night">>
+		<<else>>
+			<<add_link "이동<br>">><<hideDisplay>>
+			<<cliff>>
+			<<mer>>
+			<<high>>
+			<<oxford>>
+			<<if $exposed lte 0>>
+				<<buswait>>
+			<</if>>
+			<<loiter>>
+		<</if>>
+		<<add_link "<br>다른 경로<br>">><<hideDisplay>>
+		<<park>>
+		<<stormdrain>>
+		<<displayLinks>>
+		<<if $options.mapTop isnot true>>
+			<br>
+			<<map "starfish">>
+		<</if>>
+	<</if>>
+<</if>>
+<<set $eventskip to 0>>
+
+:: Starfish Challenge
+<<effects>>
+
+당신은 오락실 밖의 길에 서 있다.
+<br><br>
+
+교통이 활발하게 이동하기에, 보행자들 뿐만 아니라 당신 옆을 지나가는 많은 차들에게 엉덩이를 보여주여야 할 것이다. 당신은 주위를 둘러봐, 카메라를 찾으려 한다. 그게 어디에 있던, 당신은 찾을 수 없지만, 당신은 그게 어딘가에 있을 걸 안다.
+<br><br>
+
+<<if hasSexStat("exhibitionism", 3)>>
+	<<link [[벌거벗는다|Starfish Challenge Strip]]>><</link>><<exhibitionist3>>
+	<br>
+<<else>>
+	<span class="blue">당신은 이걸 하기에 충분히 음란하지 않다.</span>
+	<br>
+<</if>>
+<<link [[떠난다|Starfish Street]]>><</link>>
+
+:: Starfish Challenge Strip
+<<effects>><<lowerstrip>><<underlowerstrip>><<fameexhibitionism 5>>
+
+당신은 깊게 심호흡을 하고
+
+<<if setup.clothes.lower[clothesIndex('lower', $worn.lower)].skirt is 1>>
+	몸을 돌린다. 당신은 몸을 굽히고, 당신의 하의<<if !$worn.under_lower.type.includes("naked")>>와 속옷 하의의 뒤<</if>>를 잡아올려, 다가오는 차량에 당신의 맨 엉덩이를 노출한다.
+
+<<else>>
+	몸을 돌린다. 당신은 몸을 굽히고 당신의 하의의 뒤<<if !$worn.under_lower.type.includes("naked")>>쪽과, 속옷<<else>>을<</if>>를 잡아내려 다가오는 차량에 당신의 맨 엉덩이를 노출한다.
+<</if>>
+
+<<if hasSexStat("exhibitionism", 3)>><<garousal>><<arousal 600>><<else>><<gtrauma>><<gstress>><<trauma 1>><<stress 6>><</if>>
+<br><br>
+
+당신은 벌거벗은 엉덩이로 오는 공기를 느낀다. 당신은 도로를 지나가는 차들을 볼 순 없지만, 당신은 당신을 향한 경적을 여러번 듣는다. 오락실은 교차로 근처에 있지 않아, 대부분의 차량이 빠르게 지나가지만, 몇몇 차량이 당신의 엉덩이를 더 오래 보려고 속도를 늦춘다.
+<br><br>
+
+<<link [[다음|Starfish Challenge 2]]>><</link>>
+
+:: Starfish Challenge 2
+<<effects>>
+
+처음 5분은 아무일 없이 지나간다. 그리고 당신은 버스 소리같은 소음을 듣는다. 당신이 오락실 근처에 버스 정류장이 있는걸 떠올리자 몸이 떨린다 당신은 고개를 최대한 돌려서 당신 뒤에서 무슨 일이 일어나는지 확인한다.
+<br><br>
+
+당신은 시내버스가 여러 승객들을 내려주는 걸 발견한다. 당신은 그들이 서로에게 중얼거리는 걸 듣는다. 아무것도 들리지 않지만, 당신은 "완벽한 엉덩이" 와 "사진을 찍었어." 같은 말을 듣는다. 당신은 얼굴을 붉힌다.<<garousal>><<arousal 600>>
+<br><br>
+
+<<link [[다음|Starfish Challenge 3]]>><<pass 5>><</link>>
+
+:: Starfish Challenge 3
+<<effects>><<generatey1>><<generatey2>>
+
+10분이 지나자 땀이 나기 시작한다. 당신은 엉덩이가 사람들의 집중적인 관심을 받는 걸 몸소 느낀다.<<if hasSexStat("exhibitionism", 3)>><<garousal>><<arousal 600>><<else>><<gstress>><<stress 6>><</if>>
+<br><br>
+
+당신은 오락실의 문이 열리고 사람들이 나오는 목소리를 듣는다. 그 목소리는 가까워지고, 커지며 더 충격받는다. 소수의 사람들이 당신이 엉덩이를 비추는 모습을 본다. 당신은 그들이 얘기하는 걸 들을 수 있다.
+<br><br>
+
+당신은 이 사람들이 당신과 같은 나이대의 사람들이라는 걸 알아차린다.
+<br><br>
+
+"그녀는 뭘 하는걸까?" 당신은 당신과 비슷한 나이의 <<person1>>한 소년이 말하는 걸 듣는다.
+<br>
+
+"분명히 그녀는 공공장소에서 그녀의 엉덩이를 보여주는 변태일 거야," 다른 소년이 말한다.
+<br>
+
+"그녀는 나랑 같은 학교에 다니는거 같은데?"
+<br>
+
+"영상 찍어, 우린 모두에게 그녀의 엉덩이를 보여줄거야."
+<br><br>
+
+<<link [[다음|Starfish Challenge 4]]>><<pass 10>><</link>>
+
+:: Starfish Challenge 4
+<<effects>>
+
+거의 15분이 지났지만, 그들은 공개적으로 나와있는 당신의 엉덩이를 찍을 시간이 충분하다.
+<br><br>
+
+그 중 하나가 당신의 시야를 가로질러, 당신의 얼굴 영상을 찍으려 한다.
+
+<<if !$worn.face.type.includes("mask")>>
+	당신은 당신의 얼굴을 돌리려 하지만, 당신은 카메라로부터 당신의 신분을 숨기지 못한다.
+
+<<else>>
+	당신은 당신이 쓰고 있는 마스크에 감사한다.
+
+<</if>>
+
+당신은 떠날 수 있지만, 일찍 떠난다면 당신은 돈을 받지 못할 것이다.<<if hasSexStat("exhibitionism", 3)>><<garousal>><<arousal 600>><<else>><<ggstress>><<stress 12>><</if>>
+<br><br>
+
+<<link [[다음|Starfish Challenge 5]]>><<pass 12>><</link>>
+
+:: Starfish Challenge 5
+<<effects>><<wearProp "cash four">>
+
+몇분 안 남은 시간동안, 사람들은 당신의 엉덩이를 찍으며 조롱하고, 지나가는 차량은 경적을 울린다.
+<br><br>
+
+마침내, 당신은 익숙한 낙하산이 도로에 상자를 떨어뜨리는걸 본다. 당신은 당신의 하의를 <<if setup.clothes.lower[clothesIndex('lower', $worn.lower)].skirt is 1>>손에서 놓고<<else>>잡아올리고<</if>> 상자를 집는다. 당신은 조롱하는 사람들로부터 도망친다.
+<br><br>
+
+당신은 한 블록 떨어진 곳에 오자, 상자를 연다. 안에는 <<moneyGain 500>>와 또다른 쪽지가 있다. 당신은 쪽지를 읽는다.
+<br><br>
+
+<i>너는 널 신뢰할 수 있다는 걸 증명했어. 여기 약속한 돈이야. 곧 다시 연락할게.</i>
+<br><br>
+
+당신은 돈을 주머니에 넣고 떠난다.
+
+<<set $exhibitionismrun to undefined>><<set $exhibitionismrunon to 3>><<set $challengetimer to 10>><<clotheson>>
+<<link [[다음|Starfish Street]]>><<pass 3>><<endevent>><</link>>
+
+:: Starfish Performer
+<<effects>>
+
+<<if $phase is 0>>
+	당신은 남자로부터 돌아서서 여행을 계속한다.
+<<else>>
+	<<if $leftarm is "bound" and $rightarm is "bound">>
+		당신은 몸을 비틀어 속박에 저항하며, 지갑을 꺼내려 애쓴다. 당신은 지갑에 겨우 손을 넣어
+	<<else>>
+		당신은 지갑에 손을 넣어
+	<</if>>
+	<<if $phase is 1>>
+		큰 동전을 꺼내 남자의 모자에 넣는다. 그는 당신에게 미소 짓고, 다시 공연을 시작한다.<<money -100 "tip">><<lstress>><<stress -6>><<famegood 1>>
+	<<elseif $phase is 2>>
+		작은 동전을 꺼내 남자의 모자에 넣는다. 그는 당신에게 미소 지으며 윙크하고, 다시 공연을 시작한다.<<money -500 "tip">><<lstress>><<stress -9>><<famegood 2>>
+	<<elseif $phase is 3>>
+		지페를 꺼내 남자의 모자에 넣는다. 그는 당신에게 활짝 웃으며 감사 인사를 건네고는, 새로운 활력을 얻은 모습으로 공연을 재개한다.<<money -2500 "tip">><<llstress>><<stress -16>><<famegood 3>>
+	<</if>>
+<</if>>
+<br><br>
+
+<<link [[다음|Starfish Street]]>><<endevent>><</link>>

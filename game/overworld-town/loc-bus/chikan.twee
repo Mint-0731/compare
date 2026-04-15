@@ -1,0 +1,650 @@
+:: Bus Chikan Start
+<<effects>>
+<<set $busChikanPhase to 0>>
+<<set $busChikanOrgasm to 0>>
+<<set $passengerAttention to 0>>
+<<set $assaultEnergy to random(25,50)>>
+<<generate2>><<generateyv3>><<generate4>>
+
+낯선 사람의 투박한 손길이 신속하게 당신의 감각을 예민하게 한다.
+<br><br>
+당신이 주변을 훑어보고, 다음을 빠르게 알아차린다:
+<br><br>
+<<person2>>한 남자가 당신 가까이에 서 있다. 그는 자신의 문제에 골몰하느라 정신이 없는 것 같다.
+<br>
+<<person3>>한 남자가 멍한 표정으로 창문 바깥을 바라보고 있다. 무언가에 약간 신경이 쓰인 듯 하다.
+<br>
+그리고 <<person4>>다른 남자가 당신 옆에 앉은 <<person1>>남자와 평범하게 떠들며 의기양양하게 씩 웃고 있다.
+<br><br>
+그들 모두 당신을 둘러싸고 있는 것으로 보인다. <span class="purple">무언가 이상하다...</span>
+<br><br>
+<<link [[다음|Bus Chikan Progress]]>><</link>>
+
+:: Bus Chikan Progress
+<<effects>>
+<<if random(1, 4) lt 4>>
+	<<person1>>남자가 당신에게 더 가까이 다가온다.
+	<br><br>
+	<<if $NPCList[0].skills.security gte 600>>
+		"즐거운 여행이 되겠어." 그가 당신을 욕정어린 눈길로 바라보며 속삭인다.
+	<<elseif $NPCList[0].skills.security lte 300>>
+		그는 실수로 당신과 다리를 부딪힌다. "미-미안합니다." 그가 불안한 목소리로 말한다.
+	<<else>>
+		그는 아무 말도 하지 않지만, 당신은 그가 당신을 수 차례 힐끔거린다는 것을 눈치챘다.
+	<</if>>
+	<br><br>
+	잠시 후, 그가 당신의 치마 아래로 당신의 다리를 만지작거리기 시작하며, <<person1>>그의 손길이 더욱 대담해진다.
+	<<chikanmolestactions>>
+<<elseif $rng gte 56>>
+	상황은 빠르게 흘러가는 것으로 보인다. 그러나 갑자기 <<person4>>한 남자가 고아원 이야기를 하기 시작한다.
+	<br><br>
+	"그래, 거기는 고아들로 가득하다고. 만약 네가 운이 좋으면, 동정이나 처녀를 낚을 수도 있고, 무엇보다도 좋은 점은 누구 하나 사라져도 아무도 신경쓰지 않을 거라는 거지." 그는 그렇게 말하고는 당신을 쳐다본다.
+	<br><br>
+	그가 당신을 직접적으로 지칭하지 않긴 했지만, 당신은 당신이 어디에 사는지 그들이 알고 있다는 생각을 떨칠 수가 없다. 그 사실은 당신을 불안하게 한다. <<gstress>><<stress 2>>
+	<br><br>
+	<<if $NPCList[0].skills.security gte 600>>
+		당신이 명백히 불편한 기색을 보임에도 불구하고, <<person1>>남자는 그저 <<person4>>다른 남자의 어설픈 말에 웃음을 터트린다.  "잘 살펴보기만 하면 너도 하나 건질 수 있으리라 장담하지." <<person1>>그는 당신을 빤히 쳐다보며 그렇게 말한다.
+	<<elseif $NPCList[0].skills.security lte 300>>
+		<<person1>>그는 자리에서 불편한 듯 몸을 움직이다가 당신과 실수로 부딪힌다. "미-미안합니다..." 그가 사과한다. 그는 <<person4>>다른 남자를 돌아보며 말에 끼어든다. "그-그래? 정말로?"
+	<<else>>
+		아무런 대꾸도 없이, <<person1>>그는 그저 <<person4>>다른 남자의 어설픈 말에 다 안다는 듯이 킬킬거린다.
+	<</if>>
+	<br><br>
+	잠시 후, 마치 <<person4>>다른 남자의 말에 자신감이라도 얻은 것처럼, <<person1>>그는 당신의 치마 아래로 당신의 다리를 만지작거리기 시작한다.
+	<<chikanmolestactions>>
+<<elseif $rng gte 41>>
+	<<person4>>그가 <<person3>>다른 여자에게 가까이 다가서더니 <<person4>>그의 손을<<person3>>
+	<<if $pronoun is "f">>
+		여자의 치마 위에 놓는다.
+	<<else>>
+		그녀의 바지 아래에 놓는다.
+	<</if>>
+	<br><br>
+	<<link [[계속 지켜본다|Bus Chikan Passenger Watch]]>><</link>> <<promiscuous1>>
+	<br>
+	<<link [[눈길을 돌린다|Bus Chikan Passenger Look Away]]>><</link>>
+<<elseif $rng gte 26>>
+	버스가 과속방지턱을 밟고 덜컹이고, <<person4>>그는 발뺌하는 듯한 눈빛을 한 채로 앞뒤로 흔들린다. 그의 옆에서, <<person3>>다른 남자가 흥분한 기색을 보이며 그의 손잡이를 단단히 움켜쥔다.
+	<br><br>
+	당신이 앉아 있는 곳에서 보건대, 당신은  <<person4>>그가 그의 여행가방을 <<person3>>한 여자의 다리 사이에 두고 그 모서리를 그녀의 사타구니 안으로 밀어넣고 있다는 것을 알아차리지 않을 수가 없다.
+	<br><br>
+	당신은 자리에서 몸을 바르게 하고 시선을 피한다. 오래지 않아, <<person3>>그녀는 <<if $NPCList[2].gender is "f">>희롱의 결과로 숨을 거칠게 쉬면서<<else>>양손으로 그의 사타구니를 가리면서<</if>>, 서둘러 자리를 뜬다.
+	<br><br>
+	<<link [[다음|Bus Chikan End]]>><</link>>
+<<else>>
+	다행히도, 오늘은 차가 그리 밀리는 것 같지 않다. <<person1>>그는 뭔가 시도할 기회를 놓쳤다.
+	<br><br>
+	<<link [[다음|Bus Chikan End]]>><</link>>
+<</if>>
+
+
+:: Bus Chikan Passenger Watch
+<<effects>>
+당신은 그가 그녀를 성추행하는 것을 계속 지켜본다.
+<br>
+버스 안의 다른 누구도 그가 그의 손을 그녀의 치마 안으로 더 깊숙이 미끄러뜨려 넣으면서 그를 쓰다듬는 것을 알아차리지 못한 것 같다.
+<br>
+그가 당신이 쳐다보고 있다는 것을 알아차리고, 손을 치우며 동시에 그의 시계를 쳐다본다. 그러더니, 그는 당신에게 윙크를 한 후 시선을 돌린다. 여자는 눈에서 눈물을 흘리며, 이 기회를 잡아 슬그머니 도망쳐 버스에서 황급히 내린다.
+<br><br>
+<<promiscuity1>>
+
+<<link [[다음|Bus Chikan End]]>><</link>>
+
+:: Bus Chikan Passenger Look Away
+<<effects>>
+당신은 그러한 행위를 지켜볼 수 없어, 다시 시선을 원래대로 돌린다. 당신의 근처에서 남자가 조용히 신음하는 소리가 들린다.
+<br><br>
+<<link [[다음|Bus Chikan End]]>><</link>>
+
+:: Bus Chikan Molest Resist
+<<effects>>
+<<set $busChikanPhase++>>
+<<set $passengerAttention++>>
+<<if $passengerAttention gte 10>>
+	<<person1>>그를 쫓아내려는 시도는 다른 승객들을 불편하게 한다. 사람들이 전부 고개를 돌려 당신이 일으키고 있는 소동을 격분한 채로 쳐다본다.
+	<br><br>
+	<<link [[다음|Bus Chikan Molest Discovered]]>><</link>>
+<<elseif $assaultEnergy gte 1>>
+	<<if $arousal gte $arousalmax>>
+		<<orgasm>>
+		<<set $busChikanOrgasm to 1>>
+		당신은 절정에 다다라 신음하며 자리에 파묻히고, 그는 그의 손을 당신의 치마에서 치우고 손에 묻은 <<if $player.penisExist>>정액을<<else>>애액을<</if>> 당신의 속옷으로 닦는다. 
+		<br><br>
+		<span class="red">모든 이들이 당신의 갑작스런 신음소리를 알아차리고, 버스 전체가 즉시 조용해진다.</span>
+		<br><br>
+		<<link [[다음|Bus Chikan Molest Discovered]]>><</link>>
+	<<elseif $busChikanPhase lte 2>>
+		당신은 허벅지 위에 올라온 손을 붙잡아 떼어내려고 시도하며,
+		<<if $speech_attitude is "bratty">>
+			그를 쏘아본다. "내게서 손 떼, 이 변태 자식아." 당신이 흔들림없이 말한다.
+		<<elseif $speech_attitude is "meek">>
+			조심스레 시선을 피하려 고개를 숙인다. "<<if $pronoun is "m">>선생님<<else>>여사님<</if>>, 제발 그만해주세요. 저를 곤란하게 만들고 계시답니다." 당신이 얌전하게 말한다.
+		<<else>>
+			그를 빤히 쳐다본다. "이건 적절하지 못해요. 제발 그만해주세요." 당신이 말한다.
+		<</if>>
+		<br><br>
+		<<if $NPCList[0].skills.security gte 600>>
+			"난 이렇게 맞서려고 드는 게 좋더라." 그가 추행을 계속하면서 속삭인다.
+			<<set $assaultEnergy += 3>>
+		<<elseif $NPCList[0].skills.security lte 300>>
+			"미-미안해." 그가 초조하게 말하며, 당신의 다리를 붙잡은 그의 손에서 힘을 뺀다.
+			<<set $assaultEnergy -= 5>>
+		<<else>>
+			그는 아무런 말도 하지 않고 계속 문지른다.
+		<</if>>
+	<<elseif $busChikanPhase is 3>>
+		그는 더욱 대담해져서
+		<<if setup.clothes.lower[clothesIndex('lower', $worn.lower)].skirt is 1>>
+			그의 손을 당신의 치마 위에 두고 당신의 속옷을 문지르기 시작한다.
+		<<else>>
+			그의 손을 당신의 치마 아래에 두고 당신의 속옷을 문지르기 시작한다.
+		<</if>>
+		그의 멈추지 않는 손길이 당신을 부르르 떨게 한다.<<garousal>> <<arousal 200 "genitals">>
+		<br><br>
+		<<if $speech_attitude is "bratty">>
+			당신은 그의 손목을 붙잡으며 당신의 손톱을 박아넣는다. "당장 그만둬."
+		<<elseif $speech_attitude is "meek">>
+			"제-제발 그만해주세요... 이러는 걸 좋아하지 않아요." 당신은 그의 손목을 약하게 잡은 채 웅얼거린다.
+		<<else>>
+			당신은 그의 손목을 붙잡는다. "그만하시죠."
+		<</if>>
+		<br><br>
+		<<if $NPCList[0].skills.security gte 600>>
+			<<if $player.penisExist>>
+				"내가 여기서 멈추면 어떻게 너를 단단하게 만들겠어?"
+			<<else>>
+				"내가 여기서 멈추면 어떻게 너를 젖게 만들겠어?"
+			<</if>>
+			그는 그렇게 말하며 계속 문지른다.
+			<<set $assaultEnergy += 3>>
+		<<elseif $NPCList[0].skills.security lte 300>>
+			"이-이러는 게 싫으니?" 그가 기어들어가는 목소리로 말한다.
+			<<set $assaultEnergy -= 5>>
+		<<else>>
+			그는 당신의 요구를 무시하고 계속 문지른다.
+		<</if>>
+	<<elseif $busChikanPhase lte 6>>
+		그의 손은 여전히
+		<<if setup.clothes.lower[clothesIndex('lower', $worn.lower)].skirt is 1>>
+			당신의 치마 안에서 당신의 속옷을 문지르고 있다.
+		<<else>>
+			당신의 치마 아래에서 당신의 속옷을 문지르고 있다.
+		<</if>>
+		그의 리드미컬한 애무가 당신의 몸을 온기로 채운다.<<garousal>> <<arousal 200 "genitals">>
+		<br><br>
+		<<if $speech_attitude is "bratty">>
+			당신은 그의 손 위에 당신의 손을 단단히 올려놓고 움직임을 막으려 애쓴다. "이 손 치워, 변태새끼야."
+		<<elseif $speech_attitude is "meek">>
+			"머-멈추시라니까요." 당신은 마치 그와 싸울 것처럼, 당신의 손으로 그의 손을 잡은 채로 말한다.
+		<<else>>
+			"제발 그만 만져주세요." 당신은 그의 손을 당신의 치마에서 치우려 애쓰며 그에게 말한다.
+		<</if>>
+		<br><br>
+		<<if $NPCList[0].skills.security gte 600>>
+			<<if $player.penisExist>>
+				"너 이미 이렇게나 단단해졌잖아.
+			<<else>>
+				"너 이미 이렇게나 젖었잖아.
+			<</if>>
+			이렇게 흥분했으면서 어떻게 내게 그만둬 달라고 말할 수 있어?" 그가 계속 문지르면서 말한다.
+			<<set $assaultEnergy += 3>>
+		<<elseif $NPCList[0].skills.security lte 300>>
+			"하-하지만," 그가 얌전히 말한다 그는 마치 무언가를 더 말하고 싶은 듯 하지만, 아무 말도 하지 않는다.
+			<<set $assaultEnergy -= 5>>
+		<<else>>
+			그는 당신의 요구를 무시하고 계속 문지른다.
+		<</if>>
+	<<elseif $busChikanPhase is 7>>
+		자신을 주체하지 못하고,
+		<<if $worn.under_lower.name isnot "naked">>
+			그의 손이 당신의 속옷 아래로 파고들어
+		<<else>>
+			그는
+		<</if>>
+		<<if $player.penisExist>>
+			당신의 페니스를 붙잡는다.
+		<<else>>
+			당신의 질 깊숙이 손가락을 밀어넣는다.
+		<</if>>
+		<br><br>
+		당신은 그의 손길이 당신의 몸에 파문을 일으키자 헉 하고 숨을 들이쉰다. <<ggarousal>><<arousal 500 "genitals">>
+		<br><br>
+		<<if $speech_attitude is "bratty">>
+			당신은 그의 손을 꽉 잡고 그를 노려본다.
+			<<if $player.penisExist>>
+				"노-놓지 그래? 그렇지 않으면 맹세코 네 손을 부러뜨릴 거야."
+			<<else>>
+				"네 손-손가락 당장 빼. 그렇지 않으면 맹세코 네 손을 부러뜨릴 거야."
+			<</if>>
+		<<elseif $speech_attitude is "meek">>
+			"아-안 돼요, 제발요." 당신은 그의 손을 당신의 질에서 치우려 미약하게 시도하며 말한다.
+		<<else>>
+			"이-이러지 마세요, 선생님, 제발요." 당신은 그의 손을 붙잡으며 말한다.
+		<</if>>
+		<br><br>
+		<<if $NPCList[0].skills.security gte 600>>
+			"모두의 앞에서 싸게 만들어 줄게." 그가 사악하게 말한다.
+			<<set $assaultEnergy += 3>>
+		<<elseif $NPCList[0].skills.security lte 300>>
+			"하-하지만 우린 너무 가깝잖니." 그가 말한다.
+			<<set $assaultEnergy -= 5>>
+		<<else>>
+			그는 당신의 요구를 무시하고 계속 문지른다.
+		<</if>>
+	<<else>>
+		그는 맹렬히
+		<<if $player.penisExist>>
+			당신의 페니스를 잡고 흔든다.
+		<<else>>
+			당신의 질에 손가락을 쑤신다.
+		<</if>>
+		<br><br>
+		<<set $agrowth to 100 * $busChikanPhase>>
+		끊임없는 희롱이 당신을 한계 끝까지 몰아붙인다. <<ggarousal>><<arousal $agrowth>>
+		<br><br>
+		<<if $speech_attitude is "bratty">>
+			당신은 그를 밀치려 하지만, 그러기에 충분한 힘을 낼 수가 없다.
+		<<elseif $speech_attitude is "meek">>
+			당신은 당신의 사타구니를 희롱하고 있는 팔을 미약하게 잡아당긴다.
+		<<else>>
+			당신은 당신의 다리 사이에서 희롱하고 있는 손을 떼어내려고 애쓰지만, 큰 성공을 거두진 못한다.
+		<</if>>
+		<br><br>
+		<<if $NPCList[0].skills.security gte 600>>
+			"너 정말 이거 싫어하는 거 맞아? 네 질은 가버릴 준비가 된 것 같은데."
+			<<set $assaultEnergy += 3>>
+		<<elseif $NPCList[0].skills.security lte 300>>
+			"이렇게까지 했는데, 아직도 싫어하니?" 그가 부드럽게 묻는다.
+			<<set $assaultEnergy -= 5>>
+		<<else>>
+			그는 당신의 노력에 아랑곳하지 않고 희롱을 이어간다.
+		<</if>>
+	<</if>>
+	<<if $busChikanOrgasm lte 0>>
+		<<chikanattention>>
+		<<chikanmolestactions>>
+	<</if>>
+<<else>>
+	그는 당신을 충분히 희롱한 것으로 보인다.
+	<br>
+	<<if $NPCList[0].skills.security gte 600>>
+		"재미없게." 그가 그의 손을 치우며 말한다.
+	<<elseif $NPCList[0].skills.security lte 300>>
+		"미-미안." 그가 순순히 그의 손을 치우며 초조하게 말한다. "나는 그저... 해보고 싶었어. 한 번이라도 통제권을 가져보고 싶었어." 그는 민망해져서 시선을 돌린다.
+		<<set $assaultEnergy -= 5>>
+	<<else>>
+		그가 그의 손을 조용히 치운다.
+	<</if>>
+	<br><br>
+	당신은 옷매무새를 가다듬고 자리에 다시 똑바로 앉는다.
+	<br><br>
+	<<link [[다음|Bus Chikan End]]>><</link>>
+<</if>>
+
+:: Bus Chikan Molest Ignore
+<<effects>>
+<<set $busChikanPhase++>>
+<<set $passengerAttention -=1>>
+<<if $assaultEnergy gte 1>>
+	<<if $arousal gte $arousalmax>>
+		<<orgasm>>
+		<<set $busChikanOrgasm to 1>>
+		당신은 절정에 다다라 신음하며 자리에 파묻히고, 그는 그의 손을 당신의 속옷에서 치우고 손에 묻은 <<if $player.penisExist>>정액을<<else>>애액을<</if>> 당신의 속옷으로 닦는다. 
+		<br><br>
+		<span class="red">모든 이들이 당신의 갑작스런 신음소리를 알아차리고, 버스 전체가 즉시 조용해진다.</span>
+		<br><br>
+		<<link [[다음|Bus Chikan Molest Discovered]]>><</link>>
+	<<elseif $busChikanPhase lte 2>>
+		당신은 당신의 허벅지 위에 올라온 그의 손을 무시하고 창 밖을 내다본다.
+		<br><br>
+		<<if $NPCList[0].skills.security gte 600>>
+			"기분이 어때?" 그가 당신의 허벅지를 문지르며 속삭인다.
+			<<set $assaultEnergy -= 5>>
+		<<elseif $NPCList[0].skills.security lte 300>>
+			"이-이러면 좋아하니?" 그가 당신의 허벅지를 부드럽게 문지르며 초조하게 묻는다.
+			<<set $assaultEnergy += 3>>
+		<<else>>
+			그는 당신의 허벅지를 조용히 문지른다.
+		<</if>>
+	<<elseif $busChikanPhase is 3>>
+		그는 더욱 대담해져서
+		<<if setup.clothes.lower[clothesIndex('lower', $worn.lower)].skirt is 1>>
+			그의 손을 당신의 치마 위에 두고 당신의 속옷을 문지르기 시작한다.
+		<<else>>
+			그의 손을 당신의 치마 아래에 두고 당신의 속옷을 문지르기 시작한다.
+		<</if>>
+		그의 멈추지 않는 손길이 당신을 부르르 떨게 한다.<<garousal>> <<arousal 200 "genitals">>
+		<br><br>
+		그럼에도 불구하고, 당신은 그의 손길을 무시하고 계속 밖을 바라본다.
+		<br><br>
+		<<if $NPCList[0].skills.security gte 600>>
+			"네 입은 아무 말도 안 하지만, 네 몸이 모든 걸 말하고 있어." 그는 그렇게 말하며 계속 문지른다.
+			<<set $assaultEnergy -= 5>>
+		<<elseif $NPCList[0].skills.security lte 300>>
+			"계-계속하면 될까?" 그가 부드럽게 묻는다.
+			<<set $assaultEnergy += 3>>
+		<<else>>
+			그는 여전히 침묵한다.
+		<</if>>
+	<<elseif $busChikanPhase lte 6>>
+		그의 손은 여전히
+		<<if setup.clothes.lower[clothesIndex('lower', $worn.lower)].skirt is 1>>
+			당신의 치마 안에서 당신의 속옷을 문지르고 있다.
+		<<else>>
+			당신의 치마 아래에서 당신의 속옷을 문지르고 있다.
+		<</if>>
+		그의 리드미컬한 애무가 당신의 몸을 온기로 채운다.<<garousal>> <<arousal 200 "genitals">>
+		<br><br>
+		당신은 그걸 무시하고 다른 데 집중하려 애쓰지만, 무심코 그의 손의 움직임에 맞춰 엉덩이를 흔드는 자신을 발견한다.
+		<br><br>
+		<<if $NPCList[0].skills.security gte 600>>
+			<<if $player.penisExist>>
+				"너 엄청 단단해졌네.
+			<<else>>
+				"너 엄청 젖었네.
+			<</if>>
+			어떻게 무시하고 있을 수 있는 거야?" 그가 계속 문지르면서 말한다.
+			<<set $assaultEnergy -= 5>>
+		<<elseif $NPCList[0].skills.security lte 300>>
+			"네가 좋아한다니 기뻐." 그가 얌전히 말한다.
+			<<set $assaultEnergy += 3>>
+		<<else>>
+			그는 계속해서 당신의 속옷을 조용히 희롱한다.
+		<</if>>
+	<<elseif $busChikanPhase is 7>>
+		자신을 주체하지 못하고, 그의 손이
+		<<if $worn.under_lower.name isnot "naked">>
+			 당신의 속옷 아래로 파고들어
+		<</if>>
+
+		<<if $player.penisExist>>
+			당신의 페니스를 붙잡는다.
+		<<else>>
+			당신의 질 깊숙이 손가락을 밀어넣는다.
+		<</if>>
+		<br><br>
+		당신은 그의 손길이 당신의 몸에 파문을 일으키자 헉 하고 숨을 들이쉰다. <<ggarousal>><<arousal 500 "genitals">>
+		<br><br>
+		당신은 당신의 사타구니에 신경쓰지 않으려 애쓰며 의자의 가장자리를 붙든다.
+		<br><br>
+		<<if $NPCList[0].skills.security gte 600>>
+			"모두의 앞에서 싸게 만들어 줄게. 그래도 너는 나를 봐주지 않겠지?" 그가 짜증난 듯이 말한다.
+			<<set $assaultEnergy -= 5>>
+		<<elseif $NPCList[0].skills.security lte 300>>
+			"상냥하게 해 줄게." 그가 속삭인다.
+			<<set $assaultEnergy += 5>>
+		<<else>>
+			그는 아무 말도 없이 당신의 질을 더욱 열렬히 희롱한다.
+		<</if>>
+	<<else>>
+		그는 맹렬히
+		<<if $player.penisExist>>
+			당신의 페니스를 잡고 흔든다.
+		<<else>>
+			당신의 질에 손가락을 쑤신다.
+		<</if>>
+		<br><br>
+		<<set $agrowth to 100 * $busChikanPhase>>
+		끊임없는 희롱이 당신을 한계 끝까지 몰아붙인다. <<ggarousal>><<arousal $agrowth>>
+		<br><br>
+		여전히 당신은 당신의 몸에 퍼지는 열기를 무시하려 애쓰지만, 매초마다 힘들어지고 있다.
+		<br><br>
+		<<if $NPCList[0].skills.security gte 600>>
+			"네가 곧 싸버릴 준비가 되었다는 게 느껴져. 아 좀, 뭐라도 말해봐!"
+			<<set $assaultEnergy -= 5>>
+		<<elseif $NPCList[0].skills.security lte 300>>
+			"나도 거의 다 왔어." 그가 부드럽게 말한다.
+			<<set $assaultEnergy += 3>>
+		<<else>>
+			그는 다른 어딘가를 보고 있다. 마치 당신을 대놓고 희롱하고 있지 않은 것마냥.
+		<</if>>
+	<</if>>
+	<<if $busChikanOrgasm lte 0>>
+		<<chikanattention>>
+		<<chikanmolestactions>>
+	<</if>>
+<<else>>
+	그는 당신을 충분히 희롱한 것으로 보인다.
+	<br>
+	<<if $NPCList[0].skills.security gte 600>>
+		"재미없게." 그가 그의 손을 치우며 말한다.
+	<<elseif $NPCList[0].skills.security lte 300>>
+		"미-미안." 그가 순순히 그의 손을 치우며 초조하게 말한다. "나는 그저... 해보고 싶었어. 한 번이라도 통제권을 가져보고 싶었어." 그는 민망해져서 시선을 돌린다.
+	<<else>>
+		그가 그의 손을 조용히 치운다.
+	<</if>>
+	<br><br>
+	당신은 옷매무새를 가다듬고 자리에 다시 똑바로 앉는다.
+	<br><br>
+	<<link [[다음|Bus Chikan End]]>><</link>>
+<</if>>
+
+:: Bus Chikan Molest Help
+<<effects>>
+"제발 누군가 도와주세요, 그가 저를 부적절하게 만지고 있어요!" 당신은 크게 소리지른다. <span class="red">버스가 고요해지고, 모든 사람들이 고개를 돌려 당신을 쳐다본다.</span>
+<br><br>
+남자가 손을 거둔다.
+<br><br>
+<<link [[다음|Bus Chikan Molest Discovered]]>><</link>>
+
+:: Bus Chikan Molest Discovered
+<<effects>><<famesex 5>>
+<<person2>>한 남자가 격노에 차 당신을 바라본다. "지금 거기서 뭐 하고 있는 거야?!" 그가 성난 목소리로 따진다.
+<br><br>
+<<if $busChikanOrgasm gte 1>>
+	당신의 오르가즘이 계속해 당신의 몸에 파문을 일으키고 있는 상태에서, 당신은 무엇이 일어났는지 어떻게 설명해야 할 지 모르는 채로 어질어질하여 앉아 있다.
+	<br><br>
+	<<if $NPCList[0].skills.security gte 600>>
+		<<pass $busChikanPhase>>
+		"이 꼬마 변태 녀석이 자신을 만지고 있었어요. 저는 모두를 방해하고 싶지 않아서, 그녀가 그만 멈춰주기를 바라고 있었습니다." <<person1>>남자가 당신에게서 떨어지며 말한다.
+		<br><br>
+		"그래? 그렇담 저기 꼬마 변태 녀석이 있는 모양이군." 다른 남자가 외친다. "우리가 이 이상성욕자에게 가르침을 줘야겠는데."
+		<br><br>
+
+		<<saveNPC 3 "bus_chikan">>
+		<<clearsinglenpc 2>>
+		<<clearsinglenpc 3>>
+		<<loadNPC 2 "bus_chikan">>
+		<<clearNPC "bus_chikan">>
+
+		<<link [[다음|Bus orgasm]]>><<set $molestationstart to 1>><</link>>
+	<<elseif $NPCList[0].skills.security lte 300>>
+		"이 소녀에게 발작 증세가 있는 것 같아요." 남자가 얌전히 말한다.
+		<br><br>
+		"안색이 정말 안 좋구나." 다른 남자가 미안해하며 말한다. "네가 가야 할 곳에 도착하면 부축해 줄 수 있도록 거기에 있으렴."
+		<br><br>
+		<<link [[다음|Bus Chikan End]]>><</link>>
+	<<else>>
+		"이 소녀에게 발작 증세가 있는 것 같군요." 남자가 말한다. "그녀는 제게 맡기시죠. 저는 나중에 택시라도 부르면 되니까."
+		<br><br>
+		다른 남자가 끄덕이고, <<person1>>그가 당신을 일으켜 세워 버스가 다음 정류장에 도착하자 당신과 함께 내린다. 당신의 현재 상황을 고려하면, 당신은 이를 거부할 만한 상태가 아니다.
+		<br><br>
+		"우린 아직 끝난 게 아니야." <<person1>>그는 당신의 귀에 그렇게 속삭이고, 당신을 근처의 골목으로 데려가 당신의 몸을 더듬기 시작한다.
+		<br><br>
+
+		<<saveNPC 0 "bus_chikan">>
+		<<endevent>>
+		<<loadNPC 0 "bus_chikan">>
+		<<clearNPC "bus_chikan">>
+
+		<<link [[다음|Bus Stop Alley Molest]]>><<set $molestationstart to 1>><</link>>
+	<</if>>
+<<else>>
+	<<tearful>> 당신은 남자를 가리킨다. "저 사람이, 그가 저를 부적절하게 만지고 있었어요!"
+	<br><br>
+	<<if $NPCList[0].skills.security gte 600>>
+		"이 거짓말쟁이 썅년아. 내가 널 만지고 있었다면, 네 녀석을 내게 떨어트려 놓으려고 그랬던 거겠지. 그녀가 저를 이상한 시선으로 계속 쳐다보고 있었습니다. 제 생각에는 아마 그녀는 변태거나 뭐 그런 것 같네요." 그가 말한다.
+		<br><br>
+		"그래요?" 다른 남자가 한숨 쉰다. "그러면 이 거짓말쟁이 썅년에게 진정으로 가르침을 줄 방법은 하나뿐이겠군요."
+		<br><br>
+		당신은 그의 말에 자리에서 불편하게 몸을 비튼다. 남자가 뻔뻔스럽게도 당신의 엉덩이를 꼬집는다. <<embarrassment>>
+		<br><br>
+
+		<<saveNPC 3 "bus_chikan">>
+		<<clearsinglenpc 2>>
+		<<clearsinglenpc 3>>
+		<<loadNPC 2 "bus_chikan">>
+		<<clearNPC "bus_chikan">>
+
+		<<link [[다음|Bus orgasm]]>><<set $molestationstart to 1>><</link>>
+	<<elseif $NPCList[0].skills.security lte 300 and !($worn.lower.type.includes("naked") and $worn.under_lower.type.includes("naked"))>>
+		"그녀의 치마 위에 뭐가 붙어 있었어요. 오해일 거예요, 저는 그저 돕고 싶었을 뿐입니다." 남자가 얌전하게 말한다.
+		<br><br>
+		다른 남자가 힘없이 한숨 쉰다. "부탁이니, 우리의 하루를 더 힘들게 만들지 말아라. 우리는 그저 평화롭게 목적지에 도착하기만을 바랄 뿐이야. 그냥... 네가 내리는 데에 도착하기까지 조용히 앉아만 있어. 알겠니?"
+		<br><br>
+		당신은 현 상황을 받아들일 수밖에 없는 채로, 자리에서 불편하게 몸을 비튼다. <<embarrassment>>
+		<br><br>
+		<<link [[다음|Bus Chikan End]]>><</link>>
+	<<else>>
+		"더는 못 참아. 그런 식으로 누군가를 추행하고 들키는 일 없이 빠져나갈 수는 없는 겁니다. 당신은 저랑 같이 내려요! 같이 경찰서에 가자고요." 다른 남자가 소리친다.
+		<br><br>
+		"자-잠깐만, 제가 설명할게요!" 그가 초조하게 말한다. 당신은 그에게서 멀어져 옷매무새를 가다듬는다. 남자가 그를 꽉 붙들고, 몇 분 후 버스가 다음 정류장에 도착하자 남자는 그를 버스 밖으로 데려간다.
+		<br><br>
+		"이렇게 되어 정말, 정말로 미안하구나." 남자가 말한다. "<<person1>>그가 그의 죗값을 확실히 치르게 할게."
+		<br><br>
+		마침내 소동이 해결되자, 버스가 출발한다.
+		<br><br>
+		<<link [[다음|Bus Chikan End]]>><</link>>
+	<</if>>
+<</if>>
+
+:: Bus Stop Alley Molest
+<<effects>>
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+	<<set $enemyanger to 0>>
+<</if>>
+
+<<effects>>
+
+<<effectsman>><<man>>
+
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if $enemyhealth lte 0>>
+	<span id="next"><<link [[다음|Bus Stop Alley Molest Escape]]>><</link>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<span id="next"><<link [[다음|Bus Stop Alley Molest Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Bus Stop Alley Molest]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Bus Stop Alley Molest Finish
+<<effects>>
+<<ejaculation>>
+남자는 일어서서, 옷을 입고 당신을 거리에 남겨둔 채로 아무런 말 없이 떠난다.
+<br>
+<<underuppersteal>>
+<<underlowersteal>>
+<br><br>
+<<tearful>> 당신은 바닥에서 일어나 아직 당신에게 남아있는 것들을 천천히 줍는다.
+<br><br>
+<<clotheson>>
+<<endcombat>>
+
+<<rng 13>>
+<<switch $rng>>
+<<case 1>>
+	<<set $bus to "nightingale">>
+<<case 2>>
+	<<set $bus to "domus">>
+<<case 3>>
+	<<set $bus to "elk">>
+<<case 4>>
+	<<set $bus to "high">>
+<<case 5>>
+	<<set $bus to "starfish">>
+<<case 6>>
+	<<set $bus to "barb">>
+<<case 7>>
+	<<set $bus to "connudatus">>
+<<case 8>>
+	<<set $bus to "wolf">>
+<<case 9>>
+	<<set $bus to "harvest">>
+<<case 10>>
+	<<set $bus to "oxford">>
+<<case 11>>
+	<<set $bus to "danube">>
+<<case 12>>
+	<<set $bus to "mer">>
+<<case 13>>
+	<<set $bus to "cliff">>
+<</switch>>
+<<destination>>
+
+:: Bus Stop Alley Molest Escape
+<<effects>>
+당신은 근처에서 녹슨 파이프를 잡고 <<person1>>그의 머리를 후려갈긴다. 그는 뒤로 나자빠져 쓰레기통과 부딪히며, 쓰레기 더미에 파묻히고 만다.
+<br><br>
+<<tearful>> 당신은 거리로 도망쳐 위험에서 벗어난다.
+<br><br>
+<<clotheson>>
+<<endcombat>>
+
+<<rng 13>>
+<<switch $rng>>
+<<case 1>>
+	<<set $bus to "nightingale">>
+<<case 2>>
+	<<set $bus to "domus">>
+<<case 3>>
+	<<set $bus to "elk">>
+<<case 4>>
+	<<set $bus to "high">>
+<<case 5>>
+	<<set $bus to "starfish">>
+<<case 6>>
+	<<set $bus to "barb">>
+<<case 7>>
+	<<set $bus to "connudatus">>
+<<case 8>>
+	<<set $bus to "wolf">>
+<<case 9>>
+	<<set $bus to "harvest">>
+<<case 10>>
+	<<set $bus to "oxford">>
+<<case 11>>
+	<<set $bus to "danube">>
+<<case 12>>
+	<<set $bus to "mer">>
+<<case 13>>
+	<<set $bus to "cliff">>
+<</switch>>
+<<destination>>
+
+:: Bus Chikan End
+<<effects>>
+<<tiredness 3>>
+영원과도 같은 시간이 흐르고, 마침내 당신의 목적지가 눈에 들어온다.
+<br><br>
+<<link [[다음|Bus chikan safe]]>><</link>>
+
+:: Widgets Bus Chikan [widget]
+<<widget "chikanmolestactions">>
+	<br><br>
+	<<link [[반항한다|Bus Chikan Molest Resist]]>><<def 1>><</link>><<defianttext>><<gsuspicion>>
+	<br>
+	<<link [[무시한다|Bus Chikan Molest Ignore]]>><<stress 1>><<sub 1>><</link>><<submissivetext>><<gstress>><<lsuspicion>>
+	<br>
+	<<link [[도와달라 외친다|Bus Chikan Molest Help]]>><</link>><<gggsuspicion>>
+<</widget>>
+
+<<widget "chikanattention">>
+	<br><br>
+	<<if $passengerAttention lte 1>>
+		<span class="teal">아무도 지금 어떤 일이 벌어지는지 눈치채지 못한 것 같다.</span>
+	<<elseif $passengerAttention lte 5>>
+		<span class="purple">한 남자가 호기심 어린 눈으로 당신을 쳐다보고 있다.</span>
+		/* switch back to molester */<<person1>>
+	<<elseif $passengerAttention lte 9>>
+		<span class="red">버스에 있는 사람들이 서로에게 귓속말하기 시작했다.</span>
+	<</if>>
+<</widget>>

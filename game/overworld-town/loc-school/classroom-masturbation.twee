@@ -1,0 +1,637 @@
+:: Empty Classroom Masturbation Widgets [widget]
+<<widget "emptyClassroomMasturbationIntro">>
+	<<if $schoolstate.includes("noschool") or $schoolstate is "early" or $schoolstate is "late">>
+		주로 사람들이 걷고 떠드는 소리가 나는 복도는 이제 완전히 조용하다.
+		<<set _exhibLevel to 2>><<set _exhibNeeded to 15>>
+		<<if $exhibitionism gte _exhibNeeded>>
+			<br><br>
+
+			<span class="lewd">음란한 생각이 당신을 덮친다.</span>
+			<<if $exposed gte 2>>
+				당신은 이미 나체이기에, 더 나아가도 될지도 모른다.
+			<<else>>
+				이 빈 교실에서 재미를 봐도 아무도 모를 것이다, 그렇겠지?
+			<</if>>
+		<</if>>
+	<<elseif ["morning", "lunch", "afternoon"].includes($schoolstate)>>
+		복도에선 여전히 소음이 들려온다.
+		<<if $schoolstate is "morning">>
+			사람들은 드나들고, 학생들은 서로 인사한다. 그래도, 누군가가 들어오기까진 시간이 걸릴 것이다.
+		<<elseif $schoolstate is "lunch">>
+			사람들은 드나들고, 학생들은 서로 얘기한다. 그래도, 누군가가 들어오기까진 시간이 걸릴 것이다.
+		<<else>> <!-- afternoon -->
+			사람들은 집에 가고, 학생들은 서로 작별인사를 한다. 그래도, 더이상 아무도 들어오지 않을 것이다.
+		<</if>>
+		<<set _exhibLevel to 3>><<set _exhibNeeded to 35>>
+		<<if $exhibitionism gte _exhibNeeded>>
+			<br><br>
+
+			<span class="lewd">음란한 생각이 당신을 덮친다.</span>
+			위험하지만, 당신은
+			<<if $schoolstate is "morning">>수업이 시작되기<<elseif $schoolstate is "lunch">>점심시간이 끝나기<<else>>학교가 닫기<</if>> 전에 재미를 볼 수 있을 것이다.
+		<</if>>
+	<</if>>
+
+	<br><br>
+	<<if $exhibitionism gte _exhibNeeded>>
+		<<if $exposed gte 2>>
+			<<skinicon "masturbate">><<link [[자위한다|Empty Classroom Masturbation]]>><<set $masturbationstart to 1>><<exhibitionismN _exhibLevel>><</link>><<exhibitionist _exhibLevel>>
+		<<else>>
+			<<skinicon "strip">><<link [[벌거벗는다|Empty Classroom Strip]]>><<exhibitionismN _exhibLevel>><</link>><<exhibitionist _exhibLevel>>
+		<</if>>
+		<br>
+	<</if>>
+<</widget>>
+
+<<widget "emptyClassroomCaughtOrgasm">>
+	<<if $arousal gte 9000>>
+		그 충격으로 당신의 심장은 빠르게 뛰기 시작하고, 그것이 당신을 <<if $masturbationorgasm gte 1>>마지막으로 <</if>>끝으로 밀어붙인다.
+		<<orgasm>><<set $masturbationorgasm += 1>>
+	<</if>>
+<</widget>>
+
+<<widget "emptyClassroomMasturbationDescription">>
+	<<set $_caught to _args[0]>> /* true or false */
+	<<set $_stood to ($_caught ? "서 있는" : "서 있던")>>
+	<<if _masturbation_semen gt 0>>
+		<<if _masturbation_semen gte 1000>>
+			당신의 정액이 책상을 덮고, 큰 웅덩이와 당신이 $_stood 곳을 가리키는 수많은 자국을 형성하고 있다. <<if !$_caught>>사람들은 이 모든 것이 한 사람으로부터 나왔다는 것을 믿기 힘들 것이다.<</if>>
+		<<elseif _masturbation_semen gte 500>>
+			당신의 정액이 많은 책상들 위에 자리잡고, 당신이 $_stood 곳을 가리키는 수많은 자국을 형성하고 있다. <<if !$_caught>>사람들은 이 모든 것이 한 사람으로부터 나왔다는 것을 믿기 어려울 것이다.<</if>>
+		<<elseif _masturbation_semen gte 250>>
+			당신의 정액이 당신이 $_stood 곳으로부터 꽤 먼 곳에 떨어지며, 그 길에 있는 여러 책상을 덮여 있다.
+		<<elseif _masturbation_semen gte 100>>
+			앞쪽의 책상이 당신의 정액으로 덮여 있다.
+		<<else>>
+			앞쪽의 책상이 당신의 많지 않은 정액으로 덮여 있다.
+		<</if>>
+	<</if>>
+
+	<<if _masturbation_milk gt 0>>
+		<<if _masturbation_milk gte 1000>>
+			당신의 모유가 앞쪽의 책상을 덮고, 더 멀리까지도 갔다는 것에 놀라지 않을 수 없다.
+		<<elseif _masturbation_milk gte 500>>
+			당신의 모유가 앞쪽의 책상 모든 곳에 뒤덮여 있다.
+		<<elseif _masturbation_milk gte 250>>
+			당신의 모유가 많은 책상들에 뿌려져 있다.
+		<<elseif _masturbation_milk gte 100>>
+			당신이 $_stood 가장 가까운 책상에 당신의 모유가 뿌려져 있다.
+		<<else>>
+			당신이 $_stood 가장 가까운 책상에 당신의 많지 않은 모유가 뿌려져 있다.
+		<</if>>
+	<</if>>
+<</widget>>
+
+:: Empty Classroom Strip
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+당신은 교실 중앙으로 간다. 당신은 이미 당신이 하려는 것에 대한 기대로
+<<if $player.penisExist and $player.vaginaExist>>
+	당신의 페니스가 단단해지고 당신의 질이 젖는
+<<elseif $player.penisExist>>
+	당신의 페니스가 단단해지는
+<<elseif $player.vaginaExist>>
+	당신의 질이 젖는
+<</if>>
+것을 느낄 수 있다.
+<br><br>
+
+당신은 한 벌 한 벌씩 벗는다. 곧, 당신은 나체로 서게 된다. <<clothesstrip>>
+<br><br>
+
+<<if $schoolstate.includes("noschool") or $schoolstate is "early" or $schoolstate is "late">>
+	만연한 침묵이 당신에게 용기를 준다. 그러나, 학교가 빈 것 처럼 보이지만, 건물을 순찰하는 관리인들이 있을 것이다.
+	잠시동안, 당신은 관리인이 당신을 잡으면 어떤 짓을 할지 생각해보지만, 그 상상은 당신의 흥분만 높일 뿐이다.
+	<br><br>
+<<else>>
+	복도의 소음이 이 일이 얼마나 위험한지 상기시켜 주지만, 그건 당신의 흥분만 높일 뿐이다.
+	<<if $arousal gte 10000>>
+		당신은 누군가가 당신을 발견하면 어떤 짓을 당할지 생각하고, 그 상상이 당신을 끝으로 몰아붙인다.
+		<<orgasm>>
+	<<elseif $arousal gte 9000>>
+		당신은 누군가가 당신을 발견하면 어떤 짓을 당할지 생각하고, 그 상상이 당신을 거의 끝으로 몰아붙인다.
+		<br><br>
+	<<else>>
+		누군가가 당신을 발견하면 어떤 짓을 당할지 생각하자 등골이 오싹해진다.
+		<br><br>
+	<</if>>
+<</if>>
+
+당신은 더 나아가도 될지 고민한다.
+<<set _exhibLevel to (Time.dayState is "night" ? 3 : 4)>>
+<<if $exhibitionism gte (Time.dayState is "night" ? 35 : 55)>>
+	<<if !hasSexStat("exhibitionism", 4)>> <!-- if exhibitionism gte 35 and lt 55 and it's not night -->
+		<span class="blue">당신은 밤에 이 짓을 하니 더 대담해진다.</span>
+	<</if>>
+	<br><br>
+
+	<<skinicon "masturbate">><<link [[자위한다|Empty Classroom Masturbation]]>><<set $masturbationstart to 1>><<exhibitionismN _exhibLevel>><</link>><<exhibitionist _exhibLevel>>
+	<br>
+<<else>>
+	<span class="blue">그러나, 당신은 이를 할 수 있을만큼 충분히 음란하지 않다.</span> <<if hasSexStat("exhibitionism", 3)>>밤에 오면 할 수 있을지도 모른다.<</if>>
+	<br><br>
+
+<</if>>
+<<dressasyouwereicon>><<link [[옷을 입고 나간다 (0:01)|Hallways]]>><<pass 1>><<clotheson>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Empty Classroom Masturbation
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+<<if $masturbationstart is 1>>
+	<<set $masturbationstart to 0>>
+	<<set $masturbationstat += 1>>
+	<<set $timer to 50>><<set _justStarted to true>>
+	당신은 교실 앞으로 가서, 당신의 옷을 벗는다. 빈 책상들을 바라보며, 당신은 당신이 지금 하려는 것과 다른 이들이 이것을 안다면 어떤 생각을 할지 고민한다.
+	당신은 더 참기 싫고 참을 수도 없어서, 몸을 떤다.
+	<br><br>
+	<<masturbationstart>>
+	<<set $phase to 1>>
+<<else>>
+	<<set $phase to 0>>
+<</if>>
+<<masturbationeffects>>
+<<masturbationactions>>
+
+<<if ["first","second","third","fourth","fifth"].includes($schoolstate)>>
+	<<set _interruption to "Empty Classroom Masturbation Finish">>
+<<elseif $timer lte 0>>
+	<<if $schoolstate.includes("noschool") or $schoolstate is "early" or $schoolstate is "late">>
+		<<set _interruption to "Empty Classroom Masturbation Guard">>
+	<<elseif Time.hour lte 14>>
+		<<set _interruption to "Empty Classroom Masturbation Student">>
+	<<else>> <!-- lunch -->
+		<<set _interruption to "Empty Classroom Masturbation Janitor">>
+	<</if>>
+<</if>>
+
+<<if $corruptionMasturbation>>
+	<span class="red">귓속의 슬라임이 당신이 멈추는 것을 허락하지 않을 것이다.</span>
+<</if>>
+<div id="masturbationButtons">
+	<<if _interruption>>
+		<div id="next"><<link [[계속한다|_interruption]]>><<set $finish to 0>><</link>><<nexttext>></div>
+	<<else>>
+		<div id="next"><<link [[계속한다|Empty Classroom Masturbation]]>><</link>><<nexttext>></div>
+	<</if>>
+	<<masturbationStopControls>>
+</div>
+<br><br><br><br><br>
+
+:: Empty Classroom Masturbation Finish
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+<<if $finish is 0>>
+	당신은 학교 종소리에 방해받는다. 곧 수업이 시작될 것이다.
+	당신은 당신의 옷을 모아 서둘러 입는다. 아무에게도 들키지 않은 건 행운이다. 그래도, 그 흥분은 위험을 감수할 만한 가치가 있었다.
+<<elseif $phase is 1>>
+	<!-- Silly bullshit if players decide to stop masturbating immediately after they just started. -->
+	사실, 당신은 참을 수 있다. 당신은 당신의 옷을 모아 서둘러 입는다. 당신은 많은 위험을 감수하진 않았지만, 아무에게도 들키지 않은 건 행운이다. 그래도, 그 흥분은 위험을 감수할 만한 가치가 있었을지도 모른다. 다음에는 더 나아갈 수도 있을 것이다.
+<<else>>
+	충분히 했다 생각하고, 당신은 당신의 옷을 모아 서둘러 입는다. 아무에게도 들키지 않은 건 행운이다. 그래도, 그 흥분은 위험을 감수할 만한 가치가 있었다.
+<</if>>
+<br><br>
+
+<<endmasturbation>>
+<<endcombat>>
+<<silently>><<clotheson>><</silently>>
+<br><br>
+
+<<if _masturbation_semen gt 0 or _masturbation_milk gt 0>>
+	당신은 교실을 돌아보고 당신이 한 것을 바라본다.
+	<<emptyClassroomMasturbationDescription>>
+	<br><br>
+
+<</if>>
+
+<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Empty Classroom Masturbation Student
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+<<generates1>><<person1>><<saveNPC 0 "masturbation_classroom_NPC">>
+
+<<set _rng to random(1,3)>>
+<<switch _rng>>
+	<<case 1>>
+		당신은 문이 열리는 소리를 듣는다. 놀란 채로, 당신은 똑같이 놀란 학생이 당신을 돌아보는 것을 발견한다.
+		당신과 그 학생 둘다 자리에서 멈춘다.
+		<br><br>
+
+		<<emptyClassroomCaughtOrgasm>>
+		<<set _masturbation_semen to $masturbation_semen>><<set _masturbation_milk to $masturbation_milk>>
+
+		<<if _masturbation_semen gt 0 or _masturbation_milk gt 0>>
+			당신은 교실을 돌아보고 당신이 한 일을 알아차린다.
+			<<emptyClassroomMasturbationDescription true>>
+			<br><br>
+		<</if>>
+
+		변명을 할 방법이 없다.
+		<br><br>
+
+		"미-미안!" 그가 마침내 소리치고, 당신이 무언가를 말하기 전 문을 닫는다. 당신은 다른 사람들이 와서 벌어진 일을 보기 전에, 옷을 입고 떠나는 것이 가장 낫겠다고 생각한다.
+		<<silently>><<clothesontowel>><</silently>>
+		<br><br>
+
+		<<endmasturbation>>
+		<<endcombat>>
+		<br>
+
+		<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+		<br>
+	<<case 2>>
+		당신은 문이 열리는 소리를 듣는다. 놀란 채로, 당신은 똑같이 놀란 학생이 당신을 돌아보는 것을 발견한다.
+		당신과 그 학생 둘다 자리에서 멈춘다.
+		<br><br>
+
+		<<emptyClassroomCaughtOrgasm>>
+		<<endmasturbation>>
+		<<endcombat>>
+		<<loadNPC 0 "masturbation_classroom_NPC">><<person1>>
+
+		<<if _masturbation_semen gt 0 or _masturbation_milk gt 0>>
+			당신은 교실을 돌아보고 당신이 한 일을 알아차린다.
+			<<emptyClassroomMasturbationDescription true>>
+			<br><br>
+		<</if>>
+		변명을 할 방법이 없다.
+		<br><br>
+
+		침묵을 깨고, 소년이 뒤에서 문을 닫으며 교실로 들어온다.
+		"뭐, 변태가 재미를 보고싶다면야, 내가 도와줄 수 있지." 당신은 도망칠 곳이 없다.
+		<br><br>
+
+		<<link [[다음|Empty Classroom Student Molestation]]>><<set $molestationstart to 1>><<set $phase to 1>><</link>>
+		<br>
+	<<default>>
+		당신은 카메라 셔터 소리를 듣는다. 놀란 채로, 당신은 문을 돌아보고 한 소년이 그의 손에 휴대폰을 들고 있는 것을 발견한다.
+		당신은 문이 열리는 소리를 듣지 못했다.
+		<br><br>
+
+		<<emptyClassroomCaughtOrgasm>>
+		<<endmasturbation>>
+		<<endcombat>>
+		<<loadNPC 0 "masturbation_classroom_NPC">><<person1>>
+
+		<<if _masturbation_semen gt 0 or _masturbation_milk gt 0>>
+			당신은 교실을 빠르게 훑어보고 당신이 한 일을 알아차린다.
+			<<emptyClassroomMasturbationDescription true>>
+			<br><br>
+		<</if>>
+
+		변명을 할 방법이 없다.
+		<br><br>
+
+		"워워, 당황할 필요 없어," 그 소년이 문을 닫고 교실로 들어오며, 말한다.
+		"만약 내가 재미를 좀 보게 해준다면," 그가 고의적으로 말한다, "사진을 지워줄게. 안해준다면, 그 사진은 내 맘대로 할게. 뭐, 강요하진 않을게. 네가 선택하면 돼."
+		그가 미소를 짓는다. <<if $beauty gte ($beautymax * 3/7)>>"사진도 꽤 예쁘게 찍혔는데."<</if>>
+		<br><br>
+
+		<<if hasSexStat("promiscuity", 3)>>
+			<<link [[굴복한다|Empty Classroom Student Molestation]]>><<set $sexstart to 1>><<set $phase to 2>><</link>><<promiscuous3>>
+			<br>
+		<</if>>
+		<<link [[거절한다|Empty Classroom Masturbation Student 2]]>><</link>><<llcool>>
+		<br>
+<</switch>>
+<!-- Clearing the NPC here is good because this code runs last during page generation, and it'll always be run, so the NPC is cleared after it's been used -->
+<<clearNPC "masturbation_classroom_NPC">>
+
+
+:: Empty Classroom Masturbation Student 2
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+그 <<person1>>소년은 별로 만족하지 못한 것 같지만, 더 다가오지도 않는다.
+"너 좋을대로 해." 그는 교실을 뜨지만, 당신은 그가 누군가와 얘기하는 것을 듣는다. "야, 내가 방금 뭘 봤는지 믿지 못할걸..." <<status -10>><<llcool>>
+<br><br>
+
+당신은 다른 사람이 와서 보기 전에, 옷을 입고 떠나기로 한다.
+<br><br>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+
+:: Empty Classroom Student Molestation
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<controlloss>>
+	<<maninit>>
+<<elseif $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+
+	<<maninit>>
+	그 <<person1>>소년은 입꼬리를 올리고, 가까이 다가온다. "빨리 끝내야겠어, 다른 사람이 오기 전에 말이야," 그가 그의 손을 당신에게 뻗으며, 말한다.
+	<br><br>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Empty Classroom Student Molestation Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Empty Classroom Student Molestation]]>><</link>></span><<nexttext>>
+<</if>>
+
+
+:: Empty Classroom Student Molestation Finish
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+<<if $enemyhealth lte 0>>
+	그는 당신의 공격에 충격받아, 뒤로 물러선다. <<tearful>> 당신은 안전을 향해 도망친다.
+	<br><br>
+
+	<<if $phase is 2>>
+		"나 사진 갖는다, 이 미친 썅년아!" <<status -10>><<llcool>><<fameexhibitionism 5 "pic">>
+		<br><br>
+	<</if>>
+
+	<<clotheson>>
+	<<endcombat>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	<<if $phase is 1>>
+		"다음에는 더 조심해야 할거야," 그 <<person1>>소년이 옷을 입으며, 말한다. "안 그래도 되고. 암튼 재밌었어," 그가 떠나기 전에, 말을 추가한다.
+		<br><br>
+
+		당신은 성폭행을 당한 느낌을 떨쳐내려고 옷을 입고 서둘러 교실을 나선다.
+	<<else>>
+		당신이 옷을 입는 동안, 그 <<person1>>소년은 그가 찍은 사진을 보여준다.
+		그는 여러 번 버튼을 누르고, 곧 사진이 사라진다.
+		<br><br>
+
+		"됐어," 그가 말한다. "다 지웠어. 너랑 해서 즐거웠어." 그는 미소를 짓고, 자리를 뜬다. 당신도 곧 따라서 교실에서 나온다.
+	<</if>>
+	<br><br>
+
+	<<silently>><<clothesontowel>><</silently>>
+	<<endcombat>>
+<</if>>
+
+<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<br>
+
+
+:: Empty Classroom Masturbation Janitor
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+"<<print either("지금 뭐하는 거야!", "너 제정신이냐?", "여기서 무슨 개짓거리를 하는거야?")>>"
+<br><br>
+
+목소리에 놀란 채로, 당신은 당신을 바라보는 관리인을 발견한다.
+<<emptyClassroomCaughtOrgasm>>
+
+<<endmasturbation>>
+<<endcombat>>
+<<generate1>><<person1>>
+<<if _masturbation_semen gt 0 or _masturbation_milk gt 0>>
+	당신은 교실을 빠르게 훑어보고 당신이 한 일을 알아차린다.
+	<<emptyClassroomMasturbationDescription true>>
+	<br><br>
+<</if>>
+
+"네가 재미를 보고 나서 이 난리를 누가 치워야 될 거 같아, 이 변태야?"
+그는 당신에게 다가와서, 당신이 도망치기 전에 당신의 팔을 잡는다. "네 <<if $player.penisExist>><<if $player.penissize lte 1>>한심한 <</if>>자지는<<else>>보지는<</if>> 다른 곳에서 만지란 말이야!"
+그는 당신을 문쪽으로 당기고, 학생들이 무슨 소동인지 보러 모인 교실 밖으로 당신을 밀친다.
+<br><br>
+
+그 관리인은 당신에게 옷을 던지고 문을 닫는다. 몇몇 학생들이 당신을 바라보며, 당신이 어떤 짓을 할지 기다린다.
+<<schoolrep_naked>> <!-- Note for future development: Find a way to detect whether or not the player's schoolrep has changed, and then write a line for the students reacting to it -->
+<<endevent>>
+<br><br>
+
+<<if hasSexStat("exhibitionism", 5)>>
+	<<link [[과시한다|Empty Classroom Students Flaunt]]>><<exhibitionism5>><</link>><<exhibitionist5>>
+	<br>
+<</if>>
+<<if hasSexStat("promiscuity", 5)>>
+	<<link [[자극한다|Empty Classroom Students Goad]]>><<promiscuity5>><</link>><<promiscuous5>>
+	<br>
+<</if>>
+<<link [[도망친다|Empty Classroom Students Run]]>><</link>>
+<br>
+
+:: Empty Classroom Students Run
+
+당신은 가는 길에 있는 몇몇의 학생들에게 부딪히며, 복도를 가로지른다. 이것은 사람들의 침묵을 깨고, 뒤에서 환호성과 고함이 들려온다.
+<br><br>
+
+당신은 그들을 최대한 무시하려 하고, 곧 숨을 곳을 찾는다.
+<br><br>
+
+<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<br>
+
+
+:: Empty Classroom Students Flaunt
+
+<<generates1>><<person1>>
+당신은 머리를 들어올리고 천천히 복도를 걷는다. 당신은 한 걸음 한 걸음 조심히 움직이며, 더 유혹적인 동작을 한다.
+한 소년이 당신을 만지기 위해 손을 뻗지만, 당신은 장난스럽게 그의 손을 쳐낸다.
+<br><br>
+
+여러 학생들이 휴대폰을 꺼내고, 당신은 그들이 사진을 찍을 수 있게 멈춰서 포즈한다.
+<<fameexhibitionism 5 "pic">>
+당신의 <<genitals_>>에 많은 관심이 쏠리자 당신은 더 흥분한다.
+<br><br>
+
+당신의 도박은 성공한다. 군중은 완전히 매료되고, 당신의 마법에 걸려 아무것도 하지 못하고 바라보기만 한다.
+당신이 코너를 돌자, 당신은 당신을 보는 사람이 없을 때 까지 그 학생들로부터 숨는다.
+<br><br>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+
+:: Empty Classroom Students Goad
+
+<<generates1>><<generates2>><<generates3>><<generates4>>
+<<person1>>
+
+<<if $speech_attitude is "meek">>
+	당신은 당신의 손을 등 뒤에 두고 바닥을 내려다본다. "에이... 거의 다 왔었는데..."
+	<<if $player.penisExist>>
+		당신은 당신의 페니스를 만지며, 쿠퍼액을 가지고 논다.
+	<<else>>
+		당신은 당신의 보지를 만지며, 최대한 관심을 끈다.
+	<</if>>
+	당신은 당신의 머리를 들어올리지 않고 위를 올려다보고, 다른 사람들보다 더 호기심에 쌓인 소년과 눈을 마주친다.
+<<elseif $speech_attitude is "bratty">>
+	<<if $player.penisExist>>
+		당신은 한 손을 엉덩이에 올리고 나머지 손을 페니스에 올려 문질러 쿠퍼액이 바닥에 떨어지게 한다.
+	<<else>>
+		당신은 두 손을 엉덩이에 올리고, 당신의 다리를 살짝 벌려, 당신의 젖은 보지를 강조한다.
+	<</if>>
+	"아이씨, 아직 안 끝났는데. 이제 어떡하라고?" 당신은 다른 사람들보다 더 호기심에 쌓인 소년과 눈을 마주친다.
+<<else>>
+	당신은 미소를 짓고, 당신의 손을 등 뒤에 두고, 다리를 살짝 벌린다. "에이, 거의 다 갔었는데."
+	<<if $player.penisExist>>
+		당신은 엉덩이를 앞으로 살짝 밀고, 페니스를 튕긴다.
+	<<else>>
+		당신은 손가락으로 당신의 보지를 만지며, 최대한 관심을 끈다.
+	<</if>>
+	당신은 다른 사람들보다 더 호기심에 쌓인 소년과 눈을 마주친다. "도움을 좀 받을 수 있을 것 같기도?"
+<</if>>
+<br><br>
+
+그 소년은 다가와서 당신의 가슴을 향해 손을 뻗는다. 나머지 학생들은 자신의 차례를 기다리며 당신 주위로 몰려든다.
+<br><br>
+
+그들은 손이 닿을 수 있는 모든 민감한 부분을 바쁘게 문지르고 더듬어 순식간에 당신의 몸을 뒤덮는다. <<person2>>한 소년의 손가락이 당신의 입으로 들어오기도 한다.
+<br><br>
+
+"도움이 필요한 사람을 거절하면 우리가 나쁜 학생이 되지 않겠어?" <<person1>>소년은 벌써 그의 손을 그의 허리끈으로 옮기며 말한다.
+<br><br>
+
+<<link [[다음|Empty Classroom Students Gangbang]]>><<set $sexstart to 1>><</link>>
+<br>
+
+
+:: Empty Classroom Students Gangbang
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+
+	<<maninit>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Empty Classroom Students Gangbang Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Empty Classroom Students Gangbang]]>><</link>></span><<nexttext>>
+<</if>>
+
+
+:: Empty Classroom Students Gangbang Finish
+<<effects>>
+
+<<if $finish is 1>>
+	당신이 일어서자 그 군중들은 흩어진다. 당신은 그들이 서로에게 무슨 짓을 할지 모른다는 생각이 들지만, 그들은 그런 생각에는 익숙치 않은 것 같다.
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	다른 학생들은 만족스러운 표정으로 당신 주위에 누워 있다.
+<<elseif $enemyhealth lte 0>>
+	당신은 학생들을 당신으로부터 떨쳐낸다. 그들은 당신의 말을 알아듣고, 더이상 귀찮게 하지 않는다.
+<</if>>
+<br><br>
+
+<<tearful>> 당신은 정신을 차린다.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Empty Classroom Masturbation Guard
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+"이게 지금 뭘 하는거지?" 놀란 채로, 당신은 학교 경비원 중 한명이 문쪽에 서 있는 것을 발견한다.
+<br><br>
+
+<<emptyClassroomCaughtOrgasm>>
+
+<<endmasturbation>>
+<<endcombat>>
+<<generate1>><<person1>>
+
+<<if _masturbation_semen gt 0 or _masturbation_milk gt 0>>
+	당신은 교실을 돌아보고 당신이 한 일을 알아차린다.
+	<<emptyClassroomMasturbationDescription true>>
+	<br><br>
+<</if>>
+변명을 할 방법이 없다.
+<br><br>
+
+<<if random(1,4) gte 4>>
+	<<if _masturbation_semen + _masturbation_milk gte 1000>>"와, 정말 큰 일을 했네."<<else>>"오늘 내 운이 좋은 것 같네."<</if>> 그는 미소를 짓고, 문을 닫고 교실로 들어온다. "이런 교실을 치울 필요가 없다는게 좋은 것 같아."
+	당신이 도망칠 생각도 하기 전에, 그는 이미 당신의 팔을 잡고, 곁에 서 있다.
+	<br><br>
+	<<link [[다음|Empty Classroom Guard Molestation]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<<else>>
+	<<if _masturbation_semen + _masturbation_milk gte 1000>>"와, 정말 큰 일을 했네,"<<else>>"난 항상 교대 근무가 이 따위더라,"<</if>> 그는 교실로 들어오며, 중얼거린다.
+	당신이 도망칠 생각도 하기 전에, 그는 이미 당신의 팔을 잡고, 곁에 서 있다.
+	"이 변태야, 넌 나와 같이 가야 될 거야."
+	<br><br>
+
+	당신은 당신의 팔을 풀려 하지만, 그는 훨씬 강했고, 당신을 알몸으로 복도를 지나 입구로 끌고간다.
+	그는 빈 손으로 문을 열고, 당신을 문 밖으로 던진 후, 당신 뒤로 옷을 던진다.
+	"내가 경찰을 안 부른 것에 고마워하라고," 그가 문을 한번 더 잠그고 안으로 들어가며, 말한다.
+	<br><br>
+
+	<<link [[다음|Oxford Street]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+
+:: Empty Classroom Guard Molestation
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<controlloss>>
+	<<maninit>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Empty Classroom Guard Molestation Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Empty Classroom Guard Molestation]]>><</link>></span><<nexttext>>
+<</if>>
+
+
+:: Empty Classroom Guard Molestation Finish
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+<<if $enemyhealth lte 0>>
+	그는 당신의 공격에 충격받아, 뒤로 물러선다. <<tearful>> 당신은 안전을 향해 도망친다.
+	<br><br>
+
+	<<set $stealtextskip to 1>>
+	<<stealclothes>>
+	<<endcombat>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	"이제 여기서 빠르게 꺼지는게 좋을거야," 그 경비원이 옷을 입으며 말한다.
+	"그리고 내가 너를 또 보게 된다면, 그렇게 쉽게 나가진 못할거야."
+	<br><br>
+
+	그는 자리를 뜨고, 당신은 똑같이 자리를 뜨기로 한다.
+	<br><br>
+
+	<<clothesontowel>>
+	<<endcombat>>
+<</if>>
+
+<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
+<br>

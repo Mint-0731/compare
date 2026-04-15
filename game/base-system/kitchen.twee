@@ -1,0 +1,786 @@
+:: Widgets Kitchen [widget]
+
+<<widget "kitchenDisplay">>
+	<div id="kitchenDisplay" class="food_ui no-numberify">
+		<div id="body">
+			<div id="mainSection">
+				<div id="search">
+					검색:
+					<<textbox "_foodSearch" "">>
+					<<run $(() => {
+						var foodTimer = null;
+						$('#textbox--foodsearch').on('input change keypress', e => {
+							_foodSearch = e.target.value;
+							clearTimeout(foodTimer);
+							foodTimer = setTimeout(updateUI, 300);
+						});
+						var updateUI = () => {
+							Wikifier.wikifyEval('<<if elementExists(\'#itemList\')>><<replace "#itemList">><<kitchenDisplayRecipes>><</replace>><</if>>');
+						}
+					})>>
+					<<link "설정">>
+						<<replace "#altSection">>
+							<<kitchenDisplayOptions>>
+							<<removeclass "#altSection, #mobileCloser" "mobileHidden">>
+						<</replace>>
+					<</link>>
+				</div>
+				<div id="itemList">
+					<<kitchenDisplayRecipes>>
+				</div>
+			</div>
+			<div id="altSection" class="mobileHidden">
+				<<if $lastRecipeViewed and setup.plants[$lastRecipeViewed] and _recipeKeys.some((x) => x)>>
+					<<kitchenDisplayRecipeDetail $lastRecipeViewed>>
+				<<else>>
+					<<kitchenDisplayOptions>>
+				<</if>>
+			</div>
+			<div id="mobileCloser" class="mobileOnly mobileHidden" onclick="wikifier('addclass', '#altSection', 'mobileHidden'); wikifier('addclass', '#mobileCloser', 'mobileHidden');"></div>
+		</div>
+	</div>
+	<br>
+<</widget>>
+
+<<widget "kitchenDisplayOptions">>
+	<div id="basket">
+		<span class="gold bold">설정:</span>
+		<div class="mobileOnly">
+			<<link "Close">>
+				<<addclass "#altSection, #mobileCloser" "mobileHidden">>
+			<</link>>
+			<br><br>
+		</div>
+	</div>
+	<div id="basketItems" class="info">
+		카테고리:
+		<<listbox "$options.ingredientsSearch" autoselect>>
+			<<option "전체" "all">>
+			<<option "레시피" "recipes">>
+			<<option "재료" "ingredients">>
+		<</listbox>>
+		<<run $(() => {
+			$('#listbox-optionsingredientssearch').on('input change', e => {
+				Wikifier.wikifyEval('<<replace "#itemList">><<kitchenDisplayRecipes>><</replace>>');
+			});
+		})>>
+
+		<br><br>
+		<label>재료 자동 관리: <<checkbox "$options.ingredientsAutoManage" false true autocheck>></label>
+		<<if $chef_state gte 3>>
+			<br>
+			<label>음란한 재료의 자동 관리를 허용: <<checkbox "$options.ingredientsAutoManageLewd" false true autocheck>></label>
+			<<run $(() => {
+				$('#checkbox-optionsingredientsautomanage').on('input change', e => {
+					if (!$options.ingredientsAutoManageLewd) Wikifier.wikifyEval('<<replace "#itemList">><<kitchenDisplayRecipes>><</replace>>');
+				});
+				$('#checkbox-optionsingredientsautomanagelewd').on('input change', e => {
+					Wikifier.wikifyEval('<<replace "#itemList">><<kitchenDisplayRecipes>><</replace>>');
+				});
+			})>>
+		<</if>>
+	</div>
+<</widget>>
+
+<<widget "kitchenDisplayRecipes">>
+	<<kitchenFilter>>
+	<<if _recipeKeys.some(key => key.group isnot "Provided Ingredients")>>
+		<<for _category range _recipesGroups>>
+			<<if !_recipeKeys.find(key => key.group is _category)>><<continue>><</if>>
+			<<set _categoryVar to "_" + _category.replace(" ", "")>>
+			<<foldout false _categoryVar>>
+				<span class="gold"><<print setup.kitchenCategoryKo[_category] ?? _category.toLocaleUpperFirst()>></span>
+				<<set _filteredRecipes to _recipeKeys.filter(key => key.group is _category)>>
+				<<for $_i, $_keyObject range _filteredRecipes>>
+					<div @id="$_keyObject.key" class="item"><<kitchenDisplayRecipe $_keyObject.key>></div>
+					<<if $_i < _filteredRecipes.length - 1>><hr><</if>>
+				<</for>>
+			<</foldout>>
+		<</for>>
+	<<else>>
+		<<if !Object.values(V.plants).some(item => item.recipe)>>
+			<div class="info">당신은 아직 요리를 배우지 않았습니다! 가정 수업에서 새로운 레시피를 해금하세요.</div>
+		<</if>>
+		<<for _category range _recipesGroups>>
+			<<if !_recipeKeys.find(key => key.group is _category)>><<continue>><</if>>
+			<<set _categoryVar to "_" + _category.replace(" ", "")>>
+			<<foldout false _categoryVar>>
+				<span class="gold"><<print setup.kitchenCategoryKo[_category] ?? _category.toLocaleUpperFirst()>></span>
+				<<set _filteredRecipes to _recipeKeys.filter(key => key.group is _category)>>
+				<<for $_i, $_keyObject range _filteredRecipes>>
+					<div @id="$_keyObject.key" class="item"><<kitchenDisplayRecipe $_keyObject.key>></div>
+					<<if $_i < _filteredRecipes.length - 1>><hr><</if>>
+				<</for>>
+			<</foldout>>
+		<</for>>
+	<</if>>
+<</widget>>
+
+<<widget "kitchenDisplayRecipe">>
+	<<set $_setupItem to setup.plants[_args[0]]>>
+	<div class="details">
+		<div>
+			<<tendingicon $_setupItem.icon>> <<print trPlants(_args[0])>> |
+			소지 수: <span class="gold"><<print $plants[_args[0]].amount>></span>
+		</div>
+		<<set $_group to _recipeKeys.find((obj) => obj.key is _args[0]).group>>
+		<<switch $_group>>
+	<<case "Missing Ingredients">>
+		<div>
+			<span class="red">없는 재료:</span>
+			<<print formatList($_setupItem.ingredients.filter(ingredient =>
+				ingredientsTotal(ingredient, _args[0], true) lte 0 && !ingredientsProvided(ingredient, _args[0])
+				).sort().map(ingredient => trPlants(ingredient)), "그리고", false)>>
+		</div>
+	<<case "Restricted Ingredients">>
+		<div>
+			<span class="red">제한된 재료:</span>
+			<<print formatList($_setupItem.ingredients.filter(ingredient =>
+				!ingredientIsAllowed(ingredient))
+				.sort().map(ingredient => trPlants(ingredient)), "그리고", false)>>
+		</div>
+	<</switch>>
+	</div>
+	<div class="recipe">
+		<<capture _args[0]>>
+			<<if $options.images is 1>>
+				<<set _file to `recipe_${setup.plants[_args[0]].type}.png`>>
+				<<link "<<iconUi _file>>">>
+					<<replace "#altSection">><<kitchenDisplayRecipeDetail _args[0]>><</replace>>
+					<<removeclass "#altSection, #mobileCloser" "mobileHidden">>
+				<</link>>
+			<<else>>
+				<<link "Details">>
+					<<replace "#altSection">><<kitchenDisplayRecipeDetail _args[0]>><</replace>>
+					<<removeclass "#altSection, #mobileCloser" "mobileHidden">>
+				<</link>>
+			<</if>>
+		<</capture>>
+	</div>
+<</widget>>
+
+<<widget "kitchenDisplayRecipeDetail">>
+	<<set $lastRecipeViewed to _recipeKeys.some(obj => obj.key === _args[0]) ? _args[0] : _recipeKeys[0].key>>
+	<<set $_setupItem to setup.plants[$lastRecipeViewed]>>
+	<div id="basket">
+		<div>
+			<<tendingicon $_setupItem.icon>>
+			<div class="recipeTitle"><<print trPlants($lastRecipeViewed)>>:</div>
+		</div>
+		<div class="mobileOnly">
+			<<link "Close">>
+				<<addclass "#altSection, #mobileCloser" "mobileHidden">>
+			<</link>>
+		</div>
+	</div>
+	<<set _basketOpen to false>>
+	<div id="basketItems">
+		소지 수: x<span class="gold"><<print $plants[$lastRecipeViewed].amount>></span>
+		<<if $_setupItem?.ingredients.length>>
+			<br>
+			소요 시간: <span class="gold"><<print $_setupItem.days>></span>분
+			<br>
+			1회 조리당 획득: x<span class="gold"><<print $_setupItem.multiplier>></span>
+			<hr>
+		<</if>>
+		<div id="requiredForRecipe">
+			<<requiredForRecipe $lastRecipeViewed>>
+			<<kitchenDisplayRecipeMake>>
+		</div>
+		<<knownFoodRecipes $lastRecipeViewed>>
+	</div>
+<</widget>>
+
+<<widget "kitchenDisplayRecipeMake">>
+	<<if $phase2>>
+		<<wearProp $phase2>>
+		<<unset $phase2>>
+	<</if>>
+	<<set $_setupItem to setup.plants[$lastRecipeViewed]>>
+	<<set $_group to _recipeKeys.find((obj) => obj.key is $lastRecipeViewed).group>>
+	<div style="margin-top: 16px">
+		<<if $_setupItem?.ingredients.length>>
+			<<switch $_group>>
+				<<case "Restricted Ingredients">>
+					<span class="purple">몇몇 재료는 이 주방에서 허용되지 않는다.</span>
+				<<case "Missing Ingredients">>
+					<span class="purple">당신은 모든 재료를 갖추고 있지 않다.</span>
+				<<default>>
+					<<if $tiredness gte C.tiredness.max>>
+						<span class="purple">요리를 하기에는 너무 지쳤다!</span>
+					<<elseif $_setupItem.ingredients.every(ingredient => $plants[ingredientUsed(ingredient, $lastRecipeViewed)].amount gte 1 or _ingredientsSupplied?.includes(ingredientUsed(ingredient, $lastRecipeViewed)))>>
+						만든다:
+						<<set _hours to Math.floor($_setupItem.days / 60)>>
+						<<set _minutes to $_setupItem.days % 60>>
+						<<set _timeString to " (" + (_hours lt 10 ? "0": "") +_hours+":"+(_minutes lt 10 ? "0": "")+_minutes+")">>
+						<<link [["1" + _timeString|$passage]]>><<make_recipe $lastRecipeViewed 1>><</link>>
+						<<if $_setupItem.ingredients.every(ingredient => $plants[ingredientUsed(ingredient, $lastRecipeViewed)].amount gte 3 or _ingredientsSupplied?.includes(ingredientUsed(ingredient, $lastRecipeViewed)))>>
+							<<set _hours to Math.floor($_setupItem.days * 3 / 60)>>
+							<<set _minutes to ($_setupItem.days * 3) % 60>>
+							<<set _timeString to " (" + (_hours lt 10 ? "0": "") +_hours+":"+(_minutes lt 10 ? "0": "")+_minutes+")">>
+
+							/* Prevent passing too much time */
+							<<set _futureTime to new DateTime(Time.date.timeStamp)>>
+							<<set _futureTime to _futureTime.addHours(_hours)>>
+							<<set _futureTime to _futureTime.addMinutes(_minutes)>>
+
+							/* Prevent using limited provided ingredients */
+							<<if $bus is "loft_kitchen" and $_setupItem.ingredients.filter(x => $loftIngredients[x] and $loftIngredients[x] lt 3).length gte 1>>
+								<<set _limitedIngredientRestriction to true>>
+							<</if>>
+
+							<<if (!_hourRestriction or _futureTime.hour lt _hourRestriction or _futureTime.minute lte 15) and !_limitedIngredientRestriction>>
+								| <<link [["3" + _timeString|$passage]]>><<make_recipe $lastRecipeViewed 3>><</link>>
+							<</if>>
+						<</if>>
+						<br>
+						<<if $_group is "Provided Ingredients">><span class="purple">이 주방에서는 이 재료를 무한대로 공급받을 수 있다.</span><</if>>
+					<<elseif $_group is "Provided Ingredients">>
+						<span class="purple">당신에게 이 음식을 만드는 데 필요한 재료는 없지만, 이 주방에서 그것을 무한대로 공급받을 수 있다.</span>
+					<<else>>
+						<span class="purple">재료가 부족하지만, 대체재를 사용할 수 있다.</span>
+					<</if>>
+			<</switch>>
+		<<else>>
+			<<switch $_group>>
+				<<case "Provided">>
+					<span class="purple">이 주방에서는 이 재료를 무한대로 공급받을 수 있다.</span>
+				<<case "Restricted Ingredients">>
+					<span class="purple">이 재료는 이 주방에서 금지되어 있다.</span>
+				<<case "Missing Ingredients">>
+					<<if $_setupItem.shop>>
+						<span class="purple">이 재료들을 구입하거나, 얻을 방법을 찾아야 한다.</span>
+					<<else>>
+						<span class="purple">이 재료를 얻을 방법을 찾아야 한다.</span>
+					<</if>>
+			<</switch>>
+		<</if>>
+	</div>
+<</widget>>
+
+<<widget "requiredForRecipe">>
+	<<if Array.isArray(setup.plants[_args[0]]?.ingredients) and setup.plants[_args[0]]?.ingredients.length gt 0>>
+		재료:
+		<div class="itemSummary">
+			<<for $_ingredient range clone(setup.plants[_args[0]].ingredients).sort()>>
+				<<set $_usedIngredient to ingredientUsed($_ingredient, _args[0])>>
+				<div class="basketItem">
+					<<set _icon to setup.plants[$_usedIngredient].ingredientIcon || setup.plants[$_usedIngredient].icon>>
+					<<tendingicon _icon>>
+					<<print trPlants($_usedIngredient)>>
+					<<if _ingredientsSupplied?.includes($_usedIngredient)>>
+						<span class="gold">(∞)</span>
+					<<else>>
+						<<set _ingredientsUnavailable to $plants[$_usedIngredient].amount gt 0>>
+						<span @class="$plants[$_usedIngredient].amount gt 0 ? 'gold' : 'red'">(<<print $plants[$_usedIngredient].amount>>)</span>
+					<</if>>
+					<<if !$options.ingredientsAutoManage and ingredientsOptions($_ingredient, _args[0]).length gt 1>>
+						<<capture $_ingredient _args[0] _args[1]>>
+							<<link ">>">>
+								<<run ingredientsNextAlternative($_ingredient, _args[0])>>
+								<<replace "#requiredForRecipe">>
+									<<requiredForRecipe _args[0] _args[1]>>
+									<<kitchenDisplayRecipeMake>>
+								<</replace>>
+							<</link>>
+						<</capture>>
+					<</if>>
+				</div>
+			<</for>>
+		</div>
+	<</if>>
+<</widget>>
+
+<<widget "learn_recipe">>
+	<<if $plants[_args[0]].recipe isnot true>>
+		<span class="gold">당신은 새로운 레시피를 배웠다: <<print trPlants(_args[0])>>!</span>
+		<<tendingicon setup.plants[_args[0]].icon>>
+	<</if>>
+	<<set $plants[_args[0]].recipe to true>>
+
+	<<set _recipes_known to 0>>
+	<<set _food_keys_recipes to Object.keys(setup.plants)>>
+	<<for _e to 0; _e lt _food_keys_recipes.length; _e++>>
+		<<set _food_recipes to _food_keys_recipes[_e]>>
+		<<if $plants[_food_recipes].recipe is true>>
+			<<set _recipes_known++>>
+		<</if>>
+	<</for>>
+	<<if _recipes_known gte 5>>
+		<<earnFeat "Chef de Tournant">>
+	<</if>>
+	<<if _recipes_known gte 20>>
+		<<earnFeat "Chef de Partie">>
+	<</if>>
+	<<if _recipes_known gte 50>>
+		<<earnFeat "Sous Chef">>
+	<</if>>
+<</widget>>
+
+<<widget "learn_recipe_all">>
+	<<set _food_keys to Object.keys(setup.plants)>>
+	<<for $_i to 0; $_i lt _food_keys.length; $_i++>>
+		<<set _food to _food_keys[$_i]>>
+		<<if setup.plants[_food].ingredients.length gte 1>>
+			<<learn_recipe _food>>
+		<</if>>
+	<</for>>
+<</widget>>
+
+<<widget "make_recipe">>
+	<<set $_amount to _args[1] or 1>>
+	<<tending_give _args[0] `setup.plants[_args[0]].multiplier * $_amount`>>
+	<<for $_ingredient range setup.plants[_args[0]].ingredients>>
+		<<if !_ingredientsSupplied?.includes($_ingredient) or !_ingredientsSupplied?.includes(ingredientUsed($_ingredient, _args[0]))>>
+			<<set $_ingredient to ingredientUsed($_ingredient, _args[0])>>
+			<<tending_give $_ingredient `-$_amount`>>
+		<<elseif $bus is "loft_kitchen" and Object.keys($loftIngredients).includes($_ingredient)>>
+			<<set $loftIngredients[$_ingredient] -= $_amount>>
+		<</if>>
+	<</for>>
+	<<set $phase2 to setup.plants[_args[0]].name>>
+	<<pass `setup.plants[_args[0]].days * $_amount`>>
+	<<if $bus is "avery_kitchen" and $avery_mansion.jobs.includes("kitchen") and $_amount gte random(1,3)>>
+		<<set $avery_mansion.kitchen_made += $_amount>>
+	<</if>>
+	<<set $recipeMade to _args[0]>>
+<</widget>>
+
+<<widget "knownFoodRecipes">>
+	<<if _args[0]>>
+		<<set _knownRecipes to []>>
+		<<set _possibleRecipes to 0>>
+		<<run Object.keys(setup.plants).forEach(item => {
+			if (setup.plants[item]?.ingredients.includes(_args[0])) {
+				_possibleRecipes++;
+				if ($plants[item].recipe) _knownRecipes.pushUnique(item);
+			}
+		})>>
+
+		<<if _knownRecipes.length>>
+			<hr>
+			알고 있는 레시피 (_knownRecipes.length / _possibleRecipes):
+			<br>
+			<<for $_recipe range _knownRecipes>>
+				<div class="recipe">
+					<div><<tendingicon setup.plants[$_recipe].icon>></div>
+					<div>
+						<mouse class="tooltip">
+							<<print trPlants($_recipe)>>
+													<span>
+								재료:
+								<ul>
+									<<for $_secondaryIngredients range setup.plants[$_recipe].ingredients>>
+										<li>
+											<<print trPlants($_secondaryIngredients)>>
+											<<if _ingredientsSupplied?.includes($_secondaryIngredients)>>
+												<i class="gold">(∞)</i>
+											<<else>>
+												<i class="gold">(<<print $plants[$_secondaryIngredients].amount>>)</i>
+											<</if>>
+										</li>
+									<</for>>
+								</ul>
+							</span>
+						</mouse>
+					</div>
+				</div>
+			<</for>>
+		<<elseif _possibleRecipes isnot 0>>
+			<hr>
+			당신은 이것을 이용해 만드는 요리의 레시피를 모른다.
+		<</if>>
+		<<if setup.plants[_args[0]]?.type is "food" and Array.isArray($plants[_args[0]].knownFavorite) and $plants[_args[0]].knownFavorite.length>>
+			<hr>
+			이 요리를 좋아함:
+				<<for $_npc range $plants[_args[0]].knownFavorite>>
+					<br>
+					<<iconUi "sym_love.png">><<print trNPCname($_npc)>>
+				<</for>>
+		<</if>>
+	<</if>>
+<</widget>>
+
+<<widget "ingredientsSupplied">>
+	<<set _ingredientsSupplied to []>>
+	<<if typeof _args[0] is "object">>
+		<<run _args[0].forEach(key => _ingredientsSupplied.pushUnique(key))>>
+	<<elseif _args[0]>>
+		<<run _args.forEach(key => _ingredientsSupplied.pushUnique(key))>>
+	<</if>>
+<</widget>>
+
+<<widget "ingredientsExceptions">>
+	<<set _ingredientsExceptions to []>>
+	<<if _args[0]>>
+		<<run _args.forEach(key => _ingredientsExceptions.pushUnique(key))>>
+	<</if>>
+<</widget>>
+
+/*
+Vrel: If I remember right, that's as far as I got with the UI for the PC eating their own food.
+Should probably be removed once said feature has been implemented
+<<widget "food_list">>
+	<summary class="journal"><<print _args[0].toLocaleUpperFirst()>></summary>
+	<<set _food_keys to Object.keys(setup.plants)>>
+	<<for _i to 0; _i lt _food_keys.length; _i++>>
+		<<set _food to _food_keys[_i]>>
+
+		<<if _args[0] is "sweets" and setup.plants[_food].special.includes("sweet") or
+		_args[0] is "drinks" and setup.plants[_food].special.includes("drink") or
+		_args[0] is "savouries" and !setup.plants[_food].special.includes("sweet") and !setup.plants[_food].special.includes("drink") and setup.plants[_food].type isnot "ingredient">>
+			<<set _recipe_go to true>>
+		<<else>>
+			<<set _recipe_go to false>>
+		<</if>>
+		<<if $plants[_food].recipe is true and _recipe_go is true>>
+		<div class="kitchen-recipe-box">
+			<div class="recipe-text"><<tendingicon setup.plants[_food].icon>><<print _food.toLocaleUpperFirst().replace(/_/g," ")>></div>
+			소지 수: <<print $plants[_food].amount>>
+			<br>
+			<<if _ingredients_available isnot false>>
+				<<capture _food>>
+					<br>
+					<<if $tiredness gte C.tiredness.max>>
+						<span class="purple">요리를 하기에는 너무 지쳤다!</span>
+					<<else>>
+						<<link [[만든다|$passage]]>><<make_recipe _food>><</link>>
+					<</if>>
+				<</capture>>
+			<</if>>
+			<<set _recipe_known to true>>
+		</div>
+		<</if>>
+	<</for>>
+	<<if _recipe_known is false>>
+		<span class="blue">당신은 알고 있는 레시피가 없다!</span> <span class="gold">가정 수업에서 배울 수 있다.</span>
+	<</if>>
+<</widget>>
+
+<<widget "food_list_all">>
+	<<food_list "savouries">>
+	<br>
+	<<food_list "sweets">>
+	<br>
+	<<food_list "drinks">>
+	<br>
+<</widget>>*/
+
+<<widget "housekeeping_exam_select">>
+	<<unset $chosen_recipe>>
+	<<set _food_keys to Object.keys(setup.plants)>>
+	<<set _possible_recipes to []>>
+	<<set $_foodOptions to Object.entries(clone(setup.plants)).filter(([key, item]) => !$plants[key].recipe and item.ingredients?.length)>>
+	<<for $_difficulty to 1; $_difficulty lt 5; $_difficulty++>>
+		<<run $_foodOptions.forEach(([key, item]) => {
+			if (item.difficulty is $_difficulty and item.ingredients.every(ingredient => !setup.plants[ingredient].ingredients?.length or $plants[ingredient].recipe)) {
+				_possible_recipes.pushUnique(key);
+			}
+		})>>
+		<<if _possible_recipes.length>>
+			<<if Object.keys($plants).filter(key => !$plants[key].recipe and setup.plants[key].ingredients.length and setup.plants[key].difficulty is $_difficulty).length
+				is Object.keys($plants).filter(key => setup.plants[key].ingredients.length and setup.plants[key].difficulty is $_difficulty).length>>
+				<<set _difficultyNotice to $_difficulty>>
+			<</if>>
+			<<set $chosen_recipe to _possible_recipes.pluck()>>
+			<<break>>
+		<</if>>
+	<</for>>
+	<<if !$chosen_recipe>><<set $chosen_recipe to "none">><</if>>
+<</widget>>
+
+<<widget "avery_food_select">>
+	<<set $avery_mansion.food_last to $gift.name>>
+	<<set $avery_requested_food to $avery_mansion.food.name>>
+	<<unset $chosen_recipe>>
+	<<set _food_keys to Object.keys(setup.plants)>>
+	<<set _possible_recipes to []>>
+	<<set $_foodOptions to Object.entries(clone(setup.plants)).filter(([key, item]) => item.ingredients?.length && item.type !== "ingredient" && !item.special.includes("drink"))>>
+
+	<<if C.npc.Avery.dom gte 75>>
+		<<set $_difficulty to 4>>
+	<<elseif C.npc.Avery.dom gte 50>>
+		<<set $_difficulty to 3>>
+	<<elseif C.npc.Avery.dom gte 25>>
+		<<set $_difficulty to 2>>
+	<<else>>
+		<<set $_difficulty to 1>>
+	<</if>>
+	<<run $_foodOptions.forEach(([key, item]) => {
+		if (item.difficulty is $_difficulty) {
+			_possible_recipes.pushUnique(setup.plants[key]);
+		}
+	})>>
+	<<if _possible_recipes.length>>
+		<<set $chosen_recipe to _possible_recipes.pluck()>>
+	<</if>>
+
+	<<if !$chosen_recipe>><<set $chosen_recipe to "none">><</if>>
+	<<set $avery_mansion.food to $chosen_recipe>>
+
+	/* once Avery has chosen a new meal, the player loses the chance to learn the recipes they'd asked to learn prior */
+	<<set $avery_mansion.recipe to []>>
+<</widget>>
+
+<<widget "food_gift_list">>
+	<<set _food_keys to Object.keys(setup.plants)>>
+	<<for _i to 0; _i lt _food_keys.length; _i++>>
+		<<set _food to _food_keys[_i]>>
+		<<if setup.plants[_food].type is "food">>
+			<<if $plants[_food].amount gte 1>>
+				<<set _food_gift_found to true>>
+				<<set _color to $bus is "avery_dining" and _food is $avery_mansion.food.name ? "gold" : "">>
+				<label><<tendingicon setup.plants[_food].icon>><span @class="_color"><<print trPlants(_food)>> (<<print $plants[_food].amount>>)</span> <<radiobutton "$gift" setup.plants[_food] checked>></label> |
+			<</if>>
+		<</if>>
+	<</for>>
+	<<if _food_gift_found isnot true>>
+		당신은 선물할 수 있는 수제 음식을 가지고 있지 않다.
+	<</if>>
+	<br><br>
+<</widget>>
+
+<<widget "give_gift">>
+	<<tending_give $gift.name -1>>
+	<<set $daily.giftedFood[_args[0]] to $gift.name>>
+<</widget>>
+
+<<widget "recipe_name">><<silently>>
+	<<set $_difficultyColour to _args[1]?.includes("difficulty") ? ["","green","blue","purple","pink","red"][setup.plants[_args[0]].difficulty] : "white">>
+	<<set $_recipeName to _args[1]?.includes("plural") ? setup.plants[_args[0]].plural : setup.plants[_args[0]]?.recipe_name or setup.plants[_args[0]].name.replace(/_/g," ")>>
+	<<if _args[1]?.includes("cap")>>
+		<<set $_recipeName to $_recipeName.toUpperFirst()>>
+	<</if>>
+	<<if !_args[1]>>
+		<<set $_recipeName to $_recipeName.replace(/^(a |an |the )/i, "")>>
+	<</if>>
+<</silently>><span @class=$_difficultyColour><<print $_recipeName>></span><</widget>>
+
+<<widget "saveFavoriteFood">>
+	<<if C.npc[_args[0]] and setup.plants[_args[1]]?.type is "food">>
+		<<if !$plants[_args[1]].knownFavorite>><<set $plants[_args[1]].knownFavorite to []>><</if>>
+		<<run $plants[_args[1]].knownFavorite.pushUnique(_args[0])>>
+	<</if>>
+<</widget>>
+
+<<widget "recipe_exam_description">>
+	<<if setup.plants[_args[0]].ingredients.length lt 1>>
+		<span class="black">Food item "_args[0]" is not a cookable recipe! Please report this!</span>
+	<<else>>
+		<<if _difficultyNotice is 1>>
+			"간단한 레시피부터 배우게 될 거다," 리버가 말한다. "만들기 쉽지만, 그럼에도 유용하거나 맛이 좋지. <<print trPlants(_args[0])>>부터 시작하자꾸나." <<He_ nun>> 목을 가다듬는다.
+		<<elseif _difficultyNotice is 2>>
+			"한 단계 더 나아가 보자꾸나," 리버가 말한다. "너희는 기본적인 것들을 알고 있지. 좋아. 다음에 배울 것들은 더 복잡하다. 시간이 오래 걸리거나, 재료가 많이 필요하거나, 실수하기 쉬우니까. 너희는 오늘 <<print trPlants(_args[0])>> 레시피를 배우게 될 거다." <<He_ nun>> 목을 가다듬는다.
+		<<elseif _difficultyNotice is 3>>
+			"이제 고급 요리로 넘어가자꾸나," 리버가 말한다. "일반적으로, 요리란 어려울수록 만들 가치가 큰 법이지. 어디까지나 주관적인 의견이지만. <<print trPlants(_args[0])>> 레시피가 너희가 배울 첫 고급 요리다." <<He_ nun>> 목을 가다듬는다.
+		<<elseif _difficultyNotice is 4>>
+			리버는 박수를 쳐서 학생들의 주의를 끈다. "오늘부터, 너희는 훨씬 더 어려운 요리를 배우게 될 거다. 이제 내가 가르칠 수 있는 레시피도 얼마 남지 않았지. 어쨌든, 앞으로 이어질 몇 번의 시험은 너희가 지금까지 치른 것 중 가장 어려울 거다. <<print trPlants(_args[0])>> 레시피가 그 중 첫 번째고." <<He_ nun>> 목을 가다듬는다.
+		<<else>>
+			"너희는 <<print trPlants(_args[0])>> 레시피를 배우게 될 거다," 리버가 말한다.
+		<</if>>
+
+		<<switch _args[0]>>
+			<<case "apple_crumble">>
+				"사과 칩과 아주 비슷하지만, 차이가 있어. 전부 토핑에 달렸단다."
+			<<case "apple_strudel">>
+				"직접 만들어 먹을 때는 따듯할 때 먹는 걸 추천하마. 다행히, 차갑게 먹어도 맛있지만 말이다."
+			<<case "arancini">>
+				"화상에 조심하거라. 기름을 쓰는 레시피를 배울 때 항상 하는 얘기지만 말이다. 정말 중요하니까."
+			<<case "bakewell_tart">>
+				"구체적으로는, 체리 베이크웰 타르트지. 나중에 다른 과일로도 시도해 보렴."
+			<<case "banana_bread">>
+				"호박이나 애호박을 쓰는 레시피와 아주 비슷하지만, 바나나는 교육기관이 대량 구매하기에 가장 저렴한 재료지."
+			<<case "bangers_and_mash">>
+				"접시가 꽉 찼다고 겁먹지 말거라. 중요한 건 보기 좋게 담는 거니까."
+			<<case "beef_wellington">>
+				"연어 웰링턴을 기억하겠지. 이것도 비슷하단다. 소고기는 연어보다 질겨서 세심하게 다룰 필요는 없겠지만, 양이 많으니 더욱 신경 써야 해."
+			<<case "belgian_bun">>
+				"대부분의 페이스트리와는 다르게 체리가 필수란다. 다른 과일을 사용하면 그건 벨기에 번이 아니게 되니까."
+			<<case "bread">>
+				"수제 빵은 직접 잘라서 먹어야 하지. 불편할 수 있겠지만, 시판되는 것보다 훨씬 맛있다는 걸 알게 될 거다."
+			<<case "brownie">>
+				"따듯하게 데워서 바닐라 아이스크림 한 덩이와 같이 먹는 걸 추천하마. 시험에는 포함되지 않지만."
+			<<case "butter">>
+				"웃음소리가 들리는 것 같은데, 훗날 슈퍼마켓에 마가린밖에 팔지 않을 때는 내게 감사하게 될 거다."
+			<<case "carbonara">>
+				"스파게티를 기본으로 하지만, 거의 모든 파스타 요리가 그렇듯 맛의 핵심은 소스다. 이 경우에는 돼지고기지."
+			<<case "carrot_cake">>
+				"알고 있다. 이름만 들어서는 썩 매력적이지 않겠지. 하지만 실망은 접어두거라. 분명 놀랄 테니."
+			<<case "cauliflower_cheese">>
+				"콜리플라워는 다지지 말고 손으로 뜯거라. 그래야 식감이 더 자연스러워지니까."
+			<<case "cheese">>
+				"유당불내증을 가진 학생이 있다면 사과하마. 하지만 치즈는 여러 요리에 흔히 사용되는 재료니까."
+			<<case "cheese_and_crackers">>
+				"손님을 초대했을 때 내놓기 좋은 메뉴지. 별 것 아닌 요리처럼 보일 수 있겠지만, 샤퀴테리 보드와 크게 다르지 않아."
+			<<case "cheese_topped_trout">>
+				"요리에서 흔히 통용되는 규칙 중 하나는 치즈와 해산물을 한 접시에 올려서는 안 된다는 것이지. 하지만, 다른 규칙들이 그러하듯 실력 있는 요리사라면 이를 무시할 수도 있단다."
+			<<case "cheeseburger">>
+				"너희가 햄버거를 만들 수 있다면, 이것도 만들지 못할 이유가 없겠지. 슬라이스 치즈는 사용하지 말고, 직접 치즈를 자르도록. 그럴 만한 가치가 있으니까."
+			<<case "chelsea_bun">>
+				"시나몬 번을 먹어본 적이 있다면, 이것과 아주 비슷하다는 걸 알 수 있을 거다. 첼시 번에는 윤기가 더 많이 나고, 시나몬 번에는 프로스팅이 더 많이 발라져 있다는 게 가장 큰 차이점이지."
+			<<case "chicken_tikka_masala">>
+				"티카와 마살라. 즉 닭고기와 소스를 따로 만들어 끓이는 요리다. 이 시험에서는 너희가 서로 다른 두 공정에 동시에 집중할 수 있는지를 볼 거다."
+			<<case "chicken_vindaloo">>
+				"솔직히 말하자면, 이 요리는 우리가 수업에서 배우게 될 레시피 중 가장 매운 것일 가능성이 높아. 음, 매운 음식을 싫어하는 학생이 있다면 유감이지만, 그건 개인 사정이니까."
+			<<case "chilli_con_carne">>
+				"칠리 콘 카르네는 일반적인 것보다 더 걸쭉한 칠리 소스를 사용하고, 다진 소고기 대신 소고기 덩이를 넣는다. 기본적인 레시피는 거의 같지만 말이다."
+			<<case "chips">>
+				"가장 인기 있는 사이드 메뉴 중 하나인 이유가 있는 음식이지."
+			<<case "choc_chip_cookie">>
+				"오븐에 넣기 전에 반죽을 납작하게 누르지 말고, 동그랗게 유지하거라. 구우면서 저절로 납작해지니까."
+			<<case "chocolate">>
+				"이건 다른 요리의 재료로 사용되고, 그냥 먹는 용도가 아니야. 하지만 이 세상에 재료용 초콜릿을 한 번도 안 먹어본 셰프는 <i>절대로</i> 없겠지."
+			<<case "clam_chowder">>
+				"차우더는 그냥 스프의 일종이 아니야; 더 걸쭉하고 크리미하지. 스튜와도 다르단다. 스튜는 고기가 더 많이 들어가고 차우더처럼 크림이 많지 않으니까." 몇몇 학생들이 설명을 듣고 킥킥거린다. 리버는 그들을 무시한다.
+			<<case "crumpet">>
+				"이 빵은 구멍이 숭숭 뚫려 있어서 스프레드를 잘 흡수하지. 꿀이나 잼을 발라 먹는 걸 추천하마."
+			<<case "crème_brulee">>
+				"최고의 효과를 내려면 토치를 써야 한다는 레시피를 알고 있을지도 모르겠지만, 사실이 아니란다. 오븐에 구워도 똑같이 맛있으니."
+			<<case "fish_and_chips">>
+				"마을의 어떤 펍에서나 이걸 팔 거다." <<He_ ga>> 잠시 멈춘다. "일반적인 이야기일 뿐, 펍에 가라고 권한 게 아니야."
+			<<case "flapjack">>
+				"팬케이크가 아니란다. 이건 간식용이지 아침 식사는 못 되니까."
+			<<case "flour">>
+				"가장 흥미로운 레시피는 아니라는 걸 나도 안단다. 하지만 만드는 법을 알아두면 좋겠지. 밀가루는 정말 많은 요리의 기본 재료니까."
+			<<case "full_english_breakfast">>
+				"아침 식사라는 이름이지만, 하루 중 언제라도 먹을 수 있단다. 그러지 말거라. 너희 나름이겠다만."
+			<<case "ghostbrew">>
+				<!-- failsafe -->
+				<<He_ nun>> 멈칫한다. "잠깐. 이건 교과 과정에 없는데. 너희는 이걸 배우면 안 돼." <<He_ ga>> 혀를 차며 덧붙인다. "<span class="red">시간 나면 이걸 브렐니르에게 보고하거라.</span> 그 전까지는 그냥... 계속 진행하자꾸나."
+			<<case "hamburger">>
+				"전형적인 정크 푸드지." <<He_ nun>> 옅은 미소를 짓는다. "하지만 너희가 만들게 될 음식은 그렇지 않단다. <i>진짜</i> 햄버거 만드는 법을 배우고 있는 거니까."
+			<<case "honey">>
+				"솔직히, 그냥 사 오는 게 더 나을 것 같구나. 디저트 하나를 위해 벌집을 캐는 건 너무 위험하고 번거로운 일이야. 마을의 슈퍼마켓에서 팔지 않으니까, 어쩔 수 없이 이렇게 하는 것뿐이지."
+			<<case "honeyed_pork">>
+				"짭짤한 요리에 단맛을 가미하는 건 흔한 조리법이지. 하지만, 이 레시피에서 꿀은 윤기를 위해 돼지고기에 바르는 소스일 뿐이야."
+			<<case "jam">>
+				"젤리가 아니란다. 잼과 젤리는 달라. 잼은 과일을 사용하고, 젤리는 과즙을 사용해 만드니까. 이 수업에서는 보존식을 다루지 않을 거다."
+			<<case "jammie_dodger">>
+				"겉보기에 신경을 쓰지 않을 거라면 구멍을 꼭 하트 모양으로 만들 필요는 없단다. 하지만 <i>이번 시험에서는</i> 미적인 부분도 평가 기준에 들어가니, 명심하도록."
+			<<case "kedgeree">>
+				"일부 정통파들은 대구만을 사용해야 한다고 주장한단다; 연어나 참치를 사용하면 그건 케저리가 아니라고 말이지. 내 생각은 다르지만, 케저리에 있어 대구가 다른 생선보다 전통적인 재료인 건 분명해."
+			<<case "lasagne">>
+				"'파스타 케이크'같은 농담을 한다면 설거지 담당이 될 거다."
+			<<case "lemon_meringue_pie">>
+				"이상적인 레몬 머랭 파이는 신맛이 너무 강하지 않아야 해. 새콤달콤한 풍미가 조화롭게 어우러져야지."
+			<<case "lemonade">>
+				"더위를 식히고 싶은 여름철에 마시기 좋은 음료지. 꿀을 넣고 따듯하게 데워 마시면 감기에도 효과적이란다."
+			<<case "linguine">>
+				"링귀니는 해산물이나 알프레도 같은 다른 풍미와도 잘 어울린단다. 하지만 링귀니 자체의 식감이 나쁘면, 아무리 소스를 듬뿍 얹어도 무마할 수 없지."
+			<<case "macaroni_cheese">>
+				"포장지에 적힌 시간보다 짧게 삶거라. 오븐에서 마저 익을 거야."
+			<<case "melting_moment">>
+				"계란 없이 만들 수 있는 흔치 않은 페이스트리지."
+			<<case "mince_pie">>
+				"원래는 민스 <i>미트</i> 파이였는데, 나중에는 레시피에서 고기가 빠졌단다. 하지만 '민스'라는 이름은 사실 민스미트에서 유래된 것이 아니야. 어쩌면 이건 영어 수업에서 배워야 할 것 같구나."
+			<<case "naan_bread">>
+				"갈릭 버터를 듬뿍 발라 먹으면 훌륭한 사이드 메뉴가 된단다. 메인 요리는 못 되지만 말이다. 기껏해야 간식 정도겠지."
+			<<case "omelette">>
+				"간단한 아침 식사란다. 원하는 재료를 무엇이든 넣을 수 있지만, 시험에서는 기본적인 조리법에만 초점을 맞출 거다."
+			<<case "onion_bhaji">>
+				"너희 중 몇몇이 양파의 맛이나 식감에 거부감을 느낀다는 걸 알고 있단다. 이 요리가 그런 거부감을 극복하는 것에 도움이 되었으면 좋겠구나."
+			<<case "orange_juice">>
+				"눈알 굴러가는 소리가 들리는구나. 방부제를 잔뜩 먹고 싶다면, 계속 시판되는 주스를 먹으려무나."
+			<<case "pasta">>
+				"수많은 요리의 기본 재료지. 디저트에 쓰이는 페이스트리처럼 말이야."
+				<<if $plants.pastry.recipe>>
+					<<He_ nun>> 미소 짓는다. "들어본 적 있는 이야기지?"
+				<</if>>
+			<<case "pastry">>
+				"수많은 디저트의 기본 재료지. 요리에 쓰이는 파스타처럼 말이야."
+				<<if $plants.pasta.recipe>>
+					<<He_ nun>> 미소 짓는다. "들어본 적 있는 이야기지?"
+				<</if>>
+			<<case "peach_panzanella">>
+				"빵은 깍둑썰기하고, 복숭아는 쐐기 모양으로 썰거라. 이 레시피에서 엄격히 지켜지는 규칙은 아니지만, 시험에서는 필수 조건이니까. 이번에는 너희의 칼 다루는 기술을 주로 평가할 거다."
+			<<case "pizza">>
+				"유감스러운 일이지만, 아무래도 기름진 요리가 되겠지. 치즈가 들어가니 어쩔 수 없겠다만."
+			<<case "plum_pudding">>
+				"이름과는 달리 자두는 필수 재료가 아니란다. 말린 과일이라면 무엇이든 사용할 수 있어. 하지만 이번 시험에서는 자두를 사용할 거란다."
+			<<case "poached_pear">>
+				"물의 온도를 끓는점까지 올리지 말거라. 이건 약불에서 조리해야 하는 요리니까."
+			<<case "porridge">>
+				"바쁠 때 먹기 좋은 아침 식사지. 풍미를 위해 과일이나 꿀을 넣는 것을 추천하겠지만, 없어도 먹을 만하단다."
+			<<case "potato_pancake">>
+				"양배추 감자 볶음과 아주 비슷하지만, 야채를 곁들이지 않는다는 점에서 다르지. 그래서 아침 식사나 간식으로 더 적합하단다."
+			<<case "prawn_bisque">>
+				"새우는 끓일 때까지 껍질을 벗기지 말거라. 그래야 국물에 풍미가 더해지니까. 껍질이 없으면 맛이 빠져나갈 수 있어. 껍질은 나중에 걸러내도록."
+			<<case "quiche">>
+				"아니, 이건 단순한 파이가 아니란다. 사실, 파이 생지를 사용한다는 점 외에는 공통점이 없지."
+			<<case "rich_biscuit">>
+				"이걸 차에 담그는 순간 실격이다." 당신은 <<hes_ yi>> 말이 농담인지 진담인지 알 수 없다.
+			<<case "roast_dinner">>
+				"이 레시피에 필요한 재료를 만드는 법은 전부 알고 있겠지. 이제 중요한 건 그 전부를 하나로 합치는 것뿐이란다."
+			<<case "salad">>
+				"샐러드에는 물론 여러 종류가 있지만, 기본 원리는 대부분 같단다. 가든 샐러드를 만들 수 있다면, 시저 샐러드도 만들 수 있겠지."
+			<<case "salmon_wellington">>
+				"오븐에서 오랜 시간 구워야 하고, 페이스트리도 미리 식혀 두어야 해. 하지만 이건 그냥 기다림의 과정이니 시험에서는 생략될 거다. 그게 아니라면 점심 시간까지 수업이 계속되어야 할 테니까."
+			<<case "samosa">>
+				"나중에 다양한 모양으로 직접 만들어 보렴. 지금은 삼각형 모양으로 만드는 법을 배우자꾸나."
+			<<case "sausage_roll">>
+				"소세지에 대해서는 조금 이야기했었지. 이제 그걸 활용해 볼 시간이란다."
+			<<case "scone">>
+				"이번에는 플레인 스콘을 만들겠지만, 나중에는 다양한 재료를 마음대로 넣어 보렴. 스콘에는 뭐든지 넣을 수 있으니까." <<He_ nun>> 잠시 멈춘다. "거의, 뭐든지."
+			<<case "shortbread">>
+				"이름과는 달리, 이건 쿠키의 일종이란다. 이걸로 샌드위치를 만들 수는 없어."
+			<<case "soufflé">>
+				"디저트 중에서도 이 레시피는 악명이 높지. 실패하기 쉽고, 완벽하게 만들기도 어렵단다. 만들 때 주의를 기울이렴."
+			<<case "spaghetti_bolognese">>
+				"요리를 완성하면 월계수 잎은 꼭 제거하도록. 월계수 잎은 조리 과정에서 향을 더해주지만, 먹으면 안 되니까."
+			<<case "sponge_cake">>
+				"이상적인 스펀지 케이크는 너무 푹신해서 그곳에 있는지조차 모를 정도여야 하지. ...농담이란다. 있는지조차 모를 정도의 완성도를 가진 케이크란, 제대로 만들어진 게 아닐 가능성이 크니까."
+			<<case "steak">>
+				"이 레시피를 기다려 온 학생들이 많은 줄로 안다. 솔직히, 나도 기다려 왔단다."
+			<<case "sticky_toffee_pudding">>
+				"모든 케이크가 그렇듯, 너무 오래 굽지 않도록 주의하렴. 잘 모르겠다면 이쑤시개로 찔러 보거라."
+			<<case "stuffing">>
+				"해외와는 달리, 우리는 추수감사절을 정식 명절로 기념하지 않지. 그러나 언제든 부담 없이 만들어 먹을 수 있을 거다."
+			<<case "sweet_and_sour_chicken">>
+				"굽지 말고 튀기려무나. 그렇다고 기름에 절이지는 말고. 우리는 제대로 된 음식을 만드는 거지, 정크푸드를 만드는 게 아니니까."
+			<<case "swiss_roll">>
+				"대부분의 스위스 롤은 초콜릿 때문에 진갈색이란다. 하지만 선택 사항이지. 이번에는 생략하도록 하자꾸나."
+			<<case "tart">>
+				"이름 그대로의 맛이 날 게다."
+			<<case "turnip_soup">>
+				"이건 내가 셀 수 없이 많이 만들어 본 요리란다. 각별한 요리는 아니지만, 배를 든든하게 채우고 따듯하게 만들어주지."
+			<<case "wolfbrew">>
+				<!-- failsafe -->
+				<<He_ nun>> 멈칫한다. "잠깐. 이건 교과 과정에 없는데. 너희는 이걸 배우면 안 돼." <<He_ ga>> 혀를 차며 덧붙인다. "<span class="red">시간 나면 이걸 브렐니르에게 보고하거라.</span> 그 전까지는 그냥... 계속 진행하자꾸나."
+			<<case "yorkshire_pudding">>
+				"이건 디저트로 먹는 그런 종류의 푸딩이 아니란다. 로스트 비프와 함께 만들 때는, 고기에서 나온 육즙으로 풍미를 더할 수도 있겠지."
+			<<case "valentines_chocolate">>
+				"이건 작은 하트 모양으로 만들어서 과일 필링을 채우는 초콜릿이란다. 발렌타인 초콜릿으로 알려져 있고, 많은 사람들이 이 시기에 특별한 의미를 지닌다고 여기지."
+			<<default>>
+				"바로 시작하자꾸나."
+				<<if $debug is 1 or $options.debugdisable is "f">>
+					<span class="black">이 레시피에는 시험 설명문이 없다: "_args[0]"!</span>
+				<</if>>
+		<</switch>>
+		<<if setup.plants[_args[0]].ingredients.includes("chicken_egg") and !$housekeepingTips.includes("alternativeEgg")>>
+			<<set $housekeepingTips.pushUnique("alternativeEgg")>>
+			<br><br>
+			"대부분의 레시피에는 달걀을 사용하는 것이 일반적이지만," <<he_ ga>> 덧붙인다. "달걀이 없다면 <span class="gold">어떤 종류의 새알이든</span> 사용할 수 있다는 점을 기억하렴."
+		<</if>>
+		<<if _args[0] is "lasagne" and !$housekeepingTips.includes("alternativeLasagne")>>
+			<<set $housekeepingTips.pushUnique("alternativeLasagne")>>
+			<br><br>
+			"라자냐는 보통 소고기로 만들지만," <<he_ ga>> 덧붙인다. "소고기가 없거나, 다른 풍미를 원한다면 <span class="gold">닭고기로 대체할 수도 있단다</span>. 하지만 돼지고기는 안 돼."
+		<</if>>
+	<</if>>
+	<br><br>
+<</widget>>
+
+<<widget "allowLewdIngredients">>
+	<<set _allowLewdIngredients to true>>
+	<<if !$housekeepingTips.includes("alternativeLewd") and $plants.bottle_of_breast_milk.amount + $plants.bottle_of_semen gte 1>>
+		<<set $housekeepingTips.pushUnique("alternativeLewd")>>
+		좀 더 엄격한 통제 하에 있는 주방에서는 통하지 않을 수 있겠지만, 이곳은 꽤 자유로운 분위기인 것 같다. 우유나 크림이 부족하다면, <span class="gold">보다 저속한 재료</span>로 대체할 수도 있을 것이다.
+	<</if>>
+<</widget>>
+
+<<widget "kitchenExit">>
+	<<unset $recipeMade>>
+	<<if $location isnot "avery_mansion">>
+		<<handheldon>>
+	<</if>>
+<</widget>>
